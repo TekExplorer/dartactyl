@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
 import 'models/models.dart';
-import 'fractal.dart';
 
 part 'client.g.dart';
 
