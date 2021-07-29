@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:ptero_client/src/models/websocket_details.dart';
 import 'package:retrofit/retrofit.dart';
 
 import 'models/models.dart';
