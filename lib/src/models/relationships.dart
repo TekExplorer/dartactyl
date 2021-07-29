@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'fractal.dart';
 import 'models.dart';
 
 part 'relationships.g.dart';

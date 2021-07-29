@@ -9,7 +9,8 @@ class FileBody<T> {
   @JsonKey(name: 'root')
   String rootDir;
   String? name;
-  List<T>? files;
+  String? file;
+  List<T>? files; // String or FromTo
 
   FileBody({
     required this.rootDir,
