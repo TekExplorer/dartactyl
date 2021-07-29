@@ -1,6 +1,5 @@
-import 'dart:convert';
-
 import 'package:json_annotation/json_annotation.dart';
+
 part 'make_file_copy.g.dart';
 
 @JsonSerializable()

@@ -5,21 +5,18 @@ import 'from_to.dart';
 part 'file_body.g.dart';
 
 @JsonSerializable(genericArgumentFactories: true)
-class FileBody<T> {
+class FileBodyList<T> {
   @JsonKey(name: 'root')
   String rootDir;
-  String? name;
-  String? file;
-  List<T>? files; // String or FromTo
+  List<T> files; // String or FromTo
 
-  FileBody({
+  FileBodyList({
     required this.rootDir,
-    this.name,
-    this.files,
+    required this.files,
   });
 
-  factory FileBody.fromJson(Map<String, dynamic> json) =>
-      _$FileBodyFromJson(json, (Object? json) {
+  factory FileBodyList.fromJson(Map<String, dynamic> json) =>
+      _$FileBodyListFromJson(json, (Object? json) {
         if (json is Map<String, dynamic> && T is FromTo) {
           return FromTo.fromJson(json) as T;
         }
@@ -28,7 +25,8 @@ class FileBody<T> {
         // *and* is assignable to `T`.
         return json as T;
       });
-  Map<String, dynamic> toJson() => _$FileBodyToJson(this, (T object) => object);
+  Map<String, dynamic> toJson() =>
+      _$FileBodyListToJson(this, (T object) => object);
 }
 
 /*
@@ -42,3 +40,35 @@ Files:
 Name:
     String
 */
+
+@JsonSerializable()
+class FolderBody {
+  @JsonKey(name: 'root')
+  String rootDir;
+  String name;
+
+  FolderBody({
+    required this.rootDir,
+    required this.name,
+  });
+
+  factory FolderBody.fromJson(Map<String, dynamic> json) =>
+      _$FolderBodyFromJson(json);
+  Map<String, dynamic> toJson() => _$FolderBodyToJson(this);
+}
+
+@JsonSerializable()
+class FileBody {
+  @JsonKey(name: 'root')
+  String rootDir;
+  String file;
+
+  FileBody({
+    required this.rootDir,
+    required this.file,
+  });
+
+  factory FileBody.fromJson(Map<String, dynamic> json) =>
+      _$FileBodyFromJson(json);
+  Map<String, dynamic> toJson() => _$FileBodyToJson(this);
+}

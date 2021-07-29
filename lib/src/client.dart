@@ -3,11 +3,24 @@ import 'package:retrofit/retrofit.dart';
 
 import 'models/models.dart';
 
+export 'http_error_to_human.dart';
+
 part 'client.g.dart';
 
+/// Set up a Pterodactyl API Client in one go!
+PteroClient createPteroClient({
+  required String panelUrl,
+  required String apiKey,
+}) {
+  final dio = Dio();
+  dio.options.headers["Authorization"] = "Bearer " + apiKey;
+  return PteroClient(dio, baseUrl: panelUrl);
+}
+
+/// Pterodactyl API Client
 @RestApi(autoCastResponse: true)
 abstract class PteroClient {
-  factory PteroClient(Dio dio, {required String baseUrl}) = _PteroClient;
+  factory PteroClient(Dio dio, {String baseUrl}) = _PteroClient;
 
   @GET('/api/client')
   Future<FractalResponseList<Server>> listServers();
@@ -129,7 +142,7 @@ abstract class PteroClient {
 
   @PUT('/api/client/servers/{server}/files/rename')
   Future<void> renameFile(
-    @Body() FileBody<FromTo> data, {
+    @Body() FileBodyList<FromTo> data, {
     @Path() required String server,
   });
 
@@ -148,7 +161,7 @@ abstract class PteroClient {
 
   @POST('/api/client/servers/{server}/files/compress')
   Future<FractalResponseData<FileObject>> compressFile(
-    @Body() FileBody<String> data, {
+    @Body() FileBodyList<String> data, {
     @Path() required String server,
   });
 
@@ -160,39 +173,45 @@ abstract class PteroClient {
 
   @POST('/api/client/servers/{server}/files/delete')
   Future<FractalResponseData<FileObject>> deleteFiles(
-    @Body() FileBody<String> data, {
+    @Body() FileBodyList<String> data, {
     @Path() required String server,
   });
 
+  /// Creates the specified folder in the specified directory
   @POST('/api/client/servers/{server}/files/create-folder')
   Future<void> createFolder(
-    @Body() FileBody data, {
+    @Body() FolderBody data, {
     @Path() required String server,
   });
 
+  /// Returns a signed URL used to upload files to the server using POST
   @GET('/api/client/servers/{server}/files/upload')
   Future<FractalResponseData<SignedUrl>> uploadFile({
     @Path() required String server,
   });
 
   // Schedules
+  /// List all schedules that [server] has
   @GET('/api/client/servers/{server}/schedules')
   Future<FractalResponseData<ServerSchedule>> listSchedules({
     @Path() required String server,
   });
 
+  /// Create [schedule] on [server]
   @POST('/api/client/servers/{server}/schedules')
   Future<FractalResponseData<ServerSchedule>> createSchedule(
     @Body() Schedule scheduleData, {
     @Path() required String server,
   });
 
+  /// Get [schedule] details from [server]
   @GET('/api/client/servers/{server}/schedules/{schedule}')
   Future<FractalResponseData<ServerSchedule>> getScheduleDetails({
     @Path() required String server,
     @Path() required int schedule,
   });
 
+  /// Update [schedule] on [server]
   @POST('/api/client/servers/{server}/schedules/{schedule}')
   Future<FractalResponseData<ServerSchedule>> updateSchedule(
     @Body() Schedule scheduleData, {
@@ -200,12 +219,14 @@ abstract class PteroClient {
     @Path() required int schedule,
   });
 
+  /// Delete [schedule] from [server]
   @DELETE('/api/client/servers/{server}/schedules/{schedule}')
   Future<void> deleteSchedule({
     @Path() required String server,
     @Path() required int schedule,
   });
 
+  /// Create scheduled [task] on [schedule] on [server]
   @POST('/api/client/servers/{server}/schedules/{schedule}/tasks')
   Future<FractalResponseData<ScheduleTask>> createTask(
     @Body() Task taskData, {
@@ -213,6 +234,7 @@ abstract class PteroClient {
     @Path() required int schedule,
   });
 
+  /// Update scheduled [task] on [schedule] on [server]
   @POST('/api/client/servers/{server}/schedules/{schedule}/tasks/{task}')
   Future<FractalResponseData<ScheduleTask>> updateTask(
     @Body() Task taskData, {
@@ -221,6 +243,7 @@ abstract class PteroClient {
     @Path() required int task,
   });
 
+  /// Delete scheduled [task] from [schedule] on [server]
   @DELETE('/api/client/servers/{server}/schedules/{schedule}/tasks/{task}')
   Future<void> deleteTask({
     @Path() required String server,
@@ -229,16 +252,19 @@ abstract class PteroClient {
   });
 
   // Network
+  /// List all allocations that [server] has
   @GET('/api/client/servers/{server}/network')
   Future<FractalResponseList<Allocation>> listAllocations({
     @Path() required String server,
   });
 
+  /// Automatically assign an allocation on [server]
   @POST('/api/client/servers/{server}/network')
   Future<FractalResponseData<Allocation>> autoAssignAllocation({
     @Path() required String server,
   });
 
+  /// Set the allocation note for [allocation] on [server]
   @POST('/api/client/servers/{server}/network/{allocation}')
   Future<FractalResponseData<Allocation>> setAllocationNote(
     @Body() AllocationNote note, {
@@ -246,36 +272,43 @@ abstract class PteroClient {
     @Path() required int allocation,
   });
 
+  /// Set [allocation] as the primary allocation on [server]
   @POST('/api/client/servers/{server}/network/{allocation}/primary')
   Future<FractalResponseData<Allocation>> setPrimaryAllocation({
     @Path() required String server,
     @Path() required int allocation,
   });
 
+  /// Unassign [allocation] from [server]
   @DELETE('/api/client/servers/{server}/network/{allocation}')
   Future<FractalResponseData<Allocation>> unassignAllocation({
     @Path() required String server,
     @Path() required int allocation,
   });
 
-  // Users
+  /*                                  Users                                  */
+
+  /// List all subusers on [server]
   @GET('/api/client/servers/{server}/users')
   Future<FractalResponseList<ServerSubuser>> listSubusers({
     @Path() required String server,
   });
 
+  /// Create subuser on [server]
   @POST('/api/client/servers/{server}/users')
   Future<FractalResponseData<ServerSubuser>> createSubuser(
     @Body() Subuser subuserData, {
     @Path() required String server,
   });
 
+  /// Get subuser [user] details on [server]
   @GET('/api/client/servers/{server}/users/{user}')
   Future<FractalResponseData<ServerSubuser>> getSubuserDetails({
     @Path() required String server,
     @Path() required String user,
   });
 
+  /// Update subuser [user] on [server]
   @POST('/api/client/servers/{server}/users/{user}')
   Future<FractalResponseData<ServerSubuser>> updateSubuser(
     @Body() SubuserPermissions subuserData, {
@@ -283,6 +316,7 @@ abstract class PteroClient {
     @Path() required String user,
   });
 
+  /// Delete subuser [user] from [server]
   @DELETE('/api/client/servers/{server}/users/{user}')
   Future<void> deleteSubuser({
     @Path() required String server,

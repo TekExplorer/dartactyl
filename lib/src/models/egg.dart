@@ -18,7 +18,7 @@ class Egg {
   EggScript script;
   DateTime createdAt;
   DateTime updatedAt;
-  Relationships relationships;
+  Relationships? relationships;
   Egg({
     required this.id,
     required this.uuid,
@@ -32,7 +32,7 @@ class Egg {
     required this.script,
     required this.createdAt,
     required this.updatedAt,
-    required this.relationships,
+    this.relationships,
   });
   factory Egg.fromJson(Map<String, dynamic> json) => _$EggFromJson(json);
   Map<String, dynamic> toJson() => _$EggToJson(this);

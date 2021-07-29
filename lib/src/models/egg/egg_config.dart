@@ -6,7 +6,7 @@ part 'egg_config.g.dart';
 
 @JsonSerializable()
 class EggConfig {
-  dynamic files;
+  Map<String, dynamic> files;
   EggStartupConfig startup;
   String stop;
   EggLogsConfig? logs;

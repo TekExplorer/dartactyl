@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+
 part 'disable_two_factor.g.dart';
 
 @JsonSerializable()

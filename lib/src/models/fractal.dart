@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'models.dart';
+import 'meta.dart';
 
 part 'fractal.g.dart';
 
@@ -44,9 +44,11 @@ class PteroData<T> {
 class FractalResponseData<T> {
   String object;
   T attributes;
+  Meta? meta;
   FractalResponseData({
     required this.object,
     required this.attributes,
+    this.meta,
   });
 
   factory FractalResponseData.fromJson(
@@ -124,9 +126,11 @@ class FractalResponseData<T> {
 class FractalResponseList<T> {
   String object;
   List<FractalResponseData<T>> data;
+  Meta? meta;
   FractalResponseList({
     required this.object,
     required this.data,
+    this.meta,
   });
 
   // factory FractalResponseList.fromJson(Map<String, dynamic> json) =>

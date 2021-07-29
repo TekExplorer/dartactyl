@@ -31,3 +31,4 @@ doc/api/
 
 *.g.dart
 .vscode/
+lib/src/http_error_to_human.dart
