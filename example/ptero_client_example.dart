@@ -7,8 +7,8 @@ void main(List<String> args) async {
   logger.i('Starting!');
   final dio = Dio(); // Provide a dio instance
   // config your dio headers globally
-  final apiKey = '';
-  final panelUrl = '';
+  final apiKey = 'nbrYpKXYS1Vcm8ejIuygMJWqgUTnvvmzWPyuV58EI4h6QbX6';
+  final panelUrl = 'https://panel.oaka.xyz';
 
   dio.options.headers["Authorization"] = "Bearer " + apiKey;
   dio.options.headers["Content-Type"] = "application/json";
