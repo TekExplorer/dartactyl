@@ -7,21 +7,28 @@ export 'http_error_to_human.dart';
 
 part 'client.g.dart';
 
+
+class PteroClientConfig {
+  String panelUrl;
+  String apiKey;
+  PteroClientConfig({
+    required this.panelUrl,
+    required this.apiKey,
+  });
+}
+
 /// Set up a Pterodactyl API Client in one go!
-PteroClient createPteroClient({
-  required String panelUrl,
-  required String apiKey,
-}) {
+PteroClient createPteroClient(PteroClientConfig config) {
   final dio = Dio();
-  dio.options.headers["Authorization"] = "Bearer " + apiKey;
-  return PteroClient(dio, baseUrl: panelUrl);
+  dio.options.headers["Authorization"] = "Bearer " + config.apiKey;
+  return PteroClient(dio, baseUrl: config.panelUrl);
 }
 
 /// Pterodactyl API Client
 @RestApi(autoCastResponse: true)
 abstract class PteroClient {
   factory PteroClient(Dio dio, {String baseUrl}) = _PteroClient;
-
+  
   @GET('/api/client')
   Future<FractalResponseList<Server>> listServers();
 
