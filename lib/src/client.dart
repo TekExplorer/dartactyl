@@ -30,7 +30,7 @@ abstract class PteroClient {
   factory PteroClient(Dio dio, {String baseUrl}) = _PteroClient;
   
   @GET('/api/client')
-  Future<FractalResponseList<Server>> listServers();
+  Future<FractalResponseList<Server>> getServers();
 
   @GET('/api/client/permissions')
   Future<FractalResponseData<SystemPermissions>> getPermissions();
