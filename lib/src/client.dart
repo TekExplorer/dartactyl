@@ -3,10 +3,9 @@ import 'package:retrofit/retrofit.dart';
 
 import 'models/models.dart';
 
-export 'http_error_to_human.dart';
+// export 'http_error_to_human.dart';
 
-part 'client.g.dart';
-
+part 'client.g.edited.dart';
 
 class PteroClientConfig {
   String panelUrl;
@@ -25,10 +24,10 @@ PteroClient createPteroClient(PteroClientConfig config) {
 }
 
 /// Pterodactyl API Client
-@RestApi(autoCastResponse: true)
+// @RestApi(autoCastResponse: true) // Manually edited generated file to include fromJson functions for FractalResponseList
 abstract class PteroClient {
   factory PteroClient(Dio dio, {String baseUrl}) = _PteroClient;
-  
+
   @GET('/api/client')
   Future<FractalResponseList<Server>> getServers();
 
@@ -63,7 +62,7 @@ abstract class PteroClient {
   );
 
   @GET('/api/client/account/api-keys')
-  Future<FractalResponseList<ApiKey>> listApiKeys();
+  Future<FractalResponseList<ApiKey>> getApiKeys();
 
   @POST('/api/client/account/api-keys')
   Future<FractalResponseData<ApiKey>> createApiKey(
@@ -105,7 +104,7 @@ abstract class PteroClient {
 
   // Databases
   @GET('/api/client/servers/{server}/databases')
-  Future<FractalResponseList<ServerDatabase>> listServerDatabases(
+  Future<FractalResponseList<ServerDatabase>> getServerDatabases(
     @Body() Signal signal, {
     @Path() required String server,
   });
@@ -130,7 +129,7 @@ abstract class PteroClient {
 
   // Files
   @GET('/api/client/servers/{server}/files/list')
-  Future<FractalResponseList<FileObject>> listFiles({
+  Future<FractalResponseList<FileObject>> getFiles({
     @Path() required String server,
     @Query('directory') required String directory,
   });
@@ -200,7 +199,7 @@ abstract class PteroClient {
   // Schedules
   /// List all schedules that [server] has
   @GET('/api/client/servers/{server}/schedules')
-  Future<FractalResponseData<ServerSchedule>> listSchedules({
+  Future<FractalResponseData<ServerSchedule>> getSchedules({
     @Path() required String server,
   });
 
@@ -261,7 +260,7 @@ abstract class PteroClient {
   // Network
   /// List all allocations that [server] has
   @GET('/api/client/servers/{server}/network')
-  Future<FractalResponseList<Allocation>> listAllocations({
+  Future<FractalResponseList<Allocation>> getAllocations({
     @Path() required String server,
   });
 
@@ -297,7 +296,7 @@ abstract class PteroClient {
 
   /// List all subusers on [server]
   @GET('/api/client/servers/{server}/users')
-  Future<FractalResponseList<ServerSubuser>> listSubusers({
+  Future<FractalResponseList<ServerSubuser>> getSubusers({
     @Path() required String server,
   });
 
@@ -334,7 +333,7 @@ abstract class PteroClient {
 
   /// List all backups on [server]
   @GET('/api/client/servers/{server}/backups')
-  Future<FractalResponseList<Backup>> listBackups({
+  Future<FractalResponseList<Backup>> getBackups({
     @Path() required String server,
   });
 
@@ -368,7 +367,7 @@ abstract class PteroClient {
   // Startup
   /// Get all [server] startup variables
   @GET('/api/client/servers/{server}/startup')
-  Future<FractalResponseList<EggVariable>> listVariables({
+  Future<FractalResponseList<EggVariable>> getVariables({
     @Path() required String server,
   });
 

@@ -9,7 +9,7 @@ export 'egg/egg.dart';
 export 'egg.dart';
 export 'egg_variable.dart';
 export 'file_object.dart';
-export 'fractal.dart';
+export 'fractal/fractal.dart';
 export 'location.dart';
 export 'meta.dart';
 export 'nest.dart';

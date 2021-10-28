@@ -1,44 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'meta.dart';
+import '../meta.dart';
 
-part 'fractal.g.dart';
-
-@JsonSerializable(genericArgumentFactories: true)
-class PteroData<T> {
-  T data; // Websocket and TwoFactorImage
-  PteroData({
-    required this.data,
-  });
-
-  // factory PteroData.fromJson(Map<String, dynamic> json) =>
-  //     _$PteroDataFromJson(json, (Object? json) {
-  //       if (json is Map<String, dynamic>) {
-  //         switch (T) {
-  //           case WebsocketDetails:
-  //             return WebsocketDetails.fromJson(json) as T;
-  //           case TwoFactorImage:
-  //             return TwoFactorImage.fromJson(json) as T;
-  //           // default:
-  //           //   return Null;
-  //         }
-  //       }
-  //       // This will only work if `json` is a native JSON type:
-  //       //   num, String, bool, null, etc
-  //       // *and* is assignable to `T`.
-  //       return json as T;
-  //     });
-
-  // Map<String, dynamic> toJson() {
-  //   return _$PteroDataToJson(this, (T object) => object);
-
-  factory PteroData.fromJson(
-          Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
-      _$PteroDataFromJson(json, fromJsonT);
-
-  Map<String, dynamic> toJson(Object? Function(T value) toJsonT) =>
-      _$PteroDataToJson(this, toJsonT);
-}
+part 'fractal_response_data.g.dart';
 
 @JsonSerializable(genericArgumentFactories: true)
 class FractalResponseData<T> {
@@ -119,28 +83,4 @@ class FractalResponseData<T> {
   // Map<String, dynamic> toJson() {
   //   return _$FractalResponseDataToJson(this, (T object) => object);
   // }
-}
-
-// @JsonSerializable()
-@JsonSerializable(genericArgumentFactories: true)
-class FractalResponseList<T> {
-  String object;
-  List<FractalResponseData<T>> data;
-  Meta? meta;
-  FractalResponseList({
-    required this.object,
-    required this.data,
-    this.meta,
-  });
-
-  // factory FractalResponseList.fromJson(Map<String, dynamic> json) =>
-  //     _$FractalResponseListFromJson(json);
-  // Map<String, dynamic> toJson() => _$FractalResponseListToJson(this);
-
-  factory FractalResponseList.fromJson(
-          Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
-      _$FractalResponseListFromJson(json, fromJsonT);
-
-  Map<String, dynamic> toJson(Object? Function(T value) toJsonT) =>
-      _$FractalResponseListToJson(this, toJsonT);
 }

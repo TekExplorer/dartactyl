@@ -8,7 +8,7 @@ class EggVariable {
   String description;
   String envVariable;
   String defaultValue;
-  String serverValue;
+  String? serverValue;
   bool isEditable;
   String rules;
   EggVariable({
@@ -16,7 +16,7 @@ class EggVariable {
     required this.description,
     required this.envVariable,
     required this.defaultValue,
-    required this.serverValue,
+    this.serverValue,
     required this.isEditable,
     required this.rules,
   });
