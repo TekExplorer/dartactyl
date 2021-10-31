@@ -1,39 +1,20 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## About
+Dartactyl is an api client that you can use to connect to the Pterodactyl Panel API
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Nearly all api functions are available for the client-side api, but error checking has not been implemented yet.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
+You can quickly get started by making a client like so. This client has many methods you can use to interface with your panel.
 ```dart
-const like = 'sample';
+PteroClient client = createPteroClient(PteroClientConfig(
+    panelUrl: 'https://panel.yourdomain.com',
+    apiKey: '<api-key>',
+));
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+This package is WIP, but feel free to make issues or pull requests on the GitHub repository
