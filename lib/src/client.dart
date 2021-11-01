@@ -17,8 +17,8 @@ class PteroClientConfig {
 }
 
 /// Set up a Pterodactyl API Client in one go!
-PteroClient createPteroClient(PteroClientConfig config) {
-  final dio = Dio();
+PteroClient createPteroClient(PteroClientConfig config, {Dio? dio}) {
+  dio = dio ?? Dio();
   dio.options.headers["Authorization"] = "Bearer " + config.apiKey;
   return PteroClient(dio, baseUrl: config.panelUrl);
 }
