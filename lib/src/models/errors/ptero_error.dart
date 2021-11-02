@@ -3,23 +3,13 @@ import 'package:json_annotation/json_annotation.dart';
 part 'ptero_error.g.dart';
 
 @JsonSerializable()
-class PteroErrors {
-  final List<PteroError> errors;
-
-  PteroErrors({required this.errors});
-
-  factory PteroErrors.fromJson(Map<String, dynamic> json) =>
-      _$PteroErrorsFromJson(json);
-
-  Map<String, dynamic> toJson() => _$PteroErrorsToJson(this);
-}
-
-@JsonSerializable()
 class PteroError {
-  final String code;
+  final PteroErrorCode code;
 
   final String detail;
   final String status;
+
+  int? get statusCode => int.tryParse(status);
 
   PteroError({required this.detail, required this.code, required this.status});
 
@@ -32,4 +22,20 @@ class PteroError {
   String toString() {
     return 'PteroError{message: $detail, code: $code, status: $status}';
   }
+}
+
+enum PteroErrorCode {
+  @JsonValue('TwoFactorAuthenticationTokenInvalid')
+  twoFactorAuthenticationTokenInvalid,
+  @JsonValue('BadRequestHttpException')
+  badRequestHttpException,
+  email,
+  @JsonValue('InvalidCredentialsException')
+  invalidPasswordProvidedException,
+  @JsonValue('NotFoundHttpException')
+  notFoundHttpException,
+  @JsonValue('HttpException')
+  httpException,
+  @JsonValue('DisplayException')
+  displayException,
 }

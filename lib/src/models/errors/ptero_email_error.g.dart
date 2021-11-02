@@ -9,16 +9,28 @@ part of 'ptero_email_error.dart';
 PteroEmailError _$PteroEmailErrorFromJson(Map<String, dynamic> json) =>
     PteroEmailError(
       detail: json['detail'] as String,
-      code: json['code'] as String,
+      code: $enumDecode(_$PteroErrorCodeEnumMap, json['code']),
       source: PteroErrorSource.fromJson(json['source'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$PteroEmailErrorToJson(PteroEmailError instance) =>
     <String, dynamic>{
-      'code': instance.code,
+      'code': _$PteroErrorCodeEnumMap[instance.code],
       'detail': instance.detail,
       'source': instance.source.toJson(),
     };
+
+const _$PteroErrorCodeEnumMap = {
+  PteroErrorCode.twoFactorAuthenticationTokenInvalid:
+      'TwoFactorAuthenticationTokenInvalid',
+  PteroErrorCode.badRequestHttpException: 'BadRequestHttpException',
+  PteroErrorCode.email: 'email',
+  PteroErrorCode.invalidPasswordProvidedException:
+      'InvalidCredentialsException',
+  PteroErrorCode.notFoundHttpException: 'NotFoundHttpException',
+  PteroErrorCode.httpException: 'HttpException',
+  PteroErrorCode.displayException: 'DisplayException',
+};
 
 PteroErrorSource _$PteroErrorSourceFromJson(Map<String, dynamic> json) =>
     PteroErrorSource(

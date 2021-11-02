@@ -9,9 +9,11 @@ part 'ptero_email_error.g.dart';
 class PteroEmailError extends PteroError {
   final PteroErrorSource source;
 
-  PteroEmailError(
-      {required String detail, required String code, required this.source})
-      : super(detail: detail, code: code, status: '400');
+  PteroEmailError({
+    required String detail,
+    required PteroErrorCode code,
+    required this.source,
+  }) : super(detail: detail, code: code, status: '400');
 
   factory PteroEmailError.fromJson(Map<String, dynamic> json) =>
       _$PteroEmailErrorFromJson(json);

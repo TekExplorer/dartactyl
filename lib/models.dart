@@ -15,6 +15,7 @@ export 'src/models/egg/egg.dart';
 export 'src/models/egg_variable.dart';
 export 'src/models/errors/ptero_email_error.dart';
 export 'src/models/errors/ptero_error.dart';
+export 'src/models/errors/ptero_errors.dart';
 export 'src/models/file_object.dart';
 export 'src/models/fractal/fractal.dart';
 export 'src/models/location.dart';

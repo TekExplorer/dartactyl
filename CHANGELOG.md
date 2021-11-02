@@ -1,3 +1,6 @@
+## 1.0.3
+- Split error files, and made `PteroError.code` an enum
+- Added `PteroError.statusCode` getter which returns an `int?`, though it should never be null
 ## 1.0.2
 - Updated `createPteroClient` to not set the `baseUrl` directly in `PteroClient`, so that it could be changed in the user-provided `Dio` instance
 - Formatted imports, and removed redundant `models.dart`
