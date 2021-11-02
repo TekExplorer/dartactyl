@@ -1,4 +1,3 @@
-import 'package:dartactyl/src/models/models.dart';
 import 'package:dartactyl/dartactyl.dart';
 import 'package:dio/dio.dart';
 

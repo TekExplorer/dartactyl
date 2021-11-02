@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
-import 'models/models.dart';
+import '../models.dart';
 
 // export 'http_error_to_human.dart';
 
@@ -20,7 +20,8 @@ class PteroClientConfig {
 PteroClient createPteroClient(PteroClientConfig config, {Dio? dio}) {
   dio = dio ?? Dio();
   dio.options.headers["Authorization"] = "Bearer " + config.apiKey;
-  return PteroClient(dio, baseUrl: config.panelUrl);
+  dio.options.baseUrl = config.panelUrl;
+  return PteroClient(dio);
 }
 
 /// Pterodactyl API Client

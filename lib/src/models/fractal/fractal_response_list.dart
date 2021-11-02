@@ -1,8 +1,4 @@
-import 'dart:convert';
-
-import 'package:dartactyl/models.dart';
-
-import 'fractal_response_data.dart';
+import '../../../models.dart';
 
 // json_serializable didnt work for me, so I did it myself
 class FractalResponseList<T> {
