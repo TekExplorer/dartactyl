@@ -10,7 +10,7 @@ class Server {
   String identifier;
   int internalId;
   String uuid;
-  String? name;
+  String name;
   String node;
   SftpDetails sftpDetails;
   String? description;
@@ -33,7 +33,7 @@ class Server {
     required this.identifier,
     required this.internalId,
     required this.uuid,
-    this.name,
+    required this.name,
     required this.node,
     required this.sftpDetails,
     this.description,

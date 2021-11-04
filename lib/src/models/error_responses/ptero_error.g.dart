@@ -7,26 +7,31 @@ part of 'ptero_error.dart';
 // **************************************************************************
 
 PteroError _$PteroErrorFromJson(Map<String, dynamic> json) => PteroError(
-      detail: json['detail'] as String,
       code: $enumDecode(_$PteroErrorCodeEnumMap, json['code']),
       status: json['status'] as String,
+      detail: json['detail'] as String,
+      meta: json['meta'] == null
+          ? null
+          : PteroErrorMeta.fromJson(json['meta'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$PteroErrorToJson(PteroError instance) =>
     <String, dynamic>{
       'code': _$PteroErrorCodeEnumMap[instance.code],
-      'detail': instance.detail,
       'status': instance.status,
+      'detail': instance.detail,
+      'meta': instance.meta?.toJson(),
     };
 
 const _$PteroErrorCodeEnumMap = {
-  PteroErrorCode.twoFactorAuthenticationTokenInvalid:
+  PteroErrorCode.TwoFactorAuthenticationTokenInvalid:
       'TwoFactorAuthenticationTokenInvalid',
-  PteroErrorCode.badRequestHttpException: 'BadRequestHttpException',
+  PteroErrorCode.BadRequestHttpException: 'BadRequestHttpException',
   PteroErrorCode.email: 'email',
-  PteroErrorCode.invalidPasswordProvidedException:
-      'InvalidCredentialsException',
-  PteroErrorCode.notFoundHttpException: 'NotFoundHttpException',
-  PteroErrorCode.httpException: 'HttpException',
-  PteroErrorCode.displayException: 'DisplayException',
+  PteroErrorCode.InvalidPasswordProvidedException:
+      'InvalidPasswordProvidedException',
+  PteroErrorCode.NotFoundHttpException: 'NotFoundHttpException',
+  PteroErrorCode.AccessDeniedHttpException: 'AccessDeniedHttpException',
+  PteroErrorCode.HttpException: 'HttpException',
+  PteroErrorCode.DisplayException: 'DisplayException',
 };

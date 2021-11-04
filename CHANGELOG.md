@@ -1,3 +1,7 @@
+## 1.0.4
+- Improve error files further
+- Make ServerStatus an enum for current server status
+- Add `name` to Cron
 ## 1.0.3
 - Split error files, and made `PteroError.code` an enum
 - Added `PteroError.statusCode` getter which returns an `int?`, though it should never be null

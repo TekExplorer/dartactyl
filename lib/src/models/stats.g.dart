@@ -7,17 +7,24 @@ part of 'stats.dart';
 // **************************************************************************
 
 Stats _$StatsFromJson(Map<String, dynamic> json) => Stats(
-      currentState: json['current_state'] as String,
+      currentState: $enumDecode(_$ServerStateEnumMap, json['current_state']),
       isSuspended: json['is_suspended'] as bool,
       resources:
           StatsResources.fromJson(json['resources'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$StatsToJson(Stats instance) => <String, dynamic>{
-      'current_state': instance.currentState,
+      'current_state': _$ServerStateEnumMap[instance.currentState],
       'is_suspended': instance.isSuspended,
       'resources': instance.resources.toJson(),
     };
+
+const _$ServerStateEnumMap = {
+  ServerState.running: 'running',
+  ServerState.starting: 'starting',
+  ServerState.stopping: 'stopping',
+  ServerState.offline: 'offline',
+};
 
 StatsResources _$StatsResourcesFromJson(Map<String, dynamic> json) =>
     StatsResources(

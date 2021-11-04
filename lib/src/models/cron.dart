@@ -4,11 +4,13 @@ part 'cron.g.dart';
 
 @JsonSerializable()
 class Cron {
+  String? name;
   String dayOfWeek;
   String dayOfMonth;
   String hour;
   String minute;
   Cron({
+    this.name,
     required this.dayOfWeek,
     required this.dayOfMonth,
     required this.hour,

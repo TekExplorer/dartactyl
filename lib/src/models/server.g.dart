@@ -11,7 +11,7 @@ Server _$ServerFromJson(Map<String, dynamic> json) => Server(
       identifier: json['identifier'] as String,
       internalId: json['internal_id'] as int,
       uuid: json['uuid'] as String,
-      name: json['name'] as String?,
+      name: json['name'] as String,
       node: json['node'] as String,
       sftpDetails:
           SftpDetails.fromJson(json['sftp_details'] as Map<String, dynamic>),
