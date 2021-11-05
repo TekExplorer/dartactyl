@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../models.dart';
+import 'egg/egg.dart';
+import 'relationships.dart';
 
 part 'egg.g.dart';
 

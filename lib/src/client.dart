@@ -6,6 +6,7 @@ import '../models.dart';
 // export 'http_error_to_human.dart';
 
 part 'client.g.edited.dart';
+// part 'client.g.dart';
 
 class PteroClientConfig {
   String panelUrl;

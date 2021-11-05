@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../models.dart';
+import 'relationships.dart';
+import 'server/server.dart';
 
 part 'server.g.dart';
 
@@ -19,7 +20,7 @@ class Server {
   String dockerImage;
   List<String>? eggFeatures;
   ServerFeatureLimits featureLimits;
-  String? status;
+  ServerStatus? status;
   bool isSuspended;
   bool isInstalling;
   bool isTransferring;
@@ -48,4 +49,13 @@ class Server {
     required this.limits,
     required this.featureLimits,
   });
+}
+
+enum ServerStatus {
+  installing,
+  @JsonValue('install_failed')
+  installFailed,
+  suspended,
+  @JsonValue('restoring_backup')
+  restoringBackup,
 }

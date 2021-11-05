@@ -12,7 +12,7 @@ FractalResponseData<T> _$FractalResponseDataFromJson<T>(
 ) =>
     FractalResponseData<T>(
       object: json['object'] as String,
-      attributes: fromJsonT(json['attributes']),
+      attributes: _$nullableGenericFromJson(json['attributes'], fromJsonT),
       meta: json['meta'] == null
           ? null
           : Meta.fromJson(json['meta'] as Map<String, dynamic>),
@@ -24,6 +24,18 @@ Map<String, dynamic> _$FractalResponseDataToJson<T>(
 ) =>
     <String, dynamic>{
       'object': instance.object,
-      'attributes': toJsonT(instance.attributes),
+      'attributes': _$nullableGenericToJson(instance.attributes, toJsonT),
       'meta': instance.meta?.toJson(),
     };
+
+T? _$nullableGenericFromJson<T>(
+  Object? input,
+  T Function(Object? json) fromJson,
+) =>
+    input == null ? null : fromJson(input);
+
+Object? _$nullableGenericToJson<T>(
+  T? input,
+  Object? Function(T value) toJson,
+) =>
+    input == null ? null : toJson(input);

@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../models.dart';
+import 'cron.dart';
+import 'relationships.dart';
 
 part 'server_database.g.dart';
 

@@ -119,7 +119,7 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/api/client/account/two-factor',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -134,7 +134,7 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/api/client/account/email',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -149,7 +149,7 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/api/client/account/password',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -200,7 +200,7 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/api/client/account/api-keys/$apiKey',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -275,7 +275,7 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/api/client/servers/$server/command',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -290,7 +290,7 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/api/client/servers/$server/power',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -366,7 +366,7 @@ class _PteroClient implements PteroClient {
                 _dio.options, '/api/client/servers/$server/databases/$database',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -435,7 +435,7 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/api/client/servers/$server/files/rename',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -450,7 +450,7 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/api/client/servers/$server/files/copy',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -465,7 +465,7 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/api/client/servers/$server/files/write',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -503,7 +503,7 @@ class _PteroClient implements PteroClient {
                 _dio.options, '/api/client/servers/$server/files/decompress',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -541,7 +541,7 @@ class _PteroClient implements PteroClient {
                 _dio.options, '/api/client/servers/$server/files/create-folder',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -660,7 +660,7 @@ class _PteroClient implements PteroClient {
                 _dio.options, '/api/client/servers/$server/schedules/$schedule',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -720,7 +720,7 @@ class _PteroClient implements PteroClient {
                 '/api/client/servers/$server/schedules/$schedule/tasks/$task',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -736,10 +736,8 @@ class _PteroClient implements PteroClient {
                 .compose(_dio.options, '/api/client/servers/$server/network',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value =
-        FractalResponseList<Allocation>.fromJson(_result.data!, (json) {
-      return Allocation.fromJson(json as Map<String, dynamic>);
-    });
+    final value = FractalResponseList<Allocation>.fromJson(_result.data!,
+        (json) => Allocation.fromJson(json as Map<String, dynamic>));
     return value;
   }
 
@@ -840,10 +838,8 @@ class _PteroClient implements PteroClient {
                 .compose(_dio.options, '/api/client/servers/$server/users',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value =
-        FractalResponseList<ServerSubuser>.fromJson(_result.data!, (json) {
-      return ServerSubuser.fromJson(json as Map<String, dynamic>);
-    });
+    final value = FractalResponseList<ServerSubuser>.fromJson(_result.data!,
+        (json) => ServerSubuser.fromJson(json as Map<String, dynamic>));
     return value;
   }
 
@@ -922,7 +918,7 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/api/client/servers/$server/users/$user',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -938,9 +934,7 @@ class _PteroClient implements PteroClient {
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseList<Backup>.fromJson(
-      _result.data!,
-      (json) => Backup.fromJson(json as Map<String, dynamic>),
-    );
+        _result.data!, (json) => Backup.fromJson(json as Map<String, dynamic>));
     return value;
   }
 
@@ -1017,7 +1011,7 @@ class _PteroClient implements PteroClient {
                 _dio.options, '/api/client/servers/$server/backups/$backup',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -1073,7 +1067,7 @@ class _PteroClient implements PteroClient {
                 _dio.options, '/api/client/servers/$server/settings/rename',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -1088,7 +1082,7 @@ class _PteroClient implements PteroClient {
                 _dio.options, '/api/client/servers/$server/settings/reinstall',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

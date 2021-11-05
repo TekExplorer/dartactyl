@@ -5,15 +5,17 @@ part 'schedule.g.dart';
 @JsonSerializable()
 class Schedule {
   String name;
-  bool? isActive;
+  bool isActive;
+  bool onlyWhenOnline;
   String minute;
   String hour;
   String dayOfWeek;
   String dayOfMonth;
 
   Schedule({
+    required this.onlyWhenOnline,
     required this.name,
-    this.isActive,
+    required this.isActive,
     required this.minute,
     required this.hour,
     required this.dayOfWeek,

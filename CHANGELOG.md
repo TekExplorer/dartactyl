@@ -1,3 +1,8 @@
+## 1.0.5
+- `ServerStatus?` enum instead of a `String?`
+- Add fields to `Cron` and `ServerSchedule`
+- Minor import adjustments
+- Apparently `FractalResponseList`'s data can get a null object...
 ## 1.0.4
 - Improve error files further
 - Make ServerStatus an enum for current server status

@@ -21,7 +21,7 @@ Server _$ServerFromJson(Map<String, dynamic> json) => Server(
       eggFeatures: (json['egg_features'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      status: json['status'] as String?,
+      status: $enumDecodeNullable(_$ServerStatusEnumMap, json['status']),
       isSuspended: json['is_suspended'] as bool,
       isInstalling: json['is_installing'] as bool,
       isTransferring: json['is_transferring'] as bool,
@@ -48,9 +48,16 @@ Map<String, dynamic> _$ServerToJson(Server instance) => <String, dynamic>{
       'docker_image': instance.dockerImage,
       'egg_features': instance.eggFeatures,
       'feature_limits': instance.featureLimits.toJson(),
-      'status': instance.status,
+      'status': _$ServerStatusEnumMap[instance.status],
       'is_suspended': instance.isSuspended,
       'is_installing': instance.isInstalling,
       'is_transferring': instance.isTransferring,
       'relationships': instance.relationships?.toJson(),
     };
+
+const _$ServerStatusEnumMap = {
+  ServerStatus.installing: 'installing',
+  ServerStatus.installFailed: 'install_failed',
+  ServerStatus.suspended: 'suspended',
+  ServerStatus.restoringBackup: 'restoring_backup',
+};

@@ -7,7 +7,7 @@ part 'fractal_response_data.g.dart';
 @JsonSerializable(genericArgumentFactories: true)
 class FractalResponseData<T> {
   String object;
-  T attributes;
+  T? attributes;
   Meta? meta;
   FractalResponseData({
     required this.object,
