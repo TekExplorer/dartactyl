@@ -190,7 +190,7 @@ class _PteroClient implements PteroClient {
   }
 
   @override
-  Future<void> deleteApiKeys({required apiKey}) async {
+  Future<void> deleteApiKey({required apiKey}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

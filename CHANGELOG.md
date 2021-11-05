@@ -1,3 +1,7 @@
+## 1.0.6
+- Renamed 
+`deleteApiKeys` => `deleteApiKey`
+
 ## 1.0.5
 - `ServerStatus?` enum instead of a `String?`
 - Add fields to `Cron` and `ServerSchedule`
