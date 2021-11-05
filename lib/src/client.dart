@@ -72,7 +72,7 @@ abstract class PteroClient {
   );
 
   @DELETE('/api/client/account/api-keys/{apiKey}')
-  Future<void> deleteApiKeys({
+  Future<void> deleteApiKey({
     @Path() required String apiKey,
   });
 
