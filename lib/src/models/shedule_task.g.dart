@@ -7,7 +7,7 @@ part of 'shedule_task.dart';
 // **************************************************************************
 
 ScheduleTask _$ScheduleTaskFromJson(Map<String, dynamic> json) => ScheduleTask(
-      continueOnFalure: json['continue_on_falure'] as bool,
+      continueOnFailure: json['continue_on_falure'] as bool,
       id: json['id'] as int,
       sequenceId: json['sequence_id'] as int,
       action: json['action'] as String,
@@ -26,7 +26,7 @@ Map<String, dynamic> _$ScheduleTaskToJson(ScheduleTask instance) =>
       'payload': instance.payload,
       'time_offset': instance.timeOffset,
       'is_queued': instance.isQueued,
-      'continue_on_falure': instance.continueOnFalure,
+      'continue_on_falure': instance.continueOnFailure,
       'created_at': instance.createdAt.toIso8601String(),
       'updated_at': instance.updatedAt.toIso8601String(),
     };
