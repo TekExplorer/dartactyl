@@ -8,7 +8,9 @@ part of 'subuser.dart';
 
 Subuser _$SubuserFromJson(Map<String, dynamic> json) => Subuser(
       email: json['email'] as String,
-      permissions: json['permissions'],
+      permissions: (json['permissions'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$SubuserToJson(Subuser instance) => <String, dynamic>{
