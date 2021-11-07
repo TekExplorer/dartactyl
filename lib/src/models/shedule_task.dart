@@ -10,11 +10,11 @@ class ScheduleTask {
   String payload;
   int timeOffset;
   bool isQueued;
-  bool continueOnFalure;
+  bool? continueOnFailure;
   DateTime createdAt;
   DateTime updatedAt;
   ScheduleTask({
-    required this.continueOnFalure,
+    this.continueOnFailure,
     required this.id,
     required this.sequenceId,
     required this.action,

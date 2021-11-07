@@ -1,3 +1,5 @@
+## 1.0.8
+- Minor changes and formatting
 ## 1.0.7
 - Renamed `Schedule` to `RequestSchedule`
 - Updated `Backup` to hopefully be more accurate
