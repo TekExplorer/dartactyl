@@ -208,7 +208,7 @@ abstract class PteroClient {
   /// Create [schedule] on [server]
   @POST('/api/client/servers/{server}/schedules')
   Future<FractalResponseData<ServerSchedule>> createSchedule(
-    @Body() Schedule scheduleData, {
+    @Body() RequestSchedule scheduleData, {
     @Path() required String server,
   });
 
@@ -222,7 +222,7 @@ abstract class PteroClient {
   /// Update [schedule] on [server]
   @POST('/api/client/servers/{server}/schedules/{schedule}')
   Future<FractalResponseData<ServerSchedule>> updateSchedule(
-    @Body() Schedule scheduleData, {
+    @Body() RequestSchedule scheduleData, {
     @Path() required String server,
     @Path() required int schedule,
   });

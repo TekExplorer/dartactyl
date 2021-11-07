@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'schedule.g.dart';
 
 @JsonSerializable()
-class Schedule {
+class RequestSchedule {
   String name;
   bool isActive;
   bool onlyWhenOnline;
@@ -12,7 +12,7 @@ class Schedule {
   String dayOfWeek;
   String dayOfMonth;
 
-  Schedule({
+  RequestSchedule({
     required this.onlyWhenOnline,
     required this.name,
     required this.isActive,
@@ -21,7 +21,7 @@ class Schedule {
     required this.dayOfWeek,
     required this.dayOfMonth,
   });
-  factory Schedule.fromJson(Map<String, dynamic> json) =>
-      _$ScheduleFromJson(json);
-  Map<String, dynamic> toJson() => _$ScheduleToJson(this);
+  factory RequestSchedule.fromJson(Map<String, dynamic> json) =>
+      _$RequestScheduleFromJson(json);
+  Map<String, dynamic> toJson() => _$RequestScheduleToJson(this);
 }

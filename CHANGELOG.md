@@ -1,3 +1,6 @@
+## 1.0.7
+- Renamed `Schedule` to `RequestSchedule`
+- Updated `Backup` to hopefully be more accurate
 ## 1.0.6
 - Renamed 
 `deleteApiKeys` => `deleteApiKey`
