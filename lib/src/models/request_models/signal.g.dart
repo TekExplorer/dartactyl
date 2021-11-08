@@ -15,8 +15,8 @@ Map<String, dynamic> _$SignalToJson(Signal instance) => <String, dynamic>{
     };
 
 const _$SignalTypeEnumMap = {
-  SignalType.start: 'start',
-  SignalType.stop: 'stop',
-  SignalType.restart: 'restart',
-  SignalType.kill: 'kill',
+  ServerPowerAction.start: 'start',
+  ServerPowerAction.stop: 'stop',
+  ServerPowerAction.restart: 'restart',
+  ServerPowerAction.kill: 'kill',
 };

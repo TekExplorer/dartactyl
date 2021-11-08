@@ -4,7 +4,7 @@ part 'stats.g.dart';
 
 @JsonSerializable()
 class Stats {
-  ServerState currentState;
+  ServerPowerState currentState;
   bool isSuspended;
   StatsResources resources;
 
@@ -39,4 +39,4 @@ class StatsResources {
   Map<String, dynamic> toJson() => _$StatsResourcesToJson(this);
 }
 
-enum ServerState { running, starting, stopping, offline }
+enum ServerPowerState { running, starting, stopping, offline }

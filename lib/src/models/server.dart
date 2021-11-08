@@ -26,9 +26,6 @@ class Server {
   bool isTransferring;
   Relationships? relationships;
 
-  factory Server.fromJson(Map<String, dynamic> json) => _$ServerFromJson(json);
-  Map<String, dynamic> toJson() => _$ServerToJson(this);
-
   Server({
     required this.serverOwner,
     required this.identifier,
@@ -49,6 +46,11 @@ class Server {
     required this.limits,
     required this.featureLimits,
   });
+
+  String get shortUuid => identifier;
+
+  factory Server.fromJson(Map<String, dynamic> json) => _$ServerFromJson(json);
+  Map<String, dynamic> toJson() => _$ServerToJson(this);
 }
 
 enum ServerStatus {

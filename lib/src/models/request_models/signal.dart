@@ -4,7 +4,7 @@ part 'signal.g.dart';
 
 @JsonSerializable()
 class Signal {
-  SignalType signal;
+  ServerPowerAction signal;
   Signal({
     required this.signal,
   });
@@ -13,4 +13,4 @@ class Signal {
   Map<String, dynamic> toJson() => _$SignalToJson(this);
 }
 
-enum SignalType { start, stop, restart, kill }
+enum ServerPowerAction { start, stop, restart, kill }

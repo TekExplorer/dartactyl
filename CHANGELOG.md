@@ -1,3 +1,7 @@
+## 1.0.9
+- Renamed `ServerState` to `ServerPowerState`
+- Renamed `SignalType` to `ServerPowerAction`
+
 ## 1.0.8
 - Minor changes and formatting
 ## 1.0.7
