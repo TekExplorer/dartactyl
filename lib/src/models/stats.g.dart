@@ -30,7 +30,7 @@ const _$ServerPowerStateEnumMap = {
 StatsResources _$StatsResourcesFromJson(Map<String, dynamic> json) =>
     StatsResources(
       memoryBytes: json['memory_bytes'] as int,
-      cpuAbsolute: json['cpu_absolute'] as bool,
+      cpuAbsolute: (json['cpu_absolute'] as num).toDouble(),
       diskBytes: json['disk_bytes'] as int,
       networkRxBytes: json['network_rx_bytes'] as int,
       networkTxBytes: json['network_tx_bytes'] as int,
