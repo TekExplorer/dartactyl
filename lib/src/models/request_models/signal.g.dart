@@ -7,14 +7,14 @@ part of 'signal.dart';
 // **************************************************************************
 
 Signal _$SignalFromJson(Map<String, dynamic> json) => Signal(
-      signal: $enumDecode(_$SignalTypeEnumMap, json['signal']),
+      signal: $enumDecode(_$ServerPowerActionEnumMap, json['signal']),
     );
 
 Map<String, dynamic> _$SignalToJson(Signal instance) => <String, dynamic>{
-      'signal': _$SignalTypeEnumMap[instance.signal],
+      'signal': _$ServerPowerActionEnumMap[instance.signal],
     };
 
-const _$SignalTypeEnumMap = {
+const _$ServerPowerActionEnumMap = {
   ServerPowerAction.start: 'start',
   ServerPowerAction.stop: 'stop',
   ServerPowerAction.restart: 'restart',

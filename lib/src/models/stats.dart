@@ -21,7 +21,7 @@ class Stats {
 @JsonSerializable()
 class StatsResources {
   int memoryBytes;
-  int cpuAbsolute;
+  bool cpuAbsolute;
   int diskBytes;
   int networkRxBytes;
   int networkTxBytes;
