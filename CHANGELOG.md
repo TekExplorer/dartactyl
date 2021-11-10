@@ -1,3 +1,5 @@
+## 1.0.12
+- Add `Origin` header. hopefully it works.
 ## 1.0.11
 - ACTUALLY fix `cpuAbsolute` in `Stats`
 ## 1.0.10

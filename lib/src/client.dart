@@ -21,6 +21,7 @@ class PteroClientConfig {
 PteroClient createPteroClient(PteroClientConfig config, {Dio? dio}) {
   dio = dio ?? Dio();
   dio.options.headers["Authorization"] = "Bearer " + config.apiKey;
+  dio.options.headers["Origin"] = config.panelUrl;
   dio.options.baseUrl = config.panelUrl;
   return PteroClient(dio);
 }
