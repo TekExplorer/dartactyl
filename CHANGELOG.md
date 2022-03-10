@@ -1,3 +1,5 @@
+## 1.1.1
+- Make it possible to disable the automatic CookieJar so you can put your own
 ## 1.1.0
 - REMOVED PteroClientConfig and createPteroClient()
 - Instead, use PteroClient.generate()

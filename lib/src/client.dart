@@ -23,13 +23,17 @@ abstract class PteroClient {
   /// [password] is the password of the Pterodactyl account.
   /// [apiKey] is the API key of the Pterodactyl account.
   /// leave [apiKey] blank if you'd rather use cookies with user/pass.
-  factory PteroClient.generate({required String url, String? key, Dio? dio}) {
+  factory PteroClient.generate(
+      {required String url,
+      String? key,
+      Dio? dio,
+      bool enableAutoCookieJar = true}) {
     dio = dio ?? Dio();
 
     if (key != null) {
       // use key
       dio.options.headers["Authorization"] = "Bearer " + key;
-    } else {
+    } else if (enableAutoCookieJar) {
       // use cookie
       dio.interceptors.add(CookieManager(CookieJar()));
     }
