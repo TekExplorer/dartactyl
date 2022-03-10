@@ -1,3 +1,12 @@
+## 1.1.0
+- REMOVED PteroClientConfig and createPteroClient()
+- Instead, use PteroClient.generate()
+- Made it possible to use cookies instead of Api Key by simply omitting the key in the PteroClient.generate() constructor
+- Added login(), which is only possible if you are in cookie mode!
+    - Conveniently, I will take you out of Key mode and into Cookie mode for you!
+- Added the inverse of login(); logout(). also takes you out of key mode - but wont work in key mode anyway so...
+- Added an interceptor to do mentioned "taking out of key mode"
+- Updated dependencies
 ## 1.0.12
 - Add `Origin` header. hopefully it works.
 ## 1.0.11

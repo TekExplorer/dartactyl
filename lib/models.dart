@@ -3,6 +3,7 @@
 /// Admin/Application API not yet supported
 library dartactyl;
 
+export 'src/models/auth/ptero_login_request.dart';
 export 'src/models/allocation.dart';
 export 'src/models/api_key.dart';
 export 'src/models/backup.dart';

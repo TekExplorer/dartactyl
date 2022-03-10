@@ -1,18 +1,12 @@
 import 'package:dartactyl/dartactyl.dart';
-import 'package:dio/dio.dart';
 
-final dio = Dio();
-
-// final apiKey = '<API-Key>';
-// final panelUrl = 'https://panel.example.com';
-final panelUrl = 'https://panel.synahost.com';
-final apiKey = '8pPWzJhCkhhX3TYp5YYagvNhdmXRz3KJGjpEoUxcXGPwigGR';
+final panelUrl = 'https://panel.example.com';
+String apiKey = '<API-Key>';
 
 void main(List<String> args) async {
   print('Starting!');
 
-  dio.options.headers["Authorization"] = "Bearer " + apiKey;
-  PteroClient client = PteroClient(dio, baseUrl: panelUrl);
+  PteroClient client = PteroClient.generate(url: panelUrl, key: apiKey);
 
   print('Getting Data!');
 
@@ -20,4 +14,11 @@ void main(List<String> args) async {
     Server? server = response.data?[0].attributes;
     print('${server?.name} : ${server?.description}');
   });
+
+  await client.getAccountInfo().then((response) {
+    User? accountInfo = response.attributes;
+    print('${accountInfo?.username} : ${accountInfo?.email}');
+  });
+
+  print('Done!');
 }

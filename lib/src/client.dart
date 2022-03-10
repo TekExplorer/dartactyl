@@ -1,35 +1,63 @@
 import 'package:dio/dio.dart';
+import 'package:dio_cookie_manager/dio_cookie_manager.dart';
+import 'package:cookie_jar/cookie_jar.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../models.dart';
+import 'interceptors/handle_errors.dart';
+import 'interceptors/if_auth_no_key.dart';
 
 // export 'http_error_to_human.dart';
 
 part 'client.g.edited.dart';
 // part 'client.g.dart';
 
-class PteroClientConfig {
-  String panelUrl;
-  String apiKey;
-  PteroClientConfig({
-    required this.panelUrl,
-    required this.apiKey,
-  });
-}
-
-/// Set up a Pterodactyl API Client in one go!
-PteroClient createPteroClient(PteroClientConfig config, {Dio? dio}) {
-  dio = dio ?? Dio();
-  dio.options.headers["Authorization"] = "Bearer " + config.apiKey;
-  dio.options.headers["Origin"] = config.panelUrl;
-  dio.options.baseUrl = config.panelUrl;
-  return PteroClient(dio);
-}
-
 /// Pterodactyl API Client
 // @RestApi(autoCastResponse: true) // Manually edited generated file to include fromJson functions for FractalResponseList
 abstract class PteroClient {
   factory PteroClient(Dio dio, {String baseUrl}) = _PteroClient;
+
+  /// Set up a Pterodactyl API Client in one go!
+  /// [baseUrl] is the base URL of the Pterodactyl server.
+  /// [username] is the username of the Pterodactyl account.
+  /// [password] is the password of the Pterodactyl account.
+  /// [apiKey] is the API key of the Pterodactyl account.
+  /// leave [apiKey] blank if you'd rather use cookies with user/pass.
+  factory PteroClient.generate({required String url, String? key, Dio? dio}) {
+    dio = dio ?? Dio();
+
+    if (key != null) {
+      // use key
+      dio.options.headers["Authorization"] = "Bearer " + key;
+    } else {
+      // use cookie
+      dio.interceptors.add(CookieManager(CookieJar()));
+    }
+    dio.options.headers["Origin"] = url;
+    dio.options.baseUrl = url;
+
+    dio.interceptors.addAll([
+      IfAuthNoKeyInterceptor(),
+      HandleErrorInterceptor(),
+    ]);
+
+    return PteroClient(dio);
+  }
+
+  /// Login to Pterodactyl using username and password.
+  /// [username] is the username of the Pterodactyl account.
+  /// [password] is the password of the Pterodactyl account.
+  /// [gRecapchaResponse] is the Google reCAPTCHA response.
+  /// [gRecapchaResponse] is not required if you dont have recaptcha enabled.
+  /// PUTS YOU INTO COOKIE MODE!!!
+  @POST('/auth/login')
+  Future<void> login(@Body() PteroLoginRequest credentials);
+
+  /// Logout of Pterodactyl, ending your session.
+  /// PUTS YOU INTO COOKIE MODE!!!
+  /// Only useful in cookie mode anyway.
+  @POST('/auth/logout')
+  Future<void> logout();
 
   @GET('/api/client')
   Future<FractalResponseList<Server>> getServers();
