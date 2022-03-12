@@ -63,6 +63,8 @@ abstract class PteroClient {
   @POST('/auth/logout')
   Future<void> logout();
 
+  ///
+
   @GET('/api/client')
   Future<FractalResponseList<Server>> getServers();
 
@@ -424,6 +426,13 @@ abstract class PteroClient {
   /// Reinstall the [server]
   @POST('/api/client/servers/{server}/settings/reinstall')
   Future<void> reinstallServer({
+    @Path() required String server,
+  });
+
+  /// Update the [server] docker image to [image]
+  @PUT('/api/client/servers/{server}/settings/docker-image')
+  Future<void> updateDockerImage(
+    @Body() UpdateImage dockerImage, {
     @Path() required String server,
   });
 }

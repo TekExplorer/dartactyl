@@ -1114,6 +1114,22 @@ class _PteroClient implements PteroClient {
     return;
   }
 
+  @override
+  Future<void> updateDockerImage(variable, {required server}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(variable.toJson());
+    await _dio.fetch<Map<String, dynamic>>(_setStreamType<void>(Options(
+            method: 'PUT', headers: _headers, extra: _extra)
+        .compose(
+            _dio.options, '/api/client/servers/$server/settings/docker-image',
+            queryParameters: queryParameters, data: _data)
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    return;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

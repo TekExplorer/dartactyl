@@ -27,7 +27,6 @@ export 'src/models/pagination.dart';
 export 'src/models/permission_keys/permission_keys.dart';
 export 'src/models/recovery_tokens.dart';
 export 'src/models/relationships.dart';
-export 'src/models/request_models/request_models.dart';
 export 'src/models/server.dart';
 export 'src/models/server/server.dart';
 export 'src/models/server_database.dart';
@@ -40,3 +39,5 @@ export 'src/models/system_permissions.dart';
 export 'src/models/two_factor_image.dart';
 export 'src/models/user.dart';
 export 'src/models/websocket_details.dart';
+
+export 'src/models/request_models/request_models.dart';

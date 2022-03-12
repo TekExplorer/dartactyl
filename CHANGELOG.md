@@ -1,3 +1,5 @@
+## 1.1.5
+- Add missing updateDockerContainer
 ## 1.1.4
 - Add a utility extention for the Server, such as getting the docker images on the object directly
 ## 1.1.3

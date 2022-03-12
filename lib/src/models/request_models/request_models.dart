@@ -15,3 +15,4 @@ export 'task.dart';
 export 'two_factor_code.dart';
 export 'update_email.dart';
 export 'update_password.dart';
+export 'update_image.dart';
