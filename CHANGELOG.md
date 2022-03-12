@@ -1,5 +1,7 @@
+## 1.1.4
+- Add a utility extention for the Server, such as getting the docker images on the object directly
 ## 1.1.3
-- Add a utility extention with 
+- Add a utility extention for the Client
 ## 1.1.2
 - Add `dockerImages` to `Meta` as thats apparently where it shows up.
 ## 1.1.1
