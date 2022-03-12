@@ -18,6 +18,9 @@ Meta _$MetaFromJson(Map<String, dynamic> json) => Meta(
       startupCommand: json['startup_command'] as String?,
       rawStartupCommand: json['raw_startup_command'] as String?,
       resource: json['resource'] as String?,
+      dockerImages: (json['docker_images'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$MetaToJson(Meta instance) => <String, dynamic>{
@@ -27,5 +30,6 @@ Map<String, dynamic> _$MetaToJson(Meta instance) => <String, dynamic>{
       'user_permissions': instance.userPermissions,
       'startup_command': instance.startupCommand,
       'raw_startup_command': instance.rawStartupCommand,
+      'docker_images': instance.dockerImages,
       'resource': instance.resource,
     };

@@ -10,8 +10,15 @@ class Meta {
   String? secretToken;
   bool? isServerOwner;
   List<String>? userPermissions;
+
+  /// Shows up on getVariables()
   String? startupCommand;
+
+  /// Shows up on getVariables()
   String? rawStartupCommand;
+
+  /// Shows up on getVariables()
+  List<String>? dockerImages;
   String? resource;
   Meta({
     this.pagination,
@@ -21,6 +28,7 @@ class Meta {
     this.startupCommand,
     this.rawStartupCommand,
     this.resource,
+    this.dockerImages,
   });
   factory Meta.fromJson(Map<String, dynamic> json) => _$MetaFromJson(json);
   Map<String, dynamic> toJson() => _$MetaToJson(this);

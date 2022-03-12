@@ -1,3 +1,5 @@
+## 1.1.2
+- Add `dockerImages` to `Meta` as thats apparently where it shows up.
 ## 1.1.1
 - Make it possible to disable the automatic CookieJar so you can put your own
 ## 1.1.0
