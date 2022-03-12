@@ -1,20 +1,24 @@
+## 1.1.6
+- Add `PteroClient.mock()` for testing
+    - Uses `mockapi.ptero.sh` which itself wraps the https://pterodactyl.stoplight.io mock server in a way that works with this client, as `/api/client` is hardcoded 
+    - *(!!SERVER NOT COMPLETED AS OF WRITING THIS!!)*
 ## 1.1.5
-- Add missing updateDockerContainer
+- Add missing `updateDockerContainer`
 ## 1.1.4
-- Add a utility extention for the Server, such as getting the docker images on the object directly
+- Add a utility extention for the `Server`, such as getting the docker images on the object directly
 ## 1.1.3
-- Add a utility extention for the Client
+- Add a utility extention for the client
 ## 1.1.2
 - Add `dockerImages` to `Meta` as thats apparently where it shows up.
 ## 1.1.1
 - Make it possible to disable the automatic CookieJar so you can put your own
 ## 1.1.0
-- REMOVED PteroClientConfig and createPteroClient()
-- Instead, use PteroClient.generate()
+- REMOVED `PteroClientConfig` and `createPteroClient()`
+- Instead, use `PteroClient.generate()`
 - Made it possible to use cookies instead of Api Key by simply omitting the key in the PteroClient.generate() constructor
-- Added login(), which is only possible if you are in cookie mode!
+- Added `login()`, which is only possible if you are in cookie mode!
     - Conveniently, I will take you out of Key mode and into Cookie mode for you!
-- Added the inverse of login(); logout(). also takes you out of key mode - but wont work in key mode anyway so...
+- Added the inverse of `login()`; `logout()`. also takes you out of key mode - but wont work in key mode anyway so...
 - Added an interceptor to do mentioned "taking out of key mode"
 - Updated dependencies
 ## 1.0.12

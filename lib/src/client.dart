@@ -23,11 +23,12 @@ abstract class PteroClient {
   /// [password] is the password of the Pterodactyl account.
   /// [apiKey] is the API key of the Pterodactyl account.
   /// leave [apiKey] blank if you'd rather use cookies with user/pass.
-  factory PteroClient.generate(
-      {required String url,
-      String? key,
-      Dio? dio,
-      bool enableAutoCookieJar = true}) {
+  factory PteroClient.generate({
+    required String url,
+    String? key,
+    Dio? dio,
+    bool enableAutoCookieJar = true,
+  }) {
     dio = dio ?? Dio();
 
     if (key != null) {
@@ -47,6 +48,19 @@ abstract class PteroClient {
 
     return PteroClient(dio);
   }
+
+  /// Creates an instance of the [PteroClient] class.
+  ///
+  /// This can be used to test the client without actually connecting to a server.
+  ///
+  /// Uses mockapi.ptero.sh as the base URL, which redirects to the pterodactyl.stoplight.io mock server.
+  ///
+  /// Does not work with /auth endpoints - only /api/client
+  factory PteroClient.mock([Dio? dio]) => PteroClient.generate(
+        url: 'mockapi.ptero.sh',
+        dio: dio,
+        key: 'mock-api-key',
+      );
 
   /// Login to Pterodactyl using username and password.
   /// [username] is the username of the Pterodactyl account.
