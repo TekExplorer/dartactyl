@@ -8,7 +8,7 @@ import 'interceptors/handle_errors.dart';
 import 'interceptors/if_auth_no_key.dart';
 
 // export 'http_error_to_human.dart';
-
+export 'utility.dart';
 part 'client.g.edited.dart';
 // part 'client.g.dart';
 
