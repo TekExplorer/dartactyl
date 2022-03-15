@@ -57,7 +57,7 @@ abstract class PteroClient {
   ///
   /// Does not work with /auth endpoints - only /api/client
   factory PteroClient.mock([Dio? dio]) => PteroClient.generate(
-        url: 'mockapi.ptero.sh',
+        url: 'https://mockapi.ptero.sh',
         dio: dio,
         key: 'mock-api-key',
       );

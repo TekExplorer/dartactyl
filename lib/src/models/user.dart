@@ -22,5 +22,5 @@ class User {
     required this.language,
   });
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
-  Map<String, dynamic> toJson(Object? value) => _$UserToJson(this);
+  Map<String, dynamic> toJson() => _$UserToJson(this);
 }

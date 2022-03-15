@@ -1,3 +1,7 @@
+## 1.1.7
+- Fix an issue with `toJson()` on a couple models
+- Fix `PteroClient.mock()` (needed to include the `https://` -.-)
+- Add example using `PteroClient.mock()`
 ## 1.1.6
 - Add `PteroClient.mock()` for testing
     - Uses `mockapi.ptero.sh` which itself wraps the https://pterodactyl.stoplight.io mock server in a way that works with this client, as `/api/client` is hardcoded 

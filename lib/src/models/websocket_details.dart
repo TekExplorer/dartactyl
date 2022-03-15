@@ -12,5 +12,5 @@ class WebsocketDetails {
   });
   factory WebsocketDetails.fromJson(Map<String, dynamic> json) =>
       _$WebsocketDetailsFromJson(json);
-  Map<String, dynamic> toJson(Object? value) => _$WebsocketDetailsToJson(this);
+  Map<String, dynamic> toJson() => _$WebsocketDetailsToJson(this);
 }
