@@ -1,9 +1,10 @@
+import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'egg_logs_config.g.dart';
 
 @JsonSerializable()
-class EggLogsConfig {
+class EggLogsConfig with SerializableMixin {
   bool custom;
   String? location;
   EggLogsConfig({
@@ -12,5 +13,7 @@ class EggLogsConfig {
   });
   factory EggLogsConfig.fromJson(Map<String, dynamic> json) =>
       _$EggLogsConfigFromJson(json);
+
+  @override
   Map<String, dynamic> toJson() => _$EggLogsConfigToJson(this);
 }

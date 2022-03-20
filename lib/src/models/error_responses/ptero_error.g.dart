@@ -8,19 +8,13 @@ part of 'ptero_error.dart';
 
 PteroError _$PteroErrorFromJson(Map<String, dynamic> json) => PteroError(
       code: $enumDecode(_$PteroErrorCodeEnumMap, json['code']),
-      status: json['status'] as String,
       detail: json['detail'] as String,
-      meta: json['meta'] == null
-          ? null
-          : PteroErrorMeta.fromJson(json['meta'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$PteroErrorToJson(PteroError instance) =>
     <String, dynamic>{
       'code': _$PteroErrorCodeEnumMap[instance.code],
-      'status': instance.status,
       'detail': instance.detail,
-      'meta': instance.meta?.toJson(),
     };
 
 const _$PteroErrorCodeEnumMap = {
