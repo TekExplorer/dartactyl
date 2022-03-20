@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../dartactyl.dart';
+import '../../../models.dart';
 
 part 'send_server_command.g.dart';
 

@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
+import '../../models.dart';
 
 part 'relationships.g.dart';
 

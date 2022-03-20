@@ -1,4 +1,4 @@
-import 'package:dartactyl/models.dart';
+import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'key_value.g.dart';

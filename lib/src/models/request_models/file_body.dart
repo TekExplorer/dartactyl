@@ -1,4 +1,4 @@
-import 'package:dartactyl/dartactyl.dart';
+import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'file_body.g.dart';
