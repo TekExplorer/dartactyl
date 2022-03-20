@@ -1,3 +1,8 @@
+## 1.2.0 
+ - Cleaner JSON Serialization
+ - Error Handling YAY
+ - Make it so anything with a `.toJson()` is a member of the `SerializableMixin` class to make generic calls possible
+ - Moved around some files
 ## 1.1.7
 - Fix an issue with `toJson()` on a couple models
 - Fix `PteroClient.mock()` (needed to include the `https://` -.-)
