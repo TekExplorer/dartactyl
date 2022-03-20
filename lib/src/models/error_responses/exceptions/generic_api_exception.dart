@@ -1,4 +1,4 @@
-import 'package:dartactyl/models.dart';
+import '../../../../models.dart';
 import 'package:dio/dio.dart';
 
 part 'ptero_api_exception.dart';

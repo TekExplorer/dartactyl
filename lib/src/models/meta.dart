@@ -1,11 +1,10 @@
+import '../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
-
-import 'pagination.dart';
 
 part 'meta.g.dart';
 
 @JsonSerializable()
-class Meta {
+class Meta with SerializableMixin {
   /// Shows on [listServers], [listBackups]
   Pagination? pagination;
 
@@ -37,5 +36,6 @@ class Meta {
     this.dockerImages,
   });
   factory Meta.fromJson(Map<String, dynamic> json) => _$MetaFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$MetaToJson(this);
 }

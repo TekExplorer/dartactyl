@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'file_body.g.dart';
 
 @JsonSerializable()
-class FileBodyList<T> {
+class FileBodyList<T> with SerializableMixin {
   @JsonKey(name: 'root')
   String rootDir;
   @JsonKey(fromJson: _fromGenericJson, toJson: _toGenericJson)
@@ -17,6 +17,7 @@ class FileBodyList<T> {
 
   factory FileBodyList.fromJson(Map<String, dynamic> json) =>
       _$FileBodyListFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$FileBodyListToJson(this);
 
   static dynamic _toGenericJson(dynamic object) {
@@ -57,7 +58,7 @@ Name:
 */
 
 @JsonSerializable()
-class FolderBody {
+class FolderBody with SerializableMixin {
   @JsonKey(name: 'root')
   String rootDir;
   String name;
@@ -69,11 +70,12 @@ class FolderBody {
 
   factory FolderBody.fromJson(Map<String, dynamic> json) =>
       _$FolderBodyFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$FolderBodyToJson(this);
 }
 
 @JsonSerializable()
-class FileBody {
+class FileBody with SerializableMixin {
   @JsonKey(name: 'root')
   String rootDir;
   String file;
@@ -85,5 +87,6 @@ class FileBody {
 
   factory FileBody.fromJson(Map<String, dynamic> json) =>
       _$FileBodyFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$FileBodyToJson(this);
 }

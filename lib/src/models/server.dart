@@ -1,5 +1,6 @@
-import '../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import '../../models.dart';
 
 part 'server.g.dart';
 
