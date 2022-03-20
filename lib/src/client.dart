@@ -1,6 +1,6 @@
+import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
-import 'package:cookie_jar/cookie_jar.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../models.dart';
@@ -29,6 +29,7 @@ abstract class PteroClient {
     String? key,
     Dio? dio,
     bool enableAutoCookieJar = true,
+    bool enableErrorInterceptor = true,
   }) {
     dio = dio ?? Dio();
 
@@ -44,7 +45,7 @@ abstract class PteroClient {
 
     dio.interceptors.addAll([
       IfAuthNoKeyInterceptor(),
-      HandleErrorInterceptor(),
+      if (enableErrorInterceptor) HandleErrorInterceptor(),
     ]);
 
     return PteroClient(dio);
