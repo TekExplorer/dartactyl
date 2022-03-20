@@ -7,13 +7,14 @@ import '../models.dart';
 import 'interceptors/handle_errors.dart';
 import 'interceptors/if_auth_no_key.dart';
 
-// export 'http_error_to_human.dart';
 export 'utility.dart';
-part 'client.g.edited.dart';
-// part 'client.g.dart';
+
+part 'client.g.dart';
 
 /// Pterodactyl API Client
-// @RestApi(autoCastResponse: true) // Manually edited generated file to include fromJson functions for FractalResponseList
+@RestApi(
+    // autoCastResponse: true,
+    ) // Manually edited generated file to include fromJson functions for FractalResponseList
 abstract class PteroClient {
   factory PteroClient(Dio dio, {String baseUrl}) = _PteroClient;
 

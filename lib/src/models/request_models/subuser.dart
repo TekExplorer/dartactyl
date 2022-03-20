@@ -1,9 +1,10 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'subuser.g.dart';
 
 @JsonSerializable()
-class Subuser extends SubuserPermissions {
+class Subuser extends SubuserPermissions with SerializableMixin {
   String email;
   Subuser({required this.email, required List<String> permissions})
       : super(permissions: permissions);

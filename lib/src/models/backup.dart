@@ -1,9 +1,10 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'backup.g.dart';
 
 @JsonSerializable()
-class Backup {
+class Backup with SerializableMixin {
   String uuid;
   bool isSuccessful;
   bool isLocked;
@@ -27,5 +28,6 @@ class Backup {
   });
 
   factory Backup.fromJson(Map<String, dynamic> json) => _$BackupFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$BackupToJson(this);
 }

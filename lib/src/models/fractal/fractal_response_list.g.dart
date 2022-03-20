@@ -1,27 +1,28 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'experament.dart';
+part of 'fractal_response_list.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-FractalResponseData<T> _$FractalResponseDataFromJson<T>(
-        Map<String, dynamic> json) =>
-    FractalResponseData<T>(
-      object: $enumDecode(_$AttributeObjectEnumMap, json['object']),
-      attributes: FractalResponseData._fromGenericJson(
-          json['attributes'] as Map<String, dynamic>),
-      meta: json['meta'] == null
-          ? null
-          : Meta.fromJson(json['meta'] as Map<String, dynamic>),
-    );
+FractalResponseList<T>
+    _$FractalResponseListFromJson<T extends SerializableMixin>(
+            Map<String, dynamic> json) =>
+        FractalResponseList<T>(
+          object: $enumDecode(_$AttributeObjectEnumMap, json['object']),
+          data: FractalResponseList._fromGenericJsonList(
+              json['data'] as List<Map<String, dynamic>>),
+          meta: json['meta'] == null
+              ? null
+              : Meta.fromJson(json['meta'] as Map<String, dynamic>),
+        );
 
-Map<String, dynamic> _$FractalResponseDataToJson<T>(
-        FractalResponseData<T> instance) =>
+Map<String, dynamic> _$FractalResponseListToJson<T extends SerializableMixin>(
+        FractalResponseList<T> instance) =>
     <String, dynamic>{
       'object': _$AttributeObjectEnumMap[instance.object],
-      'attributes': FractalResponseData._toGenericJson(instance.attributes),
+      'data': instance.data.map((e) => e.toJson()).toList(),
       'meta': instance.meta?.toJson(),
     };
 

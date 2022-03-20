@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../cron.dart';
+import 'package:dartactyl/models.dart';
 
 part 'ptero_error_meta.g.dart';
 

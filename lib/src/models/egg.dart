@@ -1,12 +1,10 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
-
-import 'egg/egg.dart';
-import 'relationships.dart';
 
 part 'egg.g.dart';
 
 @JsonSerializable()
-class Egg {
+class Egg with SerializableMixin {
   int id;
   String uuid;
   String name;
@@ -36,5 +34,6 @@ class Egg {
     this.relationships,
   });
   factory Egg.fromJson(Map<String, dynamic> json) => _$EggFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$EggToJson(this);
 }

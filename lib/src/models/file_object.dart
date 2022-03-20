@@ -1,9 +1,10 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'file_object.g.dart';
 
 @JsonSerializable()
-class FileObject {
+class FileObject with SerializableMixin {
   String name;
   String mode;
   int size;
@@ -26,5 +27,6 @@ class FileObject {
   });
   factory FileObject.fromJson(Map<String, dynamic> json) =>
       _$FileObjectFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$FileObjectToJson(this);
 }

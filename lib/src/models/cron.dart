@@ -1,10 +1,11 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'cron.g.dart';
 
 @JsonSerializable()
-class Cron {
-  String? name;
+class Cron with SerializableMixin {
+  String? name; // exists?
   String dayOfWeek;
   String dayOfMonth;
   String hour;
@@ -17,5 +18,6 @@ class Cron {
     required this.minute,
   });
   factory Cron.fromJson(Map<String, dynamic> json) => _$CronFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$CronToJson(this);
 }

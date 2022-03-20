@@ -1,9 +1,10 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'websocket_details.g.dart';
 
 @JsonSerializable()
-class WebsocketDetails {
+class WebsocketDetails with SerializableMixin {
   String token;
   String socket;
   WebsocketDetails({
@@ -12,5 +13,6 @@ class WebsocketDetails {
   });
   factory WebsocketDetails.fromJson(Map<String, dynamic> json) =>
       _$WebsocketDetailsFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$WebsocketDetailsToJson(this);
 }

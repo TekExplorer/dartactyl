@@ -1,12 +1,10 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
-
-import 'relationships.dart';
-import 'server/server.dart';
 
 part 'server.g.dart';
 
 @JsonSerializable()
-class Server {
+class Server with SerializableMixin {
   bool serverOwner;
   String identifier;
   int internalId;
@@ -50,6 +48,7 @@ class Server {
   String get shortUuid => identifier;
 
   factory Server.fromJson(Map<String, dynamic> json) => _$ServerFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$ServerToJson(this);
 }
 

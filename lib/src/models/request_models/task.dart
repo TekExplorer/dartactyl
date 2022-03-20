@@ -1,9 +1,10 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'task.g.dart';
 
 @JsonSerializable()
-class Task {
+class Task with SerializableMixin {
   Action action;
   String payload;
   int timeOffset;
@@ -13,6 +14,7 @@ class Task {
     required this.timeOffset,
   });
   factory Task.fromJson(Map<String, dynamic> json) => _$TaskFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$TaskToJson(this);
 }
 

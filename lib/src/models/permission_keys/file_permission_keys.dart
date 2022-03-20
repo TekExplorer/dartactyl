@@ -1,9 +1,10 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'file_permission_keys.g.dart';
 
 @JsonSerializable()
-class FilePermissionKeys {
+class FilePermissionKeys with SerializableMixin {
   String create;
   String read;
   String update;
@@ -20,5 +21,7 @@ class FilePermissionKeys {
   });
   factory FilePermissionKeys.fromJson(Map<String, dynamic> json) =>
       _$FilePermissionKeysFromJson(json);
+
+  @override
   Map<String, dynamic> toJson() => _$FilePermissionKeysToJson(this);
 }

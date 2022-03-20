@@ -8,8 +8,8 @@ void main(List<String> args) {
 
   print('Getting account details');
   client.getAccountInfo().then((response) {
-    User? user = response.attributes;
-    print(user?.toJson());
-    print(user?.username);
+    User user = response.attributes;
+    print(user.toJson());
+    print(user.username);
   });
 }

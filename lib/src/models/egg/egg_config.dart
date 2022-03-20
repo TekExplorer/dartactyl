@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'egg.dart';
+import '.barrel.dart';
 
 part 'egg_config.g.dart';
 

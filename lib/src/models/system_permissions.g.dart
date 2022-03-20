@@ -54,20 +54,17 @@ Map<String, dynamic> _$PermissionsToJson(Permissions instance) =>
       'settings': instance.settings.toJson(),
     };
 
-PermissionsModel<T> _$PermissionsModelFromJson<T>(
-  Map<String, dynamic> json,
-  T Function(Object? json) fromJsonT,
-) =>
+PermissionsModel<T> _$PermissionsModelFromJson<T extends SerializableMixin>(
+        Map<String, dynamic> json) =>
     PermissionsModel<T>(
       description: json['description'] as String,
-      keys: fromJsonT(json['keys']),
+      keys: PermissionsModel._fromGenericJson(
+          json['keys'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$PermissionsModelToJson<T>(
-  PermissionsModel<T> instance,
-  Object? Function(T value) toJsonT,
-) =>
+Map<String, dynamic> _$PermissionsModelToJson<T extends SerializableMixin>(
+        PermissionsModel<T> instance) =>
     <String, dynamic>{
       'description': instance.description,
-      'keys': toJsonT(instance.keys),
+      'keys': PermissionsModel._toGenericJson(instance.keys),
     };

@@ -1,9 +1,10 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'stats.g.dart';
 
 @JsonSerializable()
-class Stats {
+class Stats with SerializableMixin {
   ServerPowerState currentState;
   bool isSuspended;
   StatsResources resources;
@@ -15,11 +16,12 @@ class Stats {
   });
 
   factory Stats.fromJson(Map<String, dynamic> json) => _$StatsFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$StatsToJson(this);
 }
 
 @JsonSerializable()
-class StatsResources {
+class StatsResources with SerializableMixin {
   int memoryBytes;
   double cpuAbsolute;
   int diskBytes;
@@ -36,6 +38,7 @@ class StatsResources {
 
   factory StatsResources.fromJson(Map<String, dynamic> json) =>
       _$StatsResourcesFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$StatsResourcesToJson(this);
 }
 

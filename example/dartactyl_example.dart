@@ -11,13 +11,13 @@ void main(List<String> args) async {
   print('Getting Data!');
 
   await client.getServers().then((response) {
-    Server? server = response.data?[0].attributes;
-    print('${server?.name} : ${server?.description}');
+    Server server = response.data[0].attributes;
+    print('${server.name} : ${server.description}');
   });
 
   await client.getAccountInfo().then((response) {
-    User? accountInfo = response.attributes;
-    print('${accountInfo?.username} : ${accountInfo?.email}');
+    User accountInfo = response.attributes;
+    print('${accountInfo.username} : ${accountInfo.email}');
   });
 
   print('Done!');

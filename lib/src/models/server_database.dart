@@ -1,12 +1,10 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
-
-import 'cron.dart';
-import 'relationships.dart';
 
 part 'server_database.g.dart';
 
 @JsonSerializable()
-class ServerDatabase {
+class ServerDatabase with SerializableMixin {
   ServerDatabase({
     required this.id,
     required this.name,
@@ -33,5 +31,6 @@ class ServerDatabase {
 
   factory ServerDatabase.fromJson(Map<String, dynamic> json) =>
       _$ServerDatabaseFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$ServerDatabaseToJson(this);
 }

@@ -6,22 +6,16 @@ part of 'file_body.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FileBodyList<T> _$FileBodyListFromJson<T>(
-  Map<String, dynamic> json,
-  T Function(Object? json) fromJsonT,
-) =>
+FileBodyList<T> _$FileBodyListFromJson<T>(Map<String, dynamic> json) =>
     FileBodyList<T>(
       rootDir: json['root'] as String,
-      files: (json['files'] as List<dynamic>).map(fromJsonT).toList(),
+      files: FileBodyList._fromGenericJson(json['files']),
     );
 
-Map<String, dynamic> _$FileBodyListToJson<T>(
-  FileBodyList<T> instance,
-  Object? Function(T value) toJsonT,
-) =>
+Map<String, dynamic> _$FileBodyListToJson<T>(FileBodyList<T> instance) =>
     <String, dynamic>{
       'root': instance.rootDir,
-      'files': instance.files.map(toJsonT).toList(),
+      'files': FileBodyList._toGenericJson(instance.files),
     };
 
 FolderBody _$FolderBodyFromJson(Map<String, dynamic> json) => FolderBody(

@@ -1,9 +1,10 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'egg_variable.g.dart';
 
 @JsonSerializable()
-class EggVariable {
+class EggVariable with SerializableMixin {
   String name;
   String description;
   String envVariable;
@@ -22,5 +23,6 @@ class EggVariable {
   });
   factory EggVariable.fromJson(Map<String, dynamic> json) =>
       _$EggVariableFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$EggVariableToJson(this);
 }

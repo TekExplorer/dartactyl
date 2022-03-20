@@ -7,11 +7,11 @@ part of 'pagination.dart';
 // **************************************************************************
 
 Pagination _$PaginationFromJson(Map<String, dynamic> json) => Pagination(
-      total: json['total'] as int?,
-      count: json['count'] as int?,
-      perPage: json['per_page'] as int?,
-      currentPage: json['current_page'] as int?,
-      totalPages: json['total_pages'] as int?,
+      total: json['total'] as int,
+      count: json['count'] as int,
+      perPage: json['per_page'] as int,
+      currentPage: json['current_page'] as int,
+      totalPages: json['total_pages'] as int,
       links: json['links'] == null
           ? null
           : Links.fromJson(json['links'] as Map<String, dynamic>),

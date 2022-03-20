@@ -1,9 +1,10 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:dartactyl/models.dart';
 
 part 'database_host.g.dart';
 
 @JsonSerializable()
-class DatabaseHost {
+class DatabaseHost with SerializableMixin {
   int id;
   String name;
   String host;
@@ -24,5 +25,6 @@ class DatabaseHost {
   });
   factory DatabaseHost.fromJson(Map<String, dynamic> json) =>
       _$DatabaseHostFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$DatabaseHostToJson(this);
 }

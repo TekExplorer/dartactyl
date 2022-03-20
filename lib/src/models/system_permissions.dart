@@ -1,26 +1,17 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
-
-import 'permission_keys/allocation_permission_keys.dart';
-import 'permission_keys/backup_permission_keys.dart';
-import 'permission_keys/control_permission_keys.dart';
-import 'permission_keys/database_permission_keys.dart';
-import 'permission_keys/file_permission_keys.dart';
-import 'permission_keys/schedule_permission_keys.dart';
-import 'permission_keys/settings_permission_keys.dart';
-import 'permission_keys/startup_permission_keys.dart';
-import 'permission_keys/user_permission_keys.dart';
-import 'permission_keys/websocket_permission_keys.dart';
 
 part 'system_permissions.g.dart';
 
 @JsonSerializable()
-class SystemPermissions {
+class SystemPermissions with SerializableMixin {
   Permissions permissions;
   SystemPermissions({
     required this.permissions,
   });
   factory SystemPermissions.fromJson(Map<String, dynamic> json) =>
       _$SystemPermissionsFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$SystemPermissionsToJson(this);
 }
 
@@ -54,9 +45,10 @@ class Permissions {
   Map<String, dynamic> toJson() => _$PermissionsToJson(this);
 }
 
-@JsonSerializable(genericArgumentFactories: true)
-class PermissionsModel<T> {
+@JsonSerializable()
+class PermissionsModel<T extends SerializableMixin> with SerializableMixin {
   String description;
+  @JsonKey(fromJson: _fromGenericJson, toJson: _toGenericJson)
   T keys;
   PermissionsModel({
     required this.description,
@@ -64,39 +56,39 @@ class PermissionsModel<T> {
   });
 
   factory PermissionsModel.fromJson(Map<String, dynamic> json) =>
-      _$PermissionsModelFromJson(json, (Object? json) {
-        print(json.toString());
-        if (json is Map<String, dynamic>) {
-          switch (T) {
-            case WebsocketPermissionKeys:
-              return WebsocketPermissionKeys.fromJson(json) as T;
-            case ControlPermissionKeys:
-              return ControlPermissionKeys.fromJson(json) as T;
-            case UserPermissionKeys:
-              return UserPermissionKeys.fromJson(json) as T;
-            case FilePermissionKeys:
-              return FilePermissionKeys.fromJson(json) as T;
-            case BackupPermissionKeys:
-              return BackupPermissionKeys.fromJson(json) as T;
-            case AllocationPermissionKeys:
-              return AllocationPermissionKeys.fromJson(json) as T;
-            case StartupPermissionKeys:
-              return StartupPermissionKeys.fromJson(json) as T;
-            case DatabasePermissionKeys:
-              return DatabasePermissionKeys.fromJson(json) as T;
-            case SchedulePermissionKeys:
-              return SchedulePermissionKeys.fromJson(json) as T;
-            case SettingsPermissionKeys:
-              return SettingsPermissionKeys.fromJson(json) as T;
-          }
-        }
-        // This will only work if `json` is a native JSON type:
-        //   num, String, bool, null, etc
-        // *and* is assignable to `T`.
-        return json as T;
-      });
+      _$PermissionsModelFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    return _$PermissionsModelToJson(this, (T object) => object);
+  @override
+  Map<String, dynamic> toJson() => _$PermissionsModelToJson(this);
+
+  static T _fromGenericJson<T>(Map<String, dynamic> json) {
+    switch (T) {
+      case WebsocketPermissionKeys:
+        return WebsocketPermissionKeys.fromJson(json) as T;
+      case ControlPermissionKeys:
+        return ControlPermissionKeys.fromJson(json) as T;
+      case UserPermissionKeys:
+        return UserPermissionKeys.fromJson(json) as T;
+      case FilePermissionKeys:
+        return FilePermissionKeys.fromJson(json) as T;
+      case BackupPermissionKeys:
+        return BackupPermissionKeys.fromJson(json) as T;
+      case AllocationPermissionKeys:
+        return AllocationPermissionKeys.fromJson(json) as T;
+      case StartupPermissionKeys:
+        return StartupPermissionKeys.fromJson(json) as T;
+      case DatabasePermissionKeys:
+        return DatabasePermissionKeys.fromJson(json) as T;
+      case SchedulePermissionKeys:
+        return SchedulePermissionKeys.fromJson(json) as T;
+      case SettingsPermissionKeys:
+        return SettingsPermissionKeys.fromJson(json) as T;
+      default:
+        throw Exception('Unknown permission type $T in PermissionsModel');
+    }
   }
+
+  static Map<String, dynamic> _toGenericJson<T extends SerializableMixin>(
+          T t) =>
+      t.toJson();
 }

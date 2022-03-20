@@ -1,9 +1,10 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'node.g.dart';
 
 @JsonSerializable()
-class Node {
+class Node with SerializableMixin {
   int id;
   String uuid;
   bool public;
@@ -48,5 +49,6 @@ class Node {
   });
 
   factory Node.fromJson(Map<String, dynamic> json) => _$NodeFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$NodeToJson(this);
 }

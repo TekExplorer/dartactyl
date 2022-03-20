@@ -1,11 +1,10 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
-
-import 'cron.dart';
 
 part 'server_schedule.g.dart';
 
 @JsonSerializable()
-class ServerSchedule {
+class ServerSchedule with SerializableMixin {
   int id;
   String name;
   Cron cron;
@@ -32,5 +31,6 @@ class ServerSchedule {
 
   factory ServerSchedule.fromJson(Map<String, dynamic> json) =>
       _$ServerScheduleFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$ServerScheduleToJson(this);
 }
