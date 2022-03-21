@@ -1,3 +1,5 @@
+## 1.2.2
+ - Barrels apparently dont work. Why?
 ## 1.2.1
  - Start adding tests.
  - Fix import issue?
