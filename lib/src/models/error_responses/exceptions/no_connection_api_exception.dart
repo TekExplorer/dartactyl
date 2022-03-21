@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import 'generic_api_exception.dart';
+import 'api_exception.dart';
 
 /// A simple wrapper class to indicate a lack of connection
 class NoConnectionApiExcepton extends GenericApiException {

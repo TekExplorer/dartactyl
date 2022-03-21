@@ -1,4 +1,4 @@
-part of 'generic_api_exception.dart';
+part of 'api_exception.dart';
 
 class PteroApiException extends GenericApiException {
   final PteroErrors _errors;

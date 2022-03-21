@@ -1,7 +1,6 @@
 // import 'package:dartactyl/models.dart';
+import 'package:dartactyl/models.dart';
 import 'package:dio/dio.dart';
-
-import '../models/error_responses/.barrel.dart';
 
 class HandleErrorInterceptor extends Interceptor {
   // should be last to intercept

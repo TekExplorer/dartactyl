@@ -1,3 +1,6 @@
+## 1.2.1
+ - Start adding tests.
+ - Fix import issue?
 ## 1.2.0 
  - Cleaner JSON Serialization
  - Error Handling YAY

@@ -49,4 +49,6 @@ enum PteroErrorCode {
   HttpException,
   // ignore: constant_identifier_names
   DisplayException,
+  // ignore: constant_identifier_names
+  MethodNotAllowedHttpException,
 }
