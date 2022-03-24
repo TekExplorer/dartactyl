@@ -72,7 +72,7 @@ export 'src/models/request_models/file_body.dart';
 export 'src/models/request_models/from_to.dart';
 export 'src/models/request_models/key_value.dart';
 export 'src/models/request_models/make_file_copy.dart';
-export 'src/models/request_models/name.dart';
+export 'src/models/request_models/server_rename.dart';
 export 'src/models/request_models/schedule.dart';
 export 'src/models/request_models/send_server_command.dart';
 export 'src/models/request_models/signal.dart';
@@ -98,3 +98,11 @@ export 'src/models/permission_keys/websocket_permission_keys.dart';
 //
 export 'src/models/auth/ptero_login_request.dart';
 export 'src/models/base/serializable.dart';
+
+//
+export 'src/models/query/includes.dart';
+export 'src/models/query/get_servers.dart';
+
+//
+export 'src/interceptors/handle_errors.dart';
+export 'src/interceptors/if_auth_no_key.dart';

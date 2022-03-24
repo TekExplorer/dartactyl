@@ -1,3 +1,10 @@
+## 1.3.0
+ - Added Query parameters like `includes`
+    - `getServers` is now more powerful with `type` and `filter[ ]`
+ - Renamed a bunch of stuff
+    - `getPermissions` -> `getSystemPermissions`
+    - A bunch of parameters like `server` are now suffexed by `Id` (ex: `serverId`)
+    - Anything that returns a `FractalResponseList` is now prefixed by `list` instead of `get` (ie. `getServers` -> `listServers`)
 ## 1.2.2
  - Barrels apparently dont work. Why?
 ## 1.2.1

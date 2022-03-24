@@ -15,6 +15,13 @@ PteroClient client = PteroClient.generate(
 );
 ```
 
+## Development
+
+To get started, generate needed files by running 
+```
+dart run build_runner build
+```
+
 ## Additional information
 
 This package is WIP, but feel free to make issues or pull requests on the GitHub repository

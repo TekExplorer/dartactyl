@@ -1,7 +1,4 @@
-import 'dart:async';
-
 import 'package:dartactyl/dartactyl.dart';
-import 'package:dio/dio.dart';
 import 'package:test/test.dart';
 
 import 'common.dart';
@@ -12,7 +9,7 @@ void main() {
   test('List Servers', () {
     t.testFor<FractalResponseList<Server>>(
       testCodes: [200, 403, 405],
-      clientCallback: (client) => client.getServers(),
+      clientCallback: (client) => client.listServers(),
       successCallback: (response) {
         expect(response.meta?.pagination, isNotNull);
 
@@ -29,7 +26,7 @@ void main() {
   test('List client permissions', () {
     t.testFor<FractalResponseData<SystemPermissions>>(
       testCodes: [200, 400, 403, 405],
-      clientCallback: (client) => client.getPermissions(),
+      clientCallback: (client) => client.getSystemPermissions(),
       successCallback: (response) {
         expect(response, 'system_permissions');
         expect(response.attributes, isNotNull);

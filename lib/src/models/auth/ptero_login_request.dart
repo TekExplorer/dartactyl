@@ -4,15 +4,23 @@ import '../../../models.dart';
 
 part 'ptero_login_request.g.dart';
 
+/// [username] is the username of the Pterodactyl account.
+///
+/// [password] is the password of the Pterodactyl account.
+///
+/// [gRecaptchaResponse] is the Google reCAPTCHA response.
+///
+/// [gRecaptchaResponse] is not required if you dont have recaptcha enabled.
 @JsonSerializable()
 class PteroLoginRequest with SerializableMixin {
-  String user;
+  @JsonKey(name: 'user')
+  String username;
   String password;
   @JsonKey(name: 'g-recaptcha-response')
   String? gRecaptchaResponse;
 
   PteroLoginRequest({
-    required this.user,
+    required this.username,
     required this.password,
     this.gRecaptchaResponse,
   });

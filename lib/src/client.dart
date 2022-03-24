@@ -4,8 +4,6 @@ import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../models.dart';
-import 'interceptors/handle_errors.dart';
-import 'interceptors/if_auth_no_key.dart';
 
 export 'utility.dart';
 
@@ -65,390 +63,460 @@ abstract class PteroClient {
       );
 
   /// Login to Pterodactyl using username and password.
-  /// [username] is the username of the Pterodactyl account.
-  /// [password] is the password of the Pterodactyl account.
-  /// [gRecapchaResponse] is the Google reCAPTCHA response.
-  /// [gRecapchaResponse] is not required if you dont have recaptcha enabled.
+  ///
   /// PUTS YOU INTO COOKIE MODE!!!
   @POST('/auth/login')
   Future<void> login(@Body() PteroLoginRequest credentials);
 
   /// Logout of Pterodactyl, ending your session.
+  ///
   /// PUTS YOU INTO COOKIE MODE!!!
+  ///
   /// Only useful in cookie mode anyway.
   @POST('/auth/logout')
   Future<void> logout();
 
+  /// Get a list of servers.
   ///
-
+  /// You can filter the results using:
+  ///
+  /// [filter]; filters by all (uuid, name, externalId, ip:port, :port, ip)
+  ///
+  /// [filterByUuid]; filters by uuid
+  ///
+  /// [filterByName]; filters by name
+  ///
+  /// [filterByExternalId]; filters by external id
+  ///
+  /// You can also limit what servers are returned by providing a [GetServersQueryType] to [type] (defualt is 'member')
+  ///
+  /// Available [Includes]; 'egg', 'subusers'
   @GET('/api/client')
-  Future<FractalResponseList<Server>> getServers();
+  Future<FractalResponseList<Server>> listServers({
+    @Query('includes') Includes? includes,
+    @Query('filter[*]') String? filter,
+    @Query('filter[uuid]') String? filterByUuid,
+    @Query('filter[name]') String? filterByName,
+    @Query('filter[external_id]') String? filterByExternalId,
+    @Query('type') GetServersQueryType? type = GetServersQueryType.member,
+  });
 
+  /// Get system permissions
   @GET('/api/client/permissions')
-  Future<FractalResponseData<SystemPermissions>> getPermissions();
+  Future<FractalResponseData<SystemPermissions>> getSystemPermissions();
 
-  // Account
+  /*       Account       */
+
+  /// Get account information.
   @GET('/api/client/account')
   Future<FractalResponseData<User>> getAccountInfo();
 
+  /// Get two factor authentication image.
   @GET('/api/client/account/two-factor')
   Future<FractalResponseData<TwoFactorImage>> getTwoFactor();
 
+  /// Enable two factor authentication.
   @POST('/api/client/account/two-factor')
   Future<FractalResponseData<RecoveryTokens>> enableTwoFactor(
     @Body() TwoFactorCode code,
   );
 
+  /// Disable two factor authentication.
   @DELETE('/api/client/account/two-factor')
   Future<void> disableTwoFactor(
     @Body() DisableTwoFactor data,
   );
 
+  /// Update your [User] account email address.
   @POST('/api/client/account/email')
   Future<void> updateEmail(
     @Body() UpdateEmail data,
   );
 
+  /// Update your [User] account password.
   @PUT('/api/client/account/password')
   Future<void> updatePassword(
     @Body() UpdatePassword data,
   );
 
+  /// Get all current [ApiKey]s on your account.
+  /// Keys are shortened to the first x characters.
   @GET('/api/client/account/api-keys')
-  Future<FractalResponseList<ApiKey>> getApiKeys();
+  Future<FractalResponseList<ApiKey>> listApiKeys();
 
+  /// Create a new [ApiKey] on your account.
+  /// This is the only time you will ever get the full key.
   @POST('/api/client/account/api-keys')
   Future<FractalResponseData<ApiKey>> createApiKey(
     @Body() CreateApiKey data,
   );
 
-  @DELETE('/api/client/account/api-keys/{apiKey}')
+  /// Delete an [ApiKey] on your account.
+  @DELETE('/api/client/account/api-keys/{apiKeyId}')
   Future<void> deleteApiKey({
-    @Path() required String apiKey,
+    @Path() required String apiKeyId,
   });
 
   // '/api/client/servers/{server}'
+
+  /// Get a server's information.
+  ///
+  /// Available [Includes]; 'egg', 'subusers'
   @GET('/api/client/servers/{server}')
   Future<FractalResponseData<Server>> getServerDetails({
-    @Path() required String server,
+    @Path() required String serverId,
+    @Query('includes') Includes? includes,
   });
 
-  @GET('/api/client/servers/{server}/websocket')
+  /// Get the [Server]'s [WebsocketDetails].
+  @GET('/api/client/servers/{serverId}/websocket')
   Future<PteroData<WebsocketDetails>> getServerWebsocket({
-    @Path() required String server,
+    @Path() required String serverId,
   });
 
-  @GET('/api/client/servers/{server}/resources')
+  /// Get the [Server]'s current [Stats].
+  @GET('/api/client/servers/{serverId}/resources')
   Future<FractalResponseData<Stats>> getServerResources({
-    @Path() required String server,
+    @Path() required String serverId,
   });
 
-  @POST('/api/client/servers/{server}/command')
+  /// Send a command to the [Server].
+  @POST('/api/client/servers/{serverId}/command')
   Future<void> sendServerCommand(
     @Body() SendServerCommand data, {
-    @Path() required String server,
+    @Path() required String serverId,
   });
 
-  @POST('/api/client/servers/{server}/power')
+  /// send a Power [Signal] to the [Server].
+  @POST('/api/client/servers/{serverId}/power')
   Future<void> sendServerPowerAction(
     @Body() Signal signal, {
-    @Path() required String server,
+    @Path() required String serverId,
   });
 
   // Databases
-  @GET('/api/client/servers/{server}/databases')
-  Future<FractalResponseList<ServerDatabase>> getServerDatabases(
-    @Body() Signal signal, {
-    @Path() required String server,
+
+  /// List all databases that are available to the server
+  ///
+  /// Available [Includes]; 'password' (includes the database user password)
+  @GET('/api/client/servers/{serverId}/databases')
+  Future<FractalResponseList<ServerDatabase>> listServerDatabases({
+    @Path() required String serverId,
+    @Query('include') Includes? includes,
   });
 
-  @POST('/api/client/servers/{server}/databases')
+  /// Create a new database on the server
+  @POST('/api/client/servers/{serverId}/databases')
   Future<FractalResponseData<ServerDatabase>> createServerDatabase(
     @Body() CreateServerDatabase data, {
-    @Path() required String server,
+    @Path() required String serverId,
   });
 
-  @POST('/api/client/servers/{server}/databases/{database}/rotate-password')
+  /// TODO: on [rotateDatabasePassword]
+  @POST('/api/client/servers/{serverId}/databases/{databaseId}/rotate-password')
   Future<FractalResponseData<ServerDatabase>> rotateDatabasePassword({
-    @Path() required String server,
-    @Path() required String database,
+    @Path() required String serverId,
+    @Path() required String databaseId,
   });
 
-  @DELETE('/api/client/servers/{server}/databases/{database}')
+  /// Delete a [ServerDatabase]
+  @DELETE('/api/client/servers/{serverId}/databases/{databaseId}')
   Future<void> deleteDatabase({
-    @Path() required String server,
-    @Path() required String database,
+    @Path() required String serverId,
+    @Path() required String databaseId,
   });
 
   // Files
-  @GET('/api/client/servers/{server}/files/list')
-  Future<FractalResponseList<FileObject>> getFiles({
-    @Path() required String server,
-    @Query('directory') required String directory,
+
+  /// List all files on the [Server]
+  ///
+  /// [directory]; path to list files from
+  @GET('/api/client/servers/{serverId}/files/list')
+  Future<FractalResponseList<FileObject>> listFiles({
+    @Path() required String serverId,
+    @Query('directory', encoded: true) required String directory,
   });
 
-  @GET('/api/client/servers/{server}/files/contents', autoCastResponse: false)
+  /// Get a [file]'s contents from the [Server]
+  ///
+  /// [file]; path to the desired file
+  @GET(
+      '/api/client/servers/{serverId}/files/contents' /*, autoCastResponse: false */)
   Future<String?> getFileContents({
-    @Path() required String server,
-    @Query('file') required String file,
+    @Path() required String serverId,
+    @Query('file', encoded: true) required String file,
   });
 
-  @GET('/api/client/servers/{server}/files/download')
+  /// Download a [file] from the [Server]
+  ///
+  /// [file]; path to the desired file
+  @GET('/api/client/servers/{serverId}/files/download')
   Future<FractalResponseData<SignedUrl>> downloadFile({
-    @Path() required String server,
-    @Query('file') required String file,
+    @Path() required String serverId,
+    @Query('file', encoded: true) required String file,
   });
 
-  @PUT('/api/client/servers/{server}/files/rename')
-  Future<void> renameFile(
-    @Body() FileBodyList<FromTo> data, {
-    @Path() required String server,
-  });
-
-  @POST('/api/client/servers/{server}/files/copy')
-  Future<void> makeFileCopy(
-    @Body() MakeFileCopy data, {
-    @Path() required String server,
-  });
-
-  @GET('/api/client/servers/{server}/files/write')
+  /// Write a [file] to the [Server]
+  ///
+  /// Use this to update or create a file on the [Server].
+  ///
+  /// [file]; url encoded path to the desired file
+  @GET('/api/client/servers/{serverId}/files/write')
   Future<void> writeFile({
-    @Path() required String server,
-    @Query('file') required String file,
+    @Path() required String serverId,
+    @Query('file', encoded: true) required String file,
     @Body() required String rawContents,
   });
 
-  @POST('/api/client/servers/{server}/files/compress')
+  /// Rename a file on the [Server]
+  @PUT('/api/client/servers/{serverId}/files/rename')
+  Future<void> renameFile(
+    @Body() FileBodyList<FromTo> rename, {
+    @Path() required String serverId,
+  });
+
+  /// Make a copy of a file on the [Server]
+  @POST('/api/client/servers/{serverId}/files/copy')
+  Future<void> makeFileCopy(
+    @Body() MakeFileCopy data, {
+    @Path() required String serverId,
+  });
+
+  /// Compress a file into an archive (eg. zip) on the [Server]
+  @POST('/api/client/servers/{serverId}/files/compress')
   Future<FractalResponseData<FileObject>> compressFile(
     @Body() FileBodyList<String> data, {
-    @Path() required String server,
+    @Path() required String serverId,
   });
 
-  @POST('/api/client/servers/{server}/files/decompress')
+  /// Decompress an archive (eg. zip) on the [Server]
+  @POST('/api/client/servers/{serverId}/files/decompress')
   Future<void> decompressFile(
     @Body() FileBody data, {
-    @Path() required String server,
+    @Path() required String serverId,
   });
 
-  @POST('/api/client/servers/{server}/files/delete')
+  /// Delete one or more files on the [Server]
+  @POST('/api/client/servers/{serverId}/files/delete')
   Future<FractalResponseData<FileObject>> deleteFiles(
     @Body() FileBodyList<String> data, {
-    @Path() required String server,
+    @Path() required String serverId,
   });
 
   /// Creates the specified folder in the specified directory
-  @POST('/api/client/servers/{server}/files/create-folder')
+  @POST('/api/client/servers/{serverId}/files/create-folder')
   Future<void> createFolder(
     @Body() FolderBody data, {
-    @Path() required String server,
+    @Path() required String serverId,
   });
 
-  /// Returns a signed URL used to upload files to the server using POST
-  @GET('/api/client/servers/{server}/files/upload')
+  /// Returns a [SignedUrl] used to upload files to the [Server] using POST
+  @GET('/api/client/servers/{serverId}/files/upload')
   Future<FractalResponseData<SignedUrl>> uploadFile({
-    @Path() required String server,
+    @Path() required String serverId,
   });
 
   // Schedules
-  /// List all schedules that [server] has
-  @GET('/api/client/servers/{server}/schedules')
+  /// List all schedules that the [Server] has
+  @GET('/api/client/servers/{serverId}/schedules')
   Future<FractalResponseData<ServerSchedule>> getSchedules({
-    @Path() required String server,
+    @Path() required String serverId,
   });
 
-  /// Create [schedule] on [server]
-  @POST('/api/client/servers/{server}/schedules')
+  /// Create a [ServerSchedule] on the [Server]
+  @POST('/api/client/servers/{serverId}/schedules')
   Future<FractalResponseData<ServerSchedule>> createSchedule(
     @Body() RequestSchedule scheduleData, {
-    @Path() required String server,
+    @Path() required String serverId,
   });
 
-  /// Get [schedule] details from [server]
-  @GET('/api/client/servers/{server}/schedules/{schedule}')
+  /// Get a [ServerSchedule]'s details from the [Server]
+  @GET('/api/client/servers/{serverId}/schedules/{scheduleId}')
   Future<FractalResponseData<ServerSchedule>> getScheduleDetails({
-    @Path() required String server,
-    @Path() required int schedule,
+    @Path() required String serverId,
+    @Path() required int scheduleId,
   });
 
-  /// Update [schedule] on [server]
-  @POST('/api/client/servers/{server}/schedules/{schedule}')
+  /// Update a [ServerSchedule] on the [Server]
+  @POST('/api/client/servers/{serverId}/schedules/{scheduleId}')
   Future<FractalResponseData<ServerSchedule>> updateSchedule(
     @Body() RequestSchedule scheduleData, {
-    @Path() required String server,
-    @Path() required int schedule,
+    @Path() required String serverId,
+    @Path() required int scheduleId,
   });
 
-  /// Delete [schedule] from [server]
-  @DELETE('/api/client/servers/{server}/schedules/{schedule}')
+  /// Delete a [ServerSchedule] from the [Server]
+  @DELETE('/api/client/servers/{serverId}/schedules/{scheduleId}')
   Future<void> deleteSchedule({
-    @Path() required String server,
-    @Path() required int schedule,
+    @Path() required String serverId,
+    @Path() required int scheduleId,
   });
 
-  /// Create scheduled [task] on [schedule] on [server]
-  @POST('/api/client/servers/{server}/schedules/{schedule}/tasks')
+  /// Create a scheduled [Task] on a [ServerSchedule]
+  @POST('/api/client/servers/{serverId}/schedules/{scheduleId}/tasks')
   Future<FractalResponseData<ScheduleTask>> createTask(
     @Body() Task taskData, {
-    @Path() required String server,
-    @Path() required int schedule,
+    @Path() required String serverId,
+    @Path() required int scheduleId,
   });
 
-  /// Update scheduled [task] on [schedule] on [server]
-  @POST('/api/client/servers/{server}/schedules/{schedule}/tasks/{task}')
+  /// Update a scheduled [Task] on a [ServerSchedule]
+  @POST('/api/client/servers/{serverId}/schedules/{scheduleId}/tasks/{taskId}')
   Future<FractalResponseData<ScheduleTask>> updateTask(
     @Body() Task taskData, {
-    @Path() required String server,
-    @Path() required int schedule,
-    @Path() required int task,
+    @Path() required String serverId,
+    @Path() required int scheduleId,
+    @Path() required int taskId,
   });
 
-  /// Delete scheduled [task] from [schedule] on [server]
-  @DELETE('/api/client/servers/{server}/schedules/{schedule}/tasks/{task}')
+  /// Delete a scheduled [Task] on a [ServerSchedule]
+  @DELETE(
+      '/api/client/servers/{serverId}/schedules/{scheduleId}/tasks/{taskId}')
   Future<void> deleteTask({
-    @Path() required String server,
-    @Path() required int schedule,
-    @Path() required int task,
+    @Path() required String serverId,
+    @Path() required int scheduleId,
+    @Path() required int taskId,
   });
 
   // Network
-  /// List all allocations that [server] has
-  @GET('/api/client/servers/{server}/network')
-  Future<FractalResponseList<Allocation>> getAllocations({
-    @Path() required String server,
+  /// List all allocations that the [Server] has
+  @GET('/api/client/servers/{serverId}/network')
+  Future<FractalResponseList<Allocation>> listAllocations({
+    @Path() required String serverId,
   });
 
-  /// Automatically assign an allocation on [server]
-  @POST('/api/client/servers/{server}/network')
+  /// Automatically assign an allocation on the [Server]
+  @POST('/api/client/servers/{serverId}/network')
   Future<FractalResponseData<Allocation>> autoAssignAllocation({
-    @Path() required String server,
+    @Path() required String serverId,
   });
 
-  /// Set the allocation note for [allocation] on [server]
-  @POST('/api/client/servers/{server}/network/{allocation}')
+  /// Set the allocation note for an [Allocation] on the [Server]
+  @POST('/api/client/servers/{serverId}/network/{allocationId}')
   Future<FractalResponseData<Allocation>> setAllocationNote(
     @Body() AllocationNote note, {
-    @Path() required String server,
-    @Path() required int allocation,
+    @Path() required String serverId,
+    @Path() required int allocationId,
   });
 
-  /// Set [allocation] as the primary allocation on [server]
-  @POST('/api/client/servers/{server}/network/{allocation}/primary')
+  /// Set an [Allocation] as the primary allocation on [Server]
+  @POST('/api/client/servers/{serverId}/network/{allocationId}/primary')
   Future<FractalResponseData<Allocation>> setPrimaryAllocation({
-    @Path() required String server,
-    @Path() required int allocation,
+    @Path() required String serverId,
+    @Path() required int allocationId,
   });
 
-  /// Unassign [allocation] from [server]
-  @DELETE('/api/client/servers/{server}/network/{allocation}')
+  /// Unassign an [Allocation] from [Server]
+  @DELETE('/api/client/servers/{serverId}/network/{allocationId}')
   Future<FractalResponseData<Allocation>> unassignAllocation({
-    @Path() required String server,
-    @Path() required int allocation,
+    @Path() required String serverId,
+    @Path() required int allocationId,
   });
 
   /*                                  Users                                  */
 
-  /// List all subusers on [server]
-  @GET('/api/client/servers/{server}/users')
-  Future<FractalResponseList<ServerSubuser>> getSubusers({
-    @Path() required String server,
+  /// List all [ServerSubuser]s on the [Server]
+  @GET('/api/client/servers/{serverId}/users')
+  Future<FractalResponseList<ServerSubuser>> listSubusers({
+    @Path() required String serverId,
   });
 
-  /// Create subuser on [server]
-  @POST('/api/client/servers/{server}/users')
+  /// Create [ServerSubuser] on the [Server]
+  @POST('/api/client/servers/{serverId}/users')
   Future<FractalResponseData<ServerSubuser>> createSubuser(
     @Body() Subuser subuserData, {
-    @Path() required String server,
+    @Path() required String serverId,
   });
 
-  /// Get subuser [user] details on [server]
-  @GET('/api/client/servers/{server}/users/{user}')
+  /// Get a [ServerSubuser]'s details on the [Server]
+  @GET('/api/client/servers/{serverId}/users/{subuserId}')
   Future<FractalResponseData<ServerSubuser>> getSubuserDetails({
-    @Path() required String server,
-    @Path() required String user,
+    @Path() required String serverId,
+    @Path() required String subuserId,
   });
 
-  /// Update subuser [user] on [server]
-  @POST('/api/client/servers/{server}/users/{user}')
+  /// Update a [ServerSubuser] on the [Server]
+  @POST('/api/client/servers/{serverId}/users/{subuserId}')
   Future<FractalResponseData<ServerSubuser>> updateSubuser(
     @Body() SubuserPermissions subuserData, {
-    @Path() required String server,
-    @Path() required String user,
+    @Path() required String serverId,
+    @Path() required String subuserId,
   });
 
-  /// Delete subuser [user] from [server]
-  @DELETE('/api/client/servers/{server}/users/{user}')
+  /// Delete a [ServerSubuser] from the [Server]
+  @DELETE('/api/client/servers/{serverId}/users/{subuserId}')
   Future<void> deleteSubuser({
-    @Path() required String server,
-    @Path() required String user,
+    @Path() required String serverId,
+    @Path() required String subuserId,
   });
 
   // Backups
 
-  /// List all backups on [server]
-  @GET('/api/client/servers/{server}/backups')
-  Future<FractalResponseList<Backup>> getBackups({
-    @Path() required String server,
+  /// List all backups on the [Server]
+  @GET('/api/client/servers/{serverId}/backups')
+  Future<FractalResponseList<Backup>> listBackups({
+    @Path() required String serverId,
   });
 
-  /// Create a backup on [server]
-  @POST('/api/client/servers/{server}/backups')
+  /// Create a backup on the [Server]
+  @POST('/api/client/servers/{serverId}/backups')
   Future<FractalResponseData<Backup>> createBackup({
-    @Path() required String server,
+    @Path() required String serverId,
   });
 
-  /// Get information about [backup] from [server]
-  @GET('/api/client/servers/{server}/backups/{backup}')
+  /// Get information about a [Backup] from the [Server]
+  @GET('/api/client/servers/{serverId}/backups/{backupId}')
   Future<FractalResponseData<Backup>> getBackupDetails({
-    @Path() required String server,
-    @Path() required String backup,
+    @Path() required String serverId,
+    @Path() required String backupId,
   });
 
-  /// Generate download url for [backup] from [server]
-  @GET('/api/client/servers/{server}/backups/{backup}/download')
+  /// Generate download url for a [Backup] from  the [Server]
+  @GET('/api/client/servers/{serverId}/backups/{backupId}/download')
   Future<FractalResponseData<SignedUrl>> downloadBackup({
-    @Path() required String server,
-    @Path() required String backup,
+    @Path() required String serverId,
+    @Path() required String backupId,
   });
 
-  /// Delete [backup] from [server]
-  @DELETE('/api/client/servers/{server}/backups/{backup}')
+  /// Delete a [Backup] from the [Server]
+  @DELETE('/api/client/servers/{serverId}/backups/{backupId}')
   Future<void> deleteBackup({
-    @Path() required String server,
-    @Path() required String backup,
+    @Path() required String serverId,
+    @Path() required String backupId,
   });
 
   // Startup
-  /// Get all [server] startup variables
-  @GET('/api/client/servers/{server}/startup')
-  Future<FractalResponseList<EggVariable>> getVariables({
-    @Path() required String server,
+  /// Get all [Server] startup variables
+  @GET('/api/client/servers/{serverId}/startup')
+  Future<FractalResponseList<EggVariable>> listVariables({
+    @Path() required String serverId,
   });
 
-  /// Update the [server] startup variable with the contents of [variable]
-  @PUT('/api/client/servers/{server}/startup/variable')
+  /// Update the [Server] startup variable with the contents of [variable]
+  @PUT('/api/client/servers/{serverId}/startup/variable')
   Future<FractalResponseData<EggVariable>> updateVariable(
     @Body() KeyValue variable, {
-    @Path() required String server,
+    @Path() required String serverId,
   });
 
   // Settings
-  /// Rename the [server] as [name]
-  @POST('/api/client/servers/{server}/settings/rename')
+  /// [Rename] the [Server]
+  @POST('/api/client/servers/{serverId}/settings/rename')
   Future<void> renameServer(
-    @Body() Name name, {
-    @Path() required String server,
+    @Body() Rename rename, {
+    @Path() required String serverId,
   });
 
-  /// Reinstall the [server]
-  @POST('/api/client/servers/{server}/settings/reinstall')
+  /// Reinstall the [Server]
+  @POST('/api/client/servers/{serverId}/settings/reinstall')
   Future<void> reinstallServer({
-    @Path() required String server,
+    @Path() required String serverId,
   });
 
-  /// Update the [server] docker image to [image]
-  @PUT('/api/client/servers/{server}/settings/docker-image')
+  /// Update the [Server] docker image to [dockerImage]
+  @PUT('/api/client/servers/{serverId}/settings/docker-image')
   Future<void> updateDockerImage(
     @Body() UpdateImage dockerImage, {
-    @Path() required String server,
+    @Path() required String serverId,
   });
 }

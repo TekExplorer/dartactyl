@@ -10,7 +10,7 @@ void main(List<String> args) async {
 
   print('Getting Data!');
 
-  await client.getServers().then((response) {
+  await client.listServers().then((response) {
     Server server = response.data[0].attributes;
     print('${server.name} : ${server.description}');
   });
