@@ -5,7 +5,7 @@ import '../../../models.dart';
 part 'ptero_error_meta.g.dart';
 
 @JsonSerializable()
-class PteroErrorMeta with SerializableMixin {
+class PteroErrorMeta {
   final String rule;
 
   PteroErrorMeta({required this.rule});
@@ -13,14 +13,13 @@ class PteroErrorMeta with SerializableMixin {
   factory PteroErrorMeta.fromJson(Map<String, dynamic> json) =>
       _$PteroErrorMetaFromJson(json);
 
-  @override
   Map<String, dynamic> toJson() => _$PteroErrorMetaToJson(this);
 }
 
 // extentions
 
 @JsonSerializable()
-class PteroErrorStringMeta extends PteroErrorMeta with SerializableMixin {
+class PteroErrorStringMeta extends PteroErrorMeta {
   @JsonKey(name: 'source_field')
   final PteroErrorScheduleMetaRule? sourceField;
 
@@ -35,7 +34,7 @@ class PteroErrorStringMeta extends PteroErrorMeta with SerializableMixin {
 }
 
 @JsonSerializable()
-class PteroErrorScheduleMeta extends PteroErrorMeta with SerializableMixin {
+class PteroErrorScheduleMeta extends PteroErrorMeta {
   @JsonKey(name: 'source_field')
   final Cron sourceField;
 

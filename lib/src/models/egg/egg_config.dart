@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'egg_config.g.dart';
 
 @JsonSerializable()
-class EggConfig with SerializableMixin {
+class EggConfig {
   Map<String, dynamic> files;
   EggStartupConfig startup;
   String stop;
@@ -19,6 +19,5 @@ class EggConfig with SerializableMixin {
   });
   factory EggConfig.fromJson(Map<String, dynamic> json) =>
       _$EggConfigFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$EggConfigToJson(this);
 }

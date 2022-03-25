@@ -5,21 +5,20 @@ import '../../../models.dart';
 part 'fractal_response_list.g.dart';
 
 @JsonSerializable()
-class FractalResponseList<T extends SerializableMixin> with SerializableMixin {
+class FractalResponseList<T extends SerializableMixin> {
   AttributeObject object;
   @JsonKey(fromJson: _fromGenericJsonList)
   List<FractalResponseData<T>> data;
   Meta? meta;
   FractalResponseList({
     required this.object,
-    required this.data,
     this.meta,
+    required this.data,
   });
 
   factory FractalResponseList.fromJson(Map<String, dynamic> json) =>
       _$FractalResponseListFromJson(json);
 
-  @override
   Map<String, dynamic> toJson() => _$FractalResponseListToJson(this);
 
   // static const String _exceptionMessage =

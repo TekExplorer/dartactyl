@@ -1,10 +1,9 @@
-import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'from_to.g.dart';
 
 @JsonSerializable()
-class FromTo with SerializableMixin {
+class FromTo {
   String from;
   String to;
 
@@ -14,6 +13,5 @@ class FromTo with SerializableMixin {
   });
 
   factory FromTo.fromJson(Map<String, dynamic> json) => _$FromToFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$FromToToJson(this);
 }

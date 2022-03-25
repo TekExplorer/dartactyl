@@ -3,7 +3,15 @@
 /// Admin/Application API not yet supported
 library dartactyl;
 
-export 'src/models/typedefs.dart';
+/// Extra
+export 'src/extra/typedefs.dart';
+export 'src/extra/fractal_extentions.dart';
+export 'src/extra/fractal_list_extentions.dart';
+export 'src/extra/utility.dart';
+
+/// Interceptors
+export 'src/interceptors/handle_errors.dart';
+export 'src/interceptors/if_auth_no_key.dart';
 
 /// Main Models
 export 'src/models/main_models/allocation.dart';
@@ -101,10 +109,6 @@ export 'src/models/permission_keys/websocket_permission_keys.dart';
 export 'src/models/auth/ptero_login_request.dart';
 export 'src/models/base/serializable.dart';
 
-//
+/// Query
 export 'src/models/query/includes.dart';
 export 'src/models/query/get_servers.dart';
-
-//
-export 'src/interceptors/handle_errors.dart';
-export 'src/interceptors/if_auth_no_key.dart';

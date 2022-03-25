@@ -1,10 +1,9 @@
-import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'egg_script.g.dart';
 
 @JsonSerializable()
-class EggScript with SerializableMixin {
+class EggScript {
   bool privileged;
   String install;
   String entry;
@@ -19,6 +18,5 @@ class EggScript with SerializableMixin {
   });
   factory EggScript.fromJson(Map<String, dynamic> json) =>
       _$EggScriptFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$EggScriptToJson(this);
 }

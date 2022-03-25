@@ -1,11 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../dartactyl.dart';
-
 part 'schedule.g.dart';
 
 @JsonSerializable()
-class RequestSchedule with SerializableMixin {
+class RequestSchedule {
   String name;
   bool isActive;
   bool onlyWhenOnline;
@@ -25,6 +23,5 @@ class RequestSchedule with SerializableMixin {
   });
   factory RequestSchedule.fromJson(Map<String, dynamic> json) =>
       _$RequestScheduleFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$RequestScheduleToJson(this);
 }

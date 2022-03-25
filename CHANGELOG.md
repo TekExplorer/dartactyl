@@ -1,5 +1,11 @@
+## 1.3.2
+ - Removed `with SerializableMixin` on stuff that doesnt actually need it, as its only used to make serialization easier in-package. May give to everything with a `toJson` in the future, but its not necessary for now
+ - Added a bunch of extentions using those same type aliase
+    - `FractalServer` now has a `server` getter (ie `fractalServer.server` => `Server`)
+    - `FractalServerList` now has a `servers` getter (ie `fractalServerList.servers` => `List<Server>`)
 ## 1.3.1
  - Bump min SDK version to 2.13.0 so that I can use type aliases. So much nicer...
+ - A bunch of new type aliases like `FractalServer`
 ## 1.3.0
  - Added Query parameters like `includes`
     - `getServers` is now more powerful with `type` and `filter[ ]`

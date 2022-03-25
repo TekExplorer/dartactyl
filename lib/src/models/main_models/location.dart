@@ -1,10 +1,9 @@
-import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'location.g.dart';
 
 @JsonSerializable()
-class Location with SerializableMixin {
+class Location {
   int id;
   String short;
   String? long;
@@ -19,6 +18,5 @@ class Location with SerializableMixin {
   });
   factory Location.fromJson(Map<String, dynamic> json) =>
       _$LocationFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$LocationToJson(this);
 }

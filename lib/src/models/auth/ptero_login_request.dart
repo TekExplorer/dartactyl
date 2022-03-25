@@ -1,7 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../models.dart';
-
 part 'ptero_login_request.g.dart';
 
 /// [username] is the username of the Pterodactyl account.
@@ -12,7 +10,7 @@ part 'ptero_login_request.g.dart';
 ///
 /// [gRecaptchaResponse] is not required if you dont have recaptcha enabled.
 @JsonSerializable()
-class PteroLoginRequest with SerializableMixin {
+class PteroLoginRequest {
   @JsonKey(name: 'user')
   String username;
   String password;
@@ -27,6 +25,5 @@ class PteroLoginRequest with SerializableMixin {
 
   factory PteroLoginRequest.fromJson(Map<String, dynamic> json) =>
       _$PteroLoginRequestFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$PteroLoginRequestToJson(this);
 }

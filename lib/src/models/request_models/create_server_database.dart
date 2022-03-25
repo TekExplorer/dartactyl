@@ -1,10 +1,9 @@
-import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'create_server_database.g.dart';
 
 @JsonSerializable()
-class CreateServerDatabase with SerializableMixin {
+class CreateServerDatabase {
   String database;
   String remote;
 
@@ -15,6 +14,5 @@ class CreateServerDatabase with SerializableMixin {
 
   factory CreateServerDatabase.fromJson(Map<String, dynamic> json) =>
       _$CreateServerDatabaseFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$CreateServerDatabaseToJson(this);
 }

@@ -21,7 +21,7 @@ class Stats with SerializableMixin {
 }
 
 @JsonSerializable()
-class StatsResources with SerializableMixin {
+class StatsResources {
   int memoryBytes;
   double cpuAbsolute;
   int diskBytes;
@@ -38,7 +38,6 @@ class StatsResources with SerializableMixin {
 
   factory StatsResources.fromJson(Map<String, dynamic> json) =>
       _$StatsResourcesFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$StatsResourcesToJson(this);
 }
 

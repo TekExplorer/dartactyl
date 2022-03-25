@@ -5,4 +5,3 @@ library dartactyl;
 
 export 'models.dart';
 export 'src/client.dart';
-export 'src/utility.dart';

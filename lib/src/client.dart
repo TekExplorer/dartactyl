@@ -1,11 +1,8 @@
 import 'package:cookie_jar/cookie_jar.dart';
+import 'package:dartactyl/models.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:retrofit/retrofit.dart';
-
-import '../models.dart';
-
-export 'utility.dart';
 
 part 'client.g.dart';
 

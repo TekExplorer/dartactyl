@@ -5,7 +5,7 @@ import '../../../models.dart';
 part 'ptero_errors.g.dart';
 
 @JsonSerializable()
-class PteroErrors with SerializableMixin {
+class PteroErrors {
   final List<PteroError> errors;
 
   PteroErrors({required this.errors});
@@ -13,6 +13,5 @@ class PteroErrors with SerializableMixin {
   factory PteroErrors.fromJson(Map<String, dynamic> json) =>
       _$PteroErrorsFromJson(json);
 
-  @override
   Map<String, dynamic> toJson() => _$PteroErrorsToJson(this);
 }

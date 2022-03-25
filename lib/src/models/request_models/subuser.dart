@@ -17,13 +17,12 @@ class Subuser extends SubuserPermissions with SerializableMixin {
 }
 
 @JsonSerializable()
-class SubuserPermissions with SerializableMixin {
+class SubuserPermissions {
   List<String> permissions;
 
   SubuserPermissions({required this.permissions});
 
   factory SubuserPermissions.fromJson(Map<String, dynamic> json) =>
       _$SubuserPermissionsFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$SubuserPermissionsToJson(this);
 }

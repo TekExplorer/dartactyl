@@ -1,6 +1,5 @@
+import 'package:dartactyl/dartactyl.dart';
 import 'package:dio/dio.dart';
-
-import '../dartactyl.dart';
 
 /// This ectention will allow transformations of
 /// data from the client to make it easier to use
@@ -13,7 +12,8 @@ extension ServerUtilies on Server {
 }
 
 extension MockPrefer on Dio {
-  void mockPrefer(int code) {
+  void mockPrefer(int? code) {
+    if (code == null) options.headers.remove('Prefer');
     options.headers['Prefer'] = 'code=$code';
   }
 }

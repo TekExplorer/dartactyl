@@ -5,7 +5,7 @@ import '/models.dart';
 part 'fractal_response_data.g.dart';
 
 @JsonSerializable()
-class FractalResponseData<T extends SerializableMixin> with SerializableMixin {
+class FractalResponseData<T extends SerializableMixin> {
   AttributeObject object;
   @JsonKey(fromJson: _fromGenericJson, toJson: _toGenericJson)
   T attributes;
@@ -16,7 +16,6 @@ class FractalResponseData<T extends SerializableMixin> with SerializableMixin {
     this.meta,
   });
 
-  @override
   Map<String, dynamic> toJson() => _$FractalResponseDataToJson<T>(this);
 
   factory FractalResponseData.fromJson(Map<String, dynamic> json) =>

@@ -1,10 +1,9 @@
-import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'node.g.dart';
 
 @JsonSerializable()
-class Node with SerializableMixin {
+class Node {
   int id;
   String uuid;
   bool public;
@@ -49,6 +48,5 @@ class Node with SerializableMixin {
   });
 
   factory Node.fromJson(Map<String, dynamic> json) => _$NodeFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$NodeToJson(this);
 }

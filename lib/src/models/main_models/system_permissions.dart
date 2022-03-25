@@ -16,7 +16,7 @@ class SystemPermissions with SerializableMixin {
 }
 
 @JsonSerializable()
-class Permissions with SerializableMixin {
+class Permissions {
   PermissionsModel<WebsocketPermissionKeys> websocket;
   PermissionsModel<ControlPermissionKeys> control;
   PermissionsModel<UserPermissionKeys> user;
@@ -42,12 +42,11 @@ class Permissions with SerializableMixin {
   });
   factory Permissions.fromJson(Map<String, dynamic> json) =>
       _$PermissionsFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$PermissionsToJson(this);
 }
 
 @JsonSerializable()
-class PermissionsModel<T extends SerializableMixin> with SerializableMixin {
+class PermissionsModel<T extends SerializableMixin> {
   String description;
   @JsonKey(fromJson: _fromGenericJson, toJson: _toGenericJson)
   T keys;
@@ -59,7 +58,6 @@ class PermissionsModel<T extends SerializableMixin> with SerializableMixin {
   factory PermissionsModel.fromJson(Map<String, dynamic> json) =>
       _$PermissionsModelFromJson(json);
 
-  @override
   Map<String, dynamic> toJson() => _$PermissionsModelToJson(this);
 
   static T _fromGenericJson<T>(Map<String, dynamic> json) {

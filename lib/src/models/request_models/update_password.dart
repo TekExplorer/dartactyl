@@ -1,10 +1,9 @@
-import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'update_password.g.dart';
 
 @JsonSerializable()
-class UpdatePassword with SerializableMixin {
+class UpdatePassword {
   String currentPassword;
   String password;
   String passwordConfirmation;
@@ -15,6 +14,5 @@ class UpdatePassword with SerializableMixin {
   });
   factory UpdatePassword.fromJson(Map<String, dynamic> json) =>
       _$UpdatePasswordFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$UpdatePasswordToJson(this);
 }

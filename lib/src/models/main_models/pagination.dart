@@ -1,11 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../models.dart';
-
 part 'pagination.g.dart';
 
 @JsonSerializable()
-class Pagination with SerializableMixin {
+class Pagination {
   int total;
   int count;
   int perPage;
@@ -22,12 +20,11 @@ class Pagination with SerializableMixin {
   });
   factory Pagination.fromJson(Map<String, dynamic> json) =>
       _$PaginationFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$PaginationToJson(this);
 }
 
 @JsonSerializable()
-class Links with SerializableMixin {
+class Links {
   String? previous;
   String? next;
   Links({
@@ -35,6 +32,5 @@ class Links with SerializableMixin {
     this.next,
   });
   factory Links.fromJson(Map<String, dynamic> json) => _$LinksFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$LinksToJson(this);
 }

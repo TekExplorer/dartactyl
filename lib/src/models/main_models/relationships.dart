@@ -5,7 +5,7 @@ import '../../../models.dart';
 part 'relationships.g.dart';
 
 @JsonSerializable()
-class Relationships with SerializableMixin {
+class Relationships {
   FractalResponseList<Databases>? databases;
   FractalResponseList<Allocation>? allocations;
   FractalResponseData<DatabasePassword>? password;
@@ -32,6 +32,5 @@ class Relationships with SerializableMixin {
 
   factory Relationships.fromJson(Map<String, dynamic> json) =>
       _$RelationshipsFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$RelationshipsToJson(this);
 }

@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'ptero_data.g.dart';
 
 @JsonSerializable()
-class PteroData<T> with SerializableMixin {
+class PteroData<T> {
   @JsonKey(fromJson: _fromGenericJson, toJson: _toGenericJson)
   T data; // Websocket and TwoFactorImage
   PteroData({required this.data});
@@ -12,7 +12,6 @@ class PteroData<T> with SerializableMixin {
   factory PteroData.fromJson(Map<String, dynamic> json) =>
       _$PteroDataFromJson(json);
 
-  @override
   Map<String, dynamic> toJson() => _$PteroDataToJson(this);
 
   static T _fromGenericJson<T>(Map<String, dynamic> json) {

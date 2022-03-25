@@ -1,10 +1,9 @@
-import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'server_limits.g.dart';
 
 @JsonSerializable()
-class ServerLimits with SerializableMixin {
+class ServerLimits {
   int memory;
   int swap;
   int disk;
@@ -21,6 +20,5 @@ class ServerLimits with SerializableMixin {
   });
   factory ServerLimits.fromJson(Map<String, dynamic> json) =>
       _$ServerLimitsFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$ServerLimitsToJson(this);
 }
