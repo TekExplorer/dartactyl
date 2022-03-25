@@ -1,3 +1,5 @@
+## 1.3.1
+ - Bump min SDK version to 2.13.0 so that I can use type aliases. So much nicer...
 ## 1.3.0
  - Added Query parameters like `includes`
     - `getServers` is now more powerful with `type` and `filter[ ]`

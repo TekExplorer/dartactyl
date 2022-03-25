@@ -3,6 +3,8 @@
 /// Admin/Application API not yet supported
 library dartactyl;
 
+export 'src/models/typedefs.dart';
+
 /// Main Models
 export 'src/models/main_models/allocation.dart';
 export 'src/models/main_models/api_key.dart';
