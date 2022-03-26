@@ -1,3 +1,5 @@
+## 1.3.3
+ - Apparently I need to commit generated files?
 ## 1.3.2
  - Removed `with SerializableMixin` on stuff that doesnt actually need it, as its only used to make serialization easier in-package. May give to everything with a `toJson` in the future, but its not necessary for now
  - Added a bunch of extentions using those same type aliase
