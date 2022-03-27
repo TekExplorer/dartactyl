@@ -243,7 +243,7 @@ class _PteroClient implements PteroClient {
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<FractalResponseData<Server>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/api/client/servers/{server}',
+                .compose(_dio.options, '/api/client/servers/${serverId}',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Server>.fromJson(_result.data!);

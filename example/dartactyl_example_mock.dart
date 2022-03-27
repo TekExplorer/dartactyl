@@ -33,7 +33,7 @@ void main(List<String> args) async {
       print('Error statusMessage: ${error.statusMessage}'); // Bad Request
       print('Errors: ${error.errors}'); // PteroError -> BadRequestHttpException
       //
-    } else if (error is NoConnectionApiExcepton) {
+    } else if (error is NoConnectionPteroApiExcepton) {
       // no connection to server, however: it extends GenericApiException
       print('No connection to server');
       print('Error code: ${error.statusCode}');
@@ -41,7 +41,7 @@ void main(List<String> args) async {
       print('Error message: ${error.message}');
       print('Error statusMessage: ${error.statusMessage}');
       //
-    } else if (error is NoDataApiException) {
+    } else if (error is NoDataPteroApiException) {
       // all other errors.
       print('No Response Data');
       print('Error code: ${error.statusCode}');

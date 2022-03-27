@@ -56,11 +56,11 @@ export 'src/models/egg/egg_startup_config.dart';
 /// Error Response Models
 export 'src/models/error_responses/ptero_error.dart';
 export 'src/models/error_responses/ptero_errors.dart';
-export 'src/models/error_responses/stupid_dio.dart';
+export 'src/models/error_responses/exceptions/stupid_dio.dart';
 export 'src/models/error_responses/ptero_error_meta.dart';
 
 /// Exceptions
-export 'src/models/error_responses/exceptions/api_exception.dart';
+export 'src/models/error_responses/exceptions/generic_api_exception.dart';
 export 'src/models/error_responses/exceptions/no_connection_api_exception.dart';
 
 /// Fractal Models

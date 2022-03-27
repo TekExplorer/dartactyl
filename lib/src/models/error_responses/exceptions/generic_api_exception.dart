@@ -19,12 +19,13 @@ class GenericApiException extends DeprecatedDioError {
 
   GenericApiException({
     required this.rawDioError,
-    this.statusCode,
     this.rawData,
+    int? statusCode,
     String? statusMessage,
     String? message,
   })  : _message = message,
-        _statusMessage = statusMessage;
+        _statusMessage = statusMessage,
+        statusCode = statusCode ?? rawDioError.response?.statusCode;
 
   @override
   String get message => _message ?? '';

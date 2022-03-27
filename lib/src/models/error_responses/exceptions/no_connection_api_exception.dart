@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 
-import 'api_exception.dart';
+import 'generic_api_exception.dart';
 
 /// A simple wrapper class to indicate a lack of connection
-class NoConnectionApiExcepton extends GenericApiException {
+class NoConnectionPteroApiExcepton extends GenericApiException {
   /// Simple class for when we cant connect to the serverw
-  NoConnectionApiExcepton({
+  NoConnectionPteroApiExcepton({
     required DioError rawDioError,
     String? message,
   }) : super(
@@ -18,8 +18,8 @@ class NoConnectionApiExcepton extends GenericApiException {
 }
 
 /// A simple wrapper to distinguish between a lack of data and any other error
-class NoDataApiException extends GenericApiException {
-  NoDataApiException({
+class NoDataPteroApiException extends GenericApiException {
+  NoDataPteroApiException({
     required DioError rawDioError,
     int? statusCode,
     String? message,

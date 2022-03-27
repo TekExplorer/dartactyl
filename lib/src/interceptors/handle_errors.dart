@@ -18,9 +18,7 @@ class HandleErrorInterceptor extends Interceptor {
 
         return handler.next(
           PteroApiException(
-            statusCode: response.statusCode,
             errors: errors,
-            message: err.message,
             statusMessage: response.statusMessage,
             rawDioError: err,
             rawData: data,
@@ -28,8 +26,7 @@ class HandleErrorInterceptor extends Interceptor {
         );
       }
       // print('we have a response but no valid data: $data');
-      return handler.next(NoDataApiException(
-        statusCode: response.statusCode,
+      return handler.next(NoDataPteroApiException(
         message: err.message,
         statusMessage: response.statusMessage,
         rawDioError: err,
@@ -38,7 +35,7 @@ class HandleErrorInterceptor extends Interceptor {
     }
     // we cant connect to the server
 
-    return handler.next(NoConnectionApiExcepton(
+    return handler.next(NoConnectionPteroApiExcepton(
       message: err.message,
       rawDioError: err,
     )..requestOptions = err.requestOptions);

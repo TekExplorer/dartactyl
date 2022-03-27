@@ -4,7 +4,6 @@ import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:retrofit/retrofit.dart';
 
-import 'package:dartactyl/models.dart';
 part 'client.g.dart';
 
 extension GetDio on PteroClient {
@@ -167,7 +166,7 @@ abstract class PteroClient {
   /// Get a server's information.
   ///
   /// Available [Includes]; 'egg', 'subusers'
-  @GET('/api/client/servers/{server}')
+  @GET('/api/client/servers/{serverId}')
   Future<FractalServer> getServerDetails({
     @Path() required String serverId,
     @Query('includes') Includes? includes,

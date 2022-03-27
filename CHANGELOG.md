@@ -1,3 +1,6 @@
+## 1.3.7
+ - Fixed `getServerDetails`
+
 ## 1.3.6
  - `JsonMap` typedef now used anywhere `Map<String, dynamic>` was, not including generated files
  - `getSiteConfiguration()` and `getPterodactylUser()` added to the client

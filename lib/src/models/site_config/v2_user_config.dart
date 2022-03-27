@@ -1,14 +1,16 @@
-import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:dartactyl/models.dart';
 
-part 'user_config.g.dart';
+part 'v2_user_config.g.dart';
 
 @JsonSerializable()
-class UserConfig {
+class _V2UserConfig {
   final String uuid;
   final String username;
   final String email;
   final String language;
+  @JsonKey(name: 'admin_role_id')
+  final int? adminRoleId;
   @JsonKey(name: 'root_admin')
   final bool rootAdmin;
   @JsonKey(name: 'use_totp')
@@ -18,27 +20,26 @@ class UserConfig {
   final String createdAt;
   @JsonKey(name: 'updated_at')
   final String updatedAt;
-
-  @JsonKey(name: 'name_first')
-  final String nameFirst;
-  @JsonKey(name: 'name_last')
-  final String nameLast;
-
-  UserConfig({
+  @JsonKey(name: 'avatar_url')
+  final String avatarUrl;
+  @JsonKey(name: 'role_name')
+  final String roleName;
+  _V2UserConfig({
     required this.uuid,
     required this.username,
     required this.email,
-    required this.nameFirst,
-    required this.nameLast,
     required this.language,
+    required this.adminRoleId,
     required this.rootAdmin,
     required this.useTotp,
     required this.gravatar,
     required this.createdAt,
     required this.updatedAt,
+    required this.avatarUrl,
+    required this.roleName,
   });
 
-  JsonMap toJson() => _$UserConfigToJson(this);
+  JsonMap toJson() => _$V2UserConfigToJson(this);
 
-  factory UserConfig.fromJson(JsonMap map) => _$UserConfigFromJson(map);
+  factory _V2UserConfig.fromJson(JsonMap map) => _$V2UserConfigFromJson(map);
 }
