@@ -6,6 +6,7 @@ import 'package:html/parser.dart' show parse;
 
 extension ParseSiteConfig on PteroClient {
   /// @throws ConfigNotFoundException
+  /// Needs to be logged in
   Future<SiteConfig> getSiteConfiguration() async {
     var json =
         await _parseScriptTagsForJson(SiteConfigOption.SiteConfiguration);
@@ -13,6 +14,7 @@ extension ParseSiteConfig on PteroClient {
   }
 
   /// @throws ConfigNotFoundException
+  /// Works if not logged in
   Future<UserConfig> getPterodactylUser() async {
     var json = await _parseScriptTagsForJson(SiteConfigOption.PterodactylUser);
     return UserConfig.fromJson(json);

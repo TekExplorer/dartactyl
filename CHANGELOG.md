@@ -1,3 +1,7 @@
+## 1.3.6
+ - `JsonMap` typedef now used anywhere `Map<String, dynamic>` was, not including generated files
+ - `getSiteConfiguration()` and `getPterodactylUser()` added to the client
+    - `getSiteConfiguration()` works without needing to be logged in
 ## 1.3.5
  - `null_resource` is a thing apparently.
  - Fixed `fromJson` serialization for `FractalList` because json_serializable doesn't know wtf to do with this
