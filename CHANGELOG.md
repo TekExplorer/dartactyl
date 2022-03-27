@@ -1,3 +1,7 @@
+## 1.3.5
+ - `null_resource` is a thing apparently.
+ - Fixed `fromJson` serialization for `FractalList` because json_serializable doesn't know wtf to do with this
+
 ## 1.3.4
  - Apparently I forgot to make `list` a valid option, making `FractalResponseList` never work.
 ## 1.3.3

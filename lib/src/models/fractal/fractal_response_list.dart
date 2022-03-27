@@ -4,10 +4,10 @@ import '../../../models.dart';
 
 part 'fractal_response_list.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(createFactory: false)
 class FractalResponseList<T extends SerializableMixin> {
   AttributeObject object;
-  @JsonKey(fromJson: _fromGenericJsonList)
+  // @JsonKey(fromJson: _fromGenericJsonList)
   List<FractalResponseData<T>> data;
   Meta? meta;
   FractalResponseList({
@@ -16,22 +16,34 @@ class FractalResponseList<T extends SerializableMixin> {
     required this.data,
   });
 
-  factory FractalResponseList.fromJson(Map<String, dynamic> json) =>
-      _$FractalResponseListFromJson(json);
+  factory FractalResponseList.fromJson(Map<String, dynamic> json) {
+    return FractalResponseList<T>(
+      object: $enumDecode(_$AttributeObjectEnumMap, json['object']),
+      meta: json['meta'] == null
+          ? null
+          : Meta.fromJson(json['meta'] as Map<String, dynamic>),
+      // null_resource is annoying
+      data: FractalResponseList._fromGenericJsonList<T>(json['data'] as List?),
+    );
+  }
 
   Map<String, dynamic> toJson() => _$FractalResponseListToJson(this);
 
   // static const String _exceptionMessage =
   //     "Incompatible type used in FractalResponseList";
 
-  static T _fromGenericJsonList<T extends SerializableMixin>(
-      List<Map<String, dynamic>> data) {
-    List<FractalResponseData<T>> dataList = data
-        .map<FractalResponseData<T>>((Map<String, dynamic> json) =>
-            FractalResponseData<T>.fromJson(json))
-        .toList();
+  static List<Fractal<T>> _fromGenericJsonList<T extends SerializableMixin>(
+      List<dynamic>? data) {
+    if (data == null) {
+      return [];
+    }
+    List<Map<String, dynamic>> json =
+        data.map((e) => Map<String, dynamic>.from(e)).toList();
 
-    return dataList as T;
+    var dataList =
+        json.map<Fractal<T>>((json) => Fractal<T>.fromJson(json)).toList();
+
+    return dataList;
   }
 
   // static List<Map<String, dynamic>> _toGenericJsonList<T extends Serializable>(

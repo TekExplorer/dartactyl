@@ -15,7 +15,7 @@ Server _$ServerFromJson(Map<String, dynamic> json) => Server(
       node: json['node'] as String,
       sftpDetails:
           SftpDetails.fromJson(json['sftp_details'] as Map<String, dynamic>),
-      description: json['description'] as String?,
+      description: json['description'] as String,
       invocation: json['invocation'] as String,
       dockerImage: json['docker_image'] as String,
       eggFeatures: (json['egg_features'] as List<dynamic>?)

@@ -13,7 +13,7 @@ class Server with SerializableMixin {
   String name;
   String node;
   SftpDetails sftpDetails;
-  String? description;
+  String description;
   ServerLimits limits;
   String invocation;
   String dockerImage;
@@ -33,7 +33,7 @@ class Server with SerializableMixin {
     required this.name,
     required this.node,
     required this.sftpDetails,
-    this.description,
+    required this.description,
     required this.invocation,
     required this.dockerImage,
     this.eggFeatures,

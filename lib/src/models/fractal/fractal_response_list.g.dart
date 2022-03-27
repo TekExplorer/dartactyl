@@ -6,18 +6,6 @@ part of 'fractal_response_list.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FractalResponseList<T>
-    _$FractalResponseListFromJson<T extends SerializableMixin>(
-            Map<String, dynamic> json) =>
-        FractalResponseList<T>(
-          object: $enumDecode(_$AttributeObjectEnumMap, json['object']),
-          meta: json['meta'] == null
-              ? null
-              : Meta.fromJson(json['meta'] as Map<String, dynamic>),
-          data: FractalResponseList._fromGenericJsonList(
-              json['data'] as List<Map<String, dynamic>>),
-        );
-
 Map<String, dynamic> _$FractalResponseListToJson<T extends SerializableMixin>(
         FractalResponseList<T> instance) =>
     <String, dynamic>{
@@ -28,6 +16,7 @@ Map<String, dynamic> _$FractalResponseListToJson<T extends SerializableMixin>(
 
 const _$AttributeObjectEnumMap = {
   AttributeObject.list: 'list',
+  AttributeObject.nullResource: 'null_resource',
   AttributeObject.server: 'server',
   AttributeObject.allocation: 'allocation',
   AttributeObject.systemPermissions: 'system_permissions',
