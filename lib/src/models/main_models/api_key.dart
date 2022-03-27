@@ -1,6 +1,7 @@
 import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'api_key.g.dart';
 
 @JsonSerializable()
@@ -17,7 +18,7 @@ class ApiKey with SerializableMixin {
     required this.lastUsedAt,
     required this.createdAt,
   });
-  factory ApiKey.fromJson(Map<String, dynamic> json) => _$ApiKeyFromJson(json);
+  factory ApiKey.fromJson(JsonMap json) => _$ApiKeyFromJson(json);
   @override
-  Map<String, dynamic> toJson() => _$ApiKeyToJson(this);
+  JsonMap toJson() => _$ApiKeyToJson(this);
 }

@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'server_rename.g.dart';
 
 @JsonSerializable()
@@ -8,6 +9,6 @@ class Rename {
 
   Rename({required this.name});
 
-  factory Rename.fromJson(Map<String, dynamic> json) => _$RenameFromJson(json);
-  Map<String, dynamic> toJson() => _$RenameToJson(this);
+  factory Rename.fromJson(JsonMap json) => _$RenameFromJson(json);
+  JsonMap toJson() => _$RenameToJson(this);
 }

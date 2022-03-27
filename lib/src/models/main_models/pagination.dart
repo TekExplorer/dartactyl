@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'pagination.g.dart';
 
 @JsonSerializable()
@@ -18,9 +19,8 @@ class Pagination {
     required this.totalPages,
     this.links,
   });
-  factory Pagination.fromJson(Map<String, dynamic> json) =>
-      _$PaginationFromJson(json);
-  Map<String, dynamic> toJson() => _$PaginationToJson(this);
+  factory Pagination.fromJson(JsonMap json) => _$PaginationFromJson(json);
+  JsonMap toJson() => _$PaginationToJson(this);
 }
 
 @JsonSerializable()
@@ -31,6 +31,6 @@ class Links {
     this.previous,
     this.next,
   });
-  factory Links.fromJson(Map<String, dynamic> json) => _$LinksFromJson(json);
-  Map<String, dynamic> toJson() => _$LinksToJson(this);
+  factory Links.fromJson(JsonMap json) => _$LinksFromJson(json);
+  JsonMap toJson() => _$LinksToJson(this);
 }

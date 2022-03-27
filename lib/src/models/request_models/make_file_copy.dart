@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'make_file_copy.g.dart';
 
 @JsonSerializable()
@@ -8,7 +9,6 @@ class MakeFileCopy {
   MakeFileCopy({
     required this.location,
   });
-  factory MakeFileCopy.fromJson(Map<String, dynamic> json) =>
-      _$MakeFileCopyFromJson(json);
-  Map<String, dynamic> toJson() => _$MakeFileCopyToJson(this);
+  factory MakeFileCopy.fromJson(JsonMap json) => _$MakeFileCopyFromJson(json);
+  JsonMap toJson() => _$MakeFileCopyToJson(this);
 }

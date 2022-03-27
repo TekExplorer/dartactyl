@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'from_to.g.dart';
 
 @JsonSerializable()
@@ -12,6 +13,6 @@ class FromTo {
     required this.to,
   });
 
-  factory FromTo.fromJson(Map<String, dynamic> json) => _$FromToFromJson(json);
-  Map<String, dynamic> toJson() => _$FromToToJson(this);
+  factory FromTo.fromJson(JsonMap json) => _$FromToFromJson(json);
+  JsonMap toJson() => _$FromToToJson(this);
 }

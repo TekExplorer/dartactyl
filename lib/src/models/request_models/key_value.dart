@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'key_value.g.dart';
 
 @JsonSerializable()
@@ -12,7 +13,6 @@ class KeyValue {
     required this.value,
   });
 
-  factory KeyValue.fromJson(Map<String, dynamic> json) =>
-      _$KeyValueFromJson(json);
-  Map<String, dynamic> toJson() => _$KeyValueToJson(this);
+  factory KeyValue.fromJson(JsonMap json) => _$KeyValueFromJson(json);
+  JsonMap toJson() => _$KeyValueToJson(this);
 }

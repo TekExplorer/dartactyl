@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'node.g.dart';
 
 @JsonSerializable()
@@ -47,6 +48,6 @@ class Node {
     required this.updatedAt,
   });
 
-  factory Node.fromJson(Map<String, dynamic> json) => _$NodeFromJson(json);
-  Map<String, dynamic> toJson() => _$NodeToJson(this);
+  factory Node.fromJson(JsonMap json) => _$NodeFromJson(json);
+  JsonMap toJson() => _$NodeToJson(this);
 }

@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'update_password.g.dart';
 
 @JsonSerializable()
@@ -12,7 +13,7 @@ class UpdatePassword {
     required this.password,
     required this.passwordConfirmation,
   });
-  factory UpdatePassword.fromJson(Map<String, dynamic> json) =>
+  factory UpdatePassword.fromJson(JsonMap json) =>
       _$UpdatePasswordFromJson(json);
-  Map<String, dynamic> toJson() => _$UpdatePasswordToJson(this);
+  JsonMap toJson() => _$UpdatePasswordToJson(this);
 }

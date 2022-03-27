@@ -1,6 +1,7 @@
 import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'file_permission_keys.g.dart';
 
 @JsonSerializable()
@@ -19,9 +20,9 @@ class FilePermissionKeys with SerializableMixin {
     required this.archive,
     required this.sftp,
   });
-  factory FilePermissionKeys.fromJson(Map<String, dynamic> json) =>
+  factory FilePermissionKeys.fromJson(JsonMap json) =>
       _$FilePermissionKeysFromJson(json);
 
   @override
-  Map<String, dynamic> toJson() => _$FilePermissionKeysToJson(this);
+  JsonMap toJson() => _$FilePermissionKeysToJson(this);
 }

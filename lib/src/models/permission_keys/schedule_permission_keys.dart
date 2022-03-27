@@ -1,6 +1,7 @@
 import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'schedule_permission_keys.g.dart';
 
 @JsonSerializable()
@@ -17,8 +18,8 @@ class SchedulePermissionKeys with SerializableMixin {
     required this.delete,
   });
 
-  factory SchedulePermissionKeys.fromJson(Map<String, dynamic> json) =>
+  factory SchedulePermissionKeys.fromJson(JsonMap json) =>
       _$SchedulePermissionKeysFromJson(json);
   @override
-  Map<String, dynamic> toJson() => _$SchedulePermissionKeysToJson(this);
+  JsonMap toJson() => _$SchedulePermissionKeysToJson(this);
 }

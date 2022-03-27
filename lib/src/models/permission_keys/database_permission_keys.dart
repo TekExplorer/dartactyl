@@ -1,6 +1,7 @@
 import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'database_permission_keys.g.dart';
 
 @JsonSerializable()
@@ -11,10 +12,10 @@ class DatabasePermissionKeys with SerializableMixin {
   String delete;
   String viewPassword;
 
-  factory DatabasePermissionKeys.fromJson(Map<String, dynamic> json) =>
+  factory DatabasePermissionKeys.fromJson(JsonMap json) =>
       _$DatabasePermissionKeysFromJson(json);
   @override
-  Map<String, dynamic> toJson() => _$DatabasePermissionKeysToJson(this);
+  JsonMap toJson() => _$DatabasePermissionKeysToJson(this);
 
   DatabasePermissionKeys({
     required this.create,

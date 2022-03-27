@@ -1,11 +1,12 @@
 import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'egg_config.g.dart';
 
 @JsonSerializable()
 class EggConfig {
-  Map<String, dynamic> files;
+  JsonMap files;
   EggStartupConfig startup;
   String stop;
   EggLogsConfig? logs;
@@ -17,7 +18,6 @@ class EggConfig {
     this.logs,
     required this.configExtends,
   });
-  factory EggConfig.fromJson(Map<String, dynamic> json) =>
-      _$EggConfigFromJson(json);
-  Map<String, dynamic> toJson() => _$EggConfigToJson(this);
+  factory EggConfig.fromJson(JsonMap json) => _$EggConfigFromJson(json);
+  JsonMap toJson() => _$EggConfigToJson(this);
 }

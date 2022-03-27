@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'schedule.g.dart';
 
 @JsonSerializable()
@@ -21,7 +22,7 @@ class RequestSchedule {
     required this.dayOfWeek,
     required this.dayOfMonth,
   });
-  factory RequestSchedule.fromJson(Map<String, dynamic> json) =>
+  factory RequestSchedule.fromJson(JsonMap json) =>
       _$RequestScheduleFromJson(json);
-  Map<String, dynamic> toJson() => _$RequestScheduleToJson(this);
+  JsonMap toJson() => _$RequestScheduleToJson(this);
 }

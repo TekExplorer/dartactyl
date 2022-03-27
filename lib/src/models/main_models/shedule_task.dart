@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 import '../../../models.dart';
 
+import 'package:dartactyl/models.dart';
 part 'shedule_task.g.dart';
 
 @JsonSerializable()
@@ -27,8 +28,7 @@ class ScheduleTask with SerializableMixin {
     required this.updatedAt,
   });
 
-  factory ScheduleTask.fromJson(Map<String, dynamic> json) =>
-      _$ScheduleTaskFromJson(json);
+  factory ScheduleTask.fromJson(JsonMap json) => _$ScheduleTaskFromJson(json);
   @override
-  Map<String, dynamic> toJson() => _$ScheduleTaskToJson(this);
+  JsonMap toJson() => _$ScheduleTaskToJson(this);
 }

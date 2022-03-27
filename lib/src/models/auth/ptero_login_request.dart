@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'ptero_login_request.g.dart';
 
 /// [username] is the username of the Pterodactyl account.
@@ -23,7 +24,7 @@ class PteroLoginRequest {
     this.gRecaptchaResponse,
   });
 
-  factory PteroLoginRequest.fromJson(Map<String, dynamic> json) =>
+  factory PteroLoginRequest.fromJson(JsonMap json) =>
       _$PteroLoginRequestFromJson(json);
-  Map<String, dynamic> toJson() => _$PteroLoginRequestToJson(this);
+  JsonMap toJson() => _$PteroLoginRequestToJson(this);
 }

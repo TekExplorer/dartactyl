@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'signal.g.dart';
 
 @JsonSerializable()
@@ -9,8 +10,8 @@ class Signal {
     required this.signal,
   });
 
-  factory Signal.fromJson(Map<String, dynamic> json) => _$SignalFromJson(json);
-  Map<String, dynamic> toJson() => _$SignalToJson(this);
+  factory Signal.fromJson(JsonMap json) => _$SignalFromJson(json);
+  JsonMap toJson() => _$SignalToJson(this);
 }
 
 enum ServerPowerAction { start, stop, restart, kill }

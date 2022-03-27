@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 import '../../../models.dart';
 
+import 'package:dartactyl/models.dart';
 part 'databases.g.dart';
 
 @JsonSerializable()
@@ -27,8 +28,7 @@ class Databases with SerializableMixin {
     required this.createdAt,
     required this.updatedAt,
   });
-  factory Databases.fromJson(Map<String, dynamic> json) =>
-      _$DatabasesFromJson(json);
+  factory Databases.fromJson(JsonMap json) => _$DatabasesFromJson(json);
   @override
-  Map<String, dynamic> toJson() => _$DatabasesToJson(this);
+  JsonMap toJson() => _$DatabasesToJson(this);
 }

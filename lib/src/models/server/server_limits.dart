@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:dartactyl/models.dart';
 
 part 'server_limits.g.dart';
 
@@ -18,7 +19,6 @@ class ServerLimits {
     required this.cpu,
     this.threads,
   });
-  factory ServerLimits.fromJson(Map<String, dynamic> json) =>
-      _$ServerLimitsFromJson(json);
-  Map<String, dynamic> toJson() => _$ServerLimitsToJson(this);
+  factory ServerLimits.fromJson(JsonMap json) => _$ServerLimitsFromJson(json);
+  JsonMap toJson() => _$ServerLimitsToJson(this);
 }

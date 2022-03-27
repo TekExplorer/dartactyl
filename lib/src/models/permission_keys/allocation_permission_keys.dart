@@ -1,6 +1,7 @@
 import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'allocation_permission_keys.g.dart';
 
 @JsonSerializable()
@@ -17,8 +18,8 @@ class AllocationPermissionKeys with SerializableMixin {
     required this.delete,
   });
 
-  factory AllocationPermissionKeys.fromJson(Map<String, dynamic> json) =>
+  factory AllocationPermissionKeys.fromJson(JsonMap json) =>
       _$AllocationPermissionKeysFromJson(json);
   @override
-  Map<String, dynamic> toJson() => _$AllocationPermissionKeysToJson(this);
+  JsonMap toJson() => _$AllocationPermissionKeysToJson(this);
 }

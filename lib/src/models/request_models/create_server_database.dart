@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'create_server_database.g.dart';
 
 @JsonSerializable()
@@ -12,7 +13,7 @@ class CreateServerDatabase {
     required this.remote,
   });
 
-  factory CreateServerDatabase.fromJson(Map<String, dynamic> json) =>
+  factory CreateServerDatabase.fromJson(JsonMap json) =>
       _$CreateServerDatabaseFromJson(json);
-  Map<String, dynamic> toJson() => _$CreateServerDatabaseToJson(this);
+  JsonMap toJson() => _$CreateServerDatabaseToJson(this);
 }

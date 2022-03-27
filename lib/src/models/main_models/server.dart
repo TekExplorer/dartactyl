@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 import '../../../models.dart';
 
+import 'package:dartactyl/models.dart';
 part 'server.g.dart';
 
 @JsonSerializable()
@@ -48,9 +49,9 @@ class Server with SerializableMixin {
 
   String get shortUuid => identifier;
 
-  factory Server.fromJson(Map<String, dynamic> json) => _$ServerFromJson(json);
+  factory Server.fromJson(JsonMap json) => _$ServerFromJson(json);
   @override
-  Map<String, dynamic> toJson() => _$ServerToJson(this);
+  JsonMap toJson() => _$ServerToJson(this);
 }
 
 enum ServerStatus {

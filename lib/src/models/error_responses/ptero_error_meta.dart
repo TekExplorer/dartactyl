@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 import '../../../models.dart';
 
+import 'package:dartactyl/models.dart';
 part 'ptero_error_meta.g.dart';
 
 @JsonSerializable()
@@ -10,10 +11,10 @@ class PteroErrorMeta {
 
   PteroErrorMeta({required this.rule});
 
-  factory PteroErrorMeta.fromJson(Map<String, dynamic> json) =>
+  factory PteroErrorMeta.fromJson(JsonMap json) =>
       _$PteroErrorMetaFromJson(json);
 
-  Map<String, dynamic> toJson() => _$PteroErrorMetaToJson(this);
+  JsonMap toJson() => _$PteroErrorMetaToJson(this);
 }
 
 // extentions
@@ -26,11 +27,11 @@ class PteroErrorStringMeta extends PteroErrorMeta {
   PteroErrorStringMeta({required String rule, required this.sourceField})
       : super(rule: rule);
 
-  factory PteroErrorStringMeta.fromJson(Map<String, dynamic> json) =>
+  factory PteroErrorStringMeta.fromJson(JsonMap json) =>
       _$PteroErrorStringMetaFromJson(json);
 
   @override
-  Map<String, dynamic> toJson() => _$PteroErrorStringMetaToJson(this);
+  JsonMap toJson() => _$PteroErrorStringMetaToJson(this);
 }
 
 @JsonSerializable()
@@ -41,11 +42,11 @@ class PteroErrorScheduleMeta extends PteroErrorMeta {
   PteroErrorScheduleMeta({required String rule, required this.sourceField})
       : super(rule: rule);
 
-  factory PteroErrorScheduleMeta.fromJson(Map<String, dynamic> json) =>
+  factory PteroErrorScheduleMeta.fromJson(JsonMap json) =>
       _$PteroErrorScheduleMetaFromJson(json);
 
   @override
-  Map<String, dynamic> toJson() => _$PteroErrorScheduleMetaToJson(this);
+  JsonMap toJson() => _$PteroErrorScheduleMetaToJson(this);
 }
 
 // enums

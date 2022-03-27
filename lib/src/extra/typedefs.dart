@@ -1,5 +1,7 @@
 import 'package:dartactyl/models.dart';
 
+typedef JsonMap = Map<String, dynamic>;
+
 typedef Fractal<T extends SerializableMixin> = FractalResponseData<T>;
 
 typedef FractalServer = Fractal<Server>;

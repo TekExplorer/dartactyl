@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'ptero_error.g.dart';
 
 @JsonSerializable()
@@ -18,10 +19,9 @@ class PteroError {
     // this.meta,
   });
 
-  factory PteroError.fromJson(Map<String, dynamic> json) =>
-      _$PteroErrorFromJson(json);
+  factory PteroError.fromJson(JsonMap json) => _$PteroErrorFromJson(json);
 
-  Map<String, dynamic> toJson() => _$PteroErrorToJson(this);
+  JsonMap toJson() => _$PteroErrorToJson(this);
 
   @override
   String toString() {

@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 import '../../../models.dart';
 
+import 'package:dartactyl/models.dart';
 part 'relationships.g.dart';
 
 @JsonSerializable()
@@ -30,7 +31,6 @@ class Relationships {
     this.subusers,
   });
 
-  factory Relationships.fromJson(Map<String, dynamic> json) =>
-      _$RelationshipsFromJson(json);
-  Map<String, dynamic> toJson() => _$RelationshipsToJson(this);
+  factory Relationships.fromJson(JsonMap json) => _$RelationshipsFromJson(json);
+  JsonMap toJson() => _$RelationshipsToJson(this);
 }

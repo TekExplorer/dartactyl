@@ -11,7 +11,7 @@ class HandleErrorInterceptor extends Interceptor {
     if (response != null) {
       dynamic data = response.data;
 
-      if (data is Map<String, dynamic>) {
+      if (data is JsonMap) {
         // we have an error!
         // convert to PteroError
         PteroErrors errors = PteroErrors.fromJson(data);

@@ -4,14 +4,22 @@ import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:retrofit/retrofit.dart';
 
+import 'package:dartactyl/models.dart';
 part 'client.g.dart';
+
+extension GetDio on PteroClient {
+  Dio get dio => _dio;
+  String get url => baseUrl ?? dio.options.baseUrl;
+}
 
 /// Pterodactyl API Client
 @RestApi(
     // autoCastResponse: true,
     ) // Manually edited generated file to include fromJson functions for FractalResponseList
 abstract class PteroClient {
-  factory PteroClient(Dio dio, {String baseUrl}) = _PteroClient;
+  factory PteroClient(Dio dio, {String? baseUrl}) = _PteroClient;
+  Dio get _dio;
+  String? get baseUrl;
 
   /// Set up a Pterodactyl API Client in one go!
   /// [baseUrl] is the base URL of the Pterodactyl server.

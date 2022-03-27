@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'websocket_details.g.dart';
 
 @JsonSerializable()
@@ -10,7 +11,7 @@ class WebsocketDetails {
     required this.token,
     required this.socket,
   });
-  factory WebsocketDetails.fromJson(Map<String, dynamic> json) =>
+  factory WebsocketDetails.fromJson(JsonMap json) =>
       _$WebsocketDetailsFromJson(json);
-  Map<String, dynamic> toJson() => _$WebsocketDetailsToJson(this);
+  JsonMap toJson() => _$WebsocketDetailsToJson(this);
 }

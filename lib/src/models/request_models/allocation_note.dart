@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'allocation_note.g.dart';
 
 @JsonSerializable()
@@ -8,7 +9,7 @@ class AllocationNote {
 
   AllocationNote({required this.notes});
 
-  factory AllocationNote.fromJson(Map<String, dynamic> json) =>
+  factory AllocationNote.fromJson(JsonMap json) =>
       _$AllocationNoteFromJson(json);
-  Map<String, dynamic> toJson() => _$AllocationNoteToJson(this);
+  JsonMap toJson() => _$AllocationNoteToJson(this);
 }

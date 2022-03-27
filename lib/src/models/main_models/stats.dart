@@ -1,6 +1,7 @@
 import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'stats.g.dart';
 
 @JsonSerializable()
@@ -15,9 +16,9 @@ class Stats with SerializableMixin {
     required this.resources,
   });
 
-  factory Stats.fromJson(Map<String, dynamic> json) => _$StatsFromJson(json);
+  factory Stats.fromJson(JsonMap json) => _$StatsFromJson(json);
   @override
-  Map<String, dynamic> toJson() => _$StatsToJson(this);
+  JsonMap toJson() => _$StatsToJson(this);
 }
 
 @JsonSerializable()
@@ -36,9 +37,9 @@ class StatsResources {
     required this.networkTxBytes,
   });
 
-  factory StatsResources.fromJson(Map<String, dynamic> json) =>
+  factory StatsResources.fromJson(JsonMap json) =>
       _$StatsResourcesFromJson(json);
-  Map<String, dynamic> toJson() => _$StatsResourcesToJson(this);
+  JsonMap toJson() => _$StatsResourcesToJson(this);
 }
 
 enum ServerPowerState { running, starting, stopping, offline }

@@ -1,6 +1,7 @@
 import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'recovery_tokens.g.dart';
 
 @JsonSerializable()
@@ -9,8 +10,8 @@ class RecoveryTokens with SerializableMixin {
   RecoveryTokens({
     required this.tokens,
   });
-  factory RecoveryTokens.fromJson(Map<String, dynamic> json) =>
+  factory RecoveryTokens.fromJson(JsonMap json) =>
       _$RecoveryTokensFromJson(json);
   @override
-  Map<String, dynamic> toJson() => _$RecoveryTokensToJson(this);
+  JsonMap toJson() => _$RecoveryTokensToJson(this);
 }

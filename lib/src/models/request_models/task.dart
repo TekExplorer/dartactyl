@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'task.g.dart';
 
 @JsonSerializable()
@@ -12,8 +13,8 @@ class Task {
     required this.payload,
     required this.timeOffset,
   });
-  factory Task.fromJson(Map<String, dynamic> json) => _$TaskFromJson(json);
-  Map<String, dynamic> toJson() => _$TaskToJson(this);
+  factory Task.fromJson(JsonMap json) => _$TaskFromJson(json);
+  JsonMap toJson() => _$TaskToJson(this);
 }
 
 enum Action { command, power, backup }

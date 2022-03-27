@@ -1,6 +1,7 @@
 import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'file_body.g.dart';
 
 @JsonSerializable()
@@ -15,9 +16,8 @@ class FileBodyList<T> {
     required this.files,
   });
 
-  factory FileBodyList.fromJson(Map<String, dynamic> json) =>
-      _$FileBodyListFromJson(json);
-  Map<String, dynamic> toJson() => _$FileBodyListToJson(this);
+  factory FileBodyList.fromJson(JsonMap json) => _$FileBodyListFromJson(json);
+  JsonMap toJson() => _$FileBodyListToJson(this);
 
   static dynamic _toGenericJson(dynamic object) {
     if (object is SerializableMixin) {
@@ -32,7 +32,7 @@ class FileBodyList<T> {
   }
 
   static T _fromGenericJson<T>(dynamic json) {
-    if (json is Map<String, dynamic> && T is FromTo) {
+    if (json is JsonMap && T is FromTo) {
       return FromTo.fromJson(json) as T;
     }
     if (json is String) {
@@ -67,9 +67,8 @@ class FolderBody {
     required this.name,
   });
 
-  factory FolderBody.fromJson(Map<String, dynamic> json) =>
-      _$FolderBodyFromJson(json);
-  Map<String, dynamic> toJson() => _$FolderBodyToJson(this);
+  factory FolderBody.fromJson(JsonMap json) => _$FolderBodyFromJson(json);
+  JsonMap toJson() => _$FolderBodyToJson(this);
 }
 
 @JsonSerializable()
@@ -83,7 +82,6 @@ class FileBody {
     required this.file,
   });
 
-  factory FileBody.fromJson(Map<String, dynamic> json) =>
-      _$FileBodyFromJson(json);
-  Map<String, dynamic> toJson() => _$FileBodyToJson(this);
+  factory FileBody.fromJson(JsonMap json) => _$FileBodyFromJson(json);
+  JsonMap toJson() => _$FileBodyToJson(this);
 }

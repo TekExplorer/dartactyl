@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:dartactyl/models.dart';
 
 part 'server_feature_limits.g.dart';
 
@@ -13,7 +14,7 @@ class ServerFeatureLimits {
     required this.allocations,
     this.backups,
   });
-  factory ServerFeatureLimits.fromJson(Map<String, dynamic> json) =>
+  factory ServerFeatureLimits.fromJson(JsonMap json) =>
       _$ServerFeatureLimitsFromJson(json);
-  Map<String, dynamic> toJson() => _$ServerFeatureLimitsToJson(this);
+  JsonMap toJson() => _$ServerFeatureLimitsToJson(this);
 }

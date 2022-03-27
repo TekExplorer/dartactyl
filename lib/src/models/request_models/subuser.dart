@@ -1,6 +1,7 @@
 import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'subuser.g.dart';
 
 @JsonSerializable()
@@ -9,11 +10,10 @@ class Subuser extends SubuserPermissions with SerializableMixin {
   Subuser({required this.email, required List<String> permissions})
       : super(permissions: permissions);
 
-  factory Subuser.fromJson(Map<String, dynamic> json) =>
-      _$SubuserFromJson(json);
+  factory Subuser.fromJson(JsonMap json) => _$SubuserFromJson(json);
 
   @override
-  Map<String, dynamic> toJson() => _$SubuserToJson(this);
+  JsonMap toJson() => _$SubuserToJson(this);
 }
 
 @JsonSerializable()
@@ -22,7 +22,7 @@ class SubuserPermissions {
 
   SubuserPermissions({required this.permissions});
 
-  factory SubuserPermissions.fromJson(Map<String, dynamic> json) =>
+  factory SubuserPermissions.fromJson(JsonMap json) =>
       _$SubuserPermissionsFromJson(json);
-  Map<String, dynamic> toJson() => _$SubuserPermissionsToJson(this);
+  JsonMap toJson() => _$SubuserPermissionsToJson(this);
 }

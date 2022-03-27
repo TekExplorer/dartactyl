@@ -1,6 +1,7 @@
 import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'system_permissions.g.dart';
 
 @JsonSerializable()
@@ -9,10 +10,10 @@ class SystemPermissions with SerializableMixin {
   SystemPermissions({
     required this.permissions,
   });
-  factory SystemPermissions.fromJson(Map<String, dynamic> json) =>
+  factory SystemPermissions.fromJson(JsonMap json) =>
       _$SystemPermissionsFromJson(json);
   @override
-  Map<String, dynamic> toJson() => _$SystemPermissionsToJson(this);
+  JsonMap toJson() => _$SystemPermissionsToJson(this);
 }
 
 @JsonSerializable()
@@ -40,9 +41,8 @@ class Permissions {
     required this.schedule,
     required this.settings,
   });
-  factory Permissions.fromJson(Map<String, dynamic> json) =>
-      _$PermissionsFromJson(json);
-  Map<String, dynamic> toJson() => _$PermissionsToJson(this);
+  factory Permissions.fromJson(JsonMap json) => _$PermissionsFromJson(json);
+  JsonMap toJson() => _$PermissionsToJson(this);
 }
 
 @JsonSerializable()
@@ -55,12 +55,12 @@ class PermissionsModel<T extends SerializableMixin> {
     required this.keys,
   });
 
-  factory PermissionsModel.fromJson(Map<String, dynamic> json) =>
+  factory PermissionsModel.fromJson(JsonMap json) =>
       _$PermissionsModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$PermissionsModelToJson(this);
+  JsonMap toJson() => _$PermissionsModelToJson(this);
 
-  static T _fromGenericJson<T>(Map<String, dynamic> json) {
+  static T _fromGenericJson<T>(JsonMap json) {
     switch (T) {
       case WebsocketPermissionKeys:
         return WebsocketPermissionKeys.fromJson(json) as T;
@@ -87,7 +87,5 @@ class PermissionsModel<T extends SerializableMixin> {
     }
   }
 
-  static Map<String, dynamic> _toGenericJson<T extends SerializableMixin>(
-          T t) =>
-      t.toJson();
+  static JsonMap _toGenericJson<T extends SerializableMixin>(T t) => t.toJson();
 }

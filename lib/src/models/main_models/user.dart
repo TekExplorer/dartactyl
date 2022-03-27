@@ -1,6 +1,7 @@
 import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'user.g.dart';
 
 @JsonSerializable()
@@ -22,7 +23,7 @@ class User with SerializableMixin {
     required this.lastName,
     required this.language,
   });
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  factory User.fromJson(JsonMap json) => _$UserFromJson(json);
   @override
-  Map<String, dynamic> toJson() => _$UserToJson(this);
+  JsonMap toJson() => _$UserToJson(this);
 }

@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import '../../../models.dart';
 
+import 'package:dartactyl/models.dart';
 part 'database_password.g.dart';
 
 @JsonSerializable()
@@ -9,8 +10,8 @@ class DatabasePassword with SerializableMixin {
   DatabasePassword({
     required this.password,
   });
-  factory DatabasePassword.fromJson(Map<String, dynamic> json) =>
+  factory DatabasePassword.fromJson(JsonMap json) =>
       _$DatabasePasswordFromJson(json);
   @override
-  Map<String, dynamic> toJson() => _$DatabasePasswordToJson(this);
+  JsonMap toJson() => _$DatabasePasswordToJson(this);
 }

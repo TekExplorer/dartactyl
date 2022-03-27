@@ -1,6 +1,7 @@
 import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'websocket_permission_keys.g.dart';
 
 @JsonSerializable()
@@ -9,8 +10,8 @@ class WebsocketPermissionKeys with SerializableMixin {
   WebsocketPermissionKeys({
     required this.connect,
   });
-  factory WebsocketPermissionKeys.fromJson(Map<String, dynamic> json) =>
+  factory WebsocketPermissionKeys.fromJson(JsonMap json) =>
       _$WebsocketPermissionKeysFromJson(json);
   @override
-  Map<String, dynamic> toJson() => _$WebsocketPermissionKeysToJson(this);
+  JsonMap toJson() => _$WebsocketPermissionKeysToJson(this);
 }

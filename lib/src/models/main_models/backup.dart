@@ -1,6 +1,7 @@
 import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'backup.g.dart';
 
 @JsonSerializable()
@@ -27,7 +28,7 @@ class Backup with SerializableMixin {
     this.completedAt,
   });
 
-  factory Backup.fromJson(Map<String, dynamic> json) => _$BackupFromJson(json);
+  factory Backup.fromJson(JsonMap json) => _$BackupFromJson(json);
   @override
-  Map<String, dynamic> toJson() => _$BackupToJson(this);
+  JsonMap toJson() => _$BackupToJson(this);
 }

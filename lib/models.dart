@@ -8,6 +8,11 @@ export 'src/extra/typedefs.dart';
 export 'src/extra/fractal_extentions.dart';
 export 'src/extra/fractal_list_extentions.dart';
 export 'src/extra/utility.dart';
+export 'src/extra/site_config.dart';
+
+/// Site Config
+export 'src/models/site_config/site_config.dart';
+export 'src/models/site_config/user_config.dart';
 
 /// Interceptors
 export 'src/interceptors/handle_errors.dart';

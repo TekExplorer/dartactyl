@@ -1,6 +1,7 @@
 import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'backup_permission_keys.g.dart';
 
 @JsonSerializable()
@@ -10,10 +11,10 @@ class BackupPermissionKeys with SerializableMixin {
   String update;
   String delete;
 
-  factory BackupPermissionKeys.fromJson(Map<String, dynamic> json) =>
+  factory BackupPermissionKeys.fromJson(JsonMap json) =>
       _$BackupPermissionKeysFromJson(json);
   @override
-  Map<String, dynamic> toJson() => _$BackupPermissionKeysToJson(this);
+  JsonMap toJson() => _$BackupPermissionKeysToJson(this);
 
   BackupPermissionKeys({
     required this.read,

@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'disable_two_factor.g.dart';
 
 @JsonSerializable()
@@ -10,7 +11,7 @@ class DisableTwoFactor {
     required this.email,
     required this.password,
   });
-  factory DisableTwoFactor.fromJson(Map<String, dynamic> json) =>
+  factory DisableTwoFactor.fromJson(JsonMap json) =>
       _$DisableTwoFactorFromJson(json);
-  Map<String, dynamic> toJson() => _$DisableTwoFactorToJson(this);
+  JsonMap toJson() => _$DisableTwoFactorToJson(this);
 }

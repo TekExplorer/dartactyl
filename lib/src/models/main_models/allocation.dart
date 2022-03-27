@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 import '../../../models.dart';
 
+import 'package:dartactyl/models.dart';
 part 'allocation.g.dart';
 
 @JsonSerializable()
@@ -20,8 +21,7 @@ class Allocation with SerializableMixin {
     this.notes,
     required this.isDefault,
   });
-  factory Allocation.fromJson(Map<String, dynamic> json) =>
-      _$AllocationFromJson(json);
+  factory Allocation.fromJson(JsonMap json) => _$AllocationFromJson(json);
   @override
-  Map<String, dynamic> toJson() => _$AllocationToJson(this);
+  JsonMap toJson() => _$AllocationToJson(this);
 }

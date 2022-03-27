@@ -1,3 +1,5 @@
+import 'package:dartactyl/src/extra/typedefs.dart';
+
 mixin SerializableMixin {
-  Map<String, dynamic> toJson();
+  JsonMap toJson();
 }

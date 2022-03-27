@@ -1,6 +1,7 @@
 import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'server_subuser.g.dart';
 
 @JsonSerializable()
@@ -21,8 +22,7 @@ class ServerSubuser with SerializableMixin {
     required this.createdAt,
     required this.permissions,
   });
-  factory ServerSubuser.fromJson(Map<String, dynamic> json) =>
-      _$ServerSubuserFromJson(json);
+  factory ServerSubuser.fromJson(JsonMap json) => _$ServerSubuserFromJson(json);
   @override
-  Map<String, dynamic> toJson() => _$ServerSubuserToJson(this);
+  JsonMap toJson() => _$ServerSubuserToJson(this);
 }

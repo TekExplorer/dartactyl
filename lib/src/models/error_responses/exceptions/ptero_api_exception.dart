@@ -8,11 +8,11 @@ class PteroApiException extends GenericApiException {
 
   /// The raw data from the server, but we know its a Map now
   @override
-  Map<String, dynamic> get rawData => super.rawData;
+  JsonMap get rawData => super.rawData;
 
   PteroApiException({
     required PteroErrors errors,
-    required Map<String, dynamic> rawData,
+    required JsonMap rawData,
     required DioError rawDioError,
     int? statusCode,
     String? message,

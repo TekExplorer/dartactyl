@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'location.g.dart';
 
 @JsonSerializable()
@@ -16,7 +17,6 @@ class Location {
     required this.updatedAt,
     required this.createdAt,
   });
-  factory Location.fromJson(Map<String, dynamic> json) =>
-      _$LocationFromJson(json);
-  Map<String, dynamic> toJson() => _$LocationToJson(this);
+  factory Location.fromJson(JsonMap json) => _$LocationFromJson(json);
+  JsonMap toJson() => _$LocationToJson(this);
 }

@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 import '/models.dart';
 
+import 'package:dartactyl/models.dart';
 part 'fractal_response_data.g.dart';
 
 @JsonSerializable()
@@ -16,12 +17,12 @@ class FractalResponseData<T extends SerializableMixin> {
     this.meta,
   });
 
-  Map<String, dynamic> toJson() => _$FractalResponseDataToJson<T>(this);
+  JsonMap toJson() => _$FractalResponseDataToJson<T>(this);
 
-  factory FractalResponseData.fromJson(Map<String, dynamic> json) =>
+  factory FractalResponseData.fromJson(JsonMap json) =>
       _$FractalResponseDataFromJson(json);
 
-  static T _fromGenericJson<T>(Map<String, dynamic> json) {
+  static T _fromGenericJson<T>(JsonMap json) {
     switch (T) {
       case Server:
         return Server.fromJson(json) as T;
@@ -73,7 +74,7 @@ class FractalResponseData<T extends SerializableMixin> {
     }
   }
 
-  static Map<String, dynamic> _toGenericJson<T>(T value) {
+  static JsonMap _toGenericJson<T>(T value) {
     if (value is SerializableMixin) {
       return value.toJson();
     } else {

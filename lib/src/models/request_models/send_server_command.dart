@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'send_server_command.g.dart';
 
 @JsonSerializable()
@@ -10,7 +11,7 @@ class SendServerCommand {
     required this.command,
   });
 
-  factory SendServerCommand.fromJson(Map<String, dynamic> json) =>
+  factory SendServerCommand.fromJson(JsonMap json) =>
       _$SendServerCommandFromJson(json);
-  Map<String, dynamic> toJson() => _$SendServerCommandToJson(this);
+  JsonMap toJson() => _$SendServerCommandToJson(this);
 }

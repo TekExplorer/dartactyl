@@ -1,6 +1,7 @@
 import '../../../models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'startup_permission_keys.g.dart';
 
 @JsonSerializable()
@@ -12,9 +13,9 @@ class StartupPermissionKeys with SerializableMixin {
     required this.update,
   });
 
-  factory StartupPermissionKeys.fromJson(Map<String, dynamic> json) =>
+  factory StartupPermissionKeys.fromJson(JsonMap json) =>
       _$StartupPermissionKeysFromJson(json);
 
   @override
-  Map<String, dynamic> toJson() => _$StartupPermissionKeysToJson(this);
+  JsonMap toJson() => _$StartupPermissionKeysToJson(this);
 }

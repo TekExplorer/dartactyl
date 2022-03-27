@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:dartactyl/models.dart';
 part 'create_api_key.g.dart';
 
 @JsonSerializable()
@@ -10,7 +11,6 @@ class CreateApiKey {
     required this.description,
     required this.allowedIps,
   });
-  factory CreateApiKey.fromJson(Map<String, dynamic> json) =>
-      _$CreateApiKeyFromJson(json);
-  Map<String, dynamic> toJson() => _$CreateApiKeyToJson(this);
+  factory CreateApiKey.fromJson(JsonMap json) => _$CreateApiKeyFromJson(json);
+  JsonMap toJson() => _$CreateApiKeyToJson(this);
 }
