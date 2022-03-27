@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 enum AttributeObject {
+  list, // lmao how did i forget this one
   server,
   allocation,
   @JsonValue('system_permissions')

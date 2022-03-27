@@ -27,6 +27,7 @@ Map<String, dynamic> _$FractalResponseDataToJson<T extends SerializableMixin>(
     };
 
 const _$AttributeObjectEnumMap = {
+  AttributeObject.list: 'list',
   AttributeObject.server: 'server',
   AttributeObject.allocation: 'allocation',
   AttributeObject.systemPermissions: 'system_permissions',

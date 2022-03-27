@@ -1,3 +1,5 @@
+## 1.3.4
+ - Apparently I forgot to make `list` a valid option, making `FractalResponseList` never work.
 ## 1.3.3
  - Apparently I need to commit generated files?
 ## 1.3.2
