@@ -16,10 +16,11 @@ class _PteroClient implements PteroClient {
   String? baseUrl;
 
   @override
-  Future<void> login(credentials) async {
+  Future<void> _login(credentials, xsrfHeader) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'X-XSRF-TOKEN': xsrfHeader};
+    _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     _data.addAll(credentials.toJson());
     await _dio.fetch<void>(_setStreamType<void>(
@@ -37,7 +38,7 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'POST', headers: _headers, extra: _extra)
+        Options(method: 'GET', headers: _headers, extra: _extra)
             .compose(_dio.options, '/auth/logout',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));

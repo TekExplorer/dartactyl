@@ -1,3 +1,5 @@
+## 1.3.8
+ - Fixed 419 error in `login()`
 ## 1.3.7
  - Fixed `getServerDetails`
 

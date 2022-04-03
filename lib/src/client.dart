@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dartactyl/models.dart';
 import 'package:dio/dio.dart';
@@ -5,16 +7,12 @@ import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'client.g.dart';
-
-extension GetDio on PteroClient {
-  Dio get dio => _dio;
-  String get url => baseUrl ?? dio.options.baseUrl;
-}
+part 'client_extentions.dart';
 
 /// Pterodactyl API Client
 @RestApi(
     // autoCastResponse: true,
-    ) // Manually edited generated file to include fromJson functions for FractalResponseList
+    )
 abstract class PteroClient {
   factory PteroClient(Dio dio, {String? baseUrl}) = _PteroClient;
   Dio get _dio;
@@ -32,12 +30,12 @@ abstract class PteroClient {
     Dio? dio,
     bool enableAutoCookieJar = true,
     bool enableErrorInterceptor = true,
+    bool enableIfAuthNoKeyInterceptor = true,
   }) {
     dio = dio ?? Dio();
-
     if (key != null) {
       // use key
-      dio.options.headers["Authorization"] = "Bearer " + key;
+      dio.options.headers[HttpHeaders.authorizationHeader] = "Bearer " + key;
     } else if (enableAutoCookieJar) {
       // use cookie
       dio.interceptors.add(CookieManager(CookieJar()));
@@ -46,7 +44,7 @@ abstract class PteroClient {
     dio.options.baseUrl = url;
 
     dio.interceptors.addAll([
-      IfAuthNoKeyInterceptor(),
+      if (enableIfAuthNoKeyInterceptor) IfAuthNoKeyInterceptor(),
       if (enableErrorInterceptor) HandleErrorInterceptor(),
     ]);
 
@@ -66,18 +64,23 @@ abstract class PteroClient {
         key: 'mock-api-key',
       );
 
-  /// Login to Pterodactyl using username and password.
+  // /// Login to Pterodactyl using username and password.
+  // ///
+  // /// PUTS YOU INTO COOKIE MODE!!!
   ///
-  /// PUTS YOU INTO COOKIE MODE!!!
+  /// [xsrfHeader] is the XSRF token
   @POST('/auth/login')
-  Future<void> login(@Body() PteroLoginRequest credentials);
+  Future<void> _login(
+    @Body() PteroLoginRequest credentials,
+    @Header("X-XSRF-TOKEN") String xsrfHeader,
+  );
 
   /// Logout of Pterodactyl, ending your session.
   ///
   /// PUTS YOU INTO COOKIE MODE!!!
   ///
   /// Only useful in cookie mode anyway.
-  @POST('/auth/logout')
+  @GET('/auth/logout')
   Future<void> logout();
 
   /// Get a list of servers.
