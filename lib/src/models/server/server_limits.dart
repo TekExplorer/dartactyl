@@ -1,7 +1,7 @@
-import 'package:json_annotation/json_annotation.dart';
 import 'package:dartactyl/models.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'server_limits.g.dart';
+part '../../generated/models/server/server_limits.g.dart';
 
 @JsonSerializable()
 class ServerLimits {

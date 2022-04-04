@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'create_api_key.g.dart';
+part '../../generated/models/request_models/create_api_key.g.dart';
 
 @JsonSerializable()
 class CreateApiKey {

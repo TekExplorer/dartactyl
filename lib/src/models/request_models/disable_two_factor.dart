@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'disable_two_factor.g.dart';
+part '../../generated/models/request_models/disable_two_factor.g.dart';
 
 @JsonSerializable()
 class DisableTwoFactor {

@@ -1,8 +1,9 @@
-import '../../../models.dart';
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'egg_variable.g.dart';
+import '../../../models.dart';
+
+part '../../generated/models/main_models/egg_variable.g.dart';
 
 @JsonSerializable()
 class EggVariable with SerializableMixin {

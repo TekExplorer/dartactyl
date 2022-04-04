@@ -1,7 +1,7 @@
-import 'package:json_annotation/json_annotation.dart';
 import 'package:dartactyl/models.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'sftp_details.g.dart';
+part '../../generated/models/server/sftp_details.g.dart';
 
 @JsonSerializable()
 class SftpDetails {

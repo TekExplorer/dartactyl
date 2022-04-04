@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'node.g.dart';
+part '../../generated/models/main_models/node.g.dart';
 
 @JsonSerializable()
 class Node {

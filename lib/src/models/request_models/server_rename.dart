@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'server_rename.g.dart';
+part '../../generated/models/request_models/server_rename.g.dart';
 
 @JsonSerializable()
 class Rename {

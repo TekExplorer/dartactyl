@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'egg_script.g.dart';
+part '../../generated/models/egg/egg_script.g.dart';
 
 @JsonSerializable()
 class EggScript {

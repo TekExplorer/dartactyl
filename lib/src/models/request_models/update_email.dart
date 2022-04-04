@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'update_email.g.dart';
+part '../../generated/models/request_models/update_email.g.dart';
 
 @JsonSerializable()
 class UpdateEmail {

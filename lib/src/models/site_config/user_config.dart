@@ -1,7 +1,7 @@
 import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'user_config.g.dart';
+part '../../generated/models/site_config/user_config.g.dart';
 
 @JsonSerializable()
 class UserConfig {

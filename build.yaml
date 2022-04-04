@@ -17,3 +17,9 @@ targets:
           generic_argument_factories: false
           ignore_unannotated: false
           include_if_null: true
+
+      # A SharedPartBuilder which uses the combining builder
+      source_gen|combining_builder:
+        options:
+          build_extensions:
+            '^lib/src/{{}}.dart': 'lib/src/generated/{{}}.g.dart'

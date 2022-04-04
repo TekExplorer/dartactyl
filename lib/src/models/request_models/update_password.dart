@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'update_password.g.dart';
+part '../../generated/models/request_models/update_password.g.dart';
 
 @JsonSerializable()
 class UpdatePassword {

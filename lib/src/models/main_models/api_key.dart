@@ -1,8 +1,9 @@
-import '../../../models.dart';
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'api_key.g.dart';
+import '../../../models.dart';
+
+part '../../generated/models/main_models/api_key.g.dart';
 
 @JsonSerializable()
 class ApiKey with SerializableMixin {

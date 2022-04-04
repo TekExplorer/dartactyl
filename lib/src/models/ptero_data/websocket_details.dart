@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'websocket_details.g.dart';
+part '../../generated/models/ptero_data/websocket_details.g.dart';
 
 @JsonSerializable()
 class WebsocketDetails {

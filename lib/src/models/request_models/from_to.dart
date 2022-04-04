@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'from_to.g.dart';
+part '../../generated/models/request_models/from_to.g.dart';
 
 @JsonSerializable()
 class FromTo {

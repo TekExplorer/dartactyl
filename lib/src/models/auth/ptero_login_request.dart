@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'ptero_login_request.g.dart';
+part '../../generated/models/auth/ptero_login_request.g.dart';
 
 /// [username] is the username of the Pterodactyl account.
 ///

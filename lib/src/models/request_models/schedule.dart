@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'schedule.g.dart';
+part '../../generated/models/request_models/schedule.g.dart';
 
 @JsonSerializable()
 class RequestSchedule {

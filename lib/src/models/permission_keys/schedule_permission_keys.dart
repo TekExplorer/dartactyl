@@ -1,8 +1,9 @@
-import '../../../models.dart';
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'schedule_permission_keys.g.dart';
+import '../../../models.dart';
+
+part '../../generated/models/permission_keys/schedule_permission_keys.g.dart';
 
 @JsonSerializable()
 class SchedulePermissionKeys with SerializableMixin {

@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'task.g.dart';
+part '../../generated/models/request_models/task.g.dart';
 
 @JsonSerializable()
 class Task {

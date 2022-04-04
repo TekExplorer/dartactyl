@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'key_value.g.dart';
+part '../../generated/models/request_models/key_value.g.dart';
 
 @JsonSerializable()
 class KeyValue {

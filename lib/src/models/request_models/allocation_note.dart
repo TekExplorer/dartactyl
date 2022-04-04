@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'allocation_note.g.dart';
+part '../../generated/models/request_models/allocation_note.g.dart';
 
 @JsonSerializable()
 class AllocationNote {

@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'ptero_error.g.dart';
+part '../../generated/models/error_responses/ptero_error.g.dart';
 
 @JsonSerializable()
 class PteroError {

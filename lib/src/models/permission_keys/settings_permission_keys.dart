@@ -1,9 +1,9 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../../models.dart';
 
-import 'package:dartactyl/models.dart';
-part 'settings_permission_keys.g.dart';
+part '../../generated/models/permission_keys/settings_permission_keys.g.dart';
 
 @JsonSerializable()
 class SettingsPermissionKeys with SerializableMixin {

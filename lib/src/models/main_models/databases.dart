@@ -1,9 +1,9 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../../models.dart';
 
-import 'package:dartactyl/models.dart';
-part 'databases.g.dart';
+part '../../generated/models/main_models/databases.g.dart';
 
 @JsonSerializable()
 class Databases with SerializableMixin {

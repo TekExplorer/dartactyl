@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'create_server_database.g.dart';
+part '../../generated/models/request_models/create_server_database.g.dart';
 
 @JsonSerializable()
 class CreateServerDatabase {

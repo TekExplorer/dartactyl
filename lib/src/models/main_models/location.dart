@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'location.g.dart';
+part '../../generated/models/main_models/location.g.dart';
 
 @JsonSerializable()
 class Location {

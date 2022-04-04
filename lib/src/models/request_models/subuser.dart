@@ -1,8 +1,9 @@
-import '../../../models.dart';
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'subuser.g.dart';
+import '../../../models.dart';
+
+part '../../generated/models/request_models/subuser.g.dart';
 
 @JsonSerializable()
 class Subuser extends SubuserPermissions with SerializableMixin {

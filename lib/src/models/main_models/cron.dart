@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'cron.g.dart';
+part '../../generated/models/main_models/cron.g.dart';
 
 @JsonSerializable()
 class Cron {

@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'two_factor_code.g.dart';
+part '../../generated/models/request_models/two_factor_code.g.dart';
 
 @JsonSerializable()
 class TwoFactorCode {

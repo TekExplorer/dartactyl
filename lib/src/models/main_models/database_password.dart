@@ -1,8 +1,9 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
+
 import '../../../models.dart';
 
-import 'package:dartactyl/models.dart';
-part 'database_password.g.dart';
+part '../../generated/models/main_models/database_password.g.dart';
 
 @JsonSerializable()
 class DatabasePassword with SerializableMixin {

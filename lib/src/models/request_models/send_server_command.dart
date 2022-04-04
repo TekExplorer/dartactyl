@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'send_server_command.g.dart';
+part '../../generated/models/request_models/send_server_command.g.dart';
 
 @JsonSerializable()
 class SendServerCommand {

@@ -1,8 +1,9 @@
-import '../../../models.dart';
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'signed_url.g.dart';
+import '../../../models.dart';
+
+part '../../generated/models/main_models/signed_url.g.dart';
 
 @JsonSerializable()
 class SignedUrl with SerializableMixin {

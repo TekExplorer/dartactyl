@@ -1,7 +1,7 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'make_file_copy.g.dart';
+part '../../generated/models/request_models/make_file_copy.g.dart';
 
 @JsonSerializable()
 class MakeFileCopy {

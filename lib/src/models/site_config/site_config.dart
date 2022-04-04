@@ -1,7 +1,7 @@
 import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'site_config.g.dart';
+part '../../generated/models/site_config/site_config.g.dart';
 
 @JsonSerializable()
 class SiteConfig {

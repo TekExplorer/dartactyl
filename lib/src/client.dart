@@ -6,8 +6,8 @@ import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:retrofit/retrofit.dart';
 
-part 'client.g.dart';
 part 'client_extentions.dart';
+part 'generated/client.g.dart';
 
 /// Pterodactyl API Client
 @RestApi(
@@ -20,9 +20,7 @@ abstract class PteroClient {
 
   /// Set up a Pterodactyl API Client in one go!
   /// [baseUrl] is the base URL of the Pterodactyl server.
-  /// [username] is the username of the Pterodactyl account.
-  /// [password] is the password of the Pterodactyl account.
-  /// [apiKey] is the API key of the Pterodactyl account.
+  /// [key] is the API key of the Pterodactyl account.
   /// leave [apiKey] blank if you'd rather use cookies with user/pass.
   factory PteroClient.generate({
     required String url,

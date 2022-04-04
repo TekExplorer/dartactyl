@@ -1,8 +1,9 @@
-import '../../../models.dart';
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:dartactyl/models.dart';
-part 'file_object.g.dart';
+import '../../../models.dart';
+
+part '../../generated/models/main_models/file_object.g.dart';
 
 @JsonSerializable()
 class FileObject with SerializableMixin {

@@ -1,9 +1,9 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '/models.dart';
 
-import 'package:dartactyl/models.dart';
-part 'fractal_response_data.g.dart';
+part '../../generated/models/fractal/fractal_response_data.g.dart';
 
 @JsonSerializable()
 class FractalResponseData<T extends SerializableMixin> {
