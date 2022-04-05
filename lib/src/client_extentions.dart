@@ -9,7 +9,10 @@ extension GetDio on PteroClient {
 extension Login on PteroClient {
   /// Login to Pterodactyl using username and password.
   ///
-  /// PUTS YOU INTO COOKIE MODE!!!
+  /// This will automatically remove your api token if
+  /// you did not disable the option in the client.
+  ///
+  /// You will need to add a cookie manager interceptor to make use of this
   Future<void> login(PteroLoginRequest credentials) async {
     return await _getXSRF().then<void>((xsrf) async {
       dio.options.headers['X-XSRF-TOKEN'] = xsrf;

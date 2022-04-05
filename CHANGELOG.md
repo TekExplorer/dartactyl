@@ -1,8 +1,11 @@
 # CHANGELOG
 
-## 1.3.8+1
+
+## 1.3.9
 
 - Refactored the generated files into their own folder, cause thats apparently possible
+- Removed the cookie manager in order to allow web use.
+  - Add `dio_cookie_manager` yourself to make use of it.
 
 ## 1.3.8
 
