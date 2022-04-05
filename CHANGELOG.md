@@ -1,7 +1,7 @@
 # CHANGELOG
 
 
-## 1.3.9
+## 1.3.9-dev.0
 
 - Refactored the generated files into their own folder, cause thats apparently possible
 - Removed the cookie manager in order to allow web use.
