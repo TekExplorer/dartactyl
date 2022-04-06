@@ -4,11 +4,12 @@ import 'package:json_annotation/json_annotation.dart';
 part '../../generated/models/error_responses/ptero_error.g.dart';
 
 @JsonSerializable()
-class PteroError {
+class PteroError implements Exception {
   final PteroErrorCode code;
   // final String status;
   final String detail;
   // final PteroErrorMeta? meta;
+  String get message => detail;
 
   // int? get statusCode => int.tryParse(status);
 

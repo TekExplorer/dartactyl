@@ -1,5 +1,6 @@
 part of 'generic_api_exception.dart';
 
+/// A common exception class with whatever error data the server sent us
 class PteroApiException extends GenericApiException {
   final PteroErrors _errors;
 
@@ -14,16 +15,16 @@ class PteroApiException extends GenericApiException {
 
   PteroApiException({
     required PteroErrors errors,
-    required JsonMap rawData,
     required DioError rawDioError,
+    JsonMap? rawData,
     int? statusCode,
     String? statusMessage,
   })  : _errors = errors,
         super(
           rawDioError: rawDioError,
-          statusCode: statusCode,
+          statusCode: statusCode ?? rawDioError.response?.statusCode,
           message: rawDioError.message,
-          rawData: rawData,
+          rawData: rawData ?? rawDioError.response?.data as JsonMap,
           statusMessage: statusMessage,
         );
 
