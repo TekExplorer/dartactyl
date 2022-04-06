@@ -1,9 +1,7 @@
 import 'dart:io';
 
-import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dartactyl/models.dart';
 import 'package:dio/dio.dart';
-import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'client_extentions.dart';
@@ -26,17 +24,19 @@ abstract class PteroClient {
     required String url,
     String? key,
     Dio? dio,
-    bool enableAutoCookieJar = true,
+    @Deprecated('''
+      Removed as to enable web compatibility.
+      No longer does anything.
+      Add dio_cookie_manager yourself.
+      ''') bool enableAutoCookieJar = true,
     bool enableErrorInterceptor = true,
     bool enableIfAuthNoKeyInterceptor = true,
   }) {
     dio = dio ?? Dio();
+
     if (key != null) {
       // use key
       dio.options.headers[HttpHeaders.authorizationHeader] = "Bearer " + key;
-    } else if (enableAutoCookieJar) {
-      // use cookie
-      dio.interceptors.add(CookieManager(CookieJar()));
     }
     dio.options.headers["Origin"] = url;
     dio.options.baseUrl = url;
@@ -75,9 +75,12 @@ abstract class PteroClient {
 
   /// Logout of Pterodactyl, ending your session.
   ///
-  /// PUTS YOU INTO COOKIE MODE!!!
+  /// This will automatically remove your api token if
+  /// you did not disable the option in the client.
   ///
-  /// Only useful in cookie mode anyway.
+  /// You will need to add a cookie manager interceptor to make use of this
+  ///
+  /// Not fully implemented.
   @GET('/auth/logout')
   Future<void> logout();
 

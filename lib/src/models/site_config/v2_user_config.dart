@@ -9,8 +9,6 @@ class _V2UserConfig {
   final String username;
   final String email;
   final String language;
-  @JsonKey(name: 'admin_role_id')
-  final int? adminRoleId;
   @JsonKey(name: 'root_admin')
   final bool rootAdmin;
   @JsonKey(name: 'use_totp')
@@ -20,10 +18,14 @@ class _V2UserConfig {
   final String createdAt;
   @JsonKey(name: 'updated_at')
   final String updatedAt;
+
+  @JsonKey(name: 'admin_role_id')
+  final int? adminRoleId;
   @JsonKey(name: 'avatar_url')
   final String avatarUrl;
   @JsonKey(name: 'role_name')
   final String roleName;
+
   _V2UserConfig({
     required this.uuid,
     required this.username,

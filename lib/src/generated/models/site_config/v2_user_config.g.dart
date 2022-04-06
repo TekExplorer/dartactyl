@@ -28,12 +28,12 @@ Map<String, dynamic> _$V2UserConfigToJson(_V2UserConfig instance) =>
       'username': instance.username,
       'email': instance.email,
       'language': instance.language,
-      'admin_role_id': instance.adminRoleId,
       'root_admin': instance.rootAdmin,
       'use_totp': instance.useTotp,
       'gravatar': instance.gravatar,
       'created_at': instance.createdAt,
       'updated_at': instance.updatedAt,
+      'admin_role_id': instance.adminRoleId,
       'avatar_url': instance.avatarUrl,
       'role_name': instance.roleName,
     };
