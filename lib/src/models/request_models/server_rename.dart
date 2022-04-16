@@ -1,14 +1,11 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/request_models/server_rename.freezed.dart';
 part '../../generated/models/request_models/server_rename.g.dart';
 
-@JsonSerializable()
-class Rename {
-  String name;
-
-  Rename({required this.name});
-
+@freezed
+class Rename with _$Rename {
+  factory Rename({required String name}) = _Rename;
   factory Rename.fromJson(JsonMap json) => _$RenameFromJson(json);
-  JsonMap toJson() => _$RenameToJson(this);
 }

@@ -6,12 +6,13 @@ part of '../../../models/request_models/update_email.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-UpdateEmail _$UpdateEmailFromJson(Map<String, dynamic> json) => UpdateEmail(
+_$_UpdateEmail _$$_UpdateEmailFromJson(Map<String, dynamic> json) =>
+    _$_UpdateEmail(
       email: json['email'] as String,
       password: json['password'] as String,
     );
 
-Map<String, dynamic> _$UpdateEmailToJson(UpdateEmail instance) =>
+Map<String, dynamic> _$$_UpdateEmailToJson(_$_UpdateEmail instance) =>
     <String, dynamic>{
       'email': instance.email,
       'password': instance.password,

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.4.0-dev.0
+ - Make all models `@freezed` where possible
+ - Add annotations to better represent certain things
+ - Adjust some models (like `Server`) to better represent the api
+ - Make `Meta` into multiple classes to enforce typed responses
+ - Make `Meta` only show where it should, and made it non-nullable.
 
 ## 1.3.9-dev.0
 

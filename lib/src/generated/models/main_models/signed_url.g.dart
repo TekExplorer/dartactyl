@@ -6,10 +6,11 @@ part of '../../../models/main_models/signed_url.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SignedUrl _$SignedUrlFromJson(Map<String, dynamic> json) => SignedUrl(
+_$_SignedUrl _$$_SignedUrlFromJson(Map<String, dynamic> json) => _$_SignedUrl(
       url: json['url'] as String,
     );
 
-Map<String, dynamic> _$SignedUrlToJson(SignedUrl instance) => <String, dynamic>{
+Map<String, dynamic> _$$_SignedUrlToJson(_$_SignedUrl instance) =>
+    <String, dynamic>{
       'url': instance.url,
     };

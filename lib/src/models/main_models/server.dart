@@ -1,57 +1,39 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/main_models/server.freezed.dart';
 part '../../generated/models/main_models/server.g.dart';
 
-@JsonSerializable()
-class Server with SerializableMixin {
-  bool serverOwner;
-  String identifier;
-  int internalId;
-  String uuid;
-  String name;
-  String node;
-  SftpDetails sftpDetails;
-  String description;
-  ServerLimits limits;
-  String invocation;
-  String dockerImage;
-  List<String>? eggFeatures;
-  ServerFeatureLimits featureLimits;
-  ServerStatus? status;
-  bool isSuspended;
-  bool isInstalling;
-  bool isTransferring;
-  Relationships? relationships;
-
-  Server({
-    required this.serverOwner,
-    required this.identifier,
-    required this.internalId,
-    required this.uuid,
-    required this.name,
-    required this.node,
-    required this.sftpDetails,
-    required this.description,
-    required this.invocation,
-    required this.dockerImage,
-    this.eggFeatures,
-    this.status,
-    required this.isSuspended,
-    required this.isInstalling,
-    required this.isTransferring,
-    this.relationships,
-    required this.limits,
-    required this.featureLimits,
-  });
-
-  String get shortUuid => identifier;
+@freezed
+class Server with SerializableMixin, _$Server {
+  factory Server({
+    required bool serverOwner,
+    required String identifier,
+    required int internalId,
+    required String uuid,
+    required String name,
+    required String node,
+    required SftpDetails sftpDetails,
+    required String description,
+    required ServerLimits limits,
+    required String invocation,
+    required String dockerImage,
+    @Default([]) List<String> eggFeatures,
+    required ServerFeatureLimits featureLimits,
+    ServerStatus? status,
+    required bool isSuspended,
+    required bool isInstalling,
+    required bool isTransferring,
+    required ServerRelationships relationships,
+  }) = _Server;
 
   factory Server.fromJson(JsonMap json) => _$ServerFromJson(json);
+
+  Server._();
   @override
-  JsonMap toJson() => _$ServerToJson(this);
+  JsonMap toJson();
 }
 
 enum ServerStatus {
@@ -61,4 +43,5 @@ enum ServerStatus {
   suspended,
   @JsonValue('restoring_backup')
   restoringBackup,
+  transferring,
 }

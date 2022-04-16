@@ -6,12 +6,12 @@ part of '../../../models/request_models/from_to.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FromTo _$FromToFromJson(Map<String, dynamic> json) => FromTo(
+_$_FromTo _$$_FromToFromJson(Map<String, dynamic> json) => _$_FromTo(
       from: json['from'] as String,
       to: json['to'] as String,
     );
 
-Map<String, dynamic> _$FromToToJson(FromTo instance) => <String, dynamic>{
+Map<String, dynamic> _$$_FromToToJson(_$_FromTo instance) => <String, dynamic>{
       'from': instance.from,
       'to': instance.to,
     };

@@ -6,7 +6,8 @@ part of '../../../models/main_models/allocation.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Allocation _$AllocationFromJson(Map<String, dynamic> json) => Allocation(
+_$_Allocation _$$_AllocationFromJson(Map<String, dynamic> json) =>
+    _$_Allocation(
       id: json['id'] as int,
       ip: json['ip'] as String,
       ipAlias: json['ip_alias'] as String?,
@@ -15,7 +16,7 @@ Allocation _$AllocationFromJson(Map<String, dynamic> json) => Allocation(
       isDefault: json['is_default'] as bool,
     );
 
-Map<String, dynamic> _$AllocationToJson(Allocation instance) =>
+Map<String, dynamic> _$$_AllocationToJson(_$_Allocation instance) =>
     <String, dynamic>{
       'id': instance.id,
       'ip': instance.ip,

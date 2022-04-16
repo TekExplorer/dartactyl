@@ -1,34 +1,28 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/main_models/shedule_task.freezed.dart';
 part '../../generated/models/main_models/shedule_task.g.dart';
 
-@JsonSerializable()
-class ScheduleTask with SerializableMixin {
-  int id;
-  int sequenceId;
-  String action;
-  String payload;
-  int timeOffset;
-  bool isQueued;
-  bool? continueOnFailure;
-  DateTime createdAt;
-  DateTime updatedAt;
-  ScheduleTask({
-    this.continueOnFailure,
-    required this.id,
-    required this.sequenceId,
-    required this.action,
-    required this.payload,
-    required this.timeOffset,
-    required this.isQueued,
-    required this.createdAt,
-    required this.updatedAt,
-  });
+@freezed
+class ScheduleTask with SerializableMixin, _$ScheduleTask {
+  factory ScheduleTask({
+    required int id,
+    required int sequenceId,
+    required String action,
+    required String payload,
+    required int timeOffset,
+    required bool isQueued,
+    bool? continueOnFailure,
+    required DateTime createdAt,
+    required DateTime updatedAt,
+  }) = _ScheduleTask;
 
   factory ScheduleTask.fromJson(JsonMap json) => _$ScheduleTaskFromJson(json);
+
+  ScheduleTask._();
   @override
-  JsonMap toJson() => _$ScheduleTaskToJson(this);
+  JsonMap toJson();
 }

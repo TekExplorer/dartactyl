@@ -1,12 +1,11 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/request_models/two_factor_code.freezed.dart';
 part '../../generated/models/request_models/two_factor_code.g.dart';
 
-@JsonSerializable()
-class TwoFactorCode {
-  int code;
-  TwoFactorCode({required this.code});
+@freezed
+class TwoFactorCode with _$TwoFactorCode {
+  factory TwoFactorCode({required int code}) = _TwoFactorCode;
   factory TwoFactorCode.fromJson(JsonMap json) => _$TwoFactorCodeFromJson(json);
-  JsonMap toJson() => _$TwoFactorCodeToJson(this);
 }

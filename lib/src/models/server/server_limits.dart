@@ -1,24 +1,21 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/server/server_limits.freezed.dart';
 part '../../generated/models/server/server_limits.g.dart';
 
-@JsonSerializable()
-class ServerLimits {
-  int memory;
-  int swap;
-  int disk;
-  int io;
-  int cpu;
-  dynamic threads;
-  ServerLimits({
-    required this.memory,
-    required this.swap,
-    required this.disk,
-    required this.io,
-    required this.cpu,
-    this.threads,
-  });
+@freezed
+class ServerLimits with _$ServerLimits {
+  ServerLimits._();
+  factory ServerLimits({
+    required int memory,
+    required int swap,
+    required int disk,
+    required int io,
+    required int cpu,
+    String? threads,
+    required bool oomDisabled,
+  }) = _ServerLimits;
+
   factory ServerLimits.fromJson(JsonMap json) => _$ServerLimitsFromJson(json);
-  JsonMap toJson() => _$ServerLimitsToJson(this);
 }

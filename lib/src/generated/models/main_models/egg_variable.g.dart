@@ -6,7 +6,8 @@ part of '../../../models/main_models/egg_variable.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-EggVariable _$EggVariableFromJson(Map<String, dynamic> json) => EggVariable(
+_$_EggVariable _$$_EggVariableFromJson(Map<String, dynamic> json) =>
+    _$_EggVariable(
       name: json['name'] as String,
       description: json['description'] as String,
       envVariable: json['env_variable'] as String,
@@ -16,7 +17,7 @@ EggVariable _$EggVariableFromJson(Map<String, dynamic> json) => EggVariable(
       rules: json['rules'] as String,
     );
 
-Map<String, dynamic> _$EggVariableToJson(EggVariable instance) =>
+Map<String, dynamic> _$$_EggVariableToJson(_$_EggVariable instance) =>
     <String, dynamic>{
       'name': instance.name,
       'description': instance.description,

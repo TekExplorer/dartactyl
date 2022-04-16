@@ -6,11 +6,11 @@ part of '../../../models/request_models/signal.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Signal _$SignalFromJson(Map<String, dynamic> json) => Signal(
+_$_Signal _$$_SignalFromJson(Map<String, dynamic> json) => _$_Signal(
       signal: $enumDecode(_$ServerPowerActionEnumMap, json['signal']),
     );
 
-Map<String, dynamic> _$SignalToJson(Signal instance) => <String, dynamic>{
+Map<String, dynamic> _$$_SignalToJson(_$_Signal instance) => <String, dynamic>{
       'signal': _$ServerPowerActionEnumMap[instance.signal],
     };
 

@@ -6,13 +6,13 @@ part of '../../../models/request_models/task.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Task _$TaskFromJson(Map<String, dynamic> json) => Task(
+_$_Task _$$_TaskFromJson(Map<String, dynamic> json) => _$_Task(
       action: $enumDecode(_$ActionEnumMap, json['action']),
       payload: json['payload'] as String,
       timeOffset: json['time_offset'] as int,
     );
 
-Map<String, dynamic> _$TaskToJson(Task instance) => <String, dynamic>{
+Map<String, dynamic> _$$_TaskToJson(_$_Task instance) => <String, dynamic>{
       'action': _$ActionEnumMap[instance.action],
       'payload': instance.payload,
       'time_offset': instance.timeOffset,

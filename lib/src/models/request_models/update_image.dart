@@ -1,13 +1,11 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/request_models/update_image.freezed.dart';
 part '../../generated/models/request_models/update_image.g.dart';
 
-@JsonSerializable()
-class UpdateImage {
-  String dockerImage;
-  UpdateImage({required this.dockerImage});
-
+@freezed
+class UpdateImage with _$UpdateImage {
+  factory UpdateImage({required String dockerImage}) = _UpdateImage;
   factory UpdateImage.fromJson(JsonMap json) => _$UpdateImageFromJson(json);
-  JsonMap toJson() => _$UpdateImageToJson(this);
 }

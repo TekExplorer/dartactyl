@@ -6,7 +6,8 @@ part of '../../../models/main_models/file_object.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FileObject _$FileObjectFromJson(Map<String, dynamic> json) => FileObject(
+_$_FileObject _$$_FileObjectFromJson(Map<String, dynamic> json) =>
+    _$_FileObject(
       name: json['name'] as String,
       mode: json['mode'] as String,
       size: json['size'] as int,
@@ -18,7 +19,7 @@ FileObject _$FileObjectFromJson(Map<String, dynamic> json) => FileObject(
       modifiedAt: DateTime.parse(json['modified_at'] as String),
     );
 
-Map<String, dynamic> _$FileObjectToJson(FileObject instance) =>
+Map<String, dynamic> _$$_FileObjectToJson(_$_FileObject instance) =>
     <String, dynamic>{
       'name': instance.name,
       'mode': instance.mode,

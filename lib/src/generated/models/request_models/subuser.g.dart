@@ -6,26 +6,29 @@ part of '../../../models/request_models/subuser.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Subuser _$SubuserFromJson(Map<String, dynamic> json) => Subuser(
+_$_Subuser _$$_SubuserFromJson(Map<String, dynamic> json) => _$_Subuser(
       email: json['email'] as String,
       permissions: (json['permissions'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
     );
 
-Map<String, dynamic> _$SubuserToJson(Subuser instance) => <String, dynamic>{
-      'permissions': instance.permissions,
+Map<String, dynamic> _$$_SubuserToJson(_$_Subuser instance) =>
+    <String, dynamic>{
       'email': instance.email,
+      'permissions': instance.permissions,
     };
 
-SubuserPermissions _$SubuserPermissionsFromJson(Map<String, dynamic> json) =>
-    SubuserPermissions(
+_$_SubuserPermissions _$$_SubuserPermissionsFromJson(
+        Map<String, dynamic> json) =>
+    _$_SubuserPermissions(
       permissions: (json['permissions'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
     );
 
-Map<String, dynamic> _$SubuserPermissionsToJson(SubuserPermissions instance) =>
+Map<String, dynamic> _$$_SubuserPermissionsToJson(
+        _$_SubuserPermissions instance) =>
     <String, dynamic>{
       'permissions': instance.permissions,
     };

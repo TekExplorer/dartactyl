@@ -1,46 +1,41 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/main_models/stats.freezed.dart';
 part '../../generated/models/main_models/stats.g.dart';
 
-@JsonSerializable()
-class Stats with SerializableMixin {
-  ServerPowerState currentState;
-  bool isSuspended;
-  StatsResources resources;
+enum ServerPowerState { running, starting, stopping, offline }
 
-  Stats({
-    required this.currentState,
-    required this.isSuspended,
-    required this.resources,
-  });
+@freezed
+class Stats with SerializableMixin, _$Stats {
+  factory Stats({
+    required ServerPowerState currentState,
+    required bool isSuspended,
+    required StatsResources resources,
+  }) = _Stats;
 
   factory Stats.fromJson(JsonMap json) => _$StatsFromJson(json);
+
+  Stats._();
+
   @override
-  JsonMap toJson() => _$StatsToJson(this);
+  JsonMap toJson();
 }
 
-@JsonSerializable()
-class StatsResources {
-  int memoryBytes;
-  double cpuAbsolute;
-  int diskBytes;
-  int networkRxBytes;
-  int networkTxBytes;
-
-  StatsResources({
-    required this.memoryBytes,
-    required this.cpuAbsolute,
-    required this.diskBytes,
-    required this.networkRxBytes,
-    required this.networkTxBytes,
-  });
+@freezed
+class StatsResources with _$StatsResources {
+  factory StatsResources({
+    required int memoryBytes,
+    required double cpuAbsolute,
+    required int diskBytes,
+    required int networkRxBytes,
+    required int networkTxBytes,
+  }) = _StatsResources;
 
   factory StatsResources.fromJson(JsonMap json) =>
       _$StatsResourcesFromJson(json);
-  JsonMap toJson() => _$StatsResourcesToJson(this);
-}
 
-enum ServerPowerState { running, starting, stopping, offline }
+  StatsResources._();
+}

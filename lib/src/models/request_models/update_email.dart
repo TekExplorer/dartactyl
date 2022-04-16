@@ -1,16 +1,15 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/request_models/update_email.freezed.dart';
 part '../../generated/models/request_models/update_email.g.dart';
 
-@JsonSerializable()
-class UpdateEmail {
-  String email;
-  String password;
-  UpdateEmail({
-    required this.email,
-    required this.password,
-  });
+@freezed
+class UpdateEmail with _$UpdateEmail {
+  factory UpdateEmail({
+    required String email,
+    required String password,
+  }) = _UpdateEmail;
+
   factory UpdateEmail.fromJson(JsonMap json) => _$UpdateEmailFromJson(json);
-  JsonMap toJson() => _$UpdateEmailToJson(this);
 }

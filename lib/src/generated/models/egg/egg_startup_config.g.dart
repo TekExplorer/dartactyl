@@ -6,12 +6,12 @@ part of '../../../models/egg/egg_startup_config.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-EggStartupConfig _$EggStartupConfigFromJson(Map<String, dynamic> json) =>
-    EggStartupConfig(
+_$_EggStartupConfig _$$_EggStartupConfigFromJson(Map<String, dynamic> json) =>
+    _$_EggStartupConfig(
       done: json['done'] as String,
     );
 
-Map<String, dynamic> _$EggStartupConfigToJson(EggStartupConfig instance) =>
+Map<String, dynamic> _$$_EggStartupConfigToJson(_$_EggStartupConfig instance) =>
     <String, dynamic>{
       'done': instance.done,
     };

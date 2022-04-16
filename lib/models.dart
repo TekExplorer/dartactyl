@@ -44,7 +44,6 @@ export 'src/models/main_models/allocation.dart';
 export 'src/models/main_models/api_key.dart';
 export 'src/models/main_models/backup.dart';
 export 'src/models/main_models/cron.dart';
-export 'src/models/main_models/database_host.dart';
 export 'src/models/main_models/database_password.dart';
 export 'src/models/main_models/databases.dart';
 export 'src/models/main_models/databases.dart';

@@ -3,5 +3,5 @@ class Includes {
 
   const Includes(this.includes);
 
-  toJson() => includes.join(',');
+  String toJson() => includes.join(',');
 }

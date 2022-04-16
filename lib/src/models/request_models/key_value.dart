@@ -1,18 +1,15 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/request_models/key_value.freezed.dart';
 part '../../generated/models/request_models/key_value.g.dart';
 
-@JsonSerializable()
-class KeyValue {
-  String key;
-  String value;
-
-  KeyValue({
-    required this.key,
-    required this.value,
-  });
+@freezed
+class KeyValue with _$KeyValue {
+  factory KeyValue({
+    required String key,
+    required String value,
+  }) = _KeyValue;
 
   factory KeyValue.fromJson(JsonMap json) => _$KeyValueFromJson(json);
-  JsonMap toJson() => _$KeyValueToJson(this);
 }

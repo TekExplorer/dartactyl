@@ -1,28 +1,21 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/request_models/schedule.freezed.dart';
 part '../../generated/models/request_models/schedule.g.dart';
 
-@JsonSerializable()
-class RequestSchedule {
-  String name;
-  bool isActive;
-  bool onlyWhenOnline;
-  String minute;
-  String hour;
-  String dayOfWeek;
-  String dayOfMonth;
+@freezed
+class RequestSchedule with _$RequestSchedule {
+  factory RequestSchedule({
+    required bool onlyWhenOnline,
+    required String name,
+    required bool isActive,
+    required String minute,
+    required String hour,
+    required String dayOfWeek,
+    required String dayOfMonth,
+  }) = _RequestSchedule;
 
-  RequestSchedule({
-    required this.onlyWhenOnline,
-    required this.name,
-    required this.isActive,
-    required this.minute,
-    required this.hour,
-    required this.dayOfWeek,
-    required this.dayOfMonth,
-  });
   factory RequestSchedule.fromJson(JsonMap json) =>
       _$RequestScheduleFromJson(json);
-  JsonMap toJson() => _$RequestScheduleToJson(this);
 }

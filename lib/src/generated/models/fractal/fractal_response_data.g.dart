@@ -11,19 +11,15 @@ FractalResponseData<T>
             Map<String, dynamic> json) =>
         FractalResponseData<T>(
           object: $enumDecode(_$AttributeObjectEnumMap, json['object']),
-          attributes: FractalResponseData._fromGenericJson(
-              json['attributes'] as Map<String, dynamic>),
-          meta: json['meta'] == null
-              ? null
-              : Meta.fromJson(json['meta'] as Map<String, dynamic>),
+          attributes: AttributesConverter<T>()
+              .fromJson(json['attributes'] as Map<String, dynamic>),
         );
 
 Map<String, dynamic> _$FractalResponseDataToJson<T extends SerializableMixin>(
         FractalResponseData<T> instance) =>
     <String, dynamic>{
       'object': _$AttributeObjectEnumMap[instance.object],
-      'attributes': FractalResponseData._toGenericJson(instance.attributes),
-      'meta': instance.meta?.toJson(),
+      'attributes': AttributesConverter<T>().toJson(instance.attributes),
     };
 
 const _$AttributeObjectEnumMap = {
@@ -52,3 +48,22 @@ const _$AttributeObjectEnumMap = {
   AttributeObject.nest: 'nest',
   AttributeObject.egg: 'egg',
 };
+
+FractalResponseDataMeta<T, M> _$FractalResponseDataMetaFromJson<
+        T extends SerializableMixin,
+        M extends Meta<dynamic>>(Map<String, dynamic> json) =>
+    FractalResponseDataMeta<T, M>(
+      object: $enumDecode(_$AttributeObjectEnumMap, json['object']),
+      attributes: AttributesConverter<T>()
+          .fromJson(json['attributes'] as Map<String, dynamic>),
+      meta: MetaConverter<M>().fromJson(json['meta'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$FractalResponseDataMetaToJson<
+        T extends SerializableMixin,
+        M extends Meta<dynamic>>(FractalResponseDataMeta<T, M> instance) =>
+    <String, dynamic>{
+      'object': _$AttributeObjectEnumMap[instance.object],
+      'attributes': AttributesConverter<T>().toJson(instance.attributes),
+      'meta': MetaConverter<M>().toJson(instance.meta),
+    };

@@ -1,41 +1,31 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/main_models/egg.freezed.dart';
 part '../../generated/models/main_models/egg.g.dart';
 
-@JsonSerializable()
-class Egg with SerializableMixin {
-  int id;
-  String uuid;
-  String name;
-  int nest;
-  String author;
-  String? description;
-  String dockerImage;
-  EggConfig config;
-  String startup;
-  EggScript script;
-  DateTime createdAt;
-  DateTime updatedAt;
-  Relationships? relationships;
-  Egg({
-    required this.id,
-    required this.uuid,
-    required this.name,
-    required this.nest,
-    required this.author,
-    this.description,
-    required this.dockerImage,
-    required this.config,
-    required this.startup,
-    required this.script,
-    required this.createdAt,
-    required this.updatedAt,
-    this.relationships,
-  });
+@freezed
+class Egg with SerializableMixin, _$Egg {
+  factory Egg({
+    // only uuid and name show up in the client api
+    // int id,
+    required String uuid,
+    required String name,
+    // required int nest,
+    // required String author,
+    // String? description,
+    // required String dockerImage,
+    // required EggConfig config,
+    // required String startup,
+    // required EggScript script,
+    // required DateTime createdAt,
+    // required DateTime updatedAt,
+    // Relationships? relationships,
+  }) = _Egg;
   factory Egg.fromJson(JsonMap json) => _$EggFromJson(json);
+  Egg._();
   @override
-  JsonMap toJson() => _$EggToJson(this);
+  JsonMap toJson();
 }

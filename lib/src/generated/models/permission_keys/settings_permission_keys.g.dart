@@ -6,15 +6,15 @@ part of '../../../models/permission_keys/settings_permission_keys.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SettingsPermissionKeys _$SettingsPermissionKeysFromJson(
+_$_SettingsPermissionKeys _$$_SettingsPermissionKeysFromJson(
         Map<String, dynamic> json) =>
-    SettingsPermissionKeys(
+    _$_SettingsPermissionKeys(
       rename: json['rename'] as String,
       reinstall: json['reinstall'] as String,
     );
 
-Map<String, dynamic> _$SettingsPermissionKeysToJson(
-        SettingsPermissionKeys instance) =>
+Map<String, dynamic> _$$_SettingsPermissionKeysToJson(
+        _$_SettingsPermissionKeys instance) =>
     <String, dynamic>{
       'rename': instance.rename,
       'reinstall': instance.reinstall,

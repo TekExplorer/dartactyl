@@ -1,22 +1,20 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/main_models/location.freezed.dart';
 part '../../generated/models/main_models/location.g.dart';
 
-@JsonSerializable()
-class Location {
-  int id;
-  String short;
-  String? long;
-  DateTime updatedAt;
-  DateTime createdAt;
-  Location({
-    required this.id,
-    required this.short,
-    this.long,
-    required this.updatedAt,
-    required this.createdAt,
-  });
+@freezed
+class Location with _$Location {
+  factory Location({
+    required int id,
+    required String short,
+    String? long,
+    required DateTime updatedAt,
+    required DateTime createdAt,
+  }) = _Location;
+
   factory Location.fromJson(JsonMap json) => _$LocationFromJson(json);
-  JsonMap toJson() => _$LocationToJson(this);
+
+  Location._();
 }

@@ -1,81 +1,91 @@
 // FractalServer
+// ignore_for_file: deprecated_member_use_from_same_package, invalid_use_of_protected_member
+
 import 'package:dartactyl/models.dart';
 
-extension FractalGetServer on FractalServer {
+extension FractalGetServer on FractalMeta<Server, ServerMeta> {
   Server get server => attributes;
+
+  bool get isServerOwner => meta.isServerOwner;
+  List<String> get userPermissions => meta.userPermissions;
+
+  FractalList<Allocation> get allocations => server.relationships.allocations;
+  FractalList<EggVariable> get variables => server.relationships.variables;
 }
 
 // FractalSystemPermissions
-extension FractalGetSystemPermissions on FractalSystemPermissions {
+extension FractalGetSystemPermissions on Fractal<SystemPermissions> {
   SystemPermissions get systemPermissions => attributes;
 }
 
 // FractalUser
-extension FractalGetUser on FractalUser {
+extension FractalGetUser on Fractal<User> {
   User get user => attributes;
 }
 
 // FractalTwoFactorImage
-extension FractalGetTwoFactorImage on FractalTwoFactorImage {
+extension FractalGetTwoFactorImage on Fractal<TwoFactorImage> {
   TwoFactorImage get twoFactorImage => attributes;
 }
 
 // FractalRecoveryTokens
-extension FractalGetRecoveryTokens on FractalRecoveryTokens {
+extension FractalGetRecoveryTokens on Fractal<RecoveryTokens> {
   RecoveryTokens get recoveryTokens => attributes;
 }
 
 // FractalApiKey
-extension FractalGetApiKey on FractalApiKey {
+extension FractalGetApiKey on FractalMeta<ApiKey, ApiKeyMeta> {
   ApiKey get apiKey => attributes;
+
+  String get secretToken => meta.secretToken;
 }
 
 // FractalStats
-extension FractalGetStats on FractalStats {
+extension FractalGetStats on Fractal<Stats> {
   Stats get stats => attributes;
 }
 
 // FractalServerDatabase
-extension FractalGetServerDatabase on FractalServerDatabase {
+extension FractalGetServerDatabase on Fractal<ServerDatabase> {
   ServerDatabase get serverDatabase => attributes;
 }
 
 // FractalFileObject
-extension FractalGetFileObject on FractalFileObject {
+extension FractalGetFileObject on Fractal<FileObject> {
   FileObject get fileObject => attributes;
 }
 
 // FractalSignedUrl
-extension FractalGetSignedUrl on FractalSignedUrl {
+extension FractalGetSignedUrl on Fractal<SignedUrl> {
   SignedUrl get signedUrl => attributes;
 }
 
 // FractalServerSchedule
-extension FractalGetServerSchedule on FractalServerSchedule {
+extension FractalGetServerSchedule on Fractal<ServerSchedule> {
   ServerSchedule get serverSchedule => attributes;
 }
 
 // FractalScheduleTask
-extension FractalGetScheduleTask on FractalScheduleTask {
+extension FractalGetScheduleTask on Fractal<ScheduleTask> {
   ScheduleTask get scheduleTask => attributes;
 }
 
 // FractalAllocation
-extension FractalGetAllocation on FractalAllocation {
+extension FractalGetAllocation on Fractal<Allocation> {
   Allocation get allocation => attributes;
 }
 
 // FractalServerSubuser
-extension FractalGetServerSubuser on FractalServerSubuser {
+extension FractalGetServerSubuser on Fractal<ServerSubuser> {
   ServerSubuser get serverSubuser => attributes;
 }
 
 // FractalBackup
-extension FractalGetBackup on FractalBackup {
+extension FractalGetBackup on Fractal<Backup> {
   Backup get backup => attributes;
 }
 
 // FractalEggVariable
-extension FractalGetEggVariable on FractalEggVariable {
+extension FractalGetEggVariable on Fractal<EggVariable> {
   EggVariable get eggVariable => attributes;
 }

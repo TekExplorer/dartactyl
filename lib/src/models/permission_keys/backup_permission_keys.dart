@@ -1,26 +1,25 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/permission_keys/backup_permission_keys.freezed.dart';
 part '../../generated/models/permission_keys/backup_permission_keys.g.dart';
 
-@JsonSerializable()
-class BackupPermissionKeys with SerializableMixin {
-  String read;
-  String create;
-  String update;
-  String delete;
+@freezed
+class BackupPermissionKeys with SerializableMixin, _$BackupPermissionKeys {
+  BackupPermissionKeys._();
+
+  factory BackupPermissionKeys({
+    required String read,
+    required String create,
+    required String update,
+    required String delete,
+  }) = _BackupPermissionKeys;
 
   factory BackupPermissionKeys.fromJson(JsonMap json) =>
       _$BackupPermissionKeysFromJson(json);
-  @override
-  JsonMap toJson() => _$BackupPermissionKeysToJson(this);
 
-  BackupPermissionKeys({
-    required this.read,
-    required this.create,
-    required this.update,
-    required this.delete,
-  });
+  @override
+  JsonMap toJson();
 }

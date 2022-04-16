@@ -6,7 +6,7 @@ part of '../../../models/main_models/api_key.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ApiKey _$ApiKeyFromJson(Map<String, dynamic> json) => ApiKey(
+_$_ApiKey _$$_ApiKeyFromJson(Map<String, dynamic> json) => _$_ApiKey(
       identifier: json['identifier'] as String,
       description: json['description'] as String?,
       allowedIps: (json['allowed_ips'] as List<dynamic>?)
@@ -16,7 +16,7 @@ ApiKey _$ApiKeyFromJson(Map<String, dynamic> json) => ApiKey(
       createdAt: DateTime.parse(json['created_at'] as String),
     );
 
-Map<String, dynamic> _$ApiKeyToJson(ApiKey instance) => <String, dynamic>{
+Map<String, dynamic> _$$_ApiKeyToJson(_$_ApiKey instance) => <String, dynamic>{
       'identifier': instance.identifier,
       'description': instance.description,
       'allowed_ips': instance.allowedIps,

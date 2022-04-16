@@ -6,7 +6,7 @@ part of '../../../models/main_models/stats.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Stats _$StatsFromJson(Map<String, dynamic> json) => Stats(
+_$_Stats _$$_StatsFromJson(Map<String, dynamic> json) => _$_Stats(
       currentState:
           $enumDecode(_$ServerPowerStateEnumMap, json['current_state']),
       isSuspended: json['is_suspended'] as bool,
@@ -14,7 +14,7 @@ Stats _$StatsFromJson(Map<String, dynamic> json) => Stats(
           StatsResources.fromJson(json['resources'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$StatsToJson(Stats instance) => <String, dynamic>{
+Map<String, dynamic> _$$_StatsToJson(_$_Stats instance) => <String, dynamic>{
       'current_state': _$ServerPowerStateEnumMap[instance.currentState],
       'is_suspended': instance.isSuspended,
       'resources': instance.resources.toJson(),
@@ -27,8 +27,8 @@ const _$ServerPowerStateEnumMap = {
   ServerPowerState.offline: 'offline',
 };
 
-StatsResources _$StatsResourcesFromJson(Map<String, dynamic> json) =>
-    StatsResources(
+_$_StatsResources _$$_StatsResourcesFromJson(Map<String, dynamic> json) =>
+    _$_StatsResources(
       memoryBytes: json['memory_bytes'] as int,
       cpuAbsolute: (json['cpu_absolute'] as num).toDouble(),
       diskBytes: json['disk_bytes'] as int,
@@ -36,7 +36,7 @@ StatsResources _$StatsResourcesFromJson(Map<String, dynamic> json) =>
       networkTxBytes: json['network_tx_bytes'] as int,
     );
 
-Map<String, dynamic> _$StatsResourcesToJson(StatsResources instance) =>
+Map<String, dynamic> _$$_StatsResourcesToJson(_$_StatsResources instance) =>
     <String, dynamic>{
       'memory_bytes': instance.memoryBytes,
       'cpu_absolute': instance.cpuAbsolute,

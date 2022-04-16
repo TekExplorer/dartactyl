@@ -1,17 +1,13 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/request_models/signal.freezed.dart';
 part '../../generated/models/request_models/signal.g.dart';
 
-@JsonSerializable()
-class Signal {
-  ServerPowerAction signal;
-  Signal({
-    required this.signal,
-  });
-
+@freezed
+class Signal with _$Signal {
+  factory Signal({required ServerPowerAction signal}) = _Signal;
   factory Signal.fromJson(JsonMap json) => _$SignalFromJson(json);
-  JsonMap toJson() => _$SignalToJson(this);
 }
 
 enum ServerPowerAction { start, stop, restart, kill }

@@ -6,39 +6,33 @@ part of '../../../models/main_models/server_database.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ServerDatabase _$ServerDatabaseFromJson(Map<String, dynamic> json) =>
-    ServerDatabase(
-      id: json['id'] as int,
-      name: json['name'] as String,
-      cron: Cron.fromJson(json['cron'] as Map<String, dynamic>),
-      isActive: json['is_active'] as bool,
-      isProcessing: json['is_processing'] as bool,
-      lastRunAt: json['last_run_at'] == null
-          ? null
-          : DateTime.parse(json['last_run_at'] as String),
-      nextRunAt: json['next_run_at'] == null
-          ? null
-          : DateTime.parse(json['next_run_at'] as String),
-      createdAt: DateTime.parse(json['created_at'] as String),
-      updatedAt: json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
-      relationships: json['relationships'] == null
-          ? null
-          : Relationships.fromJson(
-              json['relationships'] as Map<String, dynamic>),
+_$_Database _$$_DatabaseFromJson(Map<String, dynamic> json) => _$_Database(
+      address: json['address'] as String,
+      port: json['port'] as int,
     );
 
-Map<String, dynamic> _$ServerDatabaseToJson(ServerDatabase instance) =>
+Map<String, dynamic> _$$_DatabaseToJson(_$_Database instance) =>
+    <String, dynamic>{
+      'address': instance.address,
+      'port': instance.port,
+    };
+
+_$_ServerDatabase _$$_ServerDatabaseFromJson(Map<String, dynamic> json) =>
+    _$_ServerDatabase(
+      id: json['id'] as int,
+      name: json['name'] as String,
+      host: Database.fromJson(json['host'] as Map<String, dynamic>),
+      username: json['username'] as String,
+      connectionsFrom: json['connections_from'] as String,
+      maxConnections: json['max_connections'] as int,
+    );
+
+Map<String, dynamic> _$$_ServerDatabaseToJson(_$_ServerDatabase instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'cron': instance.cron.toJson(),
-      'is_active': instance.isActive,
-      'is_processing': instance.isProcessing,
-      'last_run_at': instance.lastRunAt?.toIso8601String(),
-      'next_run_at': instance.nextRunAt?.toIso8601String(),
-      'created_at': instance.createdAt.toIso8601String(),
-      'updated_at': instance.updatedAt?.toIso8601String(),
-      'relationships': instance.relationships?.toJson(),
+      'host': instance.host.toJson(),
+      'username': instance.username,
+      'connections_from': instance.connectionsFrom,
+      'max_connections': instance.maxConnections,
     };

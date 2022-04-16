@@ -6,7 +6,7 @@ part of '../../../models/main_models/databases.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Databases _$DatabasesFromJson(Map<String, dynamic> json) => Databases(
+_$_Databases _$$_DatabasesFromJson(Map<String, dynamic> json) => _$_Databases(
       id: json['id'] as int,
       server: json['server'] as int,
       host: json['host'] as int,
@@ -18,7 +18,8 @@ Databases _$DatabasesFromJson(Map<String, dynamic> json) => Databases(
       updatedAt: json['updated_at'] as String,
     );
 
-Map<String, dynamic> _$DatabasesToJson(Databases instance) => <String, dynamic>{
+Map<String, dynamic> _$$_DatabasesToJson(_$_Databases instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'server': instance.server,
       'host': instance.host,

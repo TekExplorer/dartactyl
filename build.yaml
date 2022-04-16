@@ -23,3 +23,7 @@ targets:
         options:
           build_extensions:
             '^lib/src/{{}}.dart': 'lib/src/generated/{{}}.g.dart'
+      freezed:
+        options:
+          build_extensions:
+            '^lib/src/{{}}.dart': 'lib/src/generated/{{}}.freezed.dart'

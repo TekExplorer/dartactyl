@@ -1,29 +1,27 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/permission_keys/file_permission_keys.freezed.dart';
 part '../../generated/models/permission_keys/file_permission_keys.g.dart';
 
-@JsonSerializable()
-class FilePermissionKeys with SerializableMixin {
-  String create;
-  String read;
-  String update;
-  String delete;
-  String archive;
-  String sftp;
-  FilePermissionKeys({
-    required this.create,
-    required this.read,
-    required this.update,
-    required this.delete,
-    required this.archive,
-    required this.sftp,
-  });
+@freezed
+class FilePermissionKeys with SerializableMixin, _$FilePermissionKeys {
+  FilePermissionKeys._();
+
+  factory FilePermissionKeys({
+    required String create,
+    required String read,
+    required String update,
+    required String delete,
+    required String archive,
+    required String sftp,
+  }) = _FilePermissionKeys;
+
   factory FilePermissionKeys.fromJson(JsonMap json) =>
       _$FilePermissionKeysFromJson(json);
 
   @override
-  JsonMap toJson() => _$FilePermissionKeysToJson(this);
+  JsonMap toJson();
 }

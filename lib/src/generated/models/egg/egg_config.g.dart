@@ -6,7 +6,7 @@ part of '../../../models/egg/egg_config.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-EggConfig _$EggConfigFromJson(Map<String, dynamic> json) => EggConfig(
+_$_EggConfig _$$_EggConfigFromJson(Map<String, dynamic> json) => _$_EggConfig(
       files: json['files'] as Map<String, dynamic>,
       startup:
           EggStartupConfig.fromJson(json['startup'] as Map<String, dynamic>),
@@ -17,7 +17,8 @@ EggConfig _$EggConfigFromJson(Map<String, dynamic> json) => EggConfig(
       configExtends: json['config_extends'],
     );
 
-Map<String, dynamic> _$EggConfigToJson(EggConfig instance) => <String, dynamic>{
+Map<String, dynamic> _$$_EggConfigToJson(_$_EggConfig instance) =>
+    <String, dynamic>{
       'files': instance.files,
       'startup': instance.startup.toJson(),
       'stop': instance.stop,

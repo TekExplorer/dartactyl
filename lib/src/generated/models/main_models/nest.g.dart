@@ -6,7 +6,7 @@ part of '../../../models/main_models/nest.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Nest _$NestFromJson(Map<String, dynamic> json) => Nest(
+_$_Nest _$$_NestFromJson(Map<String, dynamic> json) => _$_Nest(
       id: json['id'] as int,
       uuid: json['uuid'] as String,
       author: json['author'] as String,
@@ -16,7 +16,7 @@ Nest _$NestFromJson(Map<String, dynamic> json) => Nest(
       updatedAt: DateTime.parse(json['updated_at'] as String),
     );
 
-Map<String, dynamic> _$NestToJson(Nest instance) => <String, dynamic>{
+Map<String, dynamic> _$$_NestToJson(_$_Nest instance) => <String, dynamic>{
       'id': instance.id,
       'uuid': instance.uuid,
       'author': instance.author,

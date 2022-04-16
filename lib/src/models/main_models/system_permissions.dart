@@ -1,67 +1,17 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/main_models/system_permissions.freezed.dart';
 part '../../generated/models/main_models/system_permissions.g.dart';
 
-@JsonSerializable()
-class SystemPermissions with SerializableMixin {
-  Permissions permissions;
-  SystemPermissions({
-    required this.permissions,
-  });
-  factory SystemPermissions.fromJson(JsonMap json) =>
-      _$SystemPermissionsFromJson(json);
+class PermissionKeysConverter<T extends SerializableMixin>
+    implements JsonConverter<T, JsonMap> {
+  const PermissionKeysConverter();
+
   @override
-  JsonMap toJson() => _$SystemPermissionsToJson(this);
-}
-
-@JsonSerializable()
-class Permissions {
-  PermissionsModel<WebsocketPermissionKeys> websocket;
-  PermissionsModel<ControlPermissionKeys> control;
-  PermissionsModel<UserPermissionKeys> user;
-  PermissionsModel<FilePermissionKeys> file;
-  PermissionsModel<BackupPermissionKeys> backup;
-  PermissionsModel<AllocationPermissionKeys> allocation;
-  PermissionsModel<StartupPermissionKeys> startup;
-  PermissionsModel<DatabasePermissionKeys> database;
-  PermissionsModel<SchedulePermissionKeys> schedule;
-  PermissionsModel<SettingsPermissionKeys> settings;
-
-  Permissions({
-    required this.websocket,
-    required this.control,
-    required this.user,
-    required this.file,
-    required this.backup,
-    required this.allocation,
-    required this.startup,
-    required this.database,
-    required this.schedule,
-    required this.settings,
-  });
-  factory Permissions.fromJson(JsonMap json) => _$PermissionsFromJson(json);
-  JsonMap toJson() => _$PermissionsToJson(this);
-}
-
-@JsonSerializable()
-class PermissionsModel<T extends SerializableMixin> {
-  String description;
-  @JsonKey(fromJson: _fromGenericJson, toJson: _toGenericJson)
-  T keys;
-  PermissionsModel({
-    required this.description,
-    required this.keys,
-  });
-
-  factory PermissionsModel.fromJson(JsonMap json) =>
-      _$PermissionsModelFromJson(json);
-
-  JsonMap toJson() => _$PermissionsModelToJson(this);
-
-  static T _fromGenericJson<T>(JsonMap json) {
+  T fromJson(JsonMap json) {
     switch (T) {
       case WebsocketPermissionKeys:
         return WebsocketPermissionKeys.fromJson(json) as T;
@@ -88,5 +38,49 @@ class PermissionsModel<T extends SerializableMixin> {
     }
   }
 
-  static JsonMap _toGenericJson<T extends SerializableMixin>(T t) => t.toJson();
+  @override
+  JsonMap toJson(T object) => object.toJson();
+}
+
+@freezed
+class Permissions with _$Permissions {
+  factory Permissions({
+    required PermissionsModel<WebsocketPermissionKeys> websocket,
+    required PermissionsModel<ControlPermissionKeys> control,
+    required PermissionsModel<UserPermissionKeys> user,
+    required PermissionsModel<FilePermissionKeys> file,
+    required PermissionsModel<BackupPermissionKeys> backup,
+    required PermissionsModel<AllocationPermissionKeys> allocation,
+    required PermissionsModel<StartupPermissionKeys> startup,
+    required PermissionsModel<DatabasePermissionKeys> database,
+    required PermissionsModel<SchedulePermissionKeys> schedule,
+    required PermissionsModel<SettingsPermissionKeys> settings,
+  }) = _Permissions;
+
+  factory Permissions.fromJson(JsonMap json) => _$PermissionsFromJson(json);
+}
+
+@freezed
+class PermissionsModel<T extends SerializableMixin> with _$PermissionsModel<T> {
+  factory PermissionsModel({
+    required String description,
+    @PermissionKeysConverter() required T keys,
+  }) = _PermissionsModel<T>;
+
+  factory PermissionsModel.fromJson(JsonMap json) =>
+      _$PermissionsModelFromJson<T>(json);
+}
+
+@freezed
+class SystemPermissions with SerializableMixin, _$SystemPermissions {
+  factory SystemPermissions({required Permissions permissions}) =
+      _SystemPermissions;
+
+  factory SystemPermissions.fromJson(JsonMap json) =>
+      _$SystemPermissionsFromJson(json);
+
+  SystemPermissions._();
+
+  @override
+  JsonMap toJson();
 }

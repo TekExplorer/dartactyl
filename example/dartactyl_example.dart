@@ -1,6 +1,6 @@
 import 'package:dartactyl/dartactyl.dart';
 
-final panelUrl = 'https://panel.example.com';
+String panelUrl = 'https://panel.example.com';
 String apiKey = '<API-Key>';
 
 void main(List<String> args) async {

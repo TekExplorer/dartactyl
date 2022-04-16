@@ -3,6 +3,8 @@ import 'package:dartactyl/models.dart';
 typedef JsonMap = Map<String, dynamic>;
 
 typedef Fractal<T extends SerializableMixin> = FractalResponseData<T>;
+typedef FractalMeta<T extends SerializableMixin, M extends Meta>
+    = FractalResponseDataMeta<T, M>;
 
 typedef FractalServer = Fractal<Server>;
 typedef FractalSystemPermissions = Fractal<SystemPermissions>;
@@ -20,8 +22,13 @@ typedef FractalAllocation = Fractal<Allocation>;
 typedef FractalServerSubuser = Fractal<ServerSubuser>;
 typedef FractalBackup = Fractal<Backup>;
 typedef FractalEggVariable = Fractal<EggVariable>;
+typedef FractalDatabasePassword = Fractal<DatabasePassword>;
+typedef FractalNest = Fractal<Nest>;
+typedef FractalEgg = Fractal<Egg>;
 
 typedef FractalList<T extends SerializableMixin> = FractalResponseList<T>;
+typedef FractalListMeta<T extends SerializableMixin, M extends Meta>
+    = FractalResponseListMeta<T, M>;
 
 typedef FractalServerList = FractalList<Server>;
 typedef FractalApiKeyList = FractalList<ApiKey>;
@@ -31,3 +38,6 @@ typedef FractalAllocationList = FractalList<Allocation>;
 typedef FractalServerSubuserList = FractalList<ServerSubuser>;
 typedef FractalBackupList = FractalList<Backup>;
 typedef FractalEggVariableList = FractalList<EggVariable>;
+typedef FractalDatabasesList = FractalList<Databases>;
+typedef FractalScheduleTaskList = FractalList<ScheduleTask>;
+typedef FractalSubuserList = FractalList<Subuser>;
