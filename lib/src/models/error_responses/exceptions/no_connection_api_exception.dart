@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 import 'generic_api_exception.dart';
 
-/// A simple wrapper class to indicate a lack of connection
+/// We could not reach the server
 class NoConnectionPteroApiExcepton extends GenericApiException {
   /// Simple class for when we cant connect to the serverw
   NoConnectionPteroApiExcepton({
@@ -14,10 +14,16 @@ class NoConnectionPteroApiExcepton extends GenericApiException {
         );
 
   @override
-  String get statusMessage => 'No connection to server';
+  String get statusMessage => super.statusMessage.isEmpty
+      ? 'No connection to server'
+      : super.statusMessage;
+
+  @override
+  String toString() =>
+      'NoConnectionPteroApiExcepton{statusMessage: $statusMessage}';
 }
 
-/// A simple wrapper to distinguish between a lack of data and any other error
+/// We reached the server, but we did not get any data
 class NoDataPteroApiException extends GenericApiException {
   NoDataPteroApiException({
     required DioError rawDioError,
@@ -32,4 +38,11 @@ class NoDataPteroApiException extends GenericApiException {
           rawData: rawData,
           statusMessage: statusMessage,
         );
+
+  @override
+  String get statusMessage =>
+      super.statusMessage.isEmpty ? 'No data returned' : super.statusMessage;
+
+  @override
+  String toString() => 'NoDataPteroApiException{statusMessage: $statusMessage}';
 }

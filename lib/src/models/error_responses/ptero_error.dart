@@ -5,12 +5,14 @@ part '../../generated/models/error_responses/ptero_error.freezed.dart';
 part '../../generated/models/error_responses/ptero_error.g.dart';
 
 @freezed
-class PteroError with _$PteroError {
+class PteroError with _$PteroError implements Exception {
+  PteroError._();
   factory PteroError({
     required PteroErrorCode code,
     required String status,
     required String detail,
   }) = _PteroError;
+  String get message => detail;
 
   factory PteroError.fromJson(JsonMap json) => _$PteroErrorFromJson(json);
 }
