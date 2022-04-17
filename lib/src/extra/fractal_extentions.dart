@@ -3,7 +3,11 @@
 
 import 'package:dartactyl/models.dart';
 
-extension FractalGetServer on FractalMeta<Server, ServerMeta> {
+extension FractalGetServer on Fractal<Server> {
+  Server get server => attributes;
+}
+
+extension FractalGetServerMeta on FractalMeta<Server, ServerMeta> {
   Server get server => attributes;
 
   bool get isServerOwner => meta.isServerOwner;
@@ -34,9 +38,11 @@ extension FractalGetRecoveryTokens on Fractal<RecoveryTokens> {
 }
 
 // FractalApiKey
-extension FractalGetApiKey on FractalMeta<ApiKey, ApiKeyMeta> {
+extension FractalGetApiKey on Fractal<ApiKey> {
   ApiKey get apiKey => attributes;
+}
 
+extension FractalGetApiKeyMeta on FractalMeta<ApiKey, ApiKeyMeta> {
   String get secretToken => meta.secretToken;
 }
 

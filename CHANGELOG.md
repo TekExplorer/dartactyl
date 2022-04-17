@@ -1,5 +1,7 @@
 # CHANGELOG
 
+## 1.4.0-dev.1
+ - Accedentally made `FractalServer.server` no longer work. Fixed now.
 ## 1.4.0-dev.0
  - Make all models `@freezed` where possible
  - Add annotations to better represent certain things
