@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.4.0-dev.3
+ - Another minor bug that hardly needs mentioning
+   - A JsonConverter was being used wrong
+
 ## 1.4.0-dev.2
  - Type related bug... `PteroData` needed to require `SerializableMixin`, so `SerializableMixen` needed to be on `WebsocketDetails` 
 ## 1.4.0-dev.1

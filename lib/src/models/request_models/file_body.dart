@@ -20,7 +20,7 @@ class FileBody with _$FileBody {
 class FileBodyList<T> with _$FileBodyList<T> {
   factory FileBodyList({
     @JsonKey(name: 'root') required String rootDir,
-    @FileListConverter<T>() required List<T> files, // String or FromTo
+    @FileListConverter() required List<T> files, // String or FromTo
   }) = _FileBodyList;
 
   factory FileBodyList.fromJson(JsonMap json) => _$FileBodyListFromJson(json);
