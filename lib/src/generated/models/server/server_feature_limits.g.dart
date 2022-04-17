@@ -10,8 +10,8 @@ _$_ServerFeatureLimits _$$_ServerFeatureLimitsFromJson(
         Map<String, dynamic> json) =>
     _$_ServerFeatureLimits(
       allocations: json['allocations'] as int,
-      databases: json['databases'] as int,
-      backups: json['backups'] as int,
+      databases: json['databases'] as int?,
+      backups: json['backups'] as int?,
     );
 
 Map<String, dynamic> _$$_ServerFeatureLimitsToJson(

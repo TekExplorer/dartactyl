@@ -1,5 +1,12 @@
 # CHANGELOG
+## 1.4.0-dev.6
+ - Fix `ServerFeatureLimits`
 
+## 1.4.0-dev.5
+ - Forget it. Separate classes it is.
+## 1.4.0-dev.4
+
+ - `FileListConverter` was the previous bug. still not working. just gonna throw `UnimplementedError` for now
 ## 1.4.0-dev.3
  - Another minor bug that hardly needs mentioning
    - A JsonConverter was being used wrong

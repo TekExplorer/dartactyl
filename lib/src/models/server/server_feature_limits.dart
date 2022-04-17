@@ -9,8 +9,8 @@ class ServerFeatureLimits with _$ServerFeatureLimits {
   ServerFeatureLimits._();
   factory ServerFeatureLimits({
     required int allocations,
-    required int databases,
-    required int backups,
+    int? databases,
+    int? backups,
   }) = _ServerFeatureLimits;
 
   factory ServerFeatureLimits.fromJson(JsonMap json) =>

@@ -23,9 +23,7 @@ class _$ServerFeatureLimitsTearOff {
   const _$ServerFeatureLimitsTearOff();
 
   _ServerFeatureLimits call(
-      {required int allocations,
-      required int databases,
-      required int backups}) {
+      {required int allocations, int? databases, int? backups}) {
     return _ServerFeatureLimits(
       allocations: allocations,
       databases: databases,
@@ -44,8 +42,8 @@ const $ServerFeatureLimits = _$ServerFeatureLimitsTearOff();
 /// @nodoc
 mixin _$ServerFeatureLimits {
   int get allocations => throw _privateConstructorUsedError;
-  int get databases => throw _privateConstructorUsedError;
-  int get backups => throw _privateConstructorUsedError;
+  int? get databases => throw _privateConstructorUsedError;
+  int? get backups => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -58,7 +56,7 @@ abstract class $ServerFeatureLimitsCopyWith<$Res> {
   factory $ServerFeatureLimitsCopyWith(
           ServerFeatureLimits value, $Res Function(ServerFeatureLimits) then) =
       _$ServerFeatureLimitsCopyWithImpl<$Res>;
-  $Res call({int allocations, int databases, int backups});
+  $Res call({int allocations, int? databases, int? backups});
 }
 
 /// @nodoc
@@ -84,11 +82,11 @@ class _$ServerFeatureLimitsCopyWithImpl<$Res>
       databases: databases == freezed
           ? _value.databases
           : databases // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       backups: backups == freezed
           ? _value.backups
           : backups // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -100,7 +98,7 @@ abstract class _$ServerFeatureLimitsCopyWith<$Res>
           $Res Function(_ServerFeatureLimits) then) =
       __$ServerFeatureLimitsCopyWithImpl<$Res>;
   @override
-  $Res call({int allocations, int databases, int backups});
+  $Res call({int allocations, int? databases, int? backups});
 }
 
 /// @nodoc
@@ -128,11 +126,11 @@ class __$ServerFeatureLimitsCopyWithImpl<$Res>
       databases: databases == freezed
           ? _value.databases
           : databases // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       backups: backups == freezed
           ? _value.backups
           : backups // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -141,9 +139,7 @@ class __$ServerFeatureLimitsCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ServerFeatureLimits extends _ServerFeatureLimits {
   _$_ServerFeatureLimits(
-      {required this.allocations,
-      required this.databases,
-      required this.backups})
+      {required this.allocations, this.databases, this.backups})
       : super._();
 
   factory _$_ServerFeatureLimits.fromJson(Map<String, dynamic> json) =>
@@ -152,9 +148,9 @@ class _$_ServerFeatureLimits extends _ServerFeatureLimits {
   @override
   final int allocations;
   @override
-  final int databases;
+  final int? databases;
   @override
-  final int backups;
+  final int? backups;
 
   @override
   String toString() {
@@ -194,8 +190,8 @@ class _$_ServerFeatureLimits extends _ServerFeatureLimits {
 abstract class _ServerFeatureLimits extends ServerFeatureLimits {
   factory _ServerFeatureLimits(
       {required int allocations,
-      required int databases,
-      required int backups}) = _$_ServerFeatureLimits;
+      int? databases,
+      int? backups}) = _$_ServerFeatureLimits;
   _ServerFeatureLimits._() : super._();
 
   factory _ServerFeatureLimits.fromJson(Map<String, dynamic> json) =
@@ -204,9 +200,9 @@ abstract class _ServerFeatureLimits extends ServerFeatureLimits {
   @override
   int get allocations;
   @override
-  int get databases;
+  int? get databases;
   @override
-  int get backups;
+  int? get backups;
   @override
   @JsonKey(ignore: true)
   _$ServerFeatureLimitsCopyWith<_ServerFeatureLimits> get copyWith =>

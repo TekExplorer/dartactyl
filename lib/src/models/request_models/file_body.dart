@@ -17,39 +17,25 @@ class FileBody with _$FileBody {
 }
 
 @freezed
-class FileBodyList<T> with _$FileBodyList<T> {
-  factory FileBodyList({
+class FileBodyListFromTo with _$FileBodyListFromTo {
+  factory FileBodyListFromTo({
     @JsonKey(name: 'root') required String rootDir,
-    @FileListConverter() required List<T> files, // String or FromTo
-  }) = _FileBodyList;
+    required List<FromTo> files, // String or FromTo
+  }) = _FileBodyListFromTo;
 
-  factory FileBodyList.fromJson(JsonMap json) => _$FileBodyListFromJson(json);
+  factory FileBodyListFromTo.fromJson(JsonMap json) =>
+      _$FileBodyListFromToFromJson(json);
 }
 
-class FileListConverter<T> implements JsonConverter<T, dynamic> {
-  const FileListConverter();
+@freezed
+class FileBodyListString with _$FileBodyListString {
+  factory FileBodyListString({
+    @JsonKey(name: 'root') required String rootDir,
+    required List<String> files, // String or FromTo
+  }) = _FileBodyListString;
 
-  @override
-  T fromJson(dynamic json) {
-    if (T == FromTo) {
-      return FromTo.fromJson(json) as T;
-    } else if (T == String) {
-      return json as T;
-    } else {
-      throw UnsupportedError('Unsupported type: $T in FileListConverter');
-    }
-  }
-
-  @override
-  dynamic toJson(T object) {
-    if (T is SerializableMixin) {
-      return (object as SerializableMixin).toJson();
-    } else if (T is String) {
-      return object as String;
-    } else {
-      throw UnsupportedError('Unsupported type: $T');
-    }
-  }
+  factory FileBodyListString.fromJson(JsonMap json) =>
+      _$FileBodyListStringFromJson(json);
 }
 
 /*

@@ -17,18 +17,34 @@ Map<String, dynamic> _$$_FileBodyToJson(_$_FileBody instance) =>
       'file': instance.file,
     };
 
-_$_FileBodyList<T> _$$_FileBodyListFromJson<T>(Map<String, dynamic> json) =>
-    _$_FileBodyList<T>(
+_$_FileBodyListFromTo _$$_FileBodyListFromToFromJson(
+        Map<String, dynamic> json) =>
+    _$_FileBodyListFromTo(
       rootDir: json['root'] as String,
       files: (json['files'] as List<dynamic>)
-          .map(FileListConverter<T>().fromJson)
+          .map((e) => FromTo.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_FileBodyListToJson<T>(_$_FileBodyList<T> instance) =>
+Map<String, dynamic> _$$_FileBodyListFromToToJson(
+        _$_FileBodyListFromTo instance) =>
     <String, dynamic>{
       'root': instance.rootDir,
-      'files': instance.files.map(FileListConverter<T>().toJson).toList(),
+      'files': instance.files.map((e) => e.toJson()).toList(),
+    };
+
+_$_FileBodyListString _$$_FileBodyListStringFromJson(
+        Map<String, dynamic> json) =>
+    _$_FileBodyListString(
+      rootDir: json['root'] as String,
+      files: (json['files'] as List<dynamic>).map((e) => e as String).toList(),
+    );
+
+Map<String, dynamic> _$$_FileBodyListStringToJson(
+        _$_FileBodyListString instance) =>
+    <String, dynamic>{
+      'root': instance.rootDir,
+      'files': instance.files,
     };
 
 _$_FolderBody _$$_FolderBodyFromJson(Map<String, dynamic> json) =>

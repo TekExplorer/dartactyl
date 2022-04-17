@@ -218,7 +218,7 @@ class MockPteroClient implements PteroClient {
 
   @override
   Future<void> renameFile(
-    FileBodyList<FromTo> rename, {
+    FileBodyListFromTo rename, {
     required String serverId,
   }) async {
     return;
@@ -234,7 +234,7 @@ class MockPteroClient implements PteroClient {
 
   @override
   Future<FractalFileObject> compressFile(
-    FileBodyList<String> data, {
+    FileBodyListString data, {
     required String serverId,
   }) async {
     return FractalFileObject.fromJson(json);
@@ -250,7 +250,7 @@ class MockPteroClient implements PteroClient {
 
   @override
   Future<FractalFileObject> deleteFiles(
-    FileBodyList<String> data, {
+    FileBodyListString data, {
     required String serverId,
   }) async {
     return FractalFileObject.fromJson(json);

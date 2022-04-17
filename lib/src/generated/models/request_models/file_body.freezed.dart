@@ -182,62 +182,59 @@ abstract class _FileBody implements FileBody {
       throw _privateConstructorUsedError;
 }
 
-FileBodyList<T> _$FileBodyListFromJson<T>(Map<String, dynamic> json) {
-  return _FileBodyList<T>.fromJson(json);
+FileBodyListFromTo _$FileBodyListFromToFromJson(Map<String, dynamic> json) {
+  return _FileBodyListFromTo.fromJson(json);
 }
 
 /// @nodoc
-class _$FileBodyListTearOff {
-  const _$FileBodyListTearOff();
+class _$FileBodyListFromToTearOff {
+  const _$FileBodyListFromToTearOff();
 
-  _FileBodyList<T> call<T>(
+  _FileBodyListFromTo call(
       {@JsonKey(name: 'root') required String rootDir,
-      @FileListConverter<T>() required List<T> files}) {
-    return _FileBodyList<T>(
+      required List<FromTo> files}) {
+    return _FileBodyListFromTo(
       rootDir: rootDir,
       files: files,
     );
   }
 
-  FileBodyList<T> fromJson<T>(Map<String, Object?> json) {
-    return FileBodyList<T>.fromJson(json);
+  FileBodyListFromTo fromJson(Map<String, Object?> json) {
+    return FileBodyListFromTo.fromJson(json);
   }
 }
 
 /// @nodoc
-const $FileBodyList = _$FileBodyListTearOff();
+const $FileBodyListFromTo = _$FileBodyListFromToTearOff();
 
 /// @nodoc
-mixin _$FileBodyList<T> {
+mixin _$FileBodyListFromTo {
   @JsonKey(name: 'root')
   String get rootDir => throw _privateConstructorUsedError;
-  @FileListConverter<T>()
-  List<T> get files => throw _privateConstructorUsedError;
+  List<FromTo> get files => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FileBodyListCopyWith<T, FileBodyList<T>> get copyWith =>
+  $FileBodyListFromToCopyWith<FileBodyListFromTo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FileBodyListCopyWith<T, $Res> {
-  factory $FileBodyListCopyWith(
-          FileBodyList<T> value, $Res Function(FileBodyList<T>) then) =
-      _$FileBodyListCopyWithImpl<T, $Res>;
-  $Res call(
-      {@JsonKey(name: 'root') String rootDir,
-      @FileListConverter<T>() List<T> files});
+abstract class $FileBodyListFromToCopyWith<$Res> {
+  factory $FileBodyListFromToCopyWith(
+          FileBodyListFromTo value, $Res Function(FileBodyListFromTo) then) =
+      _$FileBodyListFromToCopyWithImpl<$Res>;
+  $Res call({@JsonKey(name: 'root') String rootDir, List<FromTo> files});
 }
 
 /// @nodoc
-class _$FileBodyListCopyWithImpl<T, $Res>
-    implements $FileBodyListCopyWith<T, $Res> {
-  _$FileBodyListCopyWithImpl(this._value, this._then);
+class _$FileBodyListFromToCopyWithImpl<$Res>
+    implements $FileBodyListFromToCopyWith<$Res> {
+  _$FileBodyListFromToCopyWithImpl(this._value, this._then);
 
-  final FileBodyList<T> _value;
+  final FileBodyListFromTo _value;
   // ignore: unused_field
-  final $Res Function(FileBodyList<T>) _then;
+  final $Res Function(FileBodyListFromTo) _then;
 
   @override
   $Res call({
@@ -252,40 +249,38 @@ class _$FileBodyListCopyWithImpl<T, $Res>
       files: files == freezed
           ? _value.files
           : files // ignore: cast_nullable_to_non_nullable
-              as List<T>,
+              as List<FromTo>,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$FileBodyListCopyWith<T, $Res>
-    implements $FileBodyListCopyWith<T, $Res> {
-  factory _$FileBodyListCopyWith(
-          _FileBodyList<T> value, $Res Function(_FileBodyList<T>) then) =
-      __$FileBodyListCopyWithImpl<T, $Res>;
+abstract class _$FileBodyListFromToCopyWith<$Res>
+    implements $FileBodyListFromToCopyWith<$Res> {
+  factory _$FileBodyListFromToCopyWith(
+          _FileBodyListFromTo value, $Res Function(_FileBodyListFromTo) then) =
+      __$FileBodyListFromToCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {@JsonKey(name: 'root') String rootDir,
-      @FileListConverter<T>() List<T> files});
+  $Res call({@JsonKey(name: 'root') String rootDir, List<FromTo> files});
 }
 
 /// @nodoc
-class __$FileBodyListCopyWithImpl<T, $Res>
-    extends _$FileBodyListCopyWithImpl<T, $Res>
-    implements _$FileBodyListCopyWith<T, $Res> {
-  __$FileBodyListCopyWithImpl(
-      _FileBodyList<T> _value, $Res Function(_FileBodyList<T>) _then)
-      : super(_value, (v) => _then(v as _FileBodyList<T>));
+class __$FileBodyListFromToCopyWithImpl<$Res>
+    extends _$FileBodyListFromToCopyWithImpl<$Res>
+    implements _$FileBodyListFromToCopyWith<$Res> {
+  __$FileBodyListFromToCopyWithImpl(
+      _FileBodyListFromTo _value, $Res Function(_FileBodyListFromTo) _then)
+      : super(_value, (v) => _then(v as _FileBodyListFromTo));
 
   @override
-  _FileBodyList<T> get _value => super._value as _FileBodyList<T>;
+  _FileBodyListFromTo get _value => super._value as _FileBodyListFromTo;
 
   @override
   $Res call({
     Object? rootDir = freezed,
     Object? files = freezed,
   }) {
-    return _then(_FileBodyList<T>(
+    return _then(_FileBodyListFromTo(
       rootDir: rootDir == freezed
           ? _value.rootDir
           : rootDir // ignore: cast_nullable_to_non_nullable
@@ -293,38 +288,36 @@ class __$FileBodyListCopyWithImpl<T, $Res>
       files: files == freezed
           ? _value.files
           : files // ignore: cast_nullable_to_non_nullable
-              as List<T>,
+              as List<FromTo>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_FileBodyList<T> implements _FileBodyList<T> {
-  _$_FileBodyList(
-      {@JsonKey(name: 'root') required this.rootDir,
-      @FileListConverter<T>() required this.files});
+class _$_FileBodyListFromTo implements _FileBodyListFromTo {
+  _$_FileBodyListFromTo(
+      {@JsonKey(name: 'root') required this.rootDir, required this.files});
 
-  factory _$_FileBodyList.fromJson(Map<String, dynamic> json) =>
-      _$$_FileBodyListFromJson(json);
+  factory _$_FileBodyListFromTo.fromJson(Map<String, dynamic> json) =>
+      _$$_FileBodyListFromToFromJson(json);
 
   @override
   @JsonKey(name: 'root')
   final String rootDir;
   @override
-  @FileListConverter<T>()
-  final List<T> files;
+  final List<FromTo> files;
 
   @override
   String toString() {
-    return 'FileBodyList<$T>(rootDir: $rootDir, files: $files)';
+    return 'FileBodyListFromTo(rootDir: $rootDir, files: $files)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _FileBodyList<T> &&
+            other is _FileBodyListFromTo &&
             const DeepCollectionEquality().equals(other.rootDir, rootDir) &&
             const DeepCollectionEquality().equals(other.files, files));
   }
@@ -337,32 +330,207 @@ class _$_FileBodyList<T> implements _FileBodyList<T> {
 
   @JsonKey(ignore: true)
   @override
-  _$FileBodyListCopyWith<T, _FileBodyList<T>> get copyWith =>
-      __$FileBodyListCopyWithImpl<T, _FileBodyList<T>>(this, _$identity);
+  _$FileBodyListFromToCopyWith<_FileBodyListFromTo> get copyWith =>
+      __$FileBodyListFromToCopyWithImpl<_FileBodyListFromTo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FileBodyListToJson(this);
+    return _$$_FileBodyListFromToToJson(this);
   }
 }
 
-abstract class _FileBodyList<T> implements FileBodyList<T> {
-  factory _FileBodyList(
+abstract class _FileBodyListFromTo implements FileBodyListFromTo {
+  factory _FileBodyListFromTo(
       {@JsonKey(name: 'root') required String rootDir,
-      @FileListConverter<T>() required List<T> files}) = _$_FileBodyList<T>;
+      required List<FromTo> files}) = _$_FileBodyListFromTo;
 
-  factory _FileBodyList.fromJson(Map<String, dynamic> json) =
-      _$_FileBodyList<T>.fromJson;
+  factory _FileBodyListFromTo.fromJson(Map<String, dynamic> json) =
+      _$_FileBodyListFromTo.fromJson;
 
   @override
   @JsonKey(name: 'root')
   String get rootDir;
   @override
-  @FileListConverter<T>()
-  List<T> get files;
+  List<FromTo> get files;
   @override
   @JsonKey(ignore: true)
-  _$FileBodyListCopyWith<T, _FileBodyList<T>> get copyWith =>
+  _$FileBodyListFromToCopyWith<_FileBodyListFromTo> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+FileBodyListString _$FileBodyListStringFromJson(Map<String, dynamic> json) {
+  return _FileBodyListString.fromJson(json);
+}
+
+/// @nodoc
+class _$FileBodyListStringTearOff {
+  const _$FileBodyListStringTearOff();
+
+  _FileBodyListString call(
+      {@JsonKey(name: 'root') required String rootDir,
+      required List<String> files}) {
+    return _FileBodyListString(
+      rootDir: rootDir,
+      files: files,
+    );
+  }
+
+  FileBodyListString fromJson(Map<String, Object?> json) {
+    return FileBodyListString.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $FileBodyListString = _$FileBodyListStringTearOff();
+
+/// @nodoc
+mixin _$FileBodyListString {
+  @JsonKey(name: 'root')
+  String get rootDir => throw _privateConstructorUsedError;
+  List<String> get files => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $FileBodyListStringCopyWith<FileBodyListString> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $FileBodyListStringCopyWith<$Res> {
+  factory $FileBodyListStringCopyWith(
+          FileBodyListString value, $Res Function(FileBodyListString) then) =
+      _$FileBodyListStringCopyWithImpl<$Res>;
+  $Res call({@JsonKey(name: 'root') String rootDir, List<String> files});
+}
+
+/// @nodoc
+class _$FileBodyListStringCopyWithImpl<$Res>
+    implements $FileBodyListStringCopyWith<$Res> {
+  _$FileBodyListStringCopyWithImpl(this._value, this._then);
+
+  final FileBodyListString _value;
+  // ignore: unused_field
+  final $Res Function(FileBodyListString) _then;
+
+  @override
+  $Res call({
+    Object? rootDir = freezed,
+    Object? files = freezed,
+  }) {
+    return _then(_value.copyWith(
+      rootDir: rootDir == freezed
+          ? _value.rootDir
+          : rootDir // ignore: cast_nullable_to_non_nullable
+              as String,
+      files: files == freezed
+          ? _value.files
+          : files // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$FileBodyListStringCopyWith<$Res>
+    implements $FileBodyListStringCopyWith<$Res> {
+  factory _$FileBodyListStringCopyWith(
+          _FileBodyListString value, $Res Function(_FileBodyListString) then) =
+      __$FileBodyListStringCopyWithImpl<$Res>;
+  @override
+  $Res call({@JsonKey(name: 'root') String rootDir, List<String> files});
+}
+
+/// @nodoc
+class __$FileBodyListStringCopyWithImpl<$Res>
+    extends _$FileBodyListStringCopyWithImpl<$Res>
+    implements _$FileBodyListStringCopyWith<$Res> {
+  __$FileBodyListStringCopyWithImpl(
+      _FileBodyListString _value, $Res Function(_FileBodyListString) _then)
+      : super(_value, (v) => _then(v as _FileBodyListString));
+
+  @override
+  _FileBodyListString get _value => super._value as _FileBodyListString;
+
+  @override
+  $Res call({
+    Object? rootDir = freezed,
+    Object? files = freezed,
+  }) {
+    return _then(_FileBodyListString(
+      rootDir: rootDir == freezed
+          ? _value.rootDir
+          : rootDir // ignore: cast_nullable_to_non_nullable
+              as String,
+      files: files == freezed
+          ? _value.files
+          : files // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_FileBodyListString implements _FileBodyListString {
+  _$_FileBodyListString(
+      {@JsonKey(name: 'root') required this.rootDir, required this.files});
+
+  factory _$_FileBodyListString.fromJson(Map<String, dynamic> json) =>
+      _$$_FileBodyListStringFromJson(json);
+
+  @override
+  @JsonKey(name: 'root')
+  final String rootDir;
+  @override
+  final List<String> files;
+
+  @override
+  String toString() {
+    return 'FileBodyListString(rootDir: $rootDir, files: $files)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _FileBodyListString &&
+            const DeepCollectionEquality().equals(other.rootDir, rootDir) &&
+            const DeepCollectionEquality().equals(other.files, files));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(rootDir),
+      const DeepCollectionEquality().hash(files));
+
+  @JsonKey(ignore: true)
+  @override
+  _$FileBodyListStringCopyWith<_FileBodyListString> get copyWith =>
+      __$FileBodyListStringCopyWithImpl<_FileBodyListString>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_FileBodyListStringToJson(this);
+  }
+}
+
+abstract class _FileBodyListString implements FileBodyListString {
+  factory _FileBodyListString(
+      {@JsonKey(name: 'root') required String rootDir,
+      required List<String> files}) = _$_FileBodyListString;
+
+  factory _FileBodyListString.fromJson(Map<String, dynamic> json) =
+      _$_FileBodyListString.fromJson;
+
+  @override
+  @JsonKey(name: 'root')
+  String get rootDir;
+  @override
+  List<String> get files;
+  @override
+  @JsonKey(ignore: true)
+  _$FileBodyListStringCopyWith<_FileBodyListString> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

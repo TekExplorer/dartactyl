@@ -293,7 +293,7 @@ abstract class PteroClient {
   /// Rename a file on the [Server]
   @PUT('/api/client/servers/{serverId}/files/rename')
   Future<void> renameFile(
-    @Body() FileBodyList<FromTo> rename, {
+    @Body() FileBodyListFromTo rename, {
     @Path() required String serverId,
   });
 
@@ -307,7 +307,7 @@ abstract class PteroClient {
   /// Compress a file into an archive (eg. zip) on the [Server]
   @POST('/api/client/servers/{serverId}/files/compress')
   Future<Fractal<FileObject>> compressFile(
-    @Body() FileBodyList<String> data, {
+    @Body() FileBodyListString data, {
     @Path() required String serverId,
   });
 
@@ -321,7 +321,7 @@ abstract class PteroClient {
   /// Delete one or more files on the [Server]
   @POST('/api/client/servers/{serverId}/files/delete')
   Future<Fractal<FileObject>> deleteFiles(
-    @Body() FileBodyList<String> data, {
+    @Body() FileBodyListString data, {
     @Path() required String serverId,
   });
 
