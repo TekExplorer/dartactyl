@@ -7,7 +7,7 @@ part '../../generated/models/ptero_data/ptero_data.freezed.dart';
 part '../../generated/models/ptero_data/ptero_data.g.dart';
 
 @freezed
-class PteroData<T> with _$PteroData<T> {
+class PteroData<T extends SerializableMixin> with _$PteroData<T> {
   // Websocket and TwoFactorImage
   factory PteroData({@PteroDataConverter() required T data}) = _PteroData<T>;
 

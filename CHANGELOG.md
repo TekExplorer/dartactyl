@@ -1,5 +1,7 @@
 # CHANGELOG
 
+## 1.4.0-dev.2
+ - Type related bug... `PteroData` needed to require `SerializableMixin`, so `SerializableMixen` needed to be on `WebsocketDetails` 
 ## 1.4.0-dev.1
  - Accedentally made `FractalServer.server` no longer work. Fixed now.
 ## 1.4.0-dev.0

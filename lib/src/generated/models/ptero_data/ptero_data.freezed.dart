@@ -14,7 +14,8 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-PteroData<T> _$PteroDataFromJson<T>(Map<String, dynamic> json) {
+PteroData<T> _$PteroDataFromJson<T extends SerializableMixin>(
+    Map<String, dynamic> json) {
   return _PteroData<T>.fromJson(json);
 }
 
@@ -22,13 +23,15 @@ PteroData<T> _$PteroDataFromJson<T>(Map<String, dynamic> json) {
 class _$PteroDataTearOff {
   const _$PteroDataTearOff();
 
-  _PteroData<T> call<T>({@PteroDataConverter() required T data}) {
+  _PteroData<T> call<T extends SerializableMixin>(
+      {@PteroDataConverter() required T data}) {
     return _PteroData<T>(
       data: data,
     );
   }
 
-  PteroData<T> fromJson<T>(Map<String, Object?> json) {
+  PteroData<T> fromJson<T extends SerializableMixin>(
+      Map<String, Object?> json) {
     return PteroData<T>.fromJson(json);
   }
 }
@@ -37,7 +40,7 @@ class _$PteroDataTearOff {
 const $PteroData = _$PteroDataTearOff();
 
 /// @nodoc
-mixin _$PteroData<T> {
+mixin _$PteroData<T extends SerializableMixin> {
   @PteroDataConverter()
   T get data => throw _privateConstructorUsedError;
 
@@ -48,7 +51,7 @@ mixin _$PteroData<T> {
 }
 
 /// @nodoc
-abstract class $PteroDataCopyWith<T, $Res> {
+abstract class $PteroDataCopyWith<T extends SerializableMixin, $Res> {
   factory $PteroDataCopyWith(
           PteroData<T> value, $Res Function(PteroData<T>) then) =
       _$PteroDataCopyWithImpl<T, $Res>;
@@ -56,7 +59,8 @@ abstract class $PteroDataCopyWith<T, $Res> {
 }
 
 /// @nodoc
-class _$PteroDataCopyWithImpl<T, $Res> implements $PteroDataCopyWith<T, $Res> {
+class _$PteroDataCopyWithImpl<T extends SerializableMixin, $Res>
+    implements $PteroDataCopyWith<T, $Res> {
   _$PteroDataCopyWithImpl(this._value, this._then);
 
   final PteroData<T> _value;
@@ -77,7 +81,7 @@ class _$PteroDataCopyWithImpl<T, $Res> implements $PteroDataCopyWith<T, $Res> {
 }
 
 /// @nodoc
-abstract class _$PteroDataCopyWith<T, $Res>
+abstract class _$PteroDataCopyWith<T extends SerializableMixin, $Res>
     implements $PteroDataCopyWith<T, $Res> {
   factory _$PteroDataCopyWith(
           _PteroData<T> value, $Res Function(_PteroData<T>) then) =
@@ -87,7 +91,8 @@ abstract class _$PteroDataCopyWith<T, $Res>
 }
 
 /// @nodoc
-class __$PteroDataCopyWithImpl<T, $Res> extends _$PteroDataCopyWithImpl<T, $Res>
+class __$PteroDataCopyWithImpl<T extends SerializableMixin, $Res>
+    extends _$PteroDataCopyWithImpl<T, $Res>
     implements _$PteroDataCopyWith<T, $Res> {
   __$PteroDataCopyWithImpl(
       _PteroData<T> _value, $Res Function(_PteroData<T>) _then)
@@ -111,7 +116,7 @@ class __$PteroDataCopyWithImpl<T, $Res> extends _$PteroDataCopyWithImpl<T, $Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PteroData<T> implements _PteroData<T> {
+class _$_PteroData<T extends SerializableMixin> implements _PteroData<T> {
   _$_PteroData({@PteroDataConverter() required this.data});
 
   factory _$_PteroData.fromJson(Map<String, dynamic> json) =>
@@ -149,7 +154,7 @@ class _$_PteroData<T> implements _PteroData<T> {
   }
 }
 
-abstract class _PteroData<T> implements PteroData<T> {
+abstract class _PteroData<T extends SerializableMixin> implements PteroData<T> {
   factory _PteroData({@PteroDataConverter() required T data}) = _$_PteroData<T>;
 
   factory _PteroData.fromJson(Map<String, dynamic> json) =
