@@ -102,10 +102,10 @@ class MockPteroClient implements PteroClient {
   }
 
   @override
-  Future<FractalApiKey> createApiKey(
+  Future<FractalMeta<ApiKey, ApiKeyMeta>> createApiKey(
     CreateApiKey data,
   ) async {
-    return FractalApiKey.fromJson(json);
+    return FractalMeta<ApiKey, ApiKeyMeta>.fromJson(json);
   }
 
   @override

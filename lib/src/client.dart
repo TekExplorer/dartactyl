@@ -182,7 +182,7 @@ abstract class PteroClient {
   /// Create a new [ApiKey] on your account.
   /// This is the only time you will ever get the full key.
   @POST('/api/client/account/api-keys')
-  Future<Fractal<ApiKey>> createApiKey(
+  Future<FractalMeta<ApiKey, ApiKeyMeta>> createApiKey(
     @Body() CreateApiKey data,
   );
 

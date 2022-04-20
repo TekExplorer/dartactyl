@@ -1,5 +1,6 @@
 # CHANGELOG
-
+## 1.4.0-dev.8
+ - `createApiKey` now includes the token secret
 ## 1.4.0-dev.7
  - Fix `ApiKey` model to make last_used_at nullable
 ## 1.4.0-dev.6
