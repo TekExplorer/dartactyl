@@ -47,7 +47,9 @@ class _PteroClient implements PteroClient {
 
   @override
   Future<FractalResponseListMeta<Server, PaginatedMeta>> listServers(
-      {includes,
+      {page = 1,
+      perPage = 50,
+      includes,
       filter,
       filterByUuid,
       filterByName,
@@ -55,6 +57,8 @@ class _PteroClient implements PteroClient {
       type = GetServersQueryType.member}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'per_page': perPage,
       r'include': includes?.toJson(),
       r'filter[*]': filter,
       r'filter[uuid]': filterByUuid,

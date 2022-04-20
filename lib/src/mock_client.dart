@@ -47,6 +47,8 @@ class MockPteroClient implements PteroClient {
     String? filterByName,
     String? filterByExternalId,
     GetServersQueryType? type = GetServersQueryType.member,
+    int? page = 1,
+    int? perPage = 50,
   }) async {
     return FractalListMeta<Server, PaginatedMeta>.fromJson(json);
   }

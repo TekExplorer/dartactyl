@@ -12,7 +12,7 @@ class ApiKey with SerializableMixin, _$ApiKey {
     required String identifier,
     String? description,
     List<String>? allowedIps,
-    required DateTime lastUsedAt,
+    DateTime? lastUsedAt,
     required DateTime createdAt,
   }) = _ApiKey;
 

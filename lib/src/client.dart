@@ -109,17 +109,30 @@ abstract class PteroClient {
   ///
   /// !!! ONLY USE ONE FILTER !!!
   ///
+  /// [page]; page number
+  ///
+  /// [perPage]; number of results per page
+  ///
   /// You can also limit what servers are returned by
   /// providing a [GetServersQueryType] to [type] (defualt is 'member')
   ///
   /// Available [Includes]; 'egg', 'subusers'
   @GET('/api/client')
   Future<FractalResponseListMeta<Server, PaginatedMeta>> listServers({
+    // Pagination
+    @Query('page') int? page = 1,
+    @Query('per_page') int? perPage = 50,
+
+    /// [includes]; egg, subusers
     @Query('include') Includes? includes,
+
+    // Filters
     @Query('filter[*]') String? filter,
     @Query('filter[uuid]') String? filterByUuid,
     @Query('filter[name]') String? filterByName,
     @Query('filter[external_id]') String? filterByExternalId,
+
+    // What servers to return by access type
     @Query('type') GetServersQueryType? type = GetServersQueryType.member,
   });
 

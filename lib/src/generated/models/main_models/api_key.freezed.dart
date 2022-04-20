@@ -26,7 +26,7 @@ class _$ApiKeyTearOff {
       {required String identifier,
       String? description,
       List<String>? allowedIps,
-      required DateTime lastUsedAt,
+      DateTime? lastUsedAt,
       required DateTime createdAt}) {
     return _ApiKey(
       identifier: identifier,
@@ -50,7 +50,7 @@ mixin _$ApiKey {
   String get identifier => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   List<String>? get allowedIps => throw _privateConstructorUsedError;
-  DateTime get lastUsedAt => throw _privateConstructorUsedError;
+  DateTime? get lastUsedAt => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -66,7 +66,7 @@ abstract class $ApiKeyCopyWith<$Res> {
       {String identifier,
       String? description,
       List<String>? allowedIps,
-      DateTime lastUsedAt,
+      DateTime? lastUsedAt,
       DateTime createdAt});
 }
 
@@ -102,7 +102,7 @@ class _$ApiKeyCopyWithImpl<$Res> implements $ApiKeyCopyWith<$Res> {
       lastUsedAt: lastUsedAt == freezed
           ? _value.lastUsedAt
           : lastUsedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -120,7 +120,7 @@ abstract class _$ApiKeyCopyWith<$Res> implements $ApiKeyCopyWith<$Res> {
       {String identifier,
       String? description,
       List<String>? allowedIps,
-      DateTime lastUsedAt,
+      DateTime? lastUsedAt,
       DateTime createdAt});
 }
 
@@ -157,7 +157,7 @@ class __$ApiKeyCopyWithImpl<$Res> extends _$ApiKeyCopyWithImpl<$Res>
       lastUsedAt: lastUsedAt == freezed
           ? _value.lastUsedAt
           : lastUsedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -173,7 +173,7 @@ class _$_ApiKey extends _ApiKey {
       {required this.identifier,
       this.description,
       this.allowedIps,
-      required this.lastUsedAt,
+      this.lastUsedAt,
       required this.createdAt})
       : super._();
 
@@ -187,7 +187,7 @@ class _$_ApiKey extends _ApiKey {
   @override
   final List<String>? allowedIps;
   @override
-  final DateTime lastUsedAt;
+  final DateTime? lastUsedAt;
   @override
   final DateTime createdAt;
 
@@ -237,7 +237,7 @@ abstract class _ApiKey extends ApiKey {
       {required String identifier,
       String? description,
       List<String>? allowedIps,
-      required DateTime lastUsedAt,
+      DateTime? lastUsedAt,
       required DateTime createdAt}) = _$_ApiKey;
   _ApiKey._() : super._();
 
@@ -250,7 +250,7 @@ abstract class _ApiKey extends ApiKey {
   @override
   List<String>? get allowedIps;
   @override
-  DateTime get lastUsedAt;
+  DateTime? get lastUsedAt;
   @override
   DateTime get createdAt;
   @override
