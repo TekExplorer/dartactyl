@@ -22,9 +22,10 @@ TwoFactorImage _$TwoFactorImageFromJson(Map<String, dynamic> json) {
 class _$TwoFactorImageTearOff {
   const _$TwoFactorImageTearOff();
 
-  _TwoFactorImage call({required String imageUrlData}) {
+  _TwoFactorImage call({required String imageUrlData, required String secret}) {
     return _TwoFactorImage(
       imageUrlData: imageUrlData,
+      secret: secret,
     );
   }
 
@@ -39,6 +40,7 @@ const $TwoFactorImage = _$TwoFactorImageTearOff();
 /// @nodoc
 mixin _$TwoFactorImage {
   String get imageUrlData => throw _privateConstructorUsedError;
+  String get secret => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +53,7 @@ abstract class $TwoFactorImageCopyWith<$Res> {
   factory $TwoFactorImageCopyWith(
           TwoFactorImage value, $Res Function(TwoFactorImage) then) =
       _$TwoFactorImageCopyWithImpl<$Res>;
-  $Res call({String imageUrlData});
+  $Res call({String imageUrlData, String secret});
 }
 
 /// @nodoc
@@ -66,11 +68,16 @@ class _$TwoFactorImageCopyWithImpl<$Res>
   @override
   $Res call({
     Object? imageUrlData = freezed,
+    Object? secret = freezed,
   }) {
     return _then(_value.copyWith(
       imageUrlData: imageUrlData == freezed
           ? _value.imageUrlData
           : imageUrlData // ignore: cast_nullable_to_non_nullable
+              as String,
+      secret: secret == freezed
+          ? _value.secret
+          : secret // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -83,7 +90,7 @@ abstract class _$TwoFactorImageCopyWith<$Res>
           _TwoFactorImage value, $Res Function(_TwoFactorImage) then) =
       __$TwoFactorImageCopyWithImpl<$Res>;
   @override
-  $Res call({String imageUrlData});
+  $Res call({String imageUrlData, String secret});
 }
 
 /// @nodoc
@@ -100,11 +107,16 @@ class __$TwoFactorImageCopyWithImpl<$Res>
   @override
   $Res call({
     Object? imageUrlData = freezed,
+    Object? secret = freezed,
   }) {
     return _then(_TwoFactorImage(
       imageUrlData: imageUrlData == freezed
           ? _value.imageUrlData
           : imageUrlData // ignore: cast_nullable_to_non_nullable
+              as String,
+      secret: secret == freezed
+          ? _value.secret
+          : secret // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -113,17 +125,20 @@ class __$TwoFactorImageCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_TwoFactorImage extends _TwoFactorImage {
-  _$_TwoFactorImage({required this.imageUrlData}) : super._();
+  _$_TwoFactorImage({required this.imageUrlData, required this.secret})
+      : super._();
 
   factory _$_TwoFactorImage.fromJson(Map<String, dynamic> json) =>
       _$$_TwoFactorImageFromJson(json);
 
   @override
   final String imageUrlData;
+  @override
+  final String secret;
 
   @override
   String toString() {
-    return 'TwoFactorImage(imageUrlData: $imageUrlData)';
+    return 'TwoFactorImage(imageUrlData: $imageUrlData, secret: $secret)';
   }
 
   @override
@@ -132,12 +147,15 @@ class _$_TwoFactorImage extends _TwoFactorImage {
         (other.runtimeType == runtimeType &&
             other is _TwoFactorImage &&
             const DeepCollectionEquality()
-                .equals(other.imageUrlData, imageUrlData));
+                .equals(other.imageUrlData, imageUrlData) &&
+            const DeepCollectionEquality().equals(other.secret, secret));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(imageUrlData));
+      runtimeType,
+      const DeepCollectionEquality().hash(imageUrlData),
+      const DeepCollectionEquality().hash(secret));
 
   @JsonKey(ignore: true)
   @override
@@ -151,7 +169,9 @@ class _$_TwoFactorImage extends _TwoFactorImage {
 }
 
 abstract class _TwoFactorImage extends TwoFactorImage {
-  factory _TwoFactorImage({required String imageUrlData}) = _$_TwoFactorImage;
+  factory _TwoFactorImage(
+      {required String imageUrlData,
+      required String secret}) = _$_TwoFactorImage;
   _TwoFactorImage._() : super._();
 
   factory _TwoFactorImage.fromJson(Map<String, dynamic> json) =
@@ -159,6 +179,8 @@ abstract class _TwoFactorImage extends TwoFactorImage {
 
   @override
   String get imageUrlData;
+  @override
+  String get secret;
   @override
   @JsonKey(ignore: true)
   _$TwoFactorImageCopyWith<_TwoFactorImage> get copyWith =>

@@ -235,13 +235,15 @@ class _$StatsResourcesTearOff {
       required double cpuAbsolute,
       required int diskBytes,
       required int networkRxBytes,
-      required int networkTxBytes}) {
+      required int networkTxBytes,
+      required int uptime}) {
     return _StatsResources(
       memoryBytes: memoryBytes,
       cpuAbsolute: cpuAbsolute,
       diskBytes: diskBytes,
       networkRxBytes: networkRxBytes,
       networkTxBytes: networkTxBytes,
+      uptime: uptime,
     );
   }
 
@@ -260,6 +262,7 @@ mixin _$StatsResources {
   int get diskBytes => throw _privateConstructorUsedError;
   int get networkRxBytes => throw _privateConstructorUsedError;
   int get networkTxBytes => throw _privateConstructorUsedError;
+  int get uptime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -277,7 +280,8 @@ abstract class $StatsResourcesCopyWith<$Res> {
       double cpuAbsolute,
       int diskBytes,
       int networkRxBytes,
-      int networkTxBytes});
+      int networkTxBytes,
+      int uptime});
 }
 
 /// @nodoc
@@ -296,6 +300,7 @@ class _$StatsResourcesCopyWithImpl<$Res>
     Object? diskBytes = freezed,
     Object? networkRxBytes = freezed,
     Object? networkTxBytes = freezed,
+    Object? uptime = freezed,
   }) {
     return _then(_value.copyWith(
       memoryBytes: memoryBytes == freezed
@@ -318,6 +323,10 @@ class _$StatsResourcesCopyWithImpl<$Res>
           ? _value.networkTxBytes
           : networkTxBytes // ignore: cast_nullable_to_non_nullable
               as int,
+      uptime: uptime == freezed
+          ? _value.uptime
+          : uptime // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -334,7 +343,8 @@ abstract class _$StatsResourcesCopyWith<$Res>
       double cpuAbsolute,
       int diskBytes,
       int networkRxBytes,
-      int networkTxBytes});
+      int networkTxBytes,
+      int uptime});
 }
 
 /// @nodoc
@@ -355,6 +365,7 @@ class __$StatsResourcesCopyWithImpl<$Res>
     Object? diskBytes = freezed,
     Object? networkRxBytes = freezed,
     Object? networkTxBytes = freezed,
+    Object? uptime = freezed,
   }) {
     return _then(_StatsResources(
       memoryBytes: memoryBytes == freezed
@@ -377,6 +388,10 @@ class __$StatsResourcesCopyWithImpl<$Res>
           ? _value.networkTxBytes
           : networkTxBytes // ignore: cast_nullable_to_non_nullable
               as int,
+      uptime: uptime == freezed
+          ? _value.uptime
+          : uptime // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -389,7 +404,8 @@ class _$_StatsResources extends _StatsResources {
       required this.cpuAbsolute,
       required this.diskBytes,
       required this.networkRxBytes,
-      required this.networkTxBytes})
+      required this.networkTxBytes,
+      required this.uptime})
       : super._();
 
   factory _$_StatsResources.fromJson(Map<String, dynamic> json) =>
@@ -405,10 +421,12 @@ class _$_StatsResources extends _StatsResources {
   final int networkRxBytes;
   @override
   final int networkTxBytes;
+  @override
+  final int uptime;
 
   @override
   String toString() {
-    return 'StatsResources(memoryBytes: $memoryBytes, cpuAbsolute: $cpuAbsolute, diskBytes: $diskBytes, networkRxBytes: $networkRxBytes, networkTxBytes: $networkTxBytes)';
+    return 'StatsResources(memoryBytes: $memoryBytes, cpuAbsolute: $cpuAbsolute, diskBytes: $diskBytes, networkRxBytes: $networkRxBytes, networkTxBytes: $networkTxBytes, uptime: $uptime)';
   }
 
   @override
@@ -424,7 +442,8 @@ class _$_StatsResources extends _StatsResources {
             const DeepCollectionEquality()
                 .equals(other.networkRxBytes, networkRxBytes) &&
             const DeepCollectionEquality()
-                .equals(other.networkTxBytes, networkTxBytes));
+                .equals(other.networkTxBytes, networkTxBytes) &&
+            const DeepCollectionEquality().equals(other.uptime, uptime));
   }
 
   @override
@@ -434,7 +453,8 @@ class _$_StatsResources extends _StatsResources {
       const DeepCollectionEquality().hash(cpuAbsolute),
       const DeepCollectionEquality().hash(diskBytes),
       const DeepCollectionEquality().hash(networkRxBytes),
-      const DeepCollectionEquality().hash(networkTxBytes));
+      const DeepCollectionEquality().hash(networkTxBytes),
+      const DeepCollectionEquality().hash(uptime));
 
   @JsonKey(ignore: true)
   @override
@@ -453,7 +473,8 @@ abstract class _StatsResources extends StatsResources {
       required double cpuAbsolute,
       required int diskBytes,
       required int networkRxBytes,
-      required int networkTxBytes}) = _$_StatsResources;
+      required int networkTxBytes,
+      required int uptime}) = _$_StatsResources;
   _StatsResources._() : super._();
 
   factory _StatsResources.fromJson(Map<String, dynamic> json) =
@@ -469,6 +490,8 @@ abstract class _StatsResources extends StatsResources {
   int get networkRxBytes;
   @override
   int get networkTxBytes;
+  @override
+  int get uptime;
   @override
   @JsonKey(ignore: true)
   _$StatsResourcesCopyWith<_StatsResources> get copyWith =>

@@ -32,6 +32,7 @@ class StatsResources with _$StatsResources {
     required int diskBytes,
     required int networkRxBytes,
     required int networkTxBytes,
+    required int uptime,
   }) = _StatsResources;
 
   factory StatsResources.fromJson(JsonMap json) =>

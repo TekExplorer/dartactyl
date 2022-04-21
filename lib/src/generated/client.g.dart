@@ -363,6 +363,21 @@ class _PteroClient implements PteroClient {
   }
 
   @override
+  Future<void> deleteDatabase({required serverId, required databaseId}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    await _dio.fetch<void>(_setStreamType<void>(
+        Options(method: 'DELETE', headers: _headers, extra: _extra)
+            .compose(_dio.options,
+                '/api/client/servers/${serverId}/databases/${databaseId}',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    return null;
+  }
+
+  @override
   Future<FractalResponseData<ServerDatabase>> rotateDatabasePassword(
       {required serverId, required databaseId}) async {
     const _extra = <String, dynamic>{};
@@ -378,21 +393,6 @@ class _PteroClient implements PteroClient {
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ServerDatabase>.fromJson(_result.data!);
     return value;
-  }
-
-  @override
-  Future<void> deleteDatabase({required serverId, required databaseId}) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'DELETE', headers: _headers, extra: _extra)
-            .compose(_dio.options,
-                '/api/client/servers/${serverId}/databases/${databaseId}',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override

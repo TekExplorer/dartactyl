@@ -22,10 +22,14 @@ Database _$DatabaseFromJson(Map<String, dynamic> json) {
 class _$DatabaseTearOff {
   const _$DatabaseTearOff();
 
-  _Database call({required String address, required int port}) {
+  _Database call(
+      {required String address,
+      required int port,
+      DatabasePasswordRelationships? relationships}) {
     return _Database(
       address: address,
       port: port,
+      relationships: relationships,
     );
   }
 
@@ -41,6 +45,8 @@ const $Database = _$DatabaseTearOff();
 mixin _$Database {
   String get address => throw _privateConstructorUsedError;
   int get port => throw _privateConstructorUsedError;
+  DatabasePasswordRelationships? get relationships =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +58,10 @@ mixin _$Database {
 abstract class $DatabaseCopyWith<$Res> {
   factory $DatabaseCopyWith(Database value, $Res Function(Database) then) =
       _$DatabaseCopyWithImpl<$Res>;
-  $Res call({String address, int port});
+  $Res call(
+      {String address, int port, DatabasePasswordRelationships? relationships});
+
+  $DatabasePasswordRelationshipsCopyWith<$Res>? get relationships;
 }
 
 /// @nodoc
@@ -67,6 +76,7 @@ class _$DatabaseCopyWithImpl<$Res> implements $DatabaseCopyWith<$Res> {
   $Res call({
     Object? address = freezed,
     Object? port = freezed,
+    Object? relationships = freezed,
   }) {
     return _then(_value.copyWith(
       address: address == freezed
@@ -77,7 +87,23 @@ class _$DatabaseCopyWithImpl<$Res> implements $DatabaseCopyWith<$Res> {
           ? _value.port
           : port // ignore: cast_nullable_to_non_nullable
               as int,
+      relationships: relationships == freezed
+          ? _value.relationships
+          : relationships // ignore: cast_nullable_to_non_nullable
+              as DatabasePasswordRelationships?,
     ));
+  }
+
+  @override
+  $DatabasePasswordRelationshipsCopyWith<$Res>? get relationships {
+    if (_value.relationships == null) {
+      return null;
+    }
+
+    return $DatabasePasswordRelationshipsCopyWith<$Res>(_value.relationships!,
+        (value) {
+      return _then(_value.copyWith(relationships: value));
+    });
   }
 }
 
@@ -86,7 +112,11 @@ abstract class _$DatabaseCopyWith<$Res> implements $DatabaseCopyWith<$Res> {
   factory _$DatabaseCopyWith(_Database value, $Res Function(_Database) then) =
       __$DatabaseCopyWithImpl<$Res>;
   @override
-  $Res call({String address, int port});
+  $Res call(
+      {String address, int port, DatabasePasswordRelationships? relationships});
+
+  @override
+  $DatabasePasswordRelationshipsCopyWith<$Res>? get relationships;
 }
 
 /// @nodoc
@@ -102,6 +132,7 @@ class __$DatabaseCopyWithImpl<$Res> extends _$DatabaseCopyWithImpl<$Res>
   $Res call({
     Object? address = freezed,
     Object? port = freezed,
+    Object? relationships = freezed,
   }) {
     return _then(_Database(
       address: address == freezed
@@ -112,6 +143,10 @@ class __$DatabaseCopyWithImpl<$Res> extends _$DatabaseCopyWithImpl<$Res>
           ? _value.port
           : port // ignore: cast_nullable_to_non_nullable
               as int,
+      relationships: relationships == freezed
+          ? _value.relationships
+          : relationships // ignore: cast_nullable_to_non_nullable
+              as DatabasePasswordRelationships?,
     ));
   }
 }
@@ -119,7 +154,8 @@ class __$DatabaseCopyWithImpl<$Res> extends _$DatabaseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Database extends _Database {
-  _$_Database({required this.address, required this.port}) : super._();
+  _$_Database({required this.address, required this.port, this.relationships})
+      : super._();
 
   factory _$_Database.fromJson(Map<String, dynamic> json) =>
       _$$_DatabaseFromJson(json);
@@ -128,10 +164,12 @@ class _$_Database extends _Database {
   final String address;
   @override
   final int port;
+  @override
+  final DatabasePasswordRelationships? relationships;
 
   @override
   String toString() {
-    return 'Database(address: $address, port: $port)';
+    return 'Database(address: $address, port: $port, relationships: $relationships)';
   }
 
   @override
@@ -140,14 +178,17 @@ class _$_Database extends _Database {
         (other.runtimeType == runtimeType &&
             other is _Database &&
             const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality().equals(other.port, port));
+            const DeepCollectionEquality().equals(other.port, port) &&
+            const DeepCollectionEquality()
+                .equals(other.relationships, relationships));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(port));
+      const DeepCollectionEquality().hash(port),
+      const DeepCollectionEquality().hash(relationships));
 
   @JsonKey(ignore: true)
   @override
@@ -161,7 +202,10 @@ class _$_Database extends _Database {
 }
 
 abstract class _Database extends Database {
-  factory _Database({required String address, required int port}) = _$_Database;
+  factory _Database(
+      {required String address,
+      required int port,
+      DatabasePasswordRelationships? relationships}) = _$_Database;
   _Database._() : super._();
 
   factory _Database.fromJson(Map<String, dynamic> json) = _$_Database.fromJson;
@@ -170,6 +214,8 @@ abstract class _Database extends Database {
   String get address;
   @override
   int get port;
+  @override
+  DatabasePasswordRelationships? get relationships;
   @override
   @JsonKey(ignore: true)
   _$DatabaseCopyWith<_Database> get copyWith =>

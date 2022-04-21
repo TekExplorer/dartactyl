@@ -118,7 +118,7 @@ abstract class PteroClient {
   ///
   /// Available [Includes]; 'egg', 'subusers'
   @GET('/api/client')
-  Future<FractalResponseListMeta<Server, PaginatedMeta>> listServers({
+  Future<FractalListMeta<Server, PaginatedMeta>> listServers({
     // Pagination
     @Query('page') int? page = 1,
     @Query('per_page') int? perPage = 50,
@@ -198,7 +198,7 @@ abstract class PteroClient {
   ///
   /// Available [Includes]; 'egg', 'subusers'
   @GET('/api/client/servers/{serverId}')
-  Future<FractalResponseDataMeta<Server, ServerMeta>> getServerDetails({
+  Future<FractalMeta<Server, ServerMeta>> getServerDetails({
     @Path() required String serverId,
     @Query('include') Includes? includes,
   });
@@ -247,16 +247,16 @@ abstract class PteroClient {
     @Path() required String serverId,
   });
 
-  /// TODO: on [rotateDatabasePassword]
-  @POST('/api/client/servers/{serverId}/databases/{databaseId}/rotate-password')
-  Future<Fractal<ServerDatabase>> rotateDatabasePassword({
+  /// Delete a [ServerDatabase]
+  @DELETE('/api/client/servers/{serverId}/databases/{databaseId}')
+  Future<void> deleteDatabase({
     @Path() required String serverId,
     @Path() required String databaseId,
   });
 
-  /// Delete a [ServerDatabase]
-  @DELETE('/api/client/servers/{serverId}/databases/{databaseId}')
-  Future<void> deleteDatabase({
+  /// TODO: on [rotateDatabasePassword]
+  @POST('/api/client/servers/{serverId}/databases/{databaseId}/rotate-password')
+  Future<Fractal<ServerDatabase>> rotateDatabasePassword({
     @Path() required String serverId,
     @Path() required String databaseId,
   });
@@ -523,7 +523,7 @@ abstract class PteroClient {
   // Startup
   /// Get all [Server] startup variables
   @GET('/api/client/servers/{serverId}/startup')
-  Future<FractalResponseListMeta<EggVariable, StartupMeta>> listVariables({
+  Future<FractalListMeta<EggVariable, StartupMeta>> listVariables({
     @Path() required String serverId,
   });
 

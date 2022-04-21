@@ -11,6 +11,7 @@ class Database with _$Database {
   factory Database({
     required String address,
     required int port,
+    DatabasePasswordRelationships? relationships,
   }) = _Database;
   factory Database.fromJson(JsonMap json) => _$DatabaseFromJson(json);
 
