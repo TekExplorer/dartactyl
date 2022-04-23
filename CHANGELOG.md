@@ -1,4 +1,7 @@
 # CHANGELOG
+## 1.4.0-dev.9
+ - Remove origin header
+
 ## 1.4.0-dev.8
  - `createApiKey` now includes the token secret
 ## 1.4.0-dev.7
