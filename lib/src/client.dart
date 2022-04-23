@@ -48,7 +48,7 @@ abstract class PteroClient {
       // use key
       dio.options.headers[HttpHeaders.authorizationHeader] = "Bearer " + key;
     }
-    dio.options.headers["Origin"] = url;
+    // dio.options.headers["Origin"] = url;
     dio.options.baseUrl = url;
 
     dio.interceptors.addAll([
