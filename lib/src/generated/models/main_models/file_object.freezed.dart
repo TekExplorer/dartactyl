@@ -28,7 +28,6 @@ class _$FileObjectTearOff {
       required int size,
       required bool isFile,
       required bool isSymlink,
-      required bool isEditable,
       required String mimetype,
       required DateTime createdAt,
       required DateTime modifiedAt}) {
@@ -38,7 +37,6 @@ class _$FileObjectTearOff {
       size: size,
       isFile: isFile,
       isSymlink: isSymlink,
-      isEditable: isEditable,
       mimetype: mimetype,
       createdAt: createdAt,
       modifiedAt: modifiedAt,
@@ -59,8 +57,8 @@ mixin _$FileObject {
   String get mode => throw _privateConstructorUsedError;
   int get size => throw _privateConstructorUsedError;
   bool get isFile => throw _privateConstructorUsedError;
-  bool get isSymlink => throw _privateConstructorUsedError;
-  bool get isEditable => throw _privateConstructorUsedError;
+  bool get isSymlink =>
+      throw _privateConstructorUsedError; // required bool isEditable,
   String get mimetype => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get modifiedAt => throw _privateConstructorUsedError;
@@ -82,7 +80,6 @@ abstract class $FileObjectCopyWith<$Res> {
       int size,
       bool isFile,
       bool isSymlink,
-      bool isEditable,
       String mimetype,
       DateTime createdAt,
       DateTime modifiedAt});
@@ -103,7 +100,6 @@ class _$FileObjectCopyWithImpl<$Res> implements $FileObjectCopyWith<$Res> {
     Object? size = freezed,
     Object? isFile = freezed,
     Object? isSymlink = freezed,
-    Object? isEditable = freezed,
     Object? mimetype = freezed,
     Object? createdAt = freezed,
     Object? modifiedAt = freezed,
@@ -128,10 +124,6 @@ class _$FileObjectCopyWithImpl<$Res> implements $FileObjectCopyWith<$Res> {
       isSymlink: isSymlink == freezed
           ? _value.isSymlink
           : isSymlink // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isEditable: isEditable == freezed
-          ? _value.isEditable
-          : isEditable // ignore: cast_nullable_to_non_nullable
               as bool,
       mimetype: mimetype == freezed
           ? _value.mimetype
@@ -161,7 +153,6 @@ abstract class _$FileObjectCopyWith<$Res> implements $FileObjectCopyWith<$Res> {
       int size,
       bool isFile,
       bool isSymlink,
-      bool isEditable,
       String mimetype,
       DateTime createdAt,
       DateTime modifiedAt});
@@ -184,7 +175,6 @@ class __$FileObjectCopyWithImpl<$Res> extends _$FileObjectCopyWithImpl<$Res>
     Object? size = freezed,
     Object? isFile = freezed,
     Object? isSymlink = freezed,
-    Object? isEditable = freezed,
     Object? mimetype = freezed,
     Object? createdAt = freezed,
     Object? modifiedAt = freezed,
@@ -209,10 +199,6 @@ class __$FileObjectCopyWithImpl<$Res> extends _$FileObjectCopyWithImpl<$Res>
       isSymlink: isSymlink == freezed
           ? _value.isSymlink
           : isSymlink // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isEditable: isEditable == freezed
-          ? _value.isEditable
-          : isEditable // ignore: cast_nullable_to_non_nullable
               as bool,
       mimetype: mimetype == freezed
           ? _value.mimetype
@@ -239,7 +225,6 @@ class _$_FileObject extends _FileObject {
       required this.size,
       required this.isFile,
       required this.isSymlink,
-      required this.isEditable,
       required this.mimetype,
       required this.createdAt,
       required this.modifiedAt})
@@ -258,9 +243,7 @@ class _$_FileObject extends _FileObject {
   final bool isFile;
   @override
   final bool isSymlink;
-  @override
-  final bool isEditable;
-  @override
+  @override // required bool isEditable,
   final String mimetype;
   @override
   final DateTime createdAt;
@@ -269,7 +252,7 @@ class _$_FileObject extends _FileObject {
 
   @override
   String toString() {
-    return 'FileObject(name: $name, mode: $mode, size: $size, isFile: $isFile, isSymlink: $isSymlink, isEditable: $isEditable, mimetype: $mimetype, createdAt: $createdAt, modifiedAt: $modifiedAt)';
+    return 'FileObject(name: $name, mode: $mode, size: $size, isFile: $isFile, isSymlink: $isSymlink, mimetype: $mimetype, createdAt: $createdAt, modifiedAt: $modifiedAt)';
   }
 
   @override
@@ -282,8 +265,6 @@ class _$_FileObject extends _FileObject {
             const DeepCollectionEquality().equals(other.size, size) &&
             const DeepCollectionEquality().equals(other.isFile, isFile) &&
             const DeepCollectionEquality().equals(other.isSymlink, isSymlink) &&
-            const DeepCollectionEquality()
-                .equals(other.isEditable, isEditable) &&
             const DeepCollectionEquality().equals(other.mimetype, mimetype) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality()
@@ -298,7 +279,6 @@ class _$_FileObject extends _FileObject {
       const DeepCollectionEquality().hash(size),
       const DeepCollectionEquality().hash(isFile),
       const DeepCollectionEquality().hash(isSymlink),
-      const DeepCollectionEquality().hash(isEditable),
       const DeepCollectionEquality().hash(mimetype),
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(modifiedAt));
@@ -321,7 +301,6 @@ abstract class _FileObject extends FileObject {
       required int size,
       required bool isFile,
       required bool isSymlink,
-      required bool isEditable,
       required String mimetype,
       required DateTime createdAt,
       required DateTime modifiedAt}) = _$_FileObject;
@@ -340,9 +319,7 @@ abstract class _FileObject extends FileObject {
   bool get isFile;
   @override
   bool get isSymlink;
-  @override
-  bool get isEditable;
-  @override
+  @override // required bool isEditable,
   String get mimetype;
   @override
   DateTime get createdAt;

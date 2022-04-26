@@ -14,7 +14,6 @@ class FileObject with SerializableMixin, _$FileObject {
     required int size,
     required bool isFile,
     required bool isSymlink,
-    required bool isEditable,
     required String mimetype,
     required DateTime createdAt,
     required DateTime modifiedAt,
