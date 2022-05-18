@@ -9,12 +9,17 @@ part of '../../../models/main_models/server_database.dart';
 _$_Database _$$_DatabaseFromJson(Map<String, dynamic> json) => _$_Database(
       address: json['address'] as String,
       port: json['port'] as int,
+      relationships: json['relationships'] == null
+          ? null
+          : DatabasePasswordRelationships.fromJson(
+              json['relationships'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_DatabaseToJson(_$_Database instance) =>
     <String, dynamic>{
       'address': instance.address,
       'port': instance.port,
+      'relationships': instance.relationships?.toJson(),
     };
 
 _$_ServerDatabase _$$_ServerDatabaseFromJson(Map<String, dynamic> json) =>

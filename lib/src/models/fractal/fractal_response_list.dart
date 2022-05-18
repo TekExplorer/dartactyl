@@ -14,7 +14,7 @@ class FractalResponseList<T extends SerializableMixin> {
 
   const FractalResponseList({
     required this.object,
-    required this.data,
+    this.data = const [],
   });
 
   factory FractalResponseList.fromJson(JsonMap json) =>

@@ -452,14 +452,17 @@ class _PteroClient implements PteroClient {
       {required serverId, required file, required rawContents}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'file': file};
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Content-Type': 'text/plain'};
+    _headers.removeWhere((k, v) => v == null);
     final _data = rawContents;
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'GET', headers: _headers, extra: _extra)
-            .compose(
-                _dio.options, '/api/client/servers/${serverId}/files/write',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+            method: 'POST',
+            headers: _headers,
+            extra: _extra,
+            contentType: 'text/plain')
+        .compose(_dio.options, '/api/client/servers/${serverId}/files/write',
+            queryParameters: queryParameters, data: _data)
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 

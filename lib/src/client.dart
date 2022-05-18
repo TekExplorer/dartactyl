@@ -2,7 +2,8 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:dartactyl/models.dart';
-import 'package:dio/dio.dart';
+import 'package:dio/dio.dart' hide Headers;
+// import 'package:dio/dio.dart' as dioHeaders show Headers;
 import 'package:meta/meta.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -296,7 +297,8 @@ abstract class PteroClient {
   /// Use this to update or create a file on the [Server].
   ///
   /// [file]; url encoded path to the desired file
-  @GET('/api/client/servers/{serverId}/files/write')
+  @POST('/api/client/servers/{serverId}/files/write')
+  @Headers(<String, dynamic>{"Content-Type": 'text/plain'})
   Future<void> writeFile({
     @Path() required String serverId,
     @Query('file', encoded: true) required String file,

@@ -57,8 +57,7 @@ mixin _$FileObject {
   String get mode => throw _privateConstructorUsedError;
   int get size => throw _privateConstructorUsedError;
   bool get isFile => throw _privateConstructorUsedError;
-  bool get isSymlink =>
-      throw _privateConstructorUsedError; // required bool isEditable,
+  bool get isSymlink => throw _privateConstructorUsedError;
   String get mimetype => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get modifiedAt => throw _privateConstructorUsedError;
@@ -243,7 +242,7 @@ class _$_FileObject extends _FileObject {
   final bool isFile;
   @override
   final bool isSymlink;
-  @override // required bool isEditable,
+  @override
   final String mimetype;
   @override
   final DateTime createdAt;
@@ -319,7 +318,7 @@ abstract class _FileObject extends FileObject {
   bool get isFile;
   @override
   bool get isSymlink;
-  @override // required bool isEditable,
+  @override
   String get mimetype;
   @override
   DateTime get createdAt;

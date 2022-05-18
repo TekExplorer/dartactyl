@@ -10,10 +10,11 @@ FractalResponseList<T> _$FractalResponseListFromJson<
         T extends SerializableMixin>(Map<String, dynamic> json) =>
     FractalResponseList<T>(
       object: $enumDecode(_$AttributeObjectEnumMap, json['object']),
-      data: (json['data'] as List<dynamic>)
-          .map(
-              (e) => FractalResponseData<T>.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      data: (json['data'] as List<dynamic>?)
+              ?.map((e) =>
+                  FractalResponseData<T>.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$FractalResponseListToJson<T extends SerializableMixin>(

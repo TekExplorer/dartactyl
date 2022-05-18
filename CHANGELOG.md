@@ -1,7 +1,9 @@
 # CHANGELOG
+## 1.4.0-dev.11
+ - Maybe fix `writeFile` and `FractalResponseList`
+
 ## 1.4.0-dev.10
  - Fix FileObject
-
 ## 1.4.0-dev.9
  - Remove origin header
 
