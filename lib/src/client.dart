@@ -335,7 +335,7 @@ abstract class PteroClient {
 
   /// Delete one or more files on the [Server]
   @POST('/api/client/servers/{serverId}/files/delete')
-  Future<Fractal<FileObject>> deleteFiles(
+  Future<void> deleteFiles(
     @Body() FileBodyListString data, {
     @Path() required String serverId,
   });

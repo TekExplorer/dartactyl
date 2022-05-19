@@ -1,4 +1,7 @@
 # CHANGELOG
+
+## 1.4.0-dev.12
+ - Fix `deleteFiles` 
 ## 1.4.0-dev.11
  - Maybe fix `writeFile` and `FractalResponseList`
 
