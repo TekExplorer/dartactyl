@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:dartactyl/models.dart';
+import 'package:dartactyl/src/k_is_web.dart';
 import 'package:dio/dio.dart' hide Headers;
 // import 'package:dio/dio.dart' as dioHeaders show Headers;
 import 'package:meta/meta.dart';
@@ -53,9 +54,11 @@ abstract class PteroClient {
 
     if (key != null) {
       // use key
-      dio.options.headers[HttpHeaders.authorizationHeader] = "Bearer " + key;
+      dio.options
+        ..headers[HttpHeaders.authorizationHeader] = "Bearer " + key
+        ..headers[HttpHeaders.userAgentHeader] = 'Dartactyl/v1';
     }
-    // dio.options.headers["Origin"] = url;
+    if (!kIsWeb) dio.options.headers["Origin"] = url;
     dio.options.baseUrl = url;
 
     dio.interceptors.addAll([

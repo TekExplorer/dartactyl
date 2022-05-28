@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'websocket_state.dart';
+part of '../../websocket/websocket_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -18,22 +18,22 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$WebsocketStateTearOff {
   const _$WebsocketStateTearOff();
 
+  _WSInitial initial() {
+    return const _WSInitial();
+  }
+
   _WSAuthError authError(String error) {
     return _WSAuthError(
       error,
     );
   }
 
-  _WSAuthenticated authenticated() {
-    return const _WSAuthenticated();
-  }
-
   _WSAuthenticating authenticating() {
     return const _WSAuthenticating();
   }
 
-  _WSAuthenticationFailed authenticationFailed() {
-    return const _WSAuthenticationFailed();
+  _WSAuthenticated authenticated() {
+    return const _WSAuthenticated();
   }
 
   _WSConsoleOutput consoleOutput(String output) {
@@ -42,18 +42,10 @@ class _$WebsocketStateTearOff {
     );
   }
 
-  _WSInitial initial() {
-    return const _WSInitial();
-  }
-
   _WSInstallOutput installOutput(String output) {
     return _WSInstallOutput(
       output,
     );
-  }
-
-  _WSLoading loading() {
-    return const _WSLoading();
   }
 
   _WSStats stats(WebsocketStatsModel stats) {
@@ -62,9 +54,15 @@ class _$WebsocketStateTearOff {
     );
   }
 
-  _WSStatus status(ServerPowerState status) {
-    return _WSStatus(
+  _WSPowerState powerState(ServerPowerState status) {
+    return _WSPowerState(
       status,
+    );
+  }
+
+  _WSJWTError jwtError(String error) {
+    return _WSJWTError(
+      error,
     );
   }
 }
@@ -76,88 +74,81 @@ const $WebsocketState = _$WebsocketStateTearOff();
 mixin _$WebsocketState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String error) authError,
-    required TResult Function() authenticated,
-    required TResult Function() authenticating,
-    required TResult Function() authenticationFailed,
-    required TResult Function(String output) consoleOutput,
     required TResult Function() initial,
+    required TResult Function(String error) authError,
+    required TResult Function() authenticating,
+    required TResult Function() authenticated,
+    required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function() loading,
     required TResult Function(WebsocketStatsModel stats) stats,
-    required TResult Function(ServerPowerState status) status,
+    required TResult Function(ServerPowerState status) powerState,
+    required TResult Function(String error) jwtError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
     TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function()? loading,
     TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
     TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function()? loading,
     TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WSAuthError value) authError,
-    required TResult Function(_WSAuthenticated value) authenticated,
-    required TResult Function(_WSAuthenticating value) authenticating,
-    required TResult Function(_WSAuthenticationFailed value)
-        authenticationFailed,
-    required TResult Function(_WSConsoleOutput value) consoleOutput,
     required TResult Function(_WSInitial value) initial,
+    required TResult Function(_WSAuthError value) authError,
+    required TResult Function(_WSAuthenticating value) authenticating,
+    required TResult Function(_WSAuthenticated value) authenticated,
+    required TResult Function(_WSConsoleOutput value) consoleOutput,
     required TResult Function(_WSInstallOutput value) installOutput,
-    required TResult Function(_WSLoading value) loading,
     required TResult Function(_WSStats value) stats,
-    required TResult Function(_WSStatus value) status,
+    required TResult Function(_WSPowerState value) powerState,
+    required TResult Function(_WSJWTError value) jwtError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
     TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
     TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -178,6 +169,151 @@ class _$WebsocketStateCopyWithImpl<$Res>
   final WebsocketState _value;
   // ignore: unused_field
   final $Res Function(WebsocketState) _then;
+}
+
+/// @nodoc
+abstract class _$WSInitialCopyWith<$Res> {
+  factory _$WSInitialCopyWith(
+          _WSInitial value, $Res Function(_WSInitial) then) =
+      __$WSInitialCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$WSInitialCopyWithImpl<$Res> extends _$WebsocketStateCopyWithImpl<$Res>
+    implements _$WSInitialCopyWith<$Res> {
+  __$WSInitialCopyWithImpl(_WSInitial _value, $Res Function(_WSInitial) _then)
+      : super(_value, (v) => _then(v as _WSInitial));
+
+  @override
+  _WSInitial get _value => super._value as _WSInitial;
+}
+
+/// @nodoc
+
+class _$_WSInitial implements _WSInitial {
+  const _$_WSInitial();
+
+  @override
+  String toString() {
+    return 'WebsocketState.initial()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _WSInitial);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String error) authError,
+    required TResult Function() authenticating,
+    required TResult Function() authenticated,
+    required TResult Function(String output) consoleOutput,
+    required TResult Function(String output) installOutput,
+    required TResult Function(WebsocketStatsModel stats) stats,
+    required TResult Function(ServerPowerState status) powerState,
+    required TResult Function(String error) jwtError,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
+    TResult Function(String output)? installOutput,
+    TResult Function(WebsocketStatsModel stats)? stats,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
+    TResult Function(String output)? installOutput,
+    TResult Function(WebsocketStatsModel stats)? stats,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WSInitial value) initial,
+    required TResult Function(_WSAuthError value) authError,
+    required TResult Function(_WSAuthenticating value) authenticating,
+    required TResult Function(_WSAuthenticated value) authenticated,
+    required TResult Function(_WSConsoleOutput value) consoleOutput,
+    required TResult Function(_WSInstallOutput value) installOutput,
+    required TResult Function(_WSStats value) stats,
+    required TResult Function(_WSPowerState value) powerState,
+    required TResult Function(_WSJWTError value) jwtError,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
+    TResult Function(_WSInstallOutput value)? installOutput,
+    TResult Function(_WSStats value)? stats,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
+    TResult Function(_WSInstallOutput value)? installOutput,
+    TResult Function(_WSStats value)? stats,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WSInitial implements WebsocketState {
+  const factory _WSInitial() = _$_WSInitial;
 }
 
 /// @nodoc
@@ -245,16 +381,15 @@ class _$_WSAuthError implements _WSAuthError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String error) authError,
-    required TResult Function() authenticated,
-    required TResult Function() authenticating,
-    required TResult Function() authenticationFailed,
-    required TResult Function(String output) consoleOutput,
     required TResult Function() initial,
+    required TResult Function(String error) authError,
+    required TResult Function() authenticating,
+    required TResult Function() authenticated,
+    required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function() loading,
     required TResult Function(WebsocketStatsModel stats) stats,
-    required TResult Function(ServerPowerState status) status,
+    required TResult Function(ServerPowerState status) powerState,
+    required TResult Function(String error) jwtError,
   }) {
     return authError(error);
   }
@@ -262,16 +397,15 @@ class _$_WSAuthError implements _WSAuthError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
     TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function()? loading,
     TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
   }) {
     return authError?.call(error);
   }
@@ -279,16 +413,15 @@ class _$_WSAuthError implements _WSAuthError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
     TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function()? loading,
     TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
     required TResult orElse(),
   }) {
     if (authError != null) {
@@ -300,17 +433,15 @@ class _$_WSAuthError implements _WSAuthError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WSAuthError value) authError,
-    required TResult Function(_WSAuthenticated value) authenticated,
-    required TResult Function(_WSAuthenticating value) authenticating,
-    required TResult Function(_WSAuthenticationFailed value)
-        authenticationFailed,
-    required TResult Function(_WSConsoleOutput value) consoleOutput,
     required TResult Function(_WSInitial value) initial,
+    required TResult Function(_WSAuthError value) authError,
+    required TResult Function(_WSAuthenticating value) authenticating,
+    required TResult Function(_WSAuthenticated value) authenticated,
+    required TResult Function(_WSConsoleOutput value) consoleOutput,
     required TResult Function(_WSInstallOutput value) installOutput,
-    required TResult Function(_WSLoading value) loading,
     required TResult Function(_WSStats value) stats,
-    required TResult Function(_WSStatus value) status,
+    required TResult Function(_WSPowerState value) powerState,
+    required TResult Function(_WSJWTError value) jwtError,
   }) {
     return authError(this);
   }
@@ -318,16 +449,15 @@ class _$_WSAuthError implements _WSAuthError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
     TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
   }) {
     return authError?.call(this);
   }
@@ -335,16 +465,15 @@ class _$_WSAuthError implements _WSAuthError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
     TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
     required TResult orElse(),
   }) {
     if (authError != null) {
@@ -361,160 +490,6 @@ abstract class _WSAuthError implements WebsocketState {
   @JsonKey(ignore: true)
   _$WSAuthErrorCopyWith<_WSAuthError> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$WSAuthenticatedCopyWith<$Res> {
-  factory _$WSAuthenticatedCopyWith(
-          _WSAuthenticated value, $Res Function(_WSAuthenticated) then) =
-      __$WSAuthenticatedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$WSAuthenticatedCopyWithImpl<$Res>
-    extends _$WebsocketStateCopyWithImpl<$Res>
-    implements _$WSAuthenticatedCopyWith<$Res> {
-  __$WSAuthenticatedCopyWithImpl(
-      _WSAuthenticated _value, $Res Function(_WSAuthenticated) _then)
-      : super(_value, (v) => _then(v as _WSAuthenticated));
-
-  @override
-  _WSAuthenticated get _value => super._value as _WSAuthenticated;
-}
-
-/// @nodoc
-
-class _$_WSAuthenticated implements _WSAuthenticated {
-  const _$_WSAuthenticated();
-
-  @override
-  String toString() {
-    return 'WebsocketState.authenticated()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _WSAuthenticated);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String error) authError,
-    required TResult Function() authenticated,
-    required TResult Function() authenticating,
-    required TResult Function() authenticationFailed,
-    required TResult Function(String output) consoleOutput,
-    required TResult Function() initial,
-    required TResult Function(String output) installOutput,
-    required TResult Function() loading,
-    required TResult Function(WebsocketStatsModel stats) stats,
-    required TResult Function(ServerPowerState status) status,
-  }) {
-    return authenticated();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
-    TResult Function()? initial,
-    TResult Function(String output)? installOutput,
-    TResult Function()? loading,
-    TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
-  }) {
-    return authenticated?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
-    TResult Function()? initial,
-    TResult Function(String output)? installOutput,
-    TResult Function()? loading,
-    TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
-    required TResult orElse(),
-  }) {
-    if (authenticated != null) {
-      return authenticated();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WSAuthError value) authError,
-    required TResult Function(_WSAuthenticated value) authenticated,
-    required TResult Function(_WSAuthenticating value) authenticating,
-    required TResult Function(_WSAuthenticationFailed value)
-        authenticationFailed,
-    required TResult Function(_WSConsoleOutput value) consoleOutput,
-    required TResult Function(_WSInitial value) initial,
-    required TResult Function(_WSInstallOutput value) installOutput,
-    required TResult Function(_WSLoading value) loading,
-    required TResult Function(_WSStats value) stats,
-    required TResult Function(_WSStatus value) status,
-  }) {
-    return authenticated(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
-    TResult Function(_WSInitial value)? initial,
-    TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
-    TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
-  }) {
-    return authenticated?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
-    TResult Function(_WSInitial value)? initial,
-    TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
-    TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
-    required TResult orElse(),
-  }) {
-    if (authenticated != null) {
-      return authenticated(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _WSAuthenticated implements WebsocketState {
-  const factory _WSAuthenticated() = _$_WSAuthenticated;
 }
 
 /// @nodoc
@@ -558,16 +533,15 @@ class _$_WSAuthenticating implements _WSAuthenticating {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String error) authError,
-    required TResult Function() authenticated,
-    required TResult Function() authenticating,
-    required TResult Function() authenticationFailed,
-    required TResult Function(String output) consoleOutput,
     required TResult Function() initial,
+    required TResult Function(String error) authError,
+    required TResult Function() authenticating,
+    required TResult Function() authenticated,
+    required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function() loading,
     required TResult Function(WebsocketStatsModel stats) stats,
-    required TResult Function(ServerPowerState status) status,
+    required TResult Function(ServerPowerState status) powerState,
+    required TResult Function(String error) jwtError,
   }) {
     return authenticating();
   }
@@ -575,16 +549,15 @@ class _$_WSAuthenticating implements _WSAuthenticating {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
     TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function()? loading,
     TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
   }) {
     return authenticating?.call();
   }
@@ -592,16 +565,15 @@ class _$_WSAuthenticating implements _WSAuthenticating {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
     TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function()? loading,
     TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
     required TResult orElse(),
   }) {
     if (authenticating != null) {
@@ -613,17 +585,15 @@ class _$_WSAuthenticating implements _WSAuthenticating {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WSAuthError value) authError,
-    required TResult Function(_WSAuthenticated value) authenticated,
-    required TResult Function(_WSAuthenticating value) authenticating,
-    required TResult Function(_WSAuthenticationFailed value)
-        authenticationFailed,
-    required TResult Function(_WSConsoleOutput value) consoleOutput,
     required TResult Function(_WSInitial value) initial,
+    required TResult Function(_WSAuthError value) authError,
+    required TResult Function(_WSAuthenticating value) authenticating,
+    required TResult Function(_WSAuthenticated value) authenticated,
+    required TResult Function(_WSConsoleOutput value) consoleOutput,
     required TResult Function(_WSInstallOutput value) installOutput,
-    required TResult Function(_WSLoading value) loading,
     required TResult Function(_WSStats value) stats,
-    required TResult Function(_WSStatus value) status,
+    required TResult Function(_WSPowerState value) powerState,
+    required TResult Function(_WSJWTError value) jwtError,
   }) {
     return authenticating(this);
   }
@@ -631,16 +601,15 @@ class _$_WSAuthenticating implements _WSAuthenticating {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
     TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
   }) {
     return authenticating?.call(this);
   }
@@ -648,16 +617,15 @@ class _$_WSAuthenticating implements _WSAuthenticating {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
     TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
     required TResult orElse(),
   }) {
     if (authenticating != null) {
@@ -672,38 +640,38 @@ abstract class _WSAuthenticating implements WebsocketState {
 }
 
 /// @nodoc
-abstract class _$WSAuthenticationFailedCopyWith<$Res> {
-  factory _$WSAuthenticationFailedCopyWith(_WSAuthenticationFailed value,
-          $Res Function(_WSAuthenticationFailed) then) =
-      __$WSAuthenticationFailedCopyWithImpl<$Res>;
+abstract class _$WSAuthenticatedCopyWith<$Res> {
+  factory _$WSAuthenticatedCopyWith(
+          _WSAuthenticated value, $Res Function(_WSAuthenticated) then) =
+      __$WSAuthenticatedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$WSAuthenticationFailedCopyWithImpl<$Res>
+class __$WSAuthenticatedCopyWithImpl<$Res>
     extends _$WebsocketStateCopyWithImpl<$Res>
-    implements _$WSAuthenticationFailedCopyWith<$Res> {
-  __$WSAuthenticationFailedCopyWithImpl(_WSAuthenticationFailed _value,
-      $Res Function(_WSAuthenticationFailed) _then)
-      : super(_value, (v) => _then(v as _WSAuthenticationFailed));
+    implements _$WSAuthenticatedCopyWith<$Res> {
+  __$WSAuthenticatedCopyWithImpl(
+      _WSAuthenticated _value, $Res Function(_WSAuthenticated) _then)
+      : super(_value, (v) => _then(v as _WSAuthenticated));
 
   @override
-  _WSAuthenticationFailed get _value => super._value as _WSAuthenticationFailed;
+  _WSAuthenticated get _value => super._value as _WSAuthenticated;
 }
 
 /// @nodoc
 
-class _$_WSAuthenticationFailed implements _WSAuthenticationFailed {
-  const _$_WSAuthenticationFailed();
+class _$_WSAuthenticated implements _WSAuthenticated {
+  const _$_WSAuthenticated();
 
   @override
   String toString() {
-    return 'WebsocketState.authenticationFailed()';
+    return 'WebsocketState.authenticated()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _WSAuthenticationFailed);
+        (other.runtimeType == runtimeType && other is _WSAuthenticated);
   }
 
   @override
@@ -712,54 +680,51 @@ class _$_WSAuthenticationFailed implements _WSAuthenticationFailed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String error) authError,
-    required TResult Function() authenticated,
-    required TResult Function() authenticating,
-    required TResult Function() authenticationFailed,
-    required TResult Function(String output) consoleOutput,
     required TResult Function() initial,
+    required TResult Function(String error) authError,
+    required TResult Function() authenticating,
+    required TResult Function() authenticated,
+    required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function() loading,
     required TResult Function(WebsocketStatsModel stats) stats,
-    required TResult Function(ServerPowerState status) status,
+    required TResult Function(ServerPowerState status) powerState,
+    required TResult Function(String error) jwtError,
   }) {
-    return authenticationFailed();
+    return authenticated();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
     TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function()? loading,
     TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
   }) {
-    return authenticationFailed?.call();
+    return authenticated?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
     TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function()? loading,
     TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
     required TResult orElse(),
   }) {
-    if (authenticationFailed != null) {
-      return authenticationFailed();
+    if (authenticated != null) {
+      return authenticated();
     }
     return orElse();
   }
@@ -767,62 +732,58 @@ class _$_WSAuthenticationFailed implements _WSAuthenticationFailed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WSAuthError value) authError,
-    required TResult Function(_WSAuthenticated value) authenticated,
-    required TResult Function(_WSAuthenticating value) authenticating,
-    required TResult Function(_WSAuthenticationFailed value)
-        authenticationFailed,
-    required TResult Function(_WSConsoleOutput value) consoleOutput,
     required TResult Function(_WSInitial value) initial,
+    required TResult Function(_WSAuthError value) authError,
+    required TResult Function(_WSAuthenticating value) authenticating,
+    required TResult Function(_WSAuthenticated value) authenticated,
+    required TResult Function(_WSConsoleOutput value) consoleOutput,
     required TResult Function(_WSInstallOutput value) installOutput,
-    required TResult Function(_WSLoading value) loading,
     required TResult Function(_WSStats value) stats,
-    required TResult Function(_WSStatus value) status,
+    required TResult Function(_WSPowerState value) powerState,
+    required TResult Function(_WSJWTError value) jwtError,
   }) {
-    return authenticationFailed(this);
+    return authenticated(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
     TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
   }) {
-    return authenticationFailed?.call(this);
+    return authenticated?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
     TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
     required TResult orElse(),
   }) {
-    if (authenticationFailed != null) {
-      return authenticationFailed(this);
+    if (authenticated != null) {
+      return authenticated(this);
     }
     return orElse();
   }
 }
 
-abstract class _WSAuthenticationFailed implements WebsocketState {
-  const factory _WSAuthenticationFailed() = _$_WSAuthenticationFailed;
+abstract class _WSAuthenticated implements WebsocketState {
+  const factory _WSAuthenticated() = _$_WSAuthenticated;
 }
 
 /// @nodoc
@@ -890,16 +851,15 @@ class _$_WSConsoleOutput implements _WSConsoleOutput {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String error) authError,
-    required TResult Function() authenticated,
-    required TResult Function() authenticating,
-    required TResult Function() authenticationFailed,
-    required TResult Function(String output) consoleOutput,
     required TResult Function() initial,
+    required TResult Function(String error) authError,
+    required TResult Function() authenticating,
+    required TResult Function() authenticated,
+    required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function() loading,
     required TResult Function(WebsocketStatsModel stats) stats,
-    required TResult Function(ServerPowerState status) status,
+    required TResult Function(ServerPowerState status) powerState,
+    required TResult Function(String error) jwtError,
   }) {
     return consoleOutput(output);
   }
@@ -907,16 +867,15 @@ class _$_WSConsoleOutput implements _WSConsoleOutput {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
     TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function()? loading,
     TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
   }) {
     return consoleOutput?.call(output);
   }
@@ -924,16 +883,15 @@ class _$_WSConsoleOutput implements _WSConsoleOutput {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
     TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function()? loading,
     TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
     required TResult orElse(),
   }) {
     if (consoleOutput != null) {
@@ -945,17 +903,15 @@ class _$_WSConsoleOutput implements _WSConsoleOutput {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WSAuthError value) authError,
-    required TResult Function(_WSAuthenticated value) authenticated,
-    required TResult Function(_WSAuthenticating value) authenticating,
-    required TResult Function(_WSAuthenticationFailed value)
-        authenticationFailed,
-    required TResult Function(_WSConsoleOutput value) consoleOutput,
     required TResult Function(_WSInitial value) initial,
+    required TResult Function(_WSAuthError value) authError,
+    required TResult Function(_WSAuthenticating value) authenticating,
+    required TResult Function(_WSAuthenticated value) authenticated,
+    required TResult Function(_WSConsoleOutput value) consoleOutput,
     required TResult Function(_WSInstallOutput value) installOutput,
-    required TResult Function(_WSLoading value) loading,
     required TResult Function(_WSStats value) stats,
-    required TResult Function(_WSStatus value) status,
+    required TResult Function(_WSPowerState value) powerState,
+    required TResult Function(_WSJWTError value) jwtError,
   }) {
     return consoleOutput(this);
   }
@@ -963,16 +919,15 @@ class _$_WSConsoleOutput implements _WSConsoleOutput {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
     TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
   }) {
     return consoleOutput?.call(this);
   }
@@ -980,16 +935,15 @@ class _$_WSConsoleOutput implements _WSConsoleOutput {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
     TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
     required TResult orElse(),
   }) {
     if (consoleOutput != null) {
@@ -1006,158 +960,6 @@ abstract class _WSConsoleOutput implements WebsocketState {
   @JsonKey(ignore: true)
   _$WSConsoleOutputCopyWith<_WSConsoleOutput> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$WSInitialCopyWith<$Res> {
-  factory _$WSInitialCopyWith(
-          _WSInitial value, $Res Function(_WSInitial) then) =
-      __$WSInitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$WSInitialCopyWithImpl<$Res> extends _$WebsocketStateCopyWithImpl<$Res>
-    implements _$WSInitialCopyWith<$Res> {
-  __$WSInitialCopyWithImpl(_WSInitial _value, $Res Function(_WSInitial) _then)
-      : super(_value, (v) => _then(v as _WSInitial));
-
-  @override
-  _WSInitial get _value => super._value as _WSInitial;
-}
-
-/// @nodoc
-
-class _$_WSInitial implements _WSInitial {
-  const _$_WSInitial();
-
-  @override
-  String toString() {
-    return 'WebsocketState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _WSInitial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String error) authError,
-    required TResult Function() authenticated,
-    required TResult Function() authenticating,
-    required TResult Function() authenticationFailed,
-    required TResult Function(String output) consoleOutput,
-    required TResult Function() initial,
-    required TResult Function(String output) installOutput,
-    required TResult Function() loading,
-    required TResult Function(WebsocketStatsModel stats) stats,
-    required TResult Function(ServerPowerState status) status,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
-    TResult Function()? initial,
-    TResult Function(String output)? installOutput,
-    TResult Function()? loading,
-    TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
-    TResult Function()? initial,
-    TResult Function(String output)? installOutput,
-    TResult Function()? loading,
-    TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WSAuthError value) authError,
-    required TResult Function(_WSAuthenticated value) authenticated,
-    required TResult Function(_WSAuthenticating value) authenticating,
-    required TResult Function(_WSAuthenticationFailed value)
-        authenticationFailed,
-    required TResult Function(_WSConsoleOutput value) consoleOutput,
-    required TResult Function(_WSInitial value) initial,
-    required TResult Function(_WSInstallOutput value) installOutput,
-    required TResult Function(_WSLoading value) loading,
-    required TResult Function(_WSStats value) stats,
-    required TResult Function(_WSStatus value) status,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
-    TResult Function(_WSInitial value)? initial,
-    TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
-    TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
-    TResult Function(_WSInitial value)? initial,
-    TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
-    TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _WSInitial implements WebsocketState {
-  const factory _WSInitial() = _$_WSInitial;
 }
 
 /// @nodoc
@@ -1225,16 +1027,15 @@ class _$_WSInstallOutput implements _WSInstallOutput {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String error) authError,
-    required TResult Function() authenticated,
-    required TResult Function() authenticating,
-    required TResult Function() authenticationFailed,
-    required TResult Function(String output) consoleOutput,
     required TResult Function() initial,
+    required TResult Function(String error) authError,
+    required TResult Function() authenticating,
+    required TResult Function() authenticated,
+    required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function() loading,
     required TResult Function(WebsocketStatsModel stats) stats,
-    required TResult Function(ServerPowerState status) status,
+    required TResult Function(ServerPowerState status) powerState,
+    required TResult Function(String error) jwtError,
   }) {
     return installOutput(output);
   }
@@ -1242,16 +1043,15 @@ class _$_WSInstallOutput implements _WSInstallOutput {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
     TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function()? loading,
     TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
   }) {
     return installOutput?.call(output);
   }
@@ -1259,16 +1059,15 @@ class _$_WSInstallOutput implements _WSInstallOutput {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
     TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function()? loading,
     TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
     required TResult orElse(),
   }) {
     if (installOutput != null) {
@@ -1280,17 +1079,15 @@ class _$_WSInstallOutput implements _WSInstallOutput {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WSAuthError value) authError,
-    required TResult Function(_WSAuthenticated value) authenticated,
-    required TResult Function(_WSAuthenticating value) authenticating,
-    required TResult Function(_WSAuthenticationFailed value)
-        authenticationFailed,
-    required TResult Function(_WSConsoleOutput value) consoleOutput,
     required TResult Function(_WSInitial value) initial,
+    required TResult Function(_WSAuthError value) authError,
+    required TResult Function(_WSAuthenticating value) authenticating,
+    required TResult Function(_WSAuthenticated value) authenticated,
+    required TResult Function(_WSConsoleOutput value) consoleOutput,
     required TResult Function(_WSInstallOutput value) installOutput,
-    required TResult Function(_WSLoading value) loading,
     required TResult Function(_WSStats value) stats,
-    required TResult Function(_WSStatus value) status,
+    required TResult Function(_WSPowerState value) powerState,
+    required TResult Function(_WSJWTError value) jwtError,
   }) {
     return installOutput(this);
   }
@@ -1298,16 +1095,15 @@ class _$_WSInstallOutput implements _WSInstallOutput {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
     TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
   }) {
     return installOutput?.call(this);
   }
@@ -1315,16 +1111,15 @@ class _$_WSInstallOutput implements _WSInstallOutput {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
     TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
     required TResult orElse(),
   }) {
     if (installOutput != null) {
@@ -1344,162 +1139,12 @@ abstract class _WSInstallOutput implements WebsocketState {
 }
 
 /// @nodoc
-abstract class _$WSLoadingCopyWith<$Res> {
-  factory _$WSLoadingCopyWith(
-          _WSLoading value, $Res Function(_WSLoading) then) =
-      __$WSLoadingCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$WSLoadingCopyWithImpl<$Res> extends _$WebsocketStateCopyWithImpl<$Res>
-    implements _$WSLoadingCopyWith<$Res> {
-  __$WSLoadingCopyWithImpl(_WSLoading _value, $Res Function(_WSLoading) _then)
-      : super(_value, (v) => _then(v as _WSLoading));
-
-  @override
-  _WSLoading get _value => super._value as _WSLoading;
-}
-
-/// @nodoc
-
-class _$_WSLoading implements _WSLoading {
-  const _$_WSLoading();
-
-  @override
-  String toString() {
-    return 'WebsocketState.loading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _WSLoading);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String error) authError,
-    required TResult Function() authenticated,
-    required TResult Function() authenticating,
-    required TResult Function() authenticationFailed,
-    required TResult Function(String output) consoleOutput,
-    required TResult Function() initial,
-    required TResult Function(String output) installOutput,
-    required TResult Function() loading,
-    required TResult Function(WebsocketStatsModel stats) stats,
-    required TResult Function(ServerPowerState status) status,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
-    TResult Function()? initial,
-    TResult Function(String output)? installOutput,
-    TResult Function()? loading,
-    TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
-    TResult Function()? initial,
-    TResult Function(String output)? installOutput,
-    TResult Function()? loading,
-    TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WSAuthError value) authError,
-    required TResult Function(_WSAuthenticated value) authenticated,
-    required TResult Function(_WSAuthenticating value) authenticating,
-    required TResult Function(_WSAuthenticationFailed value)
-        authenticationFailed,
-    required TResult Function(_WSConsoleOutput value) consoleOutput,
-    required TResult Function(_WSInitial value) initial,
-    required TResult Function(_WSInstallOutput value) installOutput,
-    required TResult Function(_WSLoading value) loading,
-    required TResult Function(_WSStats value) stats,
-    required TResult Function(_WSStatus value) status,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
-    TResult Function(_WSInitial value)? initial,
-    TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
-    TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
-    TResult Function(_WSInitial value)? initial,
-    TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
-    TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _WSLoading implements WebsocketState {
-  const factory _WSLoading() = _$_WSLoading;
-}
-
-/// @nodoc
 abstract class _$WSStatsCopyWith<$Res> {
   factory _$WSStatsCopyWith(_WSStats value, $Res Function(_WSStats) then) =
       __$WSStatsCopyWithImpl<$Res>;
   $Res call({WebsocketStatsModel stats});
+
+  $WebsocketStatsModelCopyWith<$Res> get stats;
 }
 
 /// @nodoc
@@ -1521,6 +1166,13 @@ class __$WSStatsCopyWithImpl<$Res> extends _$WebsocketStateCopyWithImpl<$Res>
           : stats // ignore: cast_nullable_to_non_nullable
               as WebsocketStatsModel,
     ));
+  }
+
+  @override
+  $WebsocketStatsModelCopyWith<$Res> get stats {
+    return $WebsocketStatsModelCopyWith<$Res>(_value.stats, (value) {
+      return _then(_value.copyWith(stats: value));
+    });
   }
 }
 
@@ -1557,16 +1209,15 @@ class _$_WSStats implements _WSStats {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String error) authError,
-    required TResult Function() authenticated,
-    required TResult Function() authenticating,
-    required TResult Function() authenticationFailed,
-    required TResult Function(String output) consoleOutput,
     required TResult Function() initial,
+    required TResult Function(String error) authError,
+    required TResult Function() authenticating,
+    required TResult Function() authenticated,
+    required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function() loading,
     required TResult Function(WebsocketStatsModel stats) stats,
-    required TResult Function(ServerPowerState status) status,
+    required TResult Function(ServerPowerState status) powerState,
+    required TResult Function(String error) jwtError,
   }) {
     return stats(this.stats);
   }
@@ -1574,16 +1225,15 @@ class _$_WSStats implements _WSStats {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
     TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function()? loading,
     TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
   }) {
     return stats?.call(this.stats);
   }
@@ -1591,16 +1241,15 @@ class _$_WSStats implements _WSStats {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
     TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function()? loading,
     TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
     required TResult orElse(),
   }) {
     if (stats != null) {
@@ -1612,17 +1261,15 @@ class _$_WSStats implements _WSStats {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WSAuthError value) authError,
-    required TResult Function(_WSAuthenticated value) authenticated,
-    required TResult Function(_WSAuthenticating value) authenticating,
-    required TResult Function(_WSAuthenticationFailed value)
-        authenticationFailed,
-    required TResult Function(_WSConsoleOutput value) consoleOutput,
     required TResult Function(_WSInitial value) initial,
+    required TResult Function(_WSAuthError value) authError,
+    required TResult Function(_WSAuthenticating value) authenticating,
+    required TResult Function(_WSAuthenticated value) authenticated,
+    required TResult Function(_WSConsoleOutput value) consoleOutput,
     required TResult Function(_WSInstallOutput value) installOutput,
-    required TResult Function(_WSLoading value) loading,
     required TResult Function(_WSStats value) stats,
-    required TResult Function(_WSStatus value) status,
+    required TResult Function(_WSPowerState value) powerState,
+    required TResult Function(_WSJWTError value) jwtError,
   }) {
     return stats(this);
   }
@@ -1630,16 +1277,15 @@ class _$_WSStats implements _WSStats {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
     TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
   }) {
     return stats?.call(this);
   }
@@ -1647,16 +1293,15 @@ class _$_WSStats implements _WSStats {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
     TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
     required TResult orElse(),
   }) {
     if (stats != null) {
@@ -1676,26 +1321,29 @@ abstract class _WSStats implements WebsocketState {
 }
 
 /// @nodoc
-abstract class _$WSStatusCopyWith<$Res> {
-  factory _$WSStatusCopyWith(_WSStatus value, $Res Function(_WSStatus) then) =
-      __$WSStatusCopyWithImpl<$Res>;
+abstract class _$WSPowerStateCopyWith<$Res> {
+  factory _$WSPowerStateCopyWith(
+          _WSPowerState value, $Res Function(_WSPowerState) then) =
+      __$WSPowerStateCopyWithImpl<$Res>;
   $Res call({ServerPowerState status});
 }
 
 /// @nodoc
-class __$WSStatusCopyWithImpl<$Res> extends _$WebsocketStateCopyWithImpl<$Res>
-    implements _$WSStatusCopyWith<$Res> {
-  __$WSStatusCopyWithImpl(_WSStatus _value, $Res Function(_WSStatus) _then)
-      : super(_value, (v) => _then(v as _WSStatus));
+class __$WSPowerStateCopyWithImpl<$Res>
+    extends _$WebsocketStateCopyWithImpl<$Res>
+    implements _$WSPowerStateCopyWith<$Res> {
+  __$WSPowerStateCopyWithImpl(
+      _WSPowerState _value, $Res Function(_WSPowerState) _then)
+      : super(_value, (v) => _then(v as _WSPowerState));
 
   @override
-  _WSStatus get _value => super._value as _WSStatus;
+  _WSPowerState get _value => super._value as _WSPowerState;
 
   @override
   $Res call({
     Object? status = freezed,
   }) {
-    return _then(_WSStatus(
+    return _then(_WSPowerState(
       status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -1706,22 +1354,22 @@ class __$WSStatusCopyWithImpl<$Res> extends _$WebsocketStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WSStatus implements _WSStatus {
-  const _$_WSStatus(this.status);
+class _$_WSPowerState implements _WSPowerState {
+  const _$_WSPowerState(this.status);
 
   @override
   final ServerPowerState status;
 
   @override
   String toString() {
-    return 'WebsocketState.status(status: $status)';
+    return 'WebsocketState.powerState(status: $status)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WSStatus &&
+            other is _WSPowerState &&
             const DeepCollectionEquality().equals(other.status, status));
   }
 
@@ -1731,60 +1379,57 @@ class _$_WSStatus implements _WSStatus {
 
   @JsonKey(ignore: true)
   @override
-  _$WSStatusCopyWith<_WSStatus> get copyWith =>
-      __$WSStatusCopyWithImpl<_WSStatus>(this, _$identity);
+  _$WSPowerStateCopyWith<_WSPowerState> get copyWith =>
+      __$WSPowerStateCopyWithImpl<_WSPowerState>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String error) authError,
-    required TResult Function() authenticated,
-    required TResult Function() authenticating,
-    required TResult Function() authenticationFailed,
-    required TResult Function(String output) consoleOutput,
     required TResult Function() initial,
+    required TResult Function(String error) authError,
+    required TResult Function() authenticating,
+    required TResult Function() authenticated,
+    required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function() loading,
     required TResult Function(WebsocketStatsModel stats) stats,
-    required TResult Function(ServerPowerState status) status,
+    required TResult Function(ServerPowerState status) powerState,
+    required TResult Function(String error) jwtError,
   }) {
-    return status(this.status);
+    return powerState(status);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
     TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function()? loading,
     TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
   }) {
-    return status?.call(this.status);
+    return powerState?.call(status);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String error)? authError,
-    TResult Function()? authenticated,
-    TResult Function()? authenticating,
-    TResult Function()? authenticationFailed,
-    TResult Function(String output)? consoleOutput,
     TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function()? loading,
     TResult Function(WebsocketStatsModel stats)? stats,
-    TResult Function(ServerPowerState status)? status,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
     required TResult orElse(),
   }) {
-    if (status != null) {
-      return status(this.status);
+    if (powerState != null) {
+      return powerState(status);
     }
     return orElse();
   }
@@ -1792,65 +1437,236 @@ class _$_WSStatus implements _WSStatus {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WSAuthError value) authError,
-    required TResult Function(_WSAuthenticated value) authenticated,
-    required TResult Function(_WSAuthenticating value) authenticating,
-    required TResult Function(_WSAuthenticationFailed value)
-        authenticationFailed,
-    required TResult Function(_WSConsoleOutput value) consoleOutput,
     required TResult Function(_WSInitial value) initial,
+    required TResult Function(_WSAuthError value) authError,
+    required TResult Function(_WSAuthenticating value) authenticating,
+    required TResult Function(_WSAuthenticated value) authenticated,
+    required TResult Function(_WSConsoleOutput value) consoleOutput,
     required TResult Function(_WSInstallOutput value) installOutput,
-    required TResult Function(_WSLoading value) loading,
     required TResult Function(_WSStats value) stats,
-    required TResult Function(_WSStatus value) status,
+    required TResult Function(_WSPowerState value) powerState,
+    required TResult Function(_WSJWTError value) jwtError,
   }) {
-    return status(this);
+    return powerState(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
     TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
   }) {
-    return status?.call(this);
+    return powerState?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WSAuthError value)? authError,
-    TResult Function(_WSAuthenticated value)? authenticated,
-    TResult Function(_WSAuthenticating value)? authenticating,
-    TResult Function(_WSAuthenticationFailed value)? authenticationFailed,
-    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
     TResult Function(_WSInstallOutput value)? installOutput,
-    TResult Function(_WSLoading value)? loading,
     TResult Function(_WSStats value)? stats,
-    TResult Function(_WSStatus value)? status,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
     required TResult orElse(),
   }) {
-    if (status != null) {
-      return status(this);
+    if (powerState != null) {
+      return powerState(this);
     }
     return orElse();
   }
 }
 
-abstract class _WSStatus implements WebsocketState {
-  const factory _WSStatus(ServerPowerState status) = _$_WSStatus;
+abstract class _WSPowerState implements WebsocketState {
+  const factory _WSPowerState(ServerPowerState status) = _$_WSPowerState;
 
   ServerPowerState get status;
   @JsonKey(ignore: true)
-  _$WSStatusCopyWith<_WSStatus> get copyWith =>
+  _$WSPowerStateCopyWith<_WSPowerState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$WSJWTErrorCopyWith<$Res> {
+  factory _$WSJWTErrorCopyWith(
+          _WSJWTError value, $Res Function(_WSJWTError) then) =
+      __$WSJWTErrorCopyWithImpl<$Res>;
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$WSJWTErrorCopyWithImpl<$Res> extends _$WebsocketStateCopyWithImpl<$Res>
+    implements _$WSJWTErrorCopyWith<$Res> {
+  __$WSJWTErrorCopyWithImpl(
+      _WSJWTError _value, $Res Function(_WSJWTError) _then)
+      : super(_value, (v) => _then(v as _WSJWTError));
+
+  @override
+  _WSJWTError get _value => super._value as _WSJWTError;
+
+  @override
+  $Res call({
+    Object? error = freezed,
+  }) {
+    return _then(_WSJWTError(
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_WSJWTError implements _WSJWTError {
+  const _$_WSJWTError(this.error);
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'WebsocketState.jwtError(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _WSJWTError &&
+            const DeepCollectionEquality().equals(other.error, error));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+
+  @JsonKey(ignore: true)
+  @override
+  _$WSJWTErrorCopyWith<_WSJWTError> get copyWith =>
+      __$WSJWTErrorCopyWithImpl<_WSJWTError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String error) authError,
+    required TResult Function() authenticating,
+    required TResult Function() authenticated,
+    required TResult Function(String output) consoleOutput,
+    required TResult Function(String output) installOutput,
+    required TResult Function(WebsocketStatsModel stats) stats,
+    required TResult Function(ServerPowerState status) powerState,
+    required TResult Function(String error) jwtError,
+  }) {
+    return jwtError(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
+    TResult Function(String output)? installOutput,
+    TResult Function(WebsocketStatsModel stats)? stats,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
+  }) {
+    return jwtError?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
+    TResult Function(String output)? installOutput,
+    TResult Function(WebsocketStatsModel stats)? stats,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
+    required TResult orElse(),
+  }) {
+    if (jwtError != null) {
+      return jwtError(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WSInitial value) initial,
+    required TResult Function(_WSAuthError value) authError,
+    required TResult Function(_WSAuthenticating value) authenticating,
+    required TResult Function(_WSAuthenticated value) authenticated,
+    required TResult Function(_WSConsoleOutput value) consoleOutput,
+    required TResult Function(_WSInstallOutput value) installOutput,
+    required TResult Function(_WSStats value) stats,
+    required TResult Function(_WSPowerState value) powerState,
+    required TResult Function(_WSJWTError value) jwtError,
+  }) {
+    return jwtError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
+    TResult Function(_WSInstallOutput value)? installOutput,
+    TResult Function(_WSStats value)? stats,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
+  }) {
+    return jwtError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
+    TResult Function(_WSInstallOutput value)? installOutput,
+    TResult Function(_WSStats value)? stats,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJWTError value)? jwtError,
+    required TResult orElse(),
+  }) {
+    if (jwtError != null) {
+      return jwtError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WSJWTError implements WebsocketState {
+  const factory _WSJWTError(String error) = _$_WSJWTError;
+
+  String get error;
+  @JsonKey(ignore: true)
+  _$WSJWTErrorCopyWith<_WSJWTError> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,19 +1,26 @@
 # CHANGELOG
 
+## 1.4.0-dev.13
+ - Add websocket handler `ServerWebsocketCubit` and websocket convenience class `ServerWebsocketHandler`
+
 ## 1.4.0-dev.12
  - Fix `deleteFiles` 
+
 ## 1.4.0-dev.11
  - Maybe fix `writeFile` and `FractalResponseList`
 
 ## 1.4.0-dev.10
  - Fix FileObject
+
 ## 1.4.0-dev.9
  - Remove origin header
 
 ## 1.4.0-dev.8
  - `createApiKey` now includes the token secret
+
 ## 1.4.0-dev.7
  - Fix `ApiKey` model to make last_used_at nullable
+
 ## 1.4.0-dev.6
  - Fix `ServerFeatureLimits`
 

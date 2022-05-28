@@ -1,39 +1,30 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'websocket_stats.g.dart';
+part '../generated/websocket/websocket_stats.freezed.dart';
+part '../generated/websocket/websocket_stats.g.dart';
 
-@JsonSerializable()
-class WebsocketStatsModel {
-  WebsocketStatsModel({
-    required this.memoryBytes,
-    required this.memoryLimitBytes,
-    required this.cpuAbsolute,
-    required this.network,
-    required this.state,
-  });
+@freezed
+class WebsocketStatsModel with _$WebsocketStatsModel {
+  factory WebsocketStatsModel({
+    required double cpuAbsolute,
+    required int memoryBytes,
+    required int memoryLimitBytes,
+    required WebsocketNetworkStatsModel network,
+    required ServerPowerState state,
+  }) = _WebsocketStatsModel;
 
   factory WebsocketStatsModel.fromJson(Map<String, dynamic> json) =>
       _$WebsocketStatsModelFromJson(json);
-
-  final bool cpuAbsolute;
-  final int memoryBytes;
-  final int memoryLimitBytes;
-  final WebsocketNetworkStatsModel network;
-  final ServerPowerState state;
-
-  Map<String, dynamic> toJson() => _$WebsocketStatsModelToJson(this);
 }
 
-@JsonSerializable()
-class WebsocketNetworkStatsModel {
-  WebsocketNetworkStatsModel({required this.rxBytes, required this.txBytes});
+@freezed
+class WebsocketNetworkStatsModel with _$WebsocketNetworkStatsModel {
+  factory WebsocketNetworkStatsModel({
+    required int rxBytes,
+    required int txBytes,
+  }) = _WebsocketNetworkStatsModel;
 
   factory WebsocketNetworkStatsModel.fromJson(Map<String, dynamic> json) =>
       _$WebsocketNetworkStatsModelFromJson(json);
-
-  final int rxBytes;
-  final int txBytes;
-
-  Map<String, dynamic> toJson() => _$WebsocketNetworkStatsModelToJson(this);
 }
