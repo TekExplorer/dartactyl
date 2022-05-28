@@ -1,6 +1,6 @@
 {
     "dartImport.fixOnSave": true,
     "files.exclude": {
-        "lib/src/generated": true
+        "lib/src/generated": false
     }
 }

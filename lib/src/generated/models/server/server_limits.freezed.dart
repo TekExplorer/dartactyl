@@ -28,8 +28,7 @@ class _$ServerLimitsTearOff {
       required int disk,
       required int io,
       required int cpu,
-      String? threads,
-      required bool oomDisabled}) {
+      String? threads}) {
     return _ServerLimits(
       memory: memory,
       swap: swap,
@@ -37,7 +36,6 @@ class _$ServerLimitsTearOff {
       io: io,
       cpu: cpu,
       threads: threads,
-      oomDisabled: oomDisabled,
     );
   }
 
@@ -57,7 +55,6 @@ mixin _$ServerLimits {
   int get io => throw _privateConstructorUsedError;
   int get cpu => throw _privateConstructorUsedError;
   String? get threads => throw _privateConstructorUsedError;
-  bool get oomDisabled => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -70,14 +67,7 @@ abstract class $ServerLimitsCopyWith<$Res> {
   factory $ServerLimitsCopyWith(
           ServerLimits value, $Res Function(ServerLimits) then) =
       _$ServerLimitsCopyWithImpl<$Res>;
-  $Res call(
-      {int memory,
-      int swap,
-      int disk,
-      int io,
-      int cpu,
-      String? threads,
-      bool oomDisabled});
+  $Res call({int memory, int swap, int disk, int io, int cpu, String? threads});
 }
 
 /// @nodoc
@@ -96,7 +86,6 @@ class _$ServerLimitsCopyWithImpl<$Res> implements $ServerLimitsCopyWith<$Res> {
     Object? io = freezed,
     Object? cpu = freezed,
     Object? threads = freezed,
-    Object? oomDisabled = freezed,
   }) {
     return _then(_value.copyWith(
       memory: memory == freezed
@@ -123,10 +112,6 @@ class _$ServerLimitsCopyWithImpl<$Res> implements $ServerLimitsCopyWith<$Res> {
           ? _value.threads
           : threads // ignore: cast_nullable_to_non_nullable
               as String?,
-      oomDisabled: oomDisabled == freezed
-          ? _value.oomDisabled
-          : oomDisabled // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -138,14 +123,7 @@ abstract class _$ServerLimitsCopyWith<$Res>
           _ServerLimits value, $Res Function(_ServerLimits) then) =
       __$ServerLimitsCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {int memory,
-      int swap,
-      int disk,
-      int io,
-      int cpu,
-      String? threads,
-      bool oomDisabled});
+  $Res call({int memory, int swap, int disk, int io, int cpu, String? threads});
 }
 
 /// @nodoc
@@ -166,7 +144,6 @@ class __$ServerLimitsCopyWithImpl<$Res> extends _$ServerLimitsCopyWithImpl<$Res>
     Object? io = freezed,
     Object? cpu = freezed,
     Object? threads = freezed,
-    Object? oomDisabled = freezed,
   }) {
     return _then(_ServerLimits(
       memory: memory == freezed
@@ -193,10 +170,6 @@ class __$ServerLimitsCopyWithImpl<$Res> extends _$ServerLimitsCopyWithImpl<$Res>
           ? _value.threads
           : threads // ignore: cast_nullable_to_non_nullable
               as String?,
-      oomDisabled: oomDisabled == freezed
-          ? _value.oomDisabled
-          : oomDisabled // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -210,8 +183,7 @@ class _$_ServerLimits extends _ServerLimits {
       required this.disk,
       required this.io,
       required this.cpu,
-      this.threads,
-      required this.oomDisabled})
+      this.threads})
       : super._();
 
   factory _$_ServerLimits.fromJson(Map<String, dynamic> json) =>
@@ -229,12 +201,10 @@ class _$_ServerLimits extends _ServerLimits {
   final int cpu;
   @override
   final String? threads;
-  @override
-  final bool oomDisabled;
 
   @override
   String toString() {
-    return 'ServerLimits(memory: $memory, swap: $swap, disk: $disk, io: $io, cpu: $cpu, threads: $threads, oomDisabled: $oomDisabled)';
+    return 'ServerLimits(memory: $memory, swap: $swap, disk: $disk, io: $io, cpu: $cpu, threads: $threads)';
   }
 
   @override
@@ -247,9 +217,7 @@ class _$_ServerLimits extends _ServerLimits {
             const DeepCollectionEquality().equals(other.disk, disk) &&
             const DeepCollectionEquality().equals(other.io, io) &&
             const DeepCollectionEquality().equals(other.cpu, cpu) &&
-            const DeepCollectionEquality().equals(other.threads, threads) &&
-            const DeepCollectionEquality()
-                .equals(other.oomDisabled, oomDisabled));
+            const DeepCollectionEquality().equals(other.threads, threads));
   }
 
   @override
@@ -260,8 +228,7 @@ class _$_ServerLimits extends _ServerLimits {
       const DeepCollectionEquality().hash(disk),
       const DeepCollectionEquality().hash(io),
       const DeepCollectionEquality().hash(cpu),
-      const DeepCollectionEquality().hash(threads),
-      const DeepCollectionEquality().hash(oomDisabled));
+      const DeepCollectionEquality().hash(threads));
 
   @JsonKey(ignore: true)
   @override
@@ -281,8 +248,7 @@ abstract class _ServerLimits extends ServerLimits {
       required int disk,
       required int io,
       required int cpu,
-      String? threads,
-      required bool oomDisabled}) = _$_ServerLimits;
+      String? threads}) = _$_ServerLimits;
   _ServerLimits._() : super._();
 
   factory _ServerLimits.fromJson(Map<String, dynamic> json) =
@@ -300,8 +266,6 @@ abstract class _ServerLimits extends ServerLimits {
   int get cpu;
   @override
   String? get threads;
-  @override
-  bool get oomDisabled;
   @override
   @JsonKey(ignore: true)
   _$ServerLimitsCopyWith<_ServerLimits> get copyWith =>

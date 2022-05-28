@@ -16,6 +16,25 @@ class _PteroClient implements PteroClient {
   String? baseUrl;
 
   @override
+  Future<void> test({test}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final _data = {'test': test};
+    _data.removeWhere((k, v) => v == null);
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+            method: 'GET',
+            headers: _headers,
+            extra: _extra,
+            contentType: 'application/x-www-form-urlencoded')
+        .compose(_dio.options, '/test',
+            queryParameters: queryParameters, data: _data)
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    return null;
+  }
+
+  @override
   Future<void> _login(credentials, xsrfHeader) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

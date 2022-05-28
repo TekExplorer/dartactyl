@@ -14,7 +14,7 @@ class ServerLimits with _$ServerLimits {
     required int io,
     required int cpu,
     String? threads,
-    required bool oomDisabled,
+    // required bool oomDisabled,
   }) = _ServerLimits;
 
   factory ServerLimits.fromJson(JsonMap json) => _$ServerLimitsFromJson(json);

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dartactyl/models.dart';
@@ -43,6 +44,11 @@ abstract class PteroClient {
     bool enableErrorInterceptor = true,
     bool enableIfAuthNoKeyInterceptor = true,
   }) {
+    if (!url.startsWith('http')) {
+      url = 'https://$url';
+      log('url was not a full URL, adding https://', name: 'PteroClient');
+    }
+
     dio = dio ?? Dio();
 
     if (key != null) {
@@ -276,8 +282,7 @@ abstract class PteroClient {
   /// Get a [file]'s contents from the [Server]
   ///
   /// [file]; path to the desired file
-  @GET(
-      '/api/client/servers/{serverId}/files/contents' /*, autoCastResponse: false */)
+  @GET('/api/client/servers/{serverId}/files/contents') //todo
   Future<String?> getFileContents({
     @Path() required String serverId,
     @Query('file', encoded: true) required String file,

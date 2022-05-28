@@ -14,7 +14,6 @@ _$_ServerLimits _$$_ServerLimitsFromJson(Map<String, dynamic> json) =>
       io: json['io'] as int,
       cpu: json['cpu'] as int,
       threads: json['threads'] as String?,
-      oomDisabled: json['oom_disabled'] as bool,
     );
 
 Map<String, dynamic> _$$_ServerLimitsToJson(_$_ServerLimits instance) =>
@@ -25,5 +24,4 @@ Map<String, dynamic> _$$_ServerLimitsToJson(_$_ServerLimits instance) =>
       'io': instance.io,
       'cpu': instance.cpu,
       'threads': instance.threads,
-      'oom_disabled': instance.oomDisabled,
     };
