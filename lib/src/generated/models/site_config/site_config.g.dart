@@ -22,7 +22,6 @@ _$_SiteConfig _$$_SiteConfigFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       locale: json['locale'] as String,
       recaptcha: Recaptcha.fromJson(json['recaptcha'] as Map<String, dynamic>),
-      analytics: json['analytics'] as String,
     );
 
 Map<String, dynamic> _$$_SiteConfigToJson(_$_SiteConfig instance) =>
@@ -30,5 +29,4 @@ Map<String, dynamic> _$$_SiteConfigToJson(_$_SiteConfig instance) =>
       'name': instance.name,
       'locale': instance.locale,
       'recaptcha': instance.recaptcha.toJson(),
-      'analytics': instance.analytics,
     };

@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:dartactyl/models.dart';
-import 'package:dartactyl/src/k_is_web.dart';
 import 'package:dio/dio.dart' hide Headers;
 // import 'package:dio/dio.dart' as dioHeaders show Headers;
 import 'package:meta/meta.dart';
@@ -37,36 +35,40 @@ abstract class PteroClient {
     required String url,
     String? key,
     Dio? dio,
-    @Deprecated('''
-      Removed as to enable web compatibility.
-      No longer does anything.
-      Add dio_cookie_manager yourself.
-      ''') bool enableAutoCookieJar = true,
+    String userAgent = 'Dartactyl/v1',
     bool enableErrorInterceptor = true,
-    bool enableIfAuthNoKeyInterceptor = true,
+    bool enableIfAuthNoKeyInterceptor = false,
   }) {
-    if (!url.startsWith('http')) {
-      url = 'https://$url';
-      log('url was not a full URL, adding https://', name: 'PteroClient');
-    }
+    // if (!url.startsWith('http')) {
+    //   url = 'https://$url';
+    //   log('url was not a full URL, adding https://', name: 'PteroClient');
+    // }
 
     dio = dio ?? Dio();
 
     if (key != null) {
       // use key
-      dio.options
-        ..headers[HttpHeaders.authorizationHeader] = "Bearer " + key
-        ..headers[HttpHeaders.userAgentHeader] = 'Dartactyl/v1';
+      dio.options.headers[HttpHeaders.authorizationHeader] = "Bearer " + key;
     }
-    if (!kIsWeb) dio.options.headers["Origin"] = url;
+    dio.options
+      ..headers[HttpHeaders.userAgentHeader] = userAgent
+      ..headers[HttpHeaders.acceptHeader] = 'application/json'
+      ..headers[HttpHeaders.contentTypeHeader] = 'application/json';
+
+    // if (!kIsWeb) dio.options.headers["Origin"] = url;
     dio.options.baseUrl = url;
 
     dio.interceptors.addAll([
-      if (enableIfAuthNoKeyInterceptor) IfAuthNoKeyInterceptor(),
+      // if (enableIfAuthNoKeyInterceptor) IfAuthNoKeyInterceptor(),
       if (enableErrorInterceptor) HandleErrorInterceptor(),
     ]);
 
     return PteroClient(dio);
+
+    //     ..headers['Accept'] = 'application/json'
+    // ..headers['Authorization'] = 'Bearer $apiKey'
+    // ..headers['Content-Type'] = 'application/json'
+    // ..baseUrl = panelUrl;
   }
 
   /// Creates an instance of the [PteroClient] class.

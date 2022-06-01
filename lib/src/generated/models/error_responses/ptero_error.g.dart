@@ -32,4 +32,7 @@ const _$PteroErrorCodeEnumMap = {
   PteroErrorCode.HttpException: 'HttpException',
   PteroErrorCode.DisplayException: 'DisplayException',
   PteroErrorCode.MethodNotAllowedHttpException: 'MethodNotAllowedHttpException',
+  PteroErrorCode.AuthenticationException: 'AuthenticationException',
+  PteroErrorCode.DaemonConnectionException: 'DaemonConnectionException',
+  PteroErrorCode.ValidationException: 'ValidationException',
 };

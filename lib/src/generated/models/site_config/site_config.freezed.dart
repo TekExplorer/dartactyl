@@ -189,13 +189,11 @@ class _$SiteConfigTearOff {
   _SiteConfig call(
       {required String name,
       required String locale,
-      required Recaptcha recaptcha,
-      required String analytics}) {
+      required Recaptcha recaptcha}) {
     return _SiteConfig(
       name: name,
       locale: locale,
       recaptcha: recaptcha,
-      analytics: analytics,
     );
   }
 
@@ -212,7 +210,6 @@ mixin _$SiteConfig {
   String get name => throw _privateConstructorUsedError;
   String get locale => throw _privateConstructorUsedError;
   Recaptcha get recaptcha => throw _privateConstructorUsedError;
-  String get analytics => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -225,8 +222,7 @@ abstract class $SiteConfigCopyWith<$Res> {
   factory $SiteConfigCopyWith(
           SiteConfig value, $Res Function(SiteConfig) then) =
       _$SiteConfigCopyWithImpl<$Res>;
-  $Res call(
-      {String name, String locale, Recaptcha recaptcha, String analytics});
+  $Res call({String name, String locale, Recaptcha recaptcha});
 
   $RecaptchaCopyWith<$Res> get recaptcha;
 }
@@ -244,7 +240,6 @@ class _$SiteConfigCopyWithImpl<$Res> implements $SiteConfigCopyWith<$Res> {
     Object? name = freezed,
     Object? locale = freezed,
     Object? recaptcha = freezed,
-    Object? analytics = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -259,10 +254,6 @@ class _$SiteConfigCopyWithImpl<$Res> implements $SiteConfigCopyWith<$Res> {
           ? _value.recaptcha
           : recaptcha // ignore: cast_nullable_to_non_nullable
               as Recaptcha,
-      analytics: analytics == freezed
-          ? _value.analytics
-          : analytics // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 
@@ -280,8 +271,7 @@ abstract class _$SiteConfigCopyWith<$Res> implements $SiteConfigCopyWith<$Res> {
           _SiteConfig value, $Res Function(_SiteConfig) then) =
       __$SiteConfigCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {String name, String locale, Recaptcha recaptcha, String analytics});
+  $Res call({String name, String locale, Recaptcha recaptcha});
 
   @override
   $RecaptchaCopyWith<$Res> get recaptcha;
@@ -302,7 +292,6 @@ class __$SiteConfigCopyWithImpl<$Res> extends _$SiteConfigCopyWithImpl<$Res>
     Object? name = freezed,
     Object? locale = freezed,
     Object? recaptcha = freezed,
-    Object? analytics = freezed,
   }) {
     return _then(_SiteConfig(
       name: name == freezed
@@ -317,10 +306,6 @@ class __$SiteConfigCopyWithImpl<$Res> extends _$SiteConfigCopyWithImpl<$Res>
           ? _value.recaptcha
           : recaptcha // ignore: cast_nullable_to_non_nullable
               as Recaptcha,
-      analytics: analytics == freezed
-          ? _value.analytics
-          : analytics // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -329,10 +314,7 @@ class __$SiteConfigCopyWithImpl<$Res> extends _$SiteConfigCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SiteConfig implements _SiteConfig {
   _$_SiteConfig(
-      {required this.name,
-      required this.locale,
-      required this.recaptcha,
-      required this.analytics});
+      {required this.name, required this.locale, required this.recaptcha});
 
   factory _$_SiteConfig.fromJson(Map<String, dynamic> json) =>
       _$$_SiteConfigFromJson(json);
@@ -343,12 +325,10 @@ class _$_SiteConfig implements _SiteConfig {
   final String locale;
   @override
   final Recaptcha recaptcha;
-  @override
-  final String analytics;
 
   @override
   String toString() {
-    return 'SiteConfig(name: $name, locale: $locale, recaptcha: $recaptcha, analytics: $analytics)';
+    return 'SiteConfig(name: $name, locale: $locale, recaptcha: $recaptcha)';
   }
 
   @override
@@ -358,8 +338,7 @@ class _$_SiteConfig implements _SiteConfig {
             other is _SiteConfig &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.locale, locale) &&
-            const DeepCollectionEquality().equals(other.recaptcha, recaptcha) &&
-            const DeepCollectionEquality().equals(other.analytics, analytics));
+            const DeepCollectionEquality().equals(other.recaptcha, recaptcha));
   }
 
   @override
@@ -367,8 +346,7 @@ class _$_SiteConfig implements _SiteConfig {
       runtimeType,
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(locale),
-      const DeepCollectionEquality().hash(recaptcha),
-      const DeepCollectionEquality().hash(analytics));
+      const DeepCollectionEquality().hash(recaptcha));
 
   @JsonKey(ignore: true)
   @override
@@ -385,8 +363,7 @@ abstract class _SiteConfig implements SiteConfig {
   factory _SiteConfig(
       {required String name,
       required String locale,
-      required Recaptcha recaptcha,
-      required String analytics}) = _$_SiteConfig;
+      required Recaptcha recaptcha}) = _$_SiteConfig;
 
   factory _SiteConfig.fromJson(Map<String, dynamic> json) =
       _$_SiteConfig.fromJson;
@@ -397,8 +374,6 @@ abstract class _SiteConfig implements SiteConfig {
   String get locale;
   @override
   Recaptcha get recaptcha;
-  @override
-  String get analytics;
   @override
   @JsonKey(ignore: true)
   _$SiteConfigCopyWith<_SiteConfig> get copyWith =>

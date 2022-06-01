@@ -22,7 +22,7 @@ class SiteConfig with _$SiteConfig {
     required String name,
     required String locale,
     required Recaptcha recaptcha,
-    required String analytics,
+    // required String analytics,
   }) = _SiteConfig;
 
   factory SiteConfig.fromJson(JsonMap json) => _$SiteConfigFromJson(json);

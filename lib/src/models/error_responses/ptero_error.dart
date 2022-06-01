@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -18,21 +20,16 @@ class PteroError with _$PteroError implements Exception {
 }
 
 enum PteroErrorCode {
-  // ignore: constant_identifier_names
   TwoFactorAuthenticationTokenInvalid,
-  // ignore: constant_identifier_names
   BadRequestHttpException,
   email,
-  // ignore: constant_identifier_names
   InvalidPasswordProvidedException,
-  // ignore: constant_identifier_names
   NotFoundHttpException,
-  // ignore: constant_identifier_names
   AccessDeniedHttpException,
-  // ignore: constant_identifier_names
   HttpException,
-  // ignore: constant_identifier_names
   DisplayException,
-  // ignore: constant_identifier_names
   MethodNotAllowedHttpException,
+  AuthenticationException,
+  DaemonConnectionException,
+  ValidationException,
 }

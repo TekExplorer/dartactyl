@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.4.0-dev.14
+ - Add Pterodactyl v1.8 support
+
 ## 1.4.0-dev.13
  - Add websocket handler `ServerWebsocketCubit` and websocket convenience class `ServerWebsocketHandler`
 
