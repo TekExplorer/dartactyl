@@ -211,18 +211,23 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
 }
 
 class WebsocketListeners {
+  // WebsocketListeners();
+
   @protected
-  final StreamController<String> _outputStreamController = StreamController();
+  final StreamController<String> _outputStreamController =
+      StreamController.broadcast();
   @protected
-  final StreamController<String> _consoleStreamController = StreamController();
+  final StreamController<String> _consoleStreamController =
+      StreamController.broadcast();
   @protected
-  final StreamController<String> _installStreamController = StreamController();
+  final StreamController<String> _installStreamController =
+      StreamController.broadcast();
   @protected
   final StreamController<WebsocketStatsModel> _statsStreamController =
-      StreamController();
+      StreamController.broadcast();
   @protected
   final StreamController<ServerPowerState> _powerStateStreamController =
-      StreamController();
+      StreamController.broadcast();
 
   Future<void> closeAllListeners() async {
     await _outputStreamController.close();

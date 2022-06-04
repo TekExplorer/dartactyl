@@ -236,7 +236,7 @@ class _$StatsResourcesTearOff {
       required int diskBytes,
       required int networkRxBytes,
       required int networkTxBytes,
-      required int uptime}) {
+      int? uptime}) {
     return _StatsResources(
       memoryBytes: memoryBytes,
       cpuAbsolute: cpuAbsolute,
@@ -261,8 +261,11 @@ mixin _$StatsResources {
   double get cpuAbsolute => throw _privateConstructorUsedError;
   int get diskBytes => throw _privateConstructorUsedError;
   int get networkRxBytes => throw _privateConstructorUsedError;
-  int get networkTxBytes => throw _privateConstructorUsedError;
-  int get uptime => throw _privateConstructorUsedError;
+  int get networkTxBytes =>
+      throw _privateConstructorUsedError; // required int uptime, //todo: doesnt exist in v1.7 or earlier
+  /// the amount of time the server has been running
+  /// added in pterodactyl v1.8, where it garunteed to exist
+  int? get uptime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -281,7 +284,7 @@ abstract class $StatsResourcesCopyWith<$Res> {
       int diskBytes,
       int networkRxBytes,
       int networkTxBytes,
-      int uptime});
+      int? uptime});
 }
 
 /// @nodoc
@@ -326,7 +329,7 @@ class _$StatsResourcesCopyWithImpl<$Res>
       uptime: uptime == freezed
           ? _value.uptime
           : uptime // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -344,7 +347,7 @@ abstract class _$StatsResourcesCopyWith<$Res>
       int diskBytes,
       int networkRxBytes,
       int networkTxBytes,
-      int uptime});
+      int? uptime});
 }
 
 /// @nodoc
@@ -391,7 +394,7 @@ class __$StatsResourcesCopyWithImpl<$Res>
       uptime: uptime == freezed
           ? _value.uptime
           : uptime // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -405,7 +408,7 @@ class _$_StatsResources extends _StatsResources {
       required this.diskBytes,
       required this.networkRxBytes,
       required this.networkTxBytes,
-      required this.uptime})
+      this.uptime})
       : super._();
 
   factory _$_StatsResources.fromJson(Map<String, dynamic> json) =>
@@ -421,8 +424,10 @@ class _$_StatsResources extends _StatsResources {
   final int networkRxBytes;
   @override
   final int networkTxBytes;
-  @override
-  final int uptime;
+  @override // required int uptime, //todo: doesnt exist in v1.7 or earlier
+  /// the amount of time the server has been running
+  /// added in pterodactyl v1.8, where it garunteed to exist
+  final int? uptime;
 
   @override
   String toString() {
@@ -474,7 +479,7 @@ abstract class _StatsResources extends StatsResources {
       required int diskBytes,
       required int networkRxBytes,
       required int networkTxBytes,
-      required int uptime}) = _$_StatsResources;
+      int? uptime}) = _$_StatsResources;
   _StatsResources._() : super._();
 
   factory _StatsResources.fromJson(Map<String, dynamic> json) =
@@ -490,8 +495,10 @@ abstract class _StatsResources extends StatsResources {
   int get networkRxBytes;
   @override
   int get networkTxBytes;
-  @override
-  int get uptime;
+  @override // required int uptime, //todo: doesnt exist in v1.7 or earlier
+  /// the amount of time the server has been running
+  /// added in pterodactyl v1.8, where it garunteed to exist
+  int? get uptime;
   @override
   @JsonKey(ignore: true)
   _$StatsResourcesCopyWith<_StatsResources> get copyWith =>

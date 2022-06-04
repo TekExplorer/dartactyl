@@ -32,7 +32,10 @@ class StatsResources with _$StatsResources {
     required int diskBytes,
     required int networkRxBytes,
     required int networkTxBytes,
-    required int uptime,
+    // required int uptime, //todo: doesnt exist in v1.7 or earlier
+    /// the amount of time the server has been running
+    /// added in pterodactyl v1.8, where it garunteed to exist
+    int? uptime, //todo: always exists in v1.8 or later
   }) = _StatsResources;
 
   factory StatsResources.fromJson(JsonMap json) =>

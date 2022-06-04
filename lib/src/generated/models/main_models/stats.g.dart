@@ -34,7 +34,7 @@ _$_StatsResources _$$_StatsResourcesFromJson(Map<String, dynamic> json) =>
       diskBytes: json['disk_bytes'] as int,
       networkRxBytes: json['network_rx_bytes'] as int,
       networkTxBytes: json['network_tx_bytes'] as int,
-      uptime: json['uptime'] as int,
+      uptime: json['uptime'] as int?,
     );
 
 Map<String, dynamic> _$$_StatsResourcesToJson(_$_StatsResources instance) =>

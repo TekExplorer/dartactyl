@@ -7,9 +7,12 @@ Future<ServerWebsocketHandler> getWebsocket() async {
     url: 'panel.yoursite.com',
     key: '[api-key]',
   );
+
   var fractalServers = await client.listServers();
-  client.getServerWebsocket(serverId: 'server id');
   final Server server = fractalServers.servers.first;
+
+  client.getServerWebsocket(serverId: server.identifier);
+
   return server.getWebsocket(client: client);
 }
 
@@ -19,11 +22,12 @@ void main(List<String> args) async {
   ws.listeners
     ..registerConsoleListener((output) => log(output, name: 'Console'))
     ..registerInstallListener((output) => log(output, name: 'Install'))
-    ..registerPowerStateListener((state) => log(state.name, name: 'State'))
+    ..registerPowerStateListener((state) => log(state.name, name: 'PowerState'))
     ..registerStatsListener((stats) => log(stats.toString(), name: 'Stats'));
 
   ws.init();
   bool a = false;
+  // watch for the authenticated event, and request stats and logs only once.
   ws.cubit.stream.listen((event) {
     // log('Websocket event: $event', name: 'WebsocketCubit');
     if (a) return;
@@ -32,11 +36,11 @@ void main(List<String> args) async {
         log('Authenticated', name: 'WebsocketCubit');
         ws.requestStats();
         ws.requestLogs();
+        a = true;
       },
       authenticating: (value) {
         log('Authenticating', name: 'WebsocketCubit');
       },
     );
-    a = true;
   });
 }
