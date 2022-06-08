@@ -1,4 +1,7 @@
 # CHANGELOG
+## 1.4.0-dev.16
+ - Fix the error handler
+ 
 ## 1.4.0-dev.15
  - Fix Pterodactyl v1.7 support
  - Fix Websocket registerListeners not supporting multiple registrations
