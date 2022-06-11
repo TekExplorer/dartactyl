@@ -1,17 +1,18 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/egg/egg_logs_config.freezed.dart';
 part '../../generated/models/egg/egg_logs_config.g.dart';
 
-@JsonSerializable()
-class EggLogsConfig {
-  bool custom;
-  String? location;
-  EggLogsConfig({
-    required this.custom,
-    this.location,
-  });
+@freezed
+class EggLogsConfig with _$EggLogsConfig {
+  factory EggLogsConfig({
+    required bool custom,
+    String? location,
+  }) = _EggLogsConfig;
+
   factory EggLogsConfig.fromJson(JsonMap json) => _$EggLogsConfigFromJson(json);
 
-  JsonMap toJson() => _$EggLogsConfigToJson(this);
+  @override
+  JsonMap toJson();
 }

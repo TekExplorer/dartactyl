@@ -1,17 +1,19 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/main_models/signed_url.freezed.dart';
 part '../../generated/models/main_models/signed_url.g.dart';
 
-@JsonSerializable()
-class SignedUrl with SerializableMixin {
-  String url;
-  SignedUrl({
-    required this.url,
-  });
+@freezed
+class SignedUrl with SerializableMixin, _$SignedUrl {
+  factory SignedUrl({required String url}) = _SignedUrl;
+
   factory SignedUrl.fromJson(JsonMap json) => _$SignedUrlFromJson(json);
+
+  SignedUrl._();
+
   @override
-  JsonMap toJson() => _$SignedUrlToJson(this);
+  JsonMap toJson();
 }

@@ -6,7 +6,7 @@ part of '../../../models/main_models/node.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Node _$NodeFromJson(Map<String, dynamic> json) => Node(
+_$_Node _$$_NodeFromJson(Map<String, dynamic> json) => _$_Node(
       id: json['id'] as int,
       uuid: json['uuid'] as String,
       public: json['public'] as bool,
@@ -29,7 +29,7 @@ Node _$NodeFromJson(Map<String, dynamic> json) => Node(
       updatedAt: DateTime.parse(json['updated_at'] as String),
     );
 
-Map<String, dynamic> _$NodeToJson(Node instance) => <String, dynamic>{
+Map<String, dynamic> _$$_NodeToJson(_$_Node instance) => <String, dynamic>{
       'id': instance.id,
       'uuid': instance.uuid,
       'public': instance.public,

@@ -1,38 +1,29 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/main_models/server_schedule.freezed.dart';
 part '../../generated/models/main_models/server_schedule.g.dart';
 
-@JsonSerializable()
-class ServerSchedule with SerializableMixin {
-  int id;
-  String name;
-  Cron cron;
-  bool isActive;
-  bool isProcessing;
-  bool onlyWhenOnline;
-  DateTime? lastRunAt;
-  DateTime? nextRunAt;
-  DateTime createdAt;
-  DateTime updatedAt;
-
-  ServerSchedule({
-    required this.id,
-    required this.name,
-    required this.cron,
-    required this.isActive,
-    required this.isProcessing,
-    required this.onlyWhenOnline,
-    this.lastRunAt,
-    this.nextRunAt,
-    required this.createdAt,
-    required this.updatedAt,
-  });
-
+@freezed
+class ServerSchedule with SerializableMixin, _$ServerSchedule {
+  factory ServerSchedule({
+    required int id,
+    required String name,
+    required Cron cron,
+    required bool isActive,
+    required bool isProcessing,
+    required bool onlyWhenOnline,
+    DateTime? lastRunAt,
+    DateTime? nextRunAt,
+    required DateTime createdAt,
+    required DateTime updatedAt,
+  }) = _ServerSchedule;
   factory ServerSchedule.fromJson(JsonMap json) =>
       _$ServerScheduleFromJson(json);
+
+  ServerSchedule._();
   @override
-  JsonMap toJson() => _$ServerScheduleToJson(this);
+  JsonMap toJson();
 }

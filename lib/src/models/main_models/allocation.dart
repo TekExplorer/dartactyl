@@ -1,27 +1,25 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/main_models/allocation.freezed.dart';
 part '../../generated/models/main_models/allocation.g.dart';
 
-@JsonSerializable()
-class Allocation with SerializableMixin {
-  int id;
-  String ip;
-  String? ipAlias;
-  int port;
-  String? notes;
-  bool isDefault;
-  Allocation({
-    required this.id,
-    required this.ip,
-    this.ipAlias,
-    required this.port,
-    this.notes,
-    required this.isDefault,
-  });
+@freezed
+class Allocation with SerializableMixin, _$Allocation {
+  Allocation._();
+
+  factory Allocation({
+    required int id,
+    required String ip,
+    String? ipAlias,
+    required int port,
+    String? notes,
+    required bool isDefault,
+  }) = _Allocation;
+
   factory Allocation.fromJson(JsonMap json) => _$AllocationFromJson(json);
   @override
-  JsonMap toJson() => _$AllocationToJson(this);
+  JsonMap toJson();
 }

@@ -6,8 +6,8 @@ part of '../../../models/main_models/server_subuser.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ServerSubuser _$ServerSubuserFromJson(Map<String, dynamic> json) =>
-    ServerSubuser(
+_$_ServerSubuser _$$_ServerSubuserFromJson(Map<String, dynamic> json) =>
+    _$_ServerSubuser(
       uuid: json['uuid'] as String,
       username: json['username'] as String,
       email: json['email'] as String,
@@ -19,7 +19,7 @@ ServerSubuser _$ServerSubuserFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$ServerSubuserToJson(ServerSubuser instance) =>
+Map<String, dynamic> _$$_ServerSubuserToJson(_$_ServerSubuser instance) =>
     <String, dynamic>{
       'uuid': instance.uuid,
       'username': instance.username,

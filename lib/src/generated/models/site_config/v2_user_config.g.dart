@@ -6,8 +6,8 @@ part of '../../../models/site_config/v2_user_config.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_V2UserConfig _$V2UserConfigFromJson(Map<String, dynamic> json) =>
-    _V2UserConfig(
+_$__V2UserConfig _$$__V2UserConfigFromJson(Map<String, dynamic> json) =>
+    _$__V2UserConfig(
       uuid: json['uuid'] as String,
       username: json['username'] as String,
       email: json['email'] as String,
@@ -22,18 +22,18 @@ _V2UserConfig _$V2UserConfigFromJson(Map<String, dynamic> json) =>
       roleName: json['role_name'] as String,
     );
 
-Map<String, dynamic> _$V2UserConfigToJson(_V2UserConfig instance) =>
+Map<String, dynamic> _$$__V2UserConfigToJson(_$__V2UserConfig instance) =>
     <String, dynamic>{
       'uuid': instance.uuid,
       'username': instance.username,
       'email': instance.email,
       'language': instance.language,
+      'admin_role_id': instance.adminRoleId,
       'root_admin': instance.rootAdmin,
       'use_totp': instance.useTotp,
       'gravatar': instance.gravatar,
       'created_at': instance.createdAt,
       'updated_at': instance.updatedAt,
-      'admin_role_id': instance.adminRoleId,
       'avatar_url': instance.avatarUrl,
       'role_name': instance.roleName,
     };

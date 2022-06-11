@@ -6,13 +6,13 @@ part of '../../../models/egg/egg_logs_config.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-EggLogsConfig _$EggLogsConfigFromJson(Map<String, dynamic> json) =>
-    EggLogsConfig(
+_$_EggLogsConfig _$$_EggLogsConfigFromJson(Map<String, dynamic> json) =>
+    _$_EggLogsConfig(
       custom: json['custom'] as bool,
       location: json['location'] as String?,
     );
 
-Map<String, dynamic> _$EggLogsConfigToJson(EggLogsConfig instance) =>
+Map<String, dynamic> _$$_EggLogsConfigToJson(_$_EggLogsConfig instance) =>
     <String, dynamic>{
       'custom': instance.custom,
       'location': instance.location,

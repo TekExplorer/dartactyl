@@ -1,29 +1,26 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/main_models/server_subuser.freezed.dart';
 part '../../generated/models/main_models/server_subuser.g.dart';
 
-@JsonSerializable()
-class ServerSubuser with SerializableMixin {
-  String uuid;
-  String username;
-  String email;
-  String image;
-  bool the2FaEnabled;
-  DateTime createdAt;
-  List<String> permissions;
-  ServerSubuser({
-    required this.uuid,
-    required this.username,
-    required this.email,
-    required this.image,
-    required this.the2FaEnabled,
-    required this.createdAt,
-    required this.permissions,
-  });
+@freezed
+class ServerSubuser with SerializableMixin, _$ServerSubuser {
+  factory ServerSubuser({
+    required String uuid,
+    required String username,
+    required String email,
+    required String image,
+    required bool the2FaEnabled,
+    required DateTime createdAt,
+    required List<String> permissions,
+  }) = _ServerSubuser;
+
   factory ServerSubuser.fromJson(JsonMap json) => _$ServerSubuserFromJson(json);
+
+  ServerSubuser._();
   @override
-  JsonMap toJson() => _$ServerSubuserToJson(this);
+  JsonMap toJson();
 }

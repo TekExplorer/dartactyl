@@ -1,33 +1,26 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/main_models/file_object.freezed.dart';
 part '../../generated/models/main_models/file_object.g.dart';
 
-@JsonSerializable()
-class FileObject with SerializableMixin {
-  String name;
-  String mode;
-  int size;
-  bool isFile;
-  bool isSymlink;
-  bool isEditable;
-  String mimetype;
-  DateTime createdAt;
-  DateTime modifiedAt;
-  FileObject({
-    required this.name,
-    required this.mode,
-    required this.size,
-    required this.isFile,
-    required this.isSymlink,
-    required this.isEditable,
-    required this.mimetype,
-    required this.createdAt,
-    required this.modifiedAt,
-  });
+@freezed
+class FileObject with SerializableMixin, _$FileObject {
+  factory FileObject({
+    required String name,
+    required String mode,
+    required int size,
+    required bool isFile,
+    required bool isSymlink,
+    required String mimetype,
+    required DateTime createdAt,
+    required DateTime modifiedAt,
+  }) = _FileObject;
   factory FileObject.fromJson(JsonMap json) => _$FileObjectFromJson(json);
+
+  FileObject._();
   @override
-  JsonMap toJson() => _$FileObjectToJson(this);
+  JsonMap toJson();
 }

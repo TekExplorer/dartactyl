@@ -6,7 +6,7 @@ part of '../../../models/main_models/server.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Server _$ServerFromJson(Map<String, dynamic> json) => Server(
+_$_Server _$$_ServerFromJson(Map<String, dynamic> json) => _$_Server(
       serverOwner: json['server_owner'] as bool,
       identifier: json['identifier'] as String,
       internalId: json['internal_id'] as int,
@@ -16,25 +16,24 @@ Server _$ServerFromJson(Map<String, dynamic> json) => Server(
       sftpDetails:
           SftpDetails.fromJson(json['sftp_details'] as Map<String, dynamic>),
       description: json['description'] as String,
+      limits: ServerLimits.fromJson(json['limits'] as Map<String, dynamic>),
       invocation: json['invocation'] as String,
       dockerImage: json['docker_image'] as String,
       eggFeatures: (json['egg_features'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
+      featureLimits: ServerFeatureLimits.fromJson(
+          json['feature_limits'] as Map<String, dynamic>),
       status: $enumDecodeNullable(_$ServerStatusEnumMap, json['status']),
       isSuspended: json['is_suspended'] as bool,
       isInstalling: json['is_installing'] as bool,
       isTransferring: json['is_transferring'] as bool,
-      relationships: json['relationships'] == null
-          ? null
-          : Relationships.fromJson(
-              json['relationships'] as Map<String, dynamic>),
-      limits: ServerLimits.fromJson(json['limits'] as Map<String, dynamic>),
-      featureLimits: ServerFeatureLimits.fromJson(
-          json['feature_limits'] as Map<String, dynamic>),
+      relationships: ServerRelationships.fromJson(
+          json['relationships'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$ServerToJson(Server instance) => <String, dynamic>{
+Map<String, dynamic> _$$_ServerToJson(_$_Server instance) => <String, dynamic>{
       'server_owner': instance.serverOwner,
       'identifier': instance.identifier,
       'internal_id': instance.internalId,
@@ -52,7 +51,7 @@ Map<String, dynamic> _$ServerToJson(Server instance) => <String, dynamic>{
       'is_suspended': instance.isSuspended,
       'is_installing': instance.isInstalling,
       'is_transferring': instance.isTransferring,
-      'relationships': instance.relationships?.toJson(),
+      'relationships': instance.relationships.toJson(),
     };
 
 const _$ServerStatusEnumMap = {
@@ -60,4 +59,5 @@ const _$ServerStatusEnumMap = {
   ServerStatus.installFailed: 'install_failed',
   ServerStatus.suspended: 'suspended',
   ServerStatus.restoringBackup: 'restoring_backup',
+  ServerStatus.transferring: 'transferring',
 };

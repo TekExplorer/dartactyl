@@ -1,34 +1,28 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/main_models/databases.freezed.dart';
 part '../../generated/models/main_models/databases.g.dart';
 
-@JsonSerializable()
-class Databases with SerializableMixin {
-  int id;
-  int server;
-  int host;
-  String database;
-  String username;
-  String remote;
-  int maxConnections;
-  String createdAt;
-  String updatedAt;
+@freezed
+class Databases with SerializableMixin, _$Databases {
+  factory Databases({
+    required int id,
+    required int server,
+    required int host,
+    required String database,
+    required String username,
+    required String remote,
+    required int maxConnections,
+    required String createdAt,
+    required String updatedAt,
+  }) = _Databases;
 
-  Databases({
-    required this.id,
-    required this.server,
-    required this.host,
-    required this.database,
-    required this.username,
-    required this.remote,
-    required this.maxConnections,
-    required this.createdAt,
-    required this.updatedAt,
-  });
   factory Databases.fromJson(JsonMap json) => _$DatabasesFromJson(json);
+
+  Databases._();
   @override
-  JsonMap toJson() => _$DatabasesToJson(this);
+  JsonMap toJson();
 }

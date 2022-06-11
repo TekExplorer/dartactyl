@@ -6,11 +6,15 @@ part of '../../../models/ptero_data/ptero_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-PteroData<T> _$PteroDataFromJson<T>(Map<String, dynamic> json) => PteroData<T>(
-      data: PteroData._fromGenericJson(json['data'] as Map<String, dynamic>),
+_$_PteroData<T> _$$_PteroDataFromJson<T extends SerializableMixin>(
+        Map<String, dynamic> json) =>
+    _$_PteroData<T>(
+      data: PteroDataConverter<T>()
+          .fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$PteroDataToJson<T>(PteroData<T> instance) =>
+Map<String, dynamic> _$$_PteroDataToJson<T extends SerializableMixin>(
+        _$_PteroData<T> instance) =>
     <String, dynamic>{
-      'data': PteroData._toGenericJson(instance.data),
+      'data': PteroDataConverter<T>().toJson(instance.data),
     };

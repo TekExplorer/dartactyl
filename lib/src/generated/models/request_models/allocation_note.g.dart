@@ -6,12 +6,12 @@ part of '../../../models/request_models/allocation_note.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-AllocationNote _$AllocationNoteFromJson(Map<String, dynamic> json) =>
-    AllocationNote(
+_$_AllocationNote _$$_AllocationNoteFromJson(Map<String, dynamic> json) =>
+    _$_AllocationNote(
       notes: json['notes'] as String,
     );
 
-Map<String, dynamic> _$AllocationNoteToJson(AllocationNote instance) =>
+Map<String, dynamic> _$$_AllocationNoteToJson(_$_AllocationNote instance) =>
     <String, dynamic>{
       'notes': instance.notes,
     };

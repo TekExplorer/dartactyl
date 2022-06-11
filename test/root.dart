@@ -7,11 +7,11 @@ void main() {
   PteroTester t = PteroTester();
 
   test('List Servers', () {
-    t.testFor<FractalResponseList<Server>>(
+    t.testFor<FractalListMeta<Server, PaginatedMeta>>(
       testCodes: [200, 403, 405],
       clientCallback: (client) => client.listServers(),
       successCallback: (response) {
-        expect(response.meta?.pagination, isNotNull);
+        expect((response.meta).pagination, isNotNull);
 
         expect(response.data.length, greaterThan(0));
 

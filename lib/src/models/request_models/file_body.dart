@@ -1,48 +1,41 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/request_models/file_body.freezed.dart';
 part '../../generated/models/request_models/file_body.g.dart';
 
-@JsonSerializable()
-class FileBodyList<T> {
-  @JsonKey(name: 'root')
-  String rootDir;
-  @JsonKey(fromJson: _fromGenericJson, toJson: _toGenericJson)
-  List<T> files; // String or FromTo
+@freezed
+class FileBody with _$FileBody {
+  factory FileBody({
+    @JsonKey(name: 'root') required String rootDir,
+    required String file,
+  }) = _FileBody;
 
-  FileBodyList({
-    required this.rootDir,
-    required this.files,
-  });
+  factory FileBody.fromJson(JsonMap json) => _$FileBodyFromJson(json);
+}
 
-  factory FileBodyList.fromJson(JsonMap json) => _$FileBodyListFromJson(json);
-  JsonMap toJson() => _$FileBodyListToJson(this);
+@freezed
+class FileBodyListFromTo with _$FileBodyListFromTo {
+  factory FileBodyListFromTo({
+    @JsonKey(name: 'root') required String rootDir,
+    required List<FromTo> files, // String or FromTo
+  }) = _FileBodyListFromTo;
 
-  static dynamic _toGenericJson(dynamic object) {
-    if (object is SerializableMixin) {
-      return object.toJson();
-    }
-    if (object is String) {
-      return object;
-    }
+  factory FileBodyListFromTo.fromJson(JsonMap json) =>
+      _$FileBodyListFromToFromJson(json);
+}
 
-    throw ArgumentError(
-        'Cannot serialize object of type ${object.runtimeType}');
-  }
+@freezed
+class FileBodyListString with _$FileBodyListString {
+  factory FileBodyListString({
+    @JsonKey(name: 'root') required String rootDir,
+    required List<String> files, // String or FromTo
+  }) = _FileBodyListString;
 
-  static T _fromGenericJson<T>(dynamic json) {
-    if (json is JsonMap && T is FromTo) {
-      return FromTo.fromJson(json) as T;
-    }
-    if (json is String) {
-      return json as T;
-    }
-
-    throw ArgumentError(
-        'Cannot deserialize object of type ${T.runtimeType}; ${json.runtimeType}');
-  }
+  factory FileBodyListString.fromJson(JsonMap json) =>
+      _$FileBodyListStringFromJson(json);
 }
 
 /*
@@ -57,32 +50,12 @@ Name:
     String
 */
 
-@JsonSerializable()
-class FolderBody {
-  @JsonKey(name: 'root')
-  String rootDir;
-  String name;
-
-  FolderBody({
-    required this.rootDir,
-    required this.name,
-  });
+@freezed
+class FolderBody with _$FolderBody {
+  factory FolderBody({
+    @JsonKey(name: 'root') required String rootDir,
+    required String name,
+  }) = _FolderBody;
 
   factory FolderBody.fromJson(JsonMap json) => _$FolderBodyFromJson(json);
-  JsonMap toJson() => _$FolderBodyToJson(this);
-}
-
-@JsonSerializable()
-class FileBody {
-  @JsonKey(name: 'root')
-  String rootDir;
-  String file;
-
-  FileBody({
-    required this.rootDir,
-    required this.file,
-  });
-
-  factory FileBody.fromJson(JsonMap json) => _$FileBodyFromJson(json);
-  JsonMap toJson() => _$FileBodyToJson(this);
 }

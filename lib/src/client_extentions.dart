@@ -3,6 +3,15 @@ part of 'client.dart';
 extension GetDio on PteroClient {
   Dio get dio => _dio;
   String get url => baseUrl ?? dio.options.baseUrl;
+
+  /// Alias of listVariables
+  Future<FractalListMeta<EggVariable, StartupMeta>> getStartup(
+          {required String serverId}) =>
+      listVariables(serverId: serverId);
+
+  Future<Map<String, String>> listDockerImages(
+          {required String serverId}) async =>
+      (await getStartup(serverId: serverId)).dockerImages;
 }
 
 // I want to turn this into an interceptor, but i dont see how.
@@ -13,6 +22,7 @@ extension Login on PteroClient {
   /// you did not disable the option in the client.
   ///
   /// You will need to add a cookie manager interceptor to make use of this
+  @experimental
   Future<void> login(PteroLoginRequest credentials) async {
     return await _getXSRF().then<void>((xsrf) async {
       dio.options.headers['X-XSRF-TOKEN'] = xsrf;

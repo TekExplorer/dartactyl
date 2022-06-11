@@ -1,30 +1,27 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/main_models/user.freezed.dart';
 part '../../generated/models/main_models/user.g.dart';
 
-@JsonSerializable()
-class User with SerializableMixin {
-  int id;
-  bool admin;
-  String username;
-  String email;
-  String firstName;
-  String lastName;
-  String language;
+@freezed
+class User with SerializableMixin, _$User {
+  factory User({
+    required int id,
+    required bool admin,
+    required String username,
+    required String email,
+    required String firstName,
+    required String lastName,
+    required String language,
+  }) = _User;
 
-  User({
-    required this.id,
-    required this.admin,
-    required this.username,
-    required this.email,
-    required this.firstName,
-    required this.lastName,
-    required this.language,
-  });
   factory User.fromJson(JsonMap json) => _$UserFromJson(json);
+
+  User._();
+
   @override
-  JsonMap toJson() => _$UserToJson(this);
+  JsonMap toJson();
 }

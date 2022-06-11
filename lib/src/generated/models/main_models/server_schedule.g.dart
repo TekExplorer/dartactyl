@@ -6,8 +6,8 @@ part of '../../../models/main_models/server_schedule.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ServerSchedule _$ServerScheduleFromJson(Map<String, dynamic> json) =>
-    ServerSchedule(
+_$_ServerSchedule _$$_ServerScheduleFromJson(Map<String, dynamic> json) =>
+    _$_ServerSchedule(
       id: json['id'] as int,
       name: json['name'] as String,
       cron: Cron.fromJson(json['cron'] as Map<String, dynamic>),
@@ -24,7 +24,7 @@ ServerSchedule _$ServerScheduleFromJson(Map<String, dynamic> json) =>
       updatedAt: DateTime.parse(json['updated_at'] as String),
     );
 
-Map<String, dynamic> _$ServerScheduleToJson(ServerSchedule instance) =>
+Map<String, dynamic> _$$_ServerScheduleToJson(_$_ServerSchedule instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

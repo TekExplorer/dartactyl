@@ -6,7 +6,7 @@ part of '../../../models/main_models/backup.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Backup _$BackupFromJson(Map<String, dynamic> json) => Backup(
+_$_Backup _$$_BackupFromJson(Map<String, dynamic> json) => _$_Backup(
       uuid: json['uuid'] as String,
       isSuccessful: json['is_successful'] as bool,
       isLocked: json['is_locked'] as bool,
@@ -22,7 +22,7 @@ Backup _$BackupFromJson(Map<String, dynamic> json) => Backup(
           : DateTime.parse(json['completed_at'] as String),
     );
 
-Map<String, dynamic> _$BackupToJson(Backup instance) => <String, dynamic>{
+Map<String, dynamic> _$$_BackupToJson(_$_Backup instance) => <String, dynamic>{
       'uuid': instance.uuid,
       'is_successful': instance.isSuccessful,
       'is_locked': instance.isLocked,

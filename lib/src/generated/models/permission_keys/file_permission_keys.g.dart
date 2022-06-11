@@ -6,8 +6,9 @@ part of '../../../models/permission_keys/file_permission_keys.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FilePermissionKeys _$FilePermissionKeysFromJson(Map<String, dynamic> json) =>
-    FilePermissionKeys(
+_$_FilePermissionKeys _$$_FilePermissionKeysFromJson(
+        Map<String, dynamic> json) =>
+    _$_FilePermissionKeys(
       create: json['create'] as String,
       read: json['read'] as String,
       update: json['update'] as String,
@@ -16,7 +17,8 @@ FilePermissionKeys _$FilePermissionKeysFromJson(Map<String, dynamic> json) =>
       sftp: json['sftp'] as String,
     );
 
-Map<String, dynamic> _$FilePermissionKeysToJson(FilePermissionKeys instance) =>
+Map<String, dynamic> _$$_FilePermissionKeysToJson(
+        _$_FilePermissionKeys instance) =>
     <String, dynamic>{
       'create': instance.create,
       'read': instance.read,

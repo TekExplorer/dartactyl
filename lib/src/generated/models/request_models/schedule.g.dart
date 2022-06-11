@@ -6,8 +6,8 @@ part of '../../../models/request_models/schedule.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-RequestSchedule _$RequestScheduleFromJson(Map<String, dynamic> json) =>
-    RequestSchedule(
+_$_RequestSchedule _$$_RequestScheduleFromJson(Map<String, dynamic> json) =>
+    _$_RequestSchedule(
       onlyWhenOnline: json['only_when_online'] as bool,
       name: json['name'] as String,
       isActive: json['is_active'] as bool,
@@ -17,11 +17,11 @@ RequestSchedule _$RequestScheduleFromJson(Map<String, dynamic> json) =>
       dayOfMonth: json['day_of_month'] as String,
     );
 
-Map<String, dynamic> _$RequestScheduleToJson(RequestSchedule instance) =>
+Map<String, dynamic> _$$_RequestScheduleToJson(_$_RequestSchedule instance) =>
     <String, dynamic>{
+      'only_when_online': instance.onlyWhenOnline,
       'name': instance.name,
       'is_active': instance.isActive,
-      'only_when_online': instance.onlyWhenOnline,
       'minute': instance.minute,
       'hour': instance.hour,
       'day_of_week': instance.dayOfWeek,

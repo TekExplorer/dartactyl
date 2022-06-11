@@ -11,10 +11,8 @@ part of '../client.dart';
 class _PteroClient implements PteroClient {
   _PteroClient(this._dio, {this.baseUrl});
 
-  @override
   final Dio _dio;
 
-  @override
   String? baseUrl;
 
   @override
@@ -30,7 +28,7 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/auth/login',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -44,12 +42,14 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/auth/logout',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
-  Future<FractalResponseList<Server>> listServers(
-      {includes,
+  Future<FractalResponseListMeta<Server, PaginatedMeta>> listServers(
+      {page = 1,
+      perPage = 50,
+      includes,
       filter,
       filterByUuid,
       filterByName,
@@ -57,7 +57,9 @@ class _PteroClient implements PteroClient {
       type = GetServersQueryType.member}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      r'includes': includes?.toJson(),
+      r'page': page,
+      r'per_page': perPage,
+      r'include': includes?.toJson(),
       r'filter[*]': filter,
       r'filter[uuid]': filterByUuid,
       r'filter[name]': filterByName,
@@ -68,12 +70,13 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseList<Server>>(
+        _setStreamType<FractalResponseListMeta<Server, PaginatedMeta>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
                 .compose(_dio.options, '/api/client',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseList<Server>.fromJson(_result.data!);
+    final value =
+        FractalResponseListMeta<Server, PaginatedMeta>.fromJson(_result.data!);
     return value;
   }
 
@@ -155,7 +158,7 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/api/client/account/two-factor',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -170,7 +173,7 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/api/client/account/email',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -185,7 +188,7 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/api/client/account/password',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -205,19 +208,20 @@ class _PteroClient implements PteroClient {
   }
 
   @override
-  Future<FractalResponseData<ApiKey>> createApiKey(data) async {
+  Future<FractalResponseDataMeta<ApiKey, ApiKeyMeta>> createApiKey(data) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ApiKey>>(
+        _setStreamType<FractalResponseDataMeta<ApiKey, ApiKeyMeta>>(
             Options(method: 'POST', headers: _headers, extra: _extra)
                 .compose(_dio.options, '/api/client/account/api-keys',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<ApiKey>.fromJson(_result.data!);
+    final value =
+        FractalResponseDataMeta<ApiKey, ApiKeyMeta>.fromJson(_result.data!);
     return value;
   }
 
@@ -232,24 +236,25 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/api/client/account/api-keys/${apiKeyId}',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
-  Future<FractalResponseData<Server>> getServerDetails(
+  Future<FractalResponseDataMeta<Server, ServerMeta>> getServerDetails(
       {required serverId, includes}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'includes': includes?.toJson()};
+    final queryParameters = <String, dynamic>{r'include': includes?.toJson()};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<Server>>(
+        _setStreamType<FractalResponseDataMeta<Server, ServerMeta>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
                 .compose(_dio.options, '/api/client/servers/${serverId}',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<Server>.fromJson(_result.data!);
+    final value =
+        FractalResponseDataMeta<Server, ServerMeta>.fromJson(_result.data!);
     return value;
   }
 
@@ -301,7 +306,7 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/api/client/servers/${serverId}/command',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -316,7 +321,7 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/api/client/servers/${serverId}/power',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -358,6 +363,21 @@ class _PteroClient implements PteroClient {
   }
 
   @override
+  Future<void> deleteDatabase({required serverId, required databaseId}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    await _dio.fetch<void>(_setStreamType<void>(
+        Options(method: 'DELETE', headers: _headers, extra: _extra)
+            .compose(_dio.options,
+                '/api/client/servers/${serverId}/databases/${databaseId}',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    return null;
+  }
+
+  @override
   Future<FractalResponseData<ServerDatabase>> rotateDatabasePassword(
       {required serverId, required databaseId}) async {
     const _extra = <String, dynamic>{};
@@ -373,21 +393,6 @@ class _PteroClient implements PteroClient {
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ServerDatabase>.fromJson(_result.data!);
     return value;
-  }
-
-  @override
-  Future<void> deleteDatabase({required serverId, required databaseId}) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'DELETE', headers: _headers, extra: _extra)
-            .compose(_dio.options,
-                '/api/client/servers/${serverId}/databases/${databaseId}',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
   }
 
   @override
@@ -447,15 +452,18 @@ class _PteroClient implements PteroClient {
       {required serverId, required file, required rawContents}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'file': file};
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Content-Type': 'text/plain'};
+    _headers.removeWhere((k, v) => v == null);
     final _data = rawContents;
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'GET', headers: _headers, extra: _extra)
-            .compose(
-                _dio.options, '/api/client/servers/${serverId}/files/write',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+            method: 'POST',
+            headers: _headers,
+            extra: _extra,
+            contentType: 'text/plain')
+        .compose(_dio.options, '/api/client/servers/${serverId}/files/write',
+            queryParameters: queryParameters, data: _data)
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    return null;
   }
 
   @override
@@ -471,7 +479,7 @@ class _PteroClient implements PteroClient {
                 _dio.options, '/api/client/servers/${serverId}/files/rename',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -486,7 +494,7 @@ class _PteroClient implements PteroClient {
             .compose(_dio.options, '/api/client/servers/${serverId}/files/copy',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -521,26 +529,23 @@ class _PteroClient implements PteroClient {
             _dio.options, '/api/client/servers/${serverId}/files/decompress',
             queryParameters: queryParameters, data: _data)
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
-  Future<FractalResponseData<FileObject>> deleteFiles(data,
-      {required serverId}) async {
+  Future<void> deleteFiles(data, {required serverId}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<FileObject>>(Options(
-                method: 'POST', headers: _headers, extra: _extra)
+    await _dio.fetch<void>(_setStreamType<void>(
+        Options(method: 'POST', headers: _headers, extra: _extra)
             .compose(
                 _dio.options, '/api/client/servers/${serverId}/files/delete',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<FileObject>.fromJson(_result.data!);
-    return value;
+    return null;
   }
 
   @override
@@ -556,7 +561,7 @@ class _PteroClient implements PteroClient {
             _dio.options, '/api/client/servers/${serverId}/files/create-folder',
             queryParameters: queryParameters, data: _data)
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -662,7 +667,7 @@ class _PteroClient implements PteroClient {
                 '/api/client/servers/${serverId}/schedules/${scheduleId}',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -716,7 +721,7 @@ class _PteroClient implements PteroClient {
             '/api/client/servers/${serverId}/schedules/${scheduleId}/tasks/${taskId}',
             queryParameters: queryParameters, data: _data)
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -894,7 +899,7 @@ class _PteroClient implements PteroClient {
             _dio.options, '/api/client/servers/${serverId}/users/${subuserId}',
             queryParameters: queryParameters, data: _data)
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -979,24 +984,25 @@ class _PteroClient implements PteroClient {
             _dio.options, '/api/client/servers/${serverId}/backups/${backupId}',
             queryParameters: queryParameters, data: _data)
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
-  Future<FractalResponseList<EggVariable>> listVariables(
+  Future<FractalResponseListMeta<EggVariable, StartupMeta>> listVariables(
       {required serverId}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseList<EggVariable>>(
+        _setStreamType<FractalResponseListMeta<EggVariable, StartupMeta>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
                 .compose(
                     _dio.options, '/api/client/servers/${serverId}/startup',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseList<EggVariable>.fromJson(_result.data!);
+    final value = FractalResponseListMeta<EggVariable, StartupMeta>.fromJson(
+        _result.data!);
     return value;
   }
 
@@ -1032,7 +1038,7 @@ class _PteroClient implements PteroClient {
                 _dio.options, '/api/client/servers/${serverId}/settings/rename',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -1047,7 +1053,7 @@ class _PteroClient implements PteroClient {
             _dio.options, '/api/client/servers/${serverId}/settings/reinstall',
             queryParameters: queryParameters, data: _data)
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   @override
@@ -1063,7 +1069,7 @@ class _PteroClient implements PteroClient {
                 '/api/client/servers/${serverId}/settings/docker-image',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return;
+    return null;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

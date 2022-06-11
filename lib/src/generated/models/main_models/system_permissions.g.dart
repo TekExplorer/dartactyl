@@ -6,18 +6,8 @@ part of '../../../models/main_models/system_permissions.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SystemPermissions _$SystemPermissionsFromJson(Map<String, dynamic> json) =>
-    SystemPermissions(
-      permissions:
-          Permissions.fromJson(json['permissions'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$SystemPermissionsToJson(SystemPermissions instance) =>
-    <String, dynamic>{
-      'permissions': instance.permissions.toJson(),
-    };
-
-Permissions _$PermissionsFromJson(Map<String, dynamic> json) => Permissions(
+_$_Permissions _$$_PermissionsFromJson(Map<String, dynamic> json) =>
+    _$_Permissions(
       websocket: PermissionsModel<WebsocketPermissionKeys>.fromJson(
           json['websocket'] as Map<String, dynamic>),
       control: PermissionsModel<ControlPermissionKeys>.fromJson(
@@ -40,7 +30,7 @@ Permissions _$PermissionsFromJson(Map<String, dynamic> json) => Permissions(
           json['settings'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$PermissionsToJson(Permissions instance) =>
+Map<String, dynamic> _$$_PermissionsToJson(_$_Permissions instance) =>
     <String, dynamic>{
       'websocket': instance.websocket.toJson(),
       'control': instance.control.toJson(),
@@ -54,17 +44,30 @@ Map<String, dynamic> _$PermissionsToJson(Permissions instance) =>
       'settings': instance.settings.toJson(),
     };
 
-PermissionsModel<T> _$PermissionsModelFromJson<T extends SerializableMixin>(
-        Map<String, dynamic> json) =>
-    PermissionsModel<T>(
-      description: json['description'] as String,
-      keys: PermissionsModel._fromGenericJson(
-          json['keys'] as Map<String, dynamic>),
-    );
+_$_PermissionsModel<T>
+    _$$_PermissionsModelFromJson<T extends SerializableMixin>(
+            Map<String, dynamic> json) =>
+        _$_PermissionsModel<T>(
+          description: json['description'] as String,
+          keys: PermissionKeysConverter<T>()
+              .fromJson(json['keys'] as Map<String, dynamic>),
+        );
 
-Map<String, dynamic> _$PermissionsModelToJson<T extends SerializableMixin>(
-        PermissionsModel<T> instance) =>
+Map<String, dynamic> _$$_PermissionsModelToJson<T extends SerializableMixin>(
+        _$_PermissionsModel<T> instance) =>
     <String, dynamic>{
       'description': instance.description,
-      'keys': PermissionsModel._toGenericJson(instance.keys),
+      'keys': PermissionKeysConverter<T>().toJson(instance.keys),
+    };
+
+_$_SystemPermissions _$$_SystemPermissionsFromJson(Map<String, dynamic> json) =>
+    _$_SystemPermissions(
+      permissions:
+          Permissions.fromJson(json['permissions'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$_SystemPermissionsToJson(
+        _$_SystemPermissions instance) =>
+    <String, dynamic>{
+      'permissions': instance.permissions.toJson(),
     };

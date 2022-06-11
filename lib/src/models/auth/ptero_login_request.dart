@@ -1,6 +1,7 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/auth/ptero_login_request.freezed.dart';
 part '../../generated/models/auth/ptero_login_request.g.dart';
 
 /// [username] is the username of the Pterodactyl account.
@@ -10,21 +11,16 @@ part '../../generated/models/auth/ptero_login_request.g.dart';
 /// [gRecaptchaResponse] is the Google reCAPTCHA response.
 ///
 /// [gRecaptchaResponse] is not required if you dont have recaptcha enabled.
-@JsonSerializable()
-class PteroLoginRequest {
-  @JsonKey(name: 'user')
-  String username;
-  String password;
-  @JsonKey(name: 'g-recaptcha-response')
-  String? gRecaptchaResponse;
+@freezed
+class PteroLoginRequest with _$PteroLoginRequest {
+  PteroLoginRequest._();
 
-  PteroLoginRequest({
-    required this.username,
-    required this.password,
-    this.gRecaptchaResponse,
-  });
+  factory PteroLoginRequest({
+    @JsonKey(name: 'user') required String username,
+    required String password,
+    @JsonKey(name: 'g-recaptcha-response') String? gRecaptchaResponse,
+  }) = _PterodactylLoginRequest;
 
   factory PteroLoginRequest.fromJson(JsonMap json) =>
       _$PteroLoginRequestFromJson(json);
-  JsonMap toJson() => _$PteroLoginRequestToJson(this);
 }

@@ -6,35 +6,55 @@ part of '../../../models/request_models/file_body.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FileBodyList<T> _$FileBodyListFromJson<T>(Map<String, dynamic> json) =>
-    FileBodyList<T>(
-      rootDir: json['root'] as String,
-      files: FileBodyList._fromGenericJson(json['files']),
-    );
-
-Map<String, dynamic> _$FileBodyListToJson<T>(FileBodyList<T> instance) =>
-    <String, dynamic>{
-      'root': instance.rootDir,
-      'files': FileBodyList._toGenericJson(instance.files),
-    };
-
-FolderBody _$FolderBodyFromJson(Map<String, dynamic> json) => FolderBody(
-      rootDir: json['root'] as String,
-      name: json['name'] as String,
-    );
-
-Map<String, dynamic> _$FolderBodyToJson(FolderBody instance) =>
-    <String, dynamic>{
-      'root': instance.rootDir,
-      'name': instance.name,
-    };
-
-FileBody _$FileBodyFromJson(Map<String, dynamic> json) => FileBody(
+_$_FileBody _$$_FileBodyFromJson(Map<String, dynamic> json) => _$_FileBody(
       rootDir: json['root'] as String,
       file: json['file'] as String,
     );
 
-Map<String, dynamic> _$FileBodyToJson(FileBody instance) => <String, dynamic>{
+Map<String, dynamic> _$$_FileBodyToJson(_$_FileBody instance) =>
+    <String, dynamic>{
       'root': instance.rootDir,
       'file': instance.file,
+    };
+
+_$_FileBodyListFromTo _$$_FileBodyListFromToFromJson(
+        Map<String, dynamic> json) =>
+    _$_FileBodyListFromTo(
+      rootDir: json['root'] as String,
+      files: (json['files'] as List<dynamic>)
+          .map((e) => FromTo.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$_FileBodyListFromToToJson(
+        _$_FileBodyListFromTo instance) =>
+    <String, dynamic>{
+      'root': instance.rootDir,
+      'files': instance.files.map((e) => e.toJson()).toList(),
+    };
+
+_$_FileBodyListString _$$_FileBodyListStringFromJson(
+        Map<String, dynamic> json) =>
+    _$_FileBodyListString(
+      rootDir: json['root'] as String,
+      files: (json['files'] as List<dynamic>).map((e) => e as String).toList(),
+    );
+
+Map<String, dynamic> _$$_FileBodyListStringToJson(
+        _$_FileBodyListString instance) =>
+    <String, dynamic>{
+      'root': instance.rootDir,
+      'files': instance.files,
+    };
+
+_$_FolderBody _$$_FolderBodyFromJson(Map<String, dynamic> json) =>
+    _$_FolderBody(
+      rootDir: json['root'] as String,
+      name: json['name'] as String,
+    );
+
+Map<String, dynamic> _$$_FolderBodyToJson(_$_FolderBody instance) =>
+    <String, dynamic>{
+      'root': instance.rootDir,
+      'name': instance.name,
     };

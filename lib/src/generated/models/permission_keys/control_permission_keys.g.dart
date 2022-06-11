@@ -6,14 +6,14 @@ part of '../../../models/permission_keys/control_permission_keys.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ControlPermissionKeys _$ControlPermissionKeysFromJson(
+_$_ControlPermissionKeys _$$_ControlPermissionKeysFromJson(
         Map<String, dynamic> json) =>
-    ControlPermissionKeys(
+    _$_ControlPermissionKeys(
       connect: json['connect'] as String,
     );
 
-Map<String, dynamic> _$ControlPermissionKeysToJson(
-        ControlPermissionKeys instance) =>
+Map<String, dynamic> _$$_ControlPermissionKeysToJson(
+        _$_ControlPermissionKeys instance) =>
     <String, dynamic>{
       'connect': instance.connect,
     };

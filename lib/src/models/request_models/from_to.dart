@@ -1,18 +1,19 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/request_models/from_to.freezed.dart';
 part '../../generated/models/request_models/from_to.g.dart';
 
-@JsonSerializable()
-class FromTo {
-  String from;
-  String to;
-
-  FromTo({
-    required this.from,
-    required this.to,
-  });
+@freezed
+class FromTo with _$FromTo, SerializableMixin {
+  factory FromTo({
+    required String from,
+    required String to,
+  }) = _FromTo;
 
   factory FromTo.fromJson(JsonMap json) => _$FromToFromJson(json);
-  JsonMap toJson() => _$FromToToJson(this);
+  FromTo._();
+
+  @override
+  JsonMap toJson(); // => _$FromToToJson(this);
 }

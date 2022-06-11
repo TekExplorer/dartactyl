@@ -6,40 +6,26 @@ part of '../../../models/main_models/relationships.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Relationships _$RelationshipsFromJson(Map<String, dynamic> json) =>
-    Relationships(
-      databases: json['databases'] == null
-          ? null
-          : FractalResponseList<Databases>.fromJson(
-              json['databases'] as Map<String, dynamic>),
-      allocations: json['allocations'] == null
-          ? null
-          : FractalResponseList<Allocation>.fromJson(
-              json['allocations'] as Map<String, dynamic>),
-      password: json['password'] == null
-          ? null
-          : FractalResponseData<DatabasePassword>.fromJson(
-              json['password'] as Map<String, dynamic>),
-      tasks: json['tasks'] == null
-          ? null
-          : FractalResponseList<ScheduleTask>.fromJson(
-              json['tasks'] as Map<String, dynamic>),
-      host: json['host'] == null
-          ? null
-          : FractalResponseData<DatabaseHost>.fromJson(
-              json['host'] as Map<String, dynamic>),
-      nest: json['nest'] == null
-          ? null
-          : FractalResponseData<Nest>.fromJson(
-              json['nest'] as Map<String, dynamic>),
-      servers: json['servers'] == null
-          ? null
-          : FractalResponseList<Server>.fromJson(
-              json['servers'] as Map<String, dynamic>),
-      variables: json['variables'] == null
-          ? null
-          : FractalResponseList<EggVariable>.fromJson(
-              json['variables'] as Map<String, dynamic>),
+_$_DatabasePasswordRelationships _$$_DatabasePasswordRelationshipsFromJson(
+        Map<String, dynamic> json) =>
+    _$_DatabasePasswordRelationships(
+      password: FractalResponseData<DatabasePassword>.fromJson(
+          json['password'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$_DatabasePasswordRelationshipsToJson(
+        _$_DatabasePasswordRelationships instance) =>
+    <String, dynamic>{
+      'password': instance.password.toJson(),
+    };
+
+_$_ServerRelationships _$$_ServerRelationshipsFromJson(
+        Map<String, dynamic> json) =>
+    _$_ServerRelationships(
+      allocations: FractalResponseList<Allocation>.fromJson(
+          json['allocations'] as Map<String, dynamic>),
+      variables: FractalResponseList<EggVariable>.fromJson(
+          json['variables'] as Map<String, dynamic>),
       egg: json['egg'] == null
           ? null
           : FractalResponseData<Egg>.fromJson(
@@ -50,16 +36,24 @@ Relationships _$RelationshipsFromJson(Map<String, dynamic> json) =>
               json['subusers'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$RelationshipsToJson(Relationships instance) =>
+Map<String, dynamic> _$$_ServerRelationshipsToJson(
+        _$_ServerRelationships instance) =>
     <String, dynamic>{
-      'databases': instance.databases?.toJson(),
-      'allocations': instance.allocations?.toJson(),
-      'password': instance.password?.toJson(),
-      'tasks': instance.tasks?.toJson(),
-      'host': instance.host?.toJson(),
-      'nest': instance.nest?.toJson(),
-      'servers': instance.servers?.toJson(),
-      'variables': instance.variables?.toJson(),
-      'subusers': instance.subusers?.toJson(),
+      'allocations': instance.allocations.toJson(),
+      'variables': instance.variables.toJson(),
       'egg': instance.egg?.toJson(),
+      'subusers': instance.subusers?.toJson(),
+    };
+
+_$_ServerScheduleRelationships _$$_ServerScheduleRelationshipsFromJson(
+        Map<String, dynamic> json) =>
+    _$_ServerScheduleRelationships(
+      tasks: FractalResponseList<ScheduleTask>.fromJson(
+          json['tasks'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$_ServerScheduleRelationshipsToJson(
+        _$_ServerScheduleRelationships instance) =>
+    <String, dynamic>{
+      'tasks': instance.tasks.toJson(),
     };

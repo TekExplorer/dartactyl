@@ -1,15 +1,17 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/egg/egg_startup_config.freezed.dart';
 part '../../generated/models/egg/egg_startup_config.g.dart';
 
-@JsonSerializable()
-class EggStartupConfig {
-  String done;
-  EggStartupConfig({
-    required this.done,
-  });
+@freezed
+class EggStartupConfig with _$EggStartupConfig {
+  EggStartupConfig._();
+
+  factory EggStartupConfig({required String done}) = _EggStartupConfig;
+
   factory EggStartupConfig.fromJson(JsonMap json) =>
       _$EggStartupConfigFromJson(json);
-  JsonMap toJson() => _$EggStartupConfigToJson(this);
+  @override
+  JsonMap toJson();
 }

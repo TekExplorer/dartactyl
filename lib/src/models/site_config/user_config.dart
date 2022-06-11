@@ -1,44 +1,25 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/site_config/user_config.freezed.dart';
 part '../../generated/models/site_config/user_config.g.dart';
 
-@JsonSerializable()
-class UserConfig {
-  final String uuid;
-  final String username;
-  final String email;
-  final String language;
-  @JsonKey(name: 'root_admin')
-  final bool rootAdmin;
-  @JsonKey(name: 'use_totp')
-  final bool useTotp;
-  final bool gravatar;
-  @JsonKey(name: 'created_at')
-  final String createdAt;
-  @JsonKey(name: 'updated_at')
-  final String updatedAt;
-
-  @JsonKey(name: 'name_first')
-  final String nameFirst;
-  @JsonKey(name: 'name_last')
-  final String nameLast;
-
-  UserConfig({
-    required this.uuid,
-    required this.username,
-    required this.email,
-    required this.nameFirst,
-    required this.nameLast,
-    required this.language,
-    required this.rootAdmin,
-    required this.useTotp,
-    required this.gravatar,
-    required this.createdAt,
-    required this.updatedAt,
-  });
-
-  JsonMap toJson() => _$UserConfigToJson(this);
+@freezed
+class UserConfig with _$UserConfig {
+  UserConfig._();
+  factory UserConfig({
+    required final String uuid,
+    required final String username,
+    required final String email,
+    required final String language,
+    required final bool rootAdmin,
+    required final bool useTotp,
+    required final bool gravatar,
+    required final String createdAt,
+    required final String updatedAt,
+    required final String nameFirst,
+    required final String nameLast,
+  }) = _UserConfig;
 
   factory UserConfig.fromJson(JsonMap map) => _$UserConfigFromJson(map);
 }

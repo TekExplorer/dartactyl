@@ -6,10 +6,10 @@ part of '../../../models/request_models/server_rename.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Rename _$RenameFromJson(Map<String, dynamic> json) => Rename(
+_$_Rename _$$_RenameFromJson(Map<String, dynamic> json) => _$_Rename(
       name: json['name'] as String,
     );
 
-Map<String, dynamic> _$RenameToJson(Rename instance) => <String, dynamic>{
+Map<String, dynamic> _$$_RenameToJson(_$_Rename instance) => <String, dynamic>{
       'name': instance.name,
     };

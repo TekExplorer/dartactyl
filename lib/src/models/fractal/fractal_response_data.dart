@@ -1,28 +1,55 @@
 import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 import '/models.dart';
+import 'meta_converter.dart';
 
 part '../../generated/models/fractal/fractal_response_data.g.dart';
 
 @JsonSerializable()
 class FractalResponseData<T extends SerializableMixin> {
-  AttributeObject object;
-  @JsonKey(fromJson: _fromGenericJson, toJson: _toGenericJson)
-  T attributes;
-  Meta? meta;
-  FractalResponseData({
+  final AttributeObject object;
+  @AttributesConverter()
+  final T attributes;
+
+  const FractalResponseData({
     required this.object,
     required this.attributes,
-    this.meta,
   });
 
   JsonMap toJson() => _$FractalResponseDataToJson<T>(this);
 
   factory FractalResponseData.fromJson(JsonMap json) =>
       _$FractalResponseDataFromJson(json);
+}
 
-  static T _fromGenericJson<T>(JsonMap json) {
+@JsonSerializable()
+class FractalResponseDataMeta<T extends SerializableMixin, M extends Meta>
+    extends FractalResponseData<T> {
+  @MetaConverter()
+  final M meta;
+
+  const FractalResponseDataMeta({
+    required AttributeObject object,
+    required T attributes,
+    required this.meta,
+  }) : super(object: object, attributes: attributes);
+
+  @override
+  JsonMap toJson() => _$FractalResponseDataMetaToJson<T, M>(this);
+
+  factory FractalResponseDataMeta.fromJson(JsonMap json) =>
+      _$FractalResponseDataMetaFromJson(json);
+}
+
+@protected
+class AttributesConverter<T extends SerializableMixin>
+    implements JsonConverter<T, JsonMap> {
+  const AttributesConverter();
+
+  @override
+  T fromJson(JsonMap json) {
     switch (T) {
       case Server:
         return Server.fromJson(json) as T;
@@ -62,24 +89,17 @@ class FractalResponseData<T extends SerializableMixin> {
         return DatabasePassword.fromJson(json) as T;
       case Databases:
         return Databases.fromJson(json) as T;
-      case DatabaseHost:
-        return DatabaseHost.fromJson(json) as T;
       case Nest:
         return Nest.fromJson(json) as T;
       case Egg:
         return Egg.fromJson(json) as T;
       default:
-        throw Exception(
-            "Incompatible type used in FractalResponseData.attributes.fromJson: $T");
+        throw ArgumentError(
+          "Incompatible type used in FractalResponseData.fromJson: $T",
+        );
     }
   }
 
-  static JsonMap _toGenericJson<T>(T value) {
-    if (value is SerializableMixin) {
-      return value.toJson();
-    } else {
-      throw Exception(
-          "Incompatible type used in FractalResponseData.attributes.toJson: $T");
-    }
-  }
+  @override
+  JsonMap toJson(T object) => object.toJson();
 }

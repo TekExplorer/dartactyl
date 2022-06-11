@@ -1,22 +1,21 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/main_models/cron.freezed.dart';
 part '../../generated/models/main_models/cron.g.dart';
 
-@JsonSerializable()
-class Cron {
-  String? name; // exists?
-  String dayOfWeek;
-  String dayOfMonth;
-  String hour;
-  String minute;
-  Cron({
-    this.name,
-    required this.dayOfWeek,
-    required this.dayOfMonth,
-    required this.hour,
-    required this.minute,
-  });
+@freezed
+class Cron with _$Cron {
+  factory Cron({
+    String? name, // exists?
+    required String dayOfWeek,
+    required String dayOfMonth,
+    required String hour,
+    required String minute,
+  }) = _Cron;
+
   factory Cron.fromJson(JsonMap json) => _$CronFromJson(json);
-  JsonMap toJson() => _$CronToJson(this);
+  Cron._();
+  @override
+  JsonMap toJson();
 }

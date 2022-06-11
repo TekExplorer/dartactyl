@@ -1,29 +1,25 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/main_models/egg_variable.freezed.dart';
 part '../../generated/models/main_models/egg_variable.g.dart';
 
-@JsonSerializable()
-class EggVariable with SerializableMixin {
-  String name;
-  String description;
-  String envVariable;
-  String defaultValue;
-  String? serverValue;
-  bool isEditable;
-  String rules;
-  EggVariable({
-    required this.name,
-    required this.description,
-    required this.envVariable,
-    required this.defaultValue,
-    this.serverValue,
-    required this.isEditable,
-    required this.rules,
-  });
+@freezed
+class EggVariable with SerializableMixin, _$EggVariable {
+  factory EggVariable({
+    required String name,
+    required String description,
+    required String envVariable,
+    required String defaultValue,
+    String? serverValue,
+    required bool isEditable,
+    required String rules,
+  }) = _EggVariable;
   factory EggVariable.fromJson(JsonMap json) => _$EggVariableFromJson(json);
+
+  EggVariable._();
   @override
-  JsonMap toJson() => _$EggVariableToJson(this);
+  JsonMap toJson();
 }

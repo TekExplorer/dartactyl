@@ -1,29 +1,25 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/main_models/nest.freezed.dart';
 part '../../generated/models/main_models/nest.g.dart';
 
-@JsonSerializable()
-class Nest with SerializableMixin {
-  int id;
-  String uuid;
-  String author;
-  String name;
-  String? description;
-  DateTime createdAt;
-  DateTime updatedAt;
-  Nest({
-    required this.id,
-    required this.uuid,
-    required this.author,
-    required this.name,
-    this.description,
-    required this.createdAt,
-    required this.updatedAt,
-  });
+@freezed
+class Nest with SerializableMixin, _$Nest {
+  factory Nest({
+    required int id,
+    required String uuid,
+    required String author,
+    required String name,
+    String? description,
+    required DateTime createdAt,
+    required DateTime updatedAt,
+  }) = _Nest;
   factory Nest.fromJson(JsonMap json) => _$NestFromJson(json);
+
+  Nest._();
   @override
-  JsonMap toJson() => _$NestToJson(this);
+  JsonMap toJson();
 }

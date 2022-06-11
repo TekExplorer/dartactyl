@@ -6,12 +6,12 @@ part of '../../../models/main_models/database_password.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-DatabasePassword _$DatabasePasswordFromJson(Map<String, dynamic> json) =>
-    DatabasePassword(
+_$_DatabasePassword _$$_DatabasePasswordFromJson(Map<String, dynamic> json) =>
+    _$_DatabasePassword(
       password: json['password'] as String,
     );
 
-Map<String, dynamic> _$DatabasePasswordToJson(DatabasePassword instance) =>
+Map<String, dynamic> _$$_DatabasePasswordToJson(_$_DatabasePassword instance) =>
     <String, dynamic>{
       'password': instance.password,
     };

@@ -1,19 +1,16 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/request_models/create_server_database.freezed.dart';
 part '../../generated/models/request_models/create_server_database.g.dart';
 
-@JsonSerializable()
-class CreateServerDatabase {
-  String database;
-  String remote;
-
-  CreateServerDatabase({
-    required this.database,
-    required this.remote,
-  });
+@freezed
+class CreateServerDatabase with _$CreateServerDatabase {
+  factory CreateServerDatabase({
+    required String database,
+    required String remote,
+  }) = _CreateServerDatabase;
 
   factory CreateServerDatabase.fromJson(JsonMap json) =>
       _$CreateServerDatabaseFromJson(json);
-  JsonMap toJson() => _$CreateServerDatabaseToJson(this);
 }

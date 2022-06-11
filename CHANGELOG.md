@@ -1,5 +1,63 @@
 # CHANGELOG
+## 1.4.0-dev.18
+ - Updated models so that `listdockerImages` actually works
 
+## 1.4.0-dev.17
+ - Add `listDockerImages` convenience method
+
+## 1.4.0-dev.16
+ - Fix the error handler
+ 
+## 1.4.0-dev.15
+ - Fix Pterodactyl v1.7 support
+ - Fix Websocket registerListeners not supporting multiple registrations
+ 
+## 1.4.0-dev.14
+ - Add Pterodactyl v1.8 support
+
+## 1.4.0-dev.13
+ - Add websocket handler `ServerWebsocketCubit` and websocket convenience class `ServerWebsocketHandler`
+
+## 1.4.0-dev.12
+ - Fix `deleteFiles` 
+
+## 1.4.0-dev.11
+ - Maybe fix `writeFile` and `FractalResponseList`
+
+## 1.4.0-dev.10
+ - Fix FileObject
+
+## 1.4.0-dev.9
+ - Remove origin header
+
+## 1.4.0-dev.8
+ - `createApiKey` now includes the token secret
+
+## 1.4.0-dev.7
+ - Fix `ApiKey` model to make last_used_at nullable
+
+## 1.4.0-dev.6
+ - Fix `ServerFeatureLimits`
+
+## 1.4.0-dev.5
+ - Forget it. Separate classes it is.
+## 1.4.0-dev.4
+
+ - `FileListConverter` was the previous bug. still not working. just gonna throw `UnimplementedError` for now
+## 1.4.0-dev.3
+ - Another minor bug that hardly needs mentioning
+   - A JsonConverter was being used wrong
+
+## 1.4.0-dev.2
+ - Type related bug... `PteroData` needed to require `SerializableMixin`, so `SerializableMixen` needed to be on `WebsocketDetails` 
+## 1.4.0-dev.1
+ - Accedentally made `FractalServer.server` no longer work. Fixed now.
+## 1.4.0-dev.0
+ - Make all models `@freezed` where possible
+ - Add annotations to better represent certain things
+ - Adjust some models (like `Server`) to better represent the api
+ - Make `Meta` into multiple classes to enforce typed responses
+ - Make `Meta` only show where it should, and made it non-nullable.
 
 ## 1.3.9-dev.0
 

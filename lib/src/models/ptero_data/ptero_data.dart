@@ -1,21 +1,25 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models.dart';
 
+part '../../generated/models/ptero_data/ptero_data.freezed.dart';
 part '../../generated/models/ptero_data/ptero_data.g.dart';
 
-@JsonSerializable()
-class PteroData<T> {
-  @JsonKey(fromJson: _fromGenericJson, toJson: _toGenericJson)
-  T data; // Websocket and TwoFactorImage
-  PteroData({required this.data});
+@freezed
+class PteroData<T extends SerializableMixin> with _$PteroData<T> {
+  // Websocket and TwoFactorImage
+  factory PteroData({@PteroDataConverter() required T data}) = _PteroData<T>;
 
-  factory PteroData.fromJson(JsonMap json) => _$PteroDataFromJson(json);
+  factory PteroData.fromJson(JsonMap json) => _$PteroDataFromJson<T>(json);
+}
 
-  JsonMap toJson() => _$PteroDataToJson(this);
+class PteroDataConverter<T extends SerializableMixin>
+    implements JsonConverter<T, JsonMap> {
+  const PteroDataConverter();
 
-  static T _fromGenericJson<T>(JsonMap json) {
+  @override
+  T fromJson(JsonMap json) {
     switch (T) {
       case WebsocketDetails:
         return WebsocketDetails.fromJson(json) as T;
@@ -27,12 +31,6 @@ class PteroData<T> {
     }
   }
 
-  static JsonMap _toGenericJson<T>(T value) {
-    if (value is SerializableMixin) {
-      return value.toJson();
-    } else {
-      throw Exception(
-          "Incompatible type used in PteroData.attributes.toJson: $T");
-    }
-  }
+  @override
+  JsonMap toJson(T object) => object.toJson();
 }

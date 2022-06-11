@@ -6,15 +6,15 @@ part of '../../../models/permission_keys/startup_permission_keys.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-StartupPermissionKeys _$StartupPermissionKeysFromJson(
+_$_StartupPermissionKeys _$$_StartupPermissionKeysFromJson(
         Map<String, dynamic> json) =>
-    StartupPermissionKeys(
+    _$_StartupPermissionKeys(
       read: json['read'] as String,
       update: json['update'] as String,
     );
 
-Map<String, dynamic> _$StartupPermissionKeysToJson(
-        StartupPermissionKeys instance) =>
+Map<String, dynamic> _$$_StartupPermissionKeysToJson(
+        _$_StartupPermissionKeys instance) =>
     <String, dynamic>{
       'read': instance.read,
       'update': instance.update,

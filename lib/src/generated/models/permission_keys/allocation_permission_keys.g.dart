@@ -6,17 +6,17 @@ part of '../../../models/permission_keys/allocation_permission_keys.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-AllocationPermissionKeys _$AllocationPermissionKeysFromJson(
+_$_AllocationPermissionKeys _$$_AllocationPermissionKeysFromJson(
         Map<String, dynamic> json) =>
-    AllocationPermissionKeys(
+    _$_AllocationPermissionKeys(
       read: json['read'] as String,
       create: json['create'] as String,
       update: json['update'] as String,
       delete: json['delete'] as String,
     );
 
-Map<String, dynamic> _$AllocationPermissionKeysToJson(
-        AllocationPermissionKeys instance) =>
+Map<String, dynamic> _$$_AllocationPermissionKeysToJson(
+        _$_AllocationPermissionKeys instance) =>
     <String, dynamic>{
       'read': instance.read,
       'create': instance.create,

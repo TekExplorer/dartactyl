@@ -2,50 +2,41 @@ import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../../models.dart';
+import 'meta_converter.dart';
 
 part '../../generated/models/fractal/fractal_response_list.g.dart';
 
-@JsonSerializable(createFactory: false)
+@JsonSerializable()
 class FractalResponseList<T extends SerializableMixin> {
-  AttributeObject object;
-  // @JsonKey(fromJson: _fromGenericJsonList)
-  List<FractalResponseData<T>> data;
-  Meta? meta;
-  FractalResponseList({
+  final AttributeObject object;
+  @AttributesConverter()
+  final List<FractalResponseData<T>> data;
+
+  const FractalResponseList({
     required this.object,
-    this.meta,
-    required this.data,
+    this.data = const [],
   });
 
-  factory FractalResponseList.fromJson(JsonMap json) {
-    return FractalResponseList<T>(
-      object: $enumDecode(_$AttributeObjectEnumMap, json['object']),
-      meta:
-          json['meta'] == null ? null : Meta.fromJson(json['meta'] as JsonMap),
-      // null_resource is annoying
-      data: FractalResponseList._fromGenericJsonList<T>(json['data'] as List?),
-    );
-  }
+  factory FractalResponseList.fromJson(JsonMap json) =>
+      _$FractalResponseListFromJson(json);
 
   JsonMap toJson() => _$FractalResponseListToJson(this);
+}
 
-  // static const String _exceptionMessage =
-  //     "Incompatible type used in FractalResponseList";
+@JsonSerializable()
+class FractalResponseListMeta<T extends SerializableMixin, M extends Meta>
+    extends FractalResponseList<T> {
+  @MetaConverter()
+  final M meta;
+  const FractalResponseListMeta({
+    required AttributeObject object,
+    required List<FractalResponseData<T>> data,
+    required this.meta,
+  }) : super(object: object, data: data);
 
-  static List<Fractal<T>> _fromGenericJsonList<T extends SerializableMixin>(
-      List<dynamic>? data) {
-    if (data == null) {
-      return [];
-    }
-    List<JsonMap> json = data.map((e) => JsonMap.from(e)).toList();
+  factory FractalResponseListMeta.fromJson(JsonMap json) =>
+      _$FractalResponseListMetaFromJson(json);
 
-    var dataList =
-        json.map<Fractal<T>>((json) => Fractal<T>.fromJson(json)).toList();
-
-    return dataList;
-  }
-
-  // static List<JsonMap> _toGenericJsonList<T extends Serializable>(
-  //         List<FractalResponseData<T>> value) =>
-  //     value.map((data) => data.toJson()).toList();
+  @override
+  JsonMap toJson() => _$FractalResponseListMetaToJson(this);
 }

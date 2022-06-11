@@ -1,53 +1,35 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/main_models/node.freezed.dart';
 part '../../generated/models/main_models/node.g.dart';
 
-@JsonSerializable()
-class Node {
-  int id;
-  String uuid;
-  bool public;
-  String name;
-  String description;
-  int locationId;
-  String fqdn;
-  String scheme;
-  bool behindProxy;
-  bool maintenanceMode;
-  int memory;
-  int memoryOverallocate;
-  int disk;
-  int diskOverallocate;
-  int uploadSize;
-  int daemonListen;
-  int daemonSftp;
-  String daemonBase;
-  DateTime createdAt;
-  DateTime updatedAt;
-  Node({
-    required this.id,
-    required this.uuid,
-    required this.public,
-    required this.name,
-    required this.description,
-    required this.locationId,
-    required this.fqdn,
-    required this.scheme,
-    required this.behindProxy,
-    required this.maintenanceMode,
-    required this.memory,
-    required this.memoryOverallocate,
-    required this.disk,
-    required this.diskOverallocate,
-    required this.uploadSize,
-    required this.daemonListen,
-    required this.daemonSftp,
-    required this.daemonBase,
-    required this.createdAt,
-    required this.updatedAt,
-  });
+@freezed
+class Node with _$Node {
+  factory Node({
+    required int id,
+    required String uuid,
+    required bool public,
+    required String name,
+    required String description,
+    required int locationId,
+    required String fqdn,
+    required String scheme,
+    required bool behindProxy,
+    required bool maintenanceMode,
+    required int memory,
+    required int memoryOverallocate,
+    required int disk,
+    required int diskOverallocate,
+    required int uploadSize,
+    required int daemonListen,
+    required int daemonSftp,
+    required String daemonBase,
+    required DateTime createdAt,
+    required DateTime updatedAt,
+  }) = _Node;
 
   factory Node.fromJson(JsonMap json) => _$NodeFromJson(json);
-  JsonMap toJson() => _$NodeToJson(this);
+
+  Node._();
 }
