@@ -35,9 +35,7 @@ _$_StartupMeta _$$_StartupMetaFromJson(Map<String, dynamic> json) =>
     _$_StartupMeta(
       startupCommand: json['startup_command'] as String,
       rawStartupCommand: json['raw_startup_command'] as String,
-      dockerImages: (json['docker_images'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
+      dockerImages: Map<String, String>.from(json['docker_images'] as Map),
     );
 
 Map<String, dynamic> _$$_StartupMetaToJson(_$_StartupMeta instance) =>

@@ -63,7 +63,7 @@ class StartupMeta with _$StartupMeta implements Meta<StartupMeta> {
   factory StartupMeta({
     required String startupCommand,
     required String rawStartupCommand,
-    required List<String> dockerImages,
+    required Map<String, String> dockerImages,
   }) = _StartupMeta;
   factory StartupMeta.fromJson(Map<String, dynamic> json) =>
       _$StartupMetaFromJson(json);

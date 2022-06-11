@@ -1,4 +1,7 @@
 # CHANGELOG
+## 1.4.0-dev.18
+ - Updated models so that `listdockerImages` actually works
+
 ## 1.4.0-dev.17
  - Add `listDockerImages` convenience method
 

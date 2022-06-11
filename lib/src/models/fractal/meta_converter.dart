@@ -18,6 +18,8 @@ class MetaConverter<M extends Meta> implements JsonConverter<M, JsonMap> {
         return ApiKeyMeta.fromJson(json) as M;
       case Meta:
         return Meta.fromJson(json) as M;
+      case StartupMeta:
+        return StartupMeta.fromJson(json) as M;
       default:
         throw UnsupportedError('Meta type $M not supported');
     }
@@ -32,6 +34,8 @@ class MetaConverter<M extends Meta> implements JsonConverter<M, JsonMap> {
         return (object as ServerMeta).toJson();
       case ApiKeyMeta:
         return (object as ApiKeyMeta).toJson();
+      case StartupMeta:
+        return (object as StartupMeta).toJson();
       default:
         return (object).toJson();
     }

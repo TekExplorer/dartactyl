@@ -9,7 +9,8 @@ extension GetDio on PteroClient {
           {required String serverId}) =>
       listVariables(serverId: serverId);
 
-  Future<List<String>> listDockerImages({required String serverId}) async =>
+  Future<Map<String, String>> listDockerImages(
+          {required String serverId}) async =>
       (await getStartup(serverId: serverId)).dockerImages;
 }
 

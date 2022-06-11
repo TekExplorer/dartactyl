@@ -357,7 +357,7 @@ class _$StartupMetaTearOff {
   _StartupMeta call(
       {required String startupCommand,
       required String rawStartupCommand,
-      required List<String> dockerImages}) {
+      required Map<String, String> dockerImages}) {
     return _StartupMeta(
       startupCommand: startupCommand,
       rawStartupCommand: rawStartupCommand,
@@ -377,7 +377,7 @@ const $StartupMeta = _$StartupMetaTearOff();
 mixin _$StartupMeta {
   String get startupCommand => throw _privateConstructorUsedError;
   String get rawStartupCommand => throw _privateConstructorUsedError;
-  List<String> get dockerImages => throw _privateConstructorUsedError;
+  Map<String, String> get dockerImages => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -393,7 +393,7 @@ abstract class $StartupMetaCopyWith<$Res> {
   $Res call(
       {String startupCommand,
       String rawStartupCommand,
-      List<String> dockerImages});
+      Map<String, String> dockerImages});
 }
 
 /// @nodoc
@@ -422,7 +422,7 @@ class _$StartupMetaCopyWithImpl<$Res> implements $StartupMetaCopyWith<$Res> {
       dockerImages: dockerImages == freezed
           ? _value.dockerImages
           : dockerImages // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as Map<String, String>,
     ));
   }
 }
@@ -437,7 +437,7 @@ abstract class _$StartupMetaCopyWith<$Res>
   $Res call(
       {String startupCommand,
       String rawStartupCommand,
-      List<String> dockerImages});
+      Map<String, String> dockerImages});
 }
 
 /// @nodoc
@@ -468,7 +468,7 @@ class __$StartupMetaCopyWithImpl<$Res> extends _$StartupMetaCopyWithImpl<$Res>
       dockerImages: dockerImages == freezed
           ? _value.dockerImages
           : dockerImages // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as Map<String, String>,
     ));
   }
 }
@@ -489,7 +489,7 @@ class _$_StartupMeta implements _StartupMeta {
   @override
   final String rawStartupCommand;
   @override
-  final List<String> dockerImages;
+  final Map<String, String> dockerImages;
 
   @override
   String toString() {
@@ -531,7 +531,7 @@ abstract class _StartupMeta implements StartupMeta {
   factory _StartupMeta(
       {required String startupCommand,
       required String rawStartupCommand,
-      required List<String> dockerImages}) = _$_StartupMeta;
+      required Map<String, String> dockerImages}) = _$_StartupMeta;
 
   factory _StartupMeta.fromJson(Map<String, dynamic> json) =
       _$_StartupMeta.fromJson;
@@ -541,7 +541,7 @@ abstract class _StartupMeta implements StartupMeta {
   @override
   String get rawStartupCommand;
   @override
-  List<String> get dockerImages;
+  Map<String, String> get dockerImages;
   @override
   @JsonKey(ignore: true)
   _$StartupMetaCopyWith<_StartupMeta> get copyWith =>
