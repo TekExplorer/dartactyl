@@ -5,7 +5,7 @@ version: 1.4.0-dev.18
 # homepage: https://www.example.com
 environment:
   sdk: '>=2.14.0 <3.0.0'
- 
+
 dependencies:
   bloc: ^8.0.3
   dio: ^4.0.1
