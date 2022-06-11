@@ -1,4 +1,7 @@
 # CHANGELOG
+## 1.4.0-dev.17
+ - Add `listDockerImages` convenience method
+
 ## 1.4.0-dev.16
  - Fix the error handler
  

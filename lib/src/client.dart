@@ -534,6 +534,7 @@ abstract class PteroClient {
 
   // Startup
   /// Get all [Server] startup variables
+  /// Includes egg docker images, startup script, and the raw startup script
   @GET('/api/client/servers/{serverId}/startup')
   Future<FractalListMeta<EggVariable, StartupMeta>> listVariables({
     @Path() required String serverId,

@@ -8,6 +8,9 @@ extension GetDio on PteroClient {
   Future<FractalListMeta<EggVariable, StartupMeta>> getStartup(
           {required String serverId}) =>
       listVariables(serverId: serverId);
+
+  Future<List<String>> listDockerImages({required String serverId}) async =>
+      (await getStartup(serverId: serverId)).dockerImages;
 }
 
 // I want to turn this into an interceptor, but i dont see how.
