@@ -20,6 +20,7 @@ class PteroError with _$PteroError implements Exception {
 }
 
 enum PteroErrorCode {
+  BadMethodCallException,
   TwoFactorAuthenticationTokenInvalid,
   BadRequestHttpException,
   email,

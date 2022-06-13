@@ -38,8 +38,6 @@ export 'src/models/error_responses/ptero_errors.dart';
 export 'src/models/fractal/attribute_object_enum.dart';
 export 'src/models/fractal/fractal_response_data.dart';
 export 'src/models/fractal/fractal_response_list.dart';
-
-/// Main Models
 export 'src/models/main_models/allocation.dart';
 export 'src/models/main_models/api_key.dart';
 export 'src/models/main_models/backup.dart';
@@ -63,6 +61,9 @@ export 'src/models/main_models/server_schedule.dart';
 export 'src/models/main_models/server_subuser.dart';
 export 'src/models/main_models/shedule_task.dart';
 export 'src/models/main_models/signed_url.dart';
+
+/// Main Models
+export 'src/models/main_models/ssh_key.dart';
 export 'src/models/main_models/stats.dart';
 export 'src/models/main_models/system_permissions.dart';
 export 'src/models/main_models/user.dart';
@@ -90,13 +91,16 @@ export 'src/models/query/includes.dart';
 
 /// Request Models
 export 'src/models/request_models/allocation_note.dart';
+export 'src/models/request_models/chmod_file.dart';
 export 'src/models/request_models/create_api_key.dart';
 export 'src/models/request_models/create_server_database.dart';
+export 'src/models/request_models/create_ssh_key.dart';
 export 'src/models/request_models/disable_two_factor.dart';
 export 'src/models/request_models/file_body.dart';
 export 'src/models/request_models/from_to.dart';
 export 'src/models/request_models/key_value.dart';
 export 'src/models/request_models/make_file_copy.dart';
+export 'src/models/request_models/pull_file_body.dart';
 export 'src/models/request_models/schedule.dart';
 export 'src/models/request_models/send_server_command.dart';
 export 'src/models/request_models/server_rename.dart';

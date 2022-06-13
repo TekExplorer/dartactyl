@@ -21,6 +21,7 @@ Map<String, dynamic> _$$_PteroErrorToJson(_$_PteroError instance) =>
     };
 
 const _$PteroErrorCodeEnumMap = {
+  PteroErrorCode.BadMethodCallException: 'BadMethodCallException',
   PteroErrorCode.TwoFactorAuthenticationTokenInvalid:
       'TwoFactorAuthenticationTokenInvalid',
   PteroErrorCode.BadRequestHttpException: 'BadRequestHttpException',

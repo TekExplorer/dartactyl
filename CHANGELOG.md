@@ -1,4 +1,9 @@
 # CHANGELOG
+## 1.4.0
+ - bump release
+## 1.4.0-dev.19
+ - added `pullFile`, `createSshKey`, `listSshKeys`, and `chmodFile`
+
 ## 1.4.0-dev.18
  - Updated models so that `listdockerImages` actually works
 

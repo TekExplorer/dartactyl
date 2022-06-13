@@ -495,6 +495,42 @@ class MockPteroClient implements PteroClient {
   }) async {
     return;
   }
+
+  @override
+  Future<void> chmodFile(ChmodFileBody data, {required String serverId}) {
+    // TODO: implement chmodFile
+    throw UnimplementedError();
+  }
+
+  @override
+  createSshKey(CreateSshKey data) {
+    // TODO: implement createSshKey
+    throw UnimplementedError();
+  }
+
+  @override
+  deleteSshKey({required String fingerprint}) {
+    // TODO: implement deleteSshKey
+    throw UnimplementedError();
+  }
+
+  @override
+  getAccountActivity() {
+    // TODO: implement getAcountAcvivity
+    throw UnimplementedError();
+  }
+
+  @override
+  listSshKeys() {
+    // TODO: implement listSshKeys
+    throw UnimplementedError();
+  }
+
+  @override
+  Future pullFile(PullFileBody data, {required String serverId}) {
+    // TODO: implement pullFile
+    throw UnimplementedError();
+  }
 }
 
 // I want to turn this into an interceptor, but i dont see how.

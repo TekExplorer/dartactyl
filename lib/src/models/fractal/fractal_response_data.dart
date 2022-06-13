@@ -93,6 +93,8 @@ class AttributesConverter<T extends SerializableMixin>
         return Nest.fromJson(json) as T;
       case Egg:
         return Egg.fromJson(json) as T;
+      case SshKey:
+        return SshKey.fromJson(json) as T;
       default:
         throw ArgumentError(
           "Incompatible type used in FractalResponseData.fromJson: $T",
