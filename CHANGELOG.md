@@ -1,6 +1,8 @@
 # CHANGELOG
 ## 1.4.0
  - bump release
+ ## 1.4.0-dev.20
+ - Fix `CreateSshKey` model
 ## 1.4.0-dev.19
  - added `pullFile`, `createSshKey`, `listSshKeys`, and `chmodFile`
 
