@@ -1,7 +1,12 @@
 # CHANGELOG
 ## 1.4.0
  - bump release
- ## 1.4.0-dev.20
+
+## 1.4.0-dev.21
+ - renames `uploadFile` to `getFileUploadUrl`
+ - adds `ServerStateConflictException` error code and specifies an `UNKNOWN` when not in list
+
+## 1.4.0-dev.20
  - Fix `CreateSshKey` model
 ## 1.4.0-dev.19
  - added `pullFile`, `createSshKey`, `listSshKeys`, and `chmodFile`

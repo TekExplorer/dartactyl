@@ -52,15 +52,15 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
 
   @override
   close() async {
+    await _socket.close();
     // close the specialized streams
     await listeners.closeAllListeners();
     // close the underlying websocket
-    await _socket.close();
     super.close();
   }
 
   /// Creates the listener that makes the individual streams work
-  void init() async {
+  Future<void> init() async {
     if (_isInitialized) return;
     await _connect();
     _configureListeners();

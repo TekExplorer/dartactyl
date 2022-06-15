@@ -267,7 +267,7 @@ class MockPteroClient implements PteroClient {
   }
 
   @override
-  Future<FractalSignedUrl> uploadFile({
+  Future<FractalSignedUrl> getFileUploadUrl({
     required String serverId,
   }) async {
     return FractalSignedUrl.fromJson(json);

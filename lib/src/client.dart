@@ -378,14 +378,14 @@ abstract class PteroClient {
     @Path() required String serverId,
   });
 
-  /// TODO: chmod
+  /// Changes the permissions of a file or folder on the [Server]
   @POST('/api/client/servers/{serverId}/files/chmod')
   Future<void> chmodFile(
     @Body() ChmodFileBody data, {
     @Path() required String serverId,
   });
 
-  /// TODO: pull
+  /// Download a file from a remote url to the [Server] directly
   @POST('/api/client/servers/{serverId}/files/pull')
   Future<void> pullFile(
     @Body() PullFileBody data, {
@@ -394,7 +394,7 @@ abstract class PteroClient {
 
   /// Returns a [SignedUrl] used to upload files to the [Server] using POST
   @GET('/api/client/servers/{serverId}/files/upload')
-  Future<Fractal<SignedUrl>> uploadFile({
+  Future<Fractal<SignedUrl>> getFileUploadUrl({
     @Path() required String serverId,
   });
 

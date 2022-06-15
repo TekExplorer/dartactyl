@@ -8,7 +8,8 @@ part of '../../../models/error_responses/ptero_error.dart';
 
 _$_PteroError _$$_PteroErrorFromJson(Map<String, dynamic> json) =>
     _$_PteroError(
-      code: $enumDecode(_$PteroErrorCodeEnumMap, json['code']),
+      code: $enumDecode(_$PteroErrorCodeEnumMap, json['code'],
+          unknownValue: PteroErrorCode.UNKNOWN),
       status: json['status'] as String,
       detail: json['detail'] as String,
     );
@@ -36,4 +37,6 @@ const _$PteroErrorCodeEnumMap = {
   PteroErrorCode.AuthenticationException: 'AuthenticationException',
   PteroErrorCode.DaemonConnectionException: 'DaemonConnectionException',
   PteroErrorCode.ValidationException: 'ValidationException',
+  PteroErrorCode.ServerStateConflictException: 'ServerStateConflictException',
+  PteroErrorCode.UNKNOWN: 'UNKNOWN',
 };

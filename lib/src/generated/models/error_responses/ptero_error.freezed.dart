@@ -23,7 +23,8 @@ class _$PteroErrorTearOff {
   const _$PteroErrorTearOff();
 
   _PteroError call(
-      {required PteroErrorCode code,
+      {@JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
+          required PteroErrorCode code,
       required String status,
       required String detail}) {
     return _PteroError(
@@ -43,6 +44,7 @@ const $PteroError = _$PteroErrorTearOff();
 
 /// @nodoc
 mixin _$PteroError {
+  @JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
   PteroErrorCode get code => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
   String get detail => throw _privateConstructorUsedError;
@@ -58,7 +60,10 @@ abstract class $PteroErrorCopyWith<$Res> {
   factory $PteroErrorCopyWith(
           PteroError value, $Res Function(PteroError) then) =
       _$PteroErrorCopyWithImpl<$Res>;
-  $Res call({PteroErrorCode code, String status, String detail});
+  $Res call(
+      {@JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN) PteroErrorCode code,
+      String status,
+      String detail});
 }
 
 /// @nodoc
@@ -98,7 +103,10 @@ abstract class _$PteroErrorCopyWith<$Res> implements $PteroErrorCopyWith<$Res> {
           _PteroError value, $Res Function(_PteroError) then) =
       __$PteroErrorCopyWithImpl<$Res>;
   @override
-  $Res call({PteroErrorCode code, String status, String detail});
+  $Res call(
+      {@JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN) PteroErrorCode code,
+      String status,
+      String detail});
 }
 
 /// @nodoc
@@ -138,13 +146,16 @@ class __$PteroErrorCopyWithImpl<$Res> extends _$PteroErrorCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PteroError extends _PteroError {
   _$_PteroError(
-      {required this.code, required this.status, required this.detail})
+      {@JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN) required this.code,
+      required this.status,
+      required this.detail})
       : super._();
 
   factory _$_PteroError.fromJson(Map<String, dynamic> json) =>
       _$$_PteroErrorFromJson(json);
 
   @override
+  @JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
   final PteroErrorCode code;
   @override
   final String status;
@@ -186,7 +197,8 @@ class _$_PteroError extends _PteroError {
 
 abstract class _PteroError extends PteroError {
   factory _PteroError(
-      {required PteroErrorCode code,
+      {@JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
+          required PteroErrorCode code,
       required String status,
       required String detail}) = _$_PteroError;
   _PteroError._() : super._();
@@ -195,6 +207,7 @@ abstract class _PteroError extends PteroError {
       _$_PteroError.fromJson;
 
   @override
+  @JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
   PteroErrorCode get code;
   @override
   String get status;

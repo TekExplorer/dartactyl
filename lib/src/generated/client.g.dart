@@ -644,7 +644,8 @@ class _PteroClient implements PteroClient {
   }
 
   @override
-  Future<FractalResponseData<SignedUrl>> uploadFile({required serverId}) async {
+  Future<FractalResponseData<SignedUrl>> getFileUploadUrl(
+      {required serverId}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
