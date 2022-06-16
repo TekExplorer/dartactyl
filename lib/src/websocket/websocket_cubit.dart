@@ -42,8 +42,15 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
   ServerWebsocketCubit({
     required this.client,
     required this.serverId,
+    bool autoInitialize = true,
   }) : super(const WebsocketState.initial()) {
-    init();
+    if (autoInitialize) init();
+  }
+
+  @override
+  void emit(state) {
+    if (isClosed) return;
+    super.emit(state);
   }
 
   @experimental
@@ -52,7 +59,7 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
 
   @override
   close() async {
-    await _socket.close();
+    await _socket.close(WebSocketStatus.normalClosure);
     // close the specialized streams
     await listeners.closeAllListeners();
     // close the underlying websocket

@@ -1,6 +1,7 @@
 # CHANGELOG
 ## 1.4.0
  - bump release
+ - fixed an issue with the websocket cubit trying to emit new states after its closed
 
 ## 1.4.0-dev.21
  - renames `uploadFile` to `getFileUploadUrl`
