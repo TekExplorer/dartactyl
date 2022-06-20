@@ -531,6 +531,13 @@ class MockPteroClient implements PteroClient {
     // TODO: implement pullFile
     throw UnimplementedError();
   }
+
+  @override
+  Future<Fractal<Backup>> lockBackup(
+      {required String serverId, required String backupId}) {
+    // TODO: implement lockBackup
+    throw UnimplementedError();
+  }
 }
 
 // I want to turn this into an interceptor, but i dont see how.
