@@ -12,68 +12,11 @@ part of '../../../models/main_models/node.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Node _$NodeFromJson(Map<String, dynamic> json) {
   return _Node.fromJson(json);
 }
-
-/// @nodoc
-class _$NodeTearOff {
-  const _$NodeTearOff();
-
-  _Node call(
-      {required int id,
-      required String uuid,
-      required bool public,
-      required String name,
-      required String description,
-      required int locationId,
-      required String fqdn,
-      required String scheme,
-      required bool behindProxy,
-      required bool maintenanceMode,
-      required int memory,
-      required int memoryOverallocate,
-      required int disk,
-      required int diskOverallocate,
-      required int uploadSize,
-      required int daemonListen,
-      required int daemonSftp,
-      required String daemonBase,
-      required DateTime createdAt,
-      required DateTime updatedAt}) {
-    return _Node(
-      id: id,
-      uuid: uuid,
-      public: public,
-      name: name,
-      description: description,
-      locationId: locationId,
-      fqdn: fqdn,
-      scheme: scheme,
-      behindProxy: behindProxy,
-      maintenanceMode: maintenanceMode,
-      memory: memory,
-      memoryOverallocate: memoryOverallocate,
-      disk: disk,
-      diskOverallocate: diskOverallocate,
-      uploadSize: uploadSize,
-      daemonListen: daemonListen,
-      daemonSftp: daemonSftp,
-      daemonBase: daemonBase,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-    );
-  }
-
-  Node fromJson(Map<String, Object?> json) {
-    return Node.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Node = _$NodeTearOff();
 
 /// @nodoc
 mixin _$Node {
@@ -247,9 +190,9 @@ class _$NodeCopyWithImpl<$Res> implements $NodeCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$NodeCopyWith<$Res> implements $NodeCopyWith<$Res> {
-  factory _$NodeCopyWith(_Node value, $Res Function(_Node) then) =
-      __$NodeCopyWithImpl<$Res>;
+abstract class _$$_NodeCopyWith<$Res> implements $NodeCopyWith<$Res> {
+  factory _$$_NodeCopyWith(_$_Node value, $Res Function(_$_Node) then) =
+      __$$_NodeCopyWithImpl<$Res>;
   @override
   $Res call(
       {int id,
@@ -275,13 +218,13 @@ abstract class _$NodeCopyWith<$Res> implements $NodeCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$NodeCopyWithImpl<$Res> extends _$NodeCopyWithImpl<$Res>
-    implements _$NodeCopyWith<$Res> {
-  __$NodeCopyWithImpl(_Node _value, $Res Function(_Node) _then)
-      : super(_value, (v) => _then(v as _Node));
+class __$$_NodeCopyWithImpl<$Res> extends _$NodeCopyWithImpl<$Res>
+    implements _$$_NodeCopyWith<$Res> {
+  __$$_NodeCopyWithImpl(_$_Node _value, $Res Function(_$_Node) _then)
+      : super(_value, (v) => _then(v as _$_Node));
 
   @override
-  _Node get _value => super._value as _Node;
+  _$_Node get _value => super._value as _$_Node;
 
   @override
   $Res call({
@@ -306,7 +249,7 @@ class __$NodeCopyWithImpl<$Res> extends _$NodeCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_Node(
+    return _then(_$_Node(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -469,7 +412,7 @@ class _$_Node extends _Node {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Node &&
+            other is _$_Node &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.uuid, uuid) &&
             const DeepCollectionEquality().equals(other.public, public) &&
@@ -502,6 +445,7 @@ class _$_Node extends _Node {
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -529,8 +473,8 @@ class _$_Node extends _Node {
 
   @JsonKey(ignore: true)
   @override
-  _$NodeCopyWith<_Node> get copyWith =>
-      __$NodeCopyWithImpl<_Node>(this, _$identity);
+  _$$_NodeCopyWith<_$_Node> get copyWith =>
+      __$$_NodeCopyWithImpl<_$_Node>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -540,71 +484,71 @@ class _$_Node extends _Node {
 
 abstract class _Node extends Node {
   factory _Node(
-      {required int id,
-      required String uuid,
-      required bool public,
-      required String name,
-      required String description,
-      required int locationId,
-      required String fqdn,
-      required String scheme,
-      required bool behindProxy,
-      required bool maintenanceMode,
-      required int memory,
-      required int memoryOverallocate,
-      required int disk,
-      required int diskOverallocate,
-      required int uploadSize,
-      required int daemonListen,
-      required int daemonSftp,
-      required String daemonBase,
-      required DateTime createdAt,
-      required DateTime updatedAt}) = _$_Node;
+      {required final int id,
+      required final String uuid,
+      required final bool public,
+      required final String name,
+      required final String description,
+      required final int locationId,
+      required final String fqdn,
+      required final String scheme,
+      required final bool behindProxy,
+      required final bool maintenanceMode,
+      required final int memory,
+      required final int memoryOverallocate,
+      required final int disk,
+      required final int diskOverallocate,
+      required final int uploadSize,
+      required final int daemonListen,
+      required final int daemonSftp,
+      required final String daemonBase,
+      required final DateTime createdAt,
+      required final DateTime updatedAt}) = _$_Node;
   _Node._() : super._();
 
   factory _Node.fromJson(Map<String, dynamic> json) = _$_Node.fromJson;
 
   @override
-  int get id;
+  int get id => throw _privateConstructorUsedError;
   @override
-  String get uuid;
+  String get uuid => throw _privateConstructorUsedError;
   @override
-  bool get public;
+  bool get public => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  int get locationId;
+  int get locationId => throw _privateConstructorUsedError;
   @override
-  String get fqdn;
+  String get fqdn => throw _privateConstructorUsedError;
   @override
-  String get scheme;
+  String get scheme => throw _privateConstructorUsedError;
   @override
-  bool get behindProxy;
+  bool get behindProxy => throw _privateConstructorUsedError;
   @override
-  bool get maintenanceMode;
+  bool get maintenanceMode => throw _privateConstructorUsedError;
   @override
-  int get memory;
+  int get memory => throw _privateConstructorUsedError;
   @override
-  int get memoryOverallocate;
+  int get memoryOverallocate => throw _privateConstructorUsedError;
   @override
-  int get disk;
+  int get disk => throw _privateConstructorUsedError;
   @override
-  int get diskOverallocate;
+  int get diskOverallocate => throw _privateConstructorUsedError;
   @override
-  int get uploadSize;
+  int get uploadSize => throw _privateConstructorUsedError;
   @override
-  int get daemonListen;
+  int get daemonListen => throw _privateConstructorUsedError;
   @override
-  int get daemonSftp;
+  int get daemonSftp => throw _privateConstructorUsedError;
   @override
-  String get daemonBase;
+  String get daemonBase => throw _privateConstructorUsedError;
   @override
-  DateTime get createdAt;
+  DateTime get createdAt => throw _privateConstructorUsedError;
   @override
-  DateTime get updatedAt;
+  DateTime get updatedAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$NodeCopyWith<_Node> get copyWith => throw _privateConstructorUsedError;
+  _$$_NodeCopyWith<_$_Node> get copyWith => throw _privateConstructorUsedError;
 }

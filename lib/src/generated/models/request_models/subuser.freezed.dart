@@ -12,30 +12,11 @@ part of '../../../models/request_models/subuser.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Subuser _$SubuserFromJson(Map<String, dynamic> json) {
   return _Subuser.fromJson(json);
 }
-
-/// @nodoc
-class _$SubuserTearOff {
-  const _$SubuserTearOff();
-
-  _Subuser call({required String email, required List<String> permissions}) {
-    return _Subuser(
-      email: email,
-      permissions: permissions,
-    );
-  }
-
-  Subuser fromJson(Map<String, Object?> json) {
-    return Subuser.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Subuser = _$SubuserTearOff();
 
 /// @nodoc
 mixin _$Subuser {
@@ -81,34 +62,35 @@ class _$SubuserCopyWithImpl<$Res> implements $SubuserCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$SubuserCopyWith<$Res> implements $SubuserCopyWith<$Res> {
-  factory _$SubuserCopyWith(_Subuser value, $Res Function(_Subuser) then) =
-      __$SubuserCopyWithImpl<$Res>;
+abstract class _$$_SubuserCopyWith<$Res> implements $SubuserCopyWith<$Res> {
+  factory _$$_SubuserCopyWith(
+          _$_Subuser value, $Res Function(_$_Subuser) then) =
+      __$$_SubuserCopyWithImpl<$Res>;
   @override
   $Res call({String email, List<String> permissions});
 }
 
 /// @nodoc
-class __$SubuserCopyWithImpl<$Res> extends _$SubuserCopyWithImpl<$Res>
-    implements _$SubuserCopyWith<$Res> {
-  __$SubuserCopyWithImpl(_Subuser _value, $Res Function(_Subuser) _then)
-      : super(_value, (v) => _then(v as _Subuser));
+class __$$_SubuserCopyWithImpl<$Res> extends _$SubuserCopyWithImpl<$Res>
+    implements _$$_SubuserCopyWith<$Res> {
+  __$$_SubuserCopyWithImpl(_$_Subuser _value, $Res Function(_$_Subuser) _then)
+      : super(_value, (v) => _then(v as _$_Subuser));
 
   @override
-  _Subuser get _value => super._value as _Subuser;
+  _$_Subuser get _value => super._value as _$_Subuser;
 
   @override
   $Res call({
     Object? email = freezed,
     Object? permissions = freezed,
   }) {
-    return _then(_Subuser(
+    return _then(_$_Subuser(
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
       permissions: permissions == freezed
-          ? _value.permissions
+          ? _value._permissions
           : permissions // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
@@ -118,15 +100,20 @@ class __$SubuserCopyWithImpl<$Res> extends _$SubuserCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Subuser implements _Subuser {
-  _$_Subuser({required this.email, required this.permissions});
+  _$_Subuser({required this.email, required final List<String> permissions})
+      : _permissions = permissions;
 
   factory _$_Subuser.fromJson(Map<String, dynamic> json) =>
       _$$_SubuserFromJson(json);
 
   @override
   final String email;
+  final List<String> _permissions;
   @override
-  final List<String> permissions;
+  List<String> get permissions {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_permissions);
+  }
 
   @override
   String toString() {
@@ -137,22 +124,23 @@ class _$_Subuser implements _Subuser {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Subuser &&
+            other is _$_Subuser &&
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality()
-                .equals(other.permissions, permissions));
+                .equals(other._permissions, _permissions));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(permissions));
+      const DeepCollectionEquality().hash(_permissions));
 
   @JsonKey(ignore: true)
   @override
-  _$SubuserCopyWith<_Subuser> get copyWith =>
-      __$SubuserCopyWithImpl<_Subuser>(this, _$identity);
+  _$$_SubuserCopyWith<_$_Subuser> get copyWith =>
+      __$$_SubuserCopyWithImpl<_$_Subuser>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -161,42 +149,25 @@ class _$_Subuser implements _Subuser {
 }
 
 abstract class _Subuser implements Subuser {
-  factory _Subuser({required String email, required List<String> permissions}) =
-      _$_Subuser;
+  factory _Subuser(
+      {required final String email,
+      required final List<String> permissions}) = _$_Subuser;
 
   factory _Subuser.fromJson(Map<String, dynamic> json) = _$_Subuser.fromJson;
 
   @override
-  String get email;
+  String get email => throw _privateConstructorUsedError;
   @override
-  List<String> get permissions;
+  List<String> get permissions => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SubuserCopyWith<_Subuser> get copyWith =>
+  _$$_SubuserCopyWith<_$_Subuser> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 SubuserPermissions _$SubuserPermissionsFromJson(Map<String, dynamic> json) {
   return _SubuserPermissions.fromJson(json);
 }
-
-/// @nodoc
-class _$SubuserPermissionsTearOff {
-  const _$SubuserPermissionsTearOff();
-
-  _SubuserPermissions call({required List<String> permissions}) {
-    return _SubuserPermissions(
-      permissions: permissions,
-    );
-  }
-
-  SubuserPermissions fromJson(Map<String, Object?> json) {
-    return SubuserPermissions.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SubuserPermissions = _$SubuserPermissionsTearOff();
 
 /// @nodoc
 mixin _$SubuserPermissions {
@@ -239,33 +210,33 @@ class _$SubuserPermissionsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SubuserPermissionsCopyWith<$Res>
+abstract class _$$_SubuserPermissionsCopyWith<$Res>
     implements $SubuserPermissionsCopyWith<$Res> {
-  factory _$SubuserPermissionsCopyWith(
-          _SubuserPermissions value, $Res Function(_SubuserPermissions) then) =
-      __$SubuserPermissionsCopyWithImpl<$Res>;
+  factory _$$_SubuserPermissionsCopyWith(_$_SubuserPermissions value,
+          $Res Function(_$_SubuserPermissions) then) =
+      __$$_SubuserPermissionsCopyWithImpl<$Res>;
   @override
   $Res call({List<String> permissions});
 }
 
 /// @nodoc
-class __$SubuserPermissionsCopyWithImpl<$Res>
+class __$$_SubuserPermissionsCopyWithImpl<$Res>
     extends _$SubuserPermissionsCopyWithImpl<$Res>
-    implements _$SubuserPermissionsCopyWith<$Res> {
-  __$SubuserPermissionsCopyWithImpl(
-      _SubuserPermissions _value, $Res Function(_SubuserPermissions) _then)
-      : super(_value, (v) => _then(v as _SubuserPermissions));
+    implements _$$_SubuserPermissionsCopyWith<$Res> {
+  __$$_SubuserPermissionsCopyWithImpl(
+      _$_SubuserPermissions _value, $Res Function(_$_SubuserPermissions) _then)
+      : super(_value, (v) => _then(v as _$_SubuserPermissions));
 
   @override
-  _SubuserPermissions get _value => super._value as _SubuserPermissions;
+  _$_SubuserPermissions get _value => super._value as _$_SubuserPermissions;
 
   @override
   $Res call({
     Object? permissions = freezed,
   }) {
-    return _then(_SubuserPermissions(
+    return _then(_$_SubuserPermissions(
       permissions: permissions == freezed
-          ? _value.permissions
+          ? _value._permissions
           : permissions // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
@@ -275,13 +246,18 @@ class __$SubuserPermissionsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SubuserPermissions implements _SubuserPermissions {
-  _$_SubuserPermissions({required this.permissions});
+  _$_SubuserPermissions({required final List<String> permissions})
+      : _permissions = permissions;
 
   factory _$_SubuserPermissions.fromJson(Map<String, dynamic> json) =>
       _$$_SubuserPermissionsFromJson(json);
 
+  final List<String> _permissions;
   @override
-  final List<String> permissions;
+  List<String> get permissions {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_permissions);
+  }
 
   @override
   String toString() {
@@ -292,19 +268,21 @@ class _$_SubuserPermissions implements _SubuserPermissions {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SubuserPermissions &&
+            other is _$_SubuserPermissions &&
             const DeepCollectionEquality()
-                .equals(other.permissions, permissions));
+                .equals(other._permissions, _permissions));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(permissions));
 
   @JsonKey(ignore: true)
   @override
-  _$SubuserPermissionsCopyWith<_SubuserPermissions> get copyWith =>
-      __$SubuserPermissionsCopyWithImpl<_SubuserPermissions>(this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_permissions));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_SubuserPermissionsCopyWith<_$_SubuserPermissions> get copyWith =>
+      __$$_SubuserPermissionsCopyWithImpl<_$_SubuserPermissions>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -313,16 +291,16 @@ class _$_SubuserPermissions implements _SubuserPermissions {
 }
 
 abstract class _SubuserPermissions implements SubuserPermissions {
-  factory _SubuserPermissions({required List<String> permissions}) =
+  factory _SubuserPermissions({required final List<String> permissions}) =
       _$_SubuserPermissions;
 
   factory _SubuserPermissions.fromJson(Map<String, dynamic> json) =
       _$_SubuserPermissions.fromJson;
 
   @override
-  List<String> get permissions;
+  List<String> get permissions => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SubuserPermissionsCopyWith<_SubuserPermissions> get copyWith =>
+  _$$_SubuserPermissionsCopyWith<_$_SubuserPermissions> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,46 +12,11 @@ part of '../../../models/main_models/shedule_task.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ScheduleTask _$ScheduleTaskFromJson(Map<String, dynamic> json) {
   return _ScheduleTask.fromJson(json);
 }
-
-/// @nodoc
-class _$ScheduleTaskTearOff {
-  const _$ScheduleTaskTearOff();
-
-  _ScheduleTask call(
-      {required int id,
-      required int sequenceId,
-      required String action,
-      required String payload,
-      required int timeOffset,
-      required bool isQueued,
-      bool? continueOnFailure,
-      required DateTime createdAt,
-      required DateTime updatedAt}) {
-    return _ScheduleTask(
-      id: id,
-      sequenceId: sequenceId,
-      action: action,
-      payload: payload,
-      timeOffset: timeOffset,
-      isQueued: isQueued,
-      continueOnFailure: continueOnFailure,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-    );
-  }
-
-  ScheduleTask fromJson(Map<String, Object?> json) {
-    return ScheduleTask.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ScheduleTask = _$ScheduleTaskTearOff();
 
 /// @nodoc
 mixin _$ScheduleTask {
@@ -150,11 +115,11 @@ class _$ScheduleTaskCopyWithImpl<$Res> implements $ScheduleTaskCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ScheduleTaskCopyWith<$Res>
+abstract class _$$_ScheduleTaskCopyWith<$Res>
     implements $ScheduleTaskCopyWith<$Res> {
-  factory _$ScheduleTaskCopyWith(
-          _ScheduleTask value, $Res Function(_ScheduleTask) then) =
-      __$ScheduleTaskCopyWithImpl<$Res>;
+  factory _$$_ScheduleTaskCopyWith(
+          _$_ScheduleTask value, $Res Function(_$_ScheduleTask) then) =
+      __$$_ScheduleTaskCopyWithImpl<$Res>;
   @override
   $Res call(
       {int id,
@@ -169,14 +134,15 @@ abstract class _$ScheduleTaskCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ScheduleTaskCopyWithImpl<$Res> extends _$ScheduleTaskCopyWithImpl<$Res>
-    implements _$ScheduleTaskCopyWith<$Res> {
-  __$ScheduleTaskCopyWithImpl(
-      _ScheduleTask _value, $Res Function(_ScheduleTask) _then)
-      : super(_value, (v) => _then(v as _ScheduleTask));
+class __$$_ScheduleTaskCopyWithImpl<$Res>
+    extends _$ScheduleTaskCopyWithImpl<$Res>
+    implements _$$_ScheduleTaskCopyWith<$Res> {
+  __$$_ScheduleTaskCopyWithImpl(
+      _$_ScheduleTask _value, $Res Function(_$_ScheduleTask) _then)
+      : super(_value, (v) => _then(v as _$_ScheduleTask));
 
   @override
-  _ScheduleTask get _value => super._value as _ScheduleTask;
+  _$_ScheduleTask get _value => super._value as _$_ScheduleTask;
 
   @override
   $Res call({
@@ -190,7 +156,7 @@ class __$ScheduleTaskCopyWithImpl<$Res> extends _$ScheduleTaskCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_ScheduleTask(
+    return _then(_$_ScheduleTask(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -277,7 +243,7 @@ class _$_ScheduleTask extends _ScheduleTask {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ScheduleTask &&
+            other is _$_ScheduleTask &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.sequenceId, sequenceId) &&
@@ -292,6 +258,7 @@ class _$_ScheduleTask extends _ScheduleTask {
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -307,8 +274,8 @@ class _$_ScheduleTask extends _ScheduleTask {
 
   @JsonKey(ignore: true)
   @override
-  _$ScheduleTaskCopyWith<_ScheduleTask> get copyWith =>
-      __$ScheduleTaskCopyWithImpl<_ScheduleTask>(this, _$identity);
+  _$$_ScheduleTaskCopyWith<_$_ScheduleTask> get copyWith =>
+      __$$_ScheduleTaskCopyWithImpl<_$_ScheduleTask>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -318,40 +285,40 @@ class _$_ScheduleTask extends _ScheduleTask {
 
 abstract class _ScheduleTask extends ScheduleTask {
   factory _ScheduleTask(
-      {required int id,
-      required int sequenceId,
-      required String action,
-      required String payload,
-      required int timeOffset,
-      required bool isQueued,
-      bool? continueOnFailure,
-      required DateTime createdAt,
-      required DateTime updatedAt}) = _$_ScheduleTask;
+      {required final int id,
+      required final int sequenceId,
+      required final String action,
+      required final String payload,
+      required final int timeOffset,
+      required final bool isQueued,
+      final bool? continueOnFailure,
+      required final DateTime createdAt,
+      required final DateTime updatedAt}) = _$_ScheduleTask;
   _ScheduleTask._() : super._();
 
   factory _ScheduleTask.fromJson(Map<String, dynamic> json) =
       _$_ScheduleTask.fromJson;
 
   @override
-  int get id;
+  int get id => throw _privateConstructorUsedError;
   @override
-  int get sequenceId;
+  int get sequenceId => throw _privateConstructorUsedError;
   @override
-  String get action;
+  String get action => throw _privateConstructorUsedError;
   @override
-  String get payload;
+  String get payload => throw _privateConstructorUsedError;
   @override
-  int get timeOffset;
+  int get timeOffset => throw _privateConstructorUsedError;
   @override
-  bool get isQueued;
+  bool get isQueued => throw _privateConstructorUsedError;
   @override
-  bool? get continueOnFailure;
+  bool? get continueOnFailure => throw _privateConstructorUsedError;
   @override
-  DateTime get createdAt;
+  DateTime get createdAt => throw _privateConstructorUsedError;
   @override
-  DateTime get updatedAt;
+  DateTime get updatedAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ScheduleTaskCopyWith<_ScheduleTask> get copyWith =>
+  _$$_ScheduleTaskCopyWith<_$_ScheduleTask> get copyWith =>
       throw _privateConstructorUsedError;
 }

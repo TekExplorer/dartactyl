@@ -12,31 +12,11 @@ part of '../../../models/request_models/create_server_database.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 CreateServerDatabase _$CreateServerDatabaseFromJson(Map<String, dynamic> json) {
   return _CreateServerDatabase.fromJson(json);
 }
-
-/// @nodoc
-class _$CreateServerDatabaseTearOff {
-  const _$CreateServerDatabaseTearOff();
-
-  _CreateServerDatabase call(
-      {required String database, required String remote}) {
-    return _CreateServerDatabase(
-      database: database,
-      remote: remote,
-    );
-  }
-
-  CreateServerDatabase fromJson(Map<String, Object?> json) {
-    return CreateServerDatabase.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $CreateServerDatabase = _$CreateServerDatabaseTearOff();
 
 /// @nodoc
 mixin _$CreateServerDatabase {
@@ -85,32 +65,32 @@ class _$CreateServerDatabaseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$CreateServerDatabaseCopyWith<$Res>
+abstract class _$$_CreateServerDatabaseCopyWith<$Res>
     implements $CreateServerDatabaseCopyWith<$Res> {
-  factory _$CreateServerDatabaseCopyWith(_CreateServerDatabase value,
-          $Res Function(_CreateServerDatabase) then) =
-      __$CreateServerDatabaseCopyWithImpl<$Res>;
+  factory _$$_CreateServerDatabaseCopyWith(_$_CreateServerDatabase value,
+          $Res Function(_$_CreateServerDatabase) then) =
+      __$$_CreateServerDatabaseCopyWithImpl<$Res>;
   @override
   $Res call({String database, String remote});
 }
 
 /// @nodoc
-class __$CreateServerDatabaseCopyWithImpl<$Res>
+class __$$_CreateServerDatabaseCopyWithImpl<$Res>
     extends _$CreateServerDatabaseCopyWithImpl<$Res>
-    implements _$CreateServerDatabaseCopyWith<$Res> {
-  __$CreateServerDatabaseCopyWithImpl(
-      _CreateServerDatabase _value, $Res Function(_CreateServerDatabase) _then)
-      : super(_value, (v) => _then(v as _CreateServerDatabase));
+    implements _$$_CreateServerDatabaseCopyWith<$Res> {
+  __$$_CreateServerDatabaseCopyWithImpl(_$_CreateServerDatabase _value,
+      $Res Function(_$_CreateServerDatabase) _then)
+      : super(_value, (v) => _then(v as _$_CreateServerDatabase));
 
   @override
-  _CreateServerDatabase get _value => super._value as _CreateServerDatabase;
+  _$_CreateServerDatabase get _value => super._value as _$_CreateServerDatabase;
 
   @override
   $Res call({
     Object? database = freezed,
     Object? remote = freezed,
   }) {
-    return _then(_CreateServerDatabase(
+    return _then(_$_CreateServerDatabase(
       database: database == freezed
           ? _value.database
           : database // ignore: cast_nullable_to_non_nullable
@@ -145,11 +125,12 @@ class _$_CreateServerDatabase implements _CreateServerDatabase {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CreateServerDatabase &&
+            other is _$_CreateServerDatabase &&
             const DeepCollectionEquality().equals(other.database, database) &&
             const DeepCollectionEquality().equals(other.remote, remote));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -158,8 +139,8 @@ class _$_CreateServerDatabase implements _CreateServerDatabase {
 
   @JsonKey(ignore: true)
   @override
-  _$CreateServerDatabaseCopyWith<_CreateServerDatabase> get copyWith =>
-      __$CreateServerDatabaseCopyWithImpl<_CreateServerDatabase>(
+  _$$_CreateServerDatabaseCopyWith<_$_CreateServerDatabase> get copyWith =>
+      __$$_CreateServerDatabaseCopyWithImpl<_$_CreateServerDatabase>(
           this, _$identity);
 
   @override
@@ -170,18 +151,18 @@ class _$_CreateServerDatabase implements _CreateServerDatabase {
 
 abstract class _CreateServerDatabase implements CreateServerDatabase {
   factory _CreateServerDatabase(
-      {required String database,
-      required String remote}) = _$_CreateServerDatabase;
+      {required final String database,
+      required final String remote}) = _$_CreateServerDatabase;
 
   factory _CreateServerDatabase.fromJson(Map<String, dynamic> json) =
       _$_CreateServerDatabase.fromJson;
 
   @override
-  String get database;
+  String get database => throw _privateConstructorUsedError;
   @override
-  String get remote;
+  String get remote => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$CreateServerDatabaseCopyWith<_CreateServerDatabase> get copyWith =>
+  _$$_CreateServerDatabaseCopyWith<_$_CreateServerDatabase> get copyWith =>
       throw _privateConstructorUsedError;
 }

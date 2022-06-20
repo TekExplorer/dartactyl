@@ -12,29 +12,11 @@ part of '../../../models/request_models/update_image.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 UpdateImage _$UpdateImageFromJson(Map<String, dynamic> json) {
   return _UpdateImage.fromJson(json);
 }
-
-/// @nodoc
-class _$UpdateImageTearOff {
-  const _$UpdateImageTearOff();
-
-  _UpdateImage call({required String dockerImage}) {
-    return _UpdateImage(
-      dockerImage: dockerImage,
-    );
-  }
-
-  UpdateImage fromJson(Map<String, Object?> json) {
-    return UpdateImage.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $UpdateImage = _$UpdateImageTearOff();
 
 /// @nodoc
 mixin _$UpdateImage {
@@ -76,30 +58,30 @@ class _$UpdateImageCopyWithImpl<$Res> implements $UpdateImageCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$UpdateImageCopyWith<$Res>
+abstract class _$$_UpdateImageCopyWith<$Res>
     implements $UpdateImageCopyWith<$Res> {
-  factory _$UpdateImageCopyWith(
-          _UpdateImage value, $Res Function(_UpdateImage) then) =
-      __$UpdateImageCopyWithImpl<$Res>;
+  factory _$$_UpdateImageCopyWith(
+          _$_UpdateImage value, $Res Function(_$_UpdateImage) then) =
+      __$$_UpdateImageCopyWithImpl<$Res>;
   @override
   $Res call({String dockerImage});
 }
 
 /// @nodoc
-class __$UpdateImageCopyWithImpl<$Res> extends _$UpdateImageCopyWithImpl<$Res>
-    implements _$UpdateImageCopyWith<$Res> {
-  __$UpdateImageCopyWithImpl(
-      _UpdateImage _value, $Res Function(_UpdateImage) _then)
-      : super(_value, (v) => _then(v as _UpdateImage));
+class __$$_UpdateImageCopyWithImpl<$Res> extends _$UpdateImageCopyWithImpl<$Res>
+    implements _$$_UpdateImageCopyWith<$Res> {
+  __$$_UpdateImageCopyWithImpl(
+      _$_UpdateImage _value, $Res Function(_$_UpdateImage) _then)
+      : super(_value, (v) => _then(v as _$_UpdateImage));
 
   @override
-  _UpdateImage get _value => super._value as _UpdateImage;
+  _$_UpdateImage get _value => super._value as _$_UpdateImage;
 
   @override
   $Res call({
     Object? dockerImage = freezed,
   }) {
-    return _then(_UpdateImage(
+    return _then(_$_UpdateImage(
       dockerImage: dockerImage == freezed
           ? _value.dockerImage
           : dockerImage // ignore: cast_nullable_to_non_nullable
@@ -128,19 +110,20 @@ class _$_UpdateImage implements _UpdateImage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UpdateImage &&
+            other is _$_UpdateImage &&
             const DeepCollectionEquality()
                 .equals(other.dockerImage, dockerImage));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(dockerImage));
 
   @JsonKey(ignore: true)
   @override
-  _$UpdateImageCopyWith<_UpdateImage> get copyWith =>
-      __$UpdateImageCopyWithImpl<_UpdateImage>(this, _$identity);
+  _$$_UpdateImageCopyWith<_$_UpdateImage> get copyWith =>
+      __$$_UpdateImageCopyWithImpl<_$_UpdateImage>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -149,15 +132,15 @@ class _$_UpdateImage implements _UpdateImage {
 }
 
 abstract class _UpdateImage implements UpdateImage {
-  factory _UpdateImage({required String dockerImage}) = _$_UpdateImage;
+  factory _UpdateImage({required final String dockerImage}) = _$_UpdateImage;
 
   factory _UpdateImage.fromJson(Map<String, dynamic> json) =
       _$_UpdateImage.fromJson;
 
   @override
-  String get dockerImage;
+  String get dockerImage => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UpdateImageCopyWith<_UpdateImage> get copyWith =>
+  _$$_UpdateImageCopyWith<_$_UpdateImage> get copyWith =>
       throw _privateConstructorUsedError;
 }

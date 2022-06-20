@@ -12,48 +12,11 @@ part of '../../../models/main_models/server_schedule.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ServerSchedule _$ServerScheduleFromJson(Map<String, dynamic> json) {
   return _ServerSchedule.fromJson(json);
 }
-
-/// @nodoc
-class _$ServerScheduleTearOff {
-  const _$ServerScheduleTearOff();
-
-  _ServerSchedule call(
-      {required int id,
-      required String name,
-      required Cron cron,
-      required bool isActive,
-      required bool isProcessing,
-      required bool onlyWhenOnline,
-      DateTime? lastRunAt,
-      DateTime? nextRunAt,
-      required DateTime createdAt,
-      required DateTime updatedAt}) {
-    return _ServerSchedule(
-      id: id,
-      name: name,
-      cron: cron,
-      isActive: isActive,
-      isProcessing: isProcessing,
-      onlyWhenOnline: onlyWhenOnline,
-      lastRunAt: lastRunAt,
-      nextRunAt: nextRunAt,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-    );
-  }
-
-  ServerSchedule fromJson(Map<String, Object?> json) {
-    return ServerSchedule.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ServerSchedule = _$ServerScheduleTearOff();
 
 /// @nodoc
 mixin _$ServerSchedule {
@@ -169,11 +132,11 @@ class _$ServerScheduleCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ServerScheduleCopyWith<$Res>
+abstract class _$$_ServerScheduleCopyWith<$Res>
     implements $ServerScheduleCopyWith<$Res> {
-  factory _$ServerScheduleCopyWith(
-          _ServerSchedule value, $Res Function(_ServerSchedule) then) =
-      __$ServerScheduleCopyWithImpl<$Res>;
+  factory _$$_ServerScheduleCopyWith(
+          _$_ServerSchedule value, $Res Function(_$_ServerSchedule) then) =
+      __$$_ServerScheduleCopyWithImpl<$Res>;
   @override
   $Res call(
       {int id,
@@ -192,15 +155,15 @@ abstract class _$ServerScheduleCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ServerScheduleCopyWithImpl<$Res>
+class __$$_ServerScheduleCopyWithImpl<$Res>
     extends _$ServerScheduleCopyWithImpl<$Res>
-    implements _$ServerScheduleCopyWith<$Res> {
-  __$ServerScheduleCopyWithImpl(
-      _ServerSchedule _value, $Res Function(_ServerSchedule) _then)
-      : super(_value, (v) => _then(v as _ServerSchedule));
+    implements _$$_ServerScheduleCopyWith<$Res> {
+  __$$_ServerScheduleCopyWithImpl(
+      _$_ServerSchedule _value, $Res Function(_$_ServerSchedule) _then)
+      : super(_value, (v) => _then(v as _$_ServerSchedule));
 
   @override
-  _ServerSchedule get _value => super._value as _ServerSchedule;
+  _$_ServerSchedule get _value => super._value as _$_ServerSchedule;
 
   @override
   $Res call({
@@ -215,7 +178,7 @@ class __$ServerScheduleCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_ServerSchedule(
+    return _then(_$_ServerSchedule(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -309,7 +272,7 @@ class _$_ServerSchedule extends _ServerSchedule {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ServerSchedule &&
+            other is _$_ServerSchedule &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.cron, cron) &&
@@ -324,6 +287,7 @@ class _$_ServerSchedule extends _ServerSchedule {
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -340,8 +304,8 @@ class _$_ServerSchedule extends _ServerSchedule {
 
   @JsonKey(ignore: true)
   @override
-  _$ServerScheduleCopyWith<_ServerSchedule> get copyWith =>
-      __$ServerScheduleCopyWithImpl<_ServerSchedule>(this, _$identity);
+  _$$_ServerScheduleCopyWith<_$_ServerSchedule> get copyWith =>
+      __$$_ServerScheduleCopyWithImpl<_$_ServerSchedule>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -351,43 +315,43 @@ class _$_ServerSchedule extends _ServerSchedule {
 
 abstract class _ServerSchedule extends ServerSchedule {
   factory _ServerSchedule(
-      {required int id,
-      required String name,
-      required Cron cron,
-      required bool isActive,
-      required bool isProcessing,
-      required bool onlyWhenOnline,
-      DateTime? lastRunAt,
-      DateTime? nextRunAt,
-      required DateTime createdAt,
-      required DateTime updatedAt}) = _$_ServerSchedule;
+      {required final int id,
+      required final String name,
+      required final Cron cron,
+      required final bool isActive,
+      required final bool isProcessing,
+      required final bool onlyWhenOnline,
+      final DateTime? lastRunAt,
+      final DateTime? nextRunAt,
+      required final DateTime createdAt,
+      required final DateTime updatedAt}) = _$_ServerSchedule;
   _ServerSchedule._() : super._();
 
   factory _ServerSchedule.fromJson(Map<String, dynamic> json) =
       _$_ServerSchedule.fromJson;
 
   @override
-  int get id;
+  int get id => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  Cron get cron;
+  Cron get cron => throw _privateConstructorUsedError;
   @override
-  bool get isActive;
+  bool get isActive => throw _privateConstructorUsedError;
   @override
-  bool get isProcessing;
+  bool get isProcessing => throw _privateConstructorUsedError;
   @override
-  bool get onlyWhenOnline;
+  bool get onlyWhenOnline => throw _privateConstructorUsedError;
   @override
-  DateTime? get lastRunAt;
+  DateTime? get lastRunAt => throw _privateConstructorUsedError;
   @override
-  DateTime? get nextRunAt;
+  DateTime? get nextRunAt => throw _privateConstructorUsedError;
   @override
-  DateTime get createdAt;
+  DateTime get createdAt => throw _privateConstructorUsedError;
   @override
-  DateTime get updatedAt;
+  DateTime get updatedAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ServerScheduleCopyWith<_ServerSchedule> get copyWith =>
+  _$$_ServerScheduleCopyWith<_$_ServerSchedule> get copyWith =>
       throw _privateConstructorUsedError;
 }

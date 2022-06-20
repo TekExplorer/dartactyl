@@ -48,7 +48,7 @@ abstract class PteroClient {
 
     if (key != null) {
       // use key
-      dio.options.headers[HttpHeaders.authorizationHeader] = "Bearer " + key;
+      dio.options.headers[HttpHeaders.authorizationHeader] = "Bearer $key";
     }
     dio.options
       ..headers[HttpHeaders.userAgentHeader] = userAgent
@@ -541,6 +541,7 @@ abstract class PteroClient {
   });
 
   /// Create a backup on the [Server]
+  /// TODO: https://github.com/pterodactyl/panel/blob/develop/resources/scripts/api/server/backups/createServerBackup.ts
   @POST('/api/client/servers/{serverId}/backups')
   Future<Fractal<Backup>> createBackup({
     @Path() required String serverId,
@@ -549,6 +550,13 @@ abstract class PteroClient {
   /// Get information about a [Backup] from the [Server]
   @GET('/api/client/servers/{serverId}/backups/{backupId}')
   Future<Fractal<Backup>> getBackupDetails({
+    @Path() required String serverId,
+    @Path() required String backupId,
+  });
+
+  /// Lock a [Backup] to protect it from automated or accedental deletions
+  @POST('/api/client/servers/{serverId}/backups/{backupId}/lock')
+  Future<Fractal<Backup>> lockBackup({
     @Path() required String serverId,
     @Path() required String backupId,
   });

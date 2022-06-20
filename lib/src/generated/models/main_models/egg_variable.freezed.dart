@@ -12,42 +12,11 @@ part of '../../../models/main_models/egg_variable.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 EggVariable _$EggVariableFromJson(Map<String, dynamic> json) {
   return _EggVariable.fromJson(json);
 }
-
-/// @nodoc
-class _$EggVariableTearOff {
-  const _$EggVariableTearOff();
-
-  _EggVariable call(
-      {required String name,
-      required String description,
-      required String envVariable,
-      required String defaultValue,
-      String? serverValue,
-      required bool isEditable,
-      required String rules}) {
-    return _EggVariable(
-      name: name,
-      description: description,
-      envVariable: envVariable,
-      defaultValue: defaultValue,
-      serverValue: serverValue,
-      isEditable: isEditable,
-      rules: rules,
-    );
-  }
-
-  EggVariable fromJson(Map<String, Object?> json) {
-    return EggVariable.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $EggVariable = _$EggVariableTearOff();
 
 /// @nodoc
 mixin _$EggVariable {
@@ -132,11 +101,11 @@ class _$EggVariableCopyWithImpl<$Res> implements $EggVariableCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$EggVariableCopyWith<$Res>
+abstract class _$$_EggVariableCopyWith<$Res>
     implements $EggVariableCopyWith<$Res> {
-  factory _$EggVariableCopyWith(
-          _EggVariable value, $Res Function(_EggVariable) then) =
-      __$EggVariableCopyWithImpl<$Res>;
+  factory _$$_EggVariableCopyWith(
+          _$_EggVariable value, $Res Function(_$_EggVariable) then) =
+      __$$_EggVariableCopyWithImpl<$Res>;
   @override
   $Res call(
       {String name,
@@ -149,14 +118,14 @@ abstract class _$EggVariableCopyWith<$Res>
 }
 
 /// @nodoc
-class __$EggVariableCopyWithImpl<$Res> extends _$EggVariableCopyWithImpl<$Res>
-    implements _$EggVariableCopyWith<$Res> {
-  __$EggVariableCopyWithImpl(
-      _EggVariable _value, $Res Function(_EggVariable) _then)
-      : super(_value, (v) => _then(v as _EggVariable));
+class __$$_EggVariableCopyWithImpl<$Res> extends _$EggVariableCopyWithImpl<$Res>
+    implements _$$_EggVariableCopyWith<$Res> {
+  __$$_EggVariableCopyWithImpl(
+      _$_EggVariable _value, $Res Function(_$_EggVariable) _then)
+      : super(_value, (v) => _then(v as _$_EggVariable));
 
   @override
-  _EggVariable get _value => super._value as _EggVariable;
+  _$_EggVariable get _value => super._value as _$_EggVariable;
 
   @override
   $Res call({
@@ -168,7 +137,7 @@ class __$EggVariableCopyWithImpl<$Res> extends _$EggVariableCopyWithImpl<$Res>
     Object? isEditable = freezed,
     Object? rules = freezed,
   }) {
-    return _then(_EggVariable(
+    return _then(_$_EggVariable(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -241,7 +210,7 @@ class _$_EggVariable extends _EggVariable {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _EggVariable &&
+            other is _$_EggVariable &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
@@ -256,6 +225,7 @@ class _$_EggVariable extends _EggVariable {
             const DeepCollectionEquality().equals(other.rules, rules));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -269,8 +239,8 @@ class _$_EggVariable extends _EggVariable {
 
   @JsonKey(ignore: true)
   @override
-  _$EggVariableCopyWith<_EggVariable> get copyWith =>
-      __$EggVariableCopyWithImpl<_EggVariable>(this, _$identity);
+  _$$_EggVariableCopyWith<_$_EggVariable> get copyWith =>
+      __$$_EggVariableCopyWithImpl<_$_EggVariable>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -280,34 +250,34 @@ class _$_EggVariable extends _EggVariable {
 
 abstract class _EggVariable extends EggVariable {
   factory _EggVariable(
-      {required String name,
-      required String description,
-      required String envVariable,
-      required String defaultValue,
-      String? serverValue,
-      required bool isEditable,
-      required String rules}) = _$_EggVariable;
+      {required final String name,
+      required final String description,
+      required final String envVariable,
+      required final String defaultValue,
+      final String? serverValue,
+      required final bool isEditable,
+      required final String rules}) = _$_EggVariable;
   _EggVariable._() : super._();
 
   factory _EggVariable.fromJson(Map<String, dynamic> json) =
       _$_EggVariable.fromJson;
 
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  String get envVariable;
+  String get envVariable => throw _privateConstructorUsedError;
   @override
-  String get defaultValue;
+  String get defaultValue => throw _privateConstructorUsedError;
   @override
-  String? get serverValue;
+  String? get serverValue => throw _privateConstructorUsedError;
   @override
-  bool get isEditable;
+  bool get isEditable => throw _privateConstructorUsedError;
   @override
-  String get rules;
+  String get rules => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$EggVariableCopyWith<_EggVariable> get copyWith =>
+  _$$_EggVariableCopyWith<_$_EggVariable> get copyWith =>
       throw _privateConstructorUsedError;
 }

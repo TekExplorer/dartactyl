@@ -12,29 +12,11 @@ part of '../../../models/main_models/signed_url.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 SignedUrl _$SignedUrlFromJson(Map<String, dynamic> json) {
   return _SignedUrl.fromJson(json);
 }
-
-/// @nodoc
-class _$SignedUrlTearOff {
-  const _$SignedUrlTearOff();
-
-  _SignedUrl call({required String url}) {
-    return _SignedUrl(
-      url: url,
-    );
-  }
-
-  SignedUrl fromJson(Map<String, Object?> json) {
-    return SignedUrl.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SignedUrl = _$SignedUrlTearOff();
 
 /// @nodoc
 mixin _$SignedUrl {
@@ -75,28 +57,29 @@ class _$SignedUrlCopyWithImpl<$Res> implements $SignedUrlCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$SignedUrlCopyWith<$Res> implements $SignedUrlCopyWith<$Res> {
-  factory _$SignedUrlCopyWith(
-          _SignedUrl value, $Res Function(_SignedUrl) then) =
-      __$SignedUrlCopyWithImpl<$Res>;
+abstract class _$$_SignedUrlCopyWith<$Res> implements $SignedUrlCopyWith<$Res> {
+  factory _$$_SignedUrlCopyWith(
+          _$_SignedUrl value, $Res Function(_$_SignedUrl) then) =
+      __$$_SignedUrlCopyWithImpl<$Res>;
   @override
   $Res call({String url});
 }
 
 /// @nodoc
-class __$SignedUrlCopyWithImpl<$Res> extends _$SignedUrlCopyWithImpl<$Res>
-    implements _$SignedUrlCopyWith<$Res> {
-  __$SignedUrlCopyWithImpl(_SignedUrl _value, $Res Function(_SignedUrl) _then)
-      : super(_value, (v) => _then(v as _SignedUrl));
+class __$$_SignedUrlCopyWithImpl<$Res> extends _$SignedUrlCopyWithImpl<$Res>
+    implements _$$_SignedUrlCopyWith<$Res> {
+  __$$_SignedUrlCopyWithImpl(
+      _$_SignedUrl _value, $Res Function(_$_SignedUrl) _then)
+      : super(_value, (v) => _then(v as _$_SignedUrl));
 
   @override
-  _SignedUrl get _value => super._value as _SignedUrl;
+  _$_SignedUrl get _value => super._value as _$_SignedUrl;
 
   @override
   $Res call({
     Object? url = freezed,
   }) {
-    return _then(_SignedUrl(
+    return _then(_$_SignedUrl(
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -125,18 +108,19 @@ class _$_SignedUrl extends _SignedUrl {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SignedUrl &&
+            other is _$_SignedUrl &&
             const DeepCollectionEquality().equals(other.url, url));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(url));
 
   @JsonKey(ignore: true)
   @override
-  _$SignedUrlCopyWith<_SignedUrl> get copyWith =>
-      __$SignedUrlCopyWithImpl<_SignedUrl>(this, _$identity);
+  _$$_SignedUrlCopyWith<_$_SignedUrl> get copyWith =>
+      __$$_SignedUrlCopyWithImpl<_$_SignedUrl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -145,16 +129,16 @@ class _$_SignedUrl extends _SignedUrl {
 }
 
 abstract class _SignedUrl extends SignedUrl {
-  factory _SignedUrl({required String url}) = _$_SignedUrl;
+  factory _SignedUrl({required final String url}) = _$_SignedUrl;
   _SignedUrl._() : super._();
 
   factory _SignedUrl.fromJson(Map<String, dynamic> json) =
       _$_SignedUrl.fromJson;
 
   @override
-  String get url;
+  String get url => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SignedUrlCopyWith<_SignedUrl> get copyWith =>
+  _$$_SignedUrlCopyWith<_$_SignedUrl> get copyWith =>
       throw _privateConstructorUsedError;
 }

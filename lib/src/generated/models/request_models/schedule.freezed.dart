@@ -12,42 +12,11 @@ part of '../../../models/request_models/schedule.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 RequestSchedule _$RequestScheduleFromJson(Map<String, dynamic> json) {
   return _RequestSchedule.fromJson(json);
 }
-
-/// @nodoc
-class _$RequestScheduleTearOff {
-  const _$RequestScheduleTearOff();
-
-  _RequestSchedule call(
-      {required bool onlyWhenOnline,
-      required String name,
-      required bool isActive,
-      required String minute,
-      required String hour,
-      required String dayOfWeek,
-      required String dayOfMonth}) {
-    return _RequestSchedule(
-      onlyWhenOnline: onlyWhenOnline,
-      name: name,
-      isActive: isActive,
-      minute: minute,
-      hour: hour,
-      dayOfWeek: dayOfWeek,
-      dayOfMonth: dayOfMonth,
-    );
-  }
-
-  RequestSchedule fromJson(Map<String, Object?> json) {
-    return RequestSchedule.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RequestSchedule = _$RequestScheduleTearOff();
 
 /// @nodoc
 mixin _$RequestSchedule {
@@ -133,11 +102,11 @@ class _$RequestScheduleCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RequestScheduleCopyWith<$Res>
+abstract class _$$_RequestScheduleCopyWith<$Res>
     implements $RequestScheduleCopyWith<$Res> {
-  factory _$RequestScheduleCopyWith(
-          _RequestSchedule value, $Res Function(_RequestSchedule) then) =
-      __$RequestScheduleCopyWithImpl<$Res>;
+  factory _$$_RequestScheduleCopyWith(
+          _$_RequestSchedule value, $Res Function(_$_RequestSchedule) then) =
+      __$$_RequestScheduleCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool onlyWhenOnline,
@@ -150,15 +119,15 @@ abstract class _$RequestScheduleCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RequestScheduleCopyWithImpl<$Res>
+class __$$_RequestScheduleCopyWithImpl<$Res>
     extends _$RequestScheduleCopyWithImpl<$Res>
-    implements _$RequestScheduleCopyWith<$Res> {
-  __$RequestScheduleCopyWithImpl(
-      _RequestSchedule _value, $Res Function(_RequestSchedule) _then)
-      : super(_value, (v) => _then(v as _RequestSchedule));
+    implements _$$_RequestScheduleCopyWith<$Res> {
+  __$$_RequestScheduleCopyWithImpl(
+      _$_RequestSchedule _value, $Res Function(_$_RequestSchedule) _then)
+      : super(_value, (v) => _then(v as _$_RequestSchedule));
 
   @override
-  _RequestSchedule get _value => super._value as _RequestSchedule;
+  _$_RequestSchedule get _value => super._value as _$_RequestSchedule;
 
   @override
   $Res call({
@@ -170,7 +139,7 @@ class __$RequestScheduleCopyWithImpl<$Res>
     Object? dayOfWeek = freezed,
     Object? dayOfMonth = freezed,
   }) {
-    return _then(_RequestSchedule(
+    return _then(_$_RequestSchedule(
       onlyWhenOnline: onlyWhenOnline == freezed
           ? _value.onlyWhenOnline
           : onlyWhenOnline // ignore: cast_nullable_to_non_nullable
@@ -242,7 +211,7 @@ class _$_RequestSchedule implements _RequestSchedule {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RequestSchedule &&
+            other is _$_RequestSchedule &&
             const DeepCollectionEquality()
                 .equals(other.onlyWhenOnline, onlyWhenOnline) &&
             const DeepCollectionEquality().equals(other.name, name) &&
@@ -254,6 +223,7 @@ class _$_RequestSchedule implements _RequestSchedule {
                 .equals(other.dayOfMonth, dayOfMonth));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -267,8 +237,8 @@ class _$_RequestSchedule implements _RequestSchedule {
 
   @JsonKey(ignore: true)
   @override
-  _$RequestScheduleCopyWith<_RequestSchedule> get copyWith =>
-      __$RequestScheduleCopyWithImpl<_RequestSchedule>(this, _$identity);
+  _$$_RequestScheduleCopyWith<_$_RequestSchedule> get copyWith =>
+      __$$_RequestScheduleCopyWithImpl<_$_RequestSchedule>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -278,33 +248,33 @@ class _$_RequestSchedule implements _RequestSchedule {
 
 abstract class _RequestSchedule implements RequestSchedule {
   factory _RequestSchedule(
-      {required bool onlyWhenOnline,
-      required String name,
-      required bool isActive,
-      required String minute,
-      required String hour,
-      required String dayOfWeek,
-      required String dayOfMonth}) = _$_RequestSchedule;
+      {required final bool onlyWhenOnline,
+      required final String name,
+      required final bool isActive,
+      required final String minute,
+      required final String hour,
+      required final String dayOfWeek,
+      required final String dayOfMonth}) = _$_RequestSchedule;
 
   factory _RequestSchedule.fromJson(Map<String, dynamic> json) =
       _$_RequestSchedule.fromJson;
 
   @override
-  bool get onlyWhenOnline;
+  bool get onlyWhenOnline => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  bool get isActive;
+  bool get isActive => throw _privateConstructorUsedError;
   @override
-  String get minute;
+  String get minute => throw _privateConstructorUsedError;
   @override
-  String get hour;
+  String get hour => throw _privateConstructorUsedError;
   @override
-  String get dayOfWeek;
+  String get dayOfWeek => throw _privateConstructorUsedError;
   @override
-  String get dayOfMonth;
+  String get dayOfMonth => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$RequestScheduleCopyWith<_RequestSchedule> get copyWith =>
+  _$$_RequestScheduleCopyWith<_$_RequestSchedule> get copyWith =>
       throw _privateConstructorUsedError;
 }

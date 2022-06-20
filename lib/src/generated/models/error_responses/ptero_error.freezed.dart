@@ -12,35 +12,11 @@ part of '../../../models/error_responses/ptero_error.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PteroError _$PteroErrorFromJson(Map<String, dynamic> json) {
   return _PteroError.fromJson(json);
 }
-
-/// @nodoc
-class _$PteroErrorTearOff {
-  const _$PteroErrorTearOff();
-
-  _PteroError call(
-      {@JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
-          required PteroErrorCode code,
-      required String status,
-      required String detail}) {
-    return _PteroError(
-      code: code,
-      status: status,
-      detail: detail,
-    );
-  }
-
-  PteroError fromJson(Map<String, Object?> json) {
-    return PteroError.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $PteroError = _$PteroErrorTearOff();
 
 /// @nodoc
 mixin _$PteroError {
@@ -98,10 +74,11 @@ class _$PteroErrorCopyWithImpl<$Res> implements $PteroErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$PteroErrorCopyWith<$Res> implements $PteroErrorCopyWith<$Res> {
-  factory _$PteroErrorCopyWith(
-          _PteroError value, $Res Function(_PteroError) then) =
-      __$PteroErrorCopyWithImpl<$Res>;
+abstract class _$$_PteroErrorCopyWith<$Res>
+    implements $PteroErrorCopyWith<$Res> {
+  factory _$$_PteroErrorCopyWith(
+          _$_PteroError value, $Res Function(_$_PteroError) then) =
+      __$$_PteroErrorCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN) PteroErrorCode code,
@@ -110,14 +87,14 @@ abstract class _$PteroErrorCopyWith<$Res> implements $PteroErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$PteroErrorCopyWithImpl<$Res> extends _$PteroErrorCopyWithImpl<$Res>
-    implements _$PteroErrorCopyWith<$Res> {
-  __$PteroErrorCopyWithImpl(
-      _PteroError _value, $Res Function(_PteroError) _then)
-      : super(_value, (v) => _then(v as _PteroError));
+class __$$_PteroErrorCopyWithImpl<$Res> extends _$PteroErrorCopyWithImpl<$Res>
+    implements _$$_PteroErrorCopyWith<$Res> {
+  __$$_PteroErrorCopyWithImpl(
+      _$_PteroError _value, $Res Function(_$_PteroError) _then)
+      : super(_value, (v) => _then(v as _$_PteroError));
 
   @override
-  _PteroError get _value => super._value as _PteroError;
+  _$_PteroError get _value => super._value as _$_PteroError;
 
   @override
   $Res call({
@@ -125,7 +102,7 @@ class __$PteroErrorCopyWithImpl<$Res> extends _$PteroErrorCopyWithImpl<$Res>
     Object? status = freezed,
     Object? detail = freezed,
   }) {
-    return _then(_PteroError(
+    return _then(_$_PteroError(
       code: code == freezed
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -171,12 +148,13 @@ class _$_PteroError extends _PteroError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PteroError &&
+            other is _$_PteroError &&
             const DeepCollectionEquality().equals(other.code, code) &&
             const DeepCollectionEquality().equals(other.status, status) &&
             const DeepCollectionEquality().equals(other.detail, detail));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -186,8 +164,8 @@ class _$_PteroError extends _PteroError {
 
   @JsonKey(ignore: true)
   @override
-  _$PteroErrorCopyWith<_PteroError> get copyWith =>
-      __$PteroErrorCopyWithImpl<_PteroError>(this, _$identity);
+  _$$_PteroErrorCopyWith<_$_PteroError> get copyWith =>
+      __$$_PteroErrorCopyWithImpl<_$_PteroError>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -198,9 +176,9 @@ class _$_PteroError extends _PteroError {
 abstract class _PteroError extends PteroError {
   factory _PteroError(
       {@JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
-          required PteroErrorCode code,
-      required String status,
-      required String detail}) = _$_PteroError;
+          required final PteroErrorCode code,
+      required final String status,
+      required final String detail}) = _$_PteroError;
   _PteroError._() : super._();
 
   factory _PteroError.fromJson(Map<String, dynamic> json) =
@@ -208,13 +186,13 @@ abstract class _PteroError extends PteroError {
 
   @override
   @JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
-  PteroErrorCode get code;
+  PteroErrorCode get code => throw _privateConstructorUsedError;
   @override
-  String get status;
+  String get status => throw _privateConstructorUsedError;
   @override
-  String get detail;
+  String get detail => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$PteroErrorCopyWith<_PteroError> get copyWith =>
+  _$$_PteroErrorCopyWith<_$_PteroError> get copyWith =>
       throw _privateConstructorUsedError;
 }

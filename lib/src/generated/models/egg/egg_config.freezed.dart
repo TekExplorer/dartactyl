@@ -12,38 +12,11 @@ part of '../../../models/egg/egg_config.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 EggConfig _$EggConfigFromJson(Map<String, dynamic> json) {
   return _EggConfig.fromJson(json);
 }
-
-/// @nodoc
-class _$EggConfigTearOff {
-  const _$EggConfigTearOff();
-
-  _EggConfig call(
-      {required Map<String, dynamic> files,
-      required EggStartupConfig startup,
-      required String stop,
-      EggLogsConfig? logs,
-      dynamic configExtends}) {
-    return _EggConfig(
-      files: files,
-      startup: startup,
-      stop: stop,
-      logs: logs,
-      configExtends: configExtends,
-    );
-  }
-
-  EggConfig fromJson(Map<String, Object?> json) {
-    return EggConfig.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $EggConfig = _$EggConfigTearOff();
 
 /// @nodoc
 mixin _$EggConfig {
@@ -134,10 +107,10 @@ class _$EggConfigCopyWithImpl<$Res> implements $EggConfigCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$EggConfigCopyWith<$Res> implements $EggConfigCopyWith<$Res> {
-  factory _$EggConfigCopyWith(
-          _EggConfig value, $Res Function(_EggConfig) then) =
-      __$EggConfigCopyWithImpl<$Res>;
+abstract class _$$_EggConfigCopyWith<$Res> implements $EggConfigCopyWith<$Res> {
+  factory _$$_EggConfigCopyWith(
+          _$_EggConfig value, $Res Function(_$_EggConfig) then) =
+      __$$_EggConfigCopyWithImpl<$Res>;
   @override
   $Res call(
       {Map<String, dynamic> files,
@@ -153,13 +126,14 @@ abstract class _$EggConfigCopyWith<$Res> implements $EggConfigCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$EggConfigCopyWithImpl<$Res> extends _$EggConfigCopyWithImpl<$Res>
-    implements _$EggConfigCopyWith<$Res> {
-  __$EggConfigCopyWithImpl(_EggConfig _value, $Res Function(_EggConfig) _then)
-      : super(_value, (v) => _then(v as _EggConfig));
+class __$$_EggConfigCopyWithImpl<$Res> extends _$EggConfigCopyWithImpl<$Res>
+    implements _$$_EggConfigCopyWith<$Res> {
+  __$$_EggConfigCopyWithImpl(
+      _$_EggConfig _value, $Res Function(_$_EggConfig) _then)
+      : super(_value, (v) => _then(v as _$_EggConfig));
 
   @override
-  _EggConfig get _value => super._value as _EggConfig;
+  _$_EggConfig get _value => super._value as _$_EggConfig;
 
   @override
   $Res call({
@@ -169,9 +143,9 @@ class __$EggConfigCopyWithImpl<$Res> extends _$EggConfigCopyWithImpl<$Res>
     Object? logs = freezed,
     Object? configExtends = freezed,
   }) {
-    return _then(_EggConfig(
+    return _then(_$_EggConfig(
       files: files == freezed
-          ? _value.files
+          ? _value._files
           : files // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
       startup: startup == freezed
@@ -198,18 +172,24 @@ class __$EggConfigCopyWithImpl<$Res> extends _$EggConfigCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EggConfig extends _EggConfig {
   _$_EggConfig(
-      {required this.files,
+      {required final Map<String, dynamic> files,
       required this.startup,
       required this.stop,
       this.logs,
       this.configExtends})
-      : super._();
+      : _files = files,
+        super._();
 
   factory _$_EggConfig.fromJson(Map<String, dynamic> json) =>
       _$$_EggConfigFromJson(json);
 
+  final Map<String, dynamic> _files;
   @override
-  final Map<String, dynamic> files;
+  Map<String, dynamic> get files {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_files);
+  }
+
   @override
   final EggStartupConfig startup;
   @override
@@ -228,8 +208,8 @@ class _$_EggConfig extends _EggConfig {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _EggConfig &&
-            const DeepCollectionEquality().equals(other.files, files) &&
+            other is _$_EggConfig &&
+            const DeepCollectionEquality().equals(other._files, _files) &&
             const DeepCollectionEquality().equals(other.startup, startup) &&
             const DeepCollectionEquality().equals(other.stop, stop) &&
             const DeepCollectionEquality().equals(other.logs, logs) &&
@@ -237,10 +217,11 @@ class _$_EggConfig extends _EggConfig {
                 .equals(other.configExtends, configExtends));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(files),
+      const DeepCollectionEquality().hash(_files),
       const DeepCollectionEquality().hash(startup),
       const DeepCollectionEquality().hash(stop),
       const DeepCollectionEquality().hash(logs),
@@ -248,8 +229,8 @@ class _$_EggConfig extends _EggConfig {
 
   @JsonKey(ignore: true)
   @override
-  _$EggConfigCopyWith<_EggConfig> get copyWith =>
-      __$EggConfigCopyWithImpl<_EggConfig>(this, _$identity);
+  _$$_EggConfigCopyWith<_$_EggConfig> get copyWith =>
+      __$$_EggConfigCopyWithImpl<_$_EggConfig>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -259,28 +240,28 @@ class _$_EggConfig extends _EggConfig {
 
 abstract class _EggConfig extends EggConfig {
   factory _EggConfig(
-      {required Map<String, dynamic> files,
-      required EggStartupConfig startup,
-      required String stop,
-      EggLogsConfig? logs,
-      dynamic configExtends}) = _$_EggConfig;
+      {required final Map<String, dynamic> files,
+      required final EggStartupConfig startup,
+      required final String stop,
+      final EggLogsConfig? logs,
+      final dynamic configExtends}) = _$_EggConfig;
   _EggConfig._() : super._();
 
   factory _EggConfig.fromJson(Map<String, dynamic> json) =
       _$_EggConfig.fromJson;
 
   @override
-  Map<String, dynamic> get files;
+  Map<String, dynamic> get files => throw _privateConstructorUsedError;
   @override
-  EggStartupConfig get startup;
+  EggStartupConfig get startup => throw _privateConstructorUsedError;
   @override
-  String get stop;
+  String get stop => throw _privateConstructorUsedError;
   @override
-  EggLogsConfig? get logs;
+  EggLogsConfig? get logs => throw _privateConstructorUsedError;
   @override
-  dynamic get configExtends;
+  dynamic get configExtends => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$EggConfigCopyWith<_EggConfig> get copyWith =>
+  _$$_EggConfigCopyWith<_$_EggConfig> get copyWith =>
       throw _privateConstructorUsedError;
 }

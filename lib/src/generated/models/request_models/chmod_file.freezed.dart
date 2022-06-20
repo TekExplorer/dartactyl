@@ -12,30 +12,11 @@ part of '../../../models/request_models/chmod_file.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ChmodFileBody _$ChmodFileBodyFromJson(Map<String, dynamic> json) {
   return _ChmodFileBody.fromJson(json);
 }
-
-/// @nodoc
-class _$ChmodFileBodyTearOff {
-  const _$ChmodFileBodyTearOff();
-
-  _ChmodFileBody call({String? root, required List<ChmodFile> files}) {
-    return _ChmodFileBody(
-      root: root,
-      files: files,
-    );
-  }
-
-  ChmodFileBody fromJson(Map<String, Object?> json) {
-    return ChmodFileBody.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ChmodFileBody = _$ChmodFileBodyTearOff();
 
 /// @nodoc
 mixin _$ChmodFileBody {
@@ -84,38 +65,38 @@ class _$ChmodFileBodyCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ChmodFileBodyCopyWith<$Res>
+abstract class _$$_ChmodFileBodyCopyWith<$Res>
     implements $ChmodFileBodyCopyWith<$Res> {
-  factory _$ChmodFileBodyCopyWith(
-          _ChmodFileBody value, $Res Function(_ChmodFileBody) then) =
-      __$ChmodFileBodyCopyWithImpl<$Res>;
+  factory _$$_ChmodFileBodyCopyWith(
+          _$_ChmodFileBody value, $Res Function(_$_ChmodFileBody) then) =
+      __$$_ChmodFileBodyCopyWithImpl<$Res>;
   @override
   $Res call({String? root, List<ChmodFile> files});
 }
 
 /// @nodoc
-class __$ChmodFileBodyCopyWithImpl<$Res>
+class __$$_ChmodFileBodyCopyWithImpl<$Res>
     extends _$ChmodFileBodyCopyWithImpl<$Res>
-    implements _$ChmodFileBodyCopyWith<$Res> {
-  __$ChmodFileBodyCopyWithImpl(
-      _ChmodFileBody _value, $Res Function(_ChmodFileBody) _then)
-      : super(_value, (v) => _then(v as _ChmodFileBody));
+    implements _$$_ChmodFileBodyCopyWith<$Res> {
+  __$$_ChmodFileBodyCopyWithImpl(
+      _$_ChmodFileBody _value, $Res Function(_$_ChmodFileBody) _then)
+      : super(_value, (v) => _then(v as _$_ChmodFileBody));
 
   @override
-  _ChmodFileBody get _value => super._value as _ChmodFileBody;
+  _$_ChmodFileBody get _value => super._value as _$_ChmodFileBody;
 
   @override
   $Res call({
     Object? root = freezed,
     Object? files = freezed,
   }) {
-    return _then(_ChmodFileBody(
+    return _then(_$_ChmodFileBody(
       root: root == freezed
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
               as String?,
       files: files == freezed
-          ? _value.files
+          ? _value._files
           : files // ignore: cast_nullable_to_non_nullable
               as List<ChmodFile>,
     ));
@@ -125,15 +106,21 @@ class __$ChmodFileBodyCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ChmodFileBody extends _ChmodFileBody {
-  _$_ChmodFileBody({this.root, required this.files}) : super._();
+  _$_ChmodFileBody({this.root, required final List<ChmodFile> files})
+      : _files = files,
+        super._();
 
   factory _$_ChmodFileBody.fromJson(Map<String, dynamic> json) =>
       _$$_ChmodFileBodyFromJson(json);
 
   @override
   final String? root;
+  final List<ChmodFile> _files;
   @override
-  final List<ChmodFile> files;
+  List<ChmodFile> get files {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_files);
+  }
 
   @override
   String toString() {
@@ -144,21 +131,22 @@ class _$_ChmodFileBody extends _ChmodFileBody {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ChmodFileBody &&
+            other is _$_ChmodFileBody &&
             const DeepCollectionEquality().equals(other.root, root) &&
-            const DeepCollectionEquality().equals(other.files, files));
+            const DeepCollectionEquality().equals(other._files, _files));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(root),
-      const DeepCollectionEquality().hash(files));
+      const DeepCollectionEquality().hash(_files));
 
   @JsonKey(ignore: true)
   @override
-  _$ChmodFileBodyCopyWith<_ChmodFileBody> get copyWith =>
-      __$ChmodFileBodyCopyWithImpl<_ChmodFileBody>(this, _$identity);
+  _$$_ChmodFileBodyCopyWith<_$_ChmodFileBody> get copyWith =>
+      __$$_ChmodFileBodyCopyWithImpl<_$_ChmodFileBody>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -167,45 +155,27 @@ class _$_ChmodFileBody extends _ChmodFileBody {
 }
 
 abstract class _ChmodFileBody extends ChmodFileBody {
-  factory _ChmodFileBody({String? root, required List<ChmodFile> files}) =
-      _$_ChmodFileBody;
+  factory _ChmodFileBody(
+      {final String? root,
+      required final List<ChmodFile> files}) = _$_ChmodFileBody;
   _ChmodFileBody._() : super._();
 
   factory _ChmodFileBody.fromJson(Map<String, dynamic> json) =
       _$_ChmodFileBody.fromJson;
 
   @override
-  String? get root;
+  String? get root => throw _privateConstructorUsedError;
   @override
-  List<ChmodFile> get files;
+  List<ChmodFile> get files => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ChmodFileBodyCopyWith<_ChmodFileBody> get copyWith =>
+  _$$_ChmodFileBodyCopyWith<_$_ChmodFileBody> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 ChmodFile _$ChmodFileFromJson(Map<String, dynamic> json) {
   return _ChmodFile.fromJson(json);
 }
-
-/// @nodoc
-class _$ChmodFileTearOff {
-  const _$ChmodFileTearOff();
-
-  _ChmodFile call({required String file, required int mode}) {
-    return _ChmodFile(
-      file: file,
-      mode: mode,
-    );
-  }
-
-  ChmodFile fromJson(Map<String, Object?> json) {
-    return ChmodFile.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ChmodFile = _$ChmodFileTearOff();
 
 /// @nodoc
 mixin _$ChmodFile {
@@ -252,29 +222,30 @@ class _$ChmodFileCopyWithImpl<$Res> implements $ChmodFileCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ChmodFileCopyWith<$Res> implements $ChmodFileCopyWith<$Res> {
-  factory _$ChmodFileCopyWith(
-          _ChmodFile value, $Res Function(_ChmodFile) then) =
-      __$ChmodFileCopyWithImpl<$Res>;
+abstract class _$$_ChmodFileCopyWith<$Res> implements $ChmodFileCopyWith<$Res> {
+  factory _$$_ChmodFileCopyWith(
+          _$_ChmodFile value, $Res Function(_$_ChmodFile) then) =
+      __$$_ChmodFileCopyWithImpl<$Res>;
   @override
   $Res call({String file, int mode});
 }
 
 /// @nodoc
-class __$ChmodFileCopyWithImpl<$Res> extends _$ChmodFileCopyWithImpl<$Res>
-    implements _$ChmodFileCopyWith<$Res> {
-  __$ChmodFileCopyWithImpl(_ChmodFile _value, $Res Function(_ChmodFile) _then)
-      : super(_value, (v) => _then(v as _ChmodFile));
+class __$$_ChmodFileCopyWithImpl<$Res> extends _$ChmodFileCopyWithImpl<$Res>
+    implements _$$_ChmodFileCopyWith<$Res> {
+  __$$_ChmodFileCopyWithImpl(
+      _$_ChmodFile _value, $Res Function(_$_ChmodFile) _then)
+      : super(_value, (v) => _then(v as _$_ChmodFile));
 
   @override
-  _ChmodFile get _value => super._value as _ChmodFile;
+  _$_ChmodFile get _value => super._value as _$_ChmodFile;
 
   @override
   $Res call({
     Object? file = freezed,
     Object? mode = freezed,
   }) {
-    return _then(_ChmodFile(
+    return _then(_$_ChmodFile(
       file: file == freezed
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
@@ -309,11 +280,12 @@ class _$_ChmodFile extends _ChmodFile {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ChmodFile &&
+            other is _$_ChmodFile &&
             const DeepCollectionEquality().equals(other.file, file) &&
             const DeepCollectionEquality().equals(other.mode, mode));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -322,8 +294,8 @@ class _$_ChmodFile extends _ChmodFile {
 
   @JsonKey(ignore: true)
   @override
-  _$ChmodFileCopyWith<_ChmodFile> get copyWith =>
-      __$ChmodFileCopyWithImpl<_ChmodFile>(this, _$identity);
+  _$$_ChmodFileCopyWith<_$_ChmodFile> get copyWith =>
+      __$$_ChmodFileCopyWithImpl<_$_ChmodFile>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -332,18 +304,19 @@ class _$_ChmodFile extends _ChmodFile {
 }
 
 abstract class _ChmodFile extends ChmodFile {
-  factory _ChmodFile({required String file, required int mode}) = _$_ChmodFile;
+  factory _ChmodFile({required final String file, required final int mode}) =
+      _$_ChmodFile;
   _ChmodFile._() : super._();
 
   factory _ChmodFile.fromJson(Map<String, dynamic> json) =
       _$_ChmodFile.fromJson;
 
   @override
-  String get file;
+  String get file => throw _privateConstructorUsedError;
   @override
-  int get mode;
+  int get mode => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ChmodFileCopyWith<_ChmodFile> get copyWith =>
+  _$$_ChmodFileCopyWith<_$_ChmodFile> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,30 +12,12 @@ part of '../../../models/permission_keys/websocket_permission_keys.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 WebsocketPermissionKeys _$WebsocketPermissionKeysFromJson(
     Map<String, dynamic> json) {
   return _WebsocketPermissionKeys.fromJson(json);
 }
-
-/// @nodoc
-class _$WebsocketPermissionKeysTearOff {
-  const _$WebsocketPermissionKeysTearOff();
-
-  _WebsocketPermissionKeys call({required String connect}) {
-    return _WebsocketPermissionKeys(
-      connect: connect,
-    );
-  }
-
-  WebsocketPermissionKeys fromJson(Map<String, Object?> json) {
-    return WebsocketPermissionKeys.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $WebsocketPermissionKeys = _$WebsocketPermissionKeysTearOff();
 
 /// @nodoc
 mixin _$WebsocketPermissionKeys {
@@ -78,32 +60,32 @@ class _$WebsocketPermissionKeysCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$WebsocketPermissionKeysCopyWith<$Res>
+abstract class _$$_WebsocketPermissionKeysCopyWith<$Res>
     implements $WebsocketPermissionKeysCopyWith<$Res> {
-  factory _$WebsocketPermissionKeysCopyWith(_WebsocketPermissionKeys value,
-          $Res Function(_WebsocketPermissionKeys) then) =
-      __$WebsocketPermissionKeysCopyWithImpl<$Res>;
+  factory _$$_WebsocketPermissionKeysCopyWith(_$_WebsocketPermissionKeys value,
+          $Res Function(_$_WebsocketPermissionKeys) then) =
+      __$$_WebsocketPermissionKeysCopyWithImpl<$Res>;
   @override
   $Res call({String connect});
 }
 
 /// @nodoc
-class __$WebsocketPermissionKeysCopyWithImpl<$Res>
+class __$$_WebsocketPermissionKeysCopyWithImpl<$Res>
     extends _$WebsocketPermissionKeysCopyWithImpl<$Res>
-    implements _$WebsocketPermissionKeysCopyWith<$Res> {
-  __$WebsocketPermissionKeysCopyWithImpl(_WebsocketPermissionKeys _value,
-      $Res Function(_WebsocketPermissionKeys) _then)
-      : super(_value, (v) => _then(v as _WebsocketPermissionKeys));
+    implements _$$_WebsocketPermissionKeysCopyWith<$Res> {
+  __$$_WebsocketPermissionKeysCopyWithImpl(_$_WebsocketPermissionKeys _value,
+      $Res Function(_$_WebsocketPermissionKeys) _then)
+      : super(_value, (v) => _then(v as _$_WebsocketPermissionKeys));
 
   @override
-  _WebsocketPermissionKeys get _value =>
-      super._value as _WebsocketPermissionKeys;
+  _$_WebsocketPermissionKeys get _value =>
+      super._value as _$_WebsocketPermissionKeys;
 
   @override
   $Res call({
     Object? connect = freezed,
   }) {
-    return _then(_WebsocketPermissionKeys(
+    return _then(_$_WebsocketPermissionKeys(
       connect: connect == freezed
           ? _value.connect
           : connect // ignore: cast_nullable_to_non_nullable
@@ -132,19 +114,21 @@ class _$_WebsocketPermissionKeys extends _WebsocketPermissionKeys {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WebsocketPermissionKeys &&
+            other is _$_WebsocketPermissionKeys &&
             const DeepCollectionEquality().equals(other.connect, connect));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(connect));
 
   @JsonKey(ignore: true)
   @override
-  _$WebsocketPermissionKeysCopyWith<_WebsocketPermissionKeys> get copyWith =>
-      __$WebsocketPermissionKeysCopyWithImpl<_WebsocketPermissionKeys>(
-          this, _$identity);
+  _$$_WebsocketPermissionKeysCopyWith<_$_WebsocketPermissionKeys>
+      get copyWith =>
+          __$$_WebsocketPermissionKeysCopyWithImpl<_$_WebsocketPermissionKeys>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -153,7 +137,7 @@ class _$_WebsocketPermissionKeys extends _WebsocketPermissionKeys {
 }
 
 abstract class _WebsocketPermissionKeys extends WebsocketPermissionKeys {
-  factory _WebsocketPermissionKeys({required String connect}) =
+  factory _WebsocketPermissionKeys({required final String connect}) =
       _$_WebsocketPermissionKeys;
   _WebsocketPermissionKeys._() : super._();
 
@@ -161,9 +145,9 @@ abstract class _WebsocketPermissionKeys extends WebsocketPermissionKeys {
       _$_WebsocketPermissionKeys.fromJson;
 
   @override
-  String get connect;
+  String get connect => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$WebsocketPermissionKeysCopyWith<_WebsocketPermissionKeys> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_WebsocketPermissionKeysCopyWith<_$_WebsocketPermissionKeys>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -12,36 +12,11 @@ part of '../../../models/main_models/ssh_key.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 SshKey _$SshKeyFromJson(Map<String, dynamic> json) {
   return _SshKey.fromJson(json);
 }
-
-/// @nodoc
-class _$SshKeyTearOff {
-  const _$SshKeyTearOff();
-
-  _SshKey call(
-      {required String name,
-      required String fingerprint,
-      required String publicKey,
-      required DateTime createdAt}) {
-    return _SshKey(
-      name: name,
-      fingerprint: fingerprint,
-      publicKey: publicKey,
-      createdAt: createdAt,
-    );
-  }
-
-  SshKey fromJson(Map<String, Object?> json) {
-    return SshKey.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SshKey = _$SshKeyTearOff();
 
 /// @nodoc
 mixin _$SshKey {
@@ -100,22 +75,22 @@ class _$SshKeyCopyWithImpl<$Res> implements $SshKeyCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$SshKeyCopyWith<$Res> implements $SshKeyCopyWith<$Res> {
-  factory _$SshKeyCopyWith(_SshKey value, $Res Function(_SshKey) then) =
-      __$SshKeyCopyWithImpl<$Res>;
+abstract class _$$_SshKeyCopyWith<$Res> implements $SshKeyCopyWith<$Res> {
+  factory _$$_SshKeyCopyWith(_$_SshKey value, $Res Function(_$_SshKey) then) =
+      __$$_SshKeyCopyWithImpl<$Res>;
   @override
   $Res call(
       {String name, String fingerprint, String publicKey, DateTime createdAt});
 }
 
 /// @nodoc
-class __$SshKeyCopyWithImpl<$Res> extends _$SshKeyCopyWithImpl<$Res>
-    implements _$SshKeyCopyWith<$Res> {
-  __$SshKeyCopyWithImpl(_SshKey _value, $Res Function(_SshKey) _then)
-      : super(_value, (v) => _then(v as _SshKey));
+class __$$_SshKeyCopyWithImpl<$Res> extends _$SshKeyCopyWithImpl<$Res>
+    implements _$$_SshKeyCopyWith<$Res> {
+  __$$_SshKeyCopyWithImpl(_$_SshKey _value, $Res Function(_$_SshKey) _then)
+      : super(_value, (v) => _then(v as _$_SshKey));
 
   @override
-  _SshKey get _value => super._value as _SshKey;
+  _$_SshKey get _value => super._value as _$_SshKey;
 
   @override
   $Res call({
@@ -124,7 +99,7 @@ class __$SshKeyCopyWithImpl<$Res> extends _$SshKeyCopyWithImpl<$Res>
     Object? publicKey = freezed,
     Object? createdAt = freezed,
   }) {
-    return _then(_SshKey(
+    return _then(_$_SshKey(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -176,7 +151,7 @@ class _$_SshKey extends _SshKey {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SshKey &&
+            other is _$_SshKey &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
                 .equals(other.fingerprint, fingerprint) &&
@@ -184,6 +159,7 @@ class _$_SshKey extends _SshKey {
             const DeepCollectionEquality().equals(other.createdAt, createdAt));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -194,8 +170,8 @@ class _$_SshKey extends _SshKey {
 
   @JsonKey(ignore: true)
   @override
-  _$SshKeyCopyWith<_SshKey> get copyWith =>
-      __$SshKeyCopyWithImpl<_SshKey>(this, _$identity);
+  _$$_SshKeyCopyWith<_$_SshKey> get copyWith =>
+      __$$_SshKeyCopyWithImpl<_$_SshKey>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -205,23 +181,24 @@ class _$_SshKey extends _SshKey {
 
 abstract class _SshKey extends SshKey {
   factory _SshKey(
-      {required String name,
-      required String fingerprint,
-      required String publicKey,
-      required DateTime createdAt}) = _$_SshKey;
+      {required final String name,
+      required final String fingerprint,
+      required final String publicKey,
+      required final DateTime createdAt}) = _$_SshKey;
   _SshKey._() : super._();
 
   factory _SshKey.fromJson(Map<String, dynamic> json) = _$_SshKey.fromJson;
 
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  String get fingerprint;
+  String get fingerprint => throw _privateConstructorUsedError;
   @override
-  String get publicKey;
+  String get publicKey => throw _privateConstructorUsedError;
   @override
-  DateTime get createdAt;
+  DateTime get createdAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SshKeyCopyWith<_SshKey> get copyWith => throw _privateConstructorUsedError;
+  _$$_SshKeyCopyWith<_$_SshKey> get copyWith =>
+      throw _privateConstructorUsedError;
 }

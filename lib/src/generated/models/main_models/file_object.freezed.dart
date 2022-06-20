@@ -12,44 +12,11 @@ part of '../../../models/main_models/file_object.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 FileObject _$FileObjectFromJson(Map<String, dynamic> json) {
   return _FileObject.fromJson(json);
 }
-
-/// @nodoc
-class _$FileObjectTearOff {
-  const _$FileObjectTearOff();
-
-  _FileObject call(
-      {required String name,
-      required String mode,
-      required int size,
-      required bool isFile,
-      required bool isSymlink,
-      required String mimetype,
-      required DateTime createdAt,
-      required DateTime modifiedAt}) {
-    return _FileObject(
-      name: name,
-      mode: mode,
-      size: size,
-      isFile: isFile,
-      isSymlink: isSymlink,
-      mimetype: mimetype,
-      createdAt: createdAt,
-      modifiedAt: modifiedAt,
-    );
-  }
-
-  FileObject fromJson(Map<String, Object?> json) {
-    return FileObject.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $FileObject = _$FileObjectTearOff();
 
 /// @nodoc
 mixin _$FileObject {
@@ -141,10 +108,11 @@ class _$FileObjectCopyWithImpl<$Res> implements $FileObjectCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$FileObjectCopyWith<$Res> implements $FileObjectCopyWith<$Res> {
-  factory _$FileObjectCopyWith(
-          _FileObject value, $Res Function(_FileObject) then) =
-      __$FileObjectCopyWithImpl<$Res>;
+abstract class _$$_FileObjectCopyWith<$Res>
+    implements $FileObjectCopyWith<$Res> {
+  factory _$$_FileObjectCopyWith(
+          _$_FileObject value, $Res Function(_$_FileObject) then) =
+      __$$_FileObjectCopyWithImpl<$Res>;
   @override
   $Res call(
       {String name,
@@ -158,14 +126,14 @@ abstract class _$FileObjectCopyWith<$Res> implements $FileObjectCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$FileObjectCopyWithImpl<$Res> extends _$FileObjectCopyWithImpl<$Res>
-    implements _$FileObjectCopyWith<$Res> {
-  __$FileObjectCopyWithImpl(
-      _FileObject _value, $Res Function(_FileObject) _then)
-      : super(_value, (v) => _then(v as _FileObject));
+class __$$_FileObjectCopyWithImpl<$Res> extends _$FileObjectCopyWithImpl<$Res>
+    implements _$$_FileObjectCopyWith<$Res> {
+  __$$_FileObjectCopyWithImpl(
+      _$_FileObject _value, $Res Function(_$_FileObject) _then)
+      : super(_value, (v) => _then(v as _$_FileObject));
 
   @override
-  _FileObject get _value => super._value as _FileObject;
+  _$_FileObject get _value => super._value as _$_FileObject;
 
   @override
   $Res call({
@@ -178,7 +146,7 @@ class __$FileObjectCopyWithImpl<$Res> extends _$FileObjectCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? modifiedAt = freezed,
   }) {
-    return _then(_FileObject(
+    return _then(_$_FileObject(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -258,7 +226,7 @@ class _$_FileObject extends _FileObject {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _FileObject &&
+            other is _$_FileObject &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.mode, mode) &&
             const DeepCollectionEquality().equals(other.size, size) &&
@@ -270,6 +238,7 @@ class _$_FileObject extends _FileObject {
                 .equals(other.modifiedAt, modifiedAt));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -284,8 +253,8 @@ class _$_FileObject extends _FileObject {
 
   @JsonKey(ignore: true)
   @override
-  _$FileObjectCopyWith<_FileObject> get copyWith =>
-      __$FileObjectCopyWithImpl<_FileObject>(this, _$identity);
+  _$$_FileObjectCopyWith<_$_FileObject> get copyWith =>
+      __$$_FileObjectCopyWithImpl<_$_FileObject>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -295,37 +264,37 @@ class _$_FileObject extends _FileObject {
 
 abstract class _FileObject extends FileObject {
   factory _FileObject(
-      {required String name,
-      required String mode,
-      required int size,
-      required bool isFile,
-      required bool isSymlink,
-      required String mimetype,
-      required DateTime createdAt,
-      required DateTime modifiedAt}) = _$_FileObject;
+      {required final String name,
+      required final String mode,
+      required final int size,
+      required final bool isFile,
+      required final bool isSymlink,
+      required final String mimetype,
+      required final DateTime createdAt,
+      required final DateTime modifiedAt}) = _$_FileObject;
   _FileObject._() : super._();
 
   factory _FileObject.fromJson(Map<String, dynamic> json) =
       _$_FileObject.fromJson;
 
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  String get mode;
+  String get mode => throw _privateConstructorUsedError;
   @override
-  int get size;
+  int get size => throw _privateConstructorUsedError;
   @override
-  bool get isFile;
+  bool get isFile => throw _privateConstructorUsedError;
   @override
-  bool get isSymlink;
+  bool get isSymlink => throw _privateConstructorUsedError;
   @override
-  String get mimetype;
+  String get mimetype => throw _privateConstructorUsedError;
   @override
-  DateTime get createdAt;
+  DateTime get createdAt => throw _privateConstructorUsedError;
   @override
-  DateTime get modifiedAt;
+  DateTime get modifiedAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$FileObjectCopyWith<_FileObject> get copyWith =>
+  _$$_FileObjectCopyWith<_$_FileObject> get copyWith =>
       throw _privateConstructorUsedError;
 }

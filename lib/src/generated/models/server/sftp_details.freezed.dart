@@ -12,30 +12,11 @@ part of '../../../models/server/sftp_details.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 SftpDetails _$SftpDetailsFromJson(Map<String, dynamic> json) {
   return _SftpDetails.fromJson(json);
 }
-
-/// @nodoc
-class _$SftpDetailsTearOff {
-  const _$SftpDetailsTearOff();
-
-  _SftpDetails call({required String ip, required int port}) {
-    return _SftpDetails(
-      ip: ip,
-      port: port,
-    );
-  }
-
-  SftpDetails fromJson(Map<String, Object?> json) {
-    return SftpDetails.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SftpDetails = _$SftpDetailsTearOff();
 
 /// @nodoc
 mixin _$SftpDetails {
@@ -83,31 +64,31 @@ class _$SftpDetailsCopyWithImpl<$Res> implements $SftpDetailsCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$SftpDetailsCopyWith<$Res>
+abstract class _$$_SftpDetailsCopyWith<$Res>
     implements $SftpDetailsCopyWith<$Res> {
-  factory _$SftpDetailsCopyWith(
-          _SftpDetails value, $Res Function(_SftpDetails) then) =
-      __$SftpDetailsCopyWithImpl<$Res>;
+  factory _$$_SftpDetailsCopyWith(
+          _$_SftpDetails value, $Res Function(_$_SftpDetails) then) =
+      __$$_SftpDetailsCopyWithImpl<$Res>;
   @override
   $Res call({String ip, int port});
 }
 
 /// @nodoc
-class __$SftpDetailsCopyWithImpl<$Res> extends _$SftpDetailsCopyWithImpl<$Res>
-    implements _$SftpDetailsCopyWith<$Res> {
-  __$SftpDetailsCopyWithImpl(
-      _SftpDetails _value, $Res Function(_SftpDetails) _then)
-      : super(_value, (v) => _then(v as _SftpDetails));
+class __$$_SftpDetailsCopyWithImpl<$Res> extends _$SftpDetailsCopyWithImpl<$Res>
+    implements _$$_SftpDetailsCopyWith<$Res> {
+  __$$_SftpDetailsCopyWithImpl(
+      _$_SftpDetails _value, $Res Function(_$_SftpDetails) _then)
+      : super(_value, (v) => _then(v as _$_SftpDetails));
 
   @override
-  _SftpDetails get _value => super._value as _SftpDetails;
+  _$_SftpDetails get _value => super._value as _$_SftpDetails;
 
   @override
   $Res call({
     Object? ip = freezed,
     Object? port = freezed,
   }) {
-    return _then(_SftpDetails(
+    return _then(_$_SftpDetails(
       ip: ip == freezed
           ? _value.ip
           : ip // ignore: cast_nullable_to_non_nullable
@@ -142,11 +123,12 @@ class _$_SftpDetails extends _SftpDetails {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SftpDetails &&
+            other is _$_SftpDetails &&
             const DeepCollectionEquality().equals(other.ip, ip) &&
             const DeepCollectionEquality().equals(other.port, port));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -155,8 +137,8 @@ class _$_SftpDetails extends _SftpDetails {
 
   @JsonKey(ignore: true)
   @override
-  _$SftpDetailsCopyWith<_SftpDetails> get copyWith =>
-      __$SftpDetailsCopyWithImpl<_SftpDetails>(this, _$identity);
+  _$$_SftpDetailsCopyWith<_$_SftpDetails> get copyWith =>
+      __$$_SftpDetailsCopyWithImpl<_$_SftpDetails>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -165,7 +147,7 @@ class _$_SftpDetails extends _SftpDetails {
 }
 
 abstract class _SftpDetails extends SftpDetails {
-  factory _SftpDetails({required String ip, required int port}) =
+  factory _SftpDetails({required final String ip, required final int port}) =
       _$_SftpDetails;
   _SftpDetails._() : super._();
 
@@ -173,11 +155,11 @@ abstract class _SftpDetails extends SftpDetails {
       _$_SftpDetails.fromJson;
 
   @override
-  String get ip;
+  String get ip => throw _privateConstructorUsedError;
   @override
-  int get port;
+  int get port => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SftpDetailsCopyWith<_SftpDetails> get copyWith =>
+  _$$_SftpDetailsCopyWith<_$_SftpDetails> get copyWith =>
       throw _privateConstructorUsedError;
 }

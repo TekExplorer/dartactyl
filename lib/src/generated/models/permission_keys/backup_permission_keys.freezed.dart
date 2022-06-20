@@ -12,36 +12,11 @@ part of '../../../models/permission_keys/backup_permission_keys.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 BackupPermissionKeys _$BackupPermissionKeysFromJson(Map<String, dynamic> json) {
   return _BackupPermissionKeys.fromJson(json);
 }
-
-/// @nodoc
-class _$BackupPermissionKeysTearOff {
-  const _$BackupPermissionKeysTearOff();
-
-  _BackupPermissionKeys call(
-      {required String read,
-      required String create,
-      required String update,
-      required String delete}) {
-    return _BackupPermissionKeys(
-      read: read,
-      create: create,
-      update: update,
-      delete: delete,
-    );
-  }
-
-  BackupPermissionKeys fromJson(Map<String, Object?> json) {
-    return BackupPermissionKeys.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $BackupPermissionKeys = _$BackupPermissionKeysTearOff();
 
 /// @nodoc
 mixin _$BackupPermissionKeys {
@@ -102,25 +77,25 @@ class _$BackupPermissionKeysCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$BackupPermissionKeysCopyWith<$Res>
+abstract class _$$_BackupPermissionKeysCopyWith<$Res>
     implements $BackupPermissionKeysCopyWith<$Res> {
-  factory _$BackupPermissionKeysCopyWith(_BackupPermissionKeys value,
-          $Res Function(_BackupPermissionKeys) then) =
-      __$BackupPermissionKeysCopyWithImpl<$Res>;
+  factory _$$_BackupPermissionKeysCopyWith(_$_BackupPermissionKeys value,
+          $Res Function(_$_BackupPermissionKeys) then) =
+      __$$_BackupPermissionKeysCopyWithImpl<$Res>;
   @override
   $Res call({String read, String create, String update, String delete});
 }
 
 /// @nodoc
-class __$BackupPermissionKeysCopyWithImpl<$Res>
+class __$$_BackupPermissionKeysCopyWithImpl<$Res>
     extends _$BackupPermissionKeysCopyWithImpl<$Res>
-    implements _$BackupPermissionKeysCopyWith<$Res> {
-  __$BackupPermissionKeysCopyWithImpl(
-      _BackupPermissionKeys _value, $Res Function(_BackupPermissionKeys) _then)
-      : super(_value, (v) => _then(v as _BackupPermissionKeys));
+    implements _$$_BackupPermissionKeysCopyWith<$Res> {
+  __$$_BackupPermissionKeysCopyWithImpl(_$_BackupPermissionKeys _value,
+      $Res Function(_$_BackupPermissionKeys) _then)
+      : super(_value, (v) => _then(v as _$_BackupPermissionKeys));
 
   @override
-  _BackupPermissionKeys get _value => super._value as _BackupPermissionKeys;
+  _$_BackupPermissionKeys get _value => super._value as _$_BackupPermissionKeys;
 
   @override
   $Res call({
@@ -129,7 +104,7 @@ class __$BackupPermissionKeysCopyWithImpl<$Res>
     Object? update = freezed,
     Object? delete = freezed,
   }) {
-    return _then(_BackupPermissionKeys(
+    return _then(_$_BackupPermissionKeys(
       read: read == freezed
           ? _value.read
           : read // ignore: cast_nullable_to_non_nullable
@@ -181,13 +156,14 @@ class _$_BackupPermissionKeys extends _BackupPermissionKeys {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _BackupPermissionKeys &&
+            other is _$_BackupPermissionKeys &&
             const DeepCollectionEquality().equals(other.read, read) &&
             const DeepCollectionEquality().equals(other.create, create) &&
             const DeepCollectionEquality().equals(other.update, update) &&
             const DeepCollectionEquality().equals(other.delete, delete));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -198,8 +174,8 @@ class _$_BackupPermissionKeys extends _BackupPermissionKeys {
 
   @JsonKey(ignore: true)
   @override
-  _$BackupPermissionKeysCopyWith<_BackupPermissionKeys> get copyWith =>
-      __$BackupPermissionKeysCopyWithImpl<_BackupPermissionKeys>(
+  _$$_BackupPermissionKeysCopyWith<_$_BackupPermissionKeys> get copyWith =>
+      __$$_BackupPermissionKeysCopyWithImpl<_$_BackupPermissionKeys>(
           this, _$identity);
 
   @override
@@ -210,25 +186,25 @@ class _$_BackupPermissionKeys extends _BackupPermissionKeys {
 
 abstract class _BackupPermissionKeys extends BackupPermissionKeys {
   factory _BackupPermissionKeys(
-      {required String read,
-      required String create,
-      required String update,
-      required String delete}) = _$_BackupPermissionKeys;
+      {required final String read,
+      required final String create,
+      required final String update,
+      required final String delete}) = _$_BackupPermissionKeys;
   _BackupPermissionKeys._() : super._();
 
   factory _BackupPermissionKeys.fromJson(Map<String, dynamic> json) =
       _$_BackupPermissionKeys.fromJson;
 
   @override
-  String get read;
+  String get read => throw _privateConstructorUsedError;
   @override
-  String get create;
+  String get create => throw _privateConstructorUsedError;
   @override
-  String get update;
+  String get update => throw _privateConstructorUsedError;
   @override
-  String get delete;
+  String get delete => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$BackupPermissionKeysCopyWith<_BackupPermissionKeys> get copyWith =>
+  _$$_BackupPermissionKeysCopyWith<_$_BackupPermissionKeys> get copyWith =>
       throw _privateConstructorUsedError;
 }

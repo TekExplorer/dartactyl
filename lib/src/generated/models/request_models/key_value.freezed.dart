@@ -12,30 +12,11 @@ part of '../../../models/request_models/key_value.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 KeyValue _$KeyValueFromJson(Map<String, dynamic> json) {
   return _KeyValue.fromJson(json);
 }
-
-/// @nodoc
-class _$KeyValueTearOff {
-  const _$KeyValueTearOff();
-
-  _KeyValue call({required String key, required String value}) {
-    return _KeyValue(
-      key: key,
-      value: value,
-    );
-  }
-
-  KeyValue fromJson(Map<String, Object?> json) {
-    return KeyValue.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $KeyValue = _$KeyValueTearOff();
 
 /// @nodoc
 mixin _$KeyValue {
@@ -82,28 +63,30 @@ class _$KeyValueCopyWithImpl<$Res> implements $KeyValueCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$KeyValueCopyWith<$Res> implements $KeyValueCopyWith<$Res> {
-  factory _$KeyValueCopyWith(_KeyValue value, $Res Function(_KeyValue) then) =
-      __$KeyValueCopyWithImpl<$Res>;
+abstract class _$$_KeyValueCopyWith<$Res> implements $KeyValueCopyWith<$Res> {
+  factory _$$_KeyValueCopyWith(
+          _$_KeyValue value, $Res Function(_$_KeyValue) then) =
+      __$$_KeyValueCopyWithImpl<$Res>;
   @override
   $Res call({String key, String value});
 }
 
 /// @nodoc
-class __$KeyValueCopyWithImpl<$Res> extends _$KeyValueCopyWithImpl<$Res>
-    implements _$KeyValueCopyWith<$Res> {
-  __$KeyValueCopyWithImpl(_KeyValue _value, $Res Function(_KeyValue) _then)
-      : super(_value, (v) => _then(v as _KeyValue));
+class __$$_KeyValueCopyWithImpl<$Res> extends _$KeyValueCopyWithImpl<$Res>
+    implements _$$_KeyValueCopyWith<$Res> {
+  __$$_KeyValueCopyWithImpl(
+      _$_KeyValue _value, $Res Function(_$_KeyValue) _then)
+      : super(_value, (v) => _then(v as _$_KeyValue));
 
   @override
-  _KeyValue get _value => super._value as _KeyValue;
+  _$_KeyValue get _value => super._value as _$_KeyValue;
 
   @override
   $Res call({
     Object? key = freezed,
     Object? value = freezed,
   }) {
-    return _then(_KeyValue(
+    return _then(_$_KeyValue(
       key: key == freezed
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
@@ -138,11 +121,12 @@ class _$_KeyValue implements _KeyValue {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _KeyValue &&
+            other is _$_KeyValue &&
             const DeepCollectionEquality().equals(other.key, key) &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -151,8 +135,8 @@ class _$_KeyValue implements _KeyValue {
 
   @JsonKey(ignore: true)
   @override
-  _$KeyValueCopyWith<_KeyValue> get copyWith =>
-      __$KeyValueCopyWithImpl<_KeyValue>(this, _$identity);
+  _$$_KeyValueCopyWith<_$_KeyValue> get copyWith =>
+      __$$_KeyValueCopyWithImpl<_$_KeyValue>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -161,16 +145,17 @@ class _$_KeyValue implements _KeyValue {
 }
 
 abstract class _KeyValue implements KeyValue {
-  factory _KeyValue({required String key, required String value}) = _$_KeyValue;
+  factory _KeyValue({required final String key, required final String value}) =
+      _$_KeyValue;
 
   factory _KeyValue.fromJson(Map<String, dynamic> json) = _$_KeyValue.fromJson;
 
   @override
-  String get key;
+  String get key => throw _privateConstructorUsedError;
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$KeyValueCopyWith<_KeyValue> get copyWith =>
+  _$$_KeyValueCopyWith<_$_KeyValue> get copyWith =>
       throw _privateConstructorUsedError;
 }

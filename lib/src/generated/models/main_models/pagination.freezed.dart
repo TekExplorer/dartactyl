@@ -12,30 +12,11 @@ part of '../../../models/main_models/pagination.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Links _$LinksFromJson(Map<String, dynamic> json) {
   return _Links.fromJson(json);
 }
-
-/// @nodoc
-class _$LinksTearOff {
-  const _$LinksTearOff();
-
-  _Links call({String? previous, String? next}) {
-    return _Links(
-      previous: previous,
-      next: next,
-    );
-  }
-
-  Links fromJson(Map<String, Object?> json) {
-    return Links.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Links = _$LinksTearOff();
 
 /// @nodoc
 mixin _$Links {
@@ -81,28 +62,28 @@ class _$LinksCopyWithImpl<$Res> implements $LinksCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$LinksCopyWith<$Res> implements $LinksCopyWith<$Res> {
-  factory _$LinksCopyWith(_Links value, $Res Function(_Links) then) =
-      __$LinksCopyWithImpl<$Res>;
+abstract class _$$_LinksCopyWith<$Res> implements $LinksCopyWith<$Res> {
+  factory _$$_LinksCopyWith(_$_Links value, $Res Function(_$_Links) then) =
+      __$$_LinksCopyWithImpl<$Res>;
   @override
   $Res call({String? previous, String? next});
 }
 
 /// @nodoc
-class __$LinksCopyWithImpl<$Res> extends _$LinksCopyWithImpl<$Res>
-    implements _$LinksCopyWith<$Res> {
-  __$LinksCopyWithImpl(_Links _value, $Res Function(_Links) _then)
-      : super(_value, (v) => _then(v as _Links));
+class __$$_LinksCopyWithImpl<$Res> extends _$LinksCopyWithImpl<$Res>
+    implements _$$_LinksCopyWith<$Res> {
+  __$$_LinksCopyWithImpl(_$_Links _value, $Res Function(_$_Links) _then)
+      : super(_value, (v) => _then(v as _$_Links));
 
   @override
-  _Links get _value => super._value as _Links;
+  _$_Links get _value => super._value as _$_Links;
 
   @override
   $Res call({
     Object? previous = freezed,
     Object? next = freezed,
   }) {
-    return _then(_Links(
+    return _then(_$_Links(
       previous: previous == freezed
           ? _value.previous
           : previous // ignore: cast_nullable_to_non_nullable
@@ -137,11 +118,12 @@ class _$_Links extends _Links {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Links &&
+            other is _$_Links &&
             const DeepCollectionEquality().equals(other.previous, previous) &&
             const DeepCollectionEquality().equals(other.next, next));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -150,8 +132,8 @@ class _$_Links extends _Links {
 
   @JsonKey(ignore: true)
   @override
-  _$LinksCopyWith<_Links> get copyWith =>
-      __$LinksCopyWithImpl<_Links>(this, _$identity);
+  _$$_LinksCopyWith<_$_Links> get copyWith =>
+      __$$_LinksCopyWithImpl<_$_Links>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -160,52 +142,24 @@ class _$_Links extends _Links {
 }
 
 abstract class _Links extends Links {
-  factory _Links({String? previous, String? next}) = _$_Links;
+  factory _Links({final String? previous, final String? next}) = _$_Links;
   _Links._() : super._();
 
   factory _Links.fromJson(Map<String, dynamic> json) = _$_Links.fromJson;
 
   @override
-  String? get previous;
+  String? get previous => throw _privateConstructorUsedError;
   @override
-  String? get next;
+  String? get next => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$LinksCopyWith<_Links> get copyWith => throw _privateConstructorUsedError;
+  _$$_LinksCopyWith<_$_Links> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 Pagination _$PaginationFromJson(Map<String, dynamic> json) {
   return _Pagination.fromJson(json);
 }
-
-/// @nodoc
-class _$PaginationTearOff {
-  const _$PaginationTearOff();
-
-  _Pagination call(
-      {required int total,
-      required int count,
-      required int perPage,
-      required int currentPage,
-      required int totalPages,
-      required Links links}) {
-    return _Pagination(
-      total: total,
-      count: count,
-      perPage: perPage,
-      currentPage: currentPage,
-      totalPages: totalPages,
-      links: links,
-    );
-  }
-
-  Pagination fromJson(Map<String, Object?> json) {
-    return Pagination.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Pagination = _$PaginationTearOff();
 
 /// @nodoc
 mixin _$Pagination {
@@ -292,10 +246,11 @@ class _$PaginationCopyWithImpl<$Res> implements $PaginationCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$PaginationCopyWith<$Res> implements $PaginationCopyWith<$Res> {
-  factory _$PaginationCopyWith(
-          _Pagination value, $Res Function(_Pagination) then) =
-      __$PaginationCopyWithImpl<$Res>;
+abstract class _$$_PaginationCopyWith<$Res>
+    implements $PaginationCopyWith<$Res> {
+  factory _$$_PaginationCopyWith(
+          _$_Pagination value, $Res Function(_$_Pagination) then) =
+      __$$_PaginationCopyWithImpl<$Res>;
   @override
   $Res call(
       {int total,
@@ -310,14 +265,14 @@ abstract class _$PaginationCopyWith<$Res> implements $PaginationCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$PaginationCopyWithImpl<$Res> extends _$PaginationCopyWithImpl<$Res>
-    implements _$PaginationCopyWith<$Res> {
-  __$PaginationCopyWithImpl(
-      _Pagination _value, $Res Function(_Pagination) _then)
-      : super(_value, (v) => _then(v as _Pagination));
+class __$$_PaginationCopyWithImpl<$Res> extends _$PaginationCopyWithImpl<$Res>
+    implements _$$_PaginationCopyWith<$Res> {
+  __$$_PaginationCopyWithImpl(
+      _$_Pagination _value, $Res Function(_$_Pagination) _then)
+      : super(_value, (v) => _then(v as _$_Pagination));
 
   @override
-  _Pagination get _value => super._value as _Pagination;
+  _$_Pagination get _value => super._value as _$_Pagination;
 
   @override
   $Res call({
@@ -328,7 +283,7 @@ class __$PaginationCopyWithImpl<$Res> extends _$PaginationCopyWithImpl<$Res>
     Object? totalPages = freezed,
     Object? links = freezed,
   }) {
-    return _then(_Pagination(
+    return _then(_$_Pagination(
       total: total == freezed
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
@@ -394,7 +349,7 @@ class _$_Pagination extends _Pagination {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Pagination &&
+            other is _$_Pagination &&
             const DeepCollectionEquality().equals(other.total, total) &&
             const DeepCollectionEquality().equals(other.count, count) &&
             const DeepCollectionEquality().equals(other.perPage, perPage) &&
@@ -405,6 +360,7 @@ class _$_Pagination extends _Pagination {
             const DeepCollectionEquality().equals(other.links, links));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -417,8 +373,8 @@ class _$_Pagination extends _Pagination {
 
   @JsonKey(ignore: true)
   @override
-  _$PaginationCopyWith<_Pagination> get copyWith =>
-      __$PaginationCopyWithImpl<_Pagination>(this, _$identity);
+  _$$_PaginationCopyWith<_$_Pagination> get copyWith =>
+      __$$_PaginationCopyWithImpl<_$_Pagination>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -428,31 +384,31 @@ class _$_Pagination extends _Pagination {
 
 abstract class _Pagination extends Pagination {
   factory _Pagination(
-      {required int total,
-      required int count,
-      required int perPage,
-      required int currentPage,
-      required int totalPages,
-      required Links links}) = _$_Pagination;
+      {required final int total,
+      required final int count,
+      required final int perPage,
+      required final int currentPage,
+      required final int totalPages,
+      required final Links links}) = _$_Pagination;
   _Pagination._() : super._();
 
   factory _Pagination.fromJson(Map<String, dynamic> json) =
       _$_Pagination.fromJson;
 
   @override
-  int get total;
+  int get total => throw _privateConstructorUsedError;
   @override
-  int get count;
+  int get count => throw _privateConstructorUsedError;
   @override
-  int get perPage;
+  int get perPage => throw _privateConstructorUsedError;
   @override
-  int get currentPage;
+  int get currentPage => throw _privateConstructorUsedError;
   @override
-  int get totalPages;
+  int get totalPages => throw _privateConstructorUsedError;
   @override
-  Links get links;
+  Links get links => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$PaginationCopyWith<_Pagination> get copyWith =>
+  _$$_PaginationCopyWith<_$_Pagination> get copyWith =>
       throw _privateConstructorUsedError;
 }

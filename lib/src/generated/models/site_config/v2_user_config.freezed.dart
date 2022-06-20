@@ -12,52 +12,11 @@ part of '../../../models/site_config/v2_user_config.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 _V2UserConfig _$_V2UserConfigFromJson(Map<String, dynamic> json) {
   return __V2UserConfig.fromJson(json);
 }
-
-/// @nodoc
-class _$_V2UserConfigTearOff {
-  const _$_V2UserConfigTearOff();
-
-  __V2UserConfig call(
-      {required String uuid,
-      required String username,
-      required String email,
-      required String language,
-      int? adminRoleId,
-      required bool rootAdmin,
-      required bool useTotp,
-      required bool gravatar,
-      required String createdAt,
-      required String updatedAt,
-      required String avatarUrl,
-      required String roleName}) {
-    return __V2UserConfig(
-      uuid: uuid,
-      username: username,
-      email: email,
-      language: language,
-      adminRoleId: adminRoleId,
-      rootAdmin: rootAdmin,
-      useTotp: useTotp,
-      gravatar: gravatar,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-      avatarUrl: avatarUrl,
-      roleName: roleName,
-    );
-  }
-
-  _V2UserConfig fromJson(Map<String, Object?> json) {
-    return _V2UserConfig.fromJson(json);
-  }
-}
-
-/// @nodoc
-const _$V2UserConfig = _$_V2UserConfigTearOff();
 
 /// @nodoc
 mixin _$_V2UserConfig {
@@ -178,11 +137,11 @@ class __$V2UserConfigCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$_V2UserConfigCopyWith<$Res>
+abstract class _$$__V2UserConfigCopyWith<$Res>
     implements _$V2UserConfigCopyWith<$Res> {
-  factory _$_V2UserConfigCopyWith(
-          __V2UserConfig value, $Res Function(__V2UserConfig) then) =
-      __$_V2UserConfigCopyWithImpl<$Res>;
+  factory _$$__V2UserConfigCopyWith(
+          _$__V2UserConfig value, $Res Function(_$__V2UserConfig) then) =
+      __$$__V2UserConfigCopyWithImpl<$Res>;
   @override
   $Res call(
       {String uuid,
@@ -200,15 +159,15 @@ abstract class _$_V2UserConfigCopyWith<$Res>
 }
 
 /// @nodoc
-class __$_V2UserConfigCopyWithImpl<$Res>
+class __$$__V2UserConfigCopyWithImpl<$Res>
     extends __$V2UserConfigCopyWithImpl<$Res>
-    implements _$_V2UserConfigCopyWith<$Res> {
-  __$_V2UserConfigCopyWithImpl(
-      __V2UserConfig _value, $Res Function(__V2UserConfig) _then)
-      : super(_value, (v) => _then(v as __V2UserConfig));
+    implements _$$__V2UserConfigCopyWith<$Res> {
+  __$$__V2UserConfigCopyWithImpl(
+      _$__V2UserConfig _value, $Res Function(_$__V2UserConfig) _then)
+      : super(_value, (v) => _then(v as _$__V2UserConfig));
 
   @override
-  __V2UserConfig get _value => super._value as __V2UserConfig;
+  _$__V2UserConfig get _value => super._value as _$__V2UserConfig;
 
   @override
   $Res call({
@@ -225,7 +184,7 @@ class __$_V2UserConfigCopyWithImpl<$Res>
     Object? avatarUrl = freezed,
     Object? roleName = freezed,
   }) {
-    return _then(__V2UserConfig(
+    return _then(_$__V2UserConfig(
       uuid: uuid == freezed
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
@@ -332,7 +291,7 @@ class _$__V2UserConfig implements __V2UserConfig {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is __V2UserConfig &&
+            other is _$__V2UserConfig &&
             const DeepCollectionEquality().equals(other.uuid, uuid) &&
             const DeepCollectionEquality().equals(other.username, username) &&
             const DeepCollectionEquality().equals(other.email, email) &&
@@ -348,6 +307,7 @@ class _$__V2UserConfig implements __V2UserConfig {
             const DeepCollectionEquality().equals(other.roleName, roleName));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -366,8 +326,8 @@ class _$__V2UserConfig implements __V2UserConfig {
 
   @JsonKey(ignore: true)
   @override
-  _$_V2UserConfigCopyWith<__V2UserConfig> get copyWith =>
-      __$_V2UserConfigCopyWithImpl<__V2UserConfig>(this, _$identity);
+  _$$__V2UserConfigCopyWith<_$__V2UserConfig> get copyWith =>
+      __$$__V2UserConfigCopyWithImpl<_$__V2UserConfig>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -377,48 +337,48 @@ class _$__V2UserConfig implements __V2UserConfig {
 
 abstract class __V2UserConfig implements _V2UserConfig {
   factory __V2UserConfig(
-      {required String uuid,
-      required String username,
-      required String email,
-      required String language,
-      int? adminRoleId,
-      required bool rootAdmin,
-      required bool useTotp,
-      required bool gravatar,
-      required String createdAt,
-      required String updatedAt,
-      required String avatarUrl,
-      required String roleName}) = _$__V2UserConfig;
+      {required final String uuid,
+      required final String username,
+      required final String email,
+      required final String language,
+      final int? adminRoleId,
+      required final bool rootAdmin,
+      required final bool useTotp,
+      required final bool gravatar,
+      required final String createdAt,
+      required final String updatedAt,
+      required final String avatarUrl,
+      required final String roleName}) = _$__V2UserConfig;
 
   factory __V2UserConfig.fromJson(Map<String, dynamic> json) =
       _$__V2UserConfig.fromJson;
 
   @override
-  String get uuid;
+  String get uuid => throw _privateConstructorUsedError;
   @override
-  String get username;
+  String get username => throw _privateConstructorUsedError;
   @override
-  String get email;
+  String get email => throw _privateConstructorUsedError;
   @override
-  String get language;
+  String get language => throw _privateConstructorUsedError;
   @override
-  int? get adminRoleId;
+  int? get adminRoleId => throw _privateConstructorUsedError;
   @override
-  bool get rootAdmin;
+  bool get rootAdmin => throw _privateConstructorUsedError;
   @override
-  bool get useTotp;
+  bool get useTotp => throw _privateConstructorUsedError;
   @override
-  bool get gravatar;
+  bool get gravatar => throw _privateConstructorUsedError;
   @override
-  String get createdAt;
+  String get createdAt => throw _privateConstructorUsedError;
   @override
-  String get updatedAt;
+  String get updatedAt => throw _privateConstructorUsedError;
   @override
-  String get avatarUrl;
+  String get avatarUrl => throw _privateConstructorUsedError;
   @override
-  String get roleName;
+  String get roleName => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$_V2UserConfigCopyWith<__V2UserConfig> get copyWith =>
+  _$$__V2UserConfigCopyWith<_$__V2UserConfig> get copyWith =>
       throw _privateConstructorUsedError;
 }

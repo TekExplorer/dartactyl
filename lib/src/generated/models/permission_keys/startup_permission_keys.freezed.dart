@@ -12,31 +12,12 @@ part of '../../../models/permission_keys/startup_permission_keys.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 StartupPermissionKeys _$StartupPermissionKeysFromJson(
     Map<String, dynamic> json) {
   return _StartupPermissionKeys.fromJson(json);
 }
-
-/// @nodoc
-class _$StartupPermissionKeysTearOff {
-  const _$StartupPermissionKeysTearOff();
-
-  _StartupPermissionKeys call({required String read, required String update}) {
-    return _StartupPermissionKeys(
-      read: read,
-      update: update,
-    );
-  }
-
-  StartupPermissionKeys fromJson(Map<String, Object?> json) {
-    return StartupPermissionKeys.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $StartupPermissionKeys = _$StartupPermissionKeysTearOff();
 
 /// @nodoc
 mixin _$StartupPermissionKeys {
@@ -85,32 +66,33 @@ class _$StartupPermissionKeysCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$StartupPermissionKeysCopyWith<$Res>
+abstract class _$$_StartupPermissionKeysCopyWith<$Res>
     implements $StartupPermissionKeysCopyWith<$Res> {
-  factory _$StartupPermissionKeysCopyWith(_StartupPermissionKeys value,
-          $Res Function(_StartupPermissionKeys) then) =
-      __$StartupPermissionKeysCopyWithImpl<$Res>;
+  factory _$$_StartupPermissionKeysCopyWith(_$_StartupPermissionKeys value,
+          $Res Function(_$_StartupPermissionKeys) then) =
+      __$$_StartupPermissionKeysCopyWithImpl<$Res>;
   @override
   $Res call({String read, String update});
 }
 
 /// @nodoc
-class __$StartupPermissionKeysCopyWithImpl<$Res>
+class __$$_StartupPermissionKeysCopyWithImpl<$Res>
     extends _$StartupPermissionKeysCopyWithImpl<$Res>
-    implements _$StartupPermissionKeysCopyWith<$Res> {
-  __$StartupPermissionKeysCopyWithImpl(_StartupPermissionKeys _value,
-      $Res Function(_StartupPermissionKeys) _then)
-      : super(_value, (v) => _then(v as _StartupPermissionKeys));
+    implements _$$_StartupPermissionKeysCopyWith<$Res> {
+  __$$_StartupPermissionKeysCopyWithImpl(_$_StartupPermissionKeys _value,
+      $Res Function(_$_StartupPermissionKeys) _then)
+      : super(_value, (v) => _then(v as _$_StartupPermissionKeys));
 
   @override
-  _StartupPermissionKeys get _value => super._value as _StartupPermissionKeys;
+  _$_StartupPermissionKeys get _value =>
+      super._value as _$_StartupPermissionKeys;
 
   @override
   $Res call({
     Object? read = freezed,
     Object? update = freezed,
   }) {
-    return _then(_StartupPermissionKeys(
+    return _then(_$_StartupPermissionKeys(
       read: read == freezed
           ? _value.read
           : read // ignore: cast_nullable_to_non_nullable
@@ -146,11 +128,12 @@ class _$_StartupPermissionKeys extends _StartupPermissionKeys {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _StartupPermissionKeys &&
+            other is _$_StartupPermissionKeys &&
             const DeepCollectionEquality().equals(other.read, read) &&
             const DeepCollectionEquality().equals(other.update, update));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -159,8 +142,8 @@ class _$_StartupPermissionKeys extends _StartupPermissionKeys {
 
   @JsonKey(ignore: true)
   @override
-  _$StartupPermissionKeysCopyWith<_StartupPermissionKeys> get copyWith =>
-      __$StartupPermissionKeysCopyWithImpl<_StartupPermissionKeys>(
+  _$$_StartupPermissionKeysCopyWith<_$_StartupPermissionKeys> get copyWith =>
+      __$$_StartupPermissionKeysCopyWithImpl<_$_StartupPermissionKeys>(
           this, _$identity);
 
   @override
@@ -171,19 +154,19 @@ class _$_StartupPermissionKeys extends _StartupPermissionKeys {
 
 abstract class _StartupPermissionKeys extends StartupPermissionKeys {
   factory _StartupPermissionKeys(
-      {required String read,
-      required String update}) = _$_StartupPermissionKeys;
+      {required final String read,
+      required final String update}) = _$_StartupPermissionKeys;
   _StartupPermissionKeys._() : super._();
 
   factory _StartupPermissionKeys.fromJson(Map<String, dynamic> json) =
       _$_StartupPermissionKeys.fromJson;
 
   @override
-  String get read;
+  String get read => throw _privateConstructorUsedError;
   @override
-  String get update;
+  String get update => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$StartupPermissionKeysCopyWith<_StartupPermissionKeys> get copyWith =>
+  _$$_StartupPermissionKeysCopyWith<_$_StartupPermissionKeys> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,30 +12,11 @@ part of '../../../models/ptero_data/websocket_details.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 WebsocketDetails _$WebsocketDetailsFromJson(Map<String, dynamic> json) {
   return _WebsocketDetails.fromJson(json);
 }
-
-/// @nodoc
-class _$WebsocketDetailsTearOff {
-  const _$WebsocketDetailsTearOff();
-
-  _WebsocketDetails call({required String token, required String socket}) {
-    return _WebsocketDetails(
-      token: token,
-      socket: socket,
-    );
-  }
-
-  WebsocketDetails fromJson(Map<String, Object?> json) {
-    return WebsocketDetails.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $WebsocketDetails = _$WebsocketDetailsTearOff();
 
 /// @nodoc
 mixin _$WebsocketDetails {
@@ -84,32 +65,32 @@ class _$WebsocketDetailsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$WebsocketDetailsCopyWith<$Res>
+abstract class _$$_WebsocketDetailsCopyWith<$Res>
     implements $WebsocketDetailsCopyWith<$Res> {
-  factory _$WebsocketDetailsCopyWith(
-          _WebsocketDetails value, $Res Function(_WebsocketDetails) then) =
-      __$WebsocketDetailsCopyWithImpl<$Res>;
+  factory _$$_WebsocketDetailsCopyWith(
+          _$_WebsocketDetails value, $Res Function(_$_WebsocketDetails) then) =
+      __$$_WebsocketDetailsCopyWithImpl<$Res>;
   @override
   $Res call({String token, String socket});
 }
 
 /// @nodoc
-class __$WebsocketDetailsCopyWithImpl<$Res>
+class __$$_WebsocketDetailsCopyWithImpl<$Res>
     extends _$WebsocketDetailsCopyWithImpl<$Res>
-    implements _$WebsocketDetailsCopyWith<$Res> {
-  __$WebsocketDetailsCopyWithImpl(
-      _WebsocketDetails _value, $Res Function(_WebsocketDetails) _then)
-      : super(_value, (v) => _then(v as _WebsocketDetails));
+    implements _$$_WebsocketDetailsCopyWith<$Res> {
+  __$$_WebsocketDetailsCopyWithImpl(
+      _$_WebsocketDetails _value, $Res Function(_$_WebsocketDetails) _then)
+      : super(_value, (v) => _then(v as _$_WebsocketDetails));
 
   @override
-  _WebsocketDetails get _value => super._value as _WebsocketDetails;
+  _$_WebsocketDetails get _value => super._value as _$_WebsocketDetails;
 
   @override
   $Res call({
     Object? token = freezed,
     Object? socket = freezed,
   }) {
-    return _then(_WebsocketDetails(
+    return _then(_$_WebsocketDetails(
       token: token == freezed
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -144,11 +125,12 @@ class _$_WebsocketDetails implements _WebsocketDetails {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WebsocketDetails &&
+            other is _$_WebsocketDetails &&
             const DeepCollectionEquality().equals(other.token, token) &&
             const DeepCollectionEquality().equals(other.socket, socket));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -157,8 +139,8 @@ class _$_WebsocketDetails implements _WebsocketDetails {
 
   @JsonKey(ignore: true)
   @override
-  _$WebsocketDetailsCopyWith<_WebsocketDetails> get copyWith =>
-      __$WebsocketDetailsCopyWithImpl<_WebsocketDetails>(this, _$identity);
+  _$$_WebsocketDetailsCopyWith<_$_WebsocketDetails> get copyWith =>
+      __$$_WebsocketDetailsCopyWithImpl<_$_WebsocketDetails>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -167,18 +149,19 @@ class _$_WebsocketDetails implements _WebsocketDetails {
 }
 
 abstract class _WebsocketDetails implements WebsocketDetails {
-  factory _WebsocketDetails({required String token, required String socket}) =
-      _$_WebsocketDetails;
+  factory _WebsocketDetails(
+      {required final String token,
+      required final String socket}) = _$_WebsocketDetails;
 
   factory _WebsocketDetails.fromJson(Map<String, dynamic> json) =
       _$_WebsocketDetails.fromJson;
 
   @override
-  String get token;
+  String get token => throw _privateConstructorUsedError;
   @override
-  String get socket;
+  String get socket => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$WebsocketDetailsCopyWith<_WebsocketDetails> get copyWith =>
+  _$$_WebsocketDetailsCopyWith<_$_WebsocketDetails> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,30 +12,12 @@ part of '../../../models/permission_keys/control_permission_keys.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ControlPermissionKeys _$ControlPermissionKeysFromJson(
     Map<String, dynamic> json) {
   return _ControlPermissionKeys.fromJson(json);
 }
-
-/// @nodoc
-class _$ControlPermissionKeysTearOff {
-  const _$ControlPermissionKeysTearOff();
-
-  _ControlPermissionKeys call({required String connect}) {
-    return _ControlPermissionKeys(
-      connect: connect,
-    );
-  }
-
-  ControlPermissionKeys fromJson(Map<String, Object?> json) {
-    return ControlPermissionKeys.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ControlPermissionKeys = _$ControlPermissionKeysTearOff();
 
 /// @nodoc
 mixin _$ControlPermissionKeys {
@@ -78,31 +60,32 @@ class _$ControlPermissionKeysCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ControlPermissionKeysCopyWith<$Res>
+abstract class _$$_ControlPermissionKeysCopyWith<$Res>
     implements $ControlPermissionKeysCopyWith<$Res> {
-  factory _$ControlPermissionKeysCopyWith(_ControlPermissionKeys value,
-          $Res Function(_ControlPermissionKeys) then) =
-      __$ControlPermissionKeysCopyWithImpl<$Res>;
+  factory _$$_ControlPermissionKeysCopyWith(_$_ControlPermissionKeys value,
+          $Res Function(_$_ControlPermissionKeys) then) =
+      __$$_ControlPermissionKeysCopyWithImpl<$Res>;
   @override
   $Res call({String connect});
 }
 
 /// @nodoc
-class __$ControlPermissionKeysCopyWithImpl<$Res>
+class __$$_ControlPermissionKeysCopyWithImpl<$Res>
     extends _$ControlPermissionKeysCopyWithImpl<$Res>
-    implements _$ControlPermissionKeysCopyWith<$Res> {
-  __$ControlPermissionKeysCopyWithImpl(_ControlPermissionKeys _value,
-      $Res Function(_ControlPermissionKeys) _then)
-      : super(_value, (v) => _then(v as _ControlPermissionKeys));
+    implements _$$_ControlPermissionKeysCopyWith<$Res> {
+  __$$_ControlPermissionKeysCopyWithImpl(_$_ControlPermissionKeys _value,
+      $Res Function(_$_ControlPermissionKeys) _then)
+      : super(_value, (v) => _then(v as _$_ControlPermissionKeys));
 
   @override
-  _ControlPermissionKeys get _value => super._value as _ControlPermissionKeys;
+  _$_ControlPermissionKeys get _value =>
+      super._value as _$_ControlPermissionKeys;
 
   @override
   $Res call({
     Object? connect = freezed,
   }) {
-    return _then(_ControlPermissionKeys(
+    return _then(_$_ControlPermissionKeys(
       connect: connect == freezed
           ? _value.connect
           : connect // ignore: cast_nullable_to_non_nullable
@@ -131,18 +114,19 @@ class _$_ControlPermissionKeys extends _ControlPermissionKeys {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ControlPermissionKeys &&
+            other is _$_ControlPermissionKeys &&
             const DeepCollectionEquality().equals(other.connect, connect));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(connect));
 
   @JsonKey(ignore: true)
   @override
-  _$ControlPermissionKeysCopyWith<_ControlPermissionKeys> get copyWith =>
-      __$ControlPermissionKeysCopyWithImpl<_ControlPermissionKeys>(
+  _$$_ControlPermissionKeysCopyWith<_$_ControlPermissionKeys> get copyWith =>
+      __$$_ControlPermissionKeysCopyWithImpl<_$_ControlPermissionKeys>(
           this, _$identity);
 
   @override
@@ -152,7 +136,7 @@ class _$_ControlPermissionKeys extends _ControlPermissionKeys {
 }
 
 abstract class _ControlPermissionKeys extends ControlPermissionKeys {
-  factory _ControlPermissionKeys({required String connect}) =
+  factory _ControlPermissionKeys({required final String connect}) =
       _$_ControlPermissionKeys;
   _ControlPermissionKeys._() : super._();
 
@@ -160,9 +144,9 @@ abstract class _ControlPermissionKeys extends ControlPermissionKeys {
       _$_ControlPermissionKeys.fromJson;
 
   @override
-  String get connect;
+  String get connect => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ControlPermissionKeysCopyWith<_ControlPermissionKeys> get copyWith =>
+  _$$_ControlPermissionKeysCopyWith<_$_ControlPermissionKeys> get copyWith =>
       throw _privateConstructorUsedError;
 }
