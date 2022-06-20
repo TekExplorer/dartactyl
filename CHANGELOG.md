@@ -1,4 +1,8 @@
 # CHANGELOG
+## 1.4.1
+ - added `lockBackup`
+ - updated server websocket extentions
+ - updated dependencies
 ## 1.4.0
  - bump release
  - fixed an issue with the websocket cubit trying to emit new states after its closed
