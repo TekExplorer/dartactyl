@@ -12,38 +12,11 @@ part of '../../../models/main_models/cron.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Cron _$CronFromJson(Map<String, dynamic> json) {
   return _Cron.fromJson(json);
 }
-
-/// @nodoc
-class _$CronTearOff {
-  const _$CronTearOff();
-
-  _Cron call(
-      {String? name,
-      required String dayOfWeek,
-      required String dayOfMonth,
-      required String hour,
-      required String minute}) {
-    return _Cron(
-      name: name,
-      dayOfWeek: dayOfWeek,
-      dayOfMonth: dayOfMonth,
-      hour: hour,
-      minute: minute,
-    );
-  }
-
-  Cron fromJson(Map<String, Object?> json) {
-    return Cron.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Cron = _$CronTearOff();
 
 /// @nodoc
 mixin _$Cron {
@@ -112,9 +85,9 @@ class _$CronCopyWithImpl<$Res> implements $CronCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$CronCopyWith<$Res> implements $CronCopyWith<$Res> {
-  factory _$CronCopyWith(_Cron value, $Res Function(_Cron) then) =
-      __$CronCopyWithImpl<$Res>;
+abstract class _$$_CronCopyWith<$Res> implements $CronCopyWith<$Res> {
+  factory _$$_CronCopyWith(_$_Cron value, $Res Function(_$_Cron) then) =
+      __$$_CronCopyWithImpl<$Res>;
   @override
   $Res call(
       {String? name,
@@ -125,13 +98,13 @@ abstract class _$CronCopyWith<$Res> implements $CronCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$CronCopyWithImpl<$Res> extends _$CronCopyWithImpl<$Res>
-    implements _$CronCopyWith<$Res> {
-  __$CronCopyWithImpl(_Cron _value, $Res Function(_Cron) _then)
-      : super(_value, (v) => _then(v as _Cron));
+class __$$_CronCopyWithImpl<$Res> extends _$CronCopyWithImpl<$Res>
+    implements _$$_CronCopyWith<$Res> {
+  __$$_CronCopyWithImpl(_$_Cron _value, $Res Function(_$_Cron) _then)
+      : super(_value, (v) => _then(v as _$_Cron));
 
   @override
-  _Cron get _value => super._value as _Cron;
+  _$_Cron get _value => super._value as _$_Cron;
 
   @override
   $Res call({
@@ -141,7 +114,7 @@ class __$CronCopyWithImpl<$Res> extends _$CronCopyWithImpl<$Res>
     Object? hour = freezed,
     Object? minute = freezed,
   }) {
-    return _then(_Cron(
+    return _then(_$_Cron(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -181,7 +154,8 @@ class _$_Cron extends _Cron {
 
   @override
   final String? name;
-  @override // exists?
+// exists?
+  @override
   final String dayOfWeek;
   @override
   final String dayOfMonth;
@@ -199,7 +173,7 @@ class _$_Cron extends _Cron {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Cron &&
+            other is _$_Cron &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.dayOfWeek, dayOfWeek) &&
             const DeepCollectionEquality()
@@ -208,6 +182,7 @@ class _$_Cron extends _Cron {
             const DeepCollectionEquality().equals(other.minute, minute));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -219,8 +194,8 @@ class _$_Cron extends _Cron {
 
   @JsonKey(ignore: true)
   @override
-  _$CronCopyWith<_Cron> get copyWith =>
-      __$CronCopyWithImpl<_Cron>(this, _$identity);
+  _$$_CronCopyWith<_$_Cron> get copyWith =>
+      __$$_CronCopyWithImpl<_$_Cron>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -230,26 +205,26 @@ class _$_Cron extends _Cron {
 
 abstract class _Cron extends Cron {
   factory _Cron(
-      {String? name,
-      required String dayOfWeek,
-      required String dayOfMonth,
-      required String hour,
-      required String minute}) = _$_Cron;
+      {final String? name,
+      required final String dayOfWeek,
+      required final String dayOfMonth,
+      required final String hour,
+      required final String minute}) = _$_Cron;
   _Cron._() : super._();
 
   factory _Cron.fromJson(Map<String, dynamic> json) = _$_Cron.fromJson;
 
   @override
-  String? get name;
+  String? get name => throw _privateConstructorUsedError;
   @override // exists?
-  String get dayOfWeek;
+  String get dayOfWeek => throw _privateConstructorUsedError;
   @override
-  String get dayOfMonth;
+  String get dayOfMonth => throw _privateConstructorUsedError;
   @override
-  String get hour;
+  String get hour => throw _privateConstructorUsedError;
   @override
-  String get minute;
+  String get minute => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$CronCopyWith<_Cron> get copyWith => throw _privateConstructorUsedError;
+  _$$_CronCopyWith<_$_Cron> get copyWith => throw _privateConstructorUsedError;
 }

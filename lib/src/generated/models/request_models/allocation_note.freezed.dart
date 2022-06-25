@@ -12,29 +12,11 @@ part of '../../../models/request_models/allocation_note.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AllocationNote _$AllocationNoteFromJson(Map<String, dynamic> json) {
   return _AllocationNote.fromJson(json);
 }
-
-/// @nodoc
-class _$AllocationNoteTearOff {
-  const _$AllocationNoteTearOff();
-
-  _AllocationNote call({required String notes}) {
-    return _AllocationNote(
-      notes: notes,
-    );
-  }
-
-  AllocationNote fromJson(Map<String, Object?> json) {
-    return AllocationNote.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AllocationNote = _$AllocationNoteTearOff();
 
 /// @nodoc
 mixin _$AllocationNote {
@@ -77,31 +59,31 @@ class _$AllocationNoteCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$AllocationNoteCopyWith<$Res>
+abstract class _$$_AllocationNoteCopyWith<$Res>
     implements $AllocationNoteCopyWith<$Res> {
-  factory _$AllocationNoteCopyWith(
-          _AllocationNote value, $Res Function(_AllocationNote) then) =
-      __$AllocationNoteCopyWithImpl<$Res>;
+  factory _$$_AllocationNoteCopyWith(
+          _$_AllocationNote value, $Res Function(_$_AllocationNote) then) =
+      __$$_AllocationNoteCopyWithImpl<$Res>;
   @override
   $Res call({String notes});
 }
 
 /// @nodoc
-class __$AllocationNoteCopyWithImpl<$Res>
+class __$$_AllocationNoteCopyWithImpl<$Res>
     extends _$AllocationNoteCopyWithImpl<$Res>
-    implements _$AllocationNoteCopyWith<$Res> {
-  __$AllocationNoteCopyWithImpl(
-      _AllocationNote _value, $Res Function(_AllocationNote) _then)
-      : super(_value, (v) => _then(v as _AllocationNote));
+    implements _$$_AllocationNoteCopyWith<$Res> {
+  __$$_AllocationNoteCopyWithImpl(
+      _$_AllocationNote _value, $Res Function(_$_AllocationNote) _then)
+      : super(_value, (v) => _then(v as _$_AllocationNote));
 
   @override
-  _AllocationNote get _value => super._value as _AllocationNote;
+  _$_AllocationNote get _value => super._value as _$_AllocationNote;
 
   @override
   $Res call({
     Object? notes = freezed,
   }) {
-    return _then(_AllocationNote(
+    return _then(_$_AllocationNote(
       notes: notes == freezed
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
@@ -130,18 +112,19 @@ class _$_AllocationNote extends _AllocationNote {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AllocationNote &&
+            other is _$_AllocationNote &&
             const DeepCollectionEquality().equals(other.notes, notes));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(notes));
 
   @JsonKey(ignore: true)
   @override
-  _$AllocationNoteCopyWith<_AllocationNote> get copyWith =>
-      __$AllocationNoteCopyWithImpl<_AllocationNote>(this, _$identity);
+  _$$_AllocationNoteCopyWith<_$_AllocationNote> get copyWith =>
+      __$$_AllocationNoteCopyWithImpl<_$_AllocationNote>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -150,16 +133,16 @@ class _$_AllocationNote extends _AllocationNote {
 }
 
 abstract class _AllocationNote extends AllocationNote {
-  factory _AllocationNote({required String notes}) = _$_AllocationNote;
+  factory _AllocationNote({required final String notes}) = _$_AllocationNote;
   _AllocationNote._() : super._();
 
   factory _AllocationNote.fromJson(Map<String, dynamic> json) =
       _$_AllocationNote.fromJson;
 
   @override
-  String get notes;
+  String get notes => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AllocationNoteCopyWith<_AllocationNote> get copyWith =>
+  _$$_AllocationNoteCopyWith<_$_AllocationNote> get copyWith =>
       throw _privateConstructorUsedError;
 }

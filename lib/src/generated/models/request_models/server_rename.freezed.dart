@@ -12,29 +12,11 @@ part of '../../../models/request_models/server_rename.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Rename _$RenameFromJson(Map<String, dynamic> json) {
   return _Rename.fromJson(json);
 }
-
-/// @nodoc
-class _$RenameTearOff {
-  const _$RenameTearOff();
-
-  _Rename call({required String name}) {
-    return _Rename(
-      name: name,
-    );
-  }
-
-  Rename fromJson(Map<String, Object?> json) {
-    return Rename.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Rename = _$RenameTearOff();
 
 /// @nodoc
 mixin _$Rename {
@@ -74,27 +56,27 @@ class _$RenameCopyWithImpl<$Res> implements $RenameCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$RenameCopyWith<$Res> implements $RenameCopyWith<$Res> {
-  factory _$RenameCopyWith(_Rename value, $Res Function(_Rename) then) =
-      __$RenameCopyWithImpl<$Res>;
+abstract class _$$_RenameCopyWith<$Res> implements $RenameCopyWith<$Res> {
+  factory _$$_RenameCopyWith(_$_Rename value, $Res Function(_$_Rename) then) =
+      __$$_RenameCopyWithImpl<$Res>;
   @override
   $Res call({String name});
 }
 
 /// @nodoc
-class __$RenameCopyWithImpl<$Res> extends _$RenameCopyWithImpl<$Res>
-    implements _$RenameCopyWith<$Res> {
-  __$RenameCopyWithImpl(_Rename _value, $Res Function(_Rename) _then)
-      : super(_value, (v) => _then(v as _Rename));
+class __$$_RenameCopyWithImpl<$Res> extends _$RenameCopyWithImpl<$Res>
+    implements _$$_RenameCopyWith<$Res> {
+  __$$_RenameCopyWithImpl(_$_Rename _value, $Res Function(_$_Rename) _then)
+      : super(_value, (v) => _then(v as _$_Rename));
 
   @override
-  _Rename get _value => super._value as _Rename;
+  _$_Rename get _value => super._value as _$_Rename;
 
   @override
   $Res call({
     Object? name = freezed,
   }) {
-    return _then(_Rename(
+    return _then(_$_Rename(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -123,18 +105,19 @@ class _$_Rename implements _Rename {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Rename &&
+            other is _$_Rename &&
             const DeepCollectionEquality().equals(other.name, name));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
-  _$RenameCopyWith<_Rename> get copyWith =>
-      __$RenameCopyWithImpl<_Rename>(this, _$identity);
+  _$$_RenameCopyWith<_$_Rename> get copyWith =>
+      __$$_RenameCopyWithImpl<_$_Rename>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -143,13 +126,14 @@ class _$_Rename implements _Rename {
 }
 
 abstract class _Rename implements Rename {
-  factory _Rename({required String name}) = _$_Rename;
+  factory _Rename({required final String name}) = _$_Rename;
 
   factory _Rename.fromJson(Map<String, dynamic> json) = _$_Rename.fromJson;
 
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$RenameCopyWith<_Rename> get copyWith => throw _privateConstructorUsedError;
+  _$$_RenameCopyWith<_$_Rename> get copyWith =>
+      throw _privateConstructorUsedError;
 }

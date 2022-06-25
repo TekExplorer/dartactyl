@@ -12,30 +12,11 @@ part of '../../../models/main_models/egg.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Egg _$EggFromJson(Map<String, dynamic> json) {
   return _Egg.fromJson(json);
 }
-
-/// @nodoc
-class _$EggTearOff {
-  const _$EggTearOff();
-
-  _Egg call({required String uuid, required String name}) {
-    return _Egg(
-      uuid: uuid,
-      name: name,
-    );
-  }
-
-  Egg fromJson(Map<String, Object?> json) {
-    return Egg.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Egg = _$EggTearOff();
 
 /// @nodoc
 mixin _$Egg {
@@ -83,28 +64,28 @@ class _$EggCopyWithImpl<$Res> implements $EggCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$EggCopyWith<$Res> implements $EggCopyWith<$Res> {
-  factory _$EggCopyWith(_Egg value, $Res Function(_Egg) then) =
-      __$EggCopyWithImpl<$Res>;
+abstract class _$$_EggCopyWith<$Res> implements $EggCopyWith<$Res> {
+  factory _$$_EggCopyWith(_$_Egg value, $Res Function(_$_Egg) then) =
+      __$$_EggCopyWithImpl<$Res>;
   @override
   $Res call({String uuid, String name});
 }
 
 /// @nodoc
-class __$EggCopyWithImpl<$Res> extends _$EggCopyWithImpl<$Res>
-    implements _$EggCopyWith<$Res> {
-  __$EggCopyWithImpl(_Egg _value, $Res Function(_Egg) _then)
-      : super(_value, (v) => _then(v as _Egg));
+class __$$_EggCopyWithImpl<$Res> extends _$EggCopyWithImpl<$Res>
+    implements _$$_EggCopyWith<$Res> {
+  __$$_EggCopyWithImpl(_$_Egg _value, $Res Function(_$_Egg) _then)
+      : super(_value, (v) => _then(v as _$_Egg));
 
   @override
-  _Egg get _value => super._value as _Egg;
+  _$_Egg get _value => super._value as _$_Egg;
 
   @override
   $Res call({
     Object? uuid = freezed,
     Object? name = freezed,
   }) {
-    return _then(_Egg(
+    return _then(_$_Egg(
       uuid: uuid == freezed
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
@@ -124,8 +105,9 @@ class _$_Egg extends _Egg {
 
   factory _$_Egg.fromJson(Map<String, dynamic> json) => _$$_EggFromJson(json);
 
-  @override // only uuid and name show up in the client api
+// only uuid and name show up in the client api
 // int id,
+  @override
   final String uuid;
   @override
   final String name;
@@ -139,11 +121,12 @@ class _$_Egg extends _Egg {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Egg &&
+            other is _$_Egg &&
             const DeepCollectionEquality().equals(other.uuid, uuid) &&
             const DeepCollectionEquality().equals(other.name, name));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -152,8 +135,8 @@ class _$_Egg extends _Egg {
 
   @JsonKey(ignore: true)
   @override
-  _$EggCopyWith<_Egg> get copyWith =>
-      __$EggCopyWithImpl<_Egg>(this, _$identity);
+  _$$_EggCopyWith<_$_Egg> get copyWith =>
+      __$$_EggCopyWithImpl<_$_Egg>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -162,17 +145,18 @@ class _$_Egg extends _Egg {
 }
 
 abstract class _Egg extends Egg {
-  factory _Egg({required String uuid, required String name}) = _$_Egg;
+  factory _Egg({required final String uuid, required final String name}) =
+      _$_Egg;
   _Egg._() : super._();
 
   factory _Egg.fromJson(Map<String, dynamic> json) = _$_Egg.fromJson;
 
   @override // only uuid and name show up in the client api
 // int id,
-  String get uuid;
+  String get uuid => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$EggCopyWith<_Egg> get copyWith => throw _privateConstructorUsedError;
+  _$$_EggCopyWith<_$_Egg> get copyWith => throw _privateConstructorUsedError;
 }

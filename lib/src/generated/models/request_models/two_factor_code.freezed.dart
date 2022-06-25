@@ -12,29 +12,11 @@ part of '../../../models/request_models/two_factor_code.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 TwoFactorCode _$TwoFactorCodeFromJson(Map<String, dynamic> json) {
   return _TwoFactorCode.fromJson(json);
 }
-
-/// @nodoc
-class _$TwoFactorCodeTearOff {
-  const _$TwoFactorCodeTearOff();
-
-  _TwoFactorCode call({required int code}) {
-    return _TwoFactorCode(
-      code: code,
-    );
-  }
-
-  TwoFactorCode fromJson(Map<String, Object?> json) {
-    return TwoFactorCode.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $TwoFactorCode = _$TwoFactorCodeTearOff();
 
 /// @nodoc
 mixin _$TwoFactorCode {
@@ -77,31 +59,31 @@ class _$TwoFactorCodeCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$TwoFactorCodeCopyWith<$Res>
+abstract class _$$_TwoFactorCodeCopyWith<$Res>
     implements $TwoFactorCodeCopyWith<$Res> {
-  factory _$TwoFactorCodeCopyWith(
-          _TwoFactorCode value, $Res Function(_TwoFactorCode) then) =
-      __$TwoFactorCodeCopyWithImpl<$Res>;
+  factory _$$_TwoFactorCodeCopyWith(
+          _$_TwoFactorCode value, $Res Function(_$_TwoFactorCode) then) =
+      __$$_TwoFactorCodeCopyWithImpl<$Res>;
   @override
   $Res call({int code});
 }
 
 /// @nodoc
-class __$TwoFactorCodeCopyWithImpl<$Res>
+class __$$_TwoFactorCodeCopyWithImpl<$Res>
     extends _$TwoFactorCodeCopyWithImpl<$Res>
-    implements _$TwoFactorCodeCopyWith<$Res> {
-  __$TwoFactorCodeCopyWithImpl(
-      _TwoFactorCode _value, $Res Function(_TwoFactorCode) _then)
-      : super(_value, (v) => _then(v as _TwoFactorCode));
+    implements _$$_TwoFactorCodeCopyWith<$Res> {
+  __$$_TwoFactorCodeCopyWithImpl(
+      _$_TwoFactorCode _value, $Res Function(_$_TwoFactorCode) _then)
+      : super(_value, (v) => _then(v as _$_TwoFactorCode));
 
   @override
-  _TwoFactorCode get _value => super._value as _TwoFactorCode;
+  _$_TwoFactorCode get _value => super._value as _$_TwoFactorCode;
 
   @override
   $Res call({
     Object? code = freezed,
   }) {
-    return _then(_TwoFactorCode(
+    return _then(_$_TwoFactorCode(
       code: code == freezed
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -130,18 +112,19 @@ class _$_TwoFactorCode implements _TwoFactorCode {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _TwoFactorCode &&
+            other is _$_TwoFactorCode &&
             const DeepCollectionEquality().equals(other.code, code));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(code));
 
   @JsonKey(ignore: true)
   @override
-  _$TwoFactorCodeCopyWith<_TwoFactorCode> get copyWith =>
-      __$TwoFactorCodeCopyWithImpl<_TwoFactorCode>(this, _$identity);
+  _$$_TwoFactorCodeCopyWith<_$_TwoFactorCode> get copyWith =>
+      __$$_TwoFactorCodeCopyWithImpl<_$_TwoFactorCode>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -150,15 +133,15 @@ class _$_TwoFactorCode implements _TwoFactorCode {
 }
 
 abstract class _TwoFactorCode implements TwoFactorCode {
-  factory _TwoFactorCode({required int code}) = _$_TwoFactorCode;
+  factory _TwoFactorCode({required final int code}) = _$_TwoFactorCode;
 
   factory _TwoFactorCode.fromJson(Map<String, dynamic> json) =
       _$_TwoFactorCode.fromJson;
 
   @override
-  int get code;
+  int get code => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$TwoFactorCodeCopyWith<_TwoFactorCode> get copyWith =>
+  _$$_TwoFactorCodeCopyWith<_$_TwoFactorCode> get copyWith =>
       throw _privateConstructorUsedError;
 }

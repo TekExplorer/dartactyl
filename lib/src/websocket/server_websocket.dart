@@ -44,9 +44,24 @@ class ServerWebsocketHandler {
 // }
 
 extension GetWebsocketFromServer on Server {
-  ServerWebsocketHandler getWebsocket({required PteroClient client}) =>
-      ServerWebsocketHandler.fromCubit(_getWebsocketCubit(client: client));
+  ServerWebsocketHandler getWebsocket({
+    required PteroClient client,
+    bool autoInitialize = true,
+  }) {
+    return ServerWebsocketHandler.fromCubit(_getWebsocketCubit(
+      client: client,
+      autoInitialize: autoInitialize,
+    ));
+  }
 
-  ServerWebsocketCubit _getWebsocketCubit({required PteroClient client}) =>
-      ServerWebsocketCubit(client: client, serverId: identifier);
+  ServerWebsocketCubit _getWebsocketCubit({
+    required PteroClient client,
+    bool autoInitialize = true,
+  }) {
+    return ServerWebsocketCubit(
+      client: client,
+      serverId: identifier,
+      autoInitialize: autoInitialize,
+    );
+  }
 }

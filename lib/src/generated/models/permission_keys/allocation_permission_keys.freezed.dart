@@ -12,37 +12,12 @@ part of '../../../models/permission_keys/allocation_permission_keys.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AllocationPermissionKeys _$AllocationPermissionKeysFromJson(
     Map<String, dynamic> json) {
   return _AllocationPermissionKeys.fromJson(json);
 }
-
-/// @nodoc
-class _$AllocationPermissionKeysTearOff {
-  const _$AllocationPermissionKeysTearOff();
-
-  _AllocationPermissionKeys call(
-      {required String read,
-      required String create,
-      required String update,
-      required String delete}) {
-    return _AllocationPermissionKeys(
-      read: read,
-      create: create,
-      update: update,
-      delete: delete,
-    );
-  }
-
-  AllocationPermissionKeys fromJson(Map<String, Object?> json) {
-    return AllocationPermissionKeys.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AllocationPermissionKeys = _$AllocationPermissionKeysTearOff();
 
 /// @nodoc
 mixin _$AllocationPermissionKeys {
@@ -103,26 +78,27 @@ class _$AllocationPermissionKeysCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$AllocationPermissionKeysCopyWith<$Res>
+abstract class _$$_AllocationPermissionKeysCopyWith<$Res>
     implements $AllocationPermissionKeysCopyWith<$Res> {
-  factory _$AllocationPermissionKeysCopyWith(_AllocationPermissionKeys value,
-          $Res Function(_AllocationPermissionKeys) then) =
-      __$AllocationPermissionKeysCopyWithImpl<$Res>;
+  factory _$$_AllocationPermissionKeysCopyWith(
+          _$_AllocationPermissionKeys value,
+          $Res Function(_$_AllocationPermissionKeys) then) =
+      __$$_AllocationPermissionKeysCopyWithImpl<$Res>;
   @override
   $Res call({String read, String create, String update, String delete});
 }
 
 /// @nodoc
-class __$AllocationPermissionKeysCopyWithImpl<$Res>
+class __$$_AllocationPermissionKeysCopyWithImpl<$Res>
     extends _$AllocationPermissionKeysCopyWithImpl<$Res>
-    implements _$AllocationPermissionKeysCopyWith<$Res> {
-  __$AllocationPermissionKeysCopyWithImpl(_AllocationPermissionKeys _value,
-      $Res Function(_AllocationPermissionKeys) _then)
-      : super(_value, (v) => _then(v as _AllocationPermissionKeys));
+    implements _$$_AllocationPermissionKeysCopyWith<$Res> {
+  __$$_AllocationPermissionKeysCopyWithImpl(_$_AllocationPermissionKeys _value,
+      $Res Function(_$_AllocationPermissionKeys) _then)
+      : super(_value, (v) => _then(v as _$_AllocationPermissionKeys));
 
   @override
-  _AllocationPermissionKeys get _value =>
-      super._value as _AllocationPermissionKeys;
+  _$_AllocationPermissionKeys get _value =>
+      super._value as _$_AllocationPermissionKeys;
 
   @override
   $Res call({
@@ -131,7 +107,7 @@ class __$AllocationPermissionKeysCopyWithImpl<$Res>
     Object? update = freezed,
     Object? delete = freezed,
   }) {
-    return _then(_AllocationPermissionKeys(
+    return _then(_$_AllocationPermissionKeys(
       read: read == freezed
           ? _value.read
           : read // ignore: cast_nullable_to_non_nullable
@@ -183,13 +159,14 @@ class _$_AllocationPermissionKeys extends _AllocationPermissionKeys {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AllocationPermissionKeys &&
+            other is _$_AllocationPermissionKeys &&
             const DeepCollectionEquality().equals(other.read, read) &&
             const DeepCollectionEquality().equals(other.create, create) &&
             const DeepCollectionEquality().equals(other.update, update) &&
             const DeepCollectionEquality().equals(other.delete, delete));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -200,9 +177,9 @@ class _$_AllocationPermissionKeys extends _AllocationPermissionKeys {
 
   @JsonKey(ignore: true)
   @override
-  _$AllocationPermissionKeysCopyWith<_AllocationPermissionKeys> get copyWith =>
-      __$AllocationPermissionKeysCopyWithImpl<_AllocationPermissionKeys>(
-          this, _$identity);
+  _$$_AllocationPermissionKeysCopyWith<_$_AllocationPermissionKeys>
+      get copyWith => __$$_AllocationPermissionKeysCopyWithImpl<
+          _$_AllocationPermissionKeys>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -212,25 +189,25 @@ class _$_AllocationPermissionKeys extends _AllocationPermissionKeys {
 
 abstract class _AllocationPermissionKeys extends AllocationPermissionKeys {
   factory _AllocationPermissionKeys(
-      {required String read,
-      required String create,
-      required String update,
-      required String delete}) = _$_AllocationPermissionKeys;
+      {required final String read,
+      required final String create,
+      required final String update,
+      required final String delete}) = _$_AllocationPermissionKeys;
   _AllocationPermissionKeys._() : super._();
 
   factory _AllocationPermissionKeys.fromJson(Map<String, dynamic> json) =
       _$_AllocationPermissionKeys.fromJson;
 
   @override
-  String get read;
+  String get read => throw _privateConstructorUsedError;
   @override
-  String get create;
+  String get create => throw _privateConstructorUsedError;
   @override
-  String get update;
+  String get update => throw _privateConstructorUsedError;
   @override
-  String get delete;
+  String get delete => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AllocationPermissionKeysCopyWith<_AllocationPermissionKeys> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_AllocationPermissionKeysCopyWith<_$_AllocationPermissionKeys>
+      get copyWith => throw _privateConstructorUsedError;
 }

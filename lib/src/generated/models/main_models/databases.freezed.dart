@@ -12,46 +12,11 @@ part of '../../../models/main_models/databases.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Databases _$DatabasesFromJson(Map<String, dynamic> json) {
   return _Databases.fromJson(json);
 }
-
-/// @nodoc
-class _$DatabasesTearOff {
-  const _$DatabasesTearOff();
-
-  _Databases call(
-      {required int id,
-      required int server,
-      required int host,
-      required String database,
-      required String username,
-      required String remote,
-      required int maxConnections,
-      required String createdAt,
-      required String updatedAt}) {
-    return _Databases(
-      id: id,
-      server: server,
-      host: host,
-      database: database,
-      username: username,
-      remote: remote,
-      maxConnections: maxConnections,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-    );
-  }
-
-  Databases fromJson(Map<String, Object?> json) {
-    return Databases.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Databases = _$DatabasesTearOff();
 
 /// @nodoc
 mixin _$Databases {
@@ -149,10 +114,10 @@ class _$DatabasesCopyWithImpl<$Res> implements $DatabasesCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$DatabasesCopyWith<$Res> implements $DatabasesCopyWith<$Res> {
-  factory _$DatabasesCopyWith(
-          _Databases value, $Res Function(_Databases) then) =
-      __$DatabasesCopyWithImpl<$Res>;
+abstract class _$$_DatabasesCopyWith<$Res> implements $DatabasesCopyWith<$Res> {
+  factory _$$_DatabasesCopyWith(
+          _$_Databases value, $Res Function(_$_Databases) then) =
+      __$$_DatabasesCopyWithImpl<$Res>;
   @override
   $Res call(
       {int id,
@@ -167,13 +132,14 @@ abstract class _$DatabasesCopyWith<$Res> implements $DatabasesCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$DatabasesCopyWithImpl<$Res> extends _$DatabasesCopyWithImpl<$Res>
-    implements _$DatabasesCopyWith<$Res> {
-  __$DatabasesCopyWithImpl(_Databases _value, $Res Function(_Databases) _then)
-      : super(_value, (v) => _then(v as _Databases));
+class __$$_DatabasesCopyWithImpl<$Res> extends _$DatabasesCopyWithImpl<$Res>
+    implements _$$_DatabasesCopyWith<$Res> {
+  __$$_DatabasesCopyWithImpl(
+      _$_Databases _value, $Res Function(_$_Databases) _then)
+      : super(_value, (v) => _then(v as _$_Databases));
 
   @override
-  _Databases get _value => super._value as _Databases;
+  _$_Databases get _value => super._value as _$_Databases;
 
   @override
   $Res call({
@@ -187,7 +153,7 @@ class __$DatabasesCopyWithImpl<$Res> extends _$DatabasesCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_Databases(
+    return _then(_$_Databases(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -274,7 +240,7 @@ class _$_Databases extends _Databases {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Databases &&
+            other is _$_Databases &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.server, server) &&
             const DeepCollectionEquality().equals(other.host, host) &&
@@ -287,6 +253,7 @@ class _$_Databases extends _Databases {
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -302,8 +269,8 @@ class _$_Databases extends _Databases {
 
   @JsonKey(ignore: true)
   @override
-  _$DatabasesCopyWith<_Databases> get copyWith =>
-      __$DatabasesCopyWithImpl<_Databases>(this, _$identity);
+  _$$_DatabasesCopyWith<_$_Databases> get copyWith =>
+      __$$_DatabasesCopyWithImpl<_$_Databases>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -313,40 +280,40 @@ class _$_Databases extends _Databases {
 
 abstract class _Databases extends Databases {
   factory _Databases(
-      {required int id,
-      required int server,
-      required int host,
-      required String database,
-      required String username,
-      required String remote,
-      required int maxConnections,
-      required String createdAt,
-      required String updatedAt}) = _$_Databases;
+      {required final int id,
+      required final int server,
+      required final int host,
+      required final String database,
+      required final String username,
+      required final String remote,
+      required final int maxConnections,
+      required final String createdAt,
+      required final String updatedAt}) = _$_Databases;
   _Databases._() : super._();
 
   factory _Databases.fromJson(Map<String, dynamic> json) =
       _$_Databases.fromJson;
 
   @override
-  int get id;
+  int get id => throw _privateConstructorUsedError;
   @override
-  int get server;
+  int get server => throw _privateConstructorUsedError;
   @override
-  int get host;
+  int get host => throw _privateConstructorUsedError;
   @override
-  String get database;
+  String get database => throw _privateConstructorUsedError;
   @override
-  String get username;
+  String get username => throw _privateConstructorUsedError;
   @override
-  String get remote;
+  String get remote => throw _privateConstructorUsedError;
   @override
-  int get maxConnections;
+  int get maxConnections => throw _privateConstructorUsedError;
   @override
-  String get createdAt;
+  String get createdAt => throw _privateConstructorUsedError;
   @override
-  String get updatedAt;
+  String get updatedAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$DatabasesCopyWith<_Databases> get copyWith =>
+  _$$_DatabasesCopyWith<_$_Databases> get copyWith =>
       throw _privateConstructorUsedError;
 }

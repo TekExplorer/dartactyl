@@ -12,29 +12,11 @@ part of '../../../models/request_models/make_file_copy.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 MakeFileCopy _$MakeFileCopyFromJson(Map<String, dynamic> json) {
   return _MakeFileCopy.fromJson(json);
 }
-
-/// @nodoc
-class _$MakeFileCopyTearOff {
-  const _$MakeFileCopyTearOff();
-
-  _MakeFileCopy call({required String location}) {
-    return _MakeFileCopy(
-      location: location,
-    );
-  }
-
-  MakeFileCopy fromJson(Map<String, Object?> json) {
-    return MakeFileCopy.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $MakeFileCopy = _$MakeFileCopyTearOff();
 
 /// @nodoc
 mixin _$MakeFileCopy {
@@ -76,30 +58,31 @@ class _$MakeFileCopyCopyWithImpl<$Res> implements $MakeFileCopyCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$MakeFileCopyCopyWith<$Res>
+abstract class _$$_MakeFileCopyCopyWith<$Res>
     implements $MakeFileCopyCopyWith<$Res> {
-  factory _$MakeFileCopyCopyWith(
-          _MakeFileCopy value, $Res Function(_MakeFileCopy) then) =
-      __$MakeFileCopyCopyWithImpl<$Res>;
+  factory _$$_MakeFileCopyCopyWith(
+          _$_MakeFileCopy value, $Res Function(_$_MakeFileCopy) then) =
+      __$$_MakeFileCopyCopyWithImpl<$Res>;
   @override
   $Res call({String location});
 }
 
 /// @nodoc
-class __$MakeFileCopyCopyWithImpl<$Res> extends _$MakeFileCopyCopyWithImpl<$Res>
-    implements _$MakeFileCopyCopyWith<$Res> {
-  __$MakeFileCopyCopyWithImpl(
-      _MakeFileCopy _value, $Res Function(_MakeFileCopy) _then)
-      : super(_value, (v) => _then(v as _MakeFileCopy));
+class __$$_MakeFileCopyCopyWithImpl<$Res>
+    extends _$MakeFileCopyCopyWithImpl<$Res>
+    implements _$$_MakeFileCopyCopyWith<$Res> {
+  __$$_MakeFileCopyCopyWithImpl(
+      _$_MakeFileCopy _value, $Res Function(_$_MakeFileCopy) _then)
+      : super(_value, (v) => _then(v as _$_MakeFileCopy));
 
   @override
-  _MakeFileCopy get _value => super._value as _MakeFileCopy;
+  _$_MakeFileCopy get _value => super._value as _$_MakeFileCopy;
 
   @override
   $Res call({
     Object? location = freezed,
   }) {
-    return _then(_MakeFileCopy(
+    return _then(_$_MakeFileCopy(
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -128,18 +111,19 @@ class _$_MakeFileCopy implements _MakeFileCopy {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _MakeFileCopy &&
+            other is _$_MakeFileCopy &&
             const DeepCollectionEquality().equals(other.location, location));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(location));
 
   @JsonKey(ignore: true)
   @override
-  _$MakeFileCopyCopyWith<_MakeFileCopy> get copyWith =>
-      __$MakeFileCopyCopyWithImpl<_MakeFileCopy>(this, _$identity);
+  _$$_MakeFileCopyCopyWith<_$_MakeFileCopy> get copyWith =>
+      __$$_MakeFileCopyCopyWithImpl<_$_MakeFileCopy>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -148,15 +132,15 @@ class _$_MakeFileCopy implements _MakeFileCopy {
 }
 
 abstract class _MakeFileCopy implements MakeFileCopy {
-  factory _MakeFileCopy({required String location}) = _$_MakeFileCopy;
+  factory _MakeFileCopy({required final String location}) = _$_MakeFileCopy;
 
   factory _MakeFileCopy.fromJson(Map<String, dynamic> json) =
       _$_MakeFileCopy.fromJson;
 
   @override
-  String get location;
+  String get location => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$MakeFileCopyCopyWith<_MakeFileCopy> get copyWith =>
+  _$$_MakeFileCopyCopyWith<_$_MakeFileCopy> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,29 +12,11 @@ part of '../../../models/main_models/meta.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PaginatedMeta _$PaginatedMetaFromJson(Map<String, dynamic> json) {
   return _PaginatedMeta.fromJson(json);
 }
-
-/// @nodoc
-class _$PaginatedMetaTearOff {
-  const _$PaginatedMetaTearOff();
-
-  _PaginatedMeta call({required Pagination pagination}) {
-    return _PaginatedMeta(
-      pagination: pagination,
-    );
-  }
-
-  PaginatedMeta fromJson(Map<String, Object?> json) {
-    return PaginatedMeta.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $PaginatedMeta = _$PaginatedMetaTearOff();
 
 /// @nodoc
 mixin _$PaginatedMeta {
@@ -86,11 +68,11 @@ class _$PaginatedMetaCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$PaginatedMetaCopyWith<$Res>
+abstract class _$$_PaginatedMetaCopyWith<$Res>
     implements $PaginatedMetaCopyWith<$Res> {
-  factory _$PaginatedMetaCopyWith(
-          _PaginatedMeta value, $Res Function(_PaginatedMeta) then) =
-      __$PaginatedMetaCopyWithImpl<$Res>;
+  factory _$$_PaginatedMetaCopyWith(
+          _$_PaginatedMeta value, $Res Function(_$_PaginatedMeta) then) =
+      __$$_PaginatedMetaCopyWithImpl<$Res>;
   @override
   $Res call({Pagination pagination});
 
@@ -99,21 +81,21 @@ abstract class _$PaginatedMetaCopyWith<$Res>
 }
 
 /// @nodoc
-class __$PaginatedMetaCopyWithImpl<$Res>
+class __$$_PaginatedMetaCopyWithImpl<$Res>
     extends _$PaginatedMetaCopyWithImpl<$Res>
-    implements _$PaginatedMetaCopyWith<$Res> {
-  __$PaginatedMetaCopyWithImpl(
-      _PaginatedMeta _value, $Res Function(_PaginatedMeta) _then)
-      : super(_value, (v) => _then(v as _PaginatedMeta));
+    implements _$$_PaginatedMetaCopyWith<$Res> {
+  __$$_PaginatedMetaCopyWithImpl(
+      _$_PaginatedMeta _value, $Res Function(_$_PaginatedMeta) _then)
+      : super(_value, (v) => _then(v as _$_PaginatedMeta));
 
   @override
-  _PaginatedMeta get _value => super._value as _PaginatedMeta;
+  _$_PaginatedMeta get _value => super._value as _$_PaginatedMeta;
 
   @override
   $Res call({
     Object? pagination = freezed,
   }) {
-    return _then(_PaginatedMeta(
+    return _then(_$_PaginatedMeta(
       pagination: pagination == freezed
           ? _value.pagination
           : pagination // ignore: cast_nullable_to_non_nullable
@@ -142,19 +124,20 @@ class _$_PaginatedMeta implements _PaginatedMeta {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PaginatedMeta &&
+            other is _$_PaginatedMeta &&
             const DeepCollectionEquality()
                 .equals(other.pagination, pagination));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(pagination));
 
   @JsonKey(ignore: true)
   @override
-  _$PaginatedMetaCopyWith<_PaginatedMeta> get copyWith =>
-      __$PaginatedMetaCopyWithImpl<_PaginatedMeta>(this, _$identity);
+  _$$_PaginatedMetaCopyWith<_$_PaginatedMeta> get copyWith =>
+      __$$_PaginatedMetaCopyWithImpl<_$_PaginatedMeta>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -163,42 +146,23 @@ class _$_PaginatedMeta implements _PaginatedMeta {
 }
 
 abstract class _PaginatedMeta implements PaginatedMeta {
-  factory _PaginatedMeta({required Pagination pagination}) = _$_PaginatedMeta;
+  factory _PaginatedMeta({required final Pagination pagination}) =
+      _$_PaginatedMeta;
 
   factory _PaginatedMeta.fromJson(Map<String, dynamic> json) =
       _$_PaginatedMeta.fromJson;
 
   @override
-  Pagination get pagination;
+  Pagination get pagination => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$PaginatedMetaCopyWith<_PaginatedMeta> get copyWith =>
+  _$$_PaginatedMetaCopyWith<_$_PaginatedMeta> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 ServerMeta _$ServerMetaFromJson(Map<String, dynamic> json) {
   return _ServerMeta.fromJson(json);
 }
-
-/// @nodoc
-class _$ServerMetaTearOff {
-  const _$ServerMetaTearOff();
-
-  _ServerMeta call(
-      {required bool isServerOwner, required List<String> userPermissions}) {
-    return _ServerMeta(
-      isServerOwner: isServerOwner,
-      userPermissions: userPermissions,
-    );
-  }
-
-  ServerMeta fromJson(Map<String, Object?> json) {
-    return ServerMeta.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ServerMeta = _$ServerMetaTearOff();
 
 /// @nodoc
 mixin _$ServerMeta {
@@ -246,36 +210,37 @@ class _$ServerMetaCopyWithImpl<$Res> implements $ServerMetaCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ServerMetaCopyWith<$Res> implements $ServerMetaCopyWith<$Res> {
-  factory _$ServerMetaCopyWith(
-          _ServerMeta value, $Res Function(_ServerMeta) then) =
-      __$ServerMetaCopyWithImpl<$Res>;
+abstract class _$$_ServerMetaCopyWith<$Res>
+    implements $ServerMetaCopyWith<$Res> {
+  factory _$$_ServerMetaCopyWith(
+          _$_ServerMeta value, $Res Function(_$_ServerMeta) then) =
+      __$$_ServerMetaCopyWithImpl<$Res>;
   @override
   $Res call({bool isServerOwner, List<String> userPermissions});
 }
 
 /// @nodoc
-class __$ServerMetaCopyWithImpl<$Res> extends _$ServerMetaCopyWithImpl<$Res>
-    implements _$ServerMetaCopyWith<$Res> {
-  __$ServerMetaCopyWithImpl(
-      _ServerMeta _value, $Res Function(_ServerMeta) _then)
-      : super(_value, (v) => _then(v as _ServerMeta));
+class __$$_ServerMetaCopyWithImpl<$Res> extends _$ServerMetaCopyWithImpl<$Res>
+    implements _$$_ServerMetaCopyWith<$Res> {
+  __$$_ServerMetaCopyWithImpl(
+      _$_ServerMeta _value, $Res Function(_$_ServerMeta) _then)
+      : super(_value, (v) => _then(v as _$_ServerMeta));
 
   @override
-  _ServerMeta get _value => super._value as _ServerMeta;
+  _$_ServerMeta get _value => super._value as _$_ServerMeta;
 
   @override
   $Res call({
     Object? isServerOwner = freezed,
     Object? userPermissions = freezed,
   }) {
-    return _then(_ServerMeta(
+    return _then(_$_ServerMeta(
       isServerOwner: isServerOwner == freezed
           ? _value.isServerOwner
           : isServerOwner // ignore: cast_nullable_to_non_nullable
               as bool,
       userPermissions: userPermissions == freezed
-          ? _value.userPermissions
+          ? _value._userPermissions
           : userPermissions // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
@@ -285,15 +250,22 @@ class __$ServerMetaCopyWithImpl<$Res> extends _$ServerMetaCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ServerMeta implements _ServerMeta {
-  _$_ServerMeta({required this.isServerOwner, required this.userPermissions});
+  _$_ServerMeta(
+      {required this.isServerOwner,
+      required final List<String> userPermissions})
+      : _userPermissions = userPermissions;
 
   factory _$_ServerMeta.fromJson(Map<String, dynamic> json) =>
       _$$_ServerMetaFromJson(json);
 
   @override
   final bool isServerOwner;
+  final List<String> _userPermissions;
   @override
-  final List<String> userPermissions;
+  List<String> get userPermissions {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_userPermissions);
+  }
 
   @override
   String toString() {
@@ -304,23 +276,24 @@ class _$_ServerMeta implements _ServerMeta {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ServerMeta &&
+            other is _$_ServerMeta &&
             const DeepCollectionEquality()
                 .equals(other.isServerOwner, isServerOwner) &&
             const DeepCollectionEquality()
-                .equals(other.userPermissions, userPermissions));
+                .equals(other._userPermissions, _userPermissions));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isServerOwner),
-      const DeepCollectionEquality().hash(userPermissions));
+      const DeepCollectionEquality().hash(_userPermissions));
 
   @JsonKey(ignore: true)
   @override
-  _$ServerMetaCopyWith<_ServerMeta> get copyWith =>
-      __$ServerMetaCopyWithImpl<_ServerMeta>(this, _$identity);
+  _$$_ServerMetaCopyWith<_$_ServerMeta> get copyWith =>
+      __$$_ServerMetaCopyWithImpl<_$_ServerMeta>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -330,48 +303,25 @@ class _$_ServerMeta implements _ServerMeta {
 
 abstract class _ServerMeta implements ServerMeta {
   factory _ServerMeta(
-      {required bool isServerOwner,
-      required List<String> userPermissions}) = _$_ServerMeta;
+      {required final bool isServerOwner,
+      required final List<String> userPermissions}) = _$_ServerMeta;
 
   factory _ServerMeta.fromJson(Map<String, dynamic> json) =
       _$_ServerMeta.fromJson;
 
   @override
-  bool get isServerOwner;
+  bool get isServerOwner => throw _privateConstructorUsedError;
   @override
-  List<String> get userPermissions;
+  List<String> get userPermissions => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ServerMetaCopyWith<_ServerMeta> get copyWith =>
+  _$$_ServerMetaCopyWith<_$_ServerMeta> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 StartupMeta _$StartupMetaFromJson(Map<String, dynamic> json) {
   return _StartupMeta.fromJson(json);
 }
-
-/// @nodoc
-class _$StartupMetaTearOff {
-  const _$StartupMetaTearOff();
-
-  _StartupMeta call(
-      {required String startupCommand,
-      required String rawStartupCommand,
-      required Map<String, String> dockerImages}) {
-    return _StartupMeta(
-      startupCommand: startupCommand,
-      rawStartupCommand: rawStartupCommand,
-      dockerImages: dockerImages,
-    );
-  }
-
-  StartupMeta fromJson(Map<String, Object?> json) {
-    return StartupMeta.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $StartupMeta = _$StartupMetaTearOff();
 
 /// @nodoc
 mixin _$StartupMeta {
@@ -428,11 +378,11 @@ class _$StartupMetaCopyWithImpl<$Res> implements $StartupMetaCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$StartupMetaCopyWith<$Res>
+abstract class _$$_StartupMetaCopyWith<$Res>
     implements $StartupMetaCopyWith<$Res> {
-  factory _$StartupMetaCopyWith(
-          _StartupMeta value, $Res Function(_StartupMeta) then) =
-      __$StartupMetaCopyWithImpl<$Res>;
+  factory _$$_StartupMetaCopyWith(
+          _$_StartupMeta value, $Res Function(_$_StartupMeta) then) =
+      __$$_StartupMetaCopyWithImpl<$Res>;
   @override
   $Res call(
       {String startupCommand,
@@ -441,14 +391,14 @@ abstract class _$StartupMetaCopyWith<$Res>
 }
 
 /// @nodoc
-class __$StartupMetaCopyWithImpl<$Res> extends _$StartupMetaCopyWithImpl<$Res>
-    implements _$StartupMetaCopyWith<$Res> {
-  __$StartupMetaCopyWithImpl(
-      _StartupMeta _value, $Res Function(_StartupMeta) _then)
-      : super(_value, (v) => _then(v as _StartupMeta));
+class __$$_StartupMetaCopyWithImpl<$Res> extends _$StartupMetaCopyWithImpl<$Res>
+    implements _$$_StartupMetaCopyWith<$Res> {
+  __$$_StartupMetaCopyWithImpl(
+      _$_StartupMeta _value, $Res Function(_$_StartupMeta) _then)
+      : super(_value, (v) => _then(v as _$_StartupMeta));
 
   @override
-  _StartupMeta get _value => super._value as _StartupMeta;
+  _$_StartupMeta get _value => super._value as _$_StartupMeta;
 
   @override
   $Res call({
@@ -456,7 +406,7 @@ class __$StartupMetaCopyWithImpl<$Res> extends _$StartupMetaCopyWithImpl<$Res>
     Object? rawStartupCommand = freezed,
     Object? dockerImages = freezed,
   }) {
-    return _then(_StartupMeta(
+    return _then(_$_StartupMeta(
       startupCommand: startupCommand == freezed
           ? _value.startupCommand
           : startupCommand // ignore: cast_nullable_to_non_nullable
@@ -466,7 +416,7 @@ class __$StartupMetaCopyWithImpl<$Res> extends _$StartupMetaCopyWithImpl<$Res>
           : rawStartupCommand // ignore: cast_nullable_to_non_nullable
               as String,
       dockerImages: dockerImages == freezed
-          ? _value.dockerImages
+          ? _value._dockerImages
           : dockerImages // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
     ));
@@ -479,7 +429,8 @@ class _$_StartupMeta implements _StartupMeta {
   _$_StartupMeta(
       {required this.startupCommand,
       required this.rawStartupCommand,
-      required this.dockerImages});
+      required final Map<String, String> dockerImages})
+      : _dockerImages = dockerImages;
 
   factory _$_StartupMeta.fromJson(Map<String, dynamic> json) =>
       _$$_StartupMetaFromJson(json);
@@ -488,8 +439,12 @@ class _$_StartupMeta implements _StartupMeta {
   final String startupCommand;
   @override
   final String rawStartupCommand;
+  final Map<String, String> _dockerImages;
   @override
-  final Map<String, String> dockerImages;
+  Map<String, String> get dockerImages {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_dockerImages);
+  }
 
   @override
   String toString() {
@@ -500,26 +455,27 @@ class _$_StartupMeta implements _StartupMeta {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _StartupMeta &&
+            other is _$_StartupMeta &&
             const DeepCollectionEquality()
                 .equals(other.startupCommand, startupCommand) &&
             const DeepCollectionEquality()
                 .equals(other.rawStartupCommand, rawStartupCommand) &&
             const DeepCollectionEquality()
-                .equals(other.dockerImages, dockerImages));
+                .equals(other._dockerImages, _dockerImages));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(startupCommand),
       const DeepCollectionEquality().hash(rawStartupCommand),
-      const DeepCollectionEquality().hash(dockerImages));
+      const DeepCollectionEquality().hash(_dockerImages));
 
   @JsonKey(ignore: true)
   @override
-  _$StartupMetaCopyWith<_StartupMeta> get copyWith =>
-      __$StartupMetaCopyWithImpl<_StartupMeta>(this, _$identity);
+  _$$_StartupMetaCopyWith<_$_StartupMeta> get copyWith =>
+      __$$_StartupMetaCopyWithImpl<_$_StartupMeta>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -529,46 +485,28 @@ class _$_StartupMeta implements _StartupMeta {
 
 abstract class _StartupMeta implements StartupMeta {
   factory _StartupMeta(
-      {required String startupCommand,
-      required String rawStartupCommand,
-      required Map<String, String> dockerImages}) = _$_StartupMeta;
+      {required final String startupCommand,
+      required final String rawStartupCommand,
+      required final Map<String, String> dockerImages}) = _$_StartupMeta;
 
   factory _StartupMeta.fromJson(Map<String, dynamic> json) =
       _$_StartupMeta.fromJson;
 
   @override
-  String get startupCommand;
+  String get startupCommand => throw _privateConstructorUsedError;
   @override
-  String get rawStartupCommand;
+  String get rawStartupCommand => throw _privateConstructorUsedError;
   @override
-  Map<String, String> get dockerImages;
+  Map<String, String> get dockerImages => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$StartupMetaCopyWith<_StartupMeta> get copyWith =>
+  _$$_StartupMetaCopyWith<_$_StartupMeta> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 ApiKeyMeta _$ApiKeyMetaFromJson(Map<String, dynamic> json) {
   return _ApiKeyMeta.fromJson(json);
 }
-
-/// @nodoc
-class _$ApiKeyMetaTearOff {
-  const _$ApiKeyMetaTearOff();
-
-  _ApiKeyMeta call({required String secretToken}) {
-    return _ApiKeyMeta(
-      secretToken: secretToken,
-    );
-  }
-
-  ApiKeyMeta fromJson(Map<String, Object?> json) {
-    return ApiKeyMeta.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ApiKeyMeta = _$ApiKeyMetaTearOff();
 
 /// @nodoc
 mixin _$ApiKeyMeta {
@@ -610,29 +548,30 @@ class _$ApiKeyMetaCopyWithImpl<$Res> implements $ApiKeyMetaCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ApiKeyMetaCopyWith<$Res> implements $ApiKeyMetaCopyWith<$Res> {
-  factory _$ApiKeyMetaCopyWith(
-          _ApiKeyMeta value, $Res Function(_ApiKeyMeta) then) =
-      __$ApiKeyMetaCopyWithImpl<$Res>;
+abstract class _$$_ApiKeyMetaCopyWith<$Res>
+    implements $ApiKeyMetaCopyWith<$Res> {
+  factory _$$_ApiKeyMetaCopyWith(
+          _$_ApiKeyMeta value, $Res Function(_$_ApiKeyMeta) then) =
+      __$$_ApiKeyMetaCopyWithImpl<$Res>;
   @override
   $Res call({String secretToken});
 }
 
 /// @nodoc
-class __$ApiKeyMetaCopyWithImpl<$Res> extends _$ApiKeyMetaCopyWithImpl<$Res>
-    implements _$ApiKeyMetaCopyWith<$Res> {
-  __$ApiKeyMetaCopyWithImpl(
-      _ApiKeyMeta _value, $Res Function(_ApiKeyMeta) _then)
-      : super(_value, (v) => _then(v as _ApiKeyMeta));
+class __$$_ApiKeyMetaCopyWithImpl<$Res> extends _$ApiKeyMetaCopyWithImpl<$Res>
+    implements _$$_ApiKeyMetaCopyWith<$Res> {
+  __$$_ApiKeyMetaCopyWithImpl(
+      _$_ApiKeyMeta _value, $Res Function(_$_ApiKeyMeta) _then)
+      : super(_value, (v) => _then(v as _$_ApiKeyMeta));
 
   @override
-  _ApiKeyMeta get _value => super._value as _ApiKeyMeta;
+  _$_ApiKeyMeta get _value => super._value as _$_ApiKeyMeta;
 
   @override
   $Res call({
     Object? secretToken = freezed,
   }) {
-    return _then(_ApiKeyMeta(
+    return _then(_$_ApiKeyMeta(
       secretToken: secretToken == freezed
           ? _value.secretToken
           : secretToken // ignore: cast_nullable_to_non_nullable
@@ -661,19 +600,20 @@ class _$_ApiKeyMeta implements _ApiKeyMeta {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ApiKeyMeta &&
+            other is _$_ApiKeyMeta &&
             const DeepCollectionEquality()
                 .equals(other.secretToken, secretToken));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(secretToken));
 
   @JsonKey(ignore: true)
   @override
-  _$ApiKeyMetaCopyWith<_ApiKeyMeta> get copyWith =>
-      __$ApiKeyMetaCopyWithImpl<_ApiKeyMeta>(this, _$identity);
+  _$$_ApiKeyMetaCopyWith<_$_ApiKeyMeta> get copyWith =>
+      __$$_ApiKeyMetaCopyWithImpl<_$_ApiKeyMeta>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -682,15 +622,15 @@ class _$_ApiKeyMeta implements _ApiKeyMeta {
 }
 
 abstract class _ApiKeyMeta implements ApiKeyMeta {
-  factory _ApiKeyMeta({required String secretToken}) = _$_ApiKeyMeta;
+  factory _ApiKeyMeta({required final String secretToken}) = _$_ApiKeyMeta;
 
   factory _ApiKeyMeta.fromJson(Map<String, dynamic> json) =
       _$_ApiKeyMeta.fromJson;
 
   @override
-  String get secretToken;
+  String get secretToken => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ApiKeyMetaCopyWith<_ApiKeyMeta> get copyWith =>
+  _$$_ApiKeyMetaCopyWith<_$_ApiKeyMeta> get copyWith =>
       throw _privateConstructorUsedError;
 }

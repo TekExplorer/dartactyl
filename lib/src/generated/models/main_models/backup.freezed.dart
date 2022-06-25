@@ -12,46 +12,11 @@ part of '../../../models/main_models/backup.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Backup _$BackupFromJson(Map<String, dynamic> json) {
   return _Backup.fromJson(json);
 }
-
-/// @nodoc
-class _$BackupTearOff {
-  const _$BackupTearOff();
-
-  _Backup call(
-      {required String uuid,
-      required bool isSuccessful,
-      required bool isLocked,
-      required String name,
-      List<String>? ignoredFiles,
-      required String checksum,
-      required int bytes,
-      required DateTime createdAt,
-      DateTime? completedAt}) {
-    return _Backup(
-      uuid: uuid,
-      isSuccessful: isSuccessful,
-      isLocked: isLocked,
-      name: name,
-      ignoredFiles: ignoredFiles,
-      checksum: checksum,
-      bytes: bytes,
-      createdAt: createdAt,
-      completedAt: completedAt,
-    );
-  }
-
-  Backup fromJson(Map<String, Object?> json) {
-    return Backup.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Backup = _$BackupTearOff();
 
 /// @nodoc
 mixin _$Backup {
@@ -148,9 +113,9 @@ class _$BackupCopyWithImpl<$Res> implements $BackupCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$BackupCopyWith<$Res> implements $BackupCopyWith<$Res> {
-  factory _$BackupCopyWith(_Backup value, $Res Function(_Backup) then) =
-      __$BackupCopyWithImpl<$Res>;
+abstract class _$$_BackupCopyWith<$Res> implements $BackupCopyWith<$Res> {
+  factory _$$_BackupCopyWith(_$_Backup value, $Res Function(_$_Backup) then) =
+      __$$_BackupCopyWithImpl<$Res>;
   @override
   $Res call(
       {String uuid,
@@ -165,13 +130,13 @@ abstract class _$BackupCopyWith<$Res> implements $BackupCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$BackupCopyWithImpl<$Res> extends _$BackupCopyWithImpl<$Res>
-    implements _$BackupCopyWith<$Res> {
-  __$BackupCopyWithImpl(_Backup _value, $Res Function(_Backup) _then)
-      : super(_value, (v) => _then(v as _Backup));
+class __$$_BackupCopyWithImpl<$Res> extends _$BackupCopyWithImpl<$Res>
+    implements _$$_BackupCopyWith<$Res> {
+  __$$_BackupCopyWithImpl(_$_Backup _value, $Res Function(_$_Backup) _then)
+      : super(_value, (v) => _then(v as _$_Backup));
 
   @override
-  _Backup get _value => super._value as _Backup;
+  _$_Backup get _value => super._value as _$_Backup;
 
   @override
   $Res call({
@@ -185,7 +150,7 @@ class __$BackupCopyWithImpl<$Res> extends _$BackupCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? completedAt = freezed,
   }) {
-    return _then(_Backup(
+    return _then(_$_Backup(
       uuid: uuid == freezed
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
@@ -203,7 +168,7 @@ class __$BackupCopyWithImpl<$Res> extends _$BackupCopyWithImpl<$Res>
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       ignoredFiles: ignoredFiles == freezed
-          ? _value.ignoredFiles
+          ? _value._ignoredFiles
           : ignoredFiles // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       checksum: checksum == freezed
@@ -234,12 +199,13 @@ class _$_Backup extends _Backup {
       required this.isSuccessful,
       required this.isLocked,
       required this.name,
-      this.ignoredFiles,
+      final List<String>? ignoredFiles,
       required this.checksum,
       required this.bytes,
       required this.createdAt,
       this.completedAt})
-      : super._();
+      : _ignoredFiles = ignoredFiles,
+        super._();
 
   factory _$_Backup.fromJson(Map<String, dynamic> json) =>
       _$$_BackupFromJson(json);
@@ -252,8 +218,15 @@ class _$_Backup extends _Backup {
   final bool isLocked;
   @override
   final String name;
+  final List<String>? _ignoredFiles;
   @override
-  final List<String>? ignoredFiles;
+  List<String>? get ignoredFiles {
+    final value = _ignoredFiles;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String checksum;
   @override
@@ -272,14 +245,14 @@ class _$_Backup extends _Backup {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Backup &&
+            other is _$_Backup &&
             const DeepCollectionEquality().equals(other.uuid, uuid) &&
             const DeepCollectionEquality()
                 .equals(other.isSuccessful, isSuccessful) &&
             const DeepCollectionEquality().equals(other.isLocked, isLocked) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
-                .equals(other.ignoredFiles, ignoredFiles) &&
+                .equals(other._ignoredFiles, _ignoredFiles) &&
             const DeepCollectionEquality().equals(other.checksum, checksum) &&
             const DeepCollectionEquality().equals(other.bytes, bytes) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
@@ -287,6 +260,7 @@ class _$_Backup extends _Backup {
                 .equals(other.completedAt, completedAt));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -294,7 +268,7 @@ class _$_Backup extends _Backup {
       const DeepCollectionEquality().hash(isSuccessful),
       const DeepCollectionEquality().hash(isLocked),
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(ignoredFiles),
+      const DeepCollectionEquality().hash(_ignoredFiles),
       const DeepCollectionEquality().hash(checksum),
       const DeepCollectionEquality().hash(bytes),
       const DeepCollectionEquality().hash(createdAt),
@@ -302,8 +276,8 @@ class _$_Backup extends _Backup {
 
   @JsonKey(ignore: true)
   @override
-  _$BackupCopyWith<_Backup> get copyWith =>
-      __$BackupCopyWithImpl<_Backup>(this, _$identity);
+  _$$_BackupCopyWith<_$_Backup> get copyWith =>
+      __$$_BackupCopyWithImpl<_$_Backup>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -313,38 +287,39 @@ class _$_Backup extends _Backup {
 
 abstract class _Backup extends Backup {
   factory _Backup(
-      {required String uuid,
-      required bool isSuccessful,
-      required bool isLocked,
-      required String name,
-      List<String>? ignoredFiles,
-      required String checksum,
-      required int bytes,
-      required DateTime createdAt,
-      DateTime? completedAt}) = _$_Backup;
+      {required final String uuid,
+      required final bool isSuccessful,
+      required final bool isLocked,
+      required final String name,
+      final List<String>? ignoredFiles,
+      required final String checksum,
+      required final int bytes,
+      required final DateTime createdAt,
+      final DateTime? completedAt}) = _$_Backup;
   _Backup._() : super._();
 
   factory _Backup.fromJson(Map<String, dynamic> json) = _$_Backup.fromJson;
 
   @override
-  String get uuid;
+  String get uuid => throw _privateConstructorUsedError;
   @override
-  bool get isSuccessful;
+  bool get isSuccessful => throw _privateConstructorUsedError;
   @override
-  bool get isLocked;
+  bool get isLocked => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  List<String>? get ignoredFiles;
+  List<String>? get ignoredFiles => throw _privateConstructorUsedError;
   @override
-  String get checksum;
+  String get checksum => throw _privateConstructorUsedError;
   @override
-  int get bytes;
+  int get bytes => throw _privateConstructorUsedError;
   @override
-  DateTime get createdAt;
+  DateTime get createdAt => throw _privateConstructorUsedError;
   @override
-  DateTime? get completedAt;
+  DateTime? get completedAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$BackupCopyWith<_Backup> get copyWith => throw _privateConstructorUsedError;
+  _$$_BackupCopyWith<_$_Backup> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -12,32 +12,12 @@ part of '../../../models/ptero_data/ptero_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PteroData<T> _$PteroDataFromJson<T extends SerializableMixin>(
     Map<String, dynamic> json) {
   return _PteroData<T>.fromJson(json);
 }
-
-/// @nodoc
-class _$PteroDataTearOff {
-  const _$PteroDataTearOff();
-
-  _PteroData<T> call<T extends SerializableMixin>(
-      {@PteroDataConverter() required T data}) {
-    return _PteroData<T>(
-      data: data,
-    );
-  }
-
-  PteroData<T> fromJson<T extends SerializableMixin>(
-      Map<String, Object?> json) {
-    return PteroData<T>.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $PteroData = _$PteroDataTearOff();
 
 /// @nodoc
 mixin _$PteroData<T extends SerializableMixin> {
@@ -81,31 +61,31 @@ class _$PteroDataCopyWithImpl<T extends SerializableMixin, $Res>
 }
 
 /// @nodoc
-abstract class _$PteroDataCopyWith<T extends SerializableMixin, $Res>
+abstract class _$$_PteroDataCopyWith<T extends SerializableMixin, $Res>
     implements $PteroDataCopyWith<T, $Res> {
-  factory _$PteroDataCopyWith(
-          _PteroData<T> value, $Res Function(_PteroData<T>) then) =
-      __$PteroDataCopyWithImpl<T, $Res>;
+  factory _$$_PteroDataCopyWith(
+          _$_PteroData<T> value, $Res Function(_$_PteroData<T>) then) =
+      __$$_PteroDataCopyWithImpl<T, $Res>;
   @override
   $Res call({@PteroDataConverter() T data});
 }
 
 /// @nodoc
-class __$PteroDataCopyWithImpl<T extends SerializableMixin, $Res>
+class __$$_PteroDataCopyWithImpl<T extends SerializableMixin, $Res>
     extends _$PteroDataCopyWithImpl<T, $Res>
-    implements _$PteroDataCopyWith<T, $Res> {
-  __$PteroDataCopyWithImpl(
-      _PteroData<T> _value, $Res Function(_PteroData<T>) _then)
-      : super(_value, (v) => _then(v as _PteroData<T>));
+    implements _$$_PteroDataCopyWith<T, $Res> {
+  __$$_PteroDataCopyWithImpl(
+      _$_PteroData<T> _value, $Res Function(_$_PteroData<T>) _then)
+      : super(_value, (v) => _then(v as _$_PteroData<T>));
 
   @override
-  _PteroData<T> get _value => super._value as _PteroData<T>;
+  _$_PteroData<T> get _value => super._value as _$_PteroData<T>;
 
   @override
   $Res call({
     Object? data = freezed,
   }) {
-    return _then(_PteroData<T>(
+    return _then(_$_PteroData<T>(
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -135,18 +115,19 @@ class _$_PteroData<T extends SerializableMixin> implements _PteroData<T> {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PteroData<T> &&
+            other is _$_PteroData<T> &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
-  _$PteroDataCopyWith<T, _PteroData<T>> get copyWith =>
-      __$PteroDataCopyWithImpl<T, _PteroData<T>>(this, _$identity);
+  _$$_PteroDataCopyWith<T, _$_PteroData<T>> get copyWith =>
+      __$$_PteroDataCopyWithImpl<T, _$_PteroData<T>>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -155,16 +136,17 @@ class _$_PteroData<T extends SerializableMixin> implements _PteroData<T> {
 }
 
 abstract class _PteroData<T extends SerializableMixin> implements PteroData<T> {
-  factory _PteroData({@PteroDataConverter() required T data}) = _$_PteroData<T>;
+  factory _PteroData({@PteroDataConverter() required final T data}) =
+      _$_PteroData<T>;
 
   factory _PteroData.fromJson(Map<String, dynamic> json) =
       _$_PteroData<T>.fromJson;
 
   @override
   @PteroDataConverter()
-  T get data;
+  T get data => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$PteroDataCopyWith<T, _PteroData<T>> get copyWith =>
+  _$$_PteroDataCopyWith<T, _$_PteroData<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
