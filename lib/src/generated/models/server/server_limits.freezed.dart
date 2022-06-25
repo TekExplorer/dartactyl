@@ -12,40 +12,11 @@ part of '../../../models/server/server_limits.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ServerLimits _$ServerLimitsFromJson(Map<String, dynamic> json) {
   return _ServerLimits.fromJson(json);
 }
-
-/// @nodoc
-class _$ServerLimitsTearOff {
-  const _$ServerLimitsTearOff();
-
-  _ServerLimits call(
-      {required int memory,
-      required int swap,
-      required int disk,
-      required int io,
-      required int cpu,
-      String? threads}) {
-    return _ServerLimits(
-      memory: memory,
-      swap: swap,
-      disk: disk,
-      io: io,
-      cpu: cpu,
-      threads: threads,
-    );
-  }
-
-  ServerLimits fromJson(Map<String, Object?> json) {
-    return ServerLimits.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ServerLimits = _$ServerLimitsTearOff();
 
 /// @nodoc
 mixin _$ServerLimits {
@@ -117,24 +88,25 @@ class _$ServerLimitsCopyWithImpl<$Res> implements $ServerLimitsCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ServerLimitsCopyWith<$Res>
+abstract class _$$_ServerLimitsCopyWith<$Res>
     implements $ServerLimitsCopyWith<$Res> {
-  factory _$ServerLimitsCopyWith(
-          _ServerLimits value, $Res Function(_ServerLimits) then) =
-      __$ServerLimitsCopyWithImpl<$Res>;
+  factory _$$_ServerLimitsCopyWith(
+          _$_ServerLimits value, $Res Function(_$_ServerLimits) then) =
+      __$$_ServerLimitsCopyWithImpl<$Res>;
   @override
   $Res call({int memory, int swap, int disk, int io, int cpu, String? threads});
 }
 
 /// @nodoc
-class __$ServerLimitsCopyWithImpl<$Res> extends _$ServerLimitsCopyWithImpl<$Res>
-    implements _$ServerLimitsCopyWith<$Res> {
-  __$ServerLimitsCopyWithImpl(
-      _ServerLimits _value, $Res Function(_ServerLimits) _then)
-      : super(_value, (v) => _then(v as _ServerLimits));
+class __$$_ServerLimitsCopyWithImpl<$Res>
+    extends _$ServerLimitsCopyWithImpl<$Res>
+    implements _$$_ServerLimitsCopyWith<$Res> {
+  __$$_ServerLimitsCopyWithImpl(
+      _$_ServerLimits _value, $Res Function(_$_ServerLimits) _then)
+      : super(_value, (v) => _then(v as _$_ServerLimits));
 
   @override
-  _ServerLimits get _value => super._value as _ServerLimits;
+  _$_ServerLimits get _value => super._value as _$_ServerLimits;
 
   @override
   $Res call({
@@ -145,7 +117,7 @@ class __$ServerLimitsCopyWithImpl<$Res> extends _$ServerLimitsCopyWithImpl<$Res>
     Object? cpu = freezed,
     Object? threads = freezed,
   }) {
-    return _then(_ServerLimits(
+    return _then(_$_ServerLimits(
       memory: memory == freezed
           ? _value.memory
           : memory // ignore: cast_nullable_to_non_nullable
@@ -211,7 +183,7 @@ class _$_ServerLimits extends _ServerLimits {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ServerLimits &&
+            other is _$_ServerLimits &&
             const DeepCollectionEquality().equals(other.memory, memory) &&
             const DeepCollectionEquality().equals(other.swap, swap) &&
             const DeepCollectionEquality().equals(other.disk, disk) &&
@@ -220,6 +192,7 @@ class _$_ServerLimits extends _ServerLimits {
             const DeepCollectionEquality().equals(other.threads, threads));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -232,8 +205,8 @@ class _$_ServerLimits extends _ServerLimits {
 
   @JsonKey(ignore: true)
   @override
-  _$ServerLimitsCopyWith<_ServerLimits> get copyWith =>
-      __$ServerLimitsCopyWithImpl<_ServerLimits>(this, _$identity);
+  _$$_ServerLimitsCopyWith<_$_ServerLimits> get copyWith =>
+      __$$_ServerLimitsCopyWithImpl<_$_ServerLimits>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -243,31 +216,31 @@ class _$_ServerLimits extends _ServerLimits {
 
 abstract class _ServerLimits extends ServerLimits {
   factory _ServerLimits(
-      {required int memory,
-      required int swap,
-      required int disk,
-      required int io,
-      required int cpu,
-      String? threads}) = _$_ServerLimits;
+      {required final int memory,
+      required final int swap,
+      required final int disk,
+      required final int io,
+      required final int cpu,
+      final String? threads}) = _$_ServerLimits;
   _ServerLimits._() : super._();
 
   factory _ServerLimits.fromJson(Map<String, dynamic> json) =
       _$_ServerLimits.fromJson;
 
   @override
-  int get memory;
+  int get memory => throw _privateConstructorUsedError;
   @override
-  int get swap;
+  int get swap => throw _privateConstructorUsedError;
   @override
-  int get disk;
+  int get disk => throw _privateConstructorUsedError;
   @override
-  int get io;
+  int get io => throw _privateConstructorUsedError;
   @override
-  int get cpu;
+  int get cpu => throw _privateConstructorUsedError;
   @override
-  String? get threads;
+  String? get threads => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ServerLimitsCopyWith<_ServerLimits> get copyWith =>
+  _$$_ServerLimitsCopyWith<_$_ServerLimits> get copyWith =>
       throw _privateConstructorUsedError;
 }

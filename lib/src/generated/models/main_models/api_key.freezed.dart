@@ -12,38 +12,11 @@ part of '../../../models/main_models/api_key.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ApiKey _$ApiKeyFromJson(Map<String, dynamic> json) {
   return _ApiKey.fromJson(json);
 }
-
-/// @nodoc
-class _$ApiKeyTearOff {
-  const _$ApiKeyTearOff();
-
-  _ApiKey call(
-      {required String identifier,
-      String? description,
-      List<String>? allowedIps,
-      DateTime? lastUsedAt,
-      required DateTime createdAt}) {
-    return _ApiKey(
-      identifier: identifier,
-      description: description,
-      allowedIps: allowedIps,
-      lastUsedAt: lastUsedAt,
-      createdAt: createdAt,
-    );
-  }
-
-  ApiKey fromJson(Map<String, Object?> json) {
-    return ApiKey.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ApiKey = _$ApiKeyTearOff();
 
 /// @nodoc
 mixin _$ApiKey {
@@ -112,9 +85,9 @@ class _$ApiKeyCopyWithImpl<$Res> implements $ApiKeyCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ApiKeyCopyWith<$Res> implements $ApiKeyCopyWith<$Res> {
-  factory _$ApiKeyCopyWith(_ApiKey value, $Res Function(_ApiKey) then) =
-      __$ApiKeyCopyWithImpl<$Res>;
+abstract class _$$_ApiKeyCopyWith<$Res> implements $ApiKeyCopyWith<$Res> {
+  factory _$$_ApiKeyCopyWith(_$_ApiKey value, $Res Function(_$_ApiKey) then) =
+      __$$_ApiKeyCopyWithImpl<$Res>;
   @override
   $Res call(
       {String identifier,
@@ -125,13 +98,13 @@ abstract class _$ApiKeyCopyWith<$Res> implements $ApiKeyCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ApiKeyCopyWithImpl<$Res> extends _$ApiKeyCopyWithImpl<$Res>
-    implements _$ApiKeyCopyWith<$Res> {
-  __$ApiKeyCopyWithImpl(_ApiKey _value, $Res Function(_ApiKey) _then)
-      : super(_value, (v) => _then(v as _ApiKey));
+class __$$_ApiKeyCopyWithImpl<$Res> extends _$ApiKeyCopyWithImpl<$Res>
+    implements _$$_ApiKeyCopyWith<$Res> {
+  __$$_ApiKeyCopyWithImpl(_$_ApiKey _value, $Res Function(_$_ApiKey) _then)
+      : super(_value, (v) => _then(v as _$_ApiKey));
 
   @override
-  _ApiKey get _value => super._value as _ApiKey;
+  _$_ApiKey get _value => super._value as _$_ApiKey;
 
   @override
   $Res call({
@@ -141,7 +114,7 @@ class __$ApiKeyCopyWithImpl<$Res> extends _$ApiKeyCopyWithImpl<$Res>
     Object? lastUsedAt = freezed,
     Object? createdAt = freezed,
   }) {
-    return _then(_ApiKey(
+    return _then(_$_ApiKey(
       identifier: identifier == freezed
           ? _value.identifier
           : identifier // ignore: cast_nullable_to_non_nullable
@@ -151,7 +124,7 @@ class __$ApiKeyCopyWithImpl<$Res> extends _$ApiKeyCopyWithImpl<$Res>
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
       allowedIps: allowedIps == freezed
-          ? _value.allowedIps
+          ? _value._allowedIps
           : allowedIps // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       lastUsedAt: lastUsedAt == freezed
@@ -172,10 +145,11 @@ class _$_ApiKey extends _ApiKey {
   _$_ApiKey(
       {required this.identifier,
       this.description,
-      this.allowedIps,
+      final List<String>? allowedIps,
       this.lastUsedAt,
       required this.createdAt})
-      : super._();
+      : _allowedIps = allowedIps,
+        super._();
 
   factory _$_ApiKey.fromJson(Map<String, dynamic> json) =>
       _$$_ApiKeyFromJson(json);
@@ -184,8 +158,15 @@ class _$_ApiKey extends _ApiKey {
   final String identifier;
   @override
   final String? description;
+  final List<String>? _allowedIps;
   @override
-  final List<String>? allowedIps;
+  List<String>? get allowedIps {
+    final value = _allowedIps;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final DateTime? lastUsedAt;
   @override
@@ -200,31 +181,32 @@ class _$_ApiKey extends _ApiKey {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ApiKey &&
+            other is _$_ApiKey &&
             const DeepCollectionEquality()
                 .equals(other.identifier, identifier) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
             const DeepCollectionEquality()
-                .equals(other.allowedIps, allowedIps) &&
+                .equals(other._allowedIps, _allowedIps) &&
             const DeepCollectionEquality()
                 .equals(other.lastUsedAt, lastUsedAt) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(identifier),
       const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(allowedIps),
+      const DeepCollectionEquality().hash(_allowedIps),
       const DeepCollectionEquality().hash(lastUsedAt),
       const DeepCollectionEquality().hash(createdAt));
 
   @JsonKey(ignore: true)
   @override
-  _$ApiKeyCopyWith<_ApiKey> get copyWith =>
-      __$ApiKeyCopyWithImpl<_ApiKey>(this, _$identity);
+  _$$_ApiKeyCopyWith<_$_ApiKey> get copyWith =>
+      __$$_ApiKeyCopyWithImpl<_$_ApiKey>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -234,26 +216,27 @@ class _$_ApiKey extends _ApiKey {
 
 abstract class _ApiKey extends ApiKey {
   factory _ApiKey(
-      {required String identifier,
-      String? description,
-      List<String>? allowedIps,
-      DateTime? lastUsedAt,
-      required DateTime createdAt}) = _$_ApiKey;
+      {required final String identifier,
+      final String? description,
+      final List<String>? allowedIps,
+      final DateTime? lastUsedAt,
+      required final DateTime createdAt}) = _$_ApiKey;
   _ApiKey._() : super._();
 
   factory _ApiKey.fromJson(Map<String, dynamic> json) = _$_ApiKey.fromJson;
 
   @override
-  String get identifier;
+  String get identifier => throw _privateConstructorUsedError;
   @override
-  String? get description;
+  String? get description => throw _privateConstructorUsedError;
   @override
-  List<String>? get allowedIps;
+  List<String>? get allowedIps => throw _privateConstructorUsedError;
   @override
-  DateTime? get lastUsedAt;
+  DateTime? get lastUsedAt => throw _privateConstructorUsedError;
   @override
-  DateTime get createdAt;
+  DateTime get createdAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ApiKeyCopyWith<_ApiKey> get copyWith => throw _privateConstructorUsedError;
+  _$$_ApiKeyCopyWith<_$_ApiKey> get copyWith =>
+      throw _privateConstructorUsedError;
 }

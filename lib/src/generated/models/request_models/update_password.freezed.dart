@@ -12,34 +12,11 @@ part of '../../../models/request_models/update_password.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 UpdatePassword _$UpdatePasswordFromJson(Map<String, dynamic> json) {
   return _UpdatePassword.fromJson(json);
 }
-
-/// @nodoc
-class _$UpdatePasswordTearOff {
-  const _$UpdatePasswordTearOff();
-
-  _UpdatePassword call(
-      {required String currentPassword,
-      required String password,
-      required String passwordConfirmation}) {
-    return _UpdatePassword(
-      currentPassword: currentPassword,
-      password: password,
-      passwordConfirmation: passwordConfirmation,
-    );
-  }
-
-  UpdatePassword fromJson(Map<String, Object?> json) {
-    return UpdatePassword.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $UpdatePassword = _$UpdatePasswordTearOff();
 
 /// @nodoc
 mixin _$UpdatePassword {
@@ -95,26 +72,26 @@ class _$UpdatePasswordCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$UpdatePasswordCopyWith<$Res>
+abstract class _$$_UpdatePasswordCopyWith<$Res>
     implements $UpdatePasswordCopyWith<$Res> {
-  factory _$UpdatePasswordCopyWith(
-          _UpdatePassword value, $Res Function(_UpdatePassword) then) =
-      __$UpdatePasswordCopyWithImpl<$Res>;
+  factory _$$_UpdatePasswordCopyWith(
+          _$_UpdatePassword value, $Res Function(_$_UpdatePassword) then) =
+      __$$_UpdatePasswordCopyWithImpl<$Res>;
   @override
   $Res call(
       {String currentPassword, String password, String passwordConfirmation});
 }
 
 /// @nodoc
-class __$UpdatePasswordCopyWithImpl<$Res>
+class __$$_UpdatePasswordCopyWithImpl<$Res>
     extends _$UpdatePasswordCopyWithImpl<$Res>
-    implements _$UpdatePasswordCopyWith<$Res> {
-  __$UpdatePasswordCopyWithImpl(
-      _UpdatePassword _value, $Res Function(_UpdatePassword) _then)
-      : super(_value, (v) => _then(v as _UpdatePassword));
+    implements _$$_UpdatePasswordCopyWith<$Res> {
+  __$$_UpdatePasswordCopyWithImpl(
+      _$_UpdatePassword _value, $Res Function(_$_UpdatePassword) _then)
+      : super(_value, (v) => _then(v as _$_UpdatePassword));
 
   @override
-  _UpdatePassword get _value => super._value as _UpdatePassword;
+  _$_UpdatePassword get _value => super._value as _$_UpdatePassword;
 
   @override
   $Res call({
@@ -122,7 +99,7 @@ class __$UpdatePasswordCopyWithImpl<$Res>
     Object? password = freezed,
     Object? passwordConfirmation = freezed,
   }) {
-    return _then(_UpdatePassword(
+    return _then(_$_UpdatePassword(
       currentPassword: currentPassword == freezed
           ? _value.currentPassword
           : currentPassword // ignore: cast_nullable_to_non_nullable
@@ -166,7 +143,7 @@ class _$_UpdatePassword implements _UpdatePassword {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UpdatePassword &&
+            other is _$_UpdatePassword &&
             const DeepCollectionEquality()
                 .equals(other.currentPassword, currentPassword) &&
             const DeepCollectionEquality().equals(other.password, password) &&
@@ -174,6 +151,7 @@ class _$_UpdatePassword implements _UpdatePassword {
                 .equals(other.passwordConfirmation, passwordConfirmation));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -183,8 +161,8 @@ class _$_UpdatePassword implements _UpdatePassword {
 
   @JsonKey(ignore: true)
   @override
-  _$UpdatePasswordCopyWith<_UpdatePassword> get copyWith =>
-      __$UpdatePasswordCopyWithImpl<_UpdatePassword>(this, _$identity);
+  _$$_UpdatePasswordCopyWith<_$_UpdatePassword> get copyWith =>
+      __$$_UpdatePasswordCopyWithImpl<_$_UpdatePassword>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -194,21 +172,21 @@ class _$_UpdatePassword implements _UpdatePassword {
 
 abstract class _UpdatePassword implements UpdatePassword {
   factory _UpdatePassword(
-      {required String currentPassword,
-      required String password,
-      required String passwordConfirmation}) = _$_UpdatePassword;
+      {required final String currentPassword,
+      required final String password,
+      required final String passwordConfirmation}) = _$_UpdatePassword;
 
   factory _UpdatePassword.fromJson(Map<String, dynamic> json) =
       _$_UpdatePassword.fromJson;
 
   @override
-  String get currentPassword;
+  String get currentPassword => throw _privateConstructorUsedError;
   @override
-  String get password;
+  String get password => throw _privateConstructorUsedError;
   @override
-  String get passwordConfirmation;
+  String get passwordConfirmation => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UpdatePasswordCopyWith<_UpdatePassword> get copyWith =>
+  _$$_UpdatePasswordCopyWith<_$_UpdatePassword> get copyWith =>
       throw _privateConstructorUsedError;
 }

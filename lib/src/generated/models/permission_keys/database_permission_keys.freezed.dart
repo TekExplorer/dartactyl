@@ -12,39 +12,12 @@ part of '../../../models/permission_keys/database_permission_keys.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 DatabasePermissionKeys _$DatabasePermissionKeysFromJson(
     Map<String, dynamic> json) {
   return _DatabasePermissionKeys.fromJson(json);
 }
-
-/// @nodoc
-class _$DatabasePermissionKeysTearOff {
-  const _$DatabasePermissionKeysTearOff();
-
-  _DatabasePermissionKeys call(
-      {required String create,
-      required String read,
-      required String update,
-      required String delete,
-      required String viewPassword}) {
-    return _DatabasePermissionKeys(
-      create: create,
-      read: read,
-      update: update,
-      delete: delete,
-      viewPassword: viewPassword,
-    );
-  }
-
-  DatabasePermissionKeys fromJson(Map<String, Object?> json) {
-    return DatabasePermissionKeys.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $DatabasePermissionKeys = _$DatabasePermissionKeysTearOff();
 
 /// @nodoc
 mixin _$DatabasePermissionKeys {
@@ -116,11 +89,11 @@ class _$DatabasePermissionKeysCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$DatabasePermissionKeysCopyWith<$Res>
+abstract class _$$_DatabasePermissionKeysCopyWith<$Res>
     implements $DatabasePermissionKeysCopyWith<$Res> {
-  factory _$DatabasePermissionKeysCopyWith(_DatabasePermissionKeys value,
-          $Res Function(_DatabasePermissionKeys) then) =
-      __$DatabasePermissionKeysCopyWithImpl<$Res>;
+  factory _$$_DatabasePermissionKeysCopyWith(_$_DatabasePermissionKeys value,
+          $Res Function(_$_DatabasePermissionKeys) then) =
+      __$$_DatabasePermissionKeysCopyWithImpl<$Res>;
   @override
   $Res call(
       {String create,
@@ -131,15 +104,16 @@ abstract class _$DatabasePermissionKeysCopyWith<$Res>
 }
 
 /// @nodoc
-class __$DatabasePermissionKeysCopyWithImpl<$Res>
+class __$$_DatabasePermissionKeysCopyWithImpl<$Res>
     extends _$DatabasePermissionKeysCopyWithImpl<$Res>
-    implements _$DatabasePermissionKeysCopyWith<$Res> {
-  __$DatabasePermissionKeysCopyWithImpl(_DatabasePermissionKeys _value,
-      $Res Function(_DatabasePermissionKeys) _then)
-      : super(_value, (v) => _then(v as _DatabasePermissionKeys));
+    implements _$$_DatabasePermissionKeysCopyWith<$Res> {
+  __$$_DatabasePermissionKeysCopyWithImpl(_$_DatabasePermissionKeys _value,
+      $Res Function(_$_DatabasePermissionKeys) _then)
+      : super(_value, (v) => _then(v as _$_DatabasePermissionKeys));
 
   @override
-  _DatabasePermissionKeys get _value => super._value as _DatabasePermissionKeys;
+  _$_DatabasePermissionKeys get _value =>
+      super._value as _$_DatabasePermissionKeys;
 
   @override
   $Res call({
@@ -149,7 +123,7 @@ class __$DatabasePermissionKeysCopyWithImpl<$Res>
     Object? delete = freezed,
     Object? viewPassword = freezed,
   }) {
-    return _then(_DatabasePermissionKeys(
+    return _then(_$_DatabasePermissionKeys(
       create: create == freezed
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
@@ -208,7 +182,7 @@ class _$_DatabasePermissionKeys extends _DatabasePermissionKeys {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _DatabasePermissionKeys &&
+            other is _$_DatabasePermissionKeys &&
             const DeepCollectionEquality().equals(other.create, create) &&
             const DeepCollectionEquality().equals(other.read, read) &&
             const DeepCollectionEquality().equals(other.update, update) &&
@@ -217,6 +191,7 @@ class _$_DatabasePermissionKeys extends _DatabasePermissionKeys {
                 .equals(other.viewPassword, viewPassword));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -228,8 +203,8 @@ class _$_DatabasePermissionKeys extends _DatabasePermissionKeys {
 
   @JsonKey(ignore: true)
   @override
-  _$DatabasePermissionKeysCopyWith<_DatabasePermissionKeys> get copyWith =>
-      __$DatabasePermissionKeysCopyWithImpl<_DatabasePermissionKeys>(
+  _$$_DatabasePermissionKeysCopyWith<_$_DatabasePermissionKeys> get copyWith =>
+      __$$_DatabasePermissionKeysCopyWithImpl<_$_DatabasePermissionKeys>(
           this, _$identity);
 
   @override
@@ -240,28 +215,28 @@ class _$_DatabasePermissionKeys extends _DatabasePermissionKeys {
 
 abstract class _DatabasePermissionKeys extends DatabasePermissionKeys {
   factory _DatabasePermissionKeys(
-      {required String create,
-      required String read,
-      required String update,
-      required String delete,
-      required String viewPassword}) = _$_DatabasePermissionKeys;
+      {required final String create,
+      required final String read,
+      required final String update,
+      required final String delete,
+      required final String viewPassword}) = _$_DatabasePermissionKeys;
   _DatabasePermissionKeys._() : super._();
 
   factory _DatabasePermissionKeys.fromJson(Map<String, dynamic> json) =
       _$_DatabasePermissionKeys.fromJson;
 
   @override
-  String get create;
+  String get create => throw _privateConstructorUsedError;
   @override
-  String get read;
+  String get read => throw _privateConstructorUsedError;
   @override
-  String get update;
+  String get update => throw _privateConstructorUsedError;
   @override
-  String get delete;
+  String get delete => throw _privateConstructorUsedError;
   @override
-  String get viewPassword;
+  String get viewPassword => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$DatabasePermissionKeysCopyWith<_DatabasePermissionKeys> get copyWith =>
+  _$$_DatabasePermissionKeysCopyWith<_$_DatabasePermissionKeys> get copyWith =>
       throw _privateConstructorUsedError;
 }

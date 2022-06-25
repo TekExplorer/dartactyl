@@ -10,7 +10,8 @@ part '../../generated/models/error_responses/ptero_error.g.dart';
 class PteroError with _$PteroError implements Exception {
   PteroError._();
   factory PteroError({
-    required PteroErrorCode code,
+    @JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
+        required PteroErrorCode code,
     required String status,
     required String detail,
   }) = _PteroError;
@@ -20,6 +21,7 @@ class PteroError with _$PteroError implements Exception {
 }
 
 enum PteroErrorCode {
+  BadMethodCallException,
   TwoFactorAuthenticationTokenInvalid,
   BadRequestHttpException,
   email,
@@ -32,4 +34,8 @@ enum PteroErrorCode {
   AuthenticationException,
   DaemonConnectionException,
   ValidationException,
+  ServerStateConflictException,
+
+  //
+  UNKNOWN,
 }

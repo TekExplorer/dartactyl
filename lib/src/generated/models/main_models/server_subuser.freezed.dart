@@ -12,42 +12,11 @@ part of '../../../models/main_models/server_subuser.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ServerSubuser _$ServerSubuserFromJson(Map<String, dynamic> json) {
   return _ServerSubuser.fromJson(json);
 }
-
-/// @nodoc
-class _$ServerSubuserTearOff {
-  const _$ServerSubuserTearOff();
-
-  _ServerSubuser call(
-      {required String uuid,
-      required String username,
-      required String email,
-      required String image,
-      required bool the2FaEnabled,
-      required DateTime createdAt,
-      required List<String> permissions}) {
-    return _ServerSubuser(
-      uuid: uuid,
-      username: username,
-      email: email,
-      image: image,
-      the2FaEnabled: the2FaEnabled,
-      createdAt: createdAt,
-      permissions: permissions,
-    );
-  }
-
-  ServerSubuser fromJson(Map<String, Object?> json) {
-    return ServerSubuser.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ServerSubuser = _$ServerSubuserTearOff();
 
 /// @nodoc
 mixin _$ServerSubuser {
@@ -133,11 +102,11 @@ class _$ServerSubuserCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ServerSubuserCopyWith<$Res>
+abstract class _$$_ServerSubuserCopyWith<$Res>
     implements $ServerSubuserCopyWith<$Res> {
-  factory _$ServerSubuserCopyWith(
-          _ServerSubuser value, $Res Function(_ServerSubuser) then) =
-      __$ServerSubuserCopyWithImpl<$Res>;
+  factory _$$_ServerSubuserCopyWith(
+          _$_ServerSubuser value, $Res Function(_$_ServerSubuser) then) =
+      __$$_ServerSubuserCopyWithImpl<$Res>;
   @override
   $Res call(
       {String uuid,
@@ -150,15 +119,15 @@ abstract class _$ServerSubuserCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ServerSubuserCopyWithImpl<$Res>
+class __$$_ServerSubuserCopyWithImpl<$Res>
     extends _$ServerSubuserCopyWithImpl<$Res>
-    implements _$ServerSubuserCopyWith<$Res> {
-  __$ServerSubuserCopyWithImpl(
-      _ServerSubuser _value, $Res Function(_ServerSubuser) _then)
-      : super(_value, (v) => _then(v as _ServerSubuser));
+    implements _$$_ServerSubuserCopyWith<$Res> {
+  __$$_ServerSubuserCopyWithImpl(
+      _$_ServerSubuser _value, $Res Function(_$_ServerSubuser) _then)
+      : super(_value, (v) => _then(v as _$_ServerSubuser));
 
   @override
-  _ServerSubuser get _value => super._value as _ServerSubuser;
+  _$_ServerSubuser get _value => super._value as _$_ServerSubuser;
 
   @override
   $Res call({
@@ -170,7 +139,7 @@ class __$ServerSubuserCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? permissions = freezed,
   }) {
-    return _then(_ServerSubuser(
+    return _then(_$_ServerSubuser(
       uuid: uuid == freezed
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
@@ -196,7 +165,7 @@ class __$ServerSubuserCopyWithImpl<$Res>
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
       permissions: permissions == freezed
-          ? _value.permissions
+          ? _value._permissions
           : permissions // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
@@ -213,8 +182,9 @@ class _$_ServerSubuser extends _ServerSubuser {
       required this.image,
       required this.the2FaEnabled,
       required this.createdAt,
-      required this.permissions})
-      : super._();
+      required final List<String> permissions})
+      : _permissions = permissions,
+        super._();
 
   factory _$_ServerSubuser.fromJson(Map<String, dynamic> json) =>
       _$$_ServerSubuserFromJson(json);
@@ -231,8 +201,12 @@ class _$_ServerSubuser extends _ServerSubuser {
   final bool the2FaEnabled;
   @override
   final DateTime createdAt;
+  final List<String> _permissions;
   @override
-  final List<String> permissions;
+  List<String> get permissions {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_permissions);
+  }
 
   @override
   String toString() {
@@ -243,7 +217,7 @@ class _$_ServerSubuser extends _ServerSubuser {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ServerSubuser &&
+            other is _$_ServerSubuser &&
             const DeepCollectionEquality().equals(other.uuid, uuid) &&
             const DeepCollectionEquality().equals(other.username, username) &&
             const DeepCollectionEquality().equals(other.email, email) &&
@@ -252,9 +226,10 @@ class _$_ServerSubuser extends _ServerSubuser {
                 .equals(other.the2FaEnabled, the2FaEnabled) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality()
-                .equals(other.permissions, permissions));
+                .equals(other._permissions, _permissions));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -264,12 +239,12 @@ class _$_ServerSubuser extends _ServerSubuser {
       const DeepCollectionEquality().hash(image),
       const DeepCollectionEquality().hash(the2FaEnabled),
       const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(permissions));
+      const DeepCollectionEquality().hash(_permissions));
 
   @JsonKey(ignore: true)
   @override
-  _$ServerSubuserCopyWith<_ServerSubuser> get copyWith =>
-      __$ServerSubuserCopyWithImpl<_ServerSubuser>(this, _$identity);
+  _$$_ServerSubuserCopyWith<_$_ServerSubuser> get copyWith =>
+      __$$_ServerSubuserCopyWithImpl<_$_ServerSubuser>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -279,34 +254,34 @@ class _$_ServerSubuser extends _ServerSubuser {
 
 abstract class _ServerSubuser extends ServerSubuser {
   factory _ServerSubuser(
-      {required String uuid,
-      required String username,
-      required String email,
-      required String image,
-      required bool the2FaEnabled,
-      required DateTime createdAt,
-      required List<String> permissions}) = _$_ServerSubuser;
+      {required final String uuid,
+      required final String username,
+      required final String email,
+      required final String image,
+      required final bool the2FaEnabled,
+      required final DateTime createdAt,
+      required final List<String> permissions}) = _$_ServerSubuser;
   _ServerSubuser._() : super._();
 
   factory _ServerSubuser.fromJson(Map<String, dynamic> json) =
       _$_ServerSubuser.fromJson;
 
   @override
-  String get uuid;
+  String get uuid => throw _privateConstructorUsedError;
   @override
-  String get username;
+  String get username => throw _privateConstructorUsedError;
   @override
-  String get email;
+  String get email => throw _privateConstructorUsedError;
   @override
-  String get image;
+  String get image => throw _privateConstructorUsedError;
   @override
-  bool get the2FaEnabled;
+  bool get the2FaEnabled => throw _privateConstructorUsedError;
   @override
-  DateTime get createdAt;
+  DateTime get createdAt => throw _privateConstructorUsedError;
   @override
-  List<String> get permissions;
+  List<String> get permissions => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ServerSubuserCopyWith<_ServerSubuser> get copyWith =>
+  _$$_ServerSubuserCopyWith<_$_ServerSubuser> get copyWith =>
       throw _privateConstructorUsedError;
 }

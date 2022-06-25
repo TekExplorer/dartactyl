@@ -12,50 +12,11 @@ part of '../../../models/site_config/user_config.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 UserConfig _$UserConfigFromJson(Map<String, dynamic> json) {
   return _UserConfig.fromJson(json);
 }
-
-/// @nodoc
-class _$UserConfigTearOff {
-  const _$UserConfigTearOff();
-
-  _UserConfig call(
-      {required String uuid,
-      required String username,
-      required String email,
-      required String language,
-      required bool rootAdmin,
-      required bool useTotp,
-      required bool gravatar,
-      required String createdAt,
-      required String updatedAt,
-      required String nameFirst,
-      required String nameLast}) {
-    return _UserConfig(
-      uuid: uuid,
-      username: username,
-      email: email,
-      language: language,
-      rootAdmin: rootAdmin,
-      useTotp: useTotp,
-      gravatar: gravatar,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-      nameFirst: nameFirst,
-      nameLast: nameLast,
-    );
-  }
-
-  UserConfig fromJson(Map<String, Object?> json) {
-    return UserConfig.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $UserConfig = _$UserConfigTearOff();
 
 /// @nodoc
 mixin _$UserConfig {
@@ -168,10 +129,11 @@ class _$UserConfigCopyWithImpl<$Res> implements $UserConfigCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$UserConfigCopyWith<$Res> implements $UserConfigCopyWith<$Res> {
-  factory _$UserConfigCopyWith(
-          _UserConfig value, $Res Function(_UserConfig) then) =
-      __$UserConfigCopyWithImpl<$Res>;
+abstract class _$$_UserConfigCopyWith<$Res>
+    implements $UserConfigCopyWith<$Res> {
+  factory _$$_UserConfigCopyWith(
+          _$_UserConfig value, $Res Function(_$_UserConfig) then) =
+      __$$_UserConfigCopyWithImpl<$Res>;
   @override
   $Res call(
       {String uuid,
@@ -188,14 +150,14 @@ abstract class _$UserConfigCopyWith<$Res> implements $UserConfigCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$UserConfigCopyWithImpl<$Res> extends _$UserConfigCopyWithImpl<$Res>
-    implements _$UserConfigCopyWith<$Res> {
-  __$UserConfigCopyWithImpl(
-      _UserConfig _value, $Res Function(_UserConfig) _then)
-      : super(_value, (v) => _then(v as _UserConfig));
+class __$$_UserConfigCopyWithImpl<$Res> extends _$UserConfigCopyWithImpl<$Res>
+    implements _$$_UserConfigCopyWith<$Res> {
+  __$$_UserConfigCopyWithImpl(
+      _$_UserConfig _value, $Res Function(_$_UserConfig) _then)
+      : super(_value, (v) => _then(v as _$_UserConfig));
 
   @override
-  _UserConfig get _value => super._value as _UserConfig;
+  _$_UserConfig get _value => super._value as _$_UserConfig;
 
   @override
   $Res call({
@@ -211,7 +173,7 @@ class __$UserConfigCopyWithImpl<$Res> extends _$UserConfigCopyWithImpl<$Res>
     Object? nameFirst = freezed,
     Object? nameLast = freezed,
   }) {
-    return _then(_UserConfig(
+    return _then(_$_UserConfig(
       uuid: uuid == freezed
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
@@ -312,7 +274,7 @@ class _$_UserConfig extends _UserConfig {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UserConfig &&
+            other is _$_UserConfig &&
             const DeepCollectionEquality().equals(other.uuid, uuid) &&
             const DeepCollectionEquality().equals(other.username, username) &&
             const DeepCollectionEquality().equals(other.email, email) &&
@@ -326,6 +288,7 @@ class _$_UserConfig extends _UserConfig {
             const DeepCollectionEquality().equals(other.nameLast, nameLast));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -343,8 +306,8 @@ class _$_UserConfig extends _UserConfig {
 
   @JsonKey(ignore: true)
   @override
-  _$UserConfigCopyWith<_UserConfig> get copyWith =>
-      __$UserConfigCopyWithImpl<_UserConfig>(this, _$identity);
+  _$$_UserConfigCopyWith<_$_UserConfig> get copyWith =>
+      __$$_UserConfigCopyWithImpl<_$_UserConfig>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -354,46 +317,46 @@ class _$_UserConfig extends _UserConfig {
 
 abstract class _UserConfig extends UserConfig {
   factory _UserConfig(
-      {required String uuid,
-      required String username,
-      required String email,
-      required String language,
-      required bool rootAdmin,
-      required bool useTotp,
-      required bool gravatar,
-      required String createdAt,
-      required String updatedAt,
-      required String nameFirst,
-      required String nameLast}) = _$_UserConfig;
+      {required final String uuid,
+      required final String username,
+      required final String email,
+      required final String language,
+      required final bool rootAdmin,
+      required final bool useTotp,
+      required final bool gravatar,
+      required final String createdAt,
+      required final String updatedAt,
+      required final String nameFirst,
+      required final String nameLast}) = _$_UserConfig;
   _UserConfig._() : super._();
 
   factory _UserConfig.fromJson(Map<String, dynamic> json) =
       _$_UserConfig.fromJson;
 
   @override
-  String get uuid;
+  String get uuid => throw _privateConstructorUsedError;
   @override
-  String get username;
+  String get username => throw _privateConstructorUsedError;
   @override
-  String get email;
+  String get email => throw _privateConstructorUsedError;
   @override
-  String get language;
+  String get language => throw _privateConstructorUsedError;
   @override
-  bool get rootAdmin;
+  bool get rootAdmin => throw _privateConstructorUsedError;
   @override
-  bool get useTotp;
+  bool get useTotp => throw _privateConstructorUsedError;
   @override
-  bool get gravatar;
+  bool get gravatar => throw _privateConstructorUsedError;
   @override
-  String get createdAt;
+  String get createdAt => throw _privateConstructorUsedError;
   @override
-  String get updatedAt;
+  String get updatedAt => throw _privateConstructorUsedError;
   @override
-  String get nameFirst;
+  String get nameFirst => throw _privateConstructorUsedError;
   @override
-  String get nameLast;
+  String get nameLast => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UserConfigCopyWith<_UserConfig> get copyWith =>
+  _$$_UserConfigCopyWith<_$_UserConfig> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,40 +12,11 @@ part of '../../../models/permission_keys/file_permission_keys.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 FilePermissionKeys _$FilePermissionKeysFromJson(Map<String, dynamic> json) {
   return _FilePermissionKeys.fromJson(json);
 }
-
-/// @nodoc
-class _$FilePermissionKeysTearOff {
-  const _$FilePermissionKeysTearOff();
-
-  _FilePermissionKeys call(
-      {required String create,
-      required String read,
-      required String update,
-      required String delete,
-      required String archive,
-      required String sftp}) {
-    return _FilePermissionKeys(
-      create: create,
-      read: read,
-      update: update,
-      delete: delete,
-      archive: archive,
-      sftp: sftp,
-    );
-  }
-
-  FilePermissionKeys fromJson(Map<String, Object?> json) {
-    return FilePermissionKeys.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $FilePermissionKeys = _$FilePermissionKeysTearOff();
 
 /// @nodoc
 mixin _$FilePermissionKeys {
@@ -124,11 +95,11 @@ class _$FilePermissionKeysCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$FilePermissionKeysCopyWith<$Res>
+abstract class _$$_FilePermissionKeysCopyWith<$Res>
     implements $FilePermissionKeysCopyWith<$Res> {
-  factory _$FilePermissionKeysCopyWith(
-          _FilePermissionKeys value, $Res Function(_FilePermissionKeys) then) =
-      __$FilePermissionKeysCopyWithImpl<$Res>;
+  factory _$$_FilePermissionKeysCopyWith(_$_FilePermissionKeys value,
+          $Res Function(_$_FilePermissionKeys) then) =
+      __$$_FilePermissionKeysCopyWithImpl<$Res>;
   @override
   $Res call(
       {String create,
@@ -140,15 +111,15 @@ abstract class _$FilePermissionKeysCopyWith<$Res>
 }
 
 /// @nodoc
-class __$FilePermissionKeysCopyWithImpl<$Res>
+class __$$_FilePermissionKeysCopyWithImpl<$Res>
     extends _$FilePermissionKeysCopyWithImpl<$Res>
-    implements _$FilePermissionKeysCopyWith<$Res> {
-  __$FilePermissionKeysCopyWithImpl(
-      _FilePermissionKeys _value, $Res Function(_FilePermissionKeys) _then)
-      : super(_value, (v) => _then(v as _FilePermissionKeys));
+    implements _$$_FilePermissionKeysCopyWith<$Res> {
+  __$$_FilePermissionKeysCopyWithImpl(
+      _$_FilePermissionKeys _value, $Res Function(_$_FilePermissionKeys) _then)
+      : super(_value, (v) => _then(v as _$_FilePermissionKeys));
 
   @override
-  _FilePermissionKeys get _value => super._value as _FilePermissionKeys;
+  _$_FilePermissionKeys get _value => super._value as _$_FilePermissionKeys;
 
   @override
   $Res call({
@@ -159,7 +130,7 @@ class __$FilePermissionKeysCopyWithImpl<$Res>
     Object? archive = freezed,
     Object? sftp = freezed,
   }) {
-    return _then(_FilePermissionKeys(
+    return _then(_$_FilePermissionKeys(
       create: create == freezed
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
@@ -225,7 +196,7 @@ class _$_FilePermissionKeys extends _FilePermissionKeys {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _FilePermissionKeys &&
+            other is _$_FilePermissionKeys &&
             const DeepCollectionEquality().equals(other.create, create) &&
             const DeepCollectionEquality().equals(other.read, read) &&
             const DeepCollectionEquality().equals(other.update, update) &&
@@ -234,6 +205,7 @@ class _$_FilePermissionKeys extends _FilePermissionKeys {
             const DeepCollectionEquality().equals(other.sftp, sftp));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -246,8 +218,9 @@ class _$_FilePermissionKeys extends _FilePermissionKeys {
 
   @JsonKey(ignore: true)
   @override
-  _$FilePermissionKeysCopyWith<_FilePermissionKeys> get copyWith =>
-      __$FilePermissionKeysCopyWithImpl<_FilePermissionKeys>(this, _$identity);
+  _$$_FilePermissionKeysCopyWith<_$_FilePermissionKeys> get copyWith =>
+      __$$_FilePermissionKeysCopyWithImpl<_$_FilePermissionKeys>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -257,31 +230,31 @@ class _$_FilePermissionKeys extends _FilePermissionKeys {
 
 abstract class _FilePermissionKeys extends FilePermissionKeys {
   factory _FilePermissionKeys(
-      {required String create,
-      required String read,
-      required String update,
-      required String delete,
-      required String archive,
-      required String sftp}) = _$_FilePermissionKeys;
+      {required final String create,
+      required final String read,
+      required final String update,
+      required final String delete,
+      required final String archive,
+      required final String sftp}) = _$_FilePermissionKeys;
   _FilePermissionKeys._() : super._();
 
   factory _FilePermissionKeys.fromJson(Map<String, dynamic> json) =
       _$_FilePermissionKeys.fromJson;
 
   @override
-  String get create;
+  String get create => throw _privateConstructorUsedError;
   @override
-  String get read;
+  String get read => throw _privateConstructorUsedError;
   @override
-  String get update;
+  String get update => throw _privateConstructorUsedError;
   @override
-  String get delete;
+  String get delete => throw _privateConstructorUsedError;
   @override
-  String get archive;
+  String get archive => throw _privateConstructorUsedError;
   @override
-  String get sftp;
+  String get sftp => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$FilePermissionKeysCopyWith<_FilePermissionKeys> get copyWith =>
+  _$$_FilePermissionKeysCopyWith<_$_FilePermissionKeys> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,63 +12,7 @@ part of '../../websocket/websocket_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$WebsocketStateTearOff {
-  const _$WebsocketStateTearOff();
-
-  _WSInitial initial() {
-    return const _WSInitial();
-  }
-
-  _WSAuthError authError(String error) {
-    return _WSAuthError(
-      error,
-    );
-  }
-
-  _WSAuthenticating authenticating() {
-    return const _WSAuthenticating();
-  }
-
-  _WSAuthenticated authenticated() {
-    return const _WSAuthenticated();
-  }
-
-  _WSConsoleOutput consoleOutput(String output) {
-    return _WSConsoleOutput(
-      output,
-    );
-  }
-
-  _WSInstallOutput installOutput(String output) {
-    return _WSInstallOutput(
-      output,
-    );
-  }
-
-  _WSStats stats(WebsocketStatsModel stats) {
-    return _WSStats(
-      stats,
-    );
-  }
-
-  _WSPowerState powerState(ServerPowerState status) {
-    return _WSPowerState(
-      status,
-    );
-  }
-
-  _WSJWTError jwtError(String error) {
-    return _WSJWTError(
-      error,
-    );
-  }
-}
-
-/// @nodoc
-const $WebsocketState = _$WebsocketStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$WebsocketState {
@@ -172,20 +116,22 @@ class _$WebsocketStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$WSInitialCopyWith<$Res> {
-  factory _$WSInitialCopyWith(
-          _WSInitial value, $Res Function(_WSInitial) then) =
-      __$WSInitialCopyWithImpl<$Res>;
+abstract class _$$_WSInitialCopyWith<$Res> {
+  factory _$$_WSInitialCopyWith(
+          _$_WSInitial value, $Res Function(_$_WSInitial) then) =
+      __$$_WSInitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$WSInitialCopyWithImpl<$Res> extends _$WebsocketStateCopyWithImpl<$Res>
-    implements _$WSInitialCopyWith<$Res> {
-  __$WSInitialCopyWithImpl(_WSInitial _value, $Res Function(_WSInitial) _then)
-      : super(_value, (v) => _then(v as _WSInitial));
+class __$$_WSInitialCopyWithImpl<$Res>
+    extends _$WebsocketStateCopyWithImpl<$Res>
+    implements _$$_WSInitialCopyWith<$Res> {
+  __$$_WSInitialCopyWithImpl(
+      _$_WSInitial _value, $Res Function(_$_WSInitial) _then)
+      : super(_value, (v) => _then(v as _$_WSInitial));
 
   @override
-  _WSInitial get _value => super._value as _WSInitial;
+  _$_WSInitial get _value => super._value as _$_WSInitial;
 }
 
 /// @nodoc
@@ -201,7 +147,7 @@ class _$_WSInitial implements _WSInitial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _WSInitial);
+        (other.runtimeType == runtimeType && other is _$_WSInitial);
   }
 
   @override
@@ -317,29 +263,29 @@ abstract class _WSInitial implements WebsocketState {
 }
 
 /// @nodoc
-abstract class _$WSAuthErrorCopyWith<$Res> {
-  factory _$WSAuthErrorCopyWith(
-          _WSAuthError value, $Res Function(_WSAuthError) then) =
-      __$WSAuthErrorCopyWithImpl<$Res>;
+abstract class _$$_WSAuthErrorCopyWith<$Res> {
+  factory _$$_WSAuthErrorCopyWith(
+          _$_WSAuthError value, $Res Function(_$_WSAuthError) then) =
+      __$$_WSAuthErrorCopyWithImpl<$Res>;
   $Res call({String error});
 }
 
 /// @nodoc
-class __$WSAuthErrorCopyWithImpl<$Res>
+class __$$_WSAuthErrorCopyWithImpl<$Res>
     extends _$WebsocketStateCopyWithImpl<$Res>
-    implements _$WSAuthErrorCopyWith<$Res> {
-  __$WSAuthErrorCopyWithImpl(
-      _WSAuthError _value, $Res Function(_WSAuthError) _then)
-      : super(_value, (v) => _then(v as _WSAuthError));
+    implements _$$_WSAuthErrorCopyWith<$Res> {
+  __$$_WSAuthErrorCopyWithImpl(
+      _$_WSAuthError _value, $Res Function(_$_WSAuthError) _then)
+      : super(_value, (v) => _then(v as _$_WSAuthError));
 
   @override
-  _WSAuthError get _value => super._value as _WSAuthError;
+  _$_WSAuthError get _value => super._value as _$_WSAuthError;
 
   @override
   $Res call({
     Object? error = freezed,
   }) {
-    return _then(_WSAuthError(
+    return _then(_$_WSAuthError(
       error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -365,7 +311,7 @@ class _$_WSAuthError implements _WSAuthError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WSAuthError &&
+            other is _$_WSAuthError &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
@@ -375,8 +321,8 @@ class _$_WSAuthError implements _WSAuthError {
 
   @JsonKey(ignore: true)
   @override
-  _$WSAuthErrorCopyWith<_WSAuthError> get copyWith =>
-      __$WSAuthErrorCopyWithImpl<_WSAuthError>(this, _$identity);
+  _$$_WSAuthErrorCopyWith<_$_WSAuthError> get copyWith =>
+      __$$_WSAuthErrorCopyWithImpl<_$_WSAuthError>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -484,31 +430,31 @@ class _$_WSAuthError implements _WSAuthError {
 }
 
 abstract class _WSAuthError implements WebsocketState {
-  const factory _WSAuthError(String error) = _$_WSAuthError;
+  const factory _WSAuthError(final String error) = _$_WSAuthError;
 
-  String get error;
+  String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$WSAuthErrorCopyWith<_WSAuthError> get copyWith =>
+  _$$_WSAuthErrorCopyWith<_$_WSAuthError> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$WSAuthenticatingCopyWith<$Res> {
-  factory _$WSAuthenticatingCopyWith(
-          _WSAuthenticating value, $Res Function(_WSAuthenticating) then) =
-      __$WSAuthenticatingCopyWithImpl<$Res>;
+abstract class _$$_WSAuthenticatingCopyWith<$Res> {
+  factory _$$_WSAuthenticatingCopyWith(
+          _$_WSAuthenticating value, $Res Function(_$_WSAuthenticating) then) =
+      __$$_WSAuthenticatingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$WSAuthenticatingCopyWithImpl<$Res>
+class __$$_WSAuthenticatingCopyWithImpl<$Res>
     extends _$WebsocketStateCopyWithImpl<$Res>
-    implements _$WSAuthenticatingCopyWith<$Res> {
-  __$WSAuthenticatingCopyWithImpl(
-      _WSAuthenticating _value, $Res Function(_WSAuthenticating) _then)
-      : super(_value, (v) => _then(v as _WSAuthenticating));
+    implements _$$_WSAuthenticatingCopyWith<$Res> {
+  __$$_WSAuthenticatingCopyWithImpl(
+      _$_WSAuthenticating _value, $Res Function(_$_WSAuthenticating) _then)
+      : super(_value, (v) => _then(v as _$_WSAuthenticating));
 
   @override
-  _WSAuthenticating get _value => super._value as _WSAuthenticating;
+  _$_WSAuthenticating get _value => super._value as _$_WSAuthenticating;
 }
 
 /// @nodoc
@@ -524,7 +470,7 @@ class _$_WSAuthenticating implements _WSAuthenticating {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _WSAuthenticating);
+        (other.runtimeType == runtimeType && other is _$_WSAuthenticating);
   }
 
   @override
@@ -640,22 +586,22 @@ abstract class _WSAuthenticating implements WebsocketState {
 }
 
 /// @nodoc
-abstract class _$WSAuthenticatedCopyWith<$Res> {
-  factory _$WSAuthenticatedCopyWith(
-          _WSAuthenticated value, $Res Function(_WSAuthenticated) then) =
-      __$WSAuthenticatedCopyWithImpl<$Res>;
+abstract class _$$_WSAuthenticatedCopyWith<$Res> {
+  factory _$$_WSAuthenticatedCopyWith(
+          _$_WSAuthenticated value, $Res Function(_$_WSAuthenticated) then) =
+      __$$_WSAuthenticatedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$WSAuthenticatedCopyWithImpl<$Res>
+class __$$_WSAuthenticatedCopyWithImpl<$Res>
     extends _$WebsocketStateCopyWithImpl<$Res>
-    implements _$WSAuthenticatedCopyWith<$Res> {
-  __$WSAuthenticatedCopyWithImpl(
-      _WSAuthenticated _value, $Res Function(_WSAuthenticated) _then)
-      : super(_value, (v) => _then(v as _WSAuthenticated));
+    implements _$$_WSAuthenticatedCopyWith<$Res> {
+  __$$_WSAuthenticatedCopyWithImpl(
+      _$_WSAuthenticated _value, $Res Function(_$_WSAuthenticated) _then)
+      : super(_value, (v) => _then(v as _$_WSAuthenticated));
 
   @override
-  _WSAuthenticated get _value => super._value as _WSAuthenticated;
+  _$_WSAuthenticated get _value => super._value as _$_WSAuthenticated;
 }
 
 /// @nodoc
@@ -671,7 +617,7 @@ class _$_WSAuthenticated implements _WSAuthenticated {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _WSAuthenticated);
+        (other.runtimeType == runtimeType && other is _$_WSAuthenticated);
   }
 
   @override
@@ -787,29 +733,29 @@ abstract class _WSAuthenticated implements WebsocketState {
 }
 
 /// @nodoc
-abstract class _$WSConsoleOutputCopyWith<$Res> {
-  factory _$WSConsoleOutputCopyWith(
-          _WSConsoleOutput value, $Res Function(_WSConsoleOutput) then) =
-      __$WSConsoleOutputCopyWithImpl<$Res>;
+abstract class _$$_WSConsoleOutputCopyWith<$Res> {
+  factory _$$_WSConsoleOutputCopyWith(
+          _$_WSConsoleOutput value, $Res Function(_$_WSConsoleOutput) then) =
+      __$$_WSConsoleOutputCopyWithImpl<$Res>;
   $Res call({String output});
 }
 
 /// @nodoc
-class __$WSConsoleOutputCopyWithImpl<$Res>
+class __$$_WSConsoleOutputCopyWithImpl<$Res>
     extends _$WebsocketStateCopyWithImpl<$Res>
-    implements _$WSConsoleOutputCopyWith<$Res> {
-  __$WSConsoleOutputCopyWithImpl(
-      _WSConsoleOutput _value, $Res Function(_WSConsoleOutput) _then)
-      : super(_value, (v) => _then(v as _WSConsoleOutput));
+    implements _$$_WSConsoleOutputCopyWith<$Res> {
+  __$$_WSConsoleOutputCopyWithImpl(
+      _$_WSConsoleOutput _value, $Res Function(_$_WSConsoleOutput) _then)
+      : super(_value, (v) => _then(v as _$_WSConsoleOutput));
 
   @override
-  _WSConsoleOutput get _value => super._value as _WSConsoleOutput;
+  _$_WSConsoleOutput get _value => super._value as _$_WSConsoleOutput;
 
   @override
   $Res call({
     Object? output = freezed,
   }) {
-    return _then(_WSConsoleOutput(
+    return _then(_$_WSConsoleOutput(
       output == freezed
           ? _value.output
           : output // ignore: cast_nullable_to_non_nullable
@@ -835,7 +781,7 @@ class _$_WSConsoleOutput implements _WSConsoleOutput {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WSConsoleOutput &&
+            other is _$_WSConsoleOutput &&
             const DeepCollectionEquality().equals(other.output, output));
   }
 
@@ -845,8 +791,8 @@ class _$_WSConsoleOutput implements _WSConsoleOutput {
 
   @JsonKey(ignore: true)
   @override
-  _$WSConsoleOutputCopyWith<_WSConsoleOutput> get copyWith =>
-      __$WSConsoleOutputCopyWithImpl<_WSConsoleOutput>(this, _$identity);
+  _$$_WSConsoleOutputCopyWith<_$_WSConsoleOutput> get copyWith =>
+      __$$_WSConsoleOutputCopyWithImpl<_$_WSConsoleOutput>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -954,38 +900,38 @@ class _$_WSConsoleOutput implements _WSConsoleOutput {
 }
 
 abstract class _WSConsoleOutput implements WebsocketState {
-  const factory _WSConsoleOutput(String output) = _$_WSConsoleOutput;
+  const factory _WSConsoleOutput(final String output) = _$_WSConsoleOutput;
 
-  String get output;
+  String get output => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$WSConsoleOutputCopyWith<_WSConsoleOutput> get copyWith =>
+  _$$_WSConsoleOutputCopyWith<_$_WSConsoleOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$WSInstallOutputCopyWith<$Res> {
-  factory _$WSInstallOutputCopyWith(
-          _WSInstallOutput value, $Res Function(_WSInstallOutput) then) =
-      __$WSInstallOutputCopyWithImpl<$Res>;
+abstract class _$$_WSInstallOutputCopyWith<$Res> {
+  factory _$$_WSInstallOutputCopyWith(
+          _$_WSInstallOutput value, $Res Function(_$_WSInstallOutput) then) =
+      __$$_WSInstallOutputCopyWithImpl<$Res>;
   $Res call({String output});
 }
 
 /// @nodoc
-class __$WSInstallOutputCopyWithImpl<$Res>
+class __$$_WSInstallOutputCopyWithImpl<$Res>
     extends _$WebsocketStateCopyWithImpl<$Res>
-    implements _$WSInstallOutputCopyWith<$Res> {
-  __$WSInstallOutputCopyWithImpl(
-      _WSInstallOutput _value, $Res Function(_WSInstallOutput) _then)
-      : super(_value, (v) => _then(v as _WSInstallOutput));
+    implements _$$_WSInstallOutputCopyWith<$Res> {
+  __$$_WSInstallOutputCopyWithImpl(
+      _$_WSInstallOutput _value, $Res Function(_$_WSInstallOutput) _then)
+      : super(_value, (v) => _then(v as _$_WSInstallOutput));
 
   @override
-  _WSInstallOutput get _value => super._value as _WSInstallOutput;
+  _$_WSInstallOutput get _value => super._value as _$_WSInstallOutput;
 
   @override
   $Res call({
     Object? output = freezed,
   }) {
-    return _then(_WSInstallOutput(
+    return _then(_$_WSInstallOutput(
       output == freezed
           ? _value.output
           : output // ignore: cast_nullable_to_non_nullable
@@ -1011,7 +957,7 @@ class _$_WSInstallOutput implements _WSInstallOutput {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WSInstallOutput &&
+            other is _$_WSInstallOutput &&
             const DeepCollectionEquality().equals(other.output, output));
   }
 
@@ -1021,8 +967,8 @@ class _$_WSInstallOutput implements _WSInstallOutput {
 
   @JsonKey(ignore: true)
   @override
-  _$WSInstallOutputCopyWith<_WSInstallOutput> get copyWith =>
-      __$WSInstallOutputCopyWithImpl<_WSInstallOutput>(this, _$identity);
+  _$$_WSInstallOutputCopyWith<_$_WSInstallOutput> get copyWith =>
+      __$$_WSInstallOutputCopyWithImpl<_$_WSInstallOutput>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1130,37 +1076,38 @@ class _$_WSInstallOutput implements _WSInstallOutput {
 }
 
 abstract class _WSInstallOutput implements WebsocketState {
-  const factory _WSInstallOutput(String output) = _$_WSInstallOutput;
+  const factory _WSInstallOutput(final String output) = _$_WSInstallOutput;
 
-  String get output;
+  String get output => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$WSInstallOutputCopyWith<_WSInstallOutput> get copyWith =>
+  _$$_WSInstallOutputCopyWith<_$_WSInstallOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$WSStatsCopyWith<$Res> {
-  factory _$WSStatsCopyWith(_WSStats value, $Res Function(_WSStats) then) =
-      __$WSStatsCopyWithImpl<$Res>;
+abstract class _$$_WSStatsCopyWith<$Res> {
+  factory _$$_WSStatsCopyWith(
+          _$_WSStats value, $Res Function(_$_WSStats) then) =
+      __$$_WSStatsCopyWithImpl<$Res>;
   $Res call({WebsocketStatsModel stats});
 
   $WebsocketStatsModelCopyWith<$Res> get stats;
 }
 
 /// @nodoc
-class __$WSStatsCopyWithImpl<$Res> extends _$WebsocketStateCopyWithImpl<$Res>
-    implements _$WSStatsCopyWith<$Res> {
-  __$WSStatsCopyWithImpl(_WSStats _value, $Res Function(_WSStats) _then)
-      : super(_value, (v) => _then(v as _WSStats));
+class __$$_WSStatsCopyWithImpl<$Res> extends _$WebsocketStateCopyWithImpl<$Res>
+    implements _$$_WSStatsCopyWith<$Res> {
+  __$$_WSStatsCopyWithImpl(_$_WSStats _value, $Res Function(_$_WSStats) _then)
+      : super(_value, (v) => _then(v as _$_WSStats));
 
   @override
-  _WSStats get _value => super._value as _WSStats;
+  _$_WSStats get _value => super._value as _$_WSStats;
 
   @override
   $Res call({
     Object? stats = freezed,
   }) {
-    return _then(_WSStats(
+    return _then(_$_WSStats(
       stats == freezed
           ? _value.stats
           : stats // ignore: cast_nullable_to_non_nullable
@@ -1193,7 +1140,7 @@ class _$_WSStats implements _WSStats {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WSStats &&
+            other is _$_WSStats &&
             const DeepCollectionEquality().equals(other.stats, stats));
   }
 
@@ -1203,8 +1150,8 @@ class _$_WSStats implements _WSStats {
 
   @JsonKey(ignore: true)
   @override
-  _$WSStatsCopyWith<_WSStats> get copyWith =>
-      __$WSStatsCopyWithImpl<_WSStats>(this, _$identity);
+  _$$_WSStatsCopyWith<_$_WSStats> get copyWith =>
+      __$$_WSStatsCopyWithImpl<_$_WSStats>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1312,38 +1259,38 @@ class _$_WSStats implements _WSStats {
 }
 
 abstract class _WSStats implements WebsocketState {
-  const factory _WSStats(WebsocketStatsModel stats) = _$_WSStats;
+  const factory _WSStats(final WebsocketStatsModel stats) = _$_WSStats;
 
-  WebsocketStatsModel get stats;
+  WebsocketStatsModel get stats => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$WSStatsCopyWith<_WSStats> get copyWith =>
+  _$$_WSStatsCopyWith<_$_WSStats> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$WSPowerStateCopyWith<$Res> {
-  factory _$WSPowerStateCopyWith(
-          _WSPowerState value, $Res Function(_WSPowerState) then) =
-      __$WSPowerStateCopyWithImpl<$Res>;
+abstract class _$$_WSPowerStateCopyWith<$Res> {
+  factory _$$_WSPowerStateCopyWith(
+          _$_WSPowerState value, $Res Function(_$_WSPowerState) then) =
+      __$$_WSPowerStateCopyWithImpl<$Res>;
   $Res call({ServerPowerState status});
 }
 
 /// @nodoc
-class __$WSPowerStateCopyWithImpl<$Res>
+class __$$_WSPowerStateCopyWithImpl<$Res>
     extends _$WebsocketStateCopyWithImpl<$Res>
-    implements _$WSPowerStateCopyWith<$Res> {
-  __$WSPowerStateCopyWithImpl(
-      _WSPowerState _value, $Res Function(_WSPowerState) _then)
-      : super(_value, (v) => _then(v as _WSPowerState));
+    implements _$$_WSPowerStateCopyWith<$Res> {
+  __$$_WSPowerStateCopyWithImpl(
+      _$_WSPowerState _value, $Res Function(_$_WSPowerState) _then)
+      : super(_value, (v) => _then(v as _$_WSPowerState));
 
   @override
-  _WSPowerState get _value => super._value as _WSPowerState;
+  _$_WSPowerState get _value => super._value as _$_WSPowerState;
 
   @override
   $Res call({
     Object? status = freezed,
   }) {
-    return _then(_WSPowerState(
+    return _then(_$_WSPowerState(
       status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -1369,7 +1316,7 @@ class _$_WSPowerState implements _WSPowerState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WSPowerState &&
+            other is _$_WSPowerState &&
             const DeepCollectionEquality().equals(other.status, status));
   }
 
@@ -1379,8 +1326,8 @@ class _$_WSPowerState implements _WSPowerState {
 
   @JsonKey(ignore: true)
   @override
-  _$WSPowerStateCopyWith<_WSPowerState> get copyWith =>
-      __$WSPowerStateCopyWithImpl<_WSPowerState>(this, _$identity);
+  _$$_WSPowerStateCopyWith<_$_WSPowerState> get copyWith =>
+      __$$_WSPowerStateCopyWithImpl<_$_WSPowerState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1488,37 +1435,38 @@ class _$_WSPowerState implements _WSPowerState {
 }
 
 abstract class _WSPowerState implements WebsocketState {
-  const factory _WSPowerState(ServerPowerState status) = _$_WSPowerState;
+  const factory _WSPowerState(final ServerPowerState status) = _$_WSPowerState;
 
-  ServerPowerState get status;
+  ServerPowerState get status => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$WSPowerStateCopyWith<_WSPowerState> get copyWith =>
+  _$$_WSPowerStateCopyWith<_$_WSPowerState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$WSJWTErrorCopyWith<$Res> {
-  factory _$WSJWTErrorCopyWith(
-          _WSJWTError value, $Res Function(_WSJWTError) then) =
-      __$WSJWTErrorCopyWithImpl<$Res>;
+abstract class _$$_WSJWTErrorCopyWith<$Res> {
+  factory _$$_WSJWTErrorCopyWith(
+          _$_WSJWTError value, $Res Function(_$_WSJWTError) then) =
+      __$$_WSJWTErrorCopyWithImpl<$Res>;
   $Res call({String error});
 }
 
 /// @nodoc
-class __$WSJWTErrorCopyWithImpl<$Res> extends _$WebsocketStateCopyWithImpl<$Res>
-    implements _$WSJWTErrorCopyWith<$Res> {
-  __$WSJWTErrorCopyWithImpl(
-      _WSJWTError _value, $Res Function(_WSJWTError) _then)
-      : super(_value, (v) => _then(v as _WSJWTError));
+class __$$_WSJWTErrorCopyWithImpl<$Res>
+    extends _$WebsocketStateCopyWithImpl<$Res>
+    implements _$$_WSJWTErrorCopyWith<$Res> {
+  __$$_WSJWTErrorCopyWithImpl(
+      _$_WSJWTError _value, $Res Function(_$_WSJWTError) _then)
+      : super(_value, (v) => _then(v as _$_WSJWTError));
 
   @override
-  _WSJWTError get _value => super._value as _WSJWTError;
+  _$_WSJWTError get _value => super._value as _$_WSJWTError;
 
   @override
   $Res call({
     Object? error = freezed,
   }) {
-    return _then(_WSJWTError(
+    return _then(_$_WSJWTError(
       error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -1544,7 +1492,7 @@ class _$_WSJWTError implements _WSJWTError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WSJWTError &&
+            other is _$_WSJWTError &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
@@ -1554,8 +1502,8 @@ class _$_WSJWTError implements _WSJWTError {
 
   @JsonKey(ignore: true)
   @override
-  _$WSJWTErrorCopyWith<_WSJWTError> get copyWith =>
-      __$WSJWTErrorCopyWithImpl<_WSJWTError>(this, _$identity);
+  _$$_WSJWTErrorCopyWith<_$_WSJWTError> get copyWith =>
+      __$$_WSJWTErrorCopyWithImpl<_$_WSJWTError>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1663,10 +1611,10 @@ class _$_WSJWTError implements _WSJWTError {
 }
 
 abstract class _WSJWTError implements WebsocketState {
-  const factory _WSJWTError(String error) = _$_WSJWTError;
+  const factory _WSJWTError(final String error) = _$_WSJWTError;
 
-  String get error;
+  String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$WSJWTErrorCopyWith<_WSJWTError> get copyWith =>
+  _$$_WSJWTErrorCopyWith<_$_WSJWTError> get copyWith =>
       throw _privateConstructorUsedError;
 }

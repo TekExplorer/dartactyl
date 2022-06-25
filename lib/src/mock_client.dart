@@ -267,7 +267,7 @@ class MockPteroClient implements PteroClient {
   }
 
   @override
-  Future<FractalSignedUrl> uploadFile({
+  Future<FractalSignedUrl> getFileUploadUrl({
     required String serverId,
   }) async {
     return FractalSignedUrl.fromJson(json);
@@ -494,6 +494,49 @@ class MockPteroClient implements PteroClient {
     required String serverId,
   }) async {
     return;
+  }
+
+  @override
+  Future<void> chmodFile(ChmodFileBody data, {required String serverId}) {
+    // TODO: implement chmodFile
+    throw UnimplementedError();
+  }
+
+  @override
+  createSshKey(CreateSshKey data) {
+    // TODO: implement createSshKey
+    throw UnimplementedError();
+  }
+
+  @override
+  deleteSshKey({required String fingerprint}) {
+    // TODO: implement deleteSshKey
+    throw UnimplementedError();
+  }
+
+  @override
+  getAccountActivity() {
+    // TODO: implement getAcountAcvivity
+    throw UnimplementedError();
+  }
+
+  @override
+  listSshKeys() {
+    // TODO: implement listSshKeys
+    throw UnimplementedError();
+  }
+
+  @override
+  Future pullFile(PullFileBody data, {required String serverId}) {
+    // TODO: implement pullFile
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Fractal<Backup>> lockBackup(
+      {required String serverId, required String backupId}) {
+    // TODO: implement lockBackup
+    throw UnimplementedError();
   }
 }
 

@@ -12,29 +12,11 @@ part of '../../../models/main_models/database_password.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 DatabasePassword _$DatabasePasswordFromJson(Map<String, dynamic> json) {
   return _DatabasePassword.fromJson(json);
 }
-
-/// @nodoc
-class _$DatabasePasswordTearOff {
-  const _$DatabasePasswordTearOff();
-
-  _DatabasePassword call({required String password}) {
-    return _DatabasePassword(
-      password: password,
-    );
-  }
-
-  DatabasePassword fromJson(Map<String, Object?> json) {
-    return DatabasePassword.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $DatabasePassword = _$DatabasePasswordTearOff();
 
 /// @nodoc
 mixin _$DatabasePassword {
@@ -77,31 +59,31 @@ class _$DatabasePasswordCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$DatabasePasswordCopyWith<$Res>
+abstract class _$$_DatabasePasswordCopyWith<$Res>
     implements $DatabasePasswordCopyWith<$Res> {
-  factory _$DatabasePasswordCopyWith(
-          _DatabasePassword value, $Res Function(_DatabasePassword) then) =
-      __$DatabasePasswordCopyWithImpl<$Res>;
+  factory _$$_DatabasePasswordCopyWith(
+          _$_DatabasePassword value, $Res Function(_$_DatabasePassword) then) =
+      __$$_DatabasePasswordCopyWithImpl<$Res>;
   @override
   $Res call({String password});
 }
 
 /// @nodoc
-class __$DatabasePasswordCopyWithImpl<$Res>
+class __$$_DatabasePasswordCopyWithImpl<$Res>
     extends _$DatabasePasswordCopyWithImpl<$Res>
-    implements _$DatabasePasswordCopyWith<$Res> {
-  __$DatabasePasswordCopyWithImpl(
-      _DatabasePassword _value, $Res Function(_DatabasePassword) _then)
-      : super(_value, (v) => _then(v as _DatabasePassword));
+    implements _$$_DatabasePasswordCopyWith<$Res> {
+  __$$_DatabasePasswordCopyWithImpl(
+      _$_DatabasePassword _value, $Res Function(_$_DatabasePassword) _then)
+      : super(_value, (v) => _then(v as _$_DatabasePassword));
 
   @override
-  _DatabasePassword get _value => super._value as _DatabasePassword;
+  _$_DatabasePassword get _value => super._value as _$_DatabasePassword;
 
   @override
   $Res call({
     Object? password = freezed,
   }) {
-    return _then(_DatabasePassword(
+    return _then(_$_DatabasePassword(
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -130,18 +112,19 @@ class _$_DatabasePassword implements _DatabasePassword {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _DatabasePassword &&
+            other is _$_DatabasePassword &&
             const DeepCollectionEquality().equals(other.password, password));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(password));
 
   @JsonKey(ignore: true)
   @override
-  _$DatabasePasswordCopyWith<_DatabasePassword> get copyWith =>
-      __$DatabasePasswordCopyWithImpl<_DatabasePassword>(this, _$identity);
+  _$$_DatabasePasswordCopyWith<_$_DatabasePassword> get copyWith =>
+      __$$_DatabasePasswordCopyWithImpl<_$_DatabasePassword>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -150,15 +133,16 @@ class _$_DatabasePassword implements _DatabasePassword {
 }
 
 abstract class _DatabasePassword implements DatabasePassword {
-  factory _DatabasePassword({required String password}) = _$_DatabasePassword;
+  factory _DatabasePassword({required final String password}) =
+      _$_DatabasePassword;
 
   factory _DatabasePassword.fromJson(Map<String, dynamic> json) =
       _$_DatabasePassword.fromJson;
 
   @override
-  String get password;
+  String get password => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$DatabasePasswordCopyWith<_DatabasePassword> get copyWith =>
+  _$$_DatabasePasswordCopyWith<_$_DatabasePassword> get copyWith =>
       throw _privateConstructorUsedError;
 }

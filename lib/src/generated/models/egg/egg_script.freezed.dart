@@ -12,38 +12,11 @@ part of '../../../models/egg/egg_script.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 EggScript _$EggScriptFromJson(Map<String, dynamic> json) {
   return _EggScript.fromJson(json);
 }
-
-/// @nodoc
-class _$EggScriptTearOff {
-  const _$EggScriptTearOff();
-
-  _EggScript call(
-      {required bool privileged,
-      required String install,
-      required String entry,
-      required String container,
-      required dynamic scriptExtends}) {
-    return _EggScript(
-      privileged: privileged,
-      install: install,
-      entry: entry,
-      container: container,
-      scriptExtends: scriptExtends,
-    );
-  }
-
-  EggScript fromJson(Map<String, Object?> json) {
-    return EggScript.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $EggScript = _$EggScriptTearOff();
 
 /// @nodoc
 mixin _$EggScript {
@@ -113,10 +86,10 @@ class _$EggScriptCopyWithImpl<$Res> implements $EggScriptCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$EggScriptCopyWith<$Res> implements $EggScriptCopyWith<$Res> {
-  factory _$EggScriptCopyWith(
-          _EggScript value, $Res Function(_EggScript) then) =
-      __$EggScriptCopyWithImpl<$Res>;
+abstract class _$$_EggScriptCopyWith<$Res> implements $EggScriptCopyWith<$Res> {
+  factory _$$_EggScriptCopyWith(
+          _$_EggScript value, $Res Function(_$_EggScript) then) =
+      __$$_EggScriptCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool privileged,
@@ -127,13 +100,14 @@ abstract class _$EggScriptCopyWith<$Res> implements $EggScriptCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$EggScriptCopyWithImpl<$Res> extends _$EggScriptCopyWithImpl<$Res>
-    implements _$EggScriptCopyWith<$Res> {
-  __$EggScriptCopyWithImpl(_EggScript _value, $Res Function(_EggScript) _then)
-      : super(_value, (v) => _then(v as _EggScript));
+class __$$_EggScriptCopyWithImpl<$Res> extends _$EggScriptCopyWithImpl<$Res>
+    implements _$$_EggScriptCopyWith<$Res> {
+  __$$_EggScriptCopyWithImpl(
+      _$_EggScript _value, $Res Function(_$_EggScript) _then)
+      : super(_value, (v) => _then(v as _$_EggScript));
 
   @override
-  _EggScript get _value => super._value as _EggScript;
+  _$_EggScript get _value => super._value as _$_EggScript;
 
   @override
   $Res call({
@@ -143,7 +117,7 @@ class __$EggScriptCopyWithImpl<$Res> extends _$EggScriptCopyWithImpl<$Res>
     Object? container = freezed,
     Object? scriptExtends = freezed,
   }) {
-    return _then(_EggScript(
+    return _then(_$_EggScript(
       privileged: privileged == freezed
           ? _value.privileged
           : privileged // ignore: cast_nullable_to_non_nullable
@@ -202,7 +176,7 @@ class _$_EggScript extends _EggScript {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _EggScript &&
+            other is _$_EggScript &&
             const DeepCollectionEquality()
                 .equals(other.privileged, privileged) &&
             const DeepCollectionEquality().equals(other.install, install) &&
@@ -212,6 +186,7 @@ class _$_EggScript extends _EggScript {
                 .equals(other.scriptExtends, scriptExtends));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -223,8 +198,8 @@ class _$_EggScript extends _EggScript {
 
   @JsonKey(ignore: true)
   @override
-  _$EggScriptCopyWith<_EggScript> get copyWith =>
-      __$EggScriptCopyWithImpl<_EggScript>(this, _$identity);
+  _$$_EggScriptCopyWith<_$_EggScript> get copyWith =>
+      __$$_EggScriptCopyWithImpl<_$_EggScript>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -234,28 +209,28 @@ class _$_EggScript extends _EggScript {
 
 abstract class _EggScript extends EggScript {
   factory _EggScript(
-      {required bool privileged,
-      required String install,
-      required String entry,
-      required String container,
-      required dynamic scriptExtends}) = _$_EggScript;
+      {required final bool privileged,
+      required final String install,
+      required final String entry,
+      required final String container,
+      required final dynamic scriptExtends}) = _$_EggScript;
   _EggScript._() : super._();
 
   factory _EggScript.fromJson(Map<String, dynamic> json) =
       _$_EggScript.fromJson;
 
   @override
-  bool get privileged;
+  bool get privileged => throw _privateConstructorUsedError;
   @override
-  String get install;
+  String get install => throw _privateConstructorUsedError;
   @override
-  String get entry;
+  String get entry => throw _privateConstructorUsedError;
   @override
-  String get container;
+  String get container => throw _privateConstructorUsedError;
   @override
-  dynamic get scriptExtends;
+  dynamic get scriptExtends => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$EggScriptCopyWith<_EggScript> get copyWith =>
+  _$$_EggScriptCopyWith<_$_EggScript> get copyWith =>
       throw _privateConstructorUsedError;
 }

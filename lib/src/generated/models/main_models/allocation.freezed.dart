@@ -12,40 +12,11 @@ part of '../../../models/main_models/allocation.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Allocation _$AllocationFromJson(Map<String, dynamic> json) {
   return _Allocation.fromJson(json);
 }
-
-/// @nodoc
-class _$AllocationTearOff {
-  const _$AllocationTearOff();
-
-  _Allocation call(
-      {required int id,
-      required String ip,
-      String? ipAlias,
-      required int port,
-      String? notes,
-      required bool isDefault}) {
-    return _Allocation(
-      id: id,
-      ip: ip,
-      ipAlias: ipAlias,
-      port: port,
-      notes: notes,
-      isDefault: isDefault,
-    );
-  }
-
-  Allocation fromJson(Map<String, Object?> json) {
-    return Allocation.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Allocation = _$AllocationTearOff();
 
 /// @nodoc
 mixin _$Allocation {
@@ -123,10 +94,11 @@ class _$AllocationCopyWithImpl<$Res> implements $AllocationCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AllocationCopyWith<$Res> implements $AllocationCopyWith<$Res> {
-  factory _$AllocationCopyWith(
-          _Allocation value, $Res Function(_Allocation) then) =
-      __$AllocationCopyWithImpl<$Res>;
+abstract class _$$_AllocationCopyWith<$Res>
+    implements $AllocationCopyWith<$Res> {
+  factory _$$_AllocationCopyWith(
+          _$_Allocation value, $Res Function(_$_Allocation) then) =
+      __$$_AllocationCopyWithImpl<$Res>;
   @override
   $Res call(
       {int id,
@@ -138,14 +110,14 @@ abstract class _$AllocationCopyWith<$Res> implements $AllocationCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$AllocationCopyWithImpl<$Res> extends _$AllocationCopyWithImpl<$Res>
-    implements _$AllocationCopyWith<$Res> {
-  __$AllocationCopyWithImpl(
-      _Allocation _value, $Res Function(_Allocation) _then)
-      : super(_value, (v) => _then(v as _Allocation));
+class __$$_AllocationCopyWithImpl<$Res> extends _$AllocationCopyWithImpl<$Res>
+    implements _$$_AllocationCopyWith<$Res> {
+  __$$_AllocationCopyWithImpl(
+      _$_Allocation _value, $Res Function(_$_Allocation) _then)
+      : super(_value, (v) => _then(v as _$_Allocation));
 
   @override
-  _Allocation get _value => super._value as _Allocation;
+  _$_Allocation get _value => super._value as _$_Allocation;
 
   @override
   $Res call({
@@ -156,7 +128,7 @@ class __$AllocationCopyWithImpl<$Res> extends _$AllocationCopyWithImpl<$Res>
     Object? notes = freezed,
     Object? isDefault = freezed,
   }) {
-    return _then(_Allocation(
+    return _then(_$_Allocation(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -222,7 +194,7 @@ class _$_Allocation extends _Allocation {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Allocation &&
+            other is _$_Allocation &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.ip, ip) &&
             const DeepCollectionEquality().equals(other.ipAlias, ipAlias) &&
@@ -231,6 +203,7 @@ class _$_Allocation extends _Allocation {
             const DeepCollectionEquality().equals(other.isDefault, isDefault));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -243,8 +216,8 @@ class _$_Allocation extends _Allocation {
 
   @JsonKey(ignore: true)
   @override
-  _$AllocationCopyWith<_Allocation> get copyWith =>
-      __$AllocationCopyWithImpl<_Allocation>(this, _$identity);
+  _$$_AllocationCopyWith<_$_Allocation> get copyWith =>
+      __$$_AllocationCopyWithImpl<_$_Allocation>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -254,31 +227,31 @@ class _$_Allocation extends _Allocation {
 
 abstract class _Allocation extends Allocation {
   factory _Allocation(
-      {required int id,
-      required String ip,
-      String? ipAlias,
-      required int port,
-      String? notes,
-      required bool isDefault}) = _$_Allocation;
+      {required final int id,
+      required final String ip,
+      final String? ipAlias,
+      required final int port,
+      final String? notes,
+      required final bool isDefault}) = _$_Allocation;
   _Allocation._() : super._();
 
   factory _Allocation.fromJson(Map<String, dynamic> json) =
       _$_Allocation.fromJson;
 
   @override
-  int get id;
+  int get id => throw _privateConstructorUsedError;
   @override
-  String get ip;
+  String get ip => throw _privateConstructorUsedError;
   @override
-  String? get ipAlias;
+  String? get ipAlias => throw _privateConstructorUsedError;
   @override
-  int get port;
+  int get port => throw _privateConstructorUsedError;
   @override
-  String? get notes;
+  String? get notes => throw _privateConstructorUsedError;
   @override
-  bool get isDefault;
+  bool get isDefault => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AllocationCopyWith<_Allocation> get copyWith =>
+  _$$_AllocationCopyWith<_$_Allocation> get copyWith =>
       throw _privateConstructorUsedError;
 }

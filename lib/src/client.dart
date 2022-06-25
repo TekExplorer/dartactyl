@@ -48,7 +48,7 @@ abstract class PteroClient {
 
     if (key != null) {
       // use key
-      dio.options.headers[HttpHeaders.authorizationHeader] = "Bearer " + key;
+      dio.options.headers[HttpHeaders.authorizationHeader] = "Bearer $key";
     }
     dio.options
       ..headers[HttpHeaders.userAgentHeader] = userAgent
@@ -186,6 +186,11 @@ abstract class PteroClient {
     @Body() UpdatePassword data,
   );
 
+  /// TODO: Account Activity; not properly implemented yet.
+  // @experimental
+  // @GET('/api/client/account/activity')
+  // Future<Response> getAccountActivity();
+
   /// Get all current [ApiKey]s on your account.
   /// Keys are shortened to the first x characters.
   @GET('/api/client/account/api-keys')
@@ -202,6 +207,22 @@ abstract class PteroClient {
   @DELETE('/api/client/account/api-keys/{apiKeyId}')
   Future<void> deleteApiKey({
     @Path() required String apiKeyId,
+  });
+
+  /// List all [SshKey]s on your account.
+  @GET('/api/client/account/ssh-keys')
+  Future<FractalList<SshKey>> listSshKeys();
+
+  /// Create a new [SshKey] on your account.
+  @POST('/api/client/account/ssh-keys')
+  Future<Fractal<SshKey>> createSshKey(
+    @Body() CreateSshKey data,
+  );
+
+  /// Delete an [SshKey] on your account.
+  @DELETE('/api/client/account/ssh-keys/{fingerprint}')
+  Future<void> deleteSshKey({
+    @Path() required String fingerprint,
   });
 
   // '/api/client/servers/{server}'
@@ -287,7 +308,7 @@ abstract class PteroClient {
   /// Get a [file]'s contents from the [Server]
   ///
   /// [file]; path to the desired file
-  @GET('/api/client/servers/{serverId}/files/contents') //todo
+  @GET('/api/client/servers/{serverId}/files/contents') //TODO
   Future<String?> getFileContents({
     @Path() required String serverId,
     @Query('file', encoded: true) required String file,
@@ -302,19 +323,6 @@ abstract class PteroClient {
     @Query('file', encoded: true) required String file,
   });
 
-  /// Write a [file] to the [Server]
-  ///
-  /// Use this to update or create a file on the [Server].
-  ///
-  /// [file]; url encoded path to the desired file
-  @POST('/api/client/servers/{serverId}/files/write')
-  @Headers(<String, dynamic>{"Content-Type": 'text/plain'})
-  Future<void> writeFile({
-    @Path() required String serverId,
-    @Query('file', encoded: true) required String file,
-    @Body() required String rawContents,
-  });
-
   /// Rename a file on the [Server]
   @PUT('/api/client/servers/{serverId}/files/rename')
   Future<void> renameFile(
@@ -327,6 +335,19 @@ abstract class PteroClient {
   Future<void> makeFileCopy(
     @Body() MakeFileCopy data, {
     @Path() required String serverId,
+  });
+
+  /// Write a [file] to the [Server]
+  ///
+  /// Use this to update or create a file on the [Server].
+  ///
+  /// [file]; url encoded path to the desired file
+  @POST('/api/client/servers/{serverId}/files/write')
+  @Headers(<String, dynamic>{"Content-Type": 'text/plain'})
+  Future<void> writeFile({
+    @Path() required String serverId,
+    @Query('file', encoded: true) required String file,
+    @Body() required String rawContents,
   });
 
   /// Compress a file into an archive (eg. zip) on the [Server]
@@ -357,9 +378,23 @@ abstract class PteroClient {
     @Path() required String serverId,
   });
 
+  /// Changes the permissions of a file or folder on the [Server]
+  @POST('/api/client/servers/{serverId}/files/chmod')
+  Future<void> chmodFile(
+    @Body() ChmodFileBody data, {
+    @Path() required String serverId,
+  });
+
+  /// Download a file from a remote url to the [Server] directly
+  @POST('/api/client/servers/{serverId}/files/pull')
+  Future<void> pullFile(
+    @Body() PullFileBody data, {
+    @Path() required String serverId,
+  });
+
   /// Returns a [SignedUrl] used to upload files to the [Server] using POST
   @GET('/api/client/servers/{serverId}/files/upload')
-  Future<Fractal<SignedUrl>> uploadFile({
+  Future<Fractal<SignedUrl>> getFileUploadUrl({
     @Path() required String serverId,
   });
 
@@ -506,6 +541,7 @@ abstract class PteroClient {
   });
 
   /// Create a backup on the [Server]
+  /// TODO: https://github.com/pterodactyl/panel/blob/develop/resources/scripts/api/server/backups/createServerBackup.ts
   @POST('/api/client/servers/{serverId}/backups')
   Future<Fractal<Backup>> createBackup({
     @Path() required String serverId,
@@ -514,6 +550,13 @@ abstract class PteroClient {
   /// Get information about a [Backup] from the [Server]
   @GET('/api/client/servers/{serverId}/backups/{backupId}')
   Future<Fractal<Backup>> getBackupDetails({
+    @Path() required String serverId,
+    @Path() required String backupId,
+  });
+
+  /// Lock a [Backup] to protect it from automated or accedental deletions
+  @POST('/api/client/servers/{serverId}/backups/{backupId}/lock')
+  Future<Fractal<Backup>> lockBackup({
     @Path() required String serverId,
     @Path() required String backupId,
   });

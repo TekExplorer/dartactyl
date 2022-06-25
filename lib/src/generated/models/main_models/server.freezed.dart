@@ -12,64 +12,11 @@ part of '../../../models/main_models/server.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Server _$ServerFromJson(Map<String, dynamic> json) {
   return _Server.fromJson(json);
 }
-
-/// @nodoc
-class _$ServerTearOff {
-  const _$ServerTearOff();
-
-  _Server call(
-      {required bool serverOwner,
-      required String identifier,
-      required int internalId,
-      required String uuid,
-      required String name,
-      required String node,
-      required SftpDetails sftpDetails,
-      required String description,
-      required ServerLimits limits,
-      required String invocation,
-      required String dockerImage,
-      List<String> eggFeatures = const [],
-      required ServerFeatureLimits featureLimits,
-      ServerStatus? status,
-      required bool isSuspended,
-      required bool isInstalling,
-      required bool isTransferring,
-      required ServerRelationships relationships}) {
-    return _Server(
-      serverOwner: serverOwner,
-      identifier: identifier,
-      internalId: internalId,
-      uuid: uuid,
-      name: name,
-      node: node,
-      sftpDetails: sftpDetails,
-      description: description,
-      limits: limits,
-      invocation: invocation,
-      dockerImage: dockerImage,
-      eggFeatures: eggFeatures,
-      featureLimits: featureLimits,
-      status: status,
-      isSuspended: isSuspended,
-      isInstalling: isInstalling,
-      isTransferring: isTransferring,
-      relationships: relationships,
-    );
-  }
-
-  Server fromJson(Map<String, Object?> json) {
-    return Server.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Server = _$ServerTearOff();
 
 /// @nodoc
 mixin _$Server {
@@ -262,9 +209,9 @@ class _$ServerCopyWithImpl<$Res> implements $ServerCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ServerCopyWith<$Res> implements $ServerCopyWith<$Res> {
-  factory _$ServerCopyWith(_Server value, $Res Function(_Server) then) =
-      __$ServerCopyWithImpl<$Res>;
+abstract class _$$_ServerCopyWith<$Res> implements $ServerCopyWith<$Res> {
+  factory _$$_ServerCopyWith(_$_Server value, $Res Function(_$_Server) then) =
+      __$$_ServerCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool serverOwner,
@@ -297,13 +244,13 @@ abstract class _$ServerCopyWith<$Res> implements $ServerCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ServerCopyWithImpl<$Res> extends _$ServerCopyWithImpl<$Res>
-    implements _$ServerCopyWith<$Res> {
-  __$ServerCopyWithImpl(_Server _value, $Res Function(_Server) _then)
-      : super(_value, (v) => _then(v as _Server));
+class __$$_ServerCopyWithImpl<$Res> extends _$ServerCopyWithImpl<$Res>
+    implements _$$_ServerCopyWith<$Res> {
+  __$$_ServerCopyWithImpl(_$_Server _value, $Res Function(_$_Server) _then)
+      : super(_value, (v) => _then(v as _$_Server));
 
   @override
-  _Server get _value => super._value as _Server;
+  _$_Server get _value => super._value as _$_Server;
 
   @override
   $Res call({
@@ -326,7 +273,7 @@ class __$ServerCopyWithImpl<$Res> extends _$ServerCopyWithImpl<$Res>
     Object? isTransferring = freezed,
     Object? relationships = freezed,
   }) {
-    return _then(_Server(
+    return _then(_$_Server(
       serverOwner: serverOwner == freezed
           ? _value.serverOwner
           : serverOwner // ignore: cast_nullable_to_non_nullable
@@ -372,7 +319,7 @@ class __$ServerCopyWithImpl<$Res> extends _$ServerCopyWithImpl<$Res>
           : dockerImage // ignore: cast_nullable_to_non_nullable
               as String,
       eggFeatures: eggFeatures == freezed
-          ? _value.eggFeatures
+          ? _value._eggFeatures
           : eggFeatures // ignore: cast_nullable_to_non_nullable
               as List<String>,
       featureLimits: featureLimits == freezed
@@ -418,14 +365,15 @@ class _$_Server extends _Server {
       required this.limits,
       required this.invocation,
       required this.dockerImage,
-      this.eggFeatures = const [],
+      final List<String> eggFeatures = const [],
       required this.featureLimits,
       this.status,
       required this.isSuspended,
       required this.isInstalling,
       required this.isTransferring,
       required this.relationships})
-      : super._();
+      : _eggFeatures = eggFeatures,
+        super._();
 
   factory _$_Server.fromJson(Map<String, dynamic> json) =>
       _$$_ServerFromJson(json);
@@ -452,9 +400,14 @@ class _$_Server extends _Server {
   final String invocation;
   @override
   final String dockerImage;
-  @JsonKey()
+  final List<String> _eggFeatures;
   @override
-  final List<String> eggFeatures;
+  @JsonKey()
+  List<String> get eggFeatures {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_eggFeatures);
+  }
+
   @override
   final ServerFeatureLimits featureLimits;
   @override
@@ -477,7 +430,7 @@ class _$_Server extends _Server {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Server &&
+            other is _$_Server &&
             const DeepCollectionEquality()
                 .equals(other.serverOwner, serverOwner) &&
             const DeepCollectionEquality()
@@ -497,7 +450,7 @@ class _$_Server extends _Server {
             const DeepCollectionEquality()
                 .equals(other.dockerImage, dockerImage) &&
             const DeepCollectionEquality()
-                .equals(other.eggFeatures, eggFeatures) &&
+                .equals(other._eggFeatures, _eggFeatures) &&
             const DeepCollectionEquality()
                 .equals(other.featureLimits, featureLimits) &&
             const DeepCollectionEquality().equals(other.status, status) &&
@@ -511,6 +464,7 @@ class _$_Server extends _Server {
                 .equals(other.relationships, relationships));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -525,7 +479,7 @@ class _$_Server extends _Server {
       const DeepCollectionEquality().hash(limits),
       const DeepCollectionEquality().hash(invocation),
       const DeepCollectionEquality().hash(dockerImage),
-      const DeepCollectionEquality().hash(eggFeatures),
+      const DeepCollectionEquality().hash(_eggFeatures),
       const DeepCollectionEquality().hash(featureLimits),
       const DeepCollectionEquality().hash(status),
       const DeepCollectionEquality().hash(isSuspended),
@@ -535,8 +489,8 @@ class _$_Server extends _Server {
 
   @JsonKey(ignore: true)
   @override
-  _$ServerCopyWith<_Server> get copyWith =>
-      __$ServerCopyWithImpl<_Server>(this, _$identity);
+  _$$_ServerCopyWith<_$_Server> get copyWith =>
+      __$$_ServerCopyWithImpl<_$_Server>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -546,65 +500,66 @@ class _$_Server extends _Server {
 
 abstract class _Server extends Server {
   factory _Server(
-      {required bool serverOwner,
-      required String identifier,
-      required int internalId,
-      required String uuid,
-      required String name,
-      required String node,
-      required SftpDetails sftpDetails,
-      required String description,
-      required ServerLimits limits,
-      required String invocation,
-      required String dockerImage,
-      List<String> eggFeatures,
-      required ServerFeatureLimits featureLimits,
-      ServerStatus? status,
-      required bool isSuspended,
-      required bool isInstalling,
-      required bool isTransferring,
-      required ServerRelationships relationships}) = _$_Server;
+      {required final bool serverOwner,
+      required final String identifier,
+      required final int internalId,
+      required final String uuid,
+      required final String name,
+      required final String node,
+      required final SftpDetails sftpDetails,
+      required final String description,
+      required final ServerLimits limits,
+      required final String invocation,
+      required final String dockerImage,
+      final List<String> eggFeatures,
+      required final ServerFeatureLimits featureLimits,
+      final ServerStatus? status,
+      required final bool isSuspended,
+      required final bool isInstalling,
+      required final bool isTransferring,
+      required final ServerRelationships relationships}) = _$_Server;
   _Server._() : super._();
 
   factory _Server.fromJson(Map<String, dynamic> json) = _$_Server.fromJson;
 
   @override
-  bool get serverOwner;
+  bool get serverOwner => throw _privateConstructorUsedError;
   @override
-  String get identifier;
+  String get identifier => throw _privateConstructorUsedError;
   @override
-  int get internalId;
+  int get internalId => throw _privateConstructorUsedError;
   @override
-  String get uuid;
+  String get uuid => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  String get node;
+  String get node => throw _privateConstructorUsedError;
   @override
-  SftpDetails get sftpDetails;
+  SftpDetails get sftpDetails => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  ServerLimits get limits;
+  ServerLimits get limits => throw _privateConstructorUsedError;
   @override
-  String get invocation;
+  String get invocation => throw _privateConstructorUsedError;
   @override
-  String get dockerImage;
+  String get dockerImage => throw _privateConstructorUsedError;
   @override
-  List<String> get eggFeatures;
+  List<String> get eggFeatures => throw _privateConstructorUsedError;
   @override
-  ServerFeatureLimits get featureLimits;
+  ServerFeatureLimits get featureLimits => throw _privateConstructorUsedError;
   @override
-  ServerStatus? get status;
+  ServerStatus? get status => throw _privateConstructorUsedError;
   @override
-  bool get isSuspended;
+  bool get isSuspended => throw _privateConstructorUsedError;
   @override
-  bool get isInstalling;
+  bool get isInstalling => throw _privateConstructorUsedError;
   @override
-  bool get isTransferring;
+  bool get isTransferring => throw _privateConstructorUsedError;
   @override
-  ServerRelationships get relationships;
+  ServerRelationships get relationships => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ServerCopyWith<_Server> get copyWith => throw _privateConstructorUsedError;
+  _$$_ServerCopyWith<_$_Server> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -12,32 +12,12 @@ part of '../../../models/permission_keys/settings_permission_keys.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 SettingsPermissionKeys _$SettingsPermissionKeysFromJson(
     Map<String, dynamic> json) {
   return _SettingsPermissionKeys.fromJson(json);
 }
-
-/// @nodoc
-class _$SettingsPermissionKeysTearOff {
-  const _$SettingsPermissionKeysTearOff();
-
-  _SettingsPermissionKeys call(
-      {required String rename, required String reinstall}) {
-    return _SettingsPermissionKeys(
-      rename: rename,
-      reinstall: reinstall,
-    );
-  }
-
-  SettingsPermissionKeys fromJson(Map<String, Object?> json) {
-    return SettingsPermissionKeys.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SettingsPermissionKeys = _$SettingsPermissionKeysTearOff();
 
 /// @nodoc
 mixin _$SettingsPermissionKeys {
@@ -86,32 +66,33 @@ class _$SettingsPermissionKeysCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SettingsPermissionKeysCopyWith<$Res>
+abstract class _$$_SettingsPermissionKeysCopyWith<$Res>
     implements $SettingsPermissionKeysCopyWith<$Res> {
-  factory _$SettingsPermissionKeysCopyWith(_SettingsPermissionKeys value,
-          $Res Function(_SettingsPermissionKeys) then) =
-      __$SettingsPermissionKeysCopyWithImpl<$Res>;
+  factory _$$_SettingsPermissionKeysCopyWith(_$_SettingsPermissionKeys value,
+          $Res Function(_$_SettingsPermissionKeys) then) =
+      __$$_SettingsPermissionKeysCopyWithImpl<$Res>;
   @override
   $Res call({String rename, String reinstall});
 }
 
 /// @nodoc
-class __$SettingsPermissionKeysCopyWithImpl<$Res>
+class __$$_SettingsPermissionKeysCopyWithImpl<$Res>
     extends _$SettingsPermissionKeysCopyWithImpl<$Res>
-    implements _$SettingsPermissionKeysCopyWith<$Res> {
-  __$SettingsPermissionKeysCopyWithImpl(_SettingsPermissionKeys _value,
-      $Res Function(_SettingsPermissionKeys) _then)
-      : super(_value, (v) => _then(v as _SettingsPermissionKeys));
+    implements _$$_SettingsPermissionKeysCopyWith<$Res> {
+  __$$_SettingsPermissionKeysCopyWithImpl(_$_SettingsPermissionKeys _value,
+      $Res Function(_$_SettingsPermissionKeys) _then)
+      : super(_value, (v) => _then(v as _$_SettingsPermissionKeys));
 
   @override
-  _SettingsPermissionKeys get _value => super._value as _SettingsPermissionKeys;
+  _$_SettingsPermissionKeys get _value =>
+      super._value as _$_SettingsPermissionKeys;
 
   @override
   $Res call({
     Object? rename = freezed,
     Object? reinstall = freezed,
   }) {
-    return _then(_SettingsPermissionKeys(
+    return _then(_$_SettingsPermissionKeys(
       rename: rename == freezed
           ? _value.rename
           : rename // ignore: cast_nullable_to_non_nullable
@@ -147,11 +128,12 @@ class _$_SettingsPermissionKeys extends _SettingsPermissionKeys {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SettingsPermissionKeys &&
+            other is _$_SettingsPermissionKeys &&
             const DeepCollectionEquality().equals(other.rename, rename) &&
             const DeepCollectionEquality().equals(other.reinstall, reinstall));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -160,8 +142,8 @@ class _$_SettingsPermissionKeys extends _SettingsPermissionKeys {
 
   @JsonKey(ignore: true)
   @override
-  _$SettingsPermissionKeysCopyWith<_SettingsPermissionKeys> get copyWith =>
-      __$SettingsPermissionKeysCopyWithImpl<_SettingsPermissionKeys>(
+  _$$_SettingsPermissionKeysCopyWith<_$_SettingsPermissionKeys> get copyWith =>
+      __$$_SettingsPermissionKeysCopyWithImpl<_$_SettingsPermissionKeys>(
           this, _$identity);
 
   @override
@@ -172,19 +154,19 @@ class _$_SettingsPermissionKeys extends _SettingsPermissionKeys {
 
 abstract class _SettingsPermissionKeys extends SettingsPermissionKeys {
   factory _SettingsPermissionKeys(
-      {required String rename,
-      required String reinstall}) = _$_SettingsPermissionKeys;
+      {required final String rename,
+      required final String reinstall}) = _$_SettingsPermissionKeys;
   _SettingsPermissionKeys._() : super._();
 
   factory _SettingsPermissionKeys.fromJson(Map<String, dynamic> json) =
       _$_SettingsPermissionKeys.fromJson;
 
   @override
-  String get rename;
+  String get rename => throw _privateConstructorUsedError;
   @override
-  String get reinstall;
+  String get reinstall => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SettingsPermissionKeysCopyWith<_SettingsPermissionKeys> get copyWith =>
+  _$$_SettingsPermissionKeysCopyWith<_$_SettingsPermissionKeys> get copyWith =>
       throw _privateConstructorUsedError;
 }

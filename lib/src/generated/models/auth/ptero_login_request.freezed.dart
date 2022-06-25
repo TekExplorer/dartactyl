@@ -12,34 +12,11 @@ part of '../../../models/auth/ptero_login_request.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PteroLoginRequest _$PteroLoginRequestFromJson(Map<String, dynamic> json) {
   return _PterodactylLoginRequest.fromJson(json);
 }
-
-/// @nodoc
-class _$PteroLoginRequestTearOff {
-  const _$PteroLoginRequestTearOff();
-
-  _PterodactylLoginRequest call(
-      {@JsonKey(name: 'user') required String username,
-      required String password,
-      @JsonKey(name: 'g-recaptcha-response') String? gRecaptchaResponse}) {
-    return _PterodactylLoginRequest(
-      username: username,
-      password: password,
-      gRecaptchaResponse: gRecaptchaResponse,
-    );
-  }
-
-  PteroLoginRequest fromJson(Map<String, Object?> json) {
-    return PteroLoginRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $PteroLoginRequest = _$PteroLoginRequestTearOff();
 
 /// @nodoc
 mixin _$PteroLoginRequest {
@@ -99,11 +76,11 @@ class _$PteroLoginRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$PterodactylLoginRequestCopyWith<$Res>
+abstract class _$$_PterodactylLoginRequestCopyWith<$Res>
     implements $PteroLoginRequestCopyWith<$Res> {
-  factory _$PterodactylLoginRequestCopyWith(_PterodactylLoginRequest value,
-          $Res Function(_PterodactylLoginRequest) then) =
-      __$PterodactylLoginRequestCopyWithImpl<$Res>;
+  factory _$$_PterodactylLoginRequestCopyWith(_$_PterodactylLoginRequest value,
+          $Res Function(_$_PterodactylLoginRequest) then) =
+      __$$_PterodactylLoginRequestCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'user') String username,
@@ -112,16 +89,16 @@ abstract class _$PterodactylLoginRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$PterodactylLoginRequestCopyWithImpl<$Res>
+class __$$_PterodactylLoginRequestCopyWithImpl<$Res>
     extends _$PteroLoginRequestCopyWithImpl<$Res>
-    implements _$PterodactylLoginRequestCopyWith<$Res> {
-  __$PterodactylLoginRequestCopyWithImpl(_PterodactylLoginRequest _value,
-      $Res Function(_PterodactylLoginRequest) _then)
-      : super(_value, (v) => _then(v as _PterodactylLoginRequest));
+    implements _$$_PterodactylLoginRequestCopyWith<$Res> {
+  __$$_PterodactylLoginRequestCopyWithImpl(_$_PterodactylLoginRequest _value,
+      $Res Function(_$_PterodactylLoginRequest) _then)
+      : super(_value, (v) => _then(v as _$_PterodactylLoginRequest));
 
   @override
-  _PterodactylLoginRequest get _value =>
-      super._value as _PterodactylLoginRequest;
+  _$_PterodactylLoginRequest get _value =>
+      super._value as _$_PterodactylLoginRequest;
 
   @override
   $Res call({
@@ -129,7 +106,7 @@ class __$PterodactylLoginRequestCopyWithImpl<$Res>
     Object? password = freezed,
     Object? gRecaptchaResponse = freezed,
   }) {
-    return _then(_PterodactylLoginRequest(
+    return _then(_$_PterodactylLoginRequest(
       username: username == freezed
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -176,13 +153,14 @@ class _$_PterodactylLoginRequest extends _PterodactylLoginRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PterodactylLoginRequest &&
+            other is _$_PterodactylLoginRequest &&
             const DeepCollectionEquality().equals(other.username, username) &&
             const DeepCollectionEquality().equals(other.password, password) &&
             const DeepCollectionEquality()
                 .equals(other.gRecaptchaResponse, gRecaptchaResponse));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -192,9 +170,10 @@ class _$_PterodactylLoginRequest extends _PterodactylLoginRequest {
 
   @JsonKey(ignore: true)
   @override
-  _$PterodactylLoginRequestCopyWith<_PterodactylLoginRequest> get copyWith =>
-      __$PterodactylLoginRequestCopyWithImpl<_PterodactylLoginRequest>(
-          this, _$identity);
+  _$$_PterodactylLoginRequestCopyWith<_$_PterodactylLoginRequest>
+      get copyWith =>
+          __$$_PterodactylLoginRequestCopyWithImpl<_$_PterodactylLoginRequest>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -204,10 +183,11 @@ class _$_PterodactylLoginRequest extends _PterodactylLoginRequest {
 
 abstract class _PterodactylLoginRequest extends PteroLoginRequest {
   factory _PterodactylLoginRequest(
-          {@JsonKey(name: 'user') required String username,
-          required String password,
-          @JsonKey(name: 'g-recaptcha-response') String? gRecaptchaResponse}) =
-      _$_PterodactylLoginRequest;
+      {@JsonKey(name: 'user')
+          required final String username,
+      required final String password,
+      @JsonKey(name: 'g-recaptcha-response')
+          final String? gRecaptchaResponse}) = _$_PterodactylLoginRequest;
   _PterodactylLoginRequest._() : super._();
 
   factory _PterodactylLoginRequest.fromJson(Map<String, dynamic> json) =
@@ -215,14 +195,14 @@ abstract class _PterodactylLoginRequest extends PteroLoginRequest {
 
   @override
   @JsonKey(name: 'user')
-  String get username;
+  String get username => throw _privateConstructorUsedError;
   @override
-  String get password;
+  String get password => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'g-recaptcha-response')
-  String? get gRecaptchaResponse;
+  String? get gRecaptchaResponse => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$PterodactylLoginRequestCopyWith<_PterodactylLoginRequest> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_PterodactylLoginRequestCopyWith<_$_PterodactylLoginRequest>
+      get copyWith => throw _privateConstructorUsedError;
 }

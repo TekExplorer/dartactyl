@@ -12,30 +12,11 @@ part of '../../../models/ptero_data/two_factor_image.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 TwoFactorImage _$TwoFactorImageFromJson(Map<String, dynamic> json) {
   return _TwoFactorImage.fromJson(json);
 }
-
-/// @nodoc
-class _$TwoFactorImageTearOff {
-  const _$TwoFactorImageTearOff();
-
-  _TwoFactorImage call({required String imageUrlData, required String secret}) {
-    return _TwoFactorImage(
-      imageUrlData: imageUrlData,
-      secret: secret,
-    );
-  }
-
-  TwoFactorImage fromJson(Map<String, Object?> json) {
-    return TwoFactorImage.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $TwoFactorImage = _$TwoFactorImageTearOff();
 
 /// @nodoc
 mixin _$TwoFactorImage {
@@ -84,32 +65,32 @@ class _$TwoFactorImageCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$TwoFactorImageCopyWith<$Res>
+abstract class _$$_TwoFactorImageCopyWith<$Res>
     implements $TwoFactorImageCopyWith<$Res> {
-  factory _$TwoFactorImageCopyWith(
-          _TwoFactorImage value, $Res Function(_TwoFactorImage) then) =
-      __$TwoFactorImageCopyWithImpl<$Res>;
+  factory _$$_TwoFactorImageCopyWith(
+          _$_TwoFactorImage value, $Res Function(_$_TwoFactorImage) then) =
+      __$$_TwoFactorImageCopyWithImpl<$Res>;
   @override
   $Res call({String imageUrlData, String secret});
 }
 
 /// @nodoc
-class __$TwoFactorImageCopyWithImpl<$Res>
+class __$$_TwoFactorImageCopyWithImpl<$Res>
     extends _$TwoFactorImageCopyWithImpl<$Res>
-    implements _$TwoFactorImageCopyWith<$Res> {
-  __$TwoFactorImageCopyWithImpl(
-      _TwoFactorImage _value, $Res Function(_TwoFactorImage) _then)
-      : super(_value, (v) => _then(v as _TwoFactorImage));
+    implements _$$_TwoFactorImageCopyWith<$Res> {
+  __$$_TwoFactorImageCopyWithImpl(
+      _$_TwoFactorImage _value, $Res Function(_$_TwoFactorImage) _then)
+      : super(_value, (v) => _then(v as _$_TwoFactorImage));
 
   @override
-  _TwoFactorImage get _value => super._value as _TwoFactorImage;
+  _$_TwoFactorImage get _value => super._value as _$_TwoFactorImage;
 
   @override
   $Res call({
     Object? imageUrlData = freezed,
     Object? secret = freezed,
   }) {
-    return _then(_TwoFactorImage(
+    return _then(_$_TwoFactorImage(
       imageUrlData: imageUrlData == freezed
           ? _value.imageUrlData
           : imageUrlData // ignore: cast_nullable_to_non_nullable
@@ -145,12 +126,13 @@ class _$_TwoFactorImage extends _TwoFactorImage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _TwoFactorImage &&
+            other is _$_TwoFactorImage &&
             const DeepCollectionEquality()
                 .equals(other.imageUrlData, imageUrlData) &&
             const DeepCollectionEquality().equals(other.secret, secret));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -159,8 +141,8 @@ class _$_TwoFactorImage extends _TwoFactorImage {
 
   @JsonKey(ignore: true)
   @override
-  _$TwoFactorImageCopyWith<_TwoFactorImage> get copyWith =>
-      __$TwoFactorImageCopyWithImpl<_TwoFactorImage>(this, _$identity);
+  _$$_TwoFactorImageCopyWith<_$_TwoFactorImage> get copyWith =>
+      __$$_TwoFactorImageCopyWithImpl<_$_TwoFactorImage>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -170,19 +152,19 @@ class _$_TwoFactorImage extends _TwoFactorImage {
 
 abstract class _TwoFactorImage extends TwoFactorImage {
   factory _TwoFactorImage(
-      {required String imageUrlData,
-      required String secret}) = _$_TwoFactorImage;
+      {required final String imageUrlData,
+      required final String secret}) = _$_TwoFactorImage;
   _TwoFactorImage._() : super._();
 
   factory _TwoFactorImage.fromJson(Map<String, dynamic> json) =
       _$_TwoFactorImage.fromJson;
 
   @override
-  String get imageUrlData;
+  String get imageUrlData => throw _privateConstructorUsedError;
   @override
-  String get secret;
+  String get secret => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$TwoFactorImageCopyWith<_TwoFactorImage> get copyWith =>
+  _$$_TwoFactorImageCopyWith<_$_TwoFactorImage> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,34 +12,11 @@ part of '../../../models/main_models/server_database.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Database _$DatabaseFromJson(Map<String, dynamic> json) {
   return _Database.fromJson(json);
 }
-
-/// @nodoc
-class _$DatabaseTearOff {
-  const _$DatabaseTearOff();
-
-  _Database call(
-      {required String address,
-      required int port,
-      DatabasePasswordRelationships? relationships}) {
-    return _Database(
-      address: address,
-      port: port,
-      relationships: relationships,
-    );
-  }
-
-  Database fromJson(Map<String, Object?> json) {
-    return Database.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Database = _$DatabaseTearOff();
 
 /// @nodoc
 mixin _$Database {
@@ -108,9 +85,10 @@ class _$DatabaseCopyWithImpl<$Res> implements $DatabaseCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$DatabaseCopyWith<$Res> implements $DatabaseCopyWith<$Res> {
-  factory _$DatabaseCopyWith(_Database value, $Res Function(_Database) then) =
-      __$DatabaseCopyWithImpl<$Res>;
+abstract class _$$_DatabaseCopyWith<$Res> implements $DatabaseCopyWith<$Res> {
+  factory _$$_DatabaseCopyWith(
+          _$_Database value, $Res Function(_$_Database) then) =
+      __$$_DatabaseCopyWithImpl<$Res>;
   @override
   $Res call(
       {String address, int port, DatabasePasswordRelationships? relationships});
@@ -120,13 +98,14 @@ abstract class _$DatabaseCopyWith<$Res> implements $DatabaseCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$DatabaseCopyWithImpl<$Res> extends _$DatabaseCopyWithImpl<$Res>
-    implements _$DatabaseCopyWith<$Res> {
-  __$DatabaseCopyWithImpl(_Database _value, $Res Function(_Database) _then)
-      : super(_value, (v) => _then(v as _Database));
+class __$$_DatabaseCopyWithImpl<$Res> extends _$DatabaseCopyWithImpl<$Res>
+    implements _$$_DatabaseCopyWith<$Res> {
+  __$$_DatabaseCopyWithImpl(
+      _$_Database _value, $Res Function(_$_Database) _then)
+      : super(_value, (v) => _then(v as _$_Database));
 
   @override
-  _Database get _value => super._value as _Database;
+  _$_Database get _value => super._value as _$_Database;
 
   @override
   $Res call({
@@ -134,7 +113,7 @@ class __$DatabaseCopyWithImpl<$Res> extends _$DatabaseCopyWithImpl<$Res>
     Object? port = freezed,
     Object? relationships = freezed,
   }) {
-    return _then(_Database(
+    return _then(_$_Database(
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -176,13 +155,14 @@ class _$_Database extends _Database {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Database &&
+            other is _$_Database &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.port, port) &&
             const DeepCollectionEquality()
                 .equals(other.relationships, relationships));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -192,8 +172,8 @@ class _$_Database extends _Database {
 
   @JsonKey(ignore: true)
   @override
-  _$DatabaseCopyWith<_Database> get copyWith =>
-      __$DatabaseCopyWithImpl<_Database>(this, _$identity);
+  _$$_DatabaseCopyWith<_$_Database> get copyWith =>
+      __$$_DatabaseCopyWithImpl<_$_Database>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -203,57 +183,29 @@ class _$_Database extends _Database {
 
 abstract class _Database extends Database {
   factory _Database(
-      {required String address,
-      required int port,
-      DatabasePasswordRelationships? relationships}) = _$_Database;
+      {required final String address,
+      required final int port,
+      final DatabasePasswordRelationships? relationships}) = _$_Database;
   _Database._() : super._();
 
   factory _Database.fromJson(Map<String, dynamic> json) = _$_Database.fromJson;
 
   @override
-  String get address;
+  String get address => throw _privateConstructorUsedError;
   @override
-  int get port;
+  int get port => throw _privateConstructorUsedError;
   @override
-  DatabasePasswordRelationships? get relationships;
+  DatabasePasswordRelationships? get relationships =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$DatabaseCopyWith<_Database> get copyWith =>
+  _$$_DatabaseCopyWith<_$_Database> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 ServerDatabase _$ServerDatabaseFromJson(Map<String, dynamic> json) {
   return _ServerDatabase.fromJson(json);
 }
-
-/// @nodoc
-class _$ServerDatabaseTearOff {
-  const _$ServerDatabaseTearOff();
-
-  _ServerDatabase call(
-      {required int id,
-      required String name,
-      required Database host,
-      required String username,
-      required String connectionsFrom,
-      required int maxConnections}) {
-    return _ServerDatabase(
-      id: id,
-      name: name,
-      host: host,
-      username: username,
-      connectionsFrom: connectionsFrom,
-      maxConnections: maxConnections,
-    );
-  }
-
-  ServerDatabase fromJson(Map<String, Object?> json) {
-    return ServerDatabase.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ServerDatabase = _$ServerDatabaseTearOff();
 
 /// @nodoc
 mixin _$ServerDatabase {
@@ -341,11 +293,11 @@ class _$ServerDatabaseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ServerDatabaseCopyWith<$Res>
+abstract class _$$_ServerDatabaseCopyWith<$Res>
     implements $ServerDatabaseCopyWith<$Res> {
-  factory _$ServerDatabaseCopyWith(
-          _ServerDatabase value, $Res Function(_ServerDatabase) then) =
-      __$ServerDatabaseCopyWithImpl<$Res>;
+  factory _$$_ServerDatabaseCopyWith(
+          _$_ServerDatabase value, $Res Function(_$_ServerDatabase) then) =
+      __$$_ServerDatabaseCopyWithImpl<$Res>;
   @override
   $Res call(
       {int id,
@@ -360,15 +312,15 @@ abstract class _$ServerDatabaseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ServerDatabaseCopyWithImpl<$Res>
+class __$$_ServerDatabaseCopyWithImpl<$Res>
     extends _$ServerDatabaseCopyWithImpl<$Res>
-    implements _$ServerDatabaseCopyWith<$Res> {
-  __$ServerDatabaseCopyWithImpl(
-      _ServerDatabase _value, $Res Function(_ServerDatabase) _then)
-      : super(_value, (v) => _then(v as _ServerDatabase));
+    implements _$$_ServerDatabaseCopyWith<$Res> {
+  __$$_ServerDatabaseCopyWithImpl(
+      _$_ServerDatabase _value, $Res Function(_$_ServerDatabase) _then)
+      : super(_value, (v) => _then(v as _$_ServerDatabase));
 
   @override
-  _ServerDatabase get _value => super._value as _ServerDatabase;
+  _$_ServerDatabase get _value => super._value as _$_ServerDatabase;
 
   @override
   $Res call({
@@ -379,7 +331,7 @@ class __$ServerDatabaseCopyWithImpl<$Res>
     Object? connectionsFrom = freezed,
     Object? maxConnections = freezed,
   }) {
-    return _then(_ServerDatabase(
+    return _then(_$_ServerDatabase(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -445,7 +397,7 @@ class _$_ServerDatabase extends _ServerDatabase {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ServerDatabase &&
+            other is _$_ServerDatabase &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.host, host) &&
@@ -456,6 +408,7 @@ class _$_ServerDatabase extends _ServerDatabase {
                 .equals(other.maxConnections, maxConnections));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -468,8 +421,8 @@ class _$_ServerDatabase extends _ServerDatabase {
 
   @JsonKey(ignore: true)
   @override
-  _$ServerDatabaseCopyWith<_ServerDatabase> get copyWith =>
-      __$ServerDatabaseCopyWithImpl<_ServerDatabase>(this, _$identity);
+  _$$_ServerDatabaseCopyWith<_$_ServerDatabase> get copyWith =>
+      __$$_ServerDatabaseCopyWithImpl<_$_ServerDatabase>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -479,31 +432,31 @@ class _$_ServerDatabase extends _ServerDatabase {
 
 abstract class _ServerDatabase extends ServerDatabase {
   factory _ServerDatabase(
-      {required int id,
-      required String name,
-      required Database host,
-      required String username,
-      required String connectionsFrom,
-      required int maxConnections}) = _$_ServerDatabase;
+      {required final int id,
+      required final String name,
+      required final Database host,
+      required final String username,
+      required final String connectionsFrom,
+      required final int maxConnections}) = _$_ServerDatabase;
   _ServerDatabase._() : super._();
 
   factory _ServerDatabase.fromJson(Map<String, dynamic> json) =
       _$_ServerDatabase.fromJson;
 
   @override
-  int get id;
+  int get id => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  Database get host;
+  Database get host => throw _privateConstructorUsedError;
   @override
-  String get username;
+  String get username => throw _privateConstructorUsedError;
   @override
-  String get connectionsFrom;
+  String get connectionsFrom => throw _privateConstructorUsedError;
   @override
-  int get maxConnections;
+  int get maxConnections => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ServerDatabaseCopyWith<_ServerDatabase> get copyWith =>
+  _$$_ServerDatabaseCopyWith<_$_ServerDatabase> get copyWith =>
       throw _privateConstructorUsedError;
 }

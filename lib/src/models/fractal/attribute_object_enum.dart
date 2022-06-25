@@ -38,4 +38,6 @@ enum AttributeObject {
   databaseHost,
   nest,
   egg,
+  @JsonValue('ssh_key')
+  sshKey,
 }

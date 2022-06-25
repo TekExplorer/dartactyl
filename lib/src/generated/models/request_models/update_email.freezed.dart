@@ -12,30 +12,11 @@ part of '../../../models/request_models/update_email.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 UpdateEmail _$UpdateEmailFromJson(Map<String, dynamic> json) {
   return _UpdateEmail.fromJson(json);
 }
-
-/// @nodoc
-class _$UpdateEmailTearOff {
-  const _$UpdateEmailTearOff();
-
-  _UpdateEmail call({required String email, required String password}) {
-    return _UpdateEmail(
-      email: email,
-      password: password,
-    );
-  }
-
-  UpdateEmail fromJson(Map<String, Object?> json) {
-    return UpdateEmail.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $UpdateEmail = _$UpdateEmailTearOff();
 
 /// @nodoc
 mixin _$UpdateEmail {
@@ -83,31 +64,31 @@ class _$UpdateEmailCopyWithImpl<$Res> implements $UpdateEmailCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$UpdateEmailCopyWith<$Res>
+abstract class _$$_UpdateEmailCopyWith<$Res>
     implements $UpdateEmailCopyWith<$Res> {
-  factory _$UpdateEmailCopyWith(
-          _UpdateEmail value, $Res Function(_UpdateEmail) then) =
-      __$UpdateEmailCopyWithImpl<$Res>;
+  factory _$$_UpdateEmailCopyWith(
+          _$_UpdateEmail value, $Res Function(_$_UpdateEmail) then) =
+      __$$_UpdateEmailCopyWithImpl<$Res>;
   @override
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class __$UpdateEmailCopyWithImpl<$Res> extends _$UpdateEmailCopyWithImpl<$Res>
-    implements _$UpdateEmailCopyWith<$Res> {
-  __$UpdateEmailCopyWithImpl(
-      _UpdateEmail _value, $Res Function(_UpdateEmail) _then)
-      : super(_value, (v) => _then(v as _UpdateEmail));
+class __$$_UpdateEmailCopyWithImpl<$Res> extends _$UpdateEmailCopyWithImpl<$Res>
+    implements _$$_UpdateEmailCopyWith<$Res> {
+  __$$_UpdateEmailCopyWithImpl(
+      _$_UpdateEmail _value, $Res Function(_$_UpdateEmail) _then)
+      : super(_value, (v) => _then(v as _$_UpdateEmail));
 
   @override
-  _UpdateEmail get _value => super._value as _UpdateEmail;
+  _$_UpdateEmail get _value => super._value as _$_UpdateEmail;
 
   @override
   $Res call({
     Object? email = freezed,
     Object? password = freezed,
   }) {
-    return _then(_UpdateEmail(
+    return _then(_$_UpdateEmail(
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -142,11 +123,12 @@ class _$_UpdateEmail implements _UpdateEmail {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UpdateEmail &&
+            other is _$_UpdateEmail &&
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality().equals(other.password, password));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -155,8 +137,8 @@ class _$_UpdateEmail implements _UpdateEmail {
 
   @JsonKey(ignore: true)
   @override
-  _$UpdateEmailCopyWith<_UpdateEmail> get copyWith =>
-      __$UpdateEmailCopyWithImpl<_UpdateEmail>(this, _$identity);
+  _$$_UpdateEmailCopyWith<_$_UpdateEmail> get copyWith =>
+      __$$_UpdateEmailCopyWithImpl<_$_UpdateEmail>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -165,18 +147,19 @@ class _$_UpdateEmail implements _UpdateEmail {
 }
 
 abstract class _UpdateEmail implements UpdateEmail {
-  factory _UpdateEmail({required String email, required String password}) =
-      _$_UpdateEmail;
+  factory _UpdateEmail(
+      {required final String email,
+      required final String password}) = _$_UpdateEmail;
 
   factory _UpdateEmail.fromJson(Map<String, dynamic> json) =
       _$_UpdateEmail.fromJson;
 
   @override
-  String get email;
+  String get email => throw _privateConstructorUsedError;
   @override
-  String get password;
+  String get password => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UpdateEmailCopyWith<_UpdateEmail> get copyWith =>
+  _$$_UpdateEmailCopyWith<_$_UpdateEmail> get copyWith =>
       throw _privateConstructorUsedError;
 }

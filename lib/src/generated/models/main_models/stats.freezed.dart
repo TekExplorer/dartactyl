@@ -12,34 +12,11 @@ part of '../../../models/main_models/stats.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Stats _$StatsFromJson(Map<String, dynamic> json) {
   return _Stats.fromJson(json);
 }
-
-/// @nodoc
-class _$StatsTearOff {
-  const _$StatsTearOff();
-
-  _Stats call(
-      {required ServerPowerState currentState,
-      required bool isSuspended,
-      required StatsResources resources}) {
-    return _Stats(
-      currentState: currentState,
-      isSuspended: isSuspended,
-      resources: resources,
-    );
-  }
-
-  Stats fromJson(Map<String, Object?> json) {
-    return Stats.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Stats = _$StatsTearOff();
 
 /// @nodoc
 mixin _$Stats {
@@ -103,9 +80,9 @@ class _$StatsCopyWithImpl<$Res> implements $StatsCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$StatsCopyWith<$Res> implements $StatsCopyWith<$Res> {
-  factory _$StatsCopyWith(_Stats value, $Res Function(_Stats) then) =
-      __$StatsCopyWithImpl<$Res>;
+abstract class _$$_StatsCopyWith<$Res> implements $StatsCopyWith<$Res> {
+  factory _$$_StatsCopyWith(_$_Stats value, $Res Function(_$_Stats) then) =
+      __$$_StatsCopyWithImpl<$Res>;
   @override
   $Res call(
       {ServerPowerState currentState,
@@ -117,13 +94,13 @@ abstract class _$StatsCopyWith<$Res> implements $StatsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$StatsCopyWithImpl<$Res> extends _$StatsCopyWithImpl<$Res>
-    implements _$StatsCopyWith<$Res> {
-  __$StatsCopyWithImpl(_Stats _value, $Res Function(_Stats) _then)
-      : super(_value, (v) => _then(v as _Stats));
+class __$$_StatsCopyWithImpl<$Res> extends _$StatsCopyWithImpl<$Res>
+    implements _$$_StatsCopyWith<$Res> {
+  __$$_StatsCopyWithImpl(_$_Stats _value, $Res Function(_$_Stats) _then)
+      : super(_value, (v) => _then(v as _$_Stats));
 
   @override
-  _Stats get _value => super._value as _Stats;
+  _$_Stats get _value => super._value as _$_Stats;
 
   @override
   $Res call({
@@ -131,7 +108,7 @@ class __$StatsCopyWithImpl<$Res> extends _$StatsCopyWithImpl<$Res>
     Object? isSuspended = freezed,
     Object? resources = freezed,
   }) {
-    return _then(_Stats(
+    return _then(_$_Stats(
       currentState: currentState == freezed
           ? _value.currentState
           : currentState // ignore: cast_nullable_to_non_nullable
@@ -176,7 +153,7 @@ class _$_Stats extends _Stats {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Stats &&
+            other is _$_Stats &&
             const DeepCollectionEquality()
                 .equals(other.currentState, currentState) &&
             const DeepCollectionEquality()
@@ -184,6 +161,7 @@ class _$_Stats extends _Stats {
             const DeepCollectionEquality().equals(other.resources, resources));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -193,8 +171,8 @@ class _$_Stats extends _Stats {
 
   @JsonKey(ignore: true)
   @override
-  _$StatsCopyWith<_Stats> get copyWith =>
-      __$StatsCopyWithImpl<_Stats>(this, _$identity);
+  _$$_StatsCopyWith<_$_Stats> get copyWith =>
+      __$$_StatsCopyWithImpl<_$_Stats>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -204,56 +182,28 @@ class _$_Stats extends _Stats {
 
 abstract class _Stats extends Stats {
   factory _Stats(
-      {required ServerPowerState currentState,
-      required bool isSuspended,
-      required StatsResources resources}) = _$_Stats;
+      {required final ServerPowerState currentState,
+      required final bool isSuspended,
+      required final StatsResources resources}) = _$_Stats;
   _Stats._() : super._();
 
   factory _Stats.fromJson(Map<String, dynamic> json) = _$_Stats.fromJson;
 
   @override
-  ServerPowerState get currentState;
+  ServerPowerState get currentState => throw _privateConstructorUsedError;
   @override
-  bool get isSuspended;
+  bool get isSuspended => throw _privateConstructorUsedError;
   @override
-  StatsResources get resources;
+  StatsResources get resources => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$StatsCopyWith<_Stats> get copyWith => throw _privateConstructorUsedError;
+  _$$_StatsCopyWith<_$_Stats> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 StatsResources _$StatsResourcesFromJson(Map<String, dynamic> json) {
   return _StatsResources.fromJson(json);
 }
-
-/// @nodoc
-class _$StatsResourcesTearOff {
-  const _$StatsResourcesTearOff();
-
-  _StatsResources call(
-      {required int memoryBytes,
-      required double cpuAbsolute,
-      required int diskBytes,
-      required int networkRxBytes,
-      required int networkTxBytes,
-      int? uptime}) {
-    return _StatsResources(
-      memoryBytes: memoryBytes,
-      cpuAbsolute: cpuAbsolute,
-      diskBytes: diskBytes,
-      networkRxBytes: networkRxBytes,
-      networkTxBytes: networkTxBytes,
-      uptime: uptime,
-    );
-  }
-
-  StatsResources fromJson(Map<String, Object?> json) {
-    return StatsResources.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $StatsResources = _$StatsResourcesTearOff();
 
 /// @nodoc
 mixin _$StatsResources {
@@ -335,11 +285,11 @@ class _$StatsResourcesCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$StatsResourcesCopyWith<$Res>
+abstract class _$$_StatsResourcesCopyWith<$Res>
     implements $StatsResourcesCopyWith<$Res> {
-  factory _$StatsResourcesCopyWith(
-          _StatsResources value, $Res Function(_StatsResources) then) =
-      __$StatsResourcesCopyWithImpl<$Res>;
+  factory _$$_StatsResourcesCopyWith(
+          _$_StatsResources value, $Res Function(_$_StatsResources) then) =
+      __$$_StatsResourcesCopyWithImpl<$Res>;
   @override
   $Res call(
       {int memoryBytes,
@@ -351,15 +301,15 @@ abstract class _$StatsResourcesCopyWith<$Res>
 }
 
 /// @nodoc
-class __$StatsResourcesCopyWithImpl<$Res>
+class __$$_StatsResourcesCopyWithImpl<$Res>
     extends _$StatsResourcesCopyWithImpl<$Res>
-    implements _$StatsResourcesCopyWith<$Res> {
-  __$StatsResourcesCopyWithImpl(
-      _StatsResources _value, $Res Function(_StatsResources) _then)
-      : super(_value, (v) => _then(v as _StatsResources));
+    implements _$$_StatsResourcesCopyWith<$Res> {
+  __$$_StatsResourcesCopyWithImpl(
+      _$_StatsResources _value, $Res Function(_$_StatsResources) _then)
+      : super(_value, (v) => _then(v as _$_StatsResources));
 
   @override
-  _StatsResources get _value => super._value as _StatsResources;
+  _$_StatsResources get _value => super._value as _$_StatsResources;
 
   @override
   $Res call({
@@ -370,7 +320,7 @@ class __$StatsResourcesCopyWithImpl<$Res>
     Object? networkTxBytes = freezed,
     Object? uptime = freezed,
   }) {
-    return _then(_StatsResources(
+    return _then(_$_StatsResources(
       memoryBytes: memoryBytes == freezed
           ? _value.memoryBytes
           : memoryBytes // ignore: cast_nullable_to_non_nullable
@@ -424,9 +374,10 @@ class _$_StatsResources extends _StatsResources {
   final int networkRxBytes;
   @override
   final int networkTxBytes;
-  @override // required int uptime, //todo: doesnt exist in v1.7 or earlier
+// required int uptime, //todo: doesnt exist in v1.7 or earlier
   /// the amount of time the server has been running
   /// added in pterodactyl v1.8, where it garunteed to exist
+  @override
   final int? uptime;
 
   @override
@@ -438,7 +389,7 @@ class _$_StatsResources extends _StatsResources {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _StatsResources &&
+            other is _$_StatsResources &&
             const DeepCollectionEquality()
                 .equals(other.memoryBytes, memoryBytes) &&
             const DeepCollectionEquality()
@@ -451,6 +402,7 @@ class _$_StatsResources extends _StatsResources {
             const DeepCollectionEquality().equals(other.uptime, uptime));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -463,8 +415,8 @@ class _$_StatsResources extends _StatsResources {
 
   @JsonKey(ignore: true)
   @override
-  _$StatsResourcesCopyWith<_StatsResources> get copyWith =>
-      __$StatsResourcesCopyWithImpl<_StatsResources>(this, _$identity);
+  _$$_StatsResourcesCopyWith<_$_StatsResources> get copyWith =>
+      __$$_StatsResourcesCopyWithImpl<_$_StatsResources>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -474,33 +426,33 @@ class _$_StatsResources extends _StatsResources {
 
 abstract class _StatsResources extends StatsResources {
   factory _StatsResources(
-      {required int memoryBytes,
-      required double cpuAbsolute,
-      required int diskBytes,
-      required int networkRxBytes,
-      required int networkTxBytes,
-      int? uptime}) = _$_StatsResources;
+      {required final int memoryBytes,
+      required final double cpuAbsolute,
+      required final int diskBytes,
+      required final int networkRxBytes,
+      required final int networkTxBytes,
+      final int? uptime}) = _$_StatsResources;
   _StatsResources._() : super._();
 
   factory _StatsResources.fromJson(Map<String, dynamic> json) =
       _$_StatsResources.fromJson;
 
   @override
-  int get memoryBytes;
+  int get memoryBytes => throw _privateConstructorUsedError;
   @override
-  double get cpuAbsolute;
+  double get cpuAbsolute => throw _privateConstructorUsedError;
   @override
-  int get diskBytes;
+  int get diskBytes => throw _privateConstructorUsedError;
   @override
-  int get networkRxBytes;
+  int get networkRxBytes => throw _privateConstructorUsedError;
   @override
-  int get networkTxBytes;
+  int get networkTxBytes => throw _privateConstructorUsedError;
   @override // required int uptime, //todo: doesnt exist in v1.7 or earlier
   /// the amount of time the server has been running
   /// added in pterodactyl v1.8, where it garunteed to exist
-  int? get uptime;
+  int? get uptime => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$StatsResourcesCopyWith<_StatsResources> get copyWith =>
+  _$$_StatsResourcesCopyWith<_$_StatsResources> get copyWith =>
       throw _privateConstructorUsedError;
 }
