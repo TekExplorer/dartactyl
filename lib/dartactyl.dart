@@ -1,6 +1,9 @@
-/// Pterodactyl API Client
+/// # Dartactyl
+/// **A Pterodactyl API Wrapper**
 ///
-/// Admin/Application API not yet supported
+/// Github: https://github.com/TekExplorer/dartactyl
+///
+/// Dart Pub: https://pub.dev/packages/dartactyl
 library dartactyl;
 
 export 'models.dart';

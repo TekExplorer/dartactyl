@@ -11,15 +11,20 @@ part 'client_extentions.dart';
 part 'generated/client.g.dart';
 part 'mock_client.dart';
 
-/// Pterodactyl API Client
+/// A client for interacting with the Pterodactyl Client API.
+///
+/// The client API operates under one user account but grants control over the
+/// account information, credentials, and servers associated with the account.
+/// Unlike the Application API, this also grants access to server websockets
+/// which allows for dynamic interactions and responses live from servers.
+/// See the [examples](../../example) section for more.
 @RestApi(
     // autoCastResponse: true,
     )
 abstract class PteroClient {
   factory PteroClient(Dio dio, {String? baseUrl}) = _PteroClient;
 
-  /// Creates an instance of [MockPteroClient]
-  /// which will return concrete responses for testing
+  /// Creates a [MockPteroClient] instance used for testing purposes.
   @experimental
   static MockPteroClient mock(Dio dio, {String? baseUrl}) =>
       MockPteroClient(dio, baseUrl: baseUrl);
@@ -27,10 +32,13 @@ abstract class PteroClient {
   Dio get _dio;
   String? get baseUrl;
 
-  /// Set up a Pterodactyl API Client in one go!
-  /// [baseUrl] is the base URL of the Pterodactyl server.
-  /// [key] is the API key of the Pterodactyl account.
-  /// leave [apiKey] blank if you'd rather use cookies with user/pass.
+  /// Generates a new Dartactyl client.
+  ///
+  /// The [url] should be the panel domain only and should include the HTTP
+  /// scheme. The [key] shoule be a client API key, not an application API key.
+  /// You can use your own [dio] instance or generate a new one with the client.
+  /// The [userAgent] specifies who/what is making the request, you generally
+  /// don't need to change this.
   factory PteroClient.generate({
     required String url,
     String? key,
@@ -39,23 +47,16 @@ abstract class PteroClient {
     bool enableErrorInterceptor = true,
     bool enableIfAuthNoKeyInterceptor = false,
   }) {
-    // if (!url.startsWith('http')) {
-    //   url = 'https://$url';
-    //   log('url was not a full URL, adding https://', name: 'PteroClient');
-    // }
-
     dio = dio ?? Dio();
 
     if (key != null) {
-      // use key
-      dio.options.headers[HttpHeaders.authorizationHeader] = "Bearer " + key;
+      dio.options.headers[HttpHeaders.authorizationHeader] = 'Bearer $key';
     }
     dio.options
       ..headers[HttpHeaders.userAgentHeader] = userAgent
       ..headers[HttpHeaders.acceptHeader] = 'application/json'
       ..headers[HttpHeaders.contentTypeHeader] = 'application/json';
 
-    // if (!kIsWeb) dio.options.headers["Origin"] = url;
     dio.options.baseUrl = url;
 
     dio.interceptors.addAll([
