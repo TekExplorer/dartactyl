@@ -1,5 +1,5 @@
 /// # Dartactyl
-/// **A Pterodactyl API Wrapper**
+/// A Pterodactyl API Wrapper
 ///
 /// Github: https://github.com/TekExplorer/dartactyl
 ///

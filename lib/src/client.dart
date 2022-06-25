@@ -50,15 +50,13 @@ abstract class PteroClient {
     dio = dio ?? Dio();
 
     if (key != null) {
-      // use key
       dio.options.headers[HttpHeaders.authorizationHeader] = "Bearer $key";
     }
     dio.options
       ..headers[HttpHeaders.userAgentHeader] = userAgent
       ..headers[HttpHeaders.acceptHeader] = 'application/json'
-      ..headers[HttpHeaders.contentTypeHeader] = 'application/json';
-
-    dio.options.baseUrl = url;
+      ..headers[HttpHeaders.contentTypeHeader] = 'application/json'
+      ..baseUrl = url;
 
     dio.interceptors.addAll([
       // if (enableIfAuthNoKeyInterceptor) IfAuthNoKeyInterceptor(),
@@ -66,123 +64,91 @@ abstract class PteroClient {
     ]);
 
     return PteroClient(dio);
-
-    //     ..headers['Accept'] = 'application/json'
-    // ..headers['Authorization'] = 'Bearer $apiKey'
-    // ..headers['Content-Type'] = 'application/json'
-    // ..baseUrl = panelUrl;
   }
 
-  /// Creates an instance of the [PteroClient] class.
-  ///
-  /// This can be used to test the client without actually connecting to a server.
-  ///
-  /// Uses mockapi.ptero.sh as the base URL, which redirects to the pterodactyl.stoplight.io mock server.
-  ///
-  /// Does not work with /auth endpoints - only /api/client
+  /// Creates a [PteroClient] instance that can only be used on a mock server
+  /// at https://mockapi.ptero.sh for testing purposes. You can specify your
+  /// own [dio] instance to be used.
   factory PteroClient.mockApi([Dio? dio]) => PteroClient.generate(
         url: 'https://mockapi.ptero.sh',
         dio: dio,
         key: 'mock-api-key',
       );
 
-  // /// Login to Pterodactyl using username and password.
-  // ///
-  // /// PUTS YOU INTO COOKIE MODE!!!
-  ///
-  /// [xsrfHeader] is the XSRF token
+  /// Login to Pterodactyl using your account [credentials] and an [xsrfHeader]
+  /// token provided by the panel. This will put the client into cookie mode,
+  /// and all requests will be made using that cookie.
   @POST('/auth/login')
   Future<void> _login(
     @Body() PteroLoginRequest credentials,
     @Header("X-XSRF-TOKEN") String xsrfHeader,
   );
 
-  /// Logout of Pterodactyl, ending your session.
-  ///
-  /// This will automatically remove your api token if
-  /// you did not disable the option in the client.
-  ///
-  /// You will need to add a cookie manager interceptor to make use of this
-  ///
-  /// Not fully implemented.
+  /// Logout of Pterodactyl, destroying the session. A cookie manager
+  /// interceptor is required for this action. This is experimental and should
+  /// not be used.
   @experimental
   @GET('/auth/logout')
   Future<void> logout();
 
-  /// Get a list of servers.
+  /// Returns a list of [Server]s. Set [type] to specify which servers are
+  /// returned (default is `member`).
   ///
-  /// You can filter the results using:
+  /// [page] number specifies what page of results to return, defaults at `1`.
+  /// [perPage] number specifies how many results to return per page, defaults
+  /// at `50`. You can [includes] additional information such as "eggs" and
+  /// "subusers".
   ///
-  /// [filter]; filters by all (uuid, name, externalId, ip:port, :port, ip)
-  ///
-  /// [filterByUuid]; filters by uuid
-  ///
-  /// [filterByName]; filters by name
-  ///
-  /// [filterByExternalId]; filters by external id
-  ///
-  /// !!! ONLY USE ONE FILTER !!!
-  ///
-  /// [page]; page number
-  ///
-  /// [perPage]; number of results per page
-  ///
-  /// You can also limit what servers are returned by
-  /// providing a [GetServersQueryType] to [type] (defualt is 'member')
-  ///
-  /// Available [Includes]; 'egg', 'subusers'
+  /// You can [filter] the results by any key, or with a specific key such as:
+  /// [filterByUuid], [filterByName] and [filterByExternalId]. Only use one
+  /// filter, not multiple. None are set by default.
   @GET('/api/client')
   Future<FractalListMeta<Server, PaginatedMeta>> listServers({
-    // Pagination
     @Query('page') int? page = 1,
     @Query('per_page') int? perPage = 50,
-
-    /// [includes]; egg, subusers
     @Query('include') Includes? includes,
-
-    // Filters
     @Query('filter[*]') String? filter,
     @Query('filter[uuid]') String? filterByUuid,
     @Query('filter[name]') String? filterByName,
     @Query('filter[external_id]') String? filterByExternalId,
-
-    // What servers to return by access type
     @Query('type') GetServersQueryType? type = GetServersQueryType.member,
   });
 
-  /// Get system permissions
+  /// Returns the [SystemPermissions].
   @GET('/api/client/permissions')
   Future<Fractal<SystemPermissions>> getSystemPermissions();
 
-  /*       Account       */
-
-  /// Get account information.
+  /// Returns a [User] with the account information.
   @GET('/api/client/account')
   Future<Fractal<User>> getAccountInfo();
 
-  /// Get two factor authentication image.
+  /// Returns a [TwoFactorImage] URL for the account.
   @GET('/api/client/account/two-factor')
   Future<Fractal<TwoFactorImage>> getTwoFactor();
 
-  /// Enable two factor authentication.
+  /// Enables two-factor authentication on the account using the [code] from the
+  /// image URL. Returns a list of [RecoveryTokens] if successful.
   @POST('/api/client/account/two-factor')
   Future<Fractal<RecoveryTokens>> enableTwoFactor(
     @Body() TwoFactorCode code,
   );
 
-  /// Disable two factor authentication.
+  /// Disables two-factor authentication on the account using [data] for the
+  /// account email and password.
   @DELETE('/api/client/account/two-factor')
   Future<void> disableTwoFactor(
     @Body() DisableTwoFactor data,
   );
 
-  /// Update your [User] account email address.
+  /// Updates the account email using [data] for the email and password.
   @POST('/api/client/account/email')
   Future<void> updateEmail(
     @Body() UpdateEmail data,
   );
 
-  /// Update your [User] account password.
+  /// Updates the account password using [data] for the old password and the
+  /// new password. The [UpdatePassword.passwordConfirmation] must be identical
+  /// to the new password.
   @PUT('/api/client/account/password')
   Future<void> updatePassword(
     @Body() UpdatePassword data,
@@ -193,71 +159,67 @@ abstract class PteroClient {
   // @GET('/api/client/account/activity')
   // Future<Response> getAccountActivity();
 
-  /// Get all current [ApiKey]s on your account.
-  /// Keys are shortened to the first x characters.
+  /// Returns a list of all available [ApiKey]s on your account.
   @GET('/api/client/account/api-keys')
   Future<FractalList<ApiKey>> listApiKeys();
 
-  /// Create a new [ApiKey] on your account.
-  /// This is the only time you will ever get the full key.
+  /// Creates a new [ApiKey] on your account. The full key is returned only once
+  /// and cannot be obtained through any other methods afterwards.
   @POST('/api/client/account/api-keys')
   Future<FractalMeta<ApiKey, ApiKeyMeta>> createApiKey(
     @Body() CreateApiKey data,
   );
 
-  /// Delete an [ApiKey] on your account.
+  /// Deletes an [ApiKey] on your account by its [apiKeyId].
   @DELETE('/api/client/account/api-keys/{apiKeyId}')
   Future<void> deleteApiKey({
     @Path() required String apiKeyId,
   });
 
-  /// List all [SshKey]s on your account.
+  /// Returns a list of [SshKey]s on your account.
   @GET('/api/client/account/ssh-keys')
   Future<FractalList<SshKey>> listSshKeys();
 
-  /// Create a new [SshKey] on your account.
+  /// Creates a new [SskKey] on your account.
   @POST('/api/client/account/ssh-keys')
   Future<Fractal<SshKey>> createSshKey(
     @Body() CreateSshKey data,
   );
 
-  /// Delete an [SshKey] on your account.
+  /// Deletes an [SshKey] on your account by its [fingerprint].
   @DELETE('/api/client/account/ssh-keys/{fingerprint}')
   Future<void> deleteSshKey({
     @Path() required String fingerprint,
   });
 
-  // '/api/client/servers/{server}'
-
-  /// Get a server's information.
-  ///
-  /// Available [Includes]; 'egg', 'subusers'
+  /// Returns a [Server] by its [serverId]. You can [includes] additional
+  /// information such as "eggs" and "subusers".
   @GET('/api/client/servers/{serverId}')
   Future<FractalMeta<Server, ServerMeta>> getServerDetails({
     @Path() required String serverId,
     @Query('include') Includes? includes,
   });
 
-  /// Get the [Server]'s [WebsocketDetails].
+  /// Returns the [WebsocketDetails] for a server by its [serverId].
   @GET('/api/client/servers/{serverId}/websocket')
   Future<PteroData<WebsocketDetails>> getServerWebsocket({
     @Path() required String serverId,
   });
 
-  /// Get the [Server]'s current [Stats].
+  /// Returns the current [Stats] for a server by its [serverId].
   @GET('/api/client/servers/{serverId}/resources')
   Future<Fractal<Stats>> getServerResources({
     @Path() required String serverId,
   });
 
-  /// Send a command to the [Server].
+  /// Sends a command [data] to a server by its [serverId].
   @POST('/api/client/servers/{serverId}/command')
   Future<void> sendServerCommand(
     @Body() SendServerCommand data, {
     @Path() required String serverId,
   });
 
-  /// send a Power [Signal] to the [Server].
+  /// Sends a power action [Signal] to a server by its [serverId].
   @POST('/api/client/servers/{serverId}/power')
   Future<void> sendServerPowerAction(
     @Body() Signal signal, {
