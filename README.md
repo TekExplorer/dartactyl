@@ -1,27 +1,47 @@
 ## About
-Dartactyl is an api client that you can use to connect to the Pterodactyl Panel API
+Dartactyl is an API wrapper for the Pterodactyl Panel in Dart, it also works with Flutter!
 
 ## Features
+- Client API coverage (more than 90%)
+- Websockets activity
+- Server file system control
+- Dynamic error handling
+- Class-based structure
 
-Nearly all api functions are available for the client-side api, ~~but error checking has not been implemented yet.~~ It's here!
+## Installing
+With Dart or Flutter:
+```
+dart pub add dartactyl
+```
+or as a dependency:
+```yaml
+dependencies:
+  dartactyl: ^1.4.0
+```
 
 ## Usage
-
 You can quickly get started by making a client like so. This client has many methods you can use to interface with your panel.
 ```dart
-PteroClient client = PteroClient.generate(
-    url: 'https://panel.yourdomain.com',
-    key: '<api-key>',
-);
+import 'package:dartactyl/dartactyl.dart';
+
+void main() async {
+  final client = PteroClient.generate(
+    url: 'https://your.panel.com',
+    key: 'your.api.key'
+  );
+
+  User account = await client.getAccountInfo().then((a) => a.attributes);
+  print(account.username);
+}
 ```
 
 ## Development
-
-To get started, generate needed files by running 
+Make sure you have installed the Build Runner dependency for development, then run:
 ```
 dart run build_runner build
 ```
 
-## Additional information
+## Contributing
+Feel free to open a PR here for contributing!
 
-This package is WIP, but feel free to make issues or pull requests on the GitHub repository
+See the [license](./LICENSE) for copyright and license information.
