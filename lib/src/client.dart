@@ -91,6 +91,8 @@ abstract class PteroClient {
   @GET('/auth/logout')
   Future<void> logout();
 
+  // Account
+
   /// Returns a list of [Server]s. Set [type] to specify which servers are
   /// returned (default is `member`).
   ///
@@ -228,30 +230,33 @@ abstract class PteroClient {
 
   // Databases
 
-  /// List all databases that are available to the server
-  ///
-  /// Available [Includes]; 'password' (includes the database user password)
+  /// Returns a list of [ServerDatabase]s for a server by its [serverId]. You
+  /// can [includes] the "password" for databases.
   @GET('/api/client/servers/{serverId}/databases')
   Future<FractalList<ServerDatabase>> listServerDatabases({
     @Path() required String serverId,
     @Query('include') Includes? includes,
   });
 
-  /// Create a new database on the server
+  /// Creates a new [ServerDatabase] on a server by its [serverId] using [data]
+  /// for the database name and remote address.
   @POST('/api/client/servers/{serverId}/databases')
   Future<Fractal<ServerDatabase>> createServerDatabase(
     @Body() CreateServerDatabase data, {
     @Path() required String serverId,
   });
 
-  /// Delete a [ServerDatabase]
+  /// Deletes a [ServerDatabase] on a server by its [serverId] and [databaseId].
   @DELETE('/api/client/servers/{serverId}/databases/{databaseId}')
   Future<void> deleteDatabase({
     @Path() required String serverId,
     @Path() required String databaseId,
   });
 
-  /// TODO: on [rotateDatabasePassword]
+  /// Rotates the database of a server by its [serverId] and [databaseId].
+  /// Returns the updated database if successful.
+  ///
+  /// TODO: on rotateDatabasePassword
   @POST('/api/client/servers/{serverId}/databases/{databaseId}/rotate-password')
   Future<Fractal<ServerDatabase>> rotateDatabasePassword({
     @Path() required String serverId,
@@ -260,52 +265,48 @@ abstract class PteroClient {
 
   // Files
 
-  /// List all files on the [Server]
-  ///
-  /// [directory]; path to list files from
+  /// Returns a list of [FileObject]s in the [directory] of a server by its
+  /// [serverId]. For the root directory (`/home/container`) use "/".
   @GET('/api/client/servers/{serverId}/files/list')
   Future<FractalList<FileObject>> listFiles({
     @Path() required String serverId,
     @Query('directory', encoded: true) required String directory,
   });
 
-  /// Get a [file]'s contents from the [Server]
+  /// Returns the contents of a specific [file] on a server by its [serverId].
   ///
-  /// [file]; path to the desired file
-  @GET('/api/client/servers/{serverId}/files/contents') //TODO
+  /// TODO: getFileContents
+  @GET('/api/client/servers/{serverId}/files/contents')
   Future<String?> getFileContents({
     @Path() required String serverId,
     @Query('file', encoded: true) required String file,
   });
 
-  /// Download a [file] from the [Server]
-  ///
-  /// [file]; path to the desired file
+  /// Returns a [SignedUrl] to a [file] on a server by its [serverId].
   @GET('/api/client/servers/{serverId}/files/download')
   Future<Fractal<SignedUrl>> downloadFile({
     @Path() required String serverId,
     @Query('file', encoded: true) required String file,
   });
 
-  /// Rename a file on the [Server]
+  /// Sets a list of files to [rename] on a server by its [serverId].
   @PUT('/api/client/servers/{serverId}/files/rename')
   Future<void> renameFile(
     @Body() FileBodyListFromTo rename, {
     @Path() required String serverId,
   });
 
-  /// Make a copy of a file on the [Server]
+  /// Copies a copy of a file using [data] as the location path on a server by
+  /// its [serverId].
   @POST('/api/client/servers/{serverId}/files/copy')
   Future<void> makeFileCopy(
     @Body() MakeFileCopy data, {
     @Path() required String serverId,
   });
 
-  /// Write a [file] to the [Server]
-  ///
-  /// Use this to update or create a file on the [Server].
-  ///
-  /// [file]; url encoded path to the desired file
+  /// Writes the [rawContents] to a [file] on the server by its [serverId]. This
+  /// uses `text/plain` content type by default. If the file does not exist, it
+  /// will be created automatically.
   @POST('/api/client/servers/{serverId}/files/write')
   @Headers(<String, dynamic>{"Content-Type": 'text/plain'})
   Future<void> writeFile({
@@ -314,49 +315,55 @@ abstract class PteroClient {
     @Body() required String rawContents,
   });
 
-  /// Compress a file into an archive (eg. zip) on the [Server]
+  /// Sets a list of files to be compressed using [data] on a server by its
+  /// [serverId]. Returns the compressed [FileObject] if successful. Compressed
+  /// files are always in the `.tar.gz` format.
   @POST('/api/client/servers/{serverId}/files/compress')
   Future<Fractal<FileObject>> compressFile(
     @Body() FileBodyListString data, {
     @Path() required String serverId,
   });
 
-  /// Decompress an archive (eg. zip) on the [Server]
+  /// Decompresses an archive file on a server by its [serverId] using [data]
+  /// for the location and file name of the archive.
   @POST('/api/client/servers/{serverId}/files/decompress')
   Future<void> decompressFile(
     @Body() FileBody data, {
     @Path() required String serverId,
   });
 
-  /// Delete one or more files on the [Server]
+  /// Sets a list of files to be deleted on a server by its [serverId], using
+  /// [data] for the location and file names.
   @POST('/api/client/servers/{serverId}/files/delete')
   Future<void> deleteFiles(
     @Body() FileBodyListString data, {
     @Path() required String serverId,
   });
 
-  /// Creates the specified folder in the specified directory
+  /// Creates a folder on a server by its [serverId], using [data] for the
+  /// root location and name of the folder.
   @POST('/api/client/servers/{serverId}/files/create-folder')
   Future<void> createFolder(
     @Body() FolderBody data, {
     @Path() required String serverId,
   });
 
-  /// Changes the permissions of a file or folder on the [Server]
+  /// Changes the permissions of a list of files on a server by its [serverId].
   @POST('/api/client/servers/{serverId}/files/chmod')
   Future<void> chmodFile(
     @Body() ChmodFileBody data, {
     @Path() required String serverId,
   });
 
-  /// Download a file from a remote url to the [Server] directly
+  /// Pulls a file from a remote URL to be downloaded onto a server by its
+  /// [serverId]. See [PullFileBody] for more information.
   @POST('/api/client/servers/{serverId}/files/pull')
   Future<void> pullFile(
     @Body() PullFileBody data, {
     @Path() required String serverId,
   });
 
-  /// Returns a [SignedUrl] used to upload files to the [Server] using POST
+  /// Returns a [SignedUrl] to upload files to a server by its [serverId].
   @GET('/api/client/servers/{serverId}/files/upload')
   Future<Fractal<SignedUrl>> getFileUploadUrl({
     @Path() required String serverId,
