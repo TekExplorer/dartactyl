@@ -10,6 +10,7 @@ _$_FileObject _$$_FileObjectFromJson(Map<String, dynamic> json) =>
     _$_FileObject(
       name: json['name'] as String,
       mode: json['mode'] as String,
+      modeBits: json['mode_bits'] as String,
       size: json['size'] as int,
       isFile: json['is_file'] as bool,
       isSymlink: json['is_symlink'] as bool,
@@ -22,6 +23,7 @@ Map<String, dynamic> _$$_FileObjectToJson(_$_FileObject instance) =>
     <String, dynamic>{
       'name': instance.name,
       'mode': instance.mode,
+      'mode_bits': instance.modeBits,
       'size': instance.size,
       'is_file': instance.isFile,
       'is_symlink': instance.isSymlink,

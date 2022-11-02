@@ -15,18 +15,12 @@ class PteroApiException extends GenericApiException {
 
   PteroApiException({
     required PteroErrors errors,
-    required DioError rawDioError,
-    JsonMap? rawData,
-    int? statusCode,
-    String? statusMessage,
+    required super.rawDioError,
+    super.rawData,
+    super.statusCode,
+    super.statusMessage,
   })  : _errors = errors,
-        super(
-          rawDioError: rawDioError,
-          statusCode: statusCode ?? rawDioError.response?.statusCode,
-          message: rawDioError.message,
-          rawData: rawData ?? rawDioError.response?.data as JsonMap,
-          statusMessage: statusMessage,
-        );
+        super(message: rawDioError.message);
 
   @override
   String get message => _message ?? errors.toString();

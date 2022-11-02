@@ -22,6 +22,7 @@ FileObject _$FileObjectFromJson(Map<String, dynamic> json) {
 mixin _$FileObject {
   String get name => throw _privateConstructorUsedError;
   String get mode => throw _privateConstructorUsedError;
+  String get modeBits => throw _privateConstructorUsedError;
   int get size => throw _privateConstructorUsedError;
   bool get isFile => throw _privateConstructorUsedError;
   bool get isSymlink => throw _privateConstructorUsedError;
@@ -43,6 +44,7 @@ abstract class $FileObjectCopyWith<$Res> {
   $Res call(
       {String name,
       String mode,
+      String modeBits,
       int size,
       bool isFile,
       bool isSymlink,
@@ -63,6 +65,7 @@ class _$FileObjectCopyWithImpl<$Res> implements $FileObjectCopyWith<$Res> {
   $Res call({
     Object? name = freezed,
     Object? mode = freezed,
+    Object? modeBits = freezed,
     Object? size = freezed,
     Object? isFile = freezed,
     Object? isSymlink = freezed,
@@ -78,6 +81,10 @@ class _$FileObjectCopyWithImpl<$Res> implements $FileObjectCopyWith<$Res> {
       mode: mode == freezed
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
+              as String,
+      modeBits: modeBits == freezed
+          ? _value.modeBits
+          : modeBits // ignore: cast_nullable_to_non_nullable
               as String,
       size: size == freezed
           ? _value.size
@@ -117,6 +124,7 @@ abstract class _$$_FileObjectCopyWith<$Res>
   $Res call(
       {String name,
       String mode,
+      String modeBits,
       int size,
       bool isFile,
       bool isSymlink,
@@ -139,6 +147,7 @@ class __$$_FileObjectCopyWithImpl<$Res> extends _$FileObjectCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? mode = freezed,
+    Object? modeBits = freezed,
     Object? size = freezed,
     Object? isFile = freezed,
     Object? isSymlink = freezed,
@@ -154,6 +163,10 @@ class __$$_FileObjectCopyWithImpl<$Res> extends _$FileObjectCopyWithImpl<$Res>
       mode: mode == freezed
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
+              as String,
+      modeBits: modeBits == freezed
+          ? _value.modeBits
+          : modeBits // ignore: cast_nullable_to_non_nullable
               as String,
       size: size == freezed
           ? _value.size
@@ -189,6 +202,7 @@ class _$_FileObject extends _FileObject {
   _$_FileObject(
       {required this.name,
       required this.mode,
+      required this.modeBits,
       required this.size,
       required this.isFile,
       required this.isSymlink,
@@ -205,6 +219,8 @@ class _$_FileObject extends _FileObject {
   @override
   final String mode;
   @override
+  final String modeBits;
+  @override
   final int size;
   @override
   final bool isFile;
@@ -219,7 +235,7 @@ class _$_FileObject extends _FileObject {
 
   @override
   String toString() {
-    return 'FileObject(name: $name, mode: $mode, size: $size, isFile: $isFile, isSymlink: $isSymlink, mimetype: $mimetype, createdAt: $createdAt, modifiedAt: $modifiedAt)';
+    return 'FileObject(name: $name, mode: $mode, modeBits: $modeBits, size: $size, isFile: $isFile, isSymlink: $isSymlink, mimetype: $mimetype, createdAt: $createdAt, modifiedAt: $modifiedAt)';
   }
 
   @override
@@ -229,6 +245,7 @@ class _$_FileObject extends _FileObject {
             other is _$_FileObject &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.mode, mode) &&
+            const DeepCollectionEquality().equals(other.modeBits, modeBits) &&
             const DeepCollectionEquality().equals(other.size, size) &&
             const DeepCollectionEquality().equals(other.isFile, isFile) &&
             const DeepCollectionEquality().equals(other.isSymlink, isSymlink) &&
@@ -244,6 +261,7 @@ class _$_FileObject extends _FileObject {
       runtimeType,
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(mode),
+      const DeepCollectionEquality().hash(modeBits),
       const DeepCollectionEquality().hash(size),
       const DeepCollectionEquality().hash(isFile),
       const DeepCollectionEquality().hash(isSymlink),
@@ -266,6 +284,7 @@ abstract class _FileObject extends FileObject {
   factory _FileObject(
       {required final String name,
       required final String mode,
+      required final String modeBits,
       required final int size,
       required final bool isFile,
       required final bool isSymlink,
@@ -281,6 +300,8 @@ abstract class _FileObject extends FileObject {
   String get name => throw _privateConstructorUsedError;
   @override
   String get mode => throw _privateConstructorUsedError;
+  @override
+  String get modeBits => throw _privateConstructorUsedError;
   @override
   int get size => throw _privateConstructorUsedError;
   @override

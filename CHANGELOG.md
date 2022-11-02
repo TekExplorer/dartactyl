@@ -1,4 +1,9 @@
 # CHANGELOG
+## 1.4.2
+ - added activity log stuff
+ - improved includes
+ - updated `deleteSshKey` to work with new versions, as well as keeping the old method
+ - updated `FileObject`
 ## 1.4.1
  - added `lockBackup`
  - updated server websocket extentions

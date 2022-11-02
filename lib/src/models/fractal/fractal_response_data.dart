@@ -31,10 +31,10 @@ class FractalResponseDataMeta<T extends SerializableMixin, M extends Meta>
   final M meta;
 
   const FractalResponseDataMeta({
-    required AttributeObject object,
-    required T attributes,
+    required super.object,
+    required super.attributes,
     required this.meta,
-  }) : super(object: object, attributes: attributes);
+  });
 
   @override
   JsonMap toJson() => _$FractalResponseDataMetaToJson<T, M>(this);
@@ -95,6 +95,8 @@ class AttributesConverter<T extends SerializableMixin>
         return Egg.fromJson(json) as T;
       case SshKey:
         return SshKey.fromJson(json) as T;
+      case ActivityLog:
+        return ActivityLog.fromJson(json) as T;
       default:
         throw ArgumentError(
           "Incompatible type used in FractalResponseData.fromJson: $T",

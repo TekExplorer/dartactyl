@@ -48,6 +48,7 @@ const _$AttributeObjectEnumMap = {
   AttributeObject.nest: 'nest',
   AttributeObject.egg: 'egg',
   AttributeObject.sshKey: 'ssh_key',
+  AttributeObject.activityLog: 'activity_log',
 };
 
 FractalResponseDataMeta<T, M> _$FractalResponseDataMetaFromJson<

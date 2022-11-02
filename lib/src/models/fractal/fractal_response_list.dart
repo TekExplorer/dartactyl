@@ -29,10 +29,10 @@ class FractalResponseListMeta<T extends SerializableMixin, M extends Meta>
   @MetaConverter()
   final M meta;
   const FractalResponseListMeta({
-    required AttributeObject object,
-    required List<FractalResponseData<T>> data,
+    required super.object,
+    required super.data,
     required this.meta,
-  }) : super(object: object, data: data);
+  });
 
   factory FractalResponseListMeta.fromJson(JsonMap json) =>
       _$FractalResponseListMetaFromJson(json);

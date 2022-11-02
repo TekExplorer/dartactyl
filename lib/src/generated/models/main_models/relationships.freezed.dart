@@ -512,3 +512,143 @@ abstract class _ServerScheduleRelationships
   _$$_ServerScheduleRelationshipsCopyWith<_$_ServerScheduleRelationships>
       get copyWith => throw _privateConstructorUsedError;
 }
+
+ActivityLogRelationships _$ActivityLogRelationshipsFromJson(
+    Map<String, dynamic> json) {
+  return _ActivityLogRelationships.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ActivityLogRelationships {
+// JsonMap? actor,
+  FractalResponseData<User>? get actor => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ActivityLogRelationshipsCopyWith<ActivityLogRelationships> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ActivityLogRelationshipsCopyWith<$Res> {
+  factory $ActivityLogRelationshipsCopyWith(ActivityLogRelationships value,
+          $Res Function(ActivityLogRelationships) then) =
+      _$ActivityLogRelationshipsCopyWithImpl<$Res>;
+  $Res call({FractalResponseData<User>? actor});
+}
+
+/// @nodoc
+class _$ActivityLogRelationshipsCopyWithImpl<$Res>
+    implements $ActivityLogRelationshipsCopyWith<$Res> {
+  _$ActivityLogRelationshipsCopyWithImpl(this._value, this._then);
+
+  final ActivityLogRelationships _value;
+  // ignore: unused_field
+  final $Res Function(ActivityLogRelationships) _then;
+
+  @override
+  $Res call({
+    Object? actor = freezed,
+  }) {
+    return _then(_value.copyWith(
+      actor: actor == freezed
+          ? _value.actor
+          : actor // ignore: cast_nullable_to_non_nullable
+              as FractalResponseData<User>?,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_ActivityLogRelationshipsCopyWith<$Res>
+    implements $ActivityLogRelationshipsCopyWith<$Res> {
+  factory _$$_ActivityLogRelationshipsCopyWith(
+          _$_ActivityLogRelationships value,
+          $Res Function(_$_ActivityLogRelationships) then) =
+      __$$_ActivityLogRelationshipsCopyWithImpl<$Res>;
+  @override
+  $Res call({FractalResponseData<User>? actor});
+}
+
+/// @nodoc
+class __$$_ActivityLogRelationshipsCopyWithImpl<$Res>
+    extends _$ActivityLogRelationshipsCopyWithImpl<$Res>
+    implements _$$_ActivityLogRelationshipsCopyWith<$Res> {
+  __$$_ActivityLogRelationshipsCopyWithImpl(_$_ActivityLogRelationships _value,
+      $Res Function(_$_ActivityLogRelationships) _then)
+      : super(_value, (v) => _then(v as _$_ActivityLogRelationships));
+
+  @override
+  _$_ActivityLogRelationships get _value =>
+      super._value as _$_ActivityLogRelationships;
+
+  @override
+  $Res call({
+    Object? actor = freezed,
+  }) {
+    return _then(_$_ActivityLogRelationships(
+      actor: actor == freezed
+          ? _value.actor
+          : actor // ignore: cast_nullable_to_non_nullable
+              as FractalResponseData<User>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ActivityLogRelationships extends _ActivityLogRelationships {
+  _$_ActivityLogRelationships({this.actor}) : super._();
+
+  factory _$_ActivityLogRelationships.fromJson(Map<String, dynamic> json) =>
+      _$$_ActivityLogRelationshipsFromJson(json);
+
+// JsonMap? actor,
+  @override
+  final FractalResponseData<User>? actor;
+
+  @override
+  String toString() {
+    return 'ActivityLogRelationships(actor: $actor)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ActivityLogRelationships &&
+            const DeepCollectionEquality().equals(other.actor, actor));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(actor));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_ActivityLogRelationshipsCopyWith<_$_ActivityLogRelationships>
+      get copyWith => __$$_ActivityLogRelationshipsCopyWithImpl<
+          _$_ActivityLogRelationships>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ActivityLogRelationshipsToJson(this);
+  }
+}
+
+abstract class _ActivityLogRelationships extends ActivityLogRelationships {
+  factory _ActivityLogRelationships({final FractalResponseData<User>? actor}) =
+      _$_ActivityLogRelationships;
+  _ActivityLogRelationships._() : super._();
+
+  factory _ActivityLogRelationships.fromJson(Map<String, dynamic> json) =
+      _$_ActivityLogRelationships.fromJson;
+
+  @override // JsonMap? actor,
+  FractalResponseData<User>? get actor => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ActivityLogRelationshipsCopyWith<_$_ActivityLogRelationships>
+      get copyWith => throw _privateConstructorUsedError;
+}

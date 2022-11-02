@@ -24,8 +24,7 @@ class PteroErrorStringMeta extends PteroErrorMeta {
   @JsonKey(name: 'source_field')
   final PteroErrorScheduleMetaRule? sourceField;
 
-  PteroErrorStringMeta({required String rule, required this.sourceField})
-      : super(rule: rule);
+  PteroErrorStringMeta({required super.rule, required this.sourceField});
 
   factory PteroErrorStringMeta.fromJson(JsonMap json) =>
       _$PteroErrorStringMetaFromJson(json);
@@ -39,8 +38,7 @@ class PteroErrorScheduleMeta extends PteroErrorMeta {
   @JsonKey(name: 'source_field')
   final Cron sourceField;
 
-  PteroErrorScheduleMeta({required String rule, required this.sourceField})
-      : super(rule: rule);
+  PteroErrorScheduleMeta({required super.rule, required this.sourceField});
 
   factory PteroErrorScheduleMeta.fromJson(JsonMap json) =>
       _$PteroErrorScheduleMetaFromJson(json);

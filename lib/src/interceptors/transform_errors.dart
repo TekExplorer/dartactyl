@@ -35,10 +35,10 @@ class TransformErrorInterceptor extends Interceptor {
 
 class UnauthorizedException extends PteroApiException {
   UnauthorizedException({
-    required PteroErrors errors,
-    required JsonMap rawData,
-    required DioError rawDioError,
-  }) : super(errors: errors, rawData: rawData, rawDioError: rawDioError);
+    required super.errors,
+    required super.rawData,
+    required super.rawDioError,
+  });
 
   factory UnauthorizedException.fromPApiE(PteroApiException e) =>
       UnauthorizedException(
@@ -50,10 +50,10 @@ class UnauthorizedException extends PteroApiException {
 
 class ForbiddenException extends PteroApiException {
   ForbiddenException({
-    required PteroErrors errors,
-    required JsonMap rawData,
-    required DioError rawDioError,
-  }) : super(errors: errors, rawData: rawData, rawDioError: rawDioError);
+    required super.errors,
+    required super.rawData,
+    required super.rawDioError,
+  });
 
   factory ForbiddenException.fromPApiE(PteroApiException e) =>
       ForbiddenException(
@@ -65,10 +65,10 @@ class ForbiddenException extends PteroApiException {
 
 class NotFoundException extends PteroApiException {
   NotFoundException({
-    required PteroErrors errors,
-    required JsonMap rawData,
-    required DioError rawDioError,
-  }) : super(errors: errors, rawData: rawData, rawDioError: rawDioError);
+    required super.errors,
+    required super.rawData,
+    required super.rawDioError,
+  });
 
   factory NotFoundException.fromPApiE(PteroApiException e) => NotFoundException(
         errors: PteroErrors(errors: e.errors),
@@ -79,10 +79,10 @@ class NotFoundException extends PteroApiException {
 
 class MethodNotAllowedException extends PteroApiException {
   MethodNotAllowedException({
-    required PteroErrors errors,
-    required JsonMap rawData,
-    required DioError rawDioError,
-  }) : super(errors: errors, rawData: rawData, rawDioError: rawDioError);
+    required super.errors,
+    required super.rawData,
+    required super.rawDioError,
+  });
 
   factory MethodNotAllowedException.fromPApiE(PteroApiException e) =>
       MethodNotAllowedException(

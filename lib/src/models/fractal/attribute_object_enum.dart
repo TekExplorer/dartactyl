@@ -40,4 +40,6 @@ enum AttributeObject {
   egg,
   @JsonValue('ssh_key')
   sshKey,
+  @JsonValue('activity_log')
+  activityLog,
 }

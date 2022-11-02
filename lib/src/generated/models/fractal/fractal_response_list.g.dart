@@ -50,6 +50,7 @@ const _$AttributeObjectEnumMap = {
   AttributeObject.nest: 'nest',
   AttributeObject.egg: 'egg',
   AttributeObject.sshKey: 'ssh_key',
+  AttributeObject.activityLog: 'activity_log',
 };
 
 FractalResponseListMeta<T, M> _$FractalResponseListMetaFromJson<
@@ -57,10 +58,11 @@ FractalResponseListMeta<T, M> _$FractalResponseListMetaFromJson<
         M extends Meta<dynamic>>(Map<String, dynamic> json) =>
     FractalResponseListMeta<T, M>(
       object: $enumDecode(_$AttributeObjectEnumMap, json['object']),
-      data: (json['data'] as List<dynamic>)
-          .map(
-              (e) => FractalResponseData<T>.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      data: (json['data'] as List<dynamic>?)
+              ?.map((e) =>
+                  FractalResponseData<T>.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       meta: MetaConverter<M>().fromJson(json['meta'] as Map<String, dynamic>),
     );
 

@@ -8,6 +8,44 @@ part of '../client.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps
 
+class _DepricatedPteroClient implements DepricatedPteroClient {
+  _DepricatedPteroClient(this._dio, {this.baseUrl});
+
+  final Dio _dio;
+
+  String? baseUrl;
+
+  @override
+  Future<void> deleteSshKey1_8({required fingerprint}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    await _dio.fetch<void>(_setStreamType<void>(
+        Options(method: 'DELETE', headers: _headers, extra: _extra)
+            .compose(
+                _dio.options, '/api/client/account/ssh-keys/${fingerprint}',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    return null;
+  }
+
+  RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
+    if (T != dynamic &&
+        !(requestOptions.responseType == ResponseType.bytes ||
+            requestOptions.responseType == ResponseType.stream)) {
+      if (T == String) {
+        requestOptions.responseType = ResponseType.plain;
+      } else {
+        requestOptions.responseType = ResponseType.json;
+      }
+    }
+    return requestOptions;
+  }
+}
+
+// ignore_for_file: unnecessary_brace_in_string_interps
+
 class _PteroClient implements PteroClient {
   _PteroClient(this._dio, {this.baseUrl});
 
@@ -49,21 +87,23 @@ class _PteroClient implements PteroClient {
   Future<FractalResponseListMeta<Server, PaginatedMeta>> listServers(
       {page = 1,
       perPage = 50,
-      includes,
+      include,
       filter,
       filterByUuid,
       filterByName,
       filterByExternalId,
+      filterByDescription,
       type = GetServersQueryType.member}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'page': page,
       r'per_page': perPage,
-      r'include': includes?.toJson(),
+      r'include': include?.toJson(),
       r'filter[*]': filter,
       r'filter[uuid]': filterByUuid,
       r'filter[name]': filterByName,
       r'filter[external_id]': filterByExternalId,
+      r'filter[description]': filterByDescription,
       r'type': type?.toJson()
     };
     queryParameters.removeWhere((k, v) => v == null);
@@ -169,7 +209,7 @@ class _PteroClient implements PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
     await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'POST', headers: _headers, extra: _extra)
+        Options(method: 'PUT', headers: _headers, extra: _extra)
             .compose(_dio.options, '/api/client/account/email',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
@@ -189,6 +229,33 @@ class _PteroClient implements PteroClient {
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
+  }
+
+  @override
+  Future<FractalResponseListMeta<ActivityLog, PaginatedMeta>>
+      getAccountActivity(
+          {include, page, perPage, filterByIp, filterByEvent, sort}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'include': include?.toJson(),
+      r'page': page,
+      r'per_page': perPage,
+      r'filter[ip]': filterByIp,
+      r'filter[event]': filterByEvent,
+      r'sort': sort?.toJson()
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<FractalResponseListMeta<ActivityLog, PaginatedMeta>>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/api/client/account/activity',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = FractalResponseListMeta<ActivityLog, PaginatedMeta>.fromJson(
+        _result.data!);
+    return value;
   }
 
   @override
@@ -273,15 +340,15 @@ class _PteroClient implements PteroClient {
   }
 
   @override
-  Future<void> deleteSshKey({required fingerprint}) async {
+  Future<void> deleteSshKey(body) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
+    _data.addAll(body.toJson());
     await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'DELETE', headers: _headers, extra: _extra)
-            .compose(
-                _dio.options, '/api/client/account/ssh-keys/${fingerprint}',
+        Options(method: 'POST', headers: _headers, extra: _extra)
+            .compose(_dio.options, '/api/client/account/ssh-keys/remove',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -289,9 +356,9 @@ class _PteroClient implements PteroClient {
 
   @override
   Future<FractalResponseDataMeta<Server, ServerMeta>> getServerDetails(
-      {required serverId, includes}) async {
+      {required serverId, include}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'include': includes?.toJson()};
+    final queryParameters = <String, dynamic>{r'include': include?.toJson()};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
@@ -343,6 +410,39 @@ class _PteroClient implements PteroClient {
   }
 
   @override
+  Future<FractalResponseListMeta<ActivityLog, PaginatedMeta>> getServerActivity(
+      {required serverId,
+      include,
+      page,
+      perPage,
+      filterByIp,
+      filterByEvent,
+      sort}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'include': include?.toJson(),
+      r'page': page,
+      r'per_page': perPage,
+      r'filter[ip]': filterByIp,
+      r'filter[event]': filterByEvent,
+      r'sort': sort?.toJson()
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<FractalResponseListMeta<ActivityLog, PaginatedMeta>>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(
+                    _dio.options, '/api/client/servers/${serverId}/activity',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = FractalResponseListMeta<ActivityLog, PaginatedMeta>.fromJson(
+        _result.data!);
+    return value;
+  }
+
+  @override
   Future<void> sendServerCommand(data, {required serverId}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -374,9 +474,9 @@ class _PteroClient implements PteroClient {
 
   @override
   Future<FractalResponseList<ServerDatabase>> listServerDatabases(
-      {required serverId, includes}) async {
+      {required serverId, include}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'include': includes?.toJson()};
+    final queryParameters = <String, dynamic>{r'include': include?.toJson()};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};

@@ -38,6 +38,7 @@ export 'src/models/error_responses/ptero_errors.dart';
 export 'src/models/fractal/attribute_object_enum.dart';
 export 'src/models/fractal/fractal_response_data.dart';
 export 'src/models/fractal/fractal_response_list.dart';
+export 'src/models/main_models/activity_log.dart';
 export 'src/models/main_models/allocation.dart';
 export 'src/models/main_models/api_key.dart';
 export 'src/models/main_models/backup.dart';
@@ -88,6 +89,7 @@ export 'src/models/query/get_servers.dart';
 
 /// Query
 export 'src/models/query/includes.dart';
+export 'src/models/query/sort.dart';
 
 /// Request Models
 export 'src/models/request_models/allocation_note.dart';
@@ -95,6 +97,7 @@ export 'src/models/request_models/chmod_file.dart';
 export 'src/models/request_models/create_api_key.dart';
 export 'src/models/request_models/create_server_database.dart';
 export 'src/models/request_models/create_ssh_key.dart';
+export 'src/models/request_models/delete_ssh_key.dart';
 export 'src/models/request_models/disable_two_factor.dart';
 export 'src/models/request_models/file_body.dart';
 export 'src/models/request_models/from_to.dart';

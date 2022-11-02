@@ -11,18 +11,28 @@ part 'client_extentions.dart';
 part 'generated/client.g.dart';
 part 'mock_client.dart';
 
+@RestApi()
+abstract class DepricatedPteroClient {
+  factory DepricatedPteroClient(Dio dio, {String? baseUrl}) =
+      _DepricatedPteroClient;
+
+  /// Delete an [SshKey] on your account. (1.8.0-1.8.1)
+  @DELETE('/api/client/account/ssh-keys/{fingerprint}')
+  Future<void> deleteSshKey1_8({
+    @Path() required String fingerprint,
+  });
+}
+
 /// Pterodactyl API Client
-@RestApi(
-    // autoCastResponse: true,
-    )
+@RestApi()
 abstract class PteroClient {
   factory PteroClient(Dio dio, {String? baseUrl}) = _PteroClient;
 
   /// Creates an instance of [MockPteroClient]
   /// which will return concrete responses for testing
-  @experimental
-  static MockPteroClient mock(Dio dio, {String? baseUrl}) =>
-      MockPteroClient(dio, baseUrl: baseUrl);
+  // @experimental
+  // static MockPteroClient mock(Dio dio, {String? baseUrl}) =>
+  //     MockPteroClient(dio, baseUrl: baseUrl);
 
   Dio get _dio;
   String? get baseUrl;
@@ -39,12 +49,7 @@ abstract class PteroClient {
     bool enableErrorInterceptor = true,
     bool enableIfAuthNoKeyInterceptor = false,
   }) {
-    // if (!url.startsWith('http')) {
-    //   url = 'https://$url';
-    //   log('url was not a full URL, adding https://', name: 'PteroClient');
-    // }
-
-    dio = dio ?? Dio();
+    dio ??= Dio();
 
     if (key != null) {
       // use key
@@ -53,10 +58,8 @@ abstract class PteroClient {
     dio.options
       ..headers[HttpHeaders.userAgentHeader] = userAgent
       ..headers[HttpHeaders.acceptHeader] = 'application/json'
-      ..headers[HttpHeaders.contentTypeHeader] = 'application/json';
-
-    // if (!kIsWeb) dio.options.headers["Origin"] = url;
-    dio.options.baseUrl = url;
+      ..headers[HttpHeaders.contentTypeHeader] = 'application/json'
+      ..baseUrl = url;
 
     dio.interceptors.addAll([
       // if (enableIfAuthNoKeyInterceptor) IfAuthNoKeyInterceptor(),
@@ -135,15 +138,15 @@ abstract class PteroClient {
     @Query('page') int? page = 1,
     @Query('per_page') int? perPage = 50,
 
-    /// [includes]; egg, subusers
-    @Query('include') Includes? includes,
+    /// [include]; egg, subusers
+    @Query('include') ServerIncludes? include,
 
     // Filters
     @Query('filter[*]') String? filter,
     @Query('filter[uuid]') String? filterByUuid,
     @Query('filter[name]') String? filterByName,
     @Query('filter[external_id]') String? filterByExternalId,
-
+    @Query('filter[description]') String? filterByDescription,
     // What servers to return by access type
     @Query('type') GetServersQueryType? type = GetServersQueryType.member,
   });
@@ -175,7 +178,7 @@ abstract class PteroClient {
   );
 
   /// Update your [User] account email address.
-  @POST('/api/client/account/email')
+  @PUT('/api/client/account/email')
   Future<void> updateEmail(
     @Body() UpdateEmail data,
   );
@@ -186,10 +189,21 @@ abstract class PteroClient {
     @Body() UpdatePassword data,
   );
 
-  /// TODO: Account Activity; not properly implemented yet.
-  // @experimental
-  // @GET('/api/client/account/activity')
-  // Future<Response> getAccountActivity();
+  /// TODO: Account Activity; not tested
+  @experimental
+  @GET('/api/client/account/activity')
+  Future<FractalListMeta<ActivityLog, PaginatedMeta>> getAccountActivity({
+    @Query('include') ActivityLogsIncludes? include,
+    // Pagination
+    @Query('page') int? page,
+    @Query('per_page') int? perPage,
+    // Filters
+    // @Query('filter[*]') String? filter,
+    @Query('filter[ip]') String? filterByIp,
+    @Query('filter[event]') String? filterByEvent,
+    // Sort
+    @Query('sort') ActivityLogSort? sort,
+  });
 
   /// Get all current [ApiKey]s on your account.
   /// Keys are shortened to the first x characters.
@@ -219,11 +233,11 @@ abstract class PteroClient {
     @Body() CreateSshKey data,
   );
 
-  /// Delete an [SshKey] on your account.
-  @DELETE('/api/client/account/ssh-keys/{fingerprint}')
-  Future<void> deleteSshKey({
-    @Path() required String fingerprint,
-  });
+  /// Delete an [SshKey] on your account. (1.9+)
+  @POST('/api/client/account/ssh-keys/remove')
+  Future<void> deleteSshKey(
+    @Body() DeleteSSHKey body,
+  );
 
   // '/api/client/servers/{server}'
 
@@ -233,7 +247,7 @@ abstract class PteroClient {
   @GET('/api/client/servers/{serverId}')
   Future<FractalMeta<Server, ServerMeta>> getServerDetails({
     @Path() required String serverId,
-    @Query('include') Includes? includes,
+    @Query('include') ServerIncludes? include,
   });
 
   /// Get the [Server]'s [WebsocketDetails].
@@ -246,6 +260,23 @@ abstract class PteroClient {
   @GET('/api/client/servers/{serverId}/resources')
   Future<Fractal<Stats>> getServerResources({
     @Path() required String serverId,
+  });
+
+  /// TODO: Server Activity; not tested
+  @experimental
+  @GET('/api/client/servers/{serverId}/activity')
+  Future<FractalListMeta<ActivityLog, PaginatedMeta>> getServerActivity({
+    @Path() required String serverId,
+    @Query('include') ActivityLogsIncludes? include,
+    // Pagination
+    @Query('page') int? page,
+    @Query('per_page') int? perPage,
+    // Filters
+    // @Query('filter[*]') String? filter,
+    @Query('filter[ip]') String? filterByIp,
+    @Query('filter[event]') String? filterByEvent,
+    // Sort
+    @Query('sort') ActivityLogSort? sort,
   });
 
   /// Send a command to the [Server].
@@ -266,11 +297,11 @@ abstract class PteroClient {
 
   /// List all databases that are available to the server
   ///
-  /// Available [Includes]; 'password' (includes the database user password)
+  /// Available [Includes]; 'password' (include the database user password)
   @GET('/api/client/servers/{serverId}/databases')
   Future<FractalList<ServerDatabase>> listServerDatabases({
     @Path() required String serverId,
-    @Query('include') Includes? includes,
+    @Query('include') ServerDatabasesIncludes? include,
   });
 
   /// Create a new database on the server

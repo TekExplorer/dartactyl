@@ -57,3 +57,18 @@ Map<String, dynamic> _$$_ServerScheduleRelationshipsToJson(
     <String, dynamic>{
       'tasks': instance.tasks.toJson(),
     };
+
+_$_ActivityLogRelationships _$$_ActivityLogRelationshipsFromJson(
+        Map<String, dynamic> json) =>
+    _$_ActivityLogRelationships(
+      actor: json['actor'] == null
+          ? null
+          : FractalResponseData<User>.fromJson(
+              json['actor'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$_ActivityLogRelationshipsToJson(
+        _$_ActivityLogRelationships instance) =>
+    <String, dynamic>{
+      'actor': instance.actor?.toJson(),
+    };

@@ -44,3 +44,16 @@ class ServerScheduleRelationships with _$ServerScheduleRelationships {
 
   ServerScheduleRelationships._();
 }
+
+@freezed
+class ActivityLogRelationships with _$ActivityLogRelationships {
+  factory ActivityLogRelationships({
+    // JsonMap? actor,
+    Fractal<User>? actor,
+  }) = _ActivityLogRelationships;
+
+  factory ActivityLogRelationships.fromJson(JsonMap json) =>
+      _$ActivityLogRelationshipsFromJson(json);
+
+  ActivityLogRelationships._();
+}
