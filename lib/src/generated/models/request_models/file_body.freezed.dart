@@ -33,33 +33,37 @@ mixin _$FileBody {
 /// @nodoc
 abstract class $FileBodyCopyWith<$Res> {
   factory $FileBodyCopyWith(FileBody value, $Res Function(FileBody) then) =
-      _$FileBodyCopyWithImpl<$Res>;
+      _$FileBodyCopyWithImpl<$Res, FileBody>;
+  @useResult
   $Res call({@JsonKey(name: 'root') String rootDir, String file});
 }
 
 /// @nodoc
-class _$FileBodyCopyWithImpl<$Res> implements $FileBodyCopyWith<$Res> {
+class _$FileBodyCopyWithImpl<$Res, $Val extends FileBody>
+    implements $FileBodyCopyWith<$Res> {
   _$FileBodyCopyWithImpl(this._value, this._then);
 
-  final FileBody _value;
   // ignore: unused_field
-  final $Res Function(FileBody) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rootDir = freezed,
-    Object? file = freezed,
+    Object? rootDir = null,
+    Object? file = null,
   }) {
     return _then(_value.copyWith(
-      rootDir: rootDir == freezed
+      rootDir: null == rootDir
           ? _value.rootDir
           : rootDir // ignore: cast_nullable_to_non_nullable
               as String,
-      file: file == freezed
+      file: null == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -69,30 +73,30 @@ abstract class _$$_FileBodyCopyWith<$Res> implements $FileBodyCopyWith<$Res> {
           _$_FileBody value, $Res Function(_$_FileBody) then) =
       __$$_FileBodyCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({@JsonKey(name: 'root') String rootDir, String file});
 }
 
 /// @nodoc
-class __$$_FileBodyCopyWithImpl<$Res> extends _$FileBodyCopyWithImpl<$Res>
+class __$$_FileBodyCopyWithImpl<$Res>
+    extends _$FileBodyCopyWithImpl<$Res, _$_FileBody>
     implements _$$_FileBodyCopyWith<$Res> {
   __$$_FileBodyCopyWithImpl(
       _$_FileBody _value, $Res Function(_$_FileBody) _then)
-      : super(_value, (v) => _then(v as _$_FileBody));
+      : super(_value, _then);
 
-  @override
-  _$_FileBody get _value => super._value as _$_FileBody;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rootDir = freezed,
-    Object? file = freezed,
+    Object? rootDir = null,
+    Object? file = null,
   }) {
     return _then(_$_FileBody(
-      rootDir: rootDir == freezed
+      rootDir: null == rootDir
           ? _value.rootDir
           : rootDir // ignore: cast_nullable_to_non_nullable
               as String,
-      file: file == freezed
+      file: null == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
               as String,
@@ -125,25 +129,25 @@ class _$_FileBody implements _FileBody {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FileBody &&
-            const DeepCollectionEquality().equals(other.rootDir, rootDir) &&
-            const DeepCollectionEquality().equals(other.file, file));
+            (identical(other.rootDir, rootDir) || other.rootDir == rootDir) &&
+            (identical(other.file, file) || other.file == file));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(rootDir),
-      const DeepCollectionEquality().hash(file));
+  int get hashCode => Object.hash(runtimeType, rootDir, file);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FileBodyCopyWith<_$_FileBody> get copyWith =>
       __$$_FileBodyCopyWithImpl<_$_FileBody>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FileBodyToJson(this);
+    return _$$_FileBodyToJson(
+      this,
+    );
   }
 }
 
@@ -156,9 +160,9 @@ abstract class _FileBody implements FileBody {
 
   @override
   @JsonKey(name: 'root')
-  String get rootDir => throw _privateConstructorUsedError;
+  String get rootDir;
   @override
-  String get file => throw _privateConstructorUsedError;
+  String get file;
   @override
   @JsonKey(ignore: true)
   _$$_FileBodyCopyWith<_$_FileBody> get copyWith =>
@@ -185,34 +189,37 @@ mixin _$FileBodyListFromTo {
 abstract class $FileBodyListFromToCopyWith<$Res> {
   factory $FileBodyListFromToCopyWith(
           FileBodyListFromTo value, $Res Function(FileBodyListFromTo) then) =
-      _$FileBodyListFromToCopyWithImpl<$Res>;
+      _$FileBodyListFromToCopyWithImpl<$Res, FileBodyListFromTo>;
+  @useResult
   $Res call({@JsonKey(name: 'root') String rootDir, List<FromTo> files});
 }
 
 /// @nodoc
-class _$FileBodyListFromToCopyWithImpl<$Res>
+class _$FileBodyListFromToCopyWithImpl<$Res, $Val extends FileBodyListFromTo>
     implements $FileBodyListFromToCopyWith<$Res> {
   _$FileBodyListFromToCopyWithImpl(this._value, this._then);
 
-  final FileBodyListFromTo _value;
   // ignore: unused_field
-  final $Res Function(FileBodyListFromTo) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rootDir = freezed,
-    Object? files = freezed,
+    Object? rootDir = null,
+    Object? files = null,
   }) {
     return _then(_value.copyWith(
-      rootDir: rootDir == freezed
+      rootDir: null == rootDir
           ? _value.rootDir
           : rootDir // ignore: cast_nullable_to_non_nullable
               as String,
-      files: files == freezed
+      files: null == files
           ? _value.files
           : files // ignore: cast_nullable_to_non_nullable
               as List<FromTo>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -223,31 +230,30 @@ abstract class _$$_FileBodyListFromToCopyWith<$Res>
           $Res Function(_$_FileBodyListFromTo) then) =
       __$$_FileBodyListFromToCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({@JsonKey(name: 'root') String rootDir, List<FromTo> files});
 }
 
 /// @nodoc
 class __$$_FileBodyListFromToCopyWithImpl<$Res>
-    extends _$FileBodyListFromToCopyWithImpl<$Res>
+    extends _$FileBodyListFromToCopyWithImpl<$Res, _$_FileBodyListFromTo>
     implements _$$_FileBodyListFromToCopyWith<$Res> {
   __$$_FileBodyListFromToCopyWithImpl(
       _$_FileBodyListFromTo _value, $Res Function(_$_FileBodyListFromTo) _then)
-      : super(_value, (v) => _then(v as _$_FileBodyListFromTo));
+      : super(_value, _then);
 
-  @override
-  _$_FileBodyListFromTo get _value => super._value as _$_FileBodyListFromTo;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rootDir = freezed,
-    Object? files = freezed,
+    Object? rootDir = null,
+    Object? files = null,
   }) {
     return _then(_$_FileBodyListFromTo(
-      rootDir: rootDir == freezed
+      rootDir: null == rootDir
           ? _value.rootDir
           : rootDir // ignore: cast_nullable_to_non_nullable
               as String,
-      files: files == freezed
+      files: null == files
           ? _value._files
           : files // ignore: cast_nullable_to_non_nullable
               as List<FromTo>,
@@ -286,26 +292,27 @@ class _$_FileBodyListFromTo implements _FileBodyListFromTo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FileBodyListFromTo &&
-            const DeepCollectionEquality().equals(other.rootDir, rootDir) &&
+            (identical(other.rootDir, rootDir) || other.rootDir == rootDir) &&
             const DeepCollectionEquality().equals(other._files, _files));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(rootDir),
-      const DeepCollectionEquality().hash(_files));
+      runtimeType, rootDir, const DeepCollectionEquality().hash(_files));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FileBodyListFromToCopyWith<_$_FileBodyListFromTo> get copyWith =>
       __$$_FileBodyListFromToCopyWithImpl<_$_FileBodyListFromTo>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FileBodyListFromToToJson(this);
+    return _$$_FileBodyListFromToToJson(
+      this,
+    );
   }
 }
 
@@ -319,9 +326,9 @@ abstract class _FileBodyListFromTo implements FileBodyListFromTo {
 
   @override
   @JsonKey(name: 'root')
-  String get rootDir => throw _privateConstructorUsedError;
+  String get rootDir;
   @override
-  List<FromTo> get files => throw _privateConstructorUsedError;
+  List<FromTo> get files;
   @override
   @JsonKey(ignore: true)
   _$$_FileBodyListFromToCopyWith<_$_FileBodyListFromTo> get copyWith =>
@@ -348,34 +355,37 @@ mixin _$FileBodyListString {
 abstract class $FileBodyListStringCopyWith<$Res> {
   factory $FileBodyListStringCopyWith(
           FileBodyListString value, $Res Function(FileBodyListString) then) =
-      _$FileBodyListStringCopyWithImpl<$Res>;
+      _$FileBodyListStringCopyWithImpl<$Res, FileBodyListString>;
+  @useResult
   $Res call({@JsonKey(name: 'root') String rootDir, List<String> files});
 }
 
 /// @nodoc
-class _$FileBodyListStringCopyWithImpl<$Res>
+class _$FileBodyListStringCopyWithImpl<$Res, $Val extends FileBodyListString>
     implements $FileBodyListStringCopyWith<$Res> {
   _$FileBodyListStringCopyWithImpl(this._value, this._then);
 
-  final FileBodyListString _value;
   // ignore: unused_field
-  final $Res Function(FileBodyListString) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rootDir = freezed,
-    Object? files = freezed,
+    Object? rootDir = null,
+    Object? files = null,
   }) {
     return _then(_value.copyWith(
-      rootDir: rootDir == freezed
+      rootDir: null == rootDir
           ? _value.rootDir
           : rootDir // ignore: cast_nullable_to_non_nullable
               as String,
-      files: files == freezed
+      files: null == files
           ? _value.files
           : files // ignore: cast_nullable_to_non_nullable
               as List<String>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -386,31 +396,30 @@ abstract class _$$_FileBodyListStringCopyWith<$Res>
           $Res Function(_$_FileBodyListString) then) =
       __$$_FileBodyListStringCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({@JsonKey(name: 'root') String rootDir, List<String> files});
 }
 
 /// @nodoc
 class __$$_FileBodyListStringCopyWithImpl<$Res>
-    extends _$FileBodyListStringCopyWithImpl<$Res>
+    extends _$FileBodyListStringCopyWithImpl<$Res, _$_FileBodyListString>
     implements _$$_FileBodyListStringCopyWith<$Res> {
   __$$_FileBodyListStringCopyWithImpl(
       _$_FileBodyListString _value, $Res Function(_$_FileBodyListString) _then)
-      : super(_value, (v) => _then(v as _$_FileBodyListString));
+      : super(_value, _then);
 
-  @override
-  _$_FileBodyListString get _value => super._value as _$_FileBodyListString;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rootDir = freezed,
-    Object? files = freezed,
+    Object? rootDir = null,
+    Object? files = null,
   }) {
     return _then(_$_FileBodyListString(
-      rootDir: rootDir == freezed
+      rootDir: null == rootDir
           ? _value.rootDir
           : rootDir // ignore: cast_nullable_to_non_nullable
               as String,
-      files: files == freezed
+      files: null == files
           ? _value._files
           : files // ignore: cast_nullable_to_non_nullable
               as List<String>,
@@ -449,26 +458,27 @@ class _$_FileBodyListString implements _FileBodyListString {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FileBodyListString &&
-            const DeepCollectionEquality().equals(other.rootDir, rootDir) &&
+            (identical(other.rootDir, rootDir) || other.rootDir == rootDir) &&
             const DeepCollectionEquality().equals(other._files, _files));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(rootDir),
-      const DeepCollectionEquality().hash(_files));
+      runtimeType, rootDir, const DeepCollectionEquality().hash(_files));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FileBodyListStringCopyWith<_$_FileBodyListString> get copyWith =>
       __$$_FileBodyListStringCopyWithImpl<_$_FileBodyListString>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FileBodyListStringToJson(this);
+    return _$$_FileBodyListStringToJson(
+      this,
+    );
   }
 }
 
@@ -482,9 +492,9 @@ abstract class _FileBodyListString implements FileBodyListString {
 
   @override
   @JsonKey(name: 'root')
-  String get rootDir => throw _privateConstructorUsedError;
+  String get rootDir;
   @override
-  List<String> get files => throw _privateConstructorUsedError;
+  List<String> get files;
   @override
   @JsonKey(ignore: true)
   _$$_FileBodyListStringCopyWith<_$_FileBodyListString> get copyWith =>
@@ -511,33 +521,37 @@ mixin _$FolderBody {
 abstract class $FolderBodyCopyWith<$Res> {
   factory $FolderBodyCopyWith(
           FolderBody value, $Res Function(FolderBody) then) =
-      _$FolderBodyCopyWithImpl<$Res>;
+      _$FolderBodyCopyWithImpl<$Res, FolderBody>;
+  @useResult
   $Res call({@JsonKey(name: 'root') String rootDir, String name});
 }
 
 /// @nodoc
-class _$FolderBodyCopyWithImpl<$Res> implements $FolderBodyCopyWith<$Res> {
+class _$FolderBodyCopyWithImpl<$Res, $Val extends FolderBody>
+    implements $FolderBodyCopyWith<$Res> {
   _$FolderBodyCopyWithImpl(this._value, this._then);
 
-  final FolderBody _value;
   // ignore: unused_field
-  final $Res Function(FolderBody) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rootDir = freezed,
-    Object? name = freezed,
+    Object? rootDir = null,
+    Object? name = null,
   }) {
     return _then(_value.copyWith(
-      rootDir: rootDir == freezed
+      rootDir: null == rootDir
           ? _value.rootDir
           : rootDir // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -548,30 +562,30 @@ abstract class _$$_FolderBodyCopyWith<$Res>
           _$_FolderBody value, $Res Function(_$_FolderBody) then) =
       __$$_FolderBodyCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({@JsonKey(name: 'root') String rootDir, String name});
 }
 
 /// @nodoc
-class __$$_FolderBodyCopyWithImpl<$Res> extends _$FolderBodyCopyWithImpl<$Res>
+class __$$_FolderBodyCopyWithImpl<$Res>
+    extends _$FolderBodyCopyWithImpl<$Res, _$_FolderBody>
     implements _$$_FolderBodyCopyWith<$Res> {
   __$$_FolderBodyCopyWithImpl(
       _$_FolderBody _value, $Res Function(_$_FolderBody) _then)
-      : super(_value, (v) => _then(v as _$_FolderBody));
+      : super(_value, _then);
 
-  @override
-  _$_FolderBody get _value => super._value as _$_FolderBody;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rootDir = freezed,
-    Object? name = freezed,
+    Object? rootDir = null,
+    Object? name = null,
   }) {
     return _then(_$_FolderBody(
-      rootDir: rootDir == freezed
+      rootDir: null == rootDir
           ? _value.rootDir
           : rootDir // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -604,25 +618,25 @@ class _$_FolderBody implements _FolderBody {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FolderBody &&
-            const DeepCollectionEquality().equals(other.rootDir, rootDir) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            (identical(other.rootDir, rootDir) || other.rootDir == rootDir) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(rootDir),
-      const DeepCollectionEquality().hash(name));
+  int get hashCode => Object.hash(runtimeType, rootDir, name);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FolderBodyCopyWith<_$_FolderBody> get copyWith =>
       __$$_FolderBodyCopyWithImpl<_$_FolderBody>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FolderBodyToJson(this);
+    return _$$_FolderBodyToJson(
+      this,
+    );
   }
 }
 
@@ -636,9 +650,9 @@ abstract class _FolderBody implements FolderBody {
 
   @override
   @JsonKey(name: 'root')
-  String get rootDir => throw _privateConstructorUsedError;
+  String get rootDir;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
   @JsonKey(ignore: true)
   _$$_FolderBodyCopyWith<_$_FolderBody> get copyWith =>

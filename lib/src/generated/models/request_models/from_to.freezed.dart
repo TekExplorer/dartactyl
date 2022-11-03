@@ -31,33 +31,37 @@ mixin _$FromTo {
 /// @nodoc
 abstract class $FromToCopyWith<$Res> {
   factory $FromToCopyWith(FromTo value, $Res Function(FromTo) then) =
-      _$FromToCopyWithImpl<$Res>;
+      _$FromToCopyWithImpl<$Res, FromTo>;
+  @useResult
   $Res call({String from, String to});
 }
 
 /// @nodoc
-class _$FromToCopyWithImpl<$Res> implements $FromToCopyWith<$Res> {
+class _$FromToCopyWithImpl<$Res, $Val extends FromTo>
+    implements $FromToCopyWith<$Res> {
   _$FromToCopyWithImpl(this._value, this._then);
 
-  final FromTo _value;
   // ignore: unused_field
-  final $Res Function(FromTo) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? from = freezed,
-    Object? to = freezed,
+    Object? from = null,
+    Object? to = null,
   }) {
     return _then(_value.copyWith(
-      from: from == freezed
+      from: null == from
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
               as String,
-      to: to == freezed
+      to: null == to
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -66,29 +70,29 @@ abstract class _$$_FromToCopyWith<$Res> implements $FromToCopyWith<$Res> {
   factory _$$_FromToCopyWith(_$_FromTo value, $Res Function(_$_FromTo) then) =
       __$$_FromToCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String from, String to});
 }
 
 /// @nodoc
-class __$$_FromToCopyWithImpl<$Res> extends _$FromToCopyWithImpl<$Res>
+class __$$_FromToCopyWithImpl<$Res>
+    extends _$FromToCopyWithImpl<$Res, _$_FromTo>
     implements _$$_FromToCopyWith<$Res> {
   __$$_FromToCopyWithImpl(_$_FromTo _value, $Res Function(_$_FromTo) _then)
-      : super(_value, (v) => _then(v as _$_FromTo));
+      : super(_value, _then);
 
-  @override
-  _$_FromTo get _value => super._value as _$_FromTo;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? from = freezed,
-    Object? to = freezed,
+    Object? from = null,
+    Object? to = null,
   }) {
     return _then(_$_FromTo(
-      from: from == freezed
+      from: null == from
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
               as String,
-      to: to == freezed
+      to: null == to
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
               as String,
@@ -119,25 +123,25 @@ class _$_FromTo extends _FromTo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FromTo &&
-            const DeepCollectionEquality().equals(other.from, from) &&
-            const DeepCollectionEquality().equals(other.to, to));
+            (identical(other.from, from) || other.from == from) &&
+            (identical(other.to, to) || other.to == to));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(from),
-      const DeepCollectionEquality().hash(to));
+  int get hashCode => Object.hash(runtimeType, from, to);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FromToCopyWith<_$_FromTo> get copyWith =>
       __$$_FromToCopyWithImpl<_$_FromTo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FromToToJson(this);
+    return _$$_FromToToJson(
+      this,
+    );
   }
 }
 
@@ -149,9 +153,9 @@ abstract class _FromTo extends FromTo {
   factory _FromTo.fromJson(Map<String, dynamic> json) = _$_FromTo.fromJson;
 
   @override
-  String get from => throw _privateConstructorUsedError;
+  String get from;
   @override
-  String get to => throw _privateConstructorUsedError;
+  String get to;
   @override
   @JsonKey(ignore: true)
   _$$_FromToCopyWith<_$_FromTo> get copyWith =>

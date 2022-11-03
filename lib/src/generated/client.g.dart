@@ -6,10 +6,13 @@ part of '../client.dart';
 // RetrofitGenerator
 // **************************************************************************
 
-// ignore_for_file: unnecessary_brace_in_string_interps
+// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
 class _DepricatedPteroClient implements DepricatedPteroClient {
-  _DepricatedPteroClient(this._dio, {this.baseUrl});
+  _DepricatedPteroClient(
+    this._dio, {
+    this.baseUrl,
+  });
 
   final Dio _dio;
 
@@ -21,12 +24,18 @@ class _DepricatedPteroClient implements DepricatedPteroClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'DELETE', headers: _headers, extra: _extra)
-            .compose(
-                _dio.options, '/api/client/account/ssh-keys/${fingerprint}',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/account/ssh-keys/${fingerprint}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
@@ -44,28 +53,41 @@ class _DepricatedPteroClient implements DepricatedPteroClient {
   }
 }
 
-// ignore_for_file: unnecessary_brace_in_string_interps
+// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
 class _PteroClient implements PteroClient {
-  _PteroClient(this._dio, {this.baseUrl});
+  _PteroClient(
+    this._dio, {
+    this.baseUrl,
+  });
 
   final Dio _dio;
 
   String? baseUrl;
 
   @override
-  Future<void> _login(credentials, xsrfHeader) async {
+  Future<void> _login(
+    credentials,
+    xsrfHeader,
+  ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'X-XSRF-TOKEN': xsrfHeader};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     _data.addAll(credentials.toJson());
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/auth/login',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/auth/login',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
@@ -75,25 +97,33 @@ class _PteroClient implements PteroClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'GET', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/auth/logout',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/auth/logout',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<FractalResponseListMeta<Server, PaginatedMeta>> listServers(
-      {page = 1,
-      perPage = 50,
-      include,
-      filter,
-      filterByUuid,
-      filterByName,
-      filterByExternalId,
-      filterByDescription,
-      type = GetServersQueryType.member}) async {
+  Future<FractalResponseListMeta<Server, PaginatedMeta>> listServers({
+    page = 1,
+    perPage = 50,
+    include,
+    filter,
+    filterByUuid,
+    filterByName,
+    filterByExternalId,
+    filterByDescription,
+    type = GetServersQueryType.member,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'page': page,
@@ -104,17 +134,24 @@ class _PteroClient implements PteroClient {
       r'filter[name]': filterByName,
       r'filter[external_id]': filterByExternalId,
       r'filter[description]': filterByDescription,
-      r'type': type?.toJson()
+      r'type': type?.toJson(),
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseListMeta<Server, PaginatedMeta>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/api/client',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseListMeta<Server, PaginatedMeta>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
         FractalResponseListMeta<Server, PaginatedMeta>.fromJson(_result.data!);
     return value;
@@ -127,11 +164,18 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<SystemPermissions>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/api/client/permissions',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseData<SystemPermissions>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/permissions',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
         FractalResponseData<SystemPermissions>.fromJson(_result.data!);
     return value;
@@ -144,11 +188,18 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<User>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/api/client/account',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseData<User>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/account',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<User>.fromJson(_result.data!);
     return value;
   }
@@ -160,11 +211,18 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<TwoFactorImage>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/api/client/account/two-factor',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseData<TwoFactorImage>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/account/two-factor',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<TwoFactorImage>.fromJson(_result.data!);
     return value;
   }
@@ -177,11 +235,18 @@ class _PteroClient implements PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(code.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<RecoveryTokens>>(
-            Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/api/client/account/two-factor',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseData<RecoveryTokens>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/account/two-factor',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<RecoveryTokens>.fromJson(_result.data!);
     return value;
   }
@@ -193,11 +258,18 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'DELETE', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/api/client/account/two-factor',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/account/two-factor',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
@@ -208,11 +280,18 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'PUT', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/api/client/account/email',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/account/email',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
@@ -223,35 +302,54 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'PUT', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/api/client/account/password',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/account/password',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
   Future<FractalResponseListMeta<ActivityLog, PaginatedMeta>>
-      getAccountActivity(
-          {include, page, perPage, filterByIp, filterByEvent, sort}) async {
+      getAccountActivity({
+    include,
+    page,
+    perPage,
+    filterByEvent,
+    sort,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'include': include?.toJson(),
       r'page': page,
       r'per_page': perPage,
-      r'filter[ip]': filterByIp,
       r'filter[event]': filterByEvent,
-      r'sort': sort?.toJson()
+      r'sort': sort?.toJson(),
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<FractalResponseListMeta<ActivityLog, PaginatedMeta>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/api/client/account/activity',
-                    queryParameters: queryParameters, data: _data)
+            Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+                .compose(
+                  _dio.options,
+                  '/api/client/account/activity',
+                  queryParameters: queryParameters,
+                  data: _data,
+                )
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseListMeta<ActivityLog, PaginatedMeta>.fromJson(
         _result.data!);
@@ -265,11 +363,18 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseList<ApiKey>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/api/client/account/api-keys',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseList<ApiKey>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/account/api-keys',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseList<ApiKey>.fromJson(_result.data!);
     return value;
   }
@@ -282,11 +387,18 @@ class _PteroClient implements PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseDataMeta<ApiKey, ApiKeyMeta>>(
-            Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/api/client/account/api-keys',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseDataMeta<ApiKey, ApiKeyMeta>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/account/api-keys',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
         FractalResponseDataMeta<ApiKey, ApiKeyMeta>.fromJson(_result.data!);
     return value;
@@ -298,11 +410,18 @@ class _PteroClient implements PteroClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'DELETE', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/api/client/account/api-keys/${apiKeyId}',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/account/api-keys/${apiKeyId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
@@ -313,11 +432,18 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseList<SshKey>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/api/client/account/ssh-keys',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseList<SshKey>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/account/ssh-keys',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseList<SshKey>.fromJson(_result.data!);
     return value;
   }
@@ -330,11 +456,18 @@ class _PteroClient implements PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<SshKey>>(
-            Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/api/client/account/ssh-keys',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseData<SshKey>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/account/ssh-keys',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<SshKey>.fromJson(_result.data!);
     return value;
   }
@@ -346,28 +479,44 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/api/client/account/ssh-keys/remove',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/account/ssh-keys/remove',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<FractalResponseDataMeta<Server, ServerMeta>> getServerDetails(
-      {required serverId, include}) async {
+  Future<FractalResponseDataMeta<Server, ServerMeta>> getServerDetails({
+    required serverId,
+    include,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'include': include?.toJson()};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseDataMeta<Server, ServerMeta>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/api/client/servers/${serverId}',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseDataMeta<Server, ServerMeta>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
         FractalResponseDataMeta<Server, ServerMeta>.fromJson(_result.data!);
     return value;
@@ -381,12 +530,18 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<PteroData<WebsocketDetails>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(
-                    _dio.options, '/api/client/servers/${serverId}/websocket',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<PteroData<WebsocketDetails>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/websocket',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = PteroData<WebsocketDetails>.fromJson(_result.data!);
     return value;
   }
@@ -399,25 +554,33 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<Stats>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(
-                    _dio.options, '/api/client/servers/${serverId}/resources',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseData<Stats>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/resources',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Stats>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseListMeta<ActivityLog, PaginatedMeta>> getServerActivity(
-      {required serverId,
-      include,
-      page,
-      perPage,
-      filterByIp,
-      filterByEvent,
-      sort}) async {
+  Future<FractalResponseListMeta<ActivityLog, PaginatedMeta>>
+      getServerActivity({
+    required serverId,
+    include,
+    page,
+    perPage,
+    filterByIp,
+    filterByEvent,
+    sort,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'include': include?.toJson(),
@@ -425,17 +588,24 @@ class _PteroClient implements PteroClient {
       r'per_page': perPage,
       r'filter[ip]': filterByIp,
       r'filter[event]': filterByEvent,
-      r'sort': sort?.toJson()
+      r'sort': sort?.toJson(),
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<FractalResponseListMeta<ActivityLog, PaginatedMeta>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
+            Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
                 .compose(
-                    _dio.options, '/api/client/servers/${serverId}/activity',
-                    queryParameters: queryParameters, data: _data)
+                  _dio.options,
+                  '/api/client/servers/${serverId}/activity',
+                  queryParameters: queryParameters,
+                  data: _data,
+                )
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseListMeta<ActivityLog, PaginatedMeta>.fromJson(
         _result.data!);
@@ -443,211 +613,318 @@ class _PteroClient implements PteroClient {
   }
 
   @override
-  Future<void> sendServerCommand(data, {required serverId}) async {
+  Future<void> sendServerCommand(
+    data, {
+    required serverId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/api/client/servers/${serverId}/command',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/servers/${serverId}/command',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<void> sendServerPowerAction(signal, {required serverId}) async {
+  Future<void> sendServerPowerAction(
+    signal, {
+    required serverId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(signal.toJson());
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/api/client/servers/${serverId}/power',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/servers/${serverId}/power',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<FractalResponseList<ServerDatabase>> listServerDatabases(
-      {required serverId, include}) async {
+  Future<FractalResponseList<ServerDatabase>> listServerDatabases({
+    required serverId,
+    include,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'include': include?.toJson()};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseList<ServerDatabase>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(
-                    _dio.options, '/api/client/servers/${serverId}/databases',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseList<ServerDatabase>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/databases',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseList<ServerDatabase>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<ServerDatabase>> createServerDatabase(data,
-      {required serverId}) async {
+  Future<FractalResponseData<ServerDatabase>> createServerDatabase(
+    data, {
+    required serverId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ServerDatabase>>(
-            Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(
-                    _dio.options, '/api/client/servers/${serverId}/databases',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseData<ServerDatabase>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/databases',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ServerDatabase>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<void> deleteDatabase({required serverId, required databaseId}) async {
+  Future<void> deleteDatabase({
+    required serverId,
+    required databaseId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'DELETE', headers: _headers, extra: _extra)
-            .compose(_dio.options,
-                '/api/client/servers/${serverId}/databases/${databaseId}',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/servers/${serverId}/databases/${databaseId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<FractalResponseData<ServerDatabase>> rotateDatabasePassword(
-      {required serverId, required databaseId}) async {
+  Future<FractalResponseData<ServerDatabase>> rotateDatabasePassword({
+    required serverId,
+    required databaseId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>>(_setStreamType<
-        FractalResponseData<ServerDatabase>>(Options(
-            method: 'POST', headers: _headers, extra: _extra)
-        .compose(_dio.options,
-            '/api/client/servers/${serverId}/databases/${databaseId}/rotate-password',
-            queryParameters: queryParameters, data: _data)
-        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<FractalResponseData<ServerDatabase>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/databases/${databaseId}/rotate-password',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ServerDatabase>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseList<FileObject>> listFiles(
-      {required serverId, required directory}) async {
+  Future<FractalResponseList<FileObject>> listFiles({
+    required serverId,
+    required directory,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'directory': directory};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseList<FileObject>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(
-                    _dio.options, '/api/client/servers/${serverId}/files/list',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseList<FileObject>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/files/list',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseList<FileObject>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<String?> getFileContents({required serverId, required file}) async {
+  Future<String?> getFileContents({
+    required serverId,
+    required file,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'file': file};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<String>(_setStreamType<String>(
-        Options(method: 'GET', headers: _headers, extra: _extra)
-            .compose(
-                _dio.options, '/api/client/servers/${serverId}/files/contents',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/servers/${serverId}/files/contents',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = _result.data;
     return value;
   }
 
   @override
-  Future<FractalResponseData<SignedUrl>> downloadFile(
-      {required serverId, required file}) async {
+  Future<FractalResponseData<SignedUrl>> downloadFile({
+    required serverId,
+    required file,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'file': file};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<FractalResponseData<SignedUrl>>(Options(
-                method: 'GET', headers: _headers, extra: _extra)
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
             .compose(
-                _dio.options, '/api/client/servers/${serverId}/files/download',
-                queryParameters: queryParameters, data: _data)
+              _dio.options,
+              '/api/client/servers/${serverId}/files/download',
+              queryParameters: queryParameters,
+              data: _data,
+            )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<SignedUrl>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<void> renameFile(rename, {required serverId}) async {
+  Future<void> renameFile(
+    rename, {
+    required serverId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(rename.toJson());
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'PUT', headers: _headers, extra: _extra)
-            .compose(
-                _dio.options, '/api/client/servers/${serverId}/files/rename',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/servers/${serverId}/files/rename',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<void> makeFileCopy(data, {required serverId}) async {
+  Future<void> makeFileCopy(
+    data, {
+    required serverId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/api/client/servers/${serverId}/files/copy',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/servers/${serverId}/files/copy',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<void> writeFile(
-      {required serverId, required file, required rawContents}) async {
+  Future<void> writeFile({
+    required serverId,
+    required file,
+    required rawContents,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'file': file};
     final _headers = <String, dynamic>{r'Content-Type': 'text/plain'};
     _headers.removeWhere((k, v) => v == null);
     final _data = rawContents;
     await _dio.fetch<void>(_setStreamType<void>(Options(
-            method: 'POST',
-            headers: _headers,
-            extra: _extra,
-            contentType: 'text/plain')
-        .compose(_dio.options, '/api/client/servers/${serverId}/files/write',
-            queryParameters: queryParameters, data: _data)
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'text/plain',
+    )
+        .compose(
+          _dio.options,
+          '/api/client/servers/${serverId}/files/write',
+          queryParameters: queryParameters,
+          data: _data,
+        )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<FractalResponseData<FileObject>> compressFile(data,
-      {required serverId}) async {
+  Future<FractalResponseData<FileObject>> compressFile(
+    data, {
+    required serverId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -655,91 +932,143 @@ class _PteroClient implements PteroClient {
     _data.addAll(data.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<FractalResponseData<FileObject>>(Options(
-                method: 'POST', headers: _headers, extra: _extra)
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
             .compose(
-                _dio.options, '/api/client/servers/${serverId}/files/compress',
-                queryParameters: queryParameters, data: _data)
+              _dio.options,
+              '/api/client/servers/${serverId}/files/compress',
+              queryParameters: queryParameters,
+              data: _data,
+            )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<FileObject>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<void> decompressFile(data, {required serverId}) async {
+  Future<void> decompressFile(
+    data, {
+    required serverId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
     await _dio.fetch<void>(_setStreamType<void>(Options(
-            method: 'POST', headers: _headers, extra: _extra)
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
         .compose(
-            _dio.options, '/api/client/servers/${serverId}/files/decompress',
-            queryParameters: queryParameters, data: _data)
+          _dio.options,
+          '/api/client/servers/${serverId}/files/decompress',
+          queryParameters: queryParameters,
+          data: _data,
+        )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<void> deleteFiles(data, {required serverId}) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(data.toJson());
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(
-                _dio.options, '/api/client/servers/${serverId}/files/delete',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
-  }
-
-  @override
-  Future<void> createFolder(data, {required serverId}) async {
+  Future<void> deleteFiles(
+    data, {
+    required serverId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
     await _dio.fetch<void>(_setStreamType<void>(Options(
-            method: 'POST', headers: _headers, extra: _extra)
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
         .compose(
-            _dio.options, '/api/client/servers/${serverId}/files/create-folder',
-            queryParameters: queryParameters, data: _data)
+          _dio.options,
+          '/api/client/servers/${serverId}/files/delete',
+          queryParameters: queryParameters,
+          data: _data,
+        )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<void> chmodFile(data, {required serverId}) async {
+  Future<void> createFolder(
+    data, {
+    required serverId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(
-                _dio.options, '/api/client/servers/${serverId}/files/chmod',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/servers/${serverId}/files/create-folder',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<void> pullFile(data, {required serverId}) async {
+  Future<void> chmodFile(
+    data, {
+    required serverId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/api/client/servers/${serverId}/files/pull',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/servers/${serverId}/files/chmod',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    return null;
+  }
+
+  @override
+  Future<void> pullFile(
+    data, {
+    required serverId,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(data.toJson());
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/servers/${serverId}/files/pull',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
@@ -752,10 +1081,16 @@ class _PteroClient implements PteroClient {
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<FractalResponseData<SignedUrl>>(Options(
-                method: 'GET', headers: _headers, extra: _extra)
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
             .compose(
-                _dio.options, '/api/client/servers/${serverId}/files/upload',
-                queryParameters: queryParameters, data: _data)
+              _dio.options,
+              '/api/client/servers/${serverId}/files/upload',
+              queryParameters: queryParameters,
+              data: _data,
+            )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<SignedUrl>.fromJson(_result.data!);
     return value;
@@ -769,90 +1104,133 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ServerSchedule>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(
-                    _dio.options, '/api/client/servers/${serverId}/schedules',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<ServerSchedule>.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<FractalResponseData<ServerSchedule>> createSchedule(scheduleData,
-      {required serverId}) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(scheduleData.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ServerSchedule>>(
-            Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(
-                    _dio.options, '/api/client/servers/${serverId}/schedules',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<ServerSchedule>.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<FractalResponseData<ServerSchedule>> getScheduleDetails(
-      {required serverId, required scheduleId}) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ServerSchedule>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options,
-                    '/api/client/servers/${serverId}/schedules/${scheduleId}',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<ServerSchedule>.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<FractalResponseData<ServerSchedule>> updateSchedule(scheduleData,
-      {required serverId, required scheduleId}) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(scheduleData.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ServerSchedule>>(
-            Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options,
-                    '/api/client/servers/${serverId}/schedules/${scheduleId}',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<ServerSchedule>.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<void> deleteSchedule({required serverId, required scheduleId}) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'DELETE', headers: _headers, extra: _extra)
-            .compose(_dio.options,
-                '/api/client/servers/${serverId}/schedules/${scheduleId}',
-                queryParameters: queryParameters, data: _data)
+        _setStreamType<FractalResponseData<ServerSchedule>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/schedules',
+              queryParameters: queryParameters,
+              data: _data,
+            )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = FractalResponseData<ServerSchedule>.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<FractalResponseData<ServerSchedule>> createSchedule(
+    scheduleData, {
+    required serverId,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(scheduleData.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<FractalResponseData<ServerSchedule>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/schedules',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = FractalResponseData<ServerSchedule>.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<FractalResponseData<ServerSchedule>> getScheduleDetails({
+    required serverId,
+    required scheduleId,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<FractalResponseData<ServerSchedule>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/schedules/${scheduleId}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = FractalResponseData<ServerSchedule>.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<FractalResponseData<ServerSchedule>> updateSchedule(
+    scheduleData, {
+    required serverId,
+    required scheduleId,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(scheduleData.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<FractalResponseData<ServerSchedule>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/schedules/${scheduleId}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = FractalResponseData<ServerSchedule>.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<void> deleteSchedule({
+    required serverId,
+    required scheduleId,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/servers/${serverId}/schedules/${scheduleId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<FractalResponseData<ScheduleTask>> createTask(taskData,
-      {required serverId, required scheduleId}) async {
+  Future<FractalResponseData<ScheduleTask>> createTask(
+    taskData, {
+    required serverId,
+    required scheduleId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -860,46 +1238,71 @@ class _PteroClient implements PteroClient {
     _data.addAll(taskData.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<FractalResponseData<ScheduleTask>>(Options(
-                method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options,
-                '/api/client/servers/${serverId}/schedules/${scheduleId}/tasks',
-                queryParameters: queryParameters, data: _data)
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/schedules/${scheduleId}/tasks',
+              queryParameters: queryParameters,
+              data: _data,
+            )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ScheduleTask>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<ScheduleTask>> updateTask(taskData,
-      {required serverId, required scheduleId, required taskId}) async {
+  Future<FractalResponseData<ScheduleTask>> updateTask(
+    taskData, {
+    required serverId,
+    required scheduleId,
+    required taskId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(taskData.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>>(_setStreamType<
-        FractalResponseData<ScheduleTask>>(Options(
-            method: 'POST', headers: _headers, extra: _extra)
-        .compose(_dio.options,
-            '/api/client/servers/${serverId}/schedules/${scheduleId}/tasks/${taskId}',
-            queryParameters: queryParameters, data: _data)
-        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<FractalResponseData<ScheduleTask>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/schedules/${scheduleId}/tasks/${taskId}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ScheduleTask>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<void> deleteTask(
-      {required serverId, required scheduleId, required taskId}) async {
+  Future<void> deleteTask({
+    required serverId,
+    required scheduleId,
+    required taskId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
-            method: 'DELETE', headers: _headers, extra: _extra)
-        .compose(_dio.options,
-            '/api/client/servers/${serverId}/schedules/${scheduleId}/tasks/${taskId}',
-            queryParameters: queryParameters, data: _data)
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/servers/${serverId}/schedules/${scheduleId}/tasks/${taskId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
@@ -912,12 +1315,18 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseList<Allocation>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(
-                    _dio.options, '/api/client/servers/${serverId}/network',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseList<Allocation>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/network',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseList<Allocation>.fromJson(_result.data!);
     return value;
   }
@@ -930,67 +1339,98 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<Allocation>>(
-            Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(
-                    _dio.options, '/api/client/servers/${serverId}/network',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseData<Allocation>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/network',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Allocation>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<Allocation>> setAllocationNote(note,
-      {required serverId, required allocationId}) async {
+  Future<FractalResponseData<Allocation>> setAllocationNote(
+    note, {
+    required serverId,
+    required allocationId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(note.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<Allocation>>(
-            Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options,
-                    '/api/client/servers/${serverId}/network/${allocationId}',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseData<Allocation>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/network/${allocationId}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Allocation>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<Allocation>> setPrimaryAllocation(
-      {required serverId, required allocationId}) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>>(_setStreamType<
-        FractalResponseData<Allocation>>(Options(
-            method: 'POST', headers: _headers, extra: _extra)
-        .compose(_dio.options,
-            '/api/client/servers/${serverId}/network/${allocationId}/primary',
-            queryParameters: queryParameters, data: _data)
-        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<Allocation>.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<FractalResponseData<Allocation>> unassignAllocation(
-      {required serverId, required allocationId}) async {
+  Future<FractalResponseData<Allocation>> setPrimaryAllocation({
+    required serverId,
+    required allocationId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<Allocation>>(
-            Options(method: 'DELETE', headers: _headers, extra: _extra)
-                .compose(_dio.options,
-                    '/api/client/servers/${serverId}/network/${allocationId}',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseData<Allocation>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/network/${allocationId}/primary',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = FractalResponseData<Allocation>.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<FractalResponseData<Allocation>> unassignAllocation({
+    required serverId,
+    required allocationId,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<FractalResponseData<Allocation>>(Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/network/${allocationId}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Allocation>.fromJson(_result.data!);
     return value;
   }
@@ -1003,81 +1443,123 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseList<ServerSubuser>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/api/client/servers/${serverId}/users',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseList<ServerSubuser>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/users',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseList<ServerSubuser>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<ServerSubuser>> createSubuser(subuserData,
-      {required serverId}) async {
+  Future<FractalResponseData<ServerSubuser>> createSubuser(
+    subuserData, {
+    required serverId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(subuserData.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ServerSubuser>>(
-            Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/api/client/servers/${serverId}/users',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseData<ServerSubuser>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/users',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ServerSubuser>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<ServerSubuser>> getSubuserDetails(
-      {required serverId, required subuserId}) async {
+  Future<FractalResponseData<ServerSubuser>> getSubuserDetails({
+    required serverId,
+    required subuserId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ServerSubuser>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options,
-                    '/api/client/servers/${serverId}/users/${subuserId}',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseData<ServerSubuser>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/users/${subuserId}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ServerSubuser>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<ServerSubuser>> updateSubuser(subuserData,
-      {required serverId, required subuserId}) async {
+  Future<FractalResponseData<ServerSubuser>> updateSubuser(
+    subuserData, {
+    required serverId,
+    required subuserId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(subuserData.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ServerSubuser>>(
-            Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options,
-                    '/api/client/servers/${serverId}/users/${subuserId}',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseData<ServerSubuser>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/users/${subuserId}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ServerSubuser>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<void> deleteSubuser({required serverId, required subuserId}) async {
+  Future<void> deleteSubuser({
+    required serverId,
+    required subuserId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
-            method: 'DELETE', headers: _headers, extra: _extra)
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
         .compose(
-            _dio.options, '/api/client/servers/${serverId}/users/${subuserId}',
-            queryParameters: queryParameters, data: _data)
+          _dio.options,
+          '/api/client/servers/${serverId}/users/${subuserId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
@@ -1089,12 +1571,18 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseList<Backup>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(
-                    _dio.options, '/api/client/servers/${serverId}/backups',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseList<Backup>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/backups',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseList<Backup>.fromJson(_result.data!);
     return value;
   }
@@ -1106,81 +1594,120 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<Backup>>(
-            Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(
-                    _dio.options, '/api/client/servers/${serverId}/backups',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseData<Backup>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/backups',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Backup>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<Backup>> getBackupDetails(
-      {required serverId, required backupId}) async {
+  Future<FractalResponseData<Backup>> getBackupDetails({
+    required serverId,
+    required backupId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<Backup>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options,
-                    '/api/client/servers/${serverId}/backups/${backupId}',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseData<Backup>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/backups/${backupId}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Backup>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<Backup>> lockBackup(
-      {required serverId, required backupId}) async {
+  Future<FractalResponseData<Backup>> lockBackup({
+    required serverId,
+    required backupId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<Backup>>(
-            Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options,
-                    '/api/client/servers/${serverId}/backups/${backupId}/lock',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseData<Backup>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/backups/${backupId}/lock',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Backup>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<SignedUrl>> downloadBackup(
-      {required serverId, required backupId}) async {
+  Future<FractalResponseData<SignedUrl>> downloadBackup({
+    required serverId,
+    required backupId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<FractalResponseData<SignedUrl>>(Options(
-                method: 'GET', headers: _headers, extra: _extra)
-            .compose(_dio.options,
-                '/api/client/servers/${serverId}/backups/${backupId}/download',
-                queryParameters: queryParameters, data: _data)
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/backups/${backupId}/download',
+              queryParameters: queryParameters,
+              data: _data,
+            )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<SignedUrl>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<void> deleteBackup({required serverId, required backupId}) async {
+  Future<void> deleteBackup({
+    required serverId,
+    required backupId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
-            method: 'DELETE', headers: _headers, extra: _extra)
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
         .compose(
-            _dio.options, '/api/client/servers/${serverId}/backups/${backupId}',
-            queryParameters: queryParameters, data: _data)
+          _dio.options,
+          '/api/client/servers/${serverId}/backups/${backupId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
@@ -1194,10 +1721,17 @@ class _PteroClient implements PteroClient {
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<FractalResponseListMeta<EggVariable, StartupMeta>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
+            Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
                 .compose(
-                    _dio.options, '/api/client/servers/${serverId}/startup',
-                    queryParameters: queryParameters, data: _data)
+                  _dio.options,
+                  '/api/client/servers/${serverId}/startup',
+                  queryParameters: queryParameters,
+                  data: _data,
+                )
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseListMeta<EggVariable, StartupMeta>.fromJson(
         _result.data!);
@@ -1205,37 +1739,54 @@ class _PteroClient implements PteroClient {
   }
 
   @override
-  Future<FractalResponseData<EggVariable>> updateVariable(variable,
-      {required serverId}) async {
+  Future<FractalResponseData<EggVariable>> updateVariable(
+    variable, {
+    required serverId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(variable.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<EggVariable>>(
-            Options(method: 'PUT', headers: _headers, extra: _extra)
-                .compose(_dio.options,
-                    '/api/client/servers/${serverId}/startup/variable',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<FractalResponseData<EggVariable>>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/startup/variable',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<EggVariable>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<void> renameServer(rename, {required serverId}) async {
+  Future<void> renameServer(
+    rename, {
+    required serverId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(rename.toJson());
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(
-                _dio.options, '/api/client/servers/${serverId}/settings/rename',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/servers/${serverId}/settings/rename',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
@@ -1246,27 +1797,42 @@ class _PteroClient implements PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
-            method: 'POST', headers: _headers, extra: _extra)
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
         .compose(
-            _dio.options, '/api/client/servers/${serverId}/settings/reinstall',
-            queryParameters: queryParameters, data: _data)
+          _dio.options,
+          '/api/client/servers/${serverId}/settings/reinstall',
+          queryParameters: queryParameters,
+          data: _data,
+        )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<void> updateDockerImage(dockerImage, {required serverId}) async {
+  Future<void> updateDockerImage(
+    dockerImage, {
+    required serverId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(dockerImage.toJson());
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'PUT', headers: _headers, extra: _extra)
-            .compose(_dio.options,
-                '/api/client/servers/${serverId}/settings/docker-image',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/client/servers/${serverId}/settings/docker-image',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 

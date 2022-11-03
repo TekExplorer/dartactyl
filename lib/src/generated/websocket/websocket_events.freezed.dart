@@ -34,34 +34,38 @@ mixin _$WebsocketRecievedModel {
 abstract class $WebsocketRecievedModelCopyWith<$Res> {
   factory $WebsocketRecievedModelCopyWith(WebsocketRecievedModel value,
           $Res Function(WebsocketRecievedModel) then) =
-      _$WebsocketRecievedModelCopyWithImpl<$Res>;
+      _$WebsocketRecievedModelCopyWithImpl<$Res, WebsocketRecievedModel>;
+  @useResult
   $Res call({WebsocketRecievedModelEvent event, List<String>? args});
 }
 
 /// @nodoc
-class _$WebsocketRecievedModelCopyWithImpl<$Res>
+class _$WebsocketRecievedModelCopyWithImpl<$Res,
+        $Val extends WebsocketRecievedModel>
     implements $WebsocketRecievedModelCopyWith<$Res> {
   _$WebsocketRecievedModelCopyWithImpl(this._value, this._then);
 
-  final WebsocketRecievedModel _value;
   // ignore: unused_field
-  final $Res Function(WebsocketRecievedModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
+    Object? event = null,
     Object? args = freezed,
   }) {
     return _then(_value.copyWith(
-      event: event == freezed
+      event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as WebsocketRecievedModelEvent,
-      args: args == freezed
+      args: freezed == args
           ? _value.args
           : args // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -72,32 +76,31 @@ abstract class _$$_WebsocketRecievedModelCopyWith<$Res>
           $Res Function(_$_WebsocketRecievedModel) then) =
       __$$_WebsocketRecievedModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({WebsocketRecievedModelEvent event, List<String>? args});
 }
 
 /// @nodoc
 class __$$_WebsocketRecievedModelCopyWithImpl<$Res>
-    extends _$WebsocketRecievedModelCopyWithImpl<$Res>
+    extends _$WebsocketRecievedModelCopyWithImpl<$Res,
+        _$_WebsocketRecievedModel>
     implements _$$_WebsocketRecievedModelCopyWith<$Res> {
   __$$_WebsocketRecievedModelCopyWithImpl(_$_WebsocketRecievedModel _value,
       $Res Function(_$_WebsocketRecievedModel) _then)
-      : super(_value, (v) => _then(v as _$_WebsocketRecievedModel));
+      : super(_value, _then);
 
-  @override
-  _$_WebsocketRecievedModel get _value =>
-      super._value as _$_WebsocketRecievedModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
+    Object? event = null,
     Object? args = freezed,
   }) {
     return _then(_$_WebsocketRecievedModel(
-      event == freezed
+      null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as WebsocketRecievedModelEvent,
-      args == freezed
+      freezed == args
           ? _value._args
           : args // ignore: cast_nullable_to_non_nullable
               as List<String>?,
@@ -135,26 +138,27 @@ class _$_WebsocketRecievedModel implements _WebsocketRecievedModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WebsocketRecievedModel &&
-            const DeepCollectionEquality().equals(other.event, event) &&
+            (identical(other.event, event) || other.event == event) &&
             const DeepCollectionEquality().equals(other._args, _args));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(event),
-      const DeepCollectionEquality().hash(_args));
+      runtimeType, event, const DeepCollectionEquality().hash(_args));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WebsocketRecievedModelCopyWith<_$_WebsocketRecievedModel> get copyWith =>
       __$$_WebsocketRecievedModelCopyWithImpl<_$_WebsocketRecievedModel>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WebsocketRecievedModelToJson(this);
+    return _$$_WebsocketRecievedModelToJson(
+      this,
+    );
   }
 }
 
@@ -166,9 +170,9 @@ abstract class _WebsocketRecievedModel implements WebsocketRecievedModel {
       _$_WebsocketRecievedModel.fromJson;
 
   @override
-  WebsocketRecievedModelEvent get event => throw _privateConstructorUsedError;
+  WebsocketRecievedModelEvent get event;
   @override
-  List<String>? get args => throw _privateConstructorUsedError;
+  List<String>? get args;
   @override
   @JsonKey(ignore: true)
   _$$_WebsocketRecievedModelCopyWith<_$_WebsocketRecievedModel> get copyWith =>
@@ -194,34 +198,37 @@ mixin _$WebsocketSendModel {
 abstract class $WebsocketSendModelCopyWith<$Res> {
   factory $WebsocketSendModelCopyWith(
           WebsocketSendModel value, $Res Function(WebsocketSendModel) then) =
-      _$WebsocketSendModelCopyWithImpl<$Res>;
+      _$WebsocketSendModelCopyWithImpl<$Res, WebsocketSendModel>;
+  @useResult
   $Res call({WebsocketSendModelEvent event, List<String>? args});
 }
 
 /// @nodoc
-class _$WebsocketSendModelCopyWithImpl<$Res>
+class _$WebsocketSendModelCopyWithImpl<$Res, $Val extends WebsocketSendModel>
     implements $WebsocketSendModelCopyWith<$Res> {
   _$WebsocketSendModelCopyWithImpl(this._value, this._then);
 
-  final WebsocketSendModel _value;
   // ignore: unused_field
-  final $Res Function(WebsocketSendModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
+    Object? event = null,
     Object? args = freezed,
   }) {
     return _then(_value.copyWith(
-      event: event == freezed
+      event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as WebsocketSendModelEvent,
-      args: args == freezed
+      args: freezed == args
           ? _value.args
           : args // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -232,31 +239,30 @@ abstract class _$$_WebsocketSendModelCopyWith<$Res>
           $Res Function(_$_WebsocketSendModel) then) =
       __$$_WebsocketSendModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({WebsocketSendModelEvent event, List<String>? args});
 }
 
 /// @nodoc
 class __$$_WebsocketSendModelCopyWithImpl<$Res>
-    extends _$WebsocketSendModelCopyWithImpl<$Res>
+    extends _$WebsocketSendModelCopyWithImpl<$Res, _$_WebsocketSendModel>
     implements _$$_WebsocketSendModelCopyWith<$Res> {
   __$$_WebsocketSendModelCopyWithImpl(
       _$_WebsocketSendModel _value, $Res Function(_$_WebsocketSendModel) _then)
-      : super(_value, (v) => _then(v as _$_WebsocketSendModel));
+      : super(_value, _then);
 
-  @override
-  _$_WebsocketSendModel get _value => super._value as _$_WebsocketSendModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
+    Object? event = null,
     Object? args = freezed,
   }) {
     return _then(_$_WebsocketSendModel(
-      event == freezed
+      null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as WebsocketSendModelEvent,
-      args == freezed
+      freezed == args
           ? _value._args
           : args // ignore: cast_nullable_to_non_nullable
               as List<String>?,
@@ -293,26 +299,27 @@ class _$_WebsocketSendModel implements _WebsocketSendModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WebsocketSendModel &&
-            const DeepCollectionEquality().equals(other.event, event) &&
+            (identical(other.event, event) || other.event == event) &&
             const DeepCollectionEquality().equals(other._args, _args));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(event),
-      const DeepCollectionEquality().hash(_args));
+      runtimeType, event, const DeepCollectionEquality().hash(_args));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WebsocketSendModelCopyWith<_$_WebsocketSendModel> get copyWith =>
       __$$_WebsocketSendModelCopyWithImpl<_$_WebsocketSendModel>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WebsocketSendModelToJson(this);
+    return _$$_WebsocketSendModelToJson(
+      this,
+    );
   }
 }
 
@@ -324,9 +331,9 @@ abstract class _WebsocketSendModel implements WebsocketSendModel {
       _$_WebsocketSendModel.fromJson;
 
   @override
-  WebsocketSendModelEvent get event => throw _privateConstructorUsedError;
+  WebsocketSendModelEvent get event;
   @override
-  List<String>? get args => throw _privateConstructorUsedError;
+  List<String>? get args;
   @override
   @JsonKey(ignore: true)
   _$$_WebsocketSendModelCopyWith<_$_WebsocketSendModel> get copyWith =>

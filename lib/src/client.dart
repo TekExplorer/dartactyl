@@ -199,7 +199,7 @@ abstract class PteroClient {
     @Query('per_page') int? perPage,
     // Filters
     // @Query('filter[*]') String? filter,
-    @Query('filter[ip]') String? filterByIp,
+    // @Query('filter[ip]') String? filterByIp,
     @Query('filter[event]') String? filterByEvent,
     // Sort
     @Query('sort') ActivityLogSort? sort,

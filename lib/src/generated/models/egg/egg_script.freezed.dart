@@ -35,7 +35,8 @@ mixin _$EggScript {
 /// @nodoc
 abstract class $EggScriptCopyWith<$Res> {
   factory $EggScriptCopyWith(EggScript value, $Res Function(EggScript) then) =
-      _$EggScriptCopyWithImpl<$Res>;
+      _$EggScriptCopyWithImpl<$Res, EggScript>;
+  @useResult
   $Res call(
       {bool privileged,
       String install,
@@ -45,43 +46,46 @@ abstract class $EggScriptCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EggScriptCopyWithImpl<$Res> implements $EggScriptCopyWith<$Res> {
+class _$EggScriptCopyWithImpl<$Res, $Val extends EggScript>
+    implements $EggScriptCopyWith<$Res> {
   _$EggScriptCopyWithImpl(this._value, this._then);
 
-  final EggScript _value;
   // ignore: unused_field
-  final $Res Function(EggScript) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? privileged = freezed,
-    Object? install = freezed,
-    Object? entry = freezed,
-    Object? container = freezed,
-    Object? scriptExtends = freezed,
+    Object? privileged = null,
+    Object? install = null,
+    Object? entry = null,
+    Object? container = null,
+    Object? scriptExtends = null,
   }) {
     return _then(_value.copyWith(
-      privileged: privileged == freezed
+      privileged: null == privileged
           ? _value.privileged
           : privileged // ignore: cast_nullable_to_non_nullable
               as bool,
-      install: install == freezed
+      install: null == install
           ? _value.install
           : install // ignore: cast_nullable_to_non_nullable
               as String,
-      entry: entry == freezed
+      entry: null == entry
           ? _value.entry
           : entry // ignore: cast_nullable_to_non_nullable
               as String,
-      container: container == freezed
+      container: null == container
           ? _value.container
           : container // ignore: cast_nullable_to_non_nullable
               as String,
-      scriptExtends: scriptExtends == freezed
+      scriptExtends: null == scriptExtends
           ? _value.scriptExtends
           : scriptExtends // ignore: cast_nullable_to_non_nullable
               as dynamic,
-    ));
+    ) as $Val);
   }
 }
 
@@ -91,6 +95,7 @@ abstract class _$$_EggScriptCopyWith<$Res> implements $EggScriptCopyWith<$Res> {
           _$_EggScript value, $Res Function(_$_EggScript) then) =
       __$$_EggScriptCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool privileged,
       String install,
@@ -100,41 +105,40 @@ abstract class _$$_EggScriptCopyWith<$Res> implements $EggScriptCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_EggScriptCopyWithImpl<$Res> extends _$EggScriptCopyWithImpl<$Res>
+class __$$_EggScriptCopyWithImpl<$Res>
+    extends _$EggScriptCopyWithImpl<$Res, _$_EggScript>
     implements _$$_EggScriptCopyWith<$Res> {
   __$$_EggScriptCopyWithImpl(
       _$_EggScript _value, $Res Function(_$_EggScript) _then)
-      : super(_value, (v) => _then(v as _$_EggScript));
+      : super(_value, _then);
 
-  @override
-  _$_EggScript get _value => super._value as _$_EggScript;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? privileged = freezed,
-    Object? install = freezed,
-    Object? entry = freezed,
-    Object? container = freezed,
-    Object? scriptExtends = freezed,
+    Object? privileged = null,
+    Object? install = null,
+    Object? entry = null,
+    Object? container = null,
+    Object? scriptExtends = null,
   }) {
     return _then(_$_EggScript(
-      privileged: privileged == freezed
+      privileged: null == privileged
           ? _value.privileged
           : privileged // ignore: cast_nullable_to_non_nullable
               as bool,
-      install: install == freezed
+      install: null == install
           ? _value.install
           : install // ignore: cast_nullable_to_non_nullable
               as String,
-      entry: entry == freezed
+      entry: null == entry
           ? _value.entry
           : entry // ignore: cast_nullable_to_non_nullable
               as String,
-      container: container == freezed
+      container: null == container
           ? _value.container
           : container // ignore: cast_nullable_to_non_nullable
               as String,
-      scriptExtends: scriptExtends == freezed
+      scriptExtends: null == scriptExtends
           ? _value.scriptExtends
           : scriptExtends // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -177,33 +181,32 @@ class _$_EggScript extends _EggScript {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EggScript &&
-            const DeepCollectionEquality()
-                .equals(other.privileged, privileged) &&
-            const DeepCollectionEquality().equals(other.install, install) &&
-            const DeepCollectionEquality().equals(other.entry, entry) &&
-            const DeepCollectionEquality().equals(other.container, container) &&
+            (identical(other.privileged, privileged) ||
+                other.privileged == privileged) &&
+            (identical(other.install, install) || other.install == install) &&
+            (identical(other.entry, entry) || other.entry == entry) &&
+            (identical(other.container, container) ||
+                other.container == container) &&
             const DeepCollectionEquality()
                 .equals(other.scriptExtends, scriptExtends));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(privileged),
-      const DeepCollectionEquality().hash(install),
-      const DeepCollectionEquality().hash(entry),
-      const DeepCollectionEquality().hash(container),
-      const DeepCollectionEquality().hash(scriptExtends));
+  int get hashCode => Object.hash(runtimeType, privileged, install, entry,
+      container, const DeepCollectionEquality().hash(scriptExtends));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EggScriptCopyWith<_$_EggScript> get copyWith =>
       __$$_EggScriptCopyWithImpl<_$_EggScript>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EggScriptToJson(this);
+    return _$$_EggScriptToJson(
+      this,
+    );
   }
 }
 
@@ -220,15 +223,15 @@ abstract class _EggScript extends EggScript {
       _$_EggScript.fromJson;
 
   @override
-  bool get privileged => throw _privateConstructorUsedError;
+  bool get privileged;
   @override
-  String get install => throw _privateConstructorUsedError;
+  String get install;
   @override
-  String get entry => throw _privateConstructorUsedError;
+  String get entry;
   @override
-  String get container => throw _privateConstructorUsedError;
+  String get container;
   @override
-  dynamic get scriptExtends => throw _privateConstructorUsedError;
+  dynamic get scriptExtends;
   @override
   @JsonKey(ignore: true)
   _$$_EggScriptCopyWith<_$_EggScript> get copyWith =>

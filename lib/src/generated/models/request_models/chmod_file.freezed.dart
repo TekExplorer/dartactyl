@@ -33,34 +33,37 @@ mixin _$ChmodFileBody {
 abstract class $ChmodFileBodyCopyWith<$Res> {
   factory $ChmodFileBodyCopyWith(
           ChmodFileBody value, $Res Function(ChmodFileBody) then) =
-      _$ChmodFileBodyCopyWithImpl<$Res>;
+      _$ChmodFileBodyCopyWithImpl<$Res, ChmodFileBody>;
+  @useResult
   $Res call({String? root, List<ChmodFile> files});
 }
 
 /// @nodoc
-class _$ChmodFileBodyCopyWithImpl<$Res>
+class _$ChmodFileBodyCopyWithImpl<$Res, $Val extends ChmodFileBody>
     implements $ChmodFileBodyCopyWith<$Res> {
   _$ChmodFileBodyCopyWithImpl(this._value, this._then);
 
-  final ChmodFileBody _value;
   // ignore: unused_field
-  final $Res Function(ChmodFileBody) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? root = freezed,
-    Object? files = freezed,
+    Object? files = null,
   }) {
     return _then(_value.copyWith(
-      root: root == freezed
+      root: freezed == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
               as String?,
-      files: files == freezed
+      files: null == files
           ? _value.files
           : files // ignore: cast_nullable_to_non_nullable
               as List<ChmodFile>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,31 +74,30 @@ abstract class _$$_ChmodFileBodyCopyWith<$Res>
           _$_ChmodFileBody value, $Res Function(_$_ChmodFileBody) then) =
       __$$_ChmodFileBodyCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? root, List<ChmodFile> files});
 }
 
 /// @nodoc
 class __$$_ChmodFileBodyCopyWithImpl<$Res>
-    extends _$ChmodFileBodyCopyWithImpl<$Res>
+    extends _$ChmodFileBodyCopyWithImpl<$Res, _$_ChmodFileBody>
     implements _$$_ChmodFileBodyCopyWith<$Res> {
   __$$_ChmodFileBodyCopyWithImpl(
       _$_ChmodFileBody _value, $Res Function(_$_ChmodFileBody) _then)
-      : super(_value, (v) => _then(v as _$_ChmodFileBody));
+      : super(_value, _then);
 
-  @override
-  _$_ChmodFileBody get _value => super._value as _$_ChmodFileBody;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? root = freezed,
-    Object? files = freezed,
+    Object? files = null,
   }) {
     return _then(_$_ChmodFileBody(
-      root: root == freezed
+      root: freezed == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
               as String?,
-      files: files == freezed
+      files: null == files
           ? _value._files
           : files // ignore: cast_nullable_to_non_nullable
               as List<ChmodFile>,
@@ -132,25 +134,26 @@ class _$_ChmodFileBody extends _ChmodFileBody {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ChmodFileBody &&
-            const DeepCollectionEquality().equals(other.root, root) &&
+            (identical(other.root, root) || other.root == root) &&
             const DeepCollectionEquality().equals(other._files, _files));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(root),
-      const DeepCollectionEquality().hash(_files));
+      runtimeType, root, const DeepCollectionEquality().hash(_files));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ChmodFileBodyCopyWith<_$_ChmodFileBody> get copyWith =>
       __$$_ChmodFileBodyCopyWithImpl<_$_ChmodFileBody>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ChmodFileBodyToJson(this);
+    return _$$_ChmodFileBodyToJson(
+      this,
+    );
   }
 }
 
@@ -164,9 +167,9 @@ abstract class _ChmodFileBody extends ChmodFileBody {
       _$_ChmodFileBody.fromJson;
 
   @override
-  String? get root => throw _privateConstructorUsedError;
+  String? get root;
   @override
-  List<ChmodFile> get files => throw _privateConstructorUsedError;
+  List<ChmodFile> get files;
   @override
   @JsonKey(ignore: true)
   _$$_ChmodFileBodyCopyWith<_$_ChmodFileBody> get copyWith =>
@@ -191,33 +194,37 @@ mixin _$ChmodFile {
 /// @nodoc
 abstract class $ChmodFileCopyWith<$Res> {
   factory $ChmodFileCopyWith(ChmodFile value, $Res Function(ChmodFile) then) =
-      _$ChmodFileCopyWithImpl<$Res>;
+      _$ChmodFileCopyWithImpl<$Res, ChmodFile>;
+  @useResult
   $Res call({String file, int mode});
 }
 
 /// @nodoc
-class _$ChmodFileCopyWithImpl<$Res> implements $ChmodFileCopyWith<$Res> {
+class _$ChmodFileCopyWithImpl<$Res, $Val extends ChmodFile>
+    implements $ChmodFileCopyWith<$Res> {
   _$ChmodFileCopyWithImpl(this._value, this._then);
 
-  final ChmodFile _value;
   // ignore: unused_field
-  final $Res Function(ChmodFile) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? file = freezed,
-    Object? mode = freezed,
+    Object? file = null,
+    Object? mode = null,
   }) {
     return _then(_value.copyWith(
-      file: file == freezed
+      file: null == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
               as String,
-      mode: mode == freezed
+      mode: null == mode
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -227,30 +234,30 @@ abstract class _$$_ChmodFileCopyWith<$Res> implements $ChmodFileCopyWith<$Res> {
           _$_ChmodFile value, $Res Function(_$_ChmodFile) then) =
       __$$_ChmodFileCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String file, int mode});
 }
 
 /// @nodoc
-class __$$_ChmodFileCopyWithImpl<$Res> extends _$ChmodFileCopyWithImpl<$Res>
+class __$$_ChmodFileCopyWithImpl<$Res>
+    extends _$ChmodFileCopyWithImpl<$Res, _$_ChmodFile>
     implements _$$_ChmodFileCopyWith<$Res> {
   __$$_ChmodFileCopyWithImpl(
       _$_ChmodFile _value, $Res Function(_$_ChmodFile) _then)
-      : super(_value, (v) => _then(v as _$_ChmodFile));
+      : super(_value, _then);
 
-  @override
-  _$_ChmodFile get _value => super._value as _$_ChmodFile;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? file = freezed,
-    Object? mode = freezed,
+    Object? file = null,
+    Object? mode = null,
   }) {
     return _then(_$_ChmodFile(
-      file: file == freezed
+      file: null == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
               as String,
-      mode: mode == freezed
+      mode: null == mode
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
               as int,
@@ -281,25 +288,25 @@ class _$_ChmodFile extends _ChmodFile {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ChmodFile &&
-            const DeepCollectionEquality().equals(other.file, file) &&
-            const DeepCollectionEquality().equals(other.mode, mode));
+            (identical(other.file, file) || other.file == file) &&
+            (identical(other.mode, mode) || other.mode == mode));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(file),
-      const DeepCollectionEquality().hash(mode));
+  int get hashCode => Object.hash(runtimeType, file, mode);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ChmodFileCopyWith<_$_ChmodFile> get copyWith =>
       __$$_ChmodFileCopyWithImpl<_$_ChmodFile>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ChmodFileToJson(this);
+    return _$$_ChmodFileToJson(
+      this,
+    );
   }
 }
 
@@ -312,9 +319,9 @@ abstract class _ChmodFile extends ChmodFile {
       _$_ChmodFile.fromJson;
 
   @override
-  String get file => throw _privateConstructorUsedError;
+  String get file;
   @override
-  int get mode => throw _privateConstructorUsedError;
+  int get mode;
   @override
   @JsonKey(ignore: true)
   _$$_ChmodFileCopyWith<_$_ChmodFile> get copyWith =>

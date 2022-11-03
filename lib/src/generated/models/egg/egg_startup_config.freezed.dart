@@ -32,29 +32,32 @@ mixin _$EggStartupConfig {
 abstract class $EggStartupConfigCopyWith<$Res> {
   factory $EggStartupConfigCopyWith(
           EggStartupConfig value, $Res Function(EggStartupConfig) then) =
-      _$EggStartupConfigCopyWithImpl<$Res>;
+      _$EggStartupConfigCopyWithImpl<$Res, EggStartupConfig>;
+  @useResult
   $Res call({String done});
 }
 
 /// @nodoc
-class _$EggStartupConfigCopyWithImpl<$Res>
+class _$EggStartupConfigCopyWithImpl<$Res, $Val extends EggStartupConfig>
     implements $EggStartupConfigCopyWith<$Res> {
   _$EggStartupConfigCopyWithImpl(this._value, this._then);
 
-  final EggStartupConfig _value;
   // ignore: unused_field
-  final $Res Function(EggStartupConfig) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? done = freezed,
+    Object? done = null,
   }) {
     return _then(_value.copyWith(
-      done: done == freezed
+      done: null == done
           ? _value.done
           : done // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -65,26 +68,25 @@ abstract class _$$_EggStartupConfigCopyWith<$Res>
           _$_EggStartupConfig value, $Res Function(_$_EggStartupConfig) then) =
       __$$_EggStartupConfigCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String done});
 }
 
 /// @nodoc
 class __$$_EggStartupConfigCopyWithImpl<$Res>
-    extends _$EggStartupConfigCopyWithImpl<$Res>
+    extends _$EggStartupConfigCopyWithImpl<$Res, _$_EggStartupConfig>
     implements _$$_EggStartupConfigCopyWith<$Res> {
   __$$_EggStartupConfigCopyWithImpl(
       _$_EggStartupConfig _value, $Res Function(_$_EggStartupConfig) _then)
-      : super(_value, (v) => _then(v as _$_EggStartupConfig));
+      : super(_value, _then);
 
-  @override
-  _$_EggStartupConfig get _value => super._value as _$_EggStartupConfig;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? done = freezed,
+    Object? done = null,
   }) {
     return _then(_$_EggStartupConfig(
-      done: done == freezed
+      done: null == done
           ? _value.done
           : done // ignore: cast_nullable_to_non_nullable
               as String,
@@ -113,22 +115,24 @@ class _$_EggStartupConfig extends _EggStartupConfig {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EggStartupConfig &&
-            const DeepCollectionEquality().equals(other.done, done));
+            (identical(other.done, done) || other.done == done));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(done));
+  int get hashCode => Object.hash(runtimeType, done);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EggStartupConfigCopyWith<_$_EggStartupConfig> get copyWith =>
       __$$_EggStartupConfigCopyWithImpl<_$_EggStartupConfig>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EggStartupConfigToJson(this);
+    return _$$_EggStartupConfigToJson(
+      this,
+    );
   }
 }
 
@@ -140,7 +144,7 @@ abstract class _EggStartupConfig extends EggStartupConfig {
       _$_EggStartupConfig.fromJson;
 
   @override
-  String get done => throw _privateConstructorUsedError;
+  String get done;
   @override
   @JsonKey(ignore: true)
   _$$_EggStartupConfigCopyWith<_$_EggStartupConfig> get copyWith =>

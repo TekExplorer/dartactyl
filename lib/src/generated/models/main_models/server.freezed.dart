@@ -47,7 +47,8 @@ mixin _$Server {
 /// @nodoc
 abstract class $ServerCopyWith<$Res> {
   factory $ServerCopyWith(Server value, $Res Function(Server) then) =
-      _$ServerCopyWithImpl<$Res>;
+      _$ServerCopyWithImpl<$Res, Server>;
+  @useResult
   $Res call(
       {bool serverOwner,
       String identifier,
@@ -75,135 +76,142 @@ abstract class $ServerCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ServerCopyWithImpl<$Res> implements $ServerCopyWith<$Res> {
+class _$ServerCopyWithImpl<$Res, $Val extends Server>
+    implements $ServerCopyWith<$Res> {
   _$ServerCopyWithImpl(this._value, this._then);
 
-  final Server _value;
   // ignore: unused_field
-  final $Res Function(Server) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? serverOwner = freezed,
-    Object? identifier = freezed,
-    Object? internalId = freezed,
-    Object? uuid = freezed,
-    Object? name = freezed,
-    Object? node = freezed,
-    Object? sftpDetails = freezed,
-    Object? description = freezed,
-    Object? limits = freezed,
-    Object? invocation = freezed,
-    Object? dockerImage = freezed,
-    Object? eggFeatures = freezed,
-    Object? featureLimits = freezed,
+    Object? serverOwner = null,
+    Object? identifier = null,
+    Object? internalId = null,
+    Object? uuid = null,
+    Object? name = null,
+    Object? node = null,
+    Object? sftpDetails = null,
+    Object? description = null,
+    Object? limits = null,
+    Object? invocation = null,
+    Object? dockerImage = null,
+    Object? eggFeatures = null,
+    Object? featureLimits = null,
     Object? status = freezed,
-    Object? isSuspended = freezed,
-    Object? isInstalling = freezed,
-    Object? isTransferring = freezed,
-    Object? relationships = freezed,
+    Object? isSuspended = null,
+    Object? isInstalling = null,
+    Object? isTransferring = null,
+    Object? relationships = null,
   }) {
     return _then(_value.copyWith(
-      serverOwner: serverOwner == freezed
+      serverOwner: null == serverOwner
           ? _value.serverOwner
           : serverOwner // ignore: cast_nullable_to_non_nullable
               as bool,
-      identifier: identifier == freezed
+      identifier: null == identifier
           ? _value.identifier
           : identifier // ignore: cast_nullable_to_non_nullable
               as String,
-      internalId: internalId == freezed
+      internalId: null == internalId
           ? _value.internalId
           : internalId // ignore: cast_nullable_to_non_nullable
               as int,
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      node: node == freezed
+      node: null == node
           ? _value.node
           : node // ignore: cast_nullable_to_non_nullable
               as String,
-      sftpDetails: sftpDetails == freezed
+      sftpDetails: null == sftpDetails
           ? _value.sftpDetails
           : sftpDetails // ignore: cast_nullable_to_non_nullable
               as SftpDetails,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      limits: limits == freezed
+      limits: null == limits
           ? _value.limits
           : limits // ignore: cast_nullable_to_non_nullable
               as ServerLimits,
-      invocation: invocation == freezed
+      invocation: null == invocation
           ? _value.invocation
           : invocation // ignore: cast_nullable_to_non_nullable
               as String,
-      dockerImage: dockerImage == freezed
+      dockerImage: null == dockerImage
           ? _value.dockerImage
           : dockerImage // ignore: cast_nullable_to_non_nullable
               as String,
-      eggFeatures: eggFeatures == freezed
+      eggFeatures: null == eggFeatures
           ? _value.eggFeatures
           : eggFeatures // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      featureLimits: featureLimits == freezed
+      featureLimits: null == featureLimits
           ? _value.featureLimits
           : featureLimits // ignore: cast_nullable_to_non_nullable
               as ServerFeatureLimits,
-      status: status == freezed
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ServerStatus?,
-      isSuspended: isSuspended == freezed
+      isSuspended: null == isSuspended
           ? _value.isSuspended
           : isSuspended // ignore: cast_nullable_to_non_nullable
               as bool,
-      isInstalling: isInstalling == freezed
+      isInstalling: null == isInstalling
           ? _value.isInstalling
           : isInstalling // ignore: cast_nullable_to_non_nullable
               as bool,
-      isTransferring: isTransferring == freezed
+      isTransferring: null == isTransferring
           ? _value.isTransferring
           : isTransferring // ignore: cast_nullable_to_non_nullable
               as bool,
-      relationships: relationships == freezed
+      relationships: null == relationships
           ? _value.relationships
           : relationships // ignore: cast_nullable_to_non_nullable
               as ServerRelationships,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $SftpDetailsCopyWith<$Res> get sftpDetails {
     return $SftpDetailsCopyWith<$Res>(_value.sftpDetails, (value) {
-      return _then(_value.copyWith(sftpDetails: value));
+      return _then(_value.copyWith(sftpDetails: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ServerLimitsCopyWith<$Res> get limits {
     return $ServerLimitsCopyWith<$Res>(_value.limits, (value) {
-      return _then(_value.copyWith(limits: value));
+      return _then(_value.copyWith(limits: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ServerFeatureLimitsCopyWith<$Res> get featureLimits {
     return $ServerFeatureLimitsCopyWith<$Res>(_value.featureLimits, (value) {
-      return _then(_value.copyWith(featureLimits: value));
+      return _then(_value.copyWith(featureLimits: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ServerRelationshipsCopyWith<$Res> get relationships {
     return $ServerRelationshipsCopyWith<$Res>(_value.relationships, (value) {
-      return _then(_value.copyWith(relationships: value));
+      return _then(_value.copyWith(relationships: value) as $Val);
     });
   }
 }
@@ -213,6 +221,7 @@ abstract class _$$_ServerCopyWith<$Res> implements $ServerCopyWith<$Res> {
   factory _$$_ServerCopyWith(_$_Server value, $Res Function(_$_Server) then) =
       __$$_ServerCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool serverOwner,
       String identifier,
@@ -244,105 +253,104 @@ abstract class _$$_ServerCopyWith<$Res> implements $ServerCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ServerCopyWithImpl<$Res> extends _$ServerCopyWithImpl<$Res>
+class __$$_ServerCopyWithImpl<$Res>
+    extends _$ServerCopyWithImpl<$Res, _$_Server>
     implements _$$_ServerCopyWith<$Res> {
   __$$_ServerCopyWithImpl(_$_Server _value, $Res Function(_$_Server) _then)
-      : super(_value, (v) => _then(v as _$_Server));
+      : super(_value, _then);
 
-  @override
-  _$_Server get _value => super._value as _$_Server;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? serverOwner = freezed,
-    Object? identifier = freezed,
-    Object? internalId = freezed,
-    Object? uuid = freezed,
-    Object? name = freezed,
-    Object? node = freezed,
-    Object? sftpDetails = freezed,
-    Object? description = freezed,
-    Object? limits = freezed,
-    Object? invocation = freezed,
-    Object? dockerImage = freezed,
-    Object? eggFeatures = freezed,
-    Object? featureLimits = freezed,
+    Object? serverOwner = null,
+    Object? identifier = null,
+    Object? internalId = null,
+    Object? uuid = null,
+    Object? name = null,
+    Object? node = null,
+    Object? sftpDetails = null,
+    Object? description = null,
+    Object? limits = null,
+    Object? invocation = null,
+    Object? dockerImage = null,
+    Object? eggFeatures = null,
+    Object? featureLimits = null,
     Object? status = freezed,
-    Object? isSuspended = freezed,
-    Object? isInstalling = freezed,
-    Object? isTransferring = freezed,
-    Object? relationships = freezed,
+    Object? isSuspended = null,
+    Object? isInstalling = null,
+    Object? isTransferring = null,
+    Object? relationships = null,
   }) {
     return _then(_$_Server(
-      serverOwner: serverOwner == freezed
+      serverOwner: null == serverOwner
           ? _value.serverOwner
           : serverOwner // ignore: cast_nullable_to_non_nullable
               as bool,
-      identifier: identifier == freezed
+      identifier: null == identifier
           ? _value.identifier
           : identifier // ignore: cast_nullable_to_non_nullable
               as String,
-      internalId: internalId == freezed
+      internalId: null == internalId
           ? _value.internalId
           : internalId // ignore: cast_nullable_to_non_nullable
               as int,
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      node: node == freezed
+      node: null == node
           ? _value.node
           : node // ignore: cast_nullable_to_non_nullable
               as String,
-      sftpDetails: sftpDetails == freezed
+      sftpDetails: null == sftpDetails
           ? _value.sftpDetails
           : sftpDetails // ignore: cast_nullable_to_non_nullable
               as SftpDetails,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      limits: limits == freezed
+      limits: null == limits
           ? _value.limits
           : limits // ignore: cast_nullable_to_non_nullable
               as ServerLimits,
-      invocation: invocation == freezed
+      invocation: null == invocation
           ? _value.invocation
           : invocation // ignore: cast_nullable_to_non_nullable
               as String,
-      dockerImage: dockerImage == freezed
+      dockerImage: null == dockerImage
           ? _value.dockerImage
           : dockerImage // ignore: cast_nullable_to_non_nullable
               as String,
-      eggFeatures: eggFeatures == freezed
+      eggFeatures: null == eggFeatures
           ? _value._eggFeatures
           : eggFeatures // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      featureLimits: featureLimits == freezed
+      featureLimits: null == featureLimits
           ? _value.featureLimits
           : featureLimits // ignore: cast_nullable_to_non_nullable
               as ServerFeatureLimits,
-      status: status == freezed
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ServerStatus?,
-      isSuspended: isSuspended == freezed
+      isSuspended: null == isSuspended
           ? _value.isSuspended
           : isSuspended // ignore: cast_nullable_to_non_nullable
               as bool,
-      isInstalling: isInstalling == freezed
+      isInstalling: null == isInstalling
           ? _value.isInstalling
           : isInstalling // ignore: cast_nullable_to_non_nullable
               as bool,
-      isTransferring: isTransferring == freezed
+      isTransferring: null == isTransferring
           ? _value.isTransferring
           : isTransferring // ignore: cast_nullable_to_non_nullable
               as bool,
-      relationships: relationships == freezed
+      relationships: null == relationships
           ? _value.relationships
           : relationships // ignore: cast_nullable_to_non_nullable
               as ServerRelationships,
@@ -431,70 +439,73 @@ class _$_Server extends _Server {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Server &&
-            const DeepCollectionEquality()
-                .equals(other.serverOwner, serverOwner) &&
-            const DeepCollectionEquality()
-                .equals(other.identifier, identifier) &&
-            const DeepCollectionEquality()
-                .equals(other.internalId, internalId) &&
-            const DeepCollectionEquality().equals(other.uuid, uuid) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.node, node) &&
-            const DeepCollectionEquality()
-                .equals(other.sftpDetails, sftpDetails) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.limits, limits) &&
-            const DeepCollectionEquality()
-                .equals(other.invocation, invocation) &&
-            const DeepCollectionEquality()
-                .equals(other.dockerImage, dockerImage) &&
+            (identical(other.serverOwner, serverOwner) ||
+                other.serverOwner == serverOwner) &&
+            (identical(other.identifier, identifier) ||
+                other.identifier == identifier) &&
+            (identical(other.internalId, internalId) ||
+                other.internalId == internalId) &&
+            (identical(other.uuid, uuid) || other.uuid == uuid) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.node, node) || other.node == node) &&
+            (identical(other.sftpDetails, sftpDetails) ||
+                other.sftpDetails == sftpDetails) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.limits, limits) || other.limits == limits) &&
+            (identical(other.invocation, invocation) ||
+                other.invocation == invocation) &&
+            (identical(other.dockerImage, dockerImage) ||
+                other.dockerImage == dockerImage) &&
             const DeepCollectionEquality()
                 .equals(other._eggFeatures, _eggFeatures) &&
-            const DeepCollectionEquality()
-                .equals(other.featureLimits, featureLimits) &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality()
-                .equals(other.isSuspended, isSuspended) &&
-            const DeepCollectionEquality()
-                .equals(other.isInstalling, isInstalling) &&
-            const DeepCollectionEquality()
-                .equals(other.isTransferring, isTransferring) &&
-            const DeepCollectionEquality()
-                .equals(other.relationships, relationships));
+            (identical(other.featureLimits, featureLimits) ||
+                other.featureLimits == featureLimits) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.isSuspended, isSuspended) ||
+                other.isSuspended == isSuspended) &&
+            (identical(other.isInstalling, isInstalling) ||
+                other.isInstalling == isInstalling) &&
+            (identical(other.isTransferring, isTransferring) ||
+                other.isTransferring == isTransferring) &&
+            (identical(other.relationships, relationships) ||
+                other.relationships == relationships));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(serverOwner),
-      const DeepCollectionEquality().hash(identifier),
-      const DeepCollectionEquality().hash(internalId),
-      const DeepCollectionEquality().hash(uuid),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(node),
-      const DeepCollectionEquality().hash(sftpDetails),
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(limits),
-      const DeepCollectionEquality().hash(invocation),
-      const DeepCollectionEquality().hash(dockerImage),
+      serverOwner,
+      identifier,
+      internalId,
+      uuid,
+      name,
+      node,
+      sftpDetails,
+      description,
+      limits,
+      invocation,
+      dockerImage,
       const DeepCollectionEquality().hash(_eggFeatures),
-      const DeepCollectionEquality().hash(featureLimits),
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(isSuspended),
-      const DeepCollectionEquality().hash(isInstalling),
-      const DeepCollectionEquality().hash(isTransferring),
-      const DeepCollectionEquality().hash(relationships));
+      featureLimits,
+      status,
+      isSuspended,
+      isInstalling,
+      isTransferring,
+      relationships);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ServerCopyWith<_$_Server> get copyWith =>
       __$$_ServerCopyWithImpl<_$_Server>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServerToJson(this);
+    return _$$_ServerToJson(
+      this,
+    );
   }
 }
 
@@ -523,41 +534,41 @@ abstract class _Server extends Server {
   factory _Server.fromJson(Map<String, dynamic> json) = _$_Server.fromJson;
 
   @override
-  bool get serverOwner => throw _privateConstructorUsedError;
+  bool get serverOwner;
   @override
-  String get identifier => throw _privateConstructorUsedError;
+  String get identifier;
   @override
-  int get internalId => throw _privateConstructorUsedError;
+  int get internalId;
   @override
-  String get uuid => throw _privateConstructorUsedError;
+  String get uuid;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String get node => throw _privateConstructorUsedError;
+  String get node;
   @override
-  SftpDetails get sftpDetails => throw _privateConstructorUsedError;
+  SftpDetails get sftpDetails;
   @override
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
-  ServerLimits get limits => throw _privateConstructorUsedError;
+  ServerLimits get limits;
   @override
-  String get invocation => throw _privateConstructorUsedError;
+  String get invocation;
   @override
-  String get dockerImage => throw _privateConstructorUsedError;
+  String get dockerImage;
   @override
-  List<String> get eggFeatures => throw _privateConstructorUsedError;
+  List<String> get eggFeatures;
   @override
-  ServerFeatureLimits get featureLimits => throw _privateConstructorUsedError;
+  ServerFeatureLimits get featureLimits;
   @override
-  ServerStatus? get status => throw _privateConstructorUsedError;
+  ServerStatus? get status;
   @override
-  bool get isSuspended => throw _privateConstructorUsedError;
+  bool get isSuspended;
   @override
-  bool get isInstalling => throw _privateConstructorUsedError;
+  bool get isInstalling;
   @override
-  bool get isTransferring => throw _privateConstructorUsedError;
+  bool get isTransferring;
   @override
-  ServerRelationships get relationships => throw _privateConstructorUsedError;
+  ServerRelationships get relationships;
   @override
   @JsonKey(ignore: true)
   _$$_ServerCopyWith<_$_Server> get copyWith =>

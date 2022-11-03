@@ -33,33 +33,37 @@ mixin _$CreateSshKey {
 abstract class $CreateSshKeyCopyWith<$Res> {
   factory $CreateSshKeyCopyWith(
           CreateSshKey value, $Res Function(CreateSshKey) then) =
-      _$CreateSshKeyCopyWithImpl<$Res>;
+      _$CreateSshKeyCopyWithImpl<$Res, CreateSshKey>;
+  @useResult
   $Res call({String name, String publicKey});
 }
 
 /// @nodoc
-class _$CreateSshKeyCopyWithImpl<$Res> implements $CreateSshKeyCopyWith<$Res> {
+class _$CreateSshKeyCopyWithImpl<$Res, $Val extends CreateSshKey>
+    implements $CreateSshKeyCopyWith<$Res> {
   _$CreateSshKeyCopyWithImpl(this._value, this._then);
 
-  final CreateSshKey _value;
   // ignore: unused_field
-  final $Res Function(CreateSshKey) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? publicKey = freezed,
+    Object? name = null,
+    Object? publicKey = null,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -70,31 +74,30 @@ abstract class _$$_CreateSshKeyCopyWith<$Res>
           _$_CreateSshKey value, $Res Function(_$_CreateSshKey) then) =
       __$$_CreateSshKeyCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String name, String publicKey});
 }
 
 /// @nodoc
 class __$$_CreateSshKeyCopyWithImpl<$Res>
-    extends _$CreateSshKeyCopyWithImpl<$Res>
+    extends _$CreateSshKeyCopyWithImpl<$Res, _$_CreateSshKey>
     implements _$$_CreateSshKeyCopyWith<$Res> {
   __$$_CreateSshKeyCopyWithImpl(
       _$_CreateSshKey _value, $Res Function(_$_CreateSshKey) _then)
-      : super(_value, (v) => _then(v as _$_CreateSshKey));
+      : super(_value, _then);
 
-  @override
-  _$_CreateSshKey get _value => super._value as _$_CreateSshKey;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? publicKey = freezed,
+    Object? name = null,
+    Object? publicKey = null,
   }) {
     return _then(_$_CreateSshKey(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
@@ -125,25 +128,26 @@ class _$_CreateSshKey extends _CreateSshKey {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateSshKey &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.publicKey, publicKey));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(publicKey));
+  int get hashCode => Object.hash(runtimeType, name, publicKey);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CreateSshKeyCopyWith<_$_CreateSshKey> get copyWith =>
       __$$_CreateSshKeyCopyWithImpl<_$_CreateSshKey>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CreateSshKeyToJson(this);
+    return _$$_CreateSshKeyToJson(
+      this,
+    );
   }
 }
 
@@ -157,9 +161,9 @@ abstract class _CreateSshKey extends CreateSshKey {
       _$_CreateSshKey.fromJson;
 
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String get publicKey => throw _privateConstructorUsedError;
+  String get publicKey;
   @override
   @JsonKey(ignore: true)
   _$$_CreateSshKeyCopyWith<_$_CreateSshKey> get copyWith =>

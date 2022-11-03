@@ -32,38 +32,42 @@ mixin _$Task {
 /// @nodoc
 abstract class $TaskCopyWith<$Res> {
   factory $TaskCopyWith(Task value, $Res Function(Task) then) =
-      _$TaskCopyWithImpl<$Res>;
+      _$TaskCopyWithImpl<$Res, Task>;
+  @useResult
   $Res call({Action action, String payload, int timeOffset});
 }
 
 /// @nodoc
-class _$TaskCopyWithImpl<$Res> implements $TaskCopyWith<$Res> {
+class _$TaskCopyWithImpl<$Res, $Val extends Task>
+    implements $TaskCopyWith<$Res> {
   _$TaskCopyWithImpl(this._value, this._then);
 
-  final Task _value;
   // ignore: unused_field
-  final $Res Function(Task) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? action = freezed,
-    Object? payload = freezed,
-    Object? timeOffset = freezed,
+    Object? action = null,
+    Object? payload = null,
+    Object? timeOffset = null,
   }) {
     return _then(_value.copyWith(
-      action: action == freezed
+      action: null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
               as Action,
-      payload: payload == freezed
+      payload: null == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as String,
-      timeOffset: timeOffset == freezed
+      timeOffset: null == timeOffset
           ? _value.timeOffset
           : timeOffset // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -72,34 +76,33 @@ abstract class _$$_TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
   factory _$$_TaskCopyWith(_$_Task value, $Res Function(_$_Task) then) =
       __$$_TaskCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Action action, String payload, int timeOffset});
 }
 
 /// @nodoc
-class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res>
+class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res, _$_Task>
     implements _$$_TaskCopyWith<$Res> {
   __$$_TaskCopyWithImpl(_$_Task _value, $Res Function(_$_Task) _then)
-      : super(_value, (v) => _then(v as _$_Task));
+      : super(_value, _then);
 
-  @override
-  _$_Task get _value => super._value as _$_Task;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? action = freezed,
-    Object? payload = freezed,
-    Object? timeOffset = freezed,
+    Object? action = null,
+    Object? payload = null,
+    Object? timeOffset = null,
   }) {
     return _then(_$_Task(
-      action: action == freezed
+      action: null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
               as Action,
-      payload: payload == freezed
+      payload: null == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as String,
-      timeOffset: timeOffset == freezed
+      timeOffset: null == timeOffset
           ? _value.timeOffset
           : timeOffset // ignore: cast_nullable_to_non_nullable
               as int,
@@ -132,28 +135,27 @@ class _$_Task implements _Task {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Task &&
-            const DeepCollectionEquality().equals(other.action, action) &&
-            const DeepCollectionEquality().equals(other.payload, payload) &&
-            const DeepCollectionEquality()
-                .equals(other.timeOffset, timeOffset));
+            (identical(other.action, action) || other.action == action) &&
+            (identical(other.payload, payload) || other.payload == payload) &&
+            (identical(other.timeOffset, timeOffset) ||
+                other.timeOffset == timeOffset));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(action),
-      const DeepCollectionEquality().hash(payload),
-      const DeepCollectionEquality().hash(timeOffset));
+  int get hashCode => Object.hash(runtimeType, action, payload, timeOffset);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TaskCopyWith<_$_Task> get copyWith =>
       __$$_TaskCopyWithImpl<_$_Task>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TaskToJson(this);
+    return _$$_TaskToJson(
+      this,
+    );
   }
 }
 
@@ -166,11 +168,11 @@ abstract class _Task implements Task {
   factory _Task.fromJson(Map<String, dynamic> json) = _$_Task.fromJson;
 
   @override
-  Action get action => throw _privateConstructorUsedError;
+  Action get action;
   @override
-  String get payload => throw _privateConstructorUsedError;
+  String get payload;
   @override
-  int get timeOffset => throw _privateConstructorUsedError;
+  int get timeOffset;
   @override
   @JsonKey(ignore: true)
   _$$_TaskCopyWith<_$_Task> get copyWith => throw _privateConstructorUsedError;

@@ -33,34 +33,37 @@ mixin _$TwoFactorImage {
 abstract class $TwoFactorImageCopyWith<$Res> {
   factory $TwoFactorImageCopyWith(
           TwoFactorImage value, $Res Function(TwoFactorImage) then) =
-      _$TwoFactorImageCopyWithImpl<$Res>;
+      _$TwoFactorImageCopyWithImpl<$Res, TwoFactorImage>;
+  @useResult
   $Res call({String imageUrlData, String secret});
 }
 
 /// @nodoc
-class _$TwoFactorImageCopyWithImpl<$Res>
+class _$TwoFactorImageCopyWithImpl<$Res, $Val extends TwoFactorImage>
     implements $TwoFactorImageCopyWith<$Res> {
   _$TwoFactorImageCopyWithImpl(this._value, this._then);
 
-  final TwoFactorImage _value;
   // ignore: unused_field
-  final $Res Function(TwoFactorImage) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? imageUrlData = freezed,
-    Object? secret = freezed,
+    Object? imageUrlData = null,
+    Object? secret = null,
   }) {
     return _then(_value.copyWith(
-      imageUrlData: imageUrlData == freezed
+      imageUrlData: null == imageUrlData
           ? _value.imageUrlData
           : imageUrlData // ignore: cast_nullable_to_non_nullable
               as String,
-      secret: secret == freezed
+      secret: null == secret
           ? _value.secret
           : secret // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,31 +74,30 @@ abstract class _$$_TwoFactorImageCopyWith<$Res>
           _$_TwoFactorImage value, $Res Function(_$_TwoFactorImage) then) =
       __$$_TwoFactorImageCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String imageUrlData, String secret});
 }
 
 /// @nodoc
 class __$$_TwoFactorImageCopyWithImpl<$Res>
-    extends _$TwoFactorImageCopyWithImpl<$Res>
+    extends _$TwoFactorImageCopyWithImpl<$Res, _$_TwoFactorImage>
     implements _$$_TwoFactorImageCopyWith<$Res> {
   __$$_TwoFactorImageCopyWithImpl(
       _$_TwoFactorImage _value, $Res Function(_$_TwoFactorImage) _then)
-      : super(_value, (v) => _then(v as _$_TwoFactorImage));
+      : super(_value, _then);
 
-  @override
-  _$_TwoFactorImage get _value => super._value as _$_TwoFactorImage;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? imageUrlData = freezed,
-    Object? secret = freezed,
+    Object? imageUrlData = null,
+    Object? secret = null,
   }) {
     return _then(_$_TwoFactorImage(
-      imageUrlData: imageUrlData == freezed
+      imageUrlData: null == imageUrlData
           ? _value.imageUrlData
           : imageUrlData // ignore: cast_nullable_to_non_nullable
               as String,
-      secret: secret == freezed
+      secret: null == secret
           ? _value.secret
           : secret // ignore: cast_nullable_to_non_nullable
               as String,
@@ -127,26 +129,26 @@ class _$_TwoFactorImage extends _TwoFactorImage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TwoFactorImage &&
-            const DeepCollectionEquality()
-                .equals(other.imageUrlData, imageUrlData) &&
-            const DeepCollectionEquality().equals(other.secret, secret));
+            (identical(other.imageUrlData, imageUrlData) ||
+                other.imageUrlData == imageUrlData) &&
+            (identical(other.secret, secret) || other.secret == secret));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(imageUrlData),
-      const DeepCollectionEquality().hash(secret));
+  int get hashCode => Object.hash(runtimeType, imageUrlData, secret);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TwoFactorImageCopyWith<_$_TwoFactorImage> get copyWith =>
       __$$_TwoFactorImageCopyWithImpl<_$_TwoFactorImage>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TwoFactorImageToJson(this);
+    return _$$_TwoFactorImageToJson(
+      this,
+    );
   }
 }
 
@@ -160,9 +162,9 @@ abstract class _TwoFactorImage extends TwoFactorImage {
       _$_TwoFactorImage.fromJson;
 
   @override
-  String get imageUrlData => throw _privateConstructorUsedError;
+  String get imageUrlData;
   @override
-  String get secret => throw _privateConstructorUsedError;
+  String get secret;
   @override
   @JsonKey(ignore: true)
   _$$_TwoFactorImageCopyWith<_$_TwoFactorImage> get copyWith =>

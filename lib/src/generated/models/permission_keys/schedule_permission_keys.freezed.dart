@@ -36,44 +36,48 @@ mixin _$SchedulePermissionKeys {
 abstract class $SchedulePermissionKeysCopyWith<$Res> {
   factory $SchedulePermissionKeysCopyWith(SchedulePermissionKeys value,
           $Res Function(SchedulePermissionKeys) then) =
-      _$SchedulePermissionKeysCopyWithImpl<$Res>;
+      _$SchedulePermissionKeysCopyWithImpl<$Res, SchedulePermissionKeys>;
+  @useResult
   $Res call({String create, String read, String update, String delete});
 }
 
 /// @nodoc
-class _$SchedulePermissionKeysCopyWithImpl<$Res>
+class _$SchedulePermissionKeysCopyWithImpl<$Res,
+        $Val extends SchedulePermissionKeys>
     implements $SchedulePermissionKeysCopyWith<$Res> {
   _$SchedulePermissionKeysCopyWithImpl(this._value, this._then);
 
-  final SchedulePermissionKeys _value;
   // ignore: unused_field
-  final $Res Function(SchedulePermissionKeys) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? create = freezed,
-    Object? read = freezed,
-    Object? update = freezed,
-    Object? delete = freezed,
+    Object? create = null,
+    Object? read = null,
+    Object? update = null,
+    Object? delete = null,
   }) {
     return _then(_value.copyWith(
-      create: create == freezed
+      create: null == create
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
               as String,
-      read: read == freezed
+      read: null == read
           ? _value.read
           : read // ignore: cast_nullable_to_non_nullable
               as String,
-      update: update == freezed
+      update: null == update
           ? _value.update
           : update // ignore: cast_nullable_to_non_nullable
               as String,
-      delete: delete == freezed
+      delete: null == delete
           ? _value.delete
           : delete // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -84,42 +88,41 @@ abstract class _$$_SchedulePermissionKeysCopyWith<$Res>
           $Res Function(_$_SchedulePermissionKeys) then) =
       __$$_SchedulePermissionKeysCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String create, String read, String update, String delete});
 }
 
 /// @nodoc
 class __$$_SchedulePermissionKeysCopyWithImpl<$Res>
-    extends _$SchedulePermissionKeysCopyWithImpl<$Res>
+    extends _$SchedulePermissionKeysCopyWithImpl<$Res,
+        _$_SchedulePermissionKeys>
     implements _$$_SchedulePermissionKeysCopyWith<$Res> {
   __$$_SchedulePermissionKeysCopyWithImpl(_$_SchedulePermissionKeys _value,
       $Res Function(_$_SchedulePermissionKeys) _then)
-      : super(_value, (v) => _then(v as _$_SchedulePermissionKeys));
+      : super(_value, _then);
 
-  @override
-  _$_SchedulePermissionKeys get _value =>
-      super._value as _$_SchedulePermissionKeys;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? create = freezed,
-    Object? read = freezed,
-    Object? update = freezed,
-    Object? delete = freezed,
+    Object? create = null,
+    Object? read = null,
+    Object? update = null,
+    Object? delete = null,
   }) {
     return _then(_$_SchedulePermissionKeys(
-      create: create == freezed
+      create: null == create
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
               as String,
-      read: read == freezed
+      read: null == read
           ? _value.read
           : read // ignore: cast_nullable_to_non_nullable
               as String,
-      update: update == freezed
+      update: null == update
           ? _value.update
           : update // ignore: cast_nullable_to_non_nullable
               as String,
-      delete: delete == freezed
+      delete: null == delete
           ? _value.delete
           : delete // ignore: cast_nullable_to_non_nullable
               as String,
@@ -159,30 +162,28 @@ class _$_SchedulePermissionKeys extends _SchedulePermissionKeys {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SchedulePermissionKeys &&
-            const DeepCollectionEquality().equals(other.create, create) &&
-            const DeepCollectionEquality().equals(other.read, read) &&
-            const DeepCollectionEquality().equals(other.update, update) &&
-            const DeepCollectionEquality().equals(other.delete, delete));
+            (identical(other.create, create) || other.create == create) &&
+            (identical(other.read, read) || other.read == read) &&
+            (identical(other.update, update) || other.update == update) &&
+            (identical(other.delete, delete) || other.delete == delete));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(create),
-      const DeepCollectionEquality().hash(read),
-      const DeepCollectionEquality().hash(update),
-      const DeepCollectionEquality().hash(delete));
+  int get hashCode => Object.hash(runtimeType, create, read, update, delete);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SchedulePermissionKeysCopyWith<_$_SchedulePermissionKeys> get copyWith =>
       __$$_SchedulePermissionKeysCopyWithImpl<_$_SchedulePermissionKeys>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SchedulePermissionKeysToJson(this);
+    return _$$_SchedulePermissionKeysToJson(
+      this,
+    );
   }
 }
 
@@ -198,13 +199,13 @@ abstract class _SchedulePermissionKeys extends SchedulePermissionKeys {
       _$_SchedulePermissionKeys.fromJson;
 
   @override
-  String get create => throw _privateConstructorUsedError;
+  String get create;
   @override
-  String get read => throw _privateConstructorUsedError;
+  String get read;
   @override
-  String get update => throw _privateConstructorUsedError;
+  String get update;
   @override
-  String get delete => throw _privateConstructorUsedError;
+  String get delete;
   @override
   @JsonKey(ignore: true)
   _$$_SchedulePermissionKeysCopyWith<_$_SchedulePermissionKeys> get copyWith =>

@@ -32,7 +32,8 @@ mixin _$Stats {
 /// @nodoc
 abstract class $StatsCopyWith<$Res> {
   factory $StatsCopyWith(Stats value, $Res Function(Stats) then) =
-      _$StatsCopyWithImpl<$Res>;
+      _$StatsCopyWithImpl<$Res, Stats>;
+  @useResult
   $Res call(
       {ServerPowerState currentState,
       bool isSuspended,
@@ -42,39 +43,43 @@ abstract class $StatsCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StatsCopyWithImpl<$Res> implements $StatsCopyWith<$Res> {
+class _$StatsCopyWithImpl<$Res, $Val extends Stats>
+    implements $StatsCopyWith<$Res> {
   _$StatsCopyWithImpl(this._value, this._then);
 
-  final Stats _value;
   // ignore: unused_field
-  final $Res Function(Stats) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currentState = freezed,
-    Object? isSuspended = freezed,
-    Object? resources = freezed,
+    Object? currentState = null,
+    Object? isSuspended = null,
+    Object? resources = null,
   }) {
     return _then(_value.copyWith(
-      currentState: currentState == freezed
+      currentState: null == currentState
           ? _value.currentState
           : currentState // ignore: cast_nullable_to_non_nullable
               as ServerPowerState,
-      isSuspended: isSuspended == freezed
+      isSuspended: null == isSuspended
           ? _value.isSuspended
           : isSuspended // ignore: cast_nullable_to_non_nullable
               as bool,
-      resources: resources == freezed
+      resources: null == resources
           ? _value.resources
           : resources // ignore: cast_nullable_to_non_nullable
               as StatsResources,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $StatsResourcesCopyWith<$Res> get resources {
     return $StatsResourcesCopyWith<$Res>(_value.resources, (value) {
-      return _then(_value.copyWith(resources: value));
+      return _then(_value.copyWith(resources: value) as $Val);
     });
   }
 }
@@ -84,6 +89,7 @@ abstract class _$$_StatsCopyWith<$Res> implements $StatsCopyWith<$Res> {
   factory _$$_StatsCopyWith(_$_Stats value, $Res Function(_$_Stats) then) =
       __$$_StatsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {ServerPowerState currentState,
       bool isSuspended,
@@ -94,30 +100,28 @@ abstract class _$$_StatsCopyWith<$Res> implements $StatsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_StatsCopyWithImpl<$Res> extends _$StatsCopyWithImpl<$Res>
+class __$$_StatsCopyWithImpl<$Res> extends _$StatsCopyWithImpl<$Res, _$_Stats>
     implements _$$_StatsCopyWith<$Res> {
   __$$_StatsCopyWithImpl(_$_Stats _value, $Res Function(_$_Stats) _then)
-      : super(_value, (v) => _then(v as _$_Stats));
+      : super(_value, _then);
 
-  @override
-  _$_Stats get _value => super._value as _$_Stats;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currentState = freezed,
-    Object? isSuspended = freezed,
-    Object? resources = freezed,
+    Object? currentState = null,
+    Object? isSuspended = null,
+    Object? resources = null,
   }) {
     return _then(_$_Stats(
-      currentState: currentState == freezed
+      currentState: null == currentState
           ? _value.currentState
           : currentState // ignore: cast_nullable_to_non_nullable
               as ServerPowerState,
-      isSuspended: isSuspended == freezed
+      isSuspended: null == isSuspended
           ? _value.isSuspended
           : isSuspended // ignore: cast_nullable_to_non_nullable
               as bool,
-      resources: resources == freezed
+      resources: null == resources
           ? _value.resources
           : resources // ignore: cast_nullable_to_non_nullable
               as StatsResources,
@@ -154,29 +158,30 @@ class _$_Stats extends _Stats {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Stats &&
-            const DeepCollectionEquality()
-                .equals(other.currentState, currentState) &&
-            const DeepCollectionEquality()
-                .equals(other.isSuspended, isSuspended) &&
-            const DeepCollectionEquality().equals(other.resources, resources));
+            (identical(other.currentState, currentState) ||
+                other.currentState == currentState) &&
+            (identical(other.isSuspended, isSuspended) ||
+                other.isSuspended == isSuspended) &&
+            (identical(other.resources, resources) ||
+                other.resources == resources));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(currentState),
-      const DeepCollectionEquality().hash(isSuspended),
-      const DeepCollectionEquality().hash(resources));
+  int get hashCode =>
+      Object.hash(runtimeType, currentState, isSuspended, resources);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StatsCopyWith<_$_Stats> get copyWith =>
       __$$_StatsCopyWithImpl<_$_Stats>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StatsToJson(this);
+    return _$$_StatsToJson(
+      this,
+    );
   }
 }
 
@@ -190,11 +195,11 @@ abstract class _Stats extends Stats {
   factory _Stats.fromJson(Map<String, dynamic> json) = _$_Stats.fromJson;
 
   @override
-  ServerPowerState get currentState => throw _privateConstructorUsedError;
+  ServerPowerState get currentState;
   @override
-  bool get isSuspended => throw _privateConstructorUsedError;
+  bool get isSuspended;
   @override
-  StatsResources get resources => throw _privateConstructorUsedError;
+  StatsResources get resources;
   @override
   @JsonKey(ignore: true)
   _$$_StatsCopyWith<_$_Stats> get copyWith =>
@@ -227,7 +232,8 @@ mixin _$StatsResources {
 abstract class $StatsResourcesCopyWith<$Res> {
   factory $StatsResourcesCopyWith(
           StatsResources value, $Res Function(StatsResources) then) =
-      _$StatsResourcesCopyWithImpl<$Res>;
+      _$StatsResourcesCopyWithImpl<$Res, StatsResources>;
+  @useResult
   $Res call(
       {int memoryBytes,
       double cpuAbsolute,
@@ -238,49 +244,51 @@ abstract class $StatsResourcesCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StatsResourcesCopyWithImpl<$Res>
+class _$StatsResourcesCopyWithImpl<$Res, $Val extends StatsResources>
     implements $StatsResourcesCopyWith<$Res> {
   _$StatsResourcesCopyWithImpl(this._value, this._then);
 
-  final StatsResources _value;
   // ignore: unused_field
-  final $Res Function(StatsResources) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? memoryBytes = freezed,
-    Object? cpuAbsolute = freezed,
-    Object? diskBytes = freezed,
-    Object? networkRxBytes = freezed,
-    Object? networkTxBytes = freezed,
+    Object? memoryBytes = null,
+    Object? cpuAbsolute = null,
+    Object? diskBytes = null,
+    Object? networkRxBytes = null,
+    Object? networkTxBytes = null,
     Object? uptime = freezed,
   }) {
     return _then(_value.copyWith(
-      memoryBytes: memoryBytes == freezed
+      memoryBytes: null == memoryBytes
           ? _value.memoryBytes
           : memoryBytes // ignore: cast_nullable_to_non_nullable
               as int,
-      cpuAbsolute: cpuAbsolute == freezed
+      cpuAbsolute: null == cpuAbsolute
           ? _value.cpuAbsolute
           : cpuAbsolute // ignore: cast_nullable_to_non_nullable
               as double,
-      diskBytes: diskBytes == freezed
+      diskBytes: null == diskBytes
           ? _value.diskBytes
           : diskBytes // ignore: cast_nullable_to_non_nullable
               as int,
-      networkRxBytes: networkRxBytes == freezed
+      networkRxBytes: null == networkRxBytes
           ? _value.networkRxBytes
           : networkRxBytes // ignore: cast_nullable_to_non_nullable
               as int,
-      networkTxBytes: networkTxBytes == freezed
+      networkTxBytes: null == networkTxBytes
           ? _value.networkTxBytes
           : networkTxBytes // ignore: cast_nullable_to_non_nullable
               as int,
-      uptime: uptime == freezed
+      uptime: freezed == uptime
           ? _value.uptime
           : uptime // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -291,6 +299,7 @@ abstract class _$$_StatsResourcesCopyWith<$Res>
           _$_StatsResources value, $Res Function(_$_StatsResources) then) =
       __$$_StatsResourcesCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int memoryBytes,
       double cpuAbsolute,
@@ -302,46 +311,44 @@ abstract class _$$_StatsResourcesCopyWith<$Res>
 
 /// @nodoc
 class __$$_StatsResourcesCopyWithImpl<$Res>
-    extends _$StatsResourcesCopyWithImpl<$Res>
+    extends _$StatsResourcesCopyWithImpl<$Res, _$_StatsResources>
     implements _$$_StatsResourcesCopyWith<$Res> {
   __$$_StatsResourcesCopyWithImpl(
       _$_StatsResources _value, $Res Function(_$_StatsResources) _then)
-      : super(_value, (v) => _then(v as _$_StatsResources));
+      : super(_value, _then);
 
-  @override
-  _$_StatsResources get _value => super._value as _$_StatsResources;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? memoryBytes = freezed,
-    Object? cpuAbsolute = freezed,
-    Object? diskBytes = freezed,
-    Object? networkRxBytes = freezed,
-    Object? networkTxBytes = freezed,
+    Object? memoryBytes = null,
+    Object? cpuAbsolute = null,
+    Object? diskBytes = null,
+    Object? networkRxBytes = null,
+    Object? networkTxBytes = null,
     Object? uptime = freezed,
   }) {
     return _then(_$_StatsResources(
-      memoryBytes: memoryBytes == freezed
+      memoryBytes: null == memoryBytes
           ? _value.memoryBytes
           : memoryBytes // ignore: cast_nullable_to_non_nullable
               as int,
-      cpuAbsolute: cpuAbsolute == freezed
+      cpuAbsolute: null == cpuAbsolute
           ? _value.cpuAbsolute
           : cpuAbsolute // ignore: cast_nullable_to_non_nullable
               as double,
-      diskBytes: diskBytes == freezed
+      diskBytes: null == diskBytes
           ? _value.diskBytes
           : diskBytes // ignore: cast_nullable_to_non_nullable
               as int,
-      networkRxBytes: networkRxBytes == freezed
+      networkRxBytes: null == networkRxBytes
           ? _value.networkRxBytes
           : networkRxBytes // ignore: cast_nullable_to_non_nullable
               as int,
-      networkTxBytes: networkTxBytes == freezed
+      networkTxBytes: null == networkTxBytes
           ? _value.networkTxBytes
           : networkTxBytes // ignore: cast_nullable_to_non_nullable
               as int,
-      uptime: uptime == freezed
+      uptime: freezed == uptime
           ? _value.uptime
           : uptime // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -390,37 +397,35 @@ class _$_StatsResources extends _StatsResources {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_StatsResources &&
-            const DeepCollectionEquality()
-                .equals(other.memoryBytes, memoryBytes) &&
-            const DeepCollectionEquality()
-                .equals(other.cpuAbsolute, cpuAbsolute) &&
-            const DeepCollectionEquality().equals(other.diskBytes, diskBytes) &&
-            const DeepCollectionEquality()
-                .equals(other.networkRxBytes, networkRxBytes) &&
-            const DeepCollectionEquality()
-                .equals(other.networkTxBytes, networkTxBytes) &&
-            const DeepCollectionEquality().equals(other.uptime, uptime));
+            (identical(other.memoryBytes, memoryBytes) ||
+                other.memoryBytes == memoryBytes) &&
+            (identical(other.cpuAbsolute, cpuAbsolute) ||
+                other.cpuAbsolute == cpuAbsolute) &&
+            (identical(other.diskBytes, diskBytes) ||
+                other.diskBytes == diskBytes) &&
+            (identical(other.networkRxBytes, networkRxBytes) ||
+                other.networkRxBytes == networkRxBytes) &&
+            (identical(other.networkTxBytes, networkTxBytes) ||
+                other.networkTxBytes == networkTxBytes) &&
+            (identical(other.uptime, uptime) || other.uptime == uptime));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(memoryBytes),
-      const DeepCollectionEquality().hash(cpuAbsolute),
-      const DeepCollectionEquality().hash(diskBytes),
-      const DeepCollectionEquality().hash(networkRxBytes),
-      const DeepCollectionEquality().hash(networkTxBytes),
-      const DeepCollectionEquality().hash(uptime));
+  int get hashCode => Object.hash(runtimeType, memoryBytes, cpuAbsolute,
+      diskBytes, networkRxBytes, networkTxBytes, uptime);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StatsResourcesCopyWith<_$_StatsResources> get copyWith =>
       __$$_StatsResourcesCopyWithImpl<_$_StatsResources>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StatsResourcesToJson(this);
+    return _$$_StatsResourcesToJson(
+      this,
+    );
   }
 }
 
@@ -438,19 +443,19 @@ abstract class _StatsResources extends StatsResources {
       _$_StatsResources.fromJson;
 
   @override
-  int get memoryBytes => throw _privateConstructorUsedError;
+  int get memoryBytes;
   @override
-  double get cpuAbsolute => throw _privateConstructorUsedError;
+  double get cpuAbsolute;
   @override
-  int get diskBytes => throw _privateConstructorUsedError;
+  int get diskBytes;
   @override
-  int get networkRxBytes => throw _privateConstructorUsedError;
+  int get networkRxBytes;
   @override
-  int get networkTxBytes => throw _privateConstructorUsedError;
+  int get networkTxBytes;
   @override // required int uptime, //todo: doesnt exist in v1.7 or earlier
   /// the amount of time the server has been running
   /// added in pterodactyl v1.8, where it garunteed to exist
-  int? get uptime => throw _privateConstructorUsedError;
+  int? get uptime;
   @override
   @JsonKey(ignore: true)
   _$$_StatsResourcesCopyWith<_$_StatsResources> get copyWith =>

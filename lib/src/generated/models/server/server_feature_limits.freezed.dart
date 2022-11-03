@@ -34,39 +34,42 @@ mixin _$ServerFeatureLimits {
 abstract class $ServerFeatureLimitsCopyWith<$Res> {
   factory $ServerFeatureLimitsCopyWith(
           ServerFeatureLimits value, $Res Function(ServerFeatureLimits) then) =
-      _$ServerFeatureLimitsCopyWithImpl<$Res>;
+      _$ServerFeatureLimitsCopyWithImpl<$Res, ServerFeatureLimits>;
+  @useResult
   $Res call({int allocations, int? databases, int? backups});
 }
 
 /// @nodoc
-class _$ServerFeatureLimitsCopyWithImpl<$Res>
+class _$ServerFeatureLimitsCopyWithImpl<$Res, $Val extends ServerFeatureLimits>
     implements $ServerFeatureLimitsCopyWith<$Res> {
   _$ServerFeatureLimitsCopyWithImpl(this._value, this._then);
 
-  final ServerFeatureLimits _value;
   // ignore: unused_field
-  final $Res Function(ServerFeatureLimits) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? allocations = freezed,
+    Object? allocations = null,
     Object? databases = freezed,
     Object? backups = freezed,
   }) {
     return _then(_value.copyWith(
-      allocations: allocations == freezed
+      allocations: null == allocations
           ? _value.allocations
           : allocations // ignore: cast_nullable_to_non_nullable
               as int,
-      databases: databases == freezed
+      databases: freezed == databases
           ? _value.databases
           : databases // ignore: cast_nullable_to_non_nullable
               as int?,
-      backups: backups == freezed
+      backups: freezed == backups
           ? _value.backups
           : backups // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -77,36 +80,35 @@ abstract class _$$_ServerFeatureLimitsCopyWith<$Res>
           $Res Function(_$_ServerFeatureLimits) then) =
       __$$_ServerFeatureLimitsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int allocations, int? databases, int? backups});
 }
 
 /// @nodoc
 class __$$_ServerFeatureLimitsCopyWithImpl<$Res>
-    extends _$ServerFeatureLimitsCopyWithImpl<$Res>
+    extends _$ServerFeatureLimitsCopyWithImpl<$Res, _$_ServerFeatureLimits>
     implements _$$_ServerFeatureLimitsCopyWith<$Res> {
   __$$_ServerFeatureLimitsCopyWithImpl(_$_ServerFeatureLimits _value,
       $Res Function(_$_ServerFeatureLimits) _then)
-      : super(_value, (v) => _then(v as _$_ServerFeatureLimits));
+      : super(_value, _then);
 
-  @override
-  _$_ServerFeatureLimits get _value => super._value as _$_ServerFeatureLimits;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? allocations = freezed,
+    Object? allocations = null,
     Object? databases = freezed,
     Object? backups = freezed,
   }) {
     return _then(_$_ServerFeatureLimits(
-      allocations: allocations == freezed
+      allocations: null == allocations
           ? _value.allocations
           : allocations // ignore: cast_nullable_to_non_nullable
               as int,
-      databases: databases == freezed
+      databases: freezed == databases
           ? _value.databases
           : databases // ignore: cast_nullable_to_non_nullable
               as int?,
-      backups: backups == freezed
+      backups: freezed == backups
           ? _value.backups
           : backups // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -141,29 +143,29 @@ class _$_ServerFeatureLimits extends _ServerFeatureLimits {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ServerFeatureLimits &&
-            const DeepCollectionEquality()
-                .equals(other.allocations, allocations) &&
-            const DeepCollectionEquality().equals(other.databases, databases) &&
-            const DeepCollectionEquality().equals(other.backups, backups));
+            (identical(other.allocations, allocations) ||
+                other.allocations == allocations) &&
+            (identical(other.databases, databases) ||
+                other.databases == databases) &&
+            (identical(other.backups, backups) || other.backups == backups));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(allocations),
-      const DeepCollectionEquality().hash(databases),
-      const DeepCollectionEquality().hash(backups));
+  int get hashCode => Object.hash(runtimeType, allocations, databases, backups);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ServerFeatureLimitsCopyWith<_$_ServerFeatureLimits> get copyWith =>
       __$$_ServerFeatureLimitsCopyWithImpl<_$_ServerFeatureLimits>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServerFeatureLimitsToJson(this);
+    return _$$_ServerFeatureLimitsToJson(
+      this,
+    );
   }
 }
 
@@ -178,11 +180,11 @@ abstract class _ServerFeatureLimits extends ServerFeatureLimits {
       _$_ServerFeatureLimits.fromJson;
 
   @override
-  int get allocations => throw _privateConstructorUsedError;
+  int get allocations;
   @override
-  int? get databases => throw _privateConstructorUsedError;
+  int? get databases;
   @override
-  int? get backups => throw _privateConstructorUsedError;
+  int? get backups;
   @override
   @JsonKey(ignore: true)
   _$$_ServerFeatureLimitsCopyWith<_$_ServerFeatureLimits> get copyWith =>

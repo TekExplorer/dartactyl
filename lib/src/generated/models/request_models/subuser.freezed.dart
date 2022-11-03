@@ -31,33 +31,37 @@ mixin _$Subuser {
 /// @nodoc
 abstract class $SubuserCopyWith<$Res> {
   factory $SubuserCopyWith(Subuser value, $Res Function(Subuser) then) =
-      _$SubuserCopyWithImpl<$Res>;
+      _$SubuserCopyWithImpl<$Res, Subuser>;
+  @useResult
   $Res call({String email, List<String> permissions});
 }
 
 /// @nodoc
-class _$SubuserCopyWithImpl<$Res> implements $SubuserCopyWith<$Res> {
+class _$SubuserCopyWithImpl<$Res, $Val extends Subuser>
+    implements $SubuserCopyWith<$Res> {
   _$SubuserCopyWithImpl(this._value, this._then);
 
-  final Subuser _value;
   // ignore: unused_field
-  final $Res Function(Subuser) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
-    Object? permissions = freezed,
+    Object? email = null,
+    Object? permissions = null,
   }) {
     return _then(_value.copyWith(
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      permissions: permissions == freezed
+      permissions: null == permissions
           ? _value.permissions
           : permissions // ignore: cast_nullable_to_non_nullable
               as List<String>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -67,29 +71,29 @@ abstract class _$$_SubuserCopyWith<$Res> implements $SubuserCopyWith<$Res> {
           _$_Subuser value, $Res Function(_$_Subuser) then) =
       __$$_SubuserCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String email, List<String> permissions});
 }
 
 /// @nodoc
-class __$$_SubuserCopyWithImpl<$Res> extends _$SubuserCopyWithImpl<$Res>
+class __$$_SubuserCopyWithImpl<$Res>
+    extends _$SubuserCopyWithImpl<$Res, _$_Subuser>
     implements _$$_SubuserCopyWith<$Res> {
   __$$_SubuserCopyWithImpl(_$_Subuser _value, $Res Function(_$_Subuser) _then)
-      : super(_value, (v) => _then(v as _$_Subuser));
+      : super(_value, _then);
 
-  @override
-  _$_Subuser get _value => super._value as _$_Subuser;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
-    Object? permissions = freezed,
+    Object? email = null,
+    Object? permissions = null,
   }) {
     return _then(_$_Subuser(
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      permissions: permissions == freezed
+      permissions: null == permissions
           ? _value._permissions
           : permissions // ignore: cast_nullable_to_non_nullable
               as List<String>,
@@ -125,7 +129,7 @@ class _$_Subuser implements _Subuser {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Subuser &&
-            const DeepCollectionEquality().equals(other.email, email) &&
+            (identical(other.email, email) || other.email == email) &&
             const DeepCollectionEquality()
                 .equals(other._permissions, _permissions));
   }
@@ -133,18 +137,19 @@ class _$_Subuser implements _Subuser {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(_permissions));
+      runtimeType, email, const DeepCollectionEquality().hash(_permissions));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SubuserCopyWith<_$_Subuser> get copyWith =>
       __$$_SubuserCopyWithImpl<_$_Subuser>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SubuserToJson(this);
+    return _$$_SubuserToJson(
+      this,
+    );
   }
 }
 
@@ -156,9 +161,9 @@ abstract class _Subuser implements Subuser {
   factory _Subuser.fromJson(Map<String, dynamic> json) = _$_Subuser.fromJson;
 
   @override
-  String get email => throw _privateConstructorUsedError;
+  String get email;
   @override
-  List<String> get permissions => throw _privateConstructorUsedError;
+  List<String> get permissions;
   @override
   @JsonKey(ignore: true)
   _$$_SubuserCopyWith<_$_Subuser> get copyWith =>
@@ -183,29 +188,32 @@ mixin _$SubuserPermissions {
 abstract class $SubuserPermissionsCopyWith<$Res> {
   factory $SubuserPermissionsCopyWith(
           SubuserPermissions value, $Res Function(SubuserPermissions) then) =
-      _$SubuserPermissionsCopyWithImpl<$Res>;
+      _$SubuserPermissionsCopyWithImpl<$Res, SubuserPermissions>;
+  @useResult
   $Res call({List<String> permissions});
 }
 
 /// @nodoc
-class _$SubuserPermissionsCopyWithImpl<$Res>
+class _$SubuserPermissionsCopyWithImpl<$Res, $Val extends SubuserPermissions>
     implements $SubuserPermissionsCopyWith<$Res> {
   _$SubuserPermissionsCopyWithImpl(this._value, this._then);
 
-  final SubuserPermissions _value;
   // ignore: unused_field
-  final $Res Function(SubuserPermissions) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? permissions = freezed,
+    Object? permissions = null,
   }) {
     return _then(_value.copyWith(
-      permissions: permissions == freezed
+      permissions: null == permissions
           ? _value.permissions
           : permissions // ignore: cast_nullable_to_non_nullable
               as List<String>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -216,26 +224,25 @@ abstract class _$$_SubuserPermissionsCopyWith<$Res>
           $Res Function(_$_SubuserPermissions) then) =
       __$$_SubuserPermissionsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<String> permissions});
 }
 
 /// @nodoc
 class __$$_SubuserPermissionsCopyWithImpl<$Res>
-    extends _$SubuserPermissionsCopyWithImpl<$Res>
+    extends _$SubuserPermissionsCopyWithImpl<$Res, _$_SubuserPermissions>
     implements _$$_SubuserPermissionsCopyWith<$Res> {
   __$$_SubuserPermissionsCopyWithImpl(
       _$_SubuserPermissions _value, $Res Function(_$_SubuserPermissions) _then)
-      : super(_value, (v) => _then(v as _$_SubuserPermissions));
+      : super(_value, _then);
 
-  @override
-  _$_SubuserPermissions get _value => super._value as _$_SubuserPermissions;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? permissions = freezed,
+    Object? permissions = null,
   }) {
     return _then(_$_SubuserPermissions(
-      permissions: permissions == freezed
+      permissions: null == permissions
           ? _value._permissions
           : permissions // ignore: cast_nullable_to_non_nullable
               as List<String>,
@@ -280,13 +287,16 @@ class _$_SubuserPermissions implements _SubuserPermissions {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SubuserPermissionsCopyWith<_$_SubuserPermissions> get copyWith =>
       __$$_SubuserPermissionsCopyWithImpl<_$_SubuserPermissions>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SubuserPermissionsToJson(this);
+    return _$$_SubuserPermissionsToJson(
+      this,
+    );
   }
 }
 
@@ -298,7 +308,7 @@ abstract class _SubuserPermissions implements SubuserPermissions {
       _$_SubuserPermissions.fromJson;
 
   @override
-  List<String> get permissions => throw _privateConstructorUsedError;
+  List<String> get permissions;
   @override
   @JsonKey(ignore: true)
   _$$_SubuserPermissionsCopyWith<_$_SubuserPermissions> get copyWith =>

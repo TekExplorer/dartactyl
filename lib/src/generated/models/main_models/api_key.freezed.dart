@@ -34,7 +34,8 @@ mixin _$ApiKey {
 /// @nodoc
 abstract class $ApiKeyCopyWith<$Res> {
   factory $ApiKeyCopyWith(ApiKey value, $Res Function(ApiKey) then) =
-      _$ApiKeyCopyWithImpl<$Res>;
+      _$ApiKeyCopyWithImpl<$Res, ApiKey>;
+  @useResult
   $Res call(
       {String identifier,
       String? description,
@@ -44,43 +45,46 @@ abstract class $ApiKeyCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ApiKeyCopyWithImpl<$Res> implements $ApiKeyCopyWith<$Res> {
+class _$ApiKeyCopyWithImpl<$Res, $Val extends ApiKey>
+    implements $ApiKeyCopyWith<$Res> {
   _$ApiKeyCopyWithImpl(this._value, this._then);
 
-  final ApiKey _value;
   // ignore: unused_field
-  final $Res Function(ApiKey) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? identifier = freezed,
+    Object? identifier = null,
     Object? description = freezed,
     Object? allowedIps = freezed,
     Object? lastUsedAt = freezed,
-    Object? createdAt = freezed,
+    Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
-      identifier: identifier == freezed
+      identifier: null == identifier
           ? _value.identifier
           : identifier // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      allowedIps: allowedIps == freezed
+      allowedIps: freezed == allowedIps
           ? _value.allowedIps
           : allowedIps // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      lastUsedAt: lastUsedAt == freezed
+      lastUsedAt: freezed == lastUsedAt
           ? _value.lastUsedAt
           : lastUsedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-    ));
+    ) as $Val);
   }
 }
 
@@ -89,6 +93,7 @@ abstract class _$$_ApiKeyCopyWith<$Res> implements $ApiKeyCopyWith<$Res> {
   factory _$$_ApiKeyCopyWith(_$_ApiKey value, $Res Function(_$_ApiKey) then) =
       __$$_ApiKeyCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String identifier,
       String? description,
@@ -98,40 +103,39 @@ abstract class _$$_ApiKeyCopyWith<$Res> implements $ApiKeyCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ApiKeyCopyWithImpl<$Res> extends _$ApiKeyCopyWithImpl<$Res>
+class __$$_ApiKeyCopyWithImpl<$Res>
+    extends _$ApiKeyCopyWithImpl<$Res, _$_ApiKey>
     implements _$$_ApiKeyCopyWith<$Res> {
   __$$_ApiKeyCopyWithImpl(_$_ApiKey _value, $Res Function(_$_ApiKey) _then)
-      : super(_value, (v) => _then(v as _$_ApiKey));
+      : super(_value, _then);
 
-  @override
-  _$_ApiKey get _value => super._value as _$_ApiKey;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? identifier = freezed,
+    Object? identifier = null,
     Object? description = freezed,
     Object? allowedIps = freezed,
     Object? lastUsedAt = freezed,
-    Object? createdAt = freezed,
+    Object? createdAt = null,
   }) {
     return _then(_$_ApiKey(
-      identifier: identifier == freezed
+      identifier: null == identifier
           ? _value.identifier
           : identifier // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      allowedIps: allowedIps == freezed
+      allowedIps: freezed == allowedIps
           ? _value._allowedIps
           : allowedIps // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      lastUsedAt: lastUsedAt == freezed
+      lastUsedAt: freezed == lastUsedAt
           ? _value.lastUsedAt
           : lastUsedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
@@ -182,35 +186,34 @@ class _$_ApiKey extends _ApiKey {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ApiKey &&
-            const DeepCollectionEquality()
-                .equals(other.identifier, identifier) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
+            (identical(other.identifier, identifier) ||
+                other.identifier == identifier) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             const DeepCollectionEquality()
                 .equals(other._allowedIps, _allowedIps) &&
-            const DeepCollectionEquality()
-                .equals(other.lastUsedAt, lastUsedAt) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt));
+            (identical(other.lastUsedAt, lastUsedAt) ||
+                other.lastUsedAt == lastUsedAt) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(identifier),
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(_allowedIps),
-      const DeepCollectionEquality().hash(lastUsedAt),
-      const DeepCollectionEquality().hash(createdAt));
+  int get hashCode => Object.hash(runtimeType, identifier, description,
+      const DeepCollectionEquality().hash(_allowedIps), lastUsedAt, createdAt);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ApiKeyCopyWith<_$_ApiKey> get copyWith =>
       __$$_ApiKeyCopyWithImpl<_$_ApiKey>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApiKeyToJson(this);
+    return _$$_ApiKeyToJson(
+      this,
+    );
   }
 }
 
@@ -226,15 +229,15 @@ abstract class _ApiKey extends ApiKey {
   factory _ApiKey.fromJson(Map<String, dynamic> json) = _$_ApiKey.fromJson;
 
   @override
-  String get identifier => throw _privateConstructorUsedError;
+  String get identifier;
   @override
-  String? get description => throw _privateConstructorUsedError;
+  String? get description;
   @override
-  List<String>? get allowedIps => throw _privateConstructorUsedError;
+  List<String>? get allowedIps;
   @override
-  DateTime? get lastUsedAt => throw _privateConstructorUsedError;
+  DateTime? get lastUsedAt;
   @override
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
   _$$_ApiKeyCopyWith<_$_ApiKey> get copyWith =>

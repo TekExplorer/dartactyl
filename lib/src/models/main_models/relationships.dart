@@ -49,7 +49,7 @@ class ServerScheduleRelationships with _$ServerScheduleRelationships {
 class ActivityLogRelationships with _$ActivityLogRelationships {
   factory ActivityLogRelationships({
     // JsonMap? actor,
-    Fractal<User>? actor,
+    Fractal<Actor>? actor,
   }) = _ActivityLogRelationships;
 
   factory ActivityLogRelationships.fromJson(JsonMap json) =>

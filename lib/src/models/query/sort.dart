@@ -9,5 +9,9 @@ abstract class Sort {
 class ActivityLogSort extends Sort {
   const ActivityLogSort._(super.sort);
 
-  static const ActivityLogSort sortBytimestamp = ActivityLogSort._('timestamp');
+  static const ActivityLogSort sortByPositiveTimestamp =
+      ActivityLogSort._('timestamp');
+
+  static const ActivityLogSort sortByNegativeTimestamp =
+      ActivityLogSort._('-timestamp');
 }

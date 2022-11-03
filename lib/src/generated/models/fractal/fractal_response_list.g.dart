@@ -20,7 +20,7 @@ FractalResponseList<T> _$FractalResponseListFromJson<
 Map<String, dynamic> _$FractalResponseListToJson<T extends SerializableMixin>(
         FractalResponseList<T> instance) =>
     <String, dynamic>{
-      'object': _$AttributeObjectEnumMap[instance.object],
+      'object': _$AttributeObjectEnumMap[instance.object]!,
       'data': instance.data.map((e) => e.toJson()).toList(),
     };
 
@@ -70,7 +70,7 @@ Map<String, dynamic> _$FractalResponseListMetaToJson<
         T extends SerializableMixin,
         M extends Meta<dynamic>>(FractalResponseListMeta<T, M> instance) =>
     <String, dynamic>{
-      'object': _$AttributeObjectEnumMap[instance.object],
+      'object': _$AttributeObjectEnumMap[instance.object]!,
       'data': instance.data.map((e) => e.toJson()).toList(),
       'meta': MetaConverter<M>().toJson(instance.meta),
     };

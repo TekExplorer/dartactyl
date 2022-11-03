@@ -97,6 +97,8 @@ class AttributesConverter<T extends SerializableMixin>
         return SshKey.fromJson(json) as T;
       case ActivityLog:
         return ActivityLog.fromJson(json) as T;
+      case Actor:
+        return Actor.fromJson(json) as T;
       default:
         throw ArgumentError(
           "Incompatible type used in FractalResponseData.fromJson: $T",

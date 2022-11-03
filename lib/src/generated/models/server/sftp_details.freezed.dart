@@ -33,33 +33,37 @@ mixin _$SftpDetails {
 abstract class $SftpDetailsCopyWith<$Res> {
   factory $SftpDetailsCopyWith(
           SftpDetails value, $Res Function(SftpDetails) then) =
-      _$SftpDetailsCopyWithImpl<$Res>;
+      _$SftpDetailsCopyWithImpl<$Res, SftpDetails>;
+  @useResult
   $Res call({String ip, int port});
 }
 
 /// @nodoc
-class _$SftpDetailsCopyWithImpl<$Res> implements $SftpDetailsCopyWith<$Res> {
+class _$SftpDetailsCopyWithImpl<$Res, $Val extends SftpDetails>
+    implements $SftpDetailsCopyWith<$Res> {
   _$SftpDetailsCopyWithImpl(this._value, this._then);
 
-  final SftpDetails _value;
   // ignore: unused_field
-  final $Res Function(SftpDetails) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? ip = freezed,
-    Object? port = freezed,
+    Object? ip = null,
+    Object? port = null,
   }) {
     return _then(_value.copyWith(
-      ip: ip == freezed
+      ip: null == ip
           ? _value.ip
           : ip // ignore: cast_nullable_to_non_nullable
               as String,
-      port: port == freezed
+      port: null == port
           ? _value.port
           : port // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -70,30 +74,30 @@ abstract class _$$_SftpDetailsCopyWith<$Res>
           _$_SftpDetails value, $Res Function(_$_SftpDetails) then) =
       __$$_SftpDetailsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String ip, int port});
 }
 
 /// @nodoc
-class __$$_SftpDetailsCopyWithImpl<$Res> extends _$SftpDetailsCopyWithImpl<$Res>
+class __$$_SftpDetailsCopyWithImpl<$Res>
+    extends _$SftpDetailsCopyWithImpl<$Res, _$_SftpDetails>
     implements _$$_SftpDetailsCopyWith<$Res> {
   __$$_SftpDetailsCopyWithImpl(
       _$_SftpDetails _value, $Res Function(_$_SftpDetails) _then)
-      : super(_value, (v) => _then(v as _$_SftpDetails));
+      : super(_value, _then);
 
-  @override
-  _$_SftpDetails get _value => super._value as _$_SftpDetails;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? ip = freezed,
-    Object? port = freezed,
+    Object? ip = null,
+    Object? port = null,
   }) {
     return _then(_$_SftpDetails(
-      ip: ip == freezed
+      ip: null == ip
           ? _value.ip
           : ip // ignore: cast_nullable_to_non_nullable
               as String,
-      port: port == freezed
+      port: null == port
           ? _value.port
           : port // ignore: cast_nullable_to_non_nullable
               as int,
@@ -124,25 +128,25 @@ class _$_SftpDetails extends _SftpDetails {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SftpDetails &&
-            const DeepCollectionEquality().equals(other.ip, ip) &&
-            const DeepCollectionEquality().equals(other.port, port));
+            (identical(other.ip, ip) || other.ip == ip) &&
+            (identical(other.port, port) || other.port == port));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(ip),
-      const DeepCollectionEquality().hash(port));
+  int get hashCode => Object.hash(runtimeType, ip, port);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SftpDetailsCopyWith<_$_SftpDetails> get copyWith =>
       __$$_SftpDetailsCopyWithImpl<_$_SftpDetails>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SftpDetailsToJson(this);
+    return _$$_SftpDetailsToJson(
+      this,
+    );
   }
 }
 
@@ -155,9 +159,9 @@ abstract class _SftpDetails extends SftpDetails {
       _$_SftpDetails.fromJson;
 
   @override
-  String get ip => throw _privateConstructorUsedError;
+  String get ip;
   @override
-  int get port => throw _privateConstructorUsedError;
+  int get port;
   @override
   @JsonKey(ignore: true)
   _$$_SftpDetailsCopyWith<_$_SftpDetails> get copyWith =>

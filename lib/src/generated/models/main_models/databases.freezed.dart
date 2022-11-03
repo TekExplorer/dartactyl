@@ -39,7 +39,8 @@ mixin _$Databases {
 /// @nodoc
 abstract class $DatabasesCopyWith<$Res> {
   factory $DatabasesCopyWith(Databases value, $Res Function(Databases) then) =
-      _$DatabasesCopyWithImpl<$Res>;
+      _$DatabasesCopyWithImpl<$Res, Databases>;
+  @useResult
   $Res call(
       {int id,
       int server,
@@ -53,63 +54,66 @@ abstract class $DatabasesCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DatabasesCopyWithImpl<$Res> implements $DatabasesCopyWith<$Res> {
+class _$DatabasesCopyWithImpl<$Res, $Val extends Databases>
+    implements $DatabasesCopyWith<$Res> {
   _$DatabasesCopyWithImpl(this._value, this._then);
 
-  final Databases _value;
   // ignore: unused_field
-  final $Res Function(Databases) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? server = freezed,
-    Object? host = freezed,
-    Object? database = freezed,
-    Object? username = freezed,
-    Object? remote = freezed,
-    Object? maxConnections = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
+    Object? id = null,
+    Object? server = null,
+    Object? host = null,
+    Object? database = null,
+    Object? username = null,
+    Object? remote = null,
+    Object? maxConnections = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      server: server == freezed
+      server: null == server
           ? _value.server
           : server // ignore: cast_nullable_to_non_nullable
               as int,
-      host: host == freezed
+      host: null == host
           ? _value.host
           : host // ignore: cast_nullable_to_non_nullable
               as int,
-      database: database == freezed
+      database: null == database
           ? _value.database
           : database // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      remote: remote == freezed
+      remote: null == remote
           ? _value.remote
           : remote // ignore: cast_nullable_to_non_nullable
               as String,
-      maxConnections: maxConnections == freezed
+      maxConnections: null == maxConnections
           ? _value.maxConnections
           : maxConnections // ignore: cast_nullable_to_non_nullable
               as int,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -119,6 +123,7 @@ abstract class _$$_DatabasesCopyWith<$Res> implements $DatabasesCopyWith<$Res> {
           _$_Databases value, $Res Function(_$_Databases) then) =
       __$$_DatabasesCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int id,
       int server,
@@ -132,61 +137,60 @@ abstract class _$$_DatabasesCopyWith<$Res> implements $DatabasesCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DatabasesCopyWithImpl<$Res> extends _$DatabasesCopyWithImpl<$Res>
+class __$$_DatabasesCopyWithImpl<$Res>
+    extends _$DatabasesCopyWithImpl<$Res, _$_Databases>
     implements _$$_DatabasesCopyWith<$Res> {
   __$$_DatabasesCopyWithImpl(
       _$_Databases _value, $Res Function(_$_Databases) _then)
-      : super(_value, (v) => _then(v as _$_Databases));
+      : super(_value, _then);
 
-  @override
-  _$_Databases get _value => super._value as _$_Databases;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? server = freezed,
-    Object? host = freezed,
-    Object? database = freezed,
-    Object? username = freezed,
-    Object? remote = freezed,
-    Object? maxConnections = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
+    Object? id = null,
+    Object? server = null,
+    Object? host = null,
+    Object? database = null,
+    Object? username = null,
+    Object? remote = null,
+    Object? maxConnections = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_$_Databases(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      server: server == freezed
+      server: null == server
           ? _value.server
           : server // ignore: cast_nullable_to_non_nullable
               as int,
-      host: host == freezed
+      host: null == host
           ? _value.host
           : host // ignore: cast_nullable_to_non_nullable
               as int,
-      database: database == freezed
+      database: null == database
           ? _value.database
           : database // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      remote: remote == freezed
+      remote: null == remote
           ? _value.remote
           : remote // ignore: cast_nullable_to_non_nullable
               as String,
-      maxConnections: maxConnections == freezed
+      maxConnections: null == maxConnections
           ? _value.maxConnections
           : maxConnections // ignore: cast_nullable_to_non_nullable
               as int,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
@@ -241,40 +245,38 @@ class _$_Databases extends _Databases {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Databases &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.server, server) &&
-            const DeepCollectionEquality().equals(other.host, host) &&
-            const DeepCollectionEquality().equals(other.database, database) &&
-            const DeepCollectionEquality().equals(other.username, username) &&
-            const DeepCollectionEquality().equals(other.remote, remote) &&
-            const DeepCollectionEquality()
-                .equals(other.maxConnections, maxConnections) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.server, server) || other.server == server) &&
+            (identical(other.host, host) || other.host == host) &&
+            (identical(other.database, database) ||
+                other.database == database) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.remote, remote) || other.remote == remote) &&
+            (identical(other.maxConnections, maxConnections) ||
+                other.maxConnections == maxConnections) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(server),
-      const DeepCollectionEquality().hash(host),
-      const DeepCollectionEquality().hash(database),
-      const DeepCollectionEquality().hash(username),
-      const DeepCollectionEquality().hash(remote),
-      const DeepCollectionEquality().hash(maxConnections),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(updatedAt));
+  int get hashCode => Object.hash(runtimeType, id, server, host, database,
+      username, remote, maxConnections, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DatabasesCopyWith<_$_Databases> get copyWith =>
       __$$_DatabasesCopyWithImpl<_$_Databases>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DatabasesToJson(this);
+    return _$$_DatabasesToJson(
+      this,
+    );
   }
 }
 
@@ -295,23 +297,23 @@ abstract class _Databases extends Databases {
       _$_Databases.fromJson;
 
   @override
-  int get id => throw _privateConstructorUsedError;
+  int get id;
   @override
-  int get server => throw _privateConstructorUsedError;
+  int get server;
   @override
-  int get host => throw _privateConstructorUsedError;
+  int get host;
   @override
-  String get database => throw _privateConstructorUsedError;
+  String get database;
   @override
-  String get username => throw _privateConstructorUsedError;
+  String get username;
   @override
-  String get remote => throw _privateConstructorUsedError;
+  String get remote;
   @override
-  int get maxConnections => throw _privateConstructorUsedError;
+  int get maxConnections;
   @override
-  String get createdAt => throw _privateConstructorUsedError;
+  String get createdAt;
   @override
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$_DatabasesCopyWith<_$_Databases> get copyWith =>

@@ -41,7 +41,8 @@ mixin _$ServerSchedule {
 abstract class $ServerScheduleCopyWith<$Res> {
   factory $ServerScheduleCopyWith(
           ServerSchedule value, $Res Function(ServerSchedule) then) =
-      _$ServerScheduleCopyWithImpl<$Res>;
+      _$ServerScheduleCopyWithImpl<$Res, ServerSchedule>;
+  @useResult
   $Res call(
       {int id,
       String name,
@@ -58,75 +59,78 @@ abstract class $ServerScheduleCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ServerScheduleCopyWithImpl<$Res>
+class _$ServerScheduleCopyWithImpl<$Res, $Val extends ServerSchedule>
     implements $ServerScheduleCopyWith<$Res> {
   _$ServerScheduleCopyWithImpl(this._value, this._then);
 
-  final ServerSchedule _value;
   // ignore: unused_field
-  final $Res Function(ServerSchedule) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? cron = freezed,
-    Object? isActive = freezed,
-    Object? isProcessing = freezed,
-    Object? onlyWhenOnline = freezed,
+    Object? id = null,
+    Object? name = null,
+    Object? cron = null,
+    Object? isActive = null,
+    Object? isProcessing = null,
+    Object? onlyWhenOnline = null,
     Object? lastRunAt = freezed,
     Object? nextRunAt = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
+    Object? createdAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      cron: cron == freezed
+      cron: null == cron
           ? _value.cron
           : cron // ignore: cast_nullable_to_non_nullable
               as Cron,
-      isActive: isActive == freezed
+      isActive: null == isActive
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
               as bool,
-      isProcessing: isProcessing == freezed
+      isProcessing: null == isProcessing
           ? _value.isProcessing
           : isProcessing // ignore: cast_nullable_to_non_nullable
               as bool,
-      onlyWhenOnline: onlyWhenOnline == freezed
+      onlyWhenOnline: null == onlyWhenOnline
           ? _value.onlyWhenOnline
           : onlyWhenOnline // ignore: cast_nullable_to_non_nullable
               as bool,
-      lastRunAt: lastRunAt == freezed
+      lastRunAt: freezed == lastRunAt
           ? _value.lastRunAt
           : lastRunAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      nextRunAt: nextRunAt == freezed
+      nextRunAt: freezed == nextRunAt
           ? _value.nextRunAt
           : nextRunAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $CronCopyWith<$Res> get cron {
     return $CronCopyWith<$Res>(_value.cron, (value) {
-      return _then(_value.copyWith(cron: value));
+      return _then(_value.copyWith(cron: value) as $Val);
     });
   }
 }
@@ -138,6 +142,7 @@ abstract class _$$_ServerScheduleCopyWith<$Res>
           _$_ServerSchedule value, $Res Function(_$_ServerSchedule) then) =
       __$$_ServerScheduleCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int id,
       String name,
@@ -156,66 +161,64 @@ abstract class _$$_ServerScheduleCopyWith<$Res>
 
 /// @nodoc
 class __$$_ServerScheduleCopyWithImpl<$Res>
-    extends _$ServerScheduleCopyWithImpl<$Res>
+    extends _$ServerScheduleCopyWithImpl<$Res, _$_ServerSchedule>
     implements _$$_ServerScheduleCopyWith<$Res> {
   __$$_ServerScheduleCopyWithImpl(
       _$_ServerSchedule _value, $Res Function(_$_ServerSchedule) _then)
-      : super(_value, (v) => _then(v as _$_ServerSchedule));
+      : super(_value, _then);
 
-  @override
-  _$_ServerSchedule get _value => super._value as _$_ServerSchedule;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? cron = freezed,
-    Object? isActive = freezed,
-    Object? isProcessing = freezed,
-    Object? onlyWhenOnline = freezed,
+    Object? id = null,
+    Object? name = null,
+    Object? cron = null,
+    Object? isActive = null,
+    Object? isProcessing = null,
+    Object? onlyWhenOnline = null,
     Object? lastRunAt = freezed,
     Object? nextRunAt = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
+    Object? createdAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_$_ServerSchedule(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      cron: cron == freezed
+      cron: null == cron
           ? _value.cron
           : cron // ignore: cast_nullable_to_non_nullable
               as Cron,
-      isActive: isActive == freezed
+      isActive: null == isActive
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
               as bool,
-      isProcessing: isProcessing == freezed
+      isProcessing: null == isProcessing
           ? _value.isProcessing
           : isProcessing // ignore: cast_nullable_to_non_nullable
               as bool,
-      onlyWhenOnline: onlyWhenOnline == freezed
+      onlyWhenOnline: null == onlyWhenOnline
           ? _value.onlyWhenOnline
           : onlyWhenOnline // ignore: cast_nullable_to_non_nullable
               as bool,
-      lastRunAt: lastRunAt == freezed
+      lastRunAt: freezed == lastRunAt
           ? _value.lastRunAt
           : lastRunAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      nextRunAt: nextRunAt == freezed
+      nextRunAt: freezed == nextRunAt
           ? _value.nextRunAt
           : nextRunAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
@@ -273,43 +276,41 @@ class _$_ServerSchedule extends _ServerSchedule {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ServerSchedule &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.cron, cron) &&
-            const DeepCollectionEquality().equals(other.isActive, isActive) &&
-            const DeepCollectionEquality()
-                .equals(other.isProcessing, isProcessing) &&
-            const DeepCollectionEquality()
-                .equals(other.onlyWhenOnline, onlyWhenOnline) &&
-            const DeepCollectionEquality().equals(other.lastRunAt, lastRunAt) &&
-            const DeepCollectionEquality().equals(other.nextRunAt, nextRunAt) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.cron, cron) || other.cron == cron) &&
+            (identical(other.isActive, isActive) ||
+                other.isActive == isActive) &&
+            (identical(other.isProcessing, isProcessing) ||
+                other.isProcessing == isProcessing) &&
+            (identical(other.onlyWhenOnline, onlyWhenOnline) ||
+                other.onlyWhenOnline == onlyWhenOnline) &&
+            (identical(other.lastRunAt, lastRunAt) ||
+                other.lastRunAt == lastRunAt) &&
+            (identical(other.nextRunAt, nextRunAt) ||
+                other.nextRunAt == nextRunAt) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(cron),
-      const DeepCollectionEquality().hash(isActive),
-      const DeepCollectionEquality().hash(isProcessing),
-      const DeepCollectionEquality().hash(onlyWhenOnline),
-      const DeepCollectionEquality().hash(lastRunAt),
-      const DeepCollectionEquality().hash(nextRunAt),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(updatedAt));
+  int get hashCode => Object.hash(runtimeType, id, name, cron, isActive,
+      isProcessing, onlyWhenOnline, lastRunAt, nextRunAt, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ServerScheduleCopyWith<_$_ServerSchedule> get copyWith =>
       __$$_ServerScheduleCopyWithImpl<_$_ServerSchedule>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServerScheduleToJson(this);
+    return _$$_ServerScheduleToJson(
+      this,
+    );
   }
 }
 
@@ -331,25 +332,25 @@ abstract class _ServerSchedule extends ServerSchedule {
       _$_ServerSchedule.fromJson;
 
   @override
-  int get id => throw _privateConstructorUsedError;
+  int get id;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  Cron get cron => throw _privateConstructorUsedError;
+  Cron get cron;
   @override
-  bool get isActive => throw _privateConstructorUsedError;
+  bool get isActive;
   @override
-  bool get isProcessing => throw _privateConstructorUsedError;
+  bool get isProcessing;
   @override
-  bool get onlyWhenOnline => throw _privateConstructorUsedError;
+  bool get onlyWhenOnline;
   @override
-  DateTime? get lastRunAt => throw _privateConstructorUsedError;
+  DateTime? get lastRunAt;
   @override
-  DateTime? get nextRunAt => throw _privateConstructorUsedError;
+  DateTime? get nextRunAt;
   @override
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt;
   @override
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  DateTime get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$_ServerScheduleCopyWith<_$_ServerSchedule> get copyWith =>

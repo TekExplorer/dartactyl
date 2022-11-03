@@ -36,44 +36,48 @@ mixin _$AllocationPermissionKeys {
 abstract class $AllocationPermissionKeysCopyWith<$Res> {
   factory $AllocationPermissionKeysCopyWith(AllocationPermissionKeys value,
           $Res Function(AllocationPermissionKeys) then) =
-      _$AllocationPermissionKeysCopyWithImpl<$Res>;
+      _$AllocationPermissionKeysCopyWithImpl<$Res, AllocationPermissionKeys>;
+  @useResult
   $Res call({String read, String create, String update, String delete});
 }
 
 /// @nodoc
-class _$AllocationPermissionKeysCopyWithImpl<$Res>
+class _$AllocationPermissionKeysCopyWithImpl<$Res,
+        $Val extends AllocationPermissionKeys>
     implements $AllocationPermissionKeysCopyWith<$Res> {
   _$AllocationPermissionKeysCopyWithImpl(this._value, this._then);
 
-  final AllocationPermissionKeys _value;
   // ignore: unused_field
-  final $Res Function(AllocationPermissionKeys) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? read = freezed,
-    Object? create = freezed,
-    Object? update = freezed,
-    Object? delete = freezed,
+    Object? read = null,
+    Object? create = null,
+    Object? update = null,
+    Object? delete = null,
   }) {
     return _then(_value.copyWith(
-      read: read == freezed
+      read: null == read
           ? _value.read
           : read // ignore: cast_nullable_to_non_nullable
               as String,
-      create: create == freezed
+      create: null == create
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
               as String,
-      update: update == freezed
+      update: null == update
           ? _value.update
           : update // ignore: cast_nullable_to_non_nullable
               as String,
-      delete: delete == freezed
+      delete: null == delete
           ? _value.delete
           : delete // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -85,42 +89,41 @@ abstract class _$$_AllocationPermissionKeysCopyWith<$Res>
           $Res Function(_$_AllocationPermissionKeys) then) =
       __$$_AllocationPermissionKeysCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String read, String create, String update, String delete});
 }
 
 /// @nodoc
 class __$$_AllocationPermissionKeysCopyWithImpl<$Res>
-    extends _$AllocationPermissionKeysCopyWithImpl<$Res>
+    extends _$AllocationPermissionKeysCopyWithImpl<$Res,
+        _$_AllocationPermissionKeys>
     implements _$$_AllocationPermissionKeysCopyWith<$Res> {
   __$$_AllocationPermissionKeysCopyWithImpl(_$_AllocationPermissionKeys _value,
       $Res Function(_$_AllocationPermissionKeys) _then)
-      : super(_value, (v) => _then(v as _$_AllocationPermissionKeys));
+      : super(_value, _then);
 
-  @override
-  _$_AllocationPermissionKeys get _value =>
-      super._value as _$_AllocationPermissionKeys;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? read = freezed,
-    Object? create = freezed,
-    Object? update = freezed,
-    Object? delete = freezed,
+    Object? read = null,
+    Object? create = null,
+    Object? update = null,
+    Object? delete = null,
   }) {
     return _then(_$_AllocationPermissionKeys(
-      read: read == freezed
+      read: null == read
           ? _value.read
           : read // ignore: cast_nullable_to_non_nullable
               as String,
-      create: create == freezed
+      create: null == create
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
               as String,
-      update: update == freezed
+      update: null == update
           ? _value.update
           : update // ignore: cast_nullable_to_non_nullable
               as String,
-      delete: delete == freezed
+      delete: null == delete
           ? _value.delete
           : delete // ignore: cast_nullable_to_non_nullable
               as String,
@@ -160,30 +163,28 @@ class _$_AllocationPermissionKeys extends _AllocationPermissionKeys {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AllocationPermissionKeys &&
-            const DeepCollectionEquality().equals(other.read, read) &&
-            const DeepCollectionEquality().equals(other.create, create) &&
-            const DeepCollectionEquality().equals(other.update, update) &&
-            const DeepCollectionEquality().equals(other.delete, delete));
+            (identical(other.read, read) || other.read == read) &&
+            (identical(other.create, create) || other.create == create) &&
+            (identical(other.update, update) || other.update == update) &&
+            (identical(other.delete, delete) || other.delete == delete));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(read),
-      const DeepCollectionEquality().hash(create),
-      const DeepCollectionEquality().hash(update),
-      const DeepCollectionEquality().hash(delete));
+  int get hashCode => Object.hash(runtimeType, read, create, update, delete);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AllocationPermissionKeysCopyWith<_$_AllocationPermissionKeys>
       get copyWith => __$$_AllocationPermissionKeysCopyWithImpl<
           _$_AllocationPermissionKeys>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AllocationPermissionKeysToJson(this);
+    return _$$_AllocationPermissionKeysToJson(
+      this,
+    );
   }
 }
 
@@ -199,13 +200,13 @@ abstract class _AllocationPermissionKeys extends AllocationPermissionKeys {
       _$_AllocationPermissionKeys.fromJson;
 
   @override
-  String get read => throw _privateConstructorUsedError;
+  String get read;
   @override
-  String get create => throw _privateConstructorUsedError;
+  String get create;
   @override
-  String get update => throw _privateConstructorUsedError;
+  String get update;
   @override
-  String get delete => throw _privateConstructorUsedError;
+  String get delete;
   @override
   @JsonKey(ignore: true)
   _$$_AllocationPermissionKeysCopyWith<_$_AllocationPermissionKeys>

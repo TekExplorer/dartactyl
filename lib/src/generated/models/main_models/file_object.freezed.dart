@@ -40,7 +40,8 @@ mixin _$FileObject {
 abstract class $FileObjectCopyWith<$Res> {
   factory $FileObjectCopyWith(
           FileObject value, $Res Function(FileObject) then) =
-      _$FileObjectCopyWithImpl<$Res>;
+      _$FileObjectCopyWithImpl<$Res, FileObject>;
+  @useResult
   $Res call(
       {String name,
       String mode,
@@ -54,63 +55,66 @@ abstract class $FileObjectCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FileObjectCopyWithImpl<$Res> implements $FileObjectCopyWith<$Res> {
+class _$FileObjectCopyWithImpl<$Res, $Val extends FileObject>
+    implements $FileObjectCopyWith<$Res> {
   _$FileObjectCopyWithImpl(this._value, this._then);
 
-  final FileObject _value;
   // ignore: unused_field
-  final $Res Function(FileObject) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? mode = freezed,
-    Object? modeBits = freezed,
-    Object? size = freezed,
-    Object? isFile = freezed,
-    Object? isSymlink = freezed,
-    Object? mimetype = freezed,
-    Object? createdAt = freezed,
-    Object? modifiedAt = freezed,
+    Object? name = null,
+    Object? mode = null,
+    Object? modeBits = null,
+    Object? size = null,
+    Object? isFile = null,
+    Object? isSymlink = null,
+    Object? mimetype = null,
+    Object? createdAt = null,
+    Object? modifiedAt = null,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      mode: mode == freezed
+      mode: null == mode
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
               as String,
-      modeBits: modeBits == freezed
+      modeBits: null == modeBits
           ? _value.modeBits
           : modeBits // ignore: cast_nullable_to_non_nullable
               as String,
-      size: size == freezed
+      size: null == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as int,
-      isFile: isFile == freezed
+      isFile: null == isFile
           ? _value.isFile
           : isFile // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSymlink: isSymlink == freezed
+      isSymlink: null == isSymlink
           ? _value.isSymlink
           : isSymlink // ignore: cast_nullable_to_non_nullable
               as bool,
-      mimetype: mimetype == freezed
+      mimetype: null == mimetype
           ? _value.mimetype
           : mimetype // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      modifiedAt: modifiedAt == freezed
+      modifiedAt: null == modifiedAt
           ? _value.modifiedAt
           : modifiedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-    ));
+    ) as $Val);
   }
 }
 
@@ -121,6 +125,7 @@ abstract class _$$_FileObjectCopyWith<$Res>
           _$_FileObject value, $Res Function(_$_FileObject) then) =
       __$$_FileObjectCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String name,
       String mode,
@@ -134,61 +139,60 @@ abstract class _$$_FileObjectCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FileObjectCopyWithImpl<$Res> extends _$FileObjectCopyWithImpl<$Res>
+class __$$_FileObjectCopyWithImpl<$Res>
+    extends _$FileObjectCopyWithImpl<$Res, _$_FileObject>
     implements _$$_FileObjectCopyWith<$Res> {
   __$$_FileObjectCopyWithImpl(
       _$_FileObject _value, $Res Function(_$_FileObject) _then)
-      : super(_value, (v) => _then(v as _$_FileObject));
+      : super(_value, _then);
 
-  @override
-  _$_FileObject get _value => super._value as _$_FileObject;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? mode = freezed,
-    Object? modeBits = freezed,
-    Object? size = freezed,
-    Object? isFile = freezed,
-    Object? isSymlink = freezed,
-    Object? mimetype = freezed,
-    Object? createdAt = freezed,
-    Object? modifiedAt = freezed,
+    Object? name = null,
+    Object? mode = null,
+    Object? modeBits = null,
+    Object? size = null,
+    Object? isFile = null,
+    Object? isSymlink = null,
+    Object? mimetype = null,
+    Object? createdAt = null,
+    Object? modifiedAt = null,
   }) {
     return _then(_$_FileObject(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      mode: mode == freezed
+      mode: null == mode
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
               as String,
-      modeBits: modeBits == freezed
+      modeBits: null == modeBits
           ? _value.modeBits
           : modeBits // ignore: cast_nullable_to_non_nullable
               as String,
-      size: size == freezed
+      size: null == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as int,
-      isFile: isFile == freezed
+      isFile: null == isFile
           ? _value.isFile
           : isFile // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSymlink: isSymlink == freezed
+      isSymlink: null == isSymlink
           ? _value.isSymlink
           : isSymlink // ignore: cast_nullable_to_non_nullable
               as bool,
-      mimetype: mimetype == freezed
+      mimetype: null == mimetype
           ? _value.mimetype
           : mimetype // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      modifiedAt: modifiedAt == freezed
+      modifiedAt: null == modifiedAt
           ? _value.modifiedAt
           : modifiedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
@@ -243,40 +247,38 @@ class _$_FileObject extends _FileObject {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FileObject &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.mode, mode) &&
-            const DeepCollectionEquality().equals(other.modeBits, modeBits) &&
-            const DeepCollectionEquality().equals(other.size, size) &&
-            const DeepCollectionEquality().equals(other.isFile, isFile) &&
-            const DeepCollectionEquality().equals(other.isSymlink, isSymlink) &&
-            const DeepCollectionEquality().equals(other.mimetype, mimetype) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality()
-                .equals(other.modifiedAt, modifiedAt));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.mode, mode) || other.mode == mode) &&
+            (identical(other.modeBits, modeBits) ||
+                other.modeBits == modeBits) &&
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.isFile, isFile) || other.isFile == isFile) &&
+            (identical(other.isSymlink, isSymlink) ||
+                other.isSymlink == isSymlink) &&
+            (identical(other.mimetype, mimetype) ||
+                other.mimetype == mimetype) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.modifiedAt, modifiedAt) ||
+                other.modifiedAt == modifiedAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(mode),
-      const DeepCollectionEquality().hash(modeBits),
-      const DeepCollectionEquality().hash(size),
-      const DeepCollectionEquality().hash(isFile),
-      const DeepCollectionEquality().hash(isSymlink),
-      const DeepCollectionEquality().hash(mimetype),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(modifiedAt));
+  int get hashCode => Object.hash(runtimeType, name, mode, modeBits, size,
+      isFile, isSymlink, mimetype, createdAt, modifiedAt);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FileObjectCopyWith<_$_FileObject> get copyWith =>
       __$$_FileObjectCopyWithImpl<_$_FileObject>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FileObjectToJson(this);
+    return _$$_FileObjectToJson(
+      this,
+    );
   }
 }
 
@@ -297,23 +299,23 @@ abstract class _FileObject extends FileObject {
       _$_FileObject.fromJson;
 
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String get mode => throw _privateConstructorUsedError;
+  String get mode;
   @override
-  String get modeBits => throw _privateConstructorUsedError;
+  String get modeBits;
   @override
-  int get size => throw _privateConstructorUsedError;
+  int get size;
   @override
-  bool get isFile => throw _privateConstructorUsedError;
+  bool get isFile;
   @override
-  bool get isSymlink => throw _privateConstructorUsedError;
+  bool get isSymlink;
   @override
-  String get mimetype => throw _privateConstructorUsedError;
+  String get mimetype;
   @override
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt;
   @override
-  DateTime get modifiedAt => throw _privateConstructorUsedError;
+  DateTime get modifiedAt;
   @override
   @JsonKey(ignore: true)
   _$$_FileObjectCopyWith<_$_FileObject> get copyWith =>

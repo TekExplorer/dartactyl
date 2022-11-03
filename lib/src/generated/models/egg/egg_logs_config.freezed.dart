@@ -33,34 +33,37 @@ mixin _$EggLogsConfig {
 abstract class $EggLogsConfigCopyWith<$Res> {
   factory $EggLogsConfigCopyWith(
           EggLogsConfig value, $Res Function(EggLogsConfig) then) =
-      _$EggLogsConfigCopyWithImpl<$Res>;
+      _$EggLogsConfigCopyWithImpl<$Res, EggLogsConfig>;
+  @useResult
   $Res call({bool custom, String? location});
 }
 
 /// @nodoc
-class _$EggLogsConfigCopyWithImpl<$Res>
+class _$EggLogsConfigCopyWithImpl<$Res, $Val extends EggLogsConfig>
     implements $EggLogsConfigCopyWith<$Res> {
   _$EggLogsConfigCopyWithImpl(this._value, this._then);
 
-  final EggLogsConfig _value;
   // ignore: unused_field
-  final $Res Function(EggLogsConfig) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? custom = freezed,
+    Object? custom = null,
     Object? location = freezed,
   }) {
     return _then(_value.copyWith(
-      custom: custom == freezed
+      custom: null == custom
           ? _value.custom
           : custom // ignore: cast_nullable_to_non_nullable
               as bool,
-      location: location == freezed
+      location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,31 +74,30 @@ abstract class _$$_EggLogsConfigCopyWith<$Res>
           _$_EggLogsConfig value, $Res Function(_$_EggLogsConfig) then) =
       __$$_EggLogsConfigCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({bool custom, String? location});
 }
 
 /// @nodoc
 class __$$_EggLogsConfigCopyWithImpl<$Res>
-    extends _$EggLogsConfigCopyWithImpl<$Res>
+    extends _$EggLogsConfigCopyWithImpl<$Res, _$_EggLogsConfig>
     implements _$$_EggLogsConfigCopyWith<$Res> {
   __$$_EggLogsConfigCopyWithImpl(
       _$_EggLogsConfig _value, $Res Function(_$_EggLogsConfig) _then)
-      : super(_value, (v) => _then(v as _$_EggLogsConfig));
+      : super(_value, _then);
 
-  @override
-  _$_EggLogsConfig get _value => super._value as _$_EggLogsConfig;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? custom = freezed,
+    Object? custom = null,
     Object? location = freezed,
   }) {
     return _then(_$_EggLogsConfig(
-      custom: custom == freezed
+      custom: null == custom
           ? _value.custom
           : custom // ignore: cast_nullable_to_non_nullable
               as bool,
-      location: location == freezed
+      location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -126,25 +128,26 @@ class _$_EggLogsConfig implements _EggLogsConfig {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EggLogsConfig &&
-            const DeepCollectionEquality().equals(other.custom, custom) &&
-            const DeepCollectionEquality().equals(other.location, location));
+            (identical(other.custom, custom) || other.custom == custom) &&
+            (identical(other.location, location) ||
+                other.location == location));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(custom),
-      const DeepCollectionEquality().hash(location));
+  int get hashCode => Object.hash(runtimeType, custom, location);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EggLogsConfigCopyWith<_$_EggLogsConfig> get copyWith =>
       __$$_EggLogsConfigCopyWithImpl<_$_EggLogsConfig>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EggLogsConfigToJson(this);
+    return _$$_EggLogsConfigToJson(
+      this,
+    );
   }
 }
 
@@ -156,9 +159,9 @@ abstract class _EggLogsConfig implements EggLogsConfig {
       _$_EggLogsConfig.fromJson;
 
   @override
-  bool get custom => throw _privateConstructorUsedError;
+  bool get custom;
   @override
-  String? get location => throw _privateConstructorUsedError;
+  String? get location;
   @override
   @JsonKey(ignore: true)
   _$$_EggLogsConfigCopyWith<_$_EggLogsConfig> get copyWith =>

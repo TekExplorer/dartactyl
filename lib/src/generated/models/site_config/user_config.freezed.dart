@@ -42,7 +42,8 @@ mixin _$UserConfig {
 abstract class $UserConfigCopyWith<$Res> {
   factory $UserConfigCopyWith(
           UserConfig value, $Res Function(UserConfig) then) =
-      _$UserConfigCopyWithImpl<$Res>;
+      _$UserConfigCopyWithImpl<$Res, UserConfig>;
+  @useResult
   $Res call(
       {String uuid,
       String username,
@@ -58,73 +59,76 @@ abstract class $UserConfigCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UserConfigCopyWithImpl<$Res> implements $UserConfigCopyWith<$Res> {
+class _$UserConfigCopyWithImpl<$Res, $Val extends UserConfig>
+    implements $UserConfigCopyWith<$Res> {
   _$UserConfigCopyWithImpl(this._value, this._then);
 
-  final UserConfig _value;
   // ignore: unused_field
-  final $Res Function(UserConfig) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
-    Object? username = freezed,
-    Object? email = freezed,
-    Object? language = freezed,
-    Object? rootAdmin = freezed,
-    Object? useTotp = freezed,
-    Object? gravatar = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
-    Object? nameFirst = freezed,
-    Object? nameLast = freezed,
+    Object? uuid = null,
+    Object? username = null,
+    Object? email = null,
+    Object? language = null,
+    Object? rootAdmin = null,
+    Object? useTotp = null,
+    Object? gravatar = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
+    Object? nameFirst = null,
+    Object? nameLast = null,
   }) {
     return _then(_value.copyWith(
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      language: language == freezed
+      language: null == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as String,
-      rootAdmin: rootAdmin == freezed
+      rootAdmin: null == rootAdmin
           ? _value.rootAdmin
           : rootAdmin // ignore: cast_nullable_to_non_nullable
               as bool,
-      useTotp: useTotp == freezed
+      useTotp: null == useTotp
           ? _value.useTotp
           : useTotp // ignore: cast_nullable_to_non_nullable
               as bool,
-      gravatar: gravatar == freezed
+      gravatar: null == gravatar
           ? _value.gravatar
           : gravatar // ignore: cast_nullable_to_non_nullable
               as bool,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
-      nameFirst: nameFirst == freezed
+      nameFirst: null == nameFirst
           ? _value.nameFirst
           : nameFirst // ignore: cast_nullable_to_non_nullable
               as String,
-      nameLast: nameLast == freezed
+      nameLast: null == nameLast
           ? _value.nameLast
           : nameLast // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -135,6 +139,7 @@ abstract class _$$_UserConfigCopyWith<$Res>
           _$_UserConfig value, $Res Function(_$_UserConfig) then) =
       __$$_UserConfigCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String uuid,
       String username,
@@ -150,71 +155,70 @@ abstract class _$$_UserConfigCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UserConfigCopyWithImpl<$Res> extends _$UserConfigCopyWithImpl<$Res>
+class __$$_UserConfigCopyWithImpl<$Res>
+    extends _$UserConfigCopyWithImpl<$Res, _$_UserConfig>
     implements _$$_UserConfigCopyWith<$Res> {
   __$$_UserConfigCopyWithImpl(
       _$_UserConfig _value, $Res Function(_$_UserConfig) _then)
-      : super(_value, (v) => _then(v as _$_UserConfig));
+      : super(_value, _then);
 
-  @override
-  _$_UserConfig get _value => super._value as _$_UserConfig;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
-    Object? username = freezed,
-    Object? email = freezed,
-    Object? language = freezed,
-    Object? rootAdmin = freezed,
-    Object? useTotp = freezed,
-    Object? gravatar = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
-    Object? nameFirst = freezed,
-    Object? nameLast = freezed,
+    Object? uuid = null,
+    Object? username = null,
+    Object? email = null,
+    Object? language = null,
+    Object? rootAdmin = null,
+    Object? useTotp = null,
+    Object? gravatar = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
+    Object? nameFirst = null,
+    Object? nameLast = null,
   }) {
     return _then(_$_UserConfig(
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      language: language == freezed
+      language: null == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as String,
-      rootAdmin: rootAdmin == freezed
+      rootAdmin: null == rootAdmin
           ? _value.rootAdmin
           : rootAdmin // ignore: cast_nullable_to_non_nullable
               as bool,
-      useTotp: useTotp == freezed
+      useTotp: null == useTotp
           ? _value.useTotp
           : useTotp // ignore: cast_nullable_to_non_nullable
               as bool,
-      gravatar: gravatar == freezed
+      gravatar: null == gravatar
           ? _value.gravatar
           : gravatar // ignore: cast_nullable_to_non_nullable
               as bool,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
-      nameFirst: nameFirst == freezed
+      nameFirst: null == nameFirst
           ? _value.nameFirst
           : nameFirst // ignore: cast_nullable_to_non_nullable
               as String,
-      nameLast: nameLast == freezed
+      nameLast: null == nameLast
           ? _value.nameLast
           : nameLast // ignore: cast_nullable_to_non_nullable
               as String,
@@ -275,43 +279,43 @@ class _$_UserConfig extends _UserConfig {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UserConfig &&
-            const DeepCollectionEquality().equals(other.uuid, uuid) &&
-            const DeepCollectionEquality().equals(other.username, username) &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.language, language) &&
-            const DeepCollectionEquality().equals(other.rootAdmin, rootAdmin) &&
-            const DeepCollectionEquality().equals(other.useTotp, useTotp) &&
-            const DeepCollectionEquality().equals(other.gravatar, gravatar) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
-            const DeepCollectionEquality().equals(other.nameFirst, nameFirst) &&
-            const DeepCollectionEquality().equals(other.nameLast, nameLast));
+            (identical(other.uuid, uuid) || other.uuid == uuid) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.language, language) ||
+                other.language == language) &&
+            (identical(other.rootAdmin, rootAdmin) ||
+                other.rootAdmin == rootAdmin) &&
+            (identical(other.useTotp, useTotp) || other.useTotp == useTotp) &&
+            (identical(other.gravatar, gravatar) ||
+                other.gravatar == gravatar) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
+            (identical(other.nameFirst, nameFirst) ||
+                other.nameFirst == nameFirst) &&
+            (identical(other.nameLast, nameLast) ||
+                other.nameLast == nameLast));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(uuid),
-      const DeepCollectionEquality().hash(username),
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(language),
-      const DeepCollectionEquality().hash(rootAdmin),
-      const DeepCollectionEquality().hash(useTotp),
-      const DeepCollectionEquality().hash(gravatar),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(updatedAt),
-      const DeepCollectionEquality().hash(nameFirst),
-      const DeepCollectionEquality().hash(nameLast));
+  int get hashCode => Object.hash(runtimeType, uuid, username, email, language,
+      rootAdmin, useTotp, gravatar, createdAt, updatedAt, nameFirst, nameLast);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UserConfigCopyWith<_$_UserConfig> get copyWith =>
       __$$_UserConfigCopyWithImpl<_$_UserConfig>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserConfigToJson(this);
+    return _$$_UserConfigToJson(
+      this,
+    );
   }
 }
 
@@ -334,27 +338,27 @@ abstract class _UserConfig extends UserConfig {
       _$_UserConfig.fromJson;
 
   @override
-  String get uuid => throw _privateConstructorUsedError;
+  String get uuid;
   @override
-  String get username => throw _privateConstructorUsedError;
+  String get username;
   @override
-  String get email => throw _privateConstructorUsedError;
+  String get email;
   @override
-  String get language => throw _privateConstructorUsedError;
+  String get language;
   @override
-  bool get rootAdmin => throw _privateConstructorUsedError;
+  bool get rootAdmin;
   @override
-  bool get useTotp => throw _privateConstructorUsedError;
+  bool get useTotp;
   @override
-  bool get gravatar => throw _privateConstructorUsedError;
+  bool get gravatar;
   @override
-  String get createdAt => throw _privateConstructorUsedError;
+  String get createdAt;
   @override
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get updatedAt;
   @override
-  String get nameFirst => throw _privateConstructorUsedError;
+  String get nameFirst;
   @override
-  String get nameLast => throw _privateConstructorUsedError;
+  String get nameLast;
   @override
   @JsonKey(ignore: true)
   _$$_UserConfigCopyWith<_$_UserConfig> get copyWith =>

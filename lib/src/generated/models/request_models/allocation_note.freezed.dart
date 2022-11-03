@@ -32,29 +32,32 @@ mixin _$AllocationNote {
 abstract class $AllocationNoteCopyWith<$Res> {
   factory $AllocationNoteCopyWith(
           AllocationNote value, $Res Function(AllocationNote) then) =
-      _$AllocationNoteCopyWithImpl<$Res>;
+      _$AllocationNoteCopyWithImpl<$Res, AllocationNote>;
+  @useResult
   $Res call({String notes});
 }
 
 /// @nodoc
-class _$AllocationNoteCopyWithImpl<$Res>
+class _$AllocationNoteCopyWithImpl<$Res, $Val extends AllocationNote>
     implements $AllocationNoteCopyWith<$Res> {
   _$AllocationNoteCopyWithImpl(this._value, this._then);
 
-  final AllocationNote _value;
   // ignore: unused_field
-  final $Res Function(AllocationNote) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? notes = freezed,
+    Object? notes = null,
   }) {
     return _then(_value.copyWith(
-      notes: notes == freezed
+      notes: null == notes
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -65,26 +68,25 @@ abstract class _$$_AllocationNoteCopyWith<$Res>
           _$_AllocationNote value, $Res Function(_$_AllocationNote) then) =
       __$$_AllocationNoteCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String notes});
 }
 
 /// @nodoc
 class __$$_AllocationNoteCopyWithImpl<$Res>
-    extends _$AllocationNoteCopyWithImpl<$Res>
+    extends _$AllocationNoteCopyWithImpl<$Res, _$_AllocationNote>
     implements _$$_AllocationNoteCopyWith<$Res> {
   __$$_AllocationNoteCopyWithImpl(
       _$_AllocationNote _value, $Res Function(_$_AllocationNote) _then)
-      : super(_value, (v) => _then(v as _$_AllocationNote));
+      : super(_value, _then);
 
-  @override
-  _$_AllocationNote get _value => super._value as _$_AllocationNote;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? notes = freezed,
+    Object? notes = null,
   }) {
     return _then(_$_AllocationNote(
-      notes: notes == freezed
+      notes: null == notes
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
               as String,
@@ -113,22 +115,24 @@ class _$_AllocationNote extends _AllocationNote {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AllocationNote &&
-            const DeepCollectionEquality().equals(other.notes, notes));
+            (identical(other.notes, notes) || other.notes == notes));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(notes));
+  int get hashCode => Object.hash(runtimeType, notes);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AllocationNoteCopyWith<_$_AllocationNote> get copyWith =>
       __$$_AllocationNoteCopyWithImpl<_$_AllocationNote>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AllocationNoteToJson(this);
+    return _$$_AllocationNoteToJson(
+      this,
+    );
   }
 }
 
@@ -140,7 +144,7 @@ abstract class _AllocationNote extends AllocationNote {
       _$_AllocationNote.fromJson;
 
   @override
-  String get notes => throw _privateConstructorUsedError;
+  String get notes;
   @override
   @JsonKey(ignore: true)
   _$$_AllocationNoteCopyWith<_$_AllocationNote> get copyWith =>

@@ -35,44 +35,47 @@ mixin _$UserPermissionKeys {
 abstract class $UserPermissionKeysCopyWith<$Res> {
   factory $UserPermissionKeysCopyWith(
           UserPermissionKeys value, $Res Function(UserPermissionKeys) then) =
-      _$UserPermissionKeysCopyWithImpl<$Res>;
+      _$UserPermissionKeysCopyWithImpl<$Res, UserPermissionKeys>;
+  @useResult
   $Res call({String create, String read, String update, String delete});
 }
 
 /// @nodoc
-class _$UserPermissionKeysCopyWithImpl<$Res>
+class _$UserPermissionKeysCopyWithImpl<$Res, $Val extends UserPermissionKeys>
     implements $UserPermissionKeysCopyWith<$Res> {
   _$UserPermissionKeysCopyWithImpl(this._value, this._then);
 
-  final UserPermissionKeys _value;
   // ignore: unused_field
-  final $Res Function(UserPermissionKeys) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? create = freezed,
-    Object? read = freezed,
-    Object? update = freezed,
-    Object? delete = freezed,
+    Object? create = null,
+    Object? read = null,
+    Object? update = null,
+    Object? delete = null,
   }) {
     return _then(_value.copyWith(
-      create: create == freezed
+      create: null == create
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
               as String,
-      read: read == freezed
+      read: null == read
           ? _value.read
           : read // ignore: cast_nullable_to_non_nullable
               as String,
-      update: update == freezed
+      update: null == update
           ? _value.update
           : update // ignore: cast_nullable_to_non_nullable
               as String,
-      delete: delete == freezed
+      delete: null == delete
           ? _value.delete
           : delete // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -83,41 +86,40 @@ abstract class _$$_UserPermissionKeysCopyWith<$Res>
           $Res Function(_$_UserPermissionKeys) then) =
       __$$_UserPermissionKeysCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String create, String read, String update, String delete});
 }
 
 /// @nodoc
 class __$$_UserPermissionKeysCopyWithImpl<$Res>
-    extends _$UserPermissionKeysCopyWithImpl<$Res>
+    extends _$UserPermissionKeysCopyWithImpl<$Res, _$_UserPermissionKeys>
     implements _$$_UserPermissionKeysCopyWith<$Res> {
   __$$_UserPermissionKeysCopyWithImpl(
       _$_UserPermissionKeys _value, $Res Function(_$_UserPermissionKeys) _then)
-      : super(_value, (v) => _then(v as _$_UserPermissionKeys));
+      : super(_value, _then);
 
-  @override
-  _$_UserPermissionKeys get _value => super._value as _$_UserPermissionKeys;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? create = freezed,
-    Object? read = freezed,
-    Object? update = freezed,
-    Object? delete = freezed,
+    Object? create = null,
+    Object? read = null,
+    Object? update = null,
+    Object? delete = null,
   }) {
     return _then(_$_UserPermissionKeys(
-      create: create == freezed
+      create: null == create
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
               as String,
-      read: read == freezed
+      read: null == read
           ? _value.read
           : read // ignore: cast_nullable_to_non_nullable
               as String,
-      update: update == freezed
+      update: null == update
           ? _value.update
           : update // ignore: cast_nullable_to_non_nullable
               as String,
-      delete: delete == freezed
+      delete: null == delete
           ? _value.delete
           : delete // ignore: cast_nullable_to_non_nullable
               as String,
@@ -156,30 +158,28 @@ class _$_UserPermissionKeys implements _UserPermissionKeys {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UserPermissionKeys &&
-            const DeepCollectionEquality().equals(other.create, create) &&
-            const DeepCollectionEquality().equals(other.read, read) &&
-            const DeepCollectionEquality().equals(other.update, update) &&
-            const DeepCollectionEquality().equals(other.delete, delete));
+            (identical(other.create, create) || other.create == create) &&
+            (identical(other.read, read) || other.read == read) &&
+            (identical(other.update, update) || other.update == update) &&
+            (identical(other.delete, delete) || other.delete == delete));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(create),
-      const DeepCollectionEquality().hash(read),
-      const DeepCollectionEquality().hash(update),
-      const DeepCollectionEquality().hash(delete));
+  int get hashCode => Object.hash(runtimeType, create, read, update, delete);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UserPermissionKeysCopyWith<_$_UserPermissionKeys> get copyWith =>
       __$$_UserPermissionKeysCopyWithImpl<_$_UserPermissionKeys>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserPermissionKeysToJson(this);
+    return _$$_UserPermissionKeysToJson(
+      this,
+    );
   }
 }
 
@@ -194,13 +194,13 @@ abstract class _UserPermissionKeys implements UserPermissionKeys {
       _$_UserPermissionKeys.fromJson;
 
   @override
-  String get create => throw _privateConstructorUsedError;
+  String get create;
   @override
-  String get read => throw _privateConstructorUsedError;
+  String get read;
   @override
-  String get update => throw _privateConstructorUsedError;
+  String get update;
   @override
-  String get delete => throw _privateConstructorUsedError;
+  String get delete;
   @override
   @JsonKey(ignore: true)
   _$$_UserPermissionKeysCopyWith<_$_UserPermissionKeys> get copyWith =>

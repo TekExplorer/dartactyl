@@ -33,34 +33,37 @@ mixin _$WebsocketDetails {
 abstract class $WebsocketDetailsCopyWith<$Res> {
   factory $WebsocketDetailsCopyWith(
           WebsocketDetails value, $Res Function(WebsocketDetails) then) =
-      _$WebsocketDetailsCopyWithImpl<$Res>;
+      _$WebsocketDetailsCopyWithImpl<$Res, WebsocketDetails>;
+  @useResult
   $Res call({String token, String socket});
 }
 
 /// @nodoc
-class _$WebsocketDetailsCopyWithImpl<$Res>
+class _$WebsocketDetailsCopyWithImpl<$Res, $Val extends WebsocketDetails>
     implements $WebsocketDetailsCopyWith<$Res> {
   _$WebsocketDetailsCopyWithImpl(this._value, this._then);
 
-  final WebsocketDetails _value;
   // ignore: unused_field
-  final $Res Function(WebsocketDetails) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? token = freezed,
-    Object? socket = freezed,
+    Object? token = null,
+    Object? socket = null,
   }) {
     return _then(_value.copyWith(
-      token: token == freezed
+      token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String,
-      socket: socket == freezed
+      socket: null == socket
           ? _value.socket
           : socket // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,31 +74,30 @@ abstract class _$$_WebsocketDetailsCopyWith<$Res>
           _$_WebsocketDetails value, $Res Function(_$_WebsocketDetails) then) =
       __$$_WebsocketDetailsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String token, String socket});
 }
 
 /// @nodoc
 class __$$_WebsocketDetailsCopyWithImpl<$Res>
-    extends _$WebsocketDetailsCopyWithImpl<$Res>
+    extends _$WebsocketDetailsCopyWithImpl<$Res, _$_WebsocketDetails>
     implements _$$_WebsocketDetailsCopyWith<$Res> {
   __$$_WebsocketDetailsCopyWithImpl(
       _$_WebsocketDetails _value, $Res Function(_$_WebsocketDetails) _then)
-      : super(_value, (v) => _then(v as _$_WebsocketDetails));
+      : super(_value, _then);
 
-  @override
-  _$_WebsocketDetails get _value => super._value as _$_WebsocketDetails;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? token = freezed,
-    Object? socket = freezed,
+    Object? token = null,
+    Object? socket = null,
   }) {
     return _then(_$_WebsocketDetails(
-      token: token == freezed
+      token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String,
-      socket: socket == freezed
+      socket: null == socket
           ? _value.socket
           : socket // ignore: cast_nullable_to_non_nullable
               as String,
@@ -126,25 +128,25 @@ class _$_WebsocketDetails implements _WebsocketDetails {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WebsocketDetails &&
-            const DeepCollectionEquality().equals(other.token, token) &&
-            const DeepCollectionEquality().equals(other.socket, socket));
+            (identical(other.token, token) || other.token == token) &&
+            (identical(other.socket, socket) || other.socket == socket));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(token),
-      const DeepCollectionEquality().hash(socket));
+  int get hashCode => Object.hash(runtimeType, token, socket);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WebsocketDetailsCopyWith<_$_WebsocketDetails> get copyWith =>
       __$$_WebsocketDetailsCopyWithImpl<_$_WebsocketDetails>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WebsocketDetailsToJson(this);
+    return _$$_WebsocketDetailsToJson(
+      this,
+    );
   }
 }
 
@@ -157,9 +159,9 @@ abstract class _WebsocketDetails implements WebsocketDetails {
       _$_WebsocketDetails.fromJson;
 
   @override
-  String get token => throw _privateConstructorUsedError;
+  String get token;
   @override
-  String get socket => throw _privateConstructorUsedError;
+  String get socket;
   @override
   @JsonKey(ignore: true)
   _$$_WebsocketDetailsCopyWith<_$_WebsocketDetails> get copyWith =>

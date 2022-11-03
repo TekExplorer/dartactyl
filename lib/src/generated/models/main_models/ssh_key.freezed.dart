@@ -33,44 +33,48 @@ mixin _$SshKey {
 /// @nodoc
 abstract class $SshKeyCopyWith<$Res> {
   factory $SshKeyCopyWith(SshKey value, $Res Function(SshKey) then) =
-      _$SshKeyCopyWithImpl<$Res>;
+      _$SshKeyCopyWithImpl<$Res, SshKey>;
+  @useResult
   $Res call(
       {String name, String fingerprint, String publicKey, DateTime createdAt});
 }
 
 /// @nodoc
-class _$SshKeyCopyWithImpl<$Res> implements $SshKeyCopyWith<$Res> {
+class _$SshKeyCopyWithImpl<$Res, $Val extends SshKey>
+    implements $SshKeyCopyWith<$Res> {
   _$SshKeyCopyWithImpl(this._value, this._then);
 
-  final SshKey _value;
   // ignore: unused_field
-  final $Res Function(SshKey) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? fingerprint = freezed,
-    Object? publicKey = freezed,
-    Object? createdAt = freezed,
+    Object? name = null,
+    Object? fingerprint = null,
+    Object? publicKey = null,
+    Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      fingerprint: fingerprint == freezed
+      fingerprint: null == fingerprint
           ? _value.fingerprint
           : fingerprint // ignore: cast_nullable_to_non_nullable
               as String,
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-    ));
+    ) as $Val);
   }
 }
 
@@ -79,40 +83,40 @@ abstract class _$$_SshKeyCopyWith<$Res> implements $SshKeyCopyWith<$Res> {
   factory _$$_SshKeyCopyWith(_$_SshKey value, $Res Function(_$_SshKey) then) =
       __$$_SshKeyCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String name, String fingerprint, String publicKey, DateTime createdAt});
 }
 
 /// @nodoc
-class __$$_SshKeyCopyWithImpl<$Res> extends _$SshKeyCopyWithImpl<$Res>
+class __$$_SshKeyCopyWithImpl<$Res>
+    extends _$SshKeyCopyWithImpl<$Res, _$_SshKey>
     implements _$$_SshKeyCopyWith<$Res> {
   __$$_SshKeyCopyWithImpl(_$_SshKey _value, $Res Function(_$_SshKey) _then)
-      : super(_value, (v) => _then(v as _$_SshKey));
+      : super(_value, _then);
 
-  @override
-  _$_SshKey get _value => super._value as _$_SshKey;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? fingerprint = freezed,
-    Object? publicKey = freezed,
-    Object? createdAt = freezed,
+    Object? name = null,
+    Object? fingerprint = null,
+    Object? publicKey = null,
+    Object? createdAt = null,
   }) {
     return _then(_$_SshKey(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      fingerprint: fingerprint == freezed
+      fingerprint: null == fingerprint
           ? _value.fingerprint
           : fingerprint // ignore: cast_nullable_to_non_nullable
               as String,
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
@@ -152,30 +156,31 @@ class _$_SshKey extends _SshKey {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SshKey &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality()
-                .equals(other.fingerprint, fingerprint) &&
-            const DeepCollectionEquality().equals(other.publicKey, publicKey) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.fingerprint, fingerprint) ||
+                other.fingerprint == fingerprint) &&
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(fingerprint),
-      const DeepCollectionEquality().hash(publicKey),
-      const DeepCollectionEquality().hash(createdAt));
+  int get hashCode =>
+      Object.hash(runtimeType, name, fingerprint, publicKey, createdAt);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SshKeyCopyWith<_$_SshKey> get copyWith =>
       __$$_SshKeyCopyWithImpl<_$_SshKey>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SshKeyToJson(this);
+    return _$$_SshKeyToJson(
+      this,
+    );
   }
 }
 
@@ -190,13 +195,13 @@ abstract class _SshKey extends SshKey {
   factory _SshKey.fromJson(Map<String, dynamic> json) = _$_SshKey.fromJson;
 
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String get fingerprint => throw _privateConstructorUsedError;
+  String get fingerprint;
   @override
-  String get publicKey => throw _privateConstructorUsedError;
+  String get publicKey;
   @override
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
   _$$_SshKeyCopyWith<_$_SshKey> get copyWith =>

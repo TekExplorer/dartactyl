@@ -28,7 +28,7 @@ mixin _$ActivityLog {
   Map<String, dynamic> get properties => throw _privateConstructorUsedError;
   bool get hasAdditionalMetadata => throw _privateConstructorUsedError;
   DateTime get timestamp => throw _privateConstructorUsedError;
-  ActivityLogRelationships get relationships =>
+  ActivityLogRelationships? get relationships =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,7 +41,8 @@ mixin _$ActivityLog {
 abstract class $ActivityLogCopyWith<$Res> {
   factory $ActivityLogCopyWith(
           ActivityLog value, $Res Function(ActivityLog) then) =
-      _$ActivityLogCopyWithImpl<$Res>;
+      _$ActivityLogCopyWithImpl<$Res, ActivityLog>;
+  @useResult
   $Res call(
       {String? batch,
       String event,
@@ -51,76 +52,84 @@ abstract class $ActivityLogCopyWith<$Res> {
       Map<String, dynamic> properties,
       bool hasAdditionalMetadata,
       DateTime timestamp,
-      ActivityLogRelationships relationships});
+      ActivityLogRelationships? relationships});
 
-  $ActivityLogRelationshipsCopyWith<$Res> get relationships;
+  $ActivityLogRelationshipsCopyWith<$Res>? get relationships;
 }
 
 /// @nodoc
-class _$ActivityLogCopyWithImpl<$Res> implements $ActivityLogCopyWith<$Res> {
+class _$ActivityLogCopyWithImpl<$Res, $Val extends ActivityLog>
+    implements $ActivityLogCopyWith<$Res> {
   _$ActivityLogCopyWithImpl(this._value, this._then);
 
-  final ActivityLog _value;
   // ignore: unused_field
-  final $Res Function(ActivityLog) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? batch = freezed,
-    Object? event = freezed,
-    Object? ip = freezed,
-    Object? isApi = freezed,
+    Object? event = null,
+    Object? ip = null,
+    Object? isApi = null,
     Object? description = freezed,
-    Object? properties = freezed,
-    Object? hasAdditionalMetadata = freezed,
-    Object? timestamp = freezed,
+    Object? properties = null,
+    Object? hasAdditionalMetadata = null,
+    Object? timestamp = null,
     Object? relationships = freezed,
   }) {
     return _then(_value.copyWith(
-      batch: batch == freezed
+      batch: freezed == batch
           ? _value.batch
           : batch // ignore: cast_nullable_to_non_nullable
               as String?,
-      event: event == freezed
+      event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as String,
-      ip: ip == freezed
+      ip: null == ip
           ? _value.ip
           : ip // ignore: cast_nullable_to_non_nullable
               as String,
-      isApi: isApi == freezed
+      isApi: null == isApi
           ? _value.isApi
           : isApi // ignore: cast_nullable_to_non_nullable
               as bool,
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      properties: properties == freezed
+      properties: null == properties
           ? _value.properties
           : properties // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      hasAdditionalMetadata: hasAdditionalMetadata == freezed
+      hasAdditionalMetadata: null == hasAdditionalMetadata
           ? _value.hasAdditionalMetadata
           : hasAdditionalMetadata // ignore: cast_nullable_to_non_nullable
               as bool,
-      timestamp: timestamp == freezed
+      timestamp: null == timestamp
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      relationships: relationships == freezed
+      relationships: freezed == relationships
           ? _value.relationships
           : relationships // ignore: cast_nullable_to_non_nullable
-              as ActivityLogRelationships,
-    ));
+              as ActivityLogRelationships?,
+    ) as $Val);
   }
 
   @override
-  $ActivityLogRelationshipsCopyWith<$Res> get relationships {
-    return $ActivityLogRelationshipsCopyWith<$Res>(_value.relationships,
+  @pragma('vm:prefer-inline')
+  $ActivityLogRelationshipsCopyWith<$Res>? get relationships {
+    if (_value.relationships == null) {
+      return null;
+    }
+
+    return $ActivityLogRelationshipsCopyWith<$Res>(_value.relationships!,
         (value) {
-      return _then(_value.copyWith(relationships: value));
+      return _then(_value.copyWith(relationships: value) as $Val);
     });
   }
 }
@@ -132,6 +141,7 @@ abstract class _$$_ActivityLogCopyWith<$Res>
           _$_ActivityLog value, $Res Function(_$_ActivityLog) then) =
       __$$_ActivityLogCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? batch,
       String event,
@@ -141,71 +151,70 @@ abstract class _$$_ActivityLogCopyWith<$Res>
       Map<String, dynamic> properties,
       bool hasAdditionalMetadata,
       DateTime timestamp,
-      ActivityLogRelationships relationships});
+      ActivityLogRelationships? relationships});
 
   @override
-  $ActivityLogRelationshipsCopyWith<$Res> get relationships;
+  $ActivityLogRelationshipsCopyWith<$Res>? get relationships;
 }
 
 /// @nodoc
-class __$$_ActivityLogCopyWithImpl<$Res> extends _$ActivityLogCopyWithImpl<$Res>
+class __$$_ActivityLogCopyWithImpl<$Res>
+    extends _$ActivityLogCopyWithImpl<$Res, _$_ActivityLog>
     implements _$$_ActivityLogCopyWith<$Res> {
   __$$_ActivityLogCopyWithImpl(
       _$_ActivityLog _value, $Res Function(_$_ActivityLog) _then)
-      : super(_value, (v) => _then(v as _$_ActivityLog));
+      : super(_value, _then);
 
-  @override
-  _$_ActivityLog get _value => super._value as _$_ActivityLog;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? batch = freezed,
-    Object? event = freezed,
-    Object? ip = freezed,
-    Object? isApi = freezed,
+    Object? event = null,
+    Object? ip = null,
+    Object? isApi = null,
     Object? description = freezed,
-    Object? properties = freezed,
-    Object? hasAdditionalMetadata = freezed,
-    Object? timestamp = freezed,
+    Object? properties = null,
+    Object? hasAdditionalMetadata = null,
+    Object? timestamp = null,
     Object? relationships = freezed,
   }) {
     return _then(_$_ActivityLog(
-      batch: batch == freezed
+      batch: freezed == batch
           ? _value.batch
           : batch // ignore: cast_nullable_to_non_nullable
               as String?,
-      event: event == freezed
+      event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as String,
-      ip: ip == freezed
+      ip: null == ip
           ? _value.ip
           : ip // ignore: cast_nullable_to_non_nullable
               as String,
-      isApi: isApi == freezed
+      isApi: null == isApi
           ? _value.isApi
           : isApi // ignore: cast_nullable_to_non_nullable
               as bool,
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      properties: properties == freezed
+      properties: null == properties
           ? _value._properties
           : properties // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      hasAdditionalMetadata: hasAdditionalMetadata == freezed
+      hasAdditionalMetadata: null == hasAdditionalMetadata
           ? _value.hasAdditionalMetadata
           : hasAdditionalMetadata // ignore: cast_nullable_to_non_nullable
               as bool,
-      timestamp: timestamp == freezed
+      timestamp: null == timestamp
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      relationships: relationships == freezed
+      relationships: freezed == relationships
           ? _value.relationships
           : relationships // ignore: cast_nullable_to_non_nullable
-              as ActivityLogRelationships,
+              as ActivityLogRelationships?,
     ));
   }
 }
@@ -222,7 +231,7 @@ class _$_ActivityLog extends _ActivityLog {
       required final Map<String, dynamic> properties,
       required this.hasAdditionalMetadata,
       required this.timestamp,
-      required this.relationships})
+      this.relationships})
       : _properties = properties,
         super._();
 
@@ -251,7 +260,7 @@ class _$_ActivityLog extends _ActivityLog {
   @override
   final DateTime timestamp;
   @override
-  final ActivityLogRelationships relationships;
+  final ActivityLogRelationships? relationships;
 
   @override
   String toString() {
@@ -263,43 +272,47 @@ class _$_ActivityLog extends _ActivityLog {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ActivityLog &&
-            const DeepCollectionEquality().equals(other.batch, batch) &&
-            const DeepCollectionEquality().equals(other.event, event) &&
-            const DeepCollectionEquality().equals(other.ip, ip) &&
-            const DeepCollectionEquality().equals(other.isApi, isApi) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
+            (identical(other.batch, batch) || other.batch == batch) &&
+            (identical(other.event, event) || other.event == event) &&
+            (identical(other.ip, ip) || other.ip == ip) &&
+            (identical(other.isApi, isApi) || other.isApi == isApi) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             const DeepCollectionEquality()
                 .equals(other._properties, _properties) &&
-            const DeepCollectionEquality()
-                .equals(other.hasAdditionalMetadata, hasAdditionalMetadata) &&
-            const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
-            const DeepCollectionEquality()
-                .equals(other.relationships, relationships));
+            (identical(other.hasAdditionalMetadata, hasAdditionalMetadata) ||
+                other.hasAdditionalMetadata == hasAdditionalMetadata) &&
+            (identical(other.timestamp, timestamp) ||
+                other.timestamp == timestamp) &&
+            (identical(other.relationships, relationships) ||
+                other.relationships == relationships));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(batch),
-      const DeepCollectionEquality().hash(event),
-      const DeepCollectionEquality().hash(ip),
-      const DeepCollectionEquality().hash(isApi),
-      const DeepCollectionEquality().hash(description),
+      batch,
+      event,
+      ip,
+      isApi,
+      description,
       const DeepCollectionEquality().hash(_properties),
-      const DeepCollectionEquality().hash(hasAdditionalMetadata),
-      const DeepCollectionEquality().hash(timestamp),
-      const DeepCollectionEquality().hash(relationships));
+      hasAdditionalMetadata,
+      timestamp,
+      relationships);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ActivityLogCopyWith<_$_ActivityLog> get copyWith =>
       __$$_ActivityLogCopyWithImpl<_$_ActivityLog>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ActivityLogToJson(this);
+    return _$$_ActivityLogToJson(
+      this,
+    );
   }
 }
 
@@ -313,33 +326,254 @@ abstract class _ActivityLog extends ActivityLog {
       required final Map<String, dynamic> properties,
       required final bool hasAdditionalMetadata,
       required final DateTime timestamp,
-      required final ActivityLogRelationships relationships}) = _$_ActivityLog;
+      final ActivityLogRelationships? relationships}) = _$_ActivityLog;
   _ActivityLog._() : super._();
 
   factory _ActivityLog.fromJson(Map<String, dynamic> json) =
       _$_ActivityLog.fromJson;
 
   @override
-  String? get batch => throw _privateConstructorUsedError;
+  String? get batch;
   @override
-  String get event => throw _privateConstructorUsedError;
+  String get event;
   @override
-  String get ip => throw _privateConstructorUsedError;
+  String get ip;
   @override
-  bool get isApi => throw _privateConstructorUsedError;
+  bool get isApi;
   @override
-  String? get description => throw _privateConstructorUsedError;
+  String? get description;
   @override
-  Map<String, dynamic> get properties => throw _privateConstructorUsedError;
+  Map<String, dynamic> get properties;
   @override
-  bool get hasAdditionalMetadata => throw _privateConstructorUsedError;
+  bool get hasAdditionalMetadata;
   @override
-  DateTime get timestamp => throw _privateConstructorUsedError;
+  DateTime get timestamp;
   @override
-  ActivityLogRelationships get relationships =>
-      throw _privateConstructorUsedError;
+  ActivityLogRelationships? get relationships;
   @override
   @JsonKey(ignore: true)
   _$$_ActivityLogCopyWith<_$_ActivityLog> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Actor _$ActorFromJson(Map<String, dynamic> json) {
+  return _Actor.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Actor {
+  String get uuid => throw _privateConstructorUsedError;
+  String get username => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  @JsonKey(name: '2fa_enabled')
+  bool get twoFaEnabled => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ActorCopyWith<Actor> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ActorCopyWith<$Res> {
+  factory $ActorCopyWith(Actor value, $Res Function(Actor) then) =
+      _$ActorCopyWithImpl<$Res, Actor>;
+  @useResult
+  $Res call(
+      {String uuid,
+      String username,
+      String email,
+      @JsonKey(name: '2fa_enabled') bool twoFaEnabled,
+      DateTime createdAt});
+}
+
+/// @nodoc
+class _$ActorCopyWithImpl<$Res, $Val extends Actor>
+    implements $ActorCopyWith<$Res> {
+  _$ActorCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uuid = null,
+    Object? username = null,
+    Object? email = null,
+    Object? twoFaEnabled = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_value.copyWith(
+      uuid: null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      twoFaEnabled: null == twoFaEnabled
+          ? _value.twoFaEnabled
+          : twoFaEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_ActorCopyWith<$Res> implements $ActorCopyWith<$Res> {
+  factory _$$_ActorCopyWith(_$_Actor value, $Res Function(_$_Actor) then) =
+      __$$_ActorCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String uuid,
+      String username,
+      String email,
+      @JsonKey(name: '2fa_enabled') bool twoFaEnabled,
+      DateTime createdAt});
+}
+
+/// @nodoc
+class __$$_ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res, _$_Actor>
+    implements _$$_ActorCopyWith<$Res> {
+  __$$_ActorCopyWithImpl(_$_Actor _value, $Res Function(_$_Actor) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uuid = null,
+    Object? username = null,
+    Object? email = null,
+    Object? twoFaEnabled = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_$_Actor(
+      uuid: null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      twoFaEnabled: null == twoFaEnabled
+          ? _value.twoFaEnabled
+          : twoFaEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Actor extends _Actor {
+  _$_Actor(
+      {required this.uuid,
+      required this.username,
+      required this.email,
+      @JsonKey(name: '2fa_enabled') required this.twoFaEnabled,
+      required this.createdAt})
+      : super._();
+
+  factory _$_Actor.fromJson(Map<String, dynamic> json) =>
+      _$$_ActorFromJson(json);
+
+  @override
+  final String uuid;
+  @override
+  final String username;
+  @override
+  final String email;
+  @override
+  @JsonKey(name: '2fa_enabled')
+  final bool twoFaEnabled;
+  @override
+  final DateTime createdAt;
+
+  @override
+  String toString() {
+    return 'Actor(uuid: $uuid, username: $username, email: $email, twoFaEnabled: $twoFaEnabled, createdAt: $createdAt)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Actor &&
+            (identical(other.uuid, uuid) || other.uuid == uuid) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.twoFaEnabled, twoFaEnabled) ||
+                other.twoFaEnabled == twoFaEnabled) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, uuid, username, email, twoFaEnabled, createdAt);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ActorCopyWith<_$_Actor> get copyWith =>
+      __$$_ActorCopyWithImpl<_$_Actor>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ActorToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Actor extends Actor {
+  factory _Actor(
+      {required final String uuid,
+      required final String username,
+      required final String email,
+      @JsonKey(name: '2fa_enabled') required final bool twoFaEnabled,
+      required final DateTime createdAt}) = _$_Actor;
+  _Actor._() : super._();
+
+  factory _Actor.fromJson(Map<String, dynamic> json) = _$_Actor.fromJson;
+
+  @override
+  String get uuid;
+  @override
+  String get username;
+  @override
+  String get email;
+  @override
+  @JsonKey(name: '2fa_enabled')
+  bool get twoFaEnabled;
+  @override
+  DateTime get createdAt;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ActorCopyWith<_$_Actor> get copyWith =>
       throw _privateConstructorUsedError;
 }

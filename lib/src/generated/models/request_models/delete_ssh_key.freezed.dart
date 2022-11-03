@@ -32,28 +32,32 @@ mixin _$DeleteSSHKey {
 abstract class $DeleteSSHKeyCopyWith<$Res> {
   factory $DeleteSSHKeyCopyWith(
           DeleteSSHKey value, $Res Function(DeleteSSHKey) then) =
-      _$DeleteSSHKeyCopyWithImpl<$Res>;
+      _$DeleteSSHKeyCopyWithImpl<$Res, DeleteSSHKey>;
+  @useResult
   $Res call({String fingerprint});
 }
 
 /// @nodoc
-class _$DeleteSSHKeyCopyWithImpl<$Res> implements $DeleteSSHKeyCopyWith<$Res> {
+class _$DeleteSSHKeyCopyWithImpl<$Res, $Val extends DeleteSSHKey>
+    implements $DeleteSSHKeyCopyWith<$Res> {
   _$DeleteSSHKeyCopyWithImpl(this._value, this._then);
 
-  final DeleteSSHKey _value;
   // ignore: unused_field
-  final $Res Function(DeleteSSHKey) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fingerprint = freezed,
+    Object? fingerprint = null,
   }) {
     return _then(_value.copyWith(
-      fingerprint: fingerprint == freezed
+      fingerprint: null == fingerprint
           ? _value.fingerprint
           : fingerprint // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -64,26 +68,25 @@ abstract class _$$_DeleteSSHKeyCopyWith<$Res>
           _$_DeleteSSHKey value, $Res Function(_$_DeleteSSHKey) then) =
       __$$_DeleteSSHKeyCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String fingerprint});
 }
 
 /// @nodoc
 class __$$_DeleteSSHKeyCopyWithImpl<$Res>
-    extends _$DeleteSSHKeyCopyWithImpl<$Res>
+    extends _$DeleteSSHKeyCopyWithImpl<$Res, _$_DeleteSSHKey>
     implements _$$_DeleteSSHKeyCopyWith<$Res> {
   __$$_DeleteSSHKeyCopyWithImpl(
       _$_DeleteSSHKey _value, $Res Function(_$_DeleteSSHKey) _then)
-      : super(_value, (v) => _then(v as _$_DeleteSSHKey));
+      : super(_value, _then);
 
-  @override
-  _$_DeleteSSHKey get _value => super._value as _$_DeleteSSHKey;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fingerprint = freezed,
+    Object? fingerprint = null,
   }) {
     return _then(_$_DeleteSSHKey(
-      fingerprint: fingerprint == freezed
+      fingerprint: null == fingerprint
           ? _value.fingerprint
           : fingerprint // ignore: cast_nullable_to_non_nullable
               as String,
@@ -112,23 +115,25 @@ class _$_DeleteSSHKey extends _DeleteSSHKey {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DeleteSSHKey &&
-            const DeepCollectionEquality()
-                .equals(other.fingerprint, fingerprint));
+            (identical(other.fingerprint, fingerprint) ||
+                other.fingerprint == fingerprint));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(fingerprint));
+  int get hashCode => Object.hash(runtimeType, fingerprint);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DeleteSSHKeyCopyWith<_$_DeleteSSHKey> get copyWith =>
       __$$_DeleteSSHKeyCopyWithImpl<_$_DeleteSSHKey>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DeleteSSHKeyToJson(this);
+    return _$$_DeleteSSHKeyToJson(
+      this,
+    );
   }
 }
 
@@ -140,7 +145,7 @@ abstract class _DeleteSSHKey extends DeleteSSHKey {
       _$_DeleteSSHKey.fromJson;
 
   @override
-  String get fingerprint => throw _privateConstructorUsedError;
+  String get fingerprint;
   @override
   @JsonKey(ignore: true)
   _$$_DeleteSSHKeyCopyWith<_$_DeleteSSHKey> get copyWith =>

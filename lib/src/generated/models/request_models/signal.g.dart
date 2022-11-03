@@ -11,7 +11,7 @@ _$_Signal _$$_SignalFromJson(Map<String, dynamic> json) => _$_Signal(
     );
 
 Map<String, dynamic> _$$_SignalToJson(_$_Signal instance) => <String, dynamic>{
-      'signal': _$ServerPowerActionEnumMap[instance.signal],
+      'signal': _$ServerPowerActionEnumMap[instance.signal]!,
     };
 
 const _$ServerPowerActionEnumMap = {

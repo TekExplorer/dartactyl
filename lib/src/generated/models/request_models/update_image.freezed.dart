@@ -32,28 +32,32 @@ mixin _$UpdateImage {
 abstract class $UpdateImageCopyWith<$Res> {
   factory $UpdateImageCopyWith(
           UpdateImage value, $Res Function(UpdateImage) then) =
-      _$UpdateImageCopyWithImpl<$Res>;
+      _$UpdateImageCopyWithImpl<$Res, UpdateImage>;
+  @useResult
   $Res call({String dockerImage});
 }
 
 /// @nodoc
-class _$UpdateImageCopyWithImpl<$Res> implements $UpdateImageCopyWith<$Res> {
+class _$UpdateImageCopyWithImpl<$Res, $Val extends UpdateImage>
+    implements $UpdateImageCopyWith<$Res> {
   _$UpdateImageCopyWithImpl(this._value, this._then);
 
-  final UpdateImage _value;
   // ignore: unused_field
-  final $Res Function(UpdateImage) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dockerImage = freezed,
+    Object? dockerImage = null,
   }) {
     return _then(_value.copyWith(
-      dockerImage: dockerImage == freezed
+      dockerImage: null == dockerImage
           ? _value.dockerImage
           : dockerImage // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -64,25 +68,25 @@ abstract class _$$_UpdateImageCopyWith<$Res>
           _$_UpdateImage value, $Res Function(_$_UpdateImage) then) =
       __$$_UpdateImageCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String dockerImage});
 }
 
 /// @nodoc
-class __$$_UpdateImageCopyWithImpl<$Res> extends _$UpdateImageCopyWithImpl<$Res>
+class __$$_UpdateImageCopyWithImpl<$Res>
+    extends _$UpdateImageCopyWithImpl<$Res, _$_UpdateImage>
     implements _$$_UpdateImageCopyWith<$Res> {
   __$$_UpdateImageCopyWithImpl(
       _$_UpdateImage _value, $Res Function(_$_UpdateImage) _then)
-      : super(_value, (v) => _then(v as _$_UpdateImage));
+      : super(_value, _then);
 
-  @override
-  _$_UpdateImage get _value => super._value as _$_UpdateImage;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dockerImage = freezed,
+    Object? dockerImage = null,
   }) {
     return _then(_$_UpdateImage(
-      dockerImage: dockerImage == freezed
+      dockerImage: null == dockerImage
           ? _value.dockerImage
           : dockerImage // ignore: cast_nullable_to_non_nullable
               as String,
@@ -111,23 +115,25 @@ class _$_UpdateImage implements _UpdateImage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpdateImage &&
-            const DeepCollectionEquality()
-                .equals(other.dockerImage, dockerImage));
+            (identical(other.dockerImage, dockerImage) ||
+                other.dockerImage == dockerImage));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(dockerImage));
+  int get hashCode => Object.hash(runtimeType, dockerImage);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UpdateImageCopyWith<_$_UpdateImage> get copyWith =>
       __$$_UpdateImageCopyWithImpl<_$_UpdateImage>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UpdateImageToJson(this);
+    return _$$_UpdateImageToJson(
+      this,
+    );
   }
 }
 
@@ -138,7 +144,7 @@ abstract class _UpdateImage implements UpdateImage {
       _$_UpdateImage.fromJson;
 
   @override
-  String get dockerImage => throw _privateConstructorUsedError;
+  String get dockerImage;
   @override
   @JsonKey(ignore: true)
   _$$_UpdateImageCopyWith<_$_UpdateImage> get copyWith =>

@@ -15,7 +15,7 @@ _$_Stats _$$_StatsFromJson(Map<String, dynamic> json) => _$_Stats(
     );
 
 Map<String, dynamic> _$$_StatsToJson(_$_Stats instance) => <String, dynamic>{
-      'current_state': _$ServerPowerStateEnumMap[instance.currentState],
+      'current_state': _$ServerPowerStateEnumMap[instance.currentState]!,
       'is_suspended': instance.isSuspended,
       'resources': instance.resources.toJson(),
     };

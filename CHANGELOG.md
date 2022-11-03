@@ -1,4 +1,9 @@
 # CHANGELOG
+## 1.4.4
+ - fix more `ActivityLog` stuff
+## 1.4.3
+ - fix `ActivityLog`
+
 ## 1.4.2
  - added activity log stuff
  - improved includes

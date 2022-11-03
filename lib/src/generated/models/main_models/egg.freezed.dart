@@ -33,33 +33,36 @@ mixin _$Egg {
 /// @nodoc
 abstract class $EggCopyWith<$Res> {
   factory $EggCopyWith(Egg value, $Res Function(Egg) then) =
-      _$EggCopyWithImpl<$Res>;
+      _$EggCopyWithImpl<$Res, Egg>;
+  @useResult
   $Res call({String uuid, String name});
 }
 
 /// @nodoc
-class _$EggCopyWithImpl<$Res> implements $EggCopyWith<$Res> {
+class _$EggCopyWithImpl<$Res, $Val extends Egg> implements $EggCopyWith<$Res> {
   _$EggCopyWithImpl(this._value, this._then);
 
-  final Egg _value;
   // ignore: unused_field
-  final $Res Function(Egg) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
-    Object? name = freezed,
+    Object? uuid = null,
+    Object? name = null,
   }) {
     return _then(_value.copyWith(
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -68,29 +71,28 @@ abstract class _$$_EggCopyWith<$Res> implements $EggCopyWith<$Res> {
   factory _$$_EggCopyWith(_$_Egg value, $Res Function(_$_Egg) then) =
       __$$_EggCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String uuid, String name});
 }
 
 /// @nodoc
-class __$$_EggCopyWithImpl<$Res> extends _$EggCopyWithImpl<$Res>
+class __$$_EggCopyWithImpl<$Res> extends _$EggCopyWithImpl<$Res, _$_Egg>
     implements _$$_EggCopyWith<$Res> {
   __$$_EggCopyWithImpl(_$_Egg _value, $Res Function(_$_Egg) _then)
-      : super(_value, (v) => _then(v as _$_Egg));
+      : super(_value, _then);
 
-  @override
-  _$_Egg get _value => super._value as _$_Egg;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
-    Object? name = freezed,
+    Object? uuid = null,
+    Object? name = null,
   }) {
     return _then(_$_Egg(
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -122,25 +124,25 @@ class _$_Egg extends _Egg {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Egg &&
-            const DeepCollectionEquality().equals(other.uuid, uuid) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            (identical(other.uuid, uuid) || other.uuid == uuid) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(uuid),
-      const DeepCollectionEquality().hash(name));
+  int get hashCode => Object.hash(runtimeType, uuid, name);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EggCopyWith<_$_Egg> get copyWith =>
       __$$_EggCopyWithImpl<_$_Egg>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EggToJson(this);
+    return _$$_EggToJson(
+      this,
+    );
   }
 }
 
@@ -153,9 +155,9 @@ abstract class _Egg extends Egg {
 
   @override // only uuid and name show up in the client api
 // int id,
-  String get uuid => throw _privateConstructorUsedError;
+  String get uuid;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
   @JsonKey(ignore: true)
   _$$_EggCopyWith<_$_Egg> get copyWith => throw _privateConstructorUsedError;

@@ -37,7 +37,8 @@ mixin _$FilePermissionKeys {
 abstract class $FilePermissionKeysCopyWith<$Res> {
   factory $FilePermissionKeysCopyWith(
           FilePermissionKeys value, $Res Function(FilePermissionKeys) then) =
-      _$FilePermissionKeysCopyWithImpl<$Res>;
+      _$FilePermissionKeysCopyWithImpl<$Res, FilePermissionKeys>;
+  @useResult
   $Res call(
       {String create,
       String read,
@@ -48,49 +49,51 @@ abstract class $FilePermissionKeysCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FilePermissionKeysCopyWithImpl<$Res>
+class _$FilePermissionKeysCopyWithImpl<$Res, $Val extends FilePermissionKeys>
     implements $FilePermissionKeysCopyWith<$Res> {
   _$FilePermissionKeysCopyWithImpl(this._value, this._then);
 
-  final FilePermissionKeys _value;
   // ignore: unused_field
-  final $Res Function(FilePermissionKeys) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? create = freezed,
-    Object? read = freezed,
-    Object? update = freezed,
-    Object? delete = freezed,
-    Object? archive = freezed,
-    Object? sftp = freezed,
+    Object? create = null,
+    Object? read = null,
+    Object? update = null,
+    Object? delete = null,
+    Object? archive = null,
+    Object? sftp = null,
   }) {
     return _then(_value.copyWith(
-      create: create == freezed
+      create: null == create
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
               as String,
-      read: read == freezed
+      read: null == read
           ? _value.read
           : read // ignore: cast_nullable_to_non_nullable
               as String,
-      update: update == freezed
+      update: null == update
           ? _value.update
           : update // ignore: cast_nullable_to_non_nullable
               as String,
-      delete: delete == freezed
+      delete: null == delete
           ? _value.delete
           : delete // ignore: cast_nullable_to_non_nullable
               as String,
-      archive: archive == freezed
+      archive: null == archive
           ? _value.archive
           : archive // ignore: cast_nullable_to_non_nullable
               as String,
-      sftp: sftp == freezed
+      sftp: null == sftp
           ? _value.sftp
           : sftp // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -101,6 +104,7 @@ abstract class _$$_FilePermissionKeysCopyWith<$Res>
           $Res Function(_$_FilePermissionKeys) then) =
       __$$_FilePermissionKeysCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String create,
       String read,
@@ -112,46 +116,44 @@ abstract class _$$_FilePermissionKeysCopyWith<$Res>
 
 /// @nodoc
 class __$$_FilePermissionKeysCopyWithImpl<$Res>
-    extends _$FilePermissionKeysCopyWithImpl<$Res>
+    extends _$FilePermissionKeysCopyWithImpl<$Res, _$_FilePermissionKeys>
     implements _$$_FilePermissionKeysCopyWith<$Res> {
   __$$_FilePermissionKeysCopyWithImpl(
       _$_FilePermissionKeys _value, $Res Function(_$_FilePermissionKeys) _then)
-      : super(_value, (v) => _then(v as _$_FilePermissionKeys));
+      : super(_value, _then);
 
-  @override
-  _$_FilePermissionKeys get _value => super._value as _$_FilePermissionKeys;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? create = freezed,
-    Object? read = freezed,
-    Object? update = freezed,
-    Object? delete = freezed,
-    Object? archive = freezed,
-    Object? sftp = freezed,
+    Object? create = null,
+    Object? read = null,
+    Object? update = null,
+    Object? delete = null,
+    Object? archive = null,
+    Object? sftp = null,
   }) {
     return _then(_$_FilePermissionKeys(
-      create: create == freezed
+      create: null == create
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
               as String,
-      read: read == freezed
+      read: null == read
           ? _value.read
           : read // ignore: cast_nullable_to_non_nullable
               as String,
-      update: update == freezed
+      update: null == update
           ? _value.update
           : update // ignore: cast_nullable_to_non_nullable
               as String,
-      delete: delete == freezed
+      delete: null == delete
           ? _value.delete
           : delete // ignore: cast_nullable_to_non_nullable
               as String,
-      archive: archive == freezed
+      archive: null == archive
           ? _value.archive
           : archive // ignore: cast_nullable_to_non_nullable
               as String,
-      sftp: sftp == freezed
+      sftp: null == sftp
           ? _value.sftp
           : sftp // ignore: cast_nullable_to_non_nullable
               as String,
@@ -197,34 +199,31 @@ class _$_FilePermissionKeys extends _FilePermissionKeys {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FilePermissionKeys &&
-            const DeepCollectionEquality().equals(other.create, create) &&
-            const DeepCollectionEquality().equals(other.read, read) &&
-            const DeepCollectionEquality().equals(other.update, update) &&
-            const DeepCollectionEquality().equals(other.delete, delete) &&
-            const DeepCollectionEquality().equals(other.archive, archive) &&
-            const DeepCollectionEquality().equals(other.sftp, sftp));
+            (identical(other.create, create) || other.create == create) &&
+            (identical(other.read, read) || other.read == read) &&
+            (identical(other.update, update) || other.update == update) &&
+            (identical(other.delete, delete) || other.delete == delete) &&
+            (identical(other.archive, archive) || other.archive == archive) &&
+            (identical(other.sftp, sftp) || other.sftp == sftp));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(create),
-      const DeepCollectionEquality().hash(read),
-      const DeepCollectionEquality().hash(update),
-      const DeepCollectionEquality().hash(delete),
-      const DeepCollectionEquality().hash(archive),
-      const DeepCollectionEquality().hash(sftp));
+  int get hashCode =>
+      Object.hash(runtimeType, create, read, update, delete, archive, sftp);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FilePermissionKeysCopyWith<_$_FilePermissionKeys> get copyWith =>
       __$$_FilePermissionKeysCopyWithImpl<_$_FilePermissionKeys>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FilePermissionKeysToJson(this);
+    return _$$_FilePermissionKeysToJson(
+      this,
+    );
   }
 }
 
@@ -242,17 +241,17 @@ abstract class _FilePermissionKeys extends FilePermissionKeys {
       _$_FilePermissionKeys.fromJson;
 
   @override
-  String get create => throw _privateConstructorUsedError;
+  String get create;
   @override
-  String get read => throw _privateConstructorUsedError;
+  String get read;
   @override
-  String get update => throw _privateConstructorUsedError;
+  String get update;
   @override
-  String get delete => throw _privateConstructorUsedError;
+  String get delete;
   @override
-  String get archive => throw _privateConstructorUsedError;
+  String get archive;
   @override
-  String get sftp => throw _privateConstructorUsedError;
+  String get sftp;
   @override
   @JsonKey(ignore: true)
   _$$_FilePermissionKeysCopyWith<_$_FilePermissionKeys> get copyWith =>

@@ -32,28 +32,32 @@ mixin _$MakeFileCopy {
 abstract class $MakeFileCopyCopyWith<$Res> {
   factory $MakeFileCopyCopyWith(
           MakeFileCopy value, $Res Function(MakeFileCopy) then) =
-      _$MakeFileCopyCopyWithImpl<$Res>;
+      _$MakeFileCopyCopyWithImpl<$Res, MakeFileCopy>;
+  @useResult
   $Res call({String location});
 }
 
 /// @nodoc
-class _$MakeFileCopyCopyWithImpl<$Res> implements $MakeFileCopyCopyWith<$Res> {
+class _$MakeFileCopyCopyWithImpl<$Res, $Val extends MakeFileCopy>
+    implements $MakeFileCopyCopyWith<$Res> {
   _$MakeFileCopyCopyWithImpl(this._value, this._then);
 
-  final MakeFileCopy _value;
   // ignore: unused_field
-  final $Res Function(MakeFileCopy) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? location = freezed,
+    Object? location = null,
   }) {
     return _then(_value.copyWith(
-      location: location == freezed
+      location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -64,26 +68,25 @@ abstract class _$$_MakeFileCopyCopyWith<$Res>
           _$_MakeFileCopy value, $Res Function(_$_MakeFileCopy) then) =
       __$$_MakeFileCopyCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String location});
 }
 
 /// @nodoc
 class __$$_MakeFileCopyCopyWithImpl<$Res>
-    extends _$MakeFileCopyCopyWithImpl<$Res>
+    extends _$MakeFileCopyCopyWithImpl<$Res, _$_MakeFileCopy>
     implements _$$_MakeFileCopyCopyWith<$Res> {
   __$$_MakeFileCopyCopyWithImpl(
       _$_MakeFileCopy _value, $Res Function(_$_MakeFileCopy) _then)
-      : super(_value, (v) => _then(v as _$_MakeFileCopy));
+      : super(_value, _then);
 
-  @override
-  _$_MakeFileCopy get _value => super._value as _$_MakeFileCopy;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? location = freezed,
+    Object? location = null,
   }) {
     return _then(_$_MakeFileCopy(
-      location: location == freezed
+      location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as String,
@@ -112,22 +115,25 @@ class _$_MakeFileCopy implements _MakeFileCopy {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MakeFileCopy &&
-            const DeepCollectionEquality().equals(other.location, location));
+            (identical(other.location, location) ||
+                other.location == location));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(location));
+  int get hashCode => Object.hash(runtimeType, location);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MakeFileCopyCopyWith<_$_MakeFileCopy> get copyWith =>
       __$$_MakeFileCopyCopyWithImpl<_$_MakeFileCopy>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MakeFileCopyToJson(this);
+    return _$$_MakeFileCopyToJson(
+      this,
+    );
   }
 }
 
@@ -138,7 +144,7 @@ abstract class _MakeFileCopy implements MakeFileCopy {
       _$_MakeFileCopy.fromJson;
 
   @override
-  String get location => throw _privateConstructorUsedError;
+  String get location;
   @override
   @JsonKey(ignore: true)
   _$$_MakeFileCopyCopyWith<_$_MakeFileCopy> get copyWith =>

@@ -33,34 +33,37 @@ mixin _$DisableTwoFactor {
 abstract class $DisableTwoFactorCopyWith<$Res> {
   factory $DisableTwoFactorCopyWith(
           DisableTwoFactor value, $Res Function(DisableTwoFactor) then) =
-      _$DisableTwoFactorCopyWithImpl<$Res>;
+      _$DisableTwoFactorCopyWithImpl<$Res, DisableTwoFactor>;
+  @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class _$DisableTwoFactorCopyWithImpl<$Res>
+class _$DisableTwoFactorCopyWithImpl<$Res, $Val extends DisableTwoFactor>
     implements $DisableTwoFactorCopyWith<$Res> {
   _$DisableTwoFactorCopyWithImpl(this._value, this._then);
 
-  final DisableTwoFactor _value;
   // ignore: unused_field
-  final $Res Function(DisableTwoFactor) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
-    Object? password = freezed,
+    Object? email = null,
+    Object? password = null,
   }) {
     return _then(_value.copyWith(
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,31 +74,30 @@ abstract class _$$_DisableTwoFactorCopyWith<$Res>
           _$_DisableTwoFactor value, $Res Function(_$_DisableTwoFactor) then) =
       __$$_DisableTwoFactorCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
 class __$$_DisableTwoFactorCopyWithImpl<$Res>
-    extends _$DisableTwoFactorCopyWithImpl<$Res>
+    extends _$DisableTwoFactorCopyWithImpl<$Res, _$_DisableTwoFactor>
     implements _$$_DisableTwoFactorCopyWith<$Res> {
   __$$_DisableTwoFactorCopyWithImpl(
       _$_DisableTwoFactor _value, $Res Function(_$_DisableTwoFactor) _then)
-      : super(_value, (v) => _then(v as _$_DisableTwoFactor));
+      : super(_value, _then);
 
-  @override
-  _$_DisableTwoFactor get _value => super._value as _$_DisableTwoFactor;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
-    Object? password = freezed,
+    Object? email = null,
+    Object? password = null,
   }) {
     return _then(_$_DisableTwoFactor(
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
@@ -126,25 +128,26 @@ class _$_DisableTwoFactor implements _DisableTwoFactor {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DisableTwoFactor &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.password, password));
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(password));
+  int get hashCode => Object.hash(runtimeType, email, password);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DisableTwoFactorCopyWith<_$_DisableTwoFactor> get copyWith =>
       __$$_DisableTwoFactorCopyWithImpl<_$_DisableTwoFactor>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DisableTwoFactorToJson(this);
+    return _$$_DisableTwoFactorToJson(
+      this,
+    );
   }
 }
 
@@ -157,9 +160,9 @@ abstract class _DisableTwoFactor implements DisableTwoFactor {
       _$_DisableTwoFactor.fromJson;
 
   @override
-  String get email => throw _privateConstructorUsedError;
+  String get email;
   @override
-  String get password => throw _privateConstructorUsedError;
+  String get password;
   @override
   @JsonKey(ignore: true)
   _$$_DisableTwoFactorCopyWith<_$_DisableTwoFactor> get copyWith =>

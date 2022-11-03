@@ -33,34 +33,38 @@ mixin _$CreateServerDatabase {
 abstract class $CreateServerDatabaseCopyWith<$Res> {
   factory $CreateServerDatabaseCopyWith(CreateServerDatabase value,
           $Res Function(CreateServerDatabase) then) =
-      _$CreateServerDatabaseCopyWithImpl<$Res>;
+      _$CreateServerDatabaseCopyWithImpl<$Res, CreateServerDatabase>;
+  @useResult
   $Res call({String database, String remote});
 }
 
 /// @nodoc
-class _$CreateServerDatabaseCopyWithImpl<$Res>
+class _$CreateServerDatabaseCopyWithImpl<$Res,
+        $Val extends CreateServerDatabase>
     implements $CreateServerDatabaseCopyWith<$Res> {
   _$CreateServerDatabaseCopyWithImpl(this._value, this._then);
 
-  final CreateServerDatabase _value;
   // ignore: unused_field
-  final $Res Function(CreateServerDatabase) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? database = freezed,
-    Object? remote = freezed,
+    Object? database = null,
+    Object? remote = null,
   }) {
     return _then(_value.copyWith(
-      database: database == freezed
+      database: null == database
           ? _value.database
           : database // ignore: cast_nullable_to_non_nullable
               as String,
-      remote: remote == freezed
+      remote: null == remote
           ? _value.remote
           : remote // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,31 +75,30 @@ abstract class _$$_CreateServerDatabaseCopyWith<$Res>
           $Res Function(_$_CreateServerDatabase) then) =
       __$$_CreateServerDatabaseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String database, String remote});
 }
 
 /// @nodoc
 class __$$_CreateServerDatabaseCopyWithImpl<$Res>
-    extends _$CreateServerDatabaseCopyWithImpl<$Res>
+    extends _$CreateServerDatabaseCopyWithImpl<$Res, _$_CreateServerDatabase>
     implements _$$_CreateServerDatabaseCopyWith<$Res> {
   __$$_CreateServerDatabaseCopyWithImpl(_$_CreateServerDatabase _value,
       $Res Function(_$_CreateServerDatabase) _then)
-      : super(_value, (v) => _then(v as _$_CreateServerDatabase));
+      : super(_value, _then);
 
-  @override
-  _$_CreateServerDatabase get _value => super._value as _$_CreateServerDatabase;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? database = freezed,
-    Object? remote = freezed,
+    Object? database = null,
+    Object? remote = null,
   }) {
     return _then(_$_CreateServerDatabase(
-      database: database == freezed
+      database: null == database
           ? _value.database
           : database // ignore: cast_nullable_to_non_nullable
               as String,
-      remote: remote == freezed
+      remote: null == remote
           ? _value.remote
           : remote // ignore: cast_nullable_to_non_nullable
               as String,
@@ -126,26 +129,27 @@ class _$_CreateServerDatabase implements _CreateServerDatabase {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateServerDatabase &&
-            const DeepCollectionEquality().equals(other.database, database) &&
-            const DeepCollectionEquality().equals(other.remote, remote));
+            (identical(other.database, database) ||
+                other.database == database) &&
+            (identical(other.remote, remote) || other.remote == remote));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(database),
-      const DeepCollectionEquality().hash(remote));
+  int get hashCode => Object.hash(runtimeType, database, remote);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CreateServerDatabaseCopyWith<_$_CreateServerDatabase> get copyWith =>
       __$$_CreateServerDatabaseCopyWithImpl<_$_CreateServerDatabase>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CreateServerDatabaseToJson(this);
+    return _$$_CreateServerDatabaseToJson(
+      this,
+    );
   }
 }
 
@@ -158,9 +162,9 @@ abstract class _CreateServerDatabase implements CreateServerDatabase {
       _$_CreateServerDatabase.fromJson;
 
   @override
-  String get database => throw _privateConstructorUsedError;
+  String get database;
   @override
-  String get remote => throw _privateConstructorUsedError;
+  String get remote;
   @override
   @JsonKey(ignore: true)
   _$$_CreateServerDatabaseCopyWith<_$_CreateServerDatabase> get copyWith =>

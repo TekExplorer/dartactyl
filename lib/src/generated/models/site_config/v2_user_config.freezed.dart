@@ -43,7 +43,8 @@ mixin _$_V2UserConfig {
 abstract class _$V2UserConfigCopyWith<$Res> {
   factory _$V2UserConfigCopyWith(
           _V2UserConfig value, $Res Function(_V2UserConfig) then) =
-      __$V2UserConfigCopyWithImpl<$Res>;
+      __$V2UserConfigCopyWithImpl<$Res, _V2UserConfig>;
+  @useResult
   $Res call(
       {String uuid,
       String username,
@@ -60,79 +61,81 @@ abstract class _$V2UserConfigCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$V2UserConfigCopyWithImpl<$Res>
+class __$V2UserConfigCopyWithImpl<$Res, $Val extends _V2UserConfig>
     implements _$V2UserConfigCopyWith<$Res> {
   __$V2UserConfigCopyWithImpl(this._value, this._then);
 
-  final _V2UserConfig _value;
   // ignore: unused_field
-  final $Res Function(_V2UserConfig) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
-    Object? username = freezed,
-    Object? email = freezed,
-    Object? language = freezed,
+    Object? uuid = null,
+    Object? username = null,
+    Object? email = null,
+    Object? language = null,
     Object? adminRoleId = freezed,
-    Object? rootAdmin = freezed,
-    Object? useTotp = freezed,
-    Object? gravatar = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
-    Object? avatarUrl = freezed,
-    Object? roleName = freezed,
+    Object? rootAdmin = null,
+    Object? useTotp = null,
+    Object? gravatar = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
+    Object? avatarUrl = null,
+    Object? roleName = null,
   }) {
     return _then(_value.copyWith(
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      language: language == freezed
+      language: null == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as String,
-      adminRoleId: adminRoleId == freezed
+      adminRoleId: freezed == adminRoleId
           ? _value.adminRoleId
           : adminRoleId // ignore: cast_nullable_to_non_nullable
               as int?,
-      rootAdmin: rootAdmin == freezed
+      rootAdmin: null == rootAdmin
           ? _value.rootAdmin
           : rootAdmin // ignore: cast_nullable_to_non_nullable
               as bool,
-      useTotp: useTotp == freezed
+      useTotp: null == useTotp
           ? _value.useTotp
           : useTotp // ignore: cast_nullable_to_non_nullable
               as bool,
-      gravatar: gravatar == freezed
+      gravatar: null == gravatar
           ? _value.gravatar
           : gravatar // ignore: cast_nullable_to_non_nullable
               as bool,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
-      avatarUrl: avatarUrl == freezed
+      avatarUrl: null == avatarUrl
           ? _value.avatarUrl
           : avatarUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      roleName: roleName == freezed
+      roleName: null == roleName
           ? _value.roleName
           : roleName // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -143,6 +146,7 @@ abstract class _$$__V2UserConfigCopyWith<$Res>
           _$__V2UserConfig value, $Res Function(_$__V2UserConfig) then) =
       __$$__V2UserConfigCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String uuid,
       String username,
@@ -160,76 +164,74 @@ abstract class _$$__V2UserConfigCopyWith<$Res>
 
 /// @nodoc
 class __$$__V2UserConfigCopyWithImpl<$Res>
-    extends __$V2UserConfigCopyWithImpl<$Res>
+    extends __$V2UserConfigCopyWithImpl<$Res, _$__V2UserConfig>
     implements _$$__V2UserConfigCopyWith<$Res> {
   __$$__V2UserConfigCopyWithImpl(
       _$__V2UserConfig _value, $Res Function(_$__V2UserConfig) _then)
-      : super(_value, (v) => _then(v as _$__V2UserConfig));
+      : super(_value, _then);
 
-  @override
-  _$__V2UserConfig get _value => super._value as _$__V2UserConfig;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
-    Object? username = freezed,
-    Object? email = freezed,
-    Object? language = freezed,
+    Object? uuid = null,
+    Object? username = null,
+    Object? email = null,
+    Object? language = null,
     Object? adminRoleId = freezed,
-    Object? rootAdmin = freezed,
-    Object? useTotp = freezed,
-    Object? gravatar = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
-    Object? avatarUrl = freezed,
-    Object? roleName = freezed,
+    Object? rootAdmin = null,
+    Object? useTotp = null,
+    Object? gravatar = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
+    Object? avatarUrl = null,
+    Object? roleName = null,
   }) {
     return _then(_$__V2UserConfig(
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      language: language == freezed
+      language: null == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as String,
-      adminRoleId: adminRoleId == freezed
+      adminRoleId: freezed == adminRoleId
           ? _value.adminRoleId
           : adminRoleId // ignore: cast_nullable_to_non_nullable
               as int?,
-      rootAdmin: rootAdmin == freezed
+      rootAdmin: null == rootAdmin
           ? _value.rootAdmin
           : rootAdmin // ignore: cast_nullable_to_non_nullable
               as bool,
-      useTotp: useTotp == freezed
+      useTotp: null == useTotp
           ? _value.useTotp
           : useTotp // ignore: cast_nullable_to_non_nullable
               as bool,
-      gravatar: gravatar == freezed
+      gravatar: null == gravatar
           ? _value.gravatar
           : gravatar // ignore: cast_nullable_to_non_nullable
               as bool,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
-      avatarUrl: avatarUrl == freezed
+      avatarUrl: null == avatarUrl
           ? _value.avatarUrl
           : avatarUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      roleName: roleName == freezed
+      roleName: null == roleName
           ? _value.roleName
           : roleName // ignore: cast_nullable_to_non_nullable
               as String,
@@ -292,46 +294,57 @@ class _$__V2UserConfig implements __V2UserConfig {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$__V2UserConfig &&
-            const DeepCollectionEquality().equals(other.uuid, uuid) &&
-            const DeepCollectionEquality().equals(other.username, username) &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.language, language) &&
-            const DeepCollectionEquality()
-                .equals(other.adminRoleId, adminRoleId) &&
-            const DeepCollectionEquality().equals(other.rootAdmin, rootAdmin) &&
-            const DeepCollectionEquality().equals(other.useTotp, useTotp) &&
-            const DeepCollectionEquality().equals(other.gravatar, gravatar) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
-            const DeepCollectionEquality().equals(other.avatarUrl, avatarUrl) &&
-            const DeepCollectionEquality().equals(other.roleName, roleName));
+            (identical(other.uuid, uuid) || other.uuid == uuid) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.language, language) ||
+                other.language == language) &&
+            (identical(other.adminRoleId, adminRoleId) ||
+                other.adminRoleId == adminRoleId) &&
+            (identical(other.rootAdmin, rootAdmin) ||
+                other.rootAdmin == rootAdmin) &&
+            (identical(other.useTotp, useTotp) || other.useTotp == useTotp) &&
+            (identical(other.gravatar, gravatar) ||
+                other.gravatar == gravatar) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
+            (identical(other.avatarUrl, avatarUrl) ||
+                other.avatarUrl == avatarUrl) &&
+            (identical(other.roleName, roleName) ||
+                other.roleName == roleName));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(uuid),
-      const DeepCollectionEquality().hash(username),
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(language),
-      const DeepCollectionEquality().hash(adminRoleId),
-      const DeepCollectionEquality().hash(rootAdmin),
-      const DeepCollectionEquality().hash(useTotp),
-      const DeepCollectionEquality().hash(gravatar),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(updatedAt),
-      const DeepCollectionEquality().hash(avatarUrl),
-      const DeepCollectionEquality().hash(roleName));
+      uuid,
+      username,
+      email,
+      language,
+      adminRoleId,
+      rootAdmin,
+      useTotp,
+      gravatar,
+      createdAt,
+      updatedAt,
+      avatarUrl,
+      roleName);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$__V2UserConfigCopyWith<_$__V2UserConfig> get copyWith =>
       __$$__V2UserConfigCopyWithImpl<_$__V2UserConfig>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$__V2UserConfigToJson(this);
+    return _$$__V2UserConfigToJson(
+      this,
+    );
   }
 }
 
@@ -354,29 +367,29 @@ abstract class __V2UserConfig implements _V2UserConfig {
       _$__V2UserConfig.fromJson;
 
   @override
-  String get uuid => throw _privateConstructorUsedError;
+  String get uuid;
   @override
-  String get username => throw _privateConstructorUsedError;
+  String get username;
   @override
-  String get email => throw _privateConstructorUsedError;
+  String get email;
   @override
-  String get language => throw _privateConstructorUsedError;
+  String get language;
   @override
-  int? get adminRoleId => throw _privateConstructorUsedError;
+  int? get adminRoleId;
   @override
-  bool get rootAdmin => throw _privateConstructorUsedError;
+  bool get rootAdmin;
   @override
-  bool get useTotp => throw _privateConstructorUsedError;
+  bool get useTotp;
   @override
-  bool get gravatar => throw _privateConstructorUsedError;
+  bool get gravatar;
   @override
-  String get createdAt => throw _privateConstructorUsedError;
+  String get createdAt;
   @override
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get updatedAt;
   @override
-  String get avatarUrl => throw _privateConstructorUsedError;
+  String get avatarUrl;
   @override
-  String get roleName => throw _privateConstructorUsedError;
+  String get roleName;
   @override
   @JsonKey(ignore: true)
   _$$__V2UserConfigCopyWith<_$__V2UserConfig> get copyWith =>

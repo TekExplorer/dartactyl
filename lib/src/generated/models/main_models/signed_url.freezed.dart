@@ -31,28 +31,32 @@ mixin _$SignedUrl {
 /// @nodoc
 abstract class $SignedUrlCopyWith<$Res> {
   factory $SignedUrlCopyWith(SignedUrl value, $Res Function(SignedUrl) then) =
-      _$SignedUrlCopyWithImpl<$Res>;
+      _$SignedUrlCopyWithImpl<$Res, SignedUrl>;
+  @useResult
   $Res call({String url});
 }
 
 /// @nodoc
-class _$SignedUrlCopyWithImpl<$Res> implements $SignedUrlCopyWith<$Res> {
+class _$SignedUrlCopyWithImpl<$Res, $Val extends SignedUrl>
+    implements $SignedUrlCopyWith<$Res> {
   _$SignedUrlCopyWithImpl(this._value, this._then);
 
-  final SignedUrl _value;
   // ignore: unused_field
-  final $Res Function(SignedUrl) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? url = freezed,
+    Object? url = null,
   }) {
     return _then(_value.copyWith(
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -62,25 +66,25 @@ abstract class _$$_SignedUrlCopyWith<$Res> implements $SignedUrlCopyWith<$Res> {
           _$_SignedUrl value, $Res Function(_$_SignedUrl) then) =
       __$$_SignedUrlCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String url});
 }
 
 /// @nodoc
-class __$$_SignedUrlCopyWithImpl<$Res> extends _$SignedUrlCopyWithImpl<$Res>
+class __$$_SignedUrlCopyWithImpl<$Res>
+    extends _$SignedUrlCopyWithImpl<$Res, _$_SignedUrl>
     implements _$$_SignedUrlCopyWith<$Res> {
   __$$_SignedUrlCopyWithImpl(
       _$_SignedUrl _value, $Res Function(_$_SignedUrl) _then)
-      : super(_value, (v) => _then(v as _$_SignedUrl));
+      : super(_value, _then);
 
-  @override
-  _$_SignedUrl get _value => super._value as _$_SignedUrl;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? url = freezed,
+    Object? url = null,
   }) {
     return _then(_$_SignedUrl(
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
@@ -109,22 +113,24 @@ class _$_SignedUrl extends _SignedUrl {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SignedUrl &&
-            const DeepCollectionEquality().equals(other.url, url));
+            (identical(other.url, url) || other.url == url));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(url));
+  int get hashCode => Object.hash(runtimeType, url);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SignedUrlCopyWith<_$_SignedUrl> get copyWith =>
       __$$_SignedUrlCopyWithImpl<_$_SignedUrl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SignedUrlToJson(this);
+    return _$$_SignedUrlToJson(
+      this,
+    );
   }
 }
 
@@ -136,7 +142,7 @@ abstract class _SignedUrl extends SignedUrl {
       _$_SignedUrl.fromJson;
 
   @override
-  String get url => throw _privateConstructorUsedError;
+  String get url;
   @override
   @JsonKey(ignore: true)
   _$$_SignedUrlCopyWith<_$_SignedUrl> get copyWith =>

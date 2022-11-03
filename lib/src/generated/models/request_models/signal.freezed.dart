@@ -30,28 +30,32 @@ mixin _$Signal {
 /// @nodoc
 abstract class $SignalCopyWith<$Res> {
   factory $SignalCopyWith(Signal value, $Res Function(Signal) then) =
-      _$SignalCopyWithImpl<$Res>;
+      _$SignalCopyWithImpl<$Res, Signal>;
+  @useResult
   $Res call({ServerPowerAction signal});
 }
 
 /// @nodoc
-class _$SignalCopyWithImpl<$Res> implements $SignalCopyWith<$Res> {
+class _$SignalCopyWithImpl<$Res, $Val extends Signal>
+    implements $SignalCopyWith<$Res> {
   _$SignalCopyWithImpl(this._value, this._then);
 
-  final Signal _value;
   // ignore: unused_field
-  final $Res Function(Signal) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? signal = freezed,
+    Object? signal = null,
   }) {
     return _then(_value.copyWith(
-      signal: signal == freezed
+      signal: null == signal
           ? _value.signal
           : signal // ignore: cast_nullable_to_non_nullable
               as ServerPowerAction,
-    ));
+    ) as $Val);
   }
 }
 
@@ -60,24 +64,24 @@ abstract class _$$_SignalCopyWith<$Res> implements $SignalCopyWith<$Res> {
   factory _$$_SignalCopyWith(_$_Signal value, $Res Function(_$_Signal) then) =
       __$$_SignalCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({ServerPowerAction signal});
 }
 
 /// @nodoc
-class __$$_SignalCopyWithImpl<$Res> extends _$SignalCopyWithImpl<$Res>
+class __$$_SignalCopyWithImpl<$Res>
+    extends _$SignalCopyWithImpl<$Res, _$_Signal>
     implements _$$_SignalCopyWith<$Res> {
   __$$_SignalCopyWithImpl(_$_Signal _value, $Res Function(_$_Signal) _then)
-      : super(_value, (v) => _then(v as _$_Signal));
+      : super(_value, _then);
 
-  @override
-  _$_Signal get _value => super._value as _$_Signal;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? signal = freezed,
+    Object? signal = null,
   }) {
     return _then(_$_Signal(
-      signal: signal == freezed
+      signal: null == signal
           ? _value.signal
           : signal // ignore: cast_nullable_to_non_nullable
               as ServerPowerAction,
@@ -106,22 +110,24 @@ class _$_Signal implements _Signal {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Signal &&
-            const DeepCollectionEquality().equals(other.signal, signal));
+            (identical(other.signal, signal) || other.signal == signal));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(signal));
+  int get hashCode => Object.hash(runtimeType, signal);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SignalCopyWith<_$_Signal> get copyWith =>
       __$$_SignalCopyWithImpl<_$_Signal>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SignalToJson(this);
+    return _$$_SignalToJson(
+      this,
+    );
   }
 }
 
@@ -131,7 +137,7 @@ abstract class _Signal implements Signal {
   factory _Signal.fromJson(Map<String, dynamic> json) = _$_Signal.fromJson;
 
   @override
-  ServerPowerAction get signal => throw _privateConstructorUsedError;
+  ServerPowerAction get signal;
   @override
   @JsonKey(ignore: true)
   _$$_SignalCopyWith<_$_Signal> get copyWith =>

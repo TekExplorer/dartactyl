@@ -34,34 +34,38 @@ mixin _$StartupPermissionKeys {
 abstract class $StartupPermissionKeysCopyWith<$Res> {
   factory $StartupPermissionKeysCopyWith(StartupPermissionKeys value,
           $Res Function(StartupPermissionKeys) then) =
-      _$StartupPermissionKeysCopyWithImpl<$Res>;
+      _$StartupPermissionKeysCopyWithImpl<$Res, StartupPermissionKeys>;
+  @useResult
   $Res call({String read, String update});
 }
 
 /// @nodoc
-class _$StartupPermissionKeysCopyWithImpl<$Res>
+class _$StartupPermissionKeysCopyWithImpl<$Res,
+        $Val extends StartupPermissionKeys>
     implements $StartupPermissionKeysCopyWith<$Res> {
   _$StartupPermissionKeysCopyWithImpl(this._value, this._then);
 
-  final StartupPermissionKeys _value;
   // ignore: unused_field
-  final $Res Function(StartupPermissionKeys) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? read = freezed,
-    Object? update = freezed,
+    Object? read = null,
+    Object? update = null,
   }) {
     return _then(_value.copyWith(
-      read: read == freezed
+      read: null == read
           ? _value.read
           : read // ignore: cast_nullable_to_non_nullable
               as String,
-      update: update == freezed
+      update: null == update
           ? _value.update
           : update // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -72,32 +76,30 @@ abstract class _$$_StartupPermissionKeysCopyWith<$Res>
           $Res Function(_$_StartupPermissionKeys) then) =
       __$$_StartupPermissionKeysCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String read, String update});
 }
 
 /// @nodoc
 class __$$_StartupPermissionKeysCopyWithImpl<$Res>
-    extends _$StartupPermissionKeysCopyWithImpl<$Res>
+    extends _$StartupPermissionKeysCopyWithImpl<$Res, _$_StartupPermissionKeys>
     implements _$$_StartupPermissionKeysCopyWith<$Res> {
   __$$_StartupPermissionKeysCopyWithImpl(_$_StartupPermissionKeys _value,
       $Res Function(_$_StartupPermissionKeys) _then)
-      : super(_value, (v) => _then(v as _$_StartupPermissionKeys));
+      : super(_value, _then);
 
-  @override
-  _$_StartupPermissionKeys get _value =>
-      super._value as _$_StartupPermissionKeys;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? read = freezed,
-    Object? update = freezed,
+    Object? read = null,
+    Object? update = null,
   }) {
     return _then(_$_StartupPermissionKeys(
-      read: read == freezed
+      read: null == read
           ? _value.read
           : read // ignore: cast_nullable_to_non_nullable
               as String,
-      update: update == freezed
+      update: null == update
           ? _value.update
           : update // ignore: cast_nullable_to_non_nullable
               as String,
@@ -129,26 +131,26 @@ class _$_StartupPermissionKeys extends _StartupPermissionKeys {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_StartupPermissionKeys &&
-            const DeepCollectionEquality().equals(other.read, read) &&
-            const DeepCollectionEquality().equals(other.update, update));
+            (identical(other.read, read) || other.read == read) &&
+            (identical(other.update, update) || other.update == update));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(read),
-      const DeepCollectionEquality().hash(update));
+  int get hashCode => Object.hash(runtimeType, read, update);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StartupPermissionKeysCopyWith<_$_StartupPermissionKeys> get copyWith =>
       __$$_StartupPermissionKeysCopyWithImpl<_$_StartupPermissionKeys>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StartupPermissionKeysToJson(this);
+    return _$$_StartupPermissionKeysToJson(
+      this,
+    );
   }
 }
 
@@ -162,9 +164,9 @@ abstract class _StartupPermissionKeys extends StartupPermissionKeys {
       _$_StartupPermissionKeys.fromJson;
 
   @override
-  String get read => throw _privateConstructorUsedError;
+  String get read;
   @override
-  String get update => throw _privateConstructorUsedError;
+  String get update;
   @override
   @JsonKey(ignore: true)
   _$$_StartupPermissionKeysCopyWith<_$_StartupPermissionKeys> get copyWith =>

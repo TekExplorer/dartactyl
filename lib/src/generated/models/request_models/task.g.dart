@@ -13,7 +13,7 @@ _$_Task _$$_TaskFromJson(Map<String, dynamic> json) => _$_Task(
     );
 
 Map<String, dynamic> _$$_TaskToJson(_$_Task instance) => <String, dynamic>{
-      'action': _$ActionEnumMap[instance.action],
+      'action': _$ActionEnumMap[instance.action]!,
       'payload': instance.payload,
       'time_offset': instance.timeOffset,
     };

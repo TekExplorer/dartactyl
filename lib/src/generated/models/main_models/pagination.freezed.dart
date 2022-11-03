@@ -31,33 +31,37 @@ mixin _$Links {
 /// @nodoc
 abstract class $LinksCopyWith<$Res> {
   factory $LinksCopyWith(Links value, $Res Function(Links) then) =
-      _$LinksCopyWithImpl<$Res>;
+      _$LinksCopyWithImpl<$Res, Links>;
+  @useResult
   $Res call({String? previous, String? next});
 }
 
 /// @nodoc
-class _$LinksCopyWithImpl<$Res> implements $LinksCopyWith<$Res> {
+class _$LinksCopyWithImpl<$Res, $Val extends Links>
+    implements $LinksCopyWith<$Res> {
   _$LinksCopyWithImpl(this._value, this._then);
 
-  final Links _value;
   // ignore: unused_field
-  final $Res Function(Links) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? previous = freezed,
     Object? next = freezed,
   }) {
     return _then(_value.copyWith(
-      previous: previous == freezed
+      previous: freezed == previous
           ? _value.previous
           : previous // ignore: cast_nullable_to_non_nullable
               as String?,
-      next: next == freezed
+      next: freezed == next
           ? _value.next
           : next // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -66,29 +70,28 @@ abstract class _$$_LinksCopyWith<$Res> implements $LinksCopyWith<$Res> {
   factory _$$_LinksCopyWith(_$_Links value, $Res Function(_$_Links) then) =
       __$$_LinksCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? previous, String? next});
 }
 
 /// @nodoc
-class __$$_LinksCopyWithImpl<$Res> extends _$LinksCopyWithImpl<$Res>
+class __$$_LinksCopyWithImpl<$Res> extends _$LinksCopyWithImpl<$Res, _$_Links>
     implements _$$_LinksCopyWith<$Res> {
   __$$_LinksCopyWithImpl(_$_Links _value, $Res Function(_$_Links) _then)
-      : super(_value, (v) => _then(v as _$_Links));
+      : super(_value, _then);
 
-  @override
-  _$_Links get _value => super._value as _$_Links;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? previous = freezed,
     Object? next = freezed,
   }) {
     return _then(_$_Links(
-      previous: previous == freezed
+      previous: freezed == previous
           ? _value.previous
           : previous // ignore: cast_nullable_to_non_nullable
               as String?,
-      next: next == freezed
+      next: freezed == next
           ? _value.next
           : next // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -119,25 +122,26 @@ class _$_Links extends _Links {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Links &&
-            const DeepCollectionEquality().equals(other.previous, previous) &&
-            const DeepCollectionEquality().equals(other.next, next));
+            (identical(other.previous, previous) ||
+                other.previous == previous) &&
+            (identical(other.next, next) || other.next == next));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(previous),
-      const DeepCollectionEquality().hash(next));
+  int get hashCode => Object.hash(runtimeType, previous, next);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LinksCopyWith<_$_Links> get copyWith =>
       __$$_LinksCopyWithImpl<_$_Links>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LinksToJson(this);
+    return _$$_LinksToJson(
+      this,
+    );
   }
 }
 
@@ -148,9 +152,9 @@ abstract class _Links extends Links {
   factory _Links.fromJson(Map<String, dynamic> json) = _$_Links.fromJson;
 
   @override
-  String? get previous => throw _privateConstructorUsedError;
+  String? get previous;
   @override
-  String? get next => throw _privateConstructorUsedError;
+  String? get next;
   @override
   @JsonKey(ignore: true)
   _$$_LinksCopyWith<_$_Links> get copyWith =>
@@ -180,7 +184,8 @@ mixin _$Pagination {
 abstract class $PaginationCopyWith<$Res> {
   factory $PaginationCopyWith(
           Pagination value, $Res Function(Pagination) then) =
-      _$PaginationCopyWithImpl<$Res>;
+      _$PaginationCopyWithImpl<$Res, Pagination>;
+  @useResult
   $Res call(
       {int total,
       int count,
@@ -193,54 +198,58 @@ abstract class $PaginationCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PaginationCopyWithImpl<$Res> implements $PaginationCopyWith<$Res> {
+class _$PaginationCopyWithImpl<$Res, $Val extends Pagination>
+    implements $PaginationCopyWith<$Res> {
   _$PaginationCopyWithImpl(this._value, this._then);
 
-  final Pagination _value;
   // ignore: unused_field
-  final $Res Function(Pagination) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? total = freezed,
-    Object? count = freezed,
-    Object? perPage = freezed,
-    Object? currentPage = freezed,
-    Object? totalPages = freezed,
-    Object? links = freezed,
+    Object? total = null,
+    Object? count = null,
+    Object? perPage = null,
+    Object? currentPage = null,
+    Object? totalPages = null,
+    Object? links = null,
   }) {
     return _then(_value.copyWith(
-      total: total == freezed
+      total: null == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as int,
-      count: count == freezed
+      count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
-      perPage: perPage == freezed
+      perPage: null == perPage
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
               as int,
-      currentPage: currentPage == freezed
+      currentPage: null == currentPage
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
               as int,
-      totalPages: totalPages == freezed
+      totalPages: null == totalPages
           ? _value.totalPages
           : totalPages // ignore: cast_nullable_to_non_nullable
               as int,
-      links: links == freezed
+      links: null == links
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
               as Links,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $LinksCopyWith<$Res> get links {
     return $LinksCopyWith<$Res>(_value.links, (value) {
-      return _then(_value.copyWith(links: value));
+      return _then(_value.copyWith(links: value) as $Val);
     });
   }
 }
@@ -252,6 +261,7 @@ abstract class _$$_PaginationCopyWith<$Res>
           _$_Pagination value, $Res Function(_$_Pagination) then) =
       __$$_PaginationCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int total,
       int count,
@@ -265,46 +275,45 @@ abstract class _$$_PaginationCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PaginationCopyWithImpl<$Res> extends _$PaginationCopyWithImpl<$Res>
+class __$$_PaginationCopyWithImpl<$Res>
+    extends _$PaginationCopyWithImpl<$Res, _$_Pagination>
     implements _$$_PaginationCopyWith<$Res> {
   __$$_PaginationCopyWithImpl(
       _$_Pagination _value, $Res Function(_$_Pagination) _then)
-      : super(_value, (v) => _then(v as _$_Pagination));
+      : super(_value, _then);
 
-  @override
-  _$_Pagination get _value => super._value as _$_Pagination;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? total = freezed,
-    Object? count = freezed,
-    Object? perPage = freezed,
-    Object? currentPage = freezed,
-    Object? totalPages = freezed,
-    Object? links = freezed,
+    Object? total = null,
+    Object? count = null,
+    Object? perPage = null,
+    Object? currentPage = null,
+    Object? totalPages = null,
+    Object? links = null,
   }) {
     return _then(_$_Pagination(
-      total: total == freezed
+      total: null == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as int,
-      count: count == freezed
+      count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
-      perPage: perPage == freezed
+      perPage: null == perPage
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
               as int,
-      currentPage: currentPage == freezed
+      currentPage: null == currentPage
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
               as int,
-      totalPages: totalPages == freezed
+      totalPages: null == totalPages
           ? _value.totalPages
           : totalPages // ignore: cast_nullable_to_non_nullable
               as int,
-      links: links == freezed
+      links: null == links
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
               as Links,
@@ -350,35 +359,32 @@ class _$_Pagination extends _Pagination {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Pagination &&
-            const DeepCollectionEquality().equals(other.total, total) &&
-            const DeepCollectionEquality().equals(other.count, count) &&
-            const DeepCollectionEquality().equals(other.perPage, perPage) &&
-            const DeepCollectionEquality()
-                .equals(other.currentPage, currentPage) &&
-            const DeepCollectionEquality()
-                .equals(other.totalPages, totalPages) &&
-            const DeepCollectionEquality().equals(other.links, links));
+            (identical(other.total, total) || other.total == total) &&
+            (identical(other.count, count) || other.count == count) &&
+            (identical(other.perPage, perPage) || other.perPage == perPage) &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage) &&
+            (identical(other.totalPages, totalPages) ||
+                other.totalPages == totalPages) &&
+            (identical(other.links, links) || other.links == links));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(total),
-      const DeepCollectionEquality().hash(count),
-      const DeepCollectionEquality().hash(perPage),
-      const DeepCollectionEquality().hash(currentPage),
-      const DeepCollectionEquality().hash(totalPages),
-      const DeepCollectionEquality().hash(links));
+      runtimeType, total, count, perPage, currentPage, totalPages, links);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PaginationCopyWith<_$_Pagination> get copyWith =>
       __$$_PaginationCopyWithImpl<_$_Pagination>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PaginationToJson(this);
+    return _$$_PaginationToJson(
+      this,
+    );
   }
 }
 
@@ -396,17 +402,17 @@ abstract class _Pagination extends Pagination {
       _$_Pagination.fromJson;
 
   @override
-  int get total => throw _privateConstructorUsedError;
+  int get total;
   @override
-  int get count => throw _privateConstructorUsedError;
+  int get count;
   @override
-  int get perPage => throw _privateConstructorUsedError;
+  int get perPage;
   @override
-  int get currentPage => throw _privateConstructorUsedError;
+  int get currentPage;
   @override
-  int get totalPages => throw _privateConstructorUsedError;
+  int get totalPages;
   @override
-  Links get links => throw _privateConstructorUsedError;
+  Links get links;
   @override
   @JsonKey(ignore: true)
   _$$_PaginationCopyWith<_$_Pagination> get copyWith =>

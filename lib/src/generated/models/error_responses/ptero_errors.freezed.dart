@@ -32,28 +32,32 @@ mixin _$PteroErrors {
 abstract class $PteroErrorsCopyWith<$Res> {
   factory $PteroErrorsCopyWith(
           PteroErrors value, $Res Function(PteroErrors) then) =
-      _$PteroErrorsCopyWithImpl<$Res>;
+      _$PteroErrorsCopyWithImpl<$Res, PteroErrors>;
+  @useResult
   $Res call({List<PteroError> errors});
 }
 
 /// @nodoc
-class _$PteroErrorsCopyWithImpl<$Res> implements $PteroErrorsCopyWith<$Res> {
+class _$PteroErrorsCopyWithImpl<$Res, $Val extends PteroErrors>
+    implements $PteroErrorsCopyWith<$Res> {
   _$PteroErrorsCopyWithImpl(this._value, this._then);
 
-  final PteroErrors _value;
   // ignore: unused_field
-  final $Res Function(PteroErrors) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errors = freezed,
+    Object? errors = null,
   }) {
     return _then(_value.copyWith(
-      errors: errors == freezed
+      errors: null == errors
           ? _value.errors
           : errors // ignore: cast_nullable_to_non_nullable
               as List<PteroError>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -64,25 +68,25 @@ abstract class _$$_PteroErrorsCopyWith<$Res>
           _$_PteroErrors value, $Res Function(_$_PteroErrors) then) =
       __$$_PteroErrorsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<PteroError> errors});
 }
 
 /// @nodoc
-class __$$_PteroErrorsCopyWithImpl<$Res> extends _$PteroErrorsCopyWithImpl<$Res>
+class __$$_PteroErrorsCopyWithImpl<$Res>
+    extends _$PteroErrorsCopyWithImpl<$Res, _$_PteroErrors>
     implements _$$_PteroErrorsCopyWith<$Res> {
   __$$_PteroErrorsCopyWithImpl(
       _$_PteroErrors _value, $Res Function(_$_PteroErrors) _then)
-      : super(_value, (v) => _then(v as _$_PteroErrors));
+      : super(_value, _then);
 
-  @override
-  _$_PteroErrors get _value => super._value as _$_PteroErrors;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errors = freezed,
+    Object? errors = null,
   }) {
     return _then(_$_PteroErrors(
-      errors: errors == freezed
+      errors: null == errors
           ? _value._errors
           : errors // ignore: cast_nullable_to_non_nullable
               as List<PteroError>,
@@ -125,12 +129,15 @@ class _$_PteroErrors implements _PteroErrors {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PteroErrorsCopyWith<_$_PteroErrors> get copyWith =>
       __$$_PteroErrorsCopyWithImpl<_$_PteroErrors>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PteroErrorsToJson(this);
+    return _$$_PteroErrorsToJson(
+      this,
+    );
   }
 }
 
@@ -142,7 +149,7 @@ abstract class _PteroErrors implements PteroErrors {
       _$_PteroErrors.fromJson;
 
   @override
-  List<PteroError> get errors => throw _privateConstructorUsedError;
+  List<PteroError> get errors;
   @override
   @JsonKey(ignore: true)
   _$$_PteroErrorsCopyWith<_$_PteroErrors> get copyWith =>

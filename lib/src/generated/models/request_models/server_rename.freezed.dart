@@ -30,28 +30,32 @@ mixin _$Rename {
 /// @nodoc
 abstract class $RenameCopyWith<$Res> {
   factory $RenameCopyWith(Rename value, $Res Function(Rename) then) =
-      _$RenameCopyWithImpl<$Res>;
+      _$RenameCopyWithImpl<$Res, Rename>;
+  @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class _$RenameCopyWithImpl<$Res> implements $RenameCopyWith<$Res> {
+class _$RenameCopyWithImpl<$Res, $Val extends Rename>
+    implements $RenameCopyWith<$Res> {
   _$RenameCopyWithImpl(this._value, this._then);
 
-  final Rename _value;
   // ignore: unused_field
-  final $Res Function(Rename) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -60,24 +64,24 @@ abstract class _$$_RenameCopyWith<$Res> implements $RenameCopyWith<$Res> {
   factory _$$_RenameCopyWith(_$_Rename value, $Res Function(_$_Rename) then) =
       __$$_RenameCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$$_RenameCopyWithImpl<$Res> extends _$RenameCopyWithImpl<$Res>
+class __$$_RenameCopyWithImpl<$Res>
+    extends _$RenameCopyWithImpl<$Res, _$_Rename>
     implements _$$_RenameCopyWith<$Res> {
   __$$_RenameCopyWithImpl(_$_Rename _value, $Res Function(_$_Rename) _then)
-      : super(_value, (v) => _then(v as _$_Rename));
+      : super(_value, _then);
 
-  @override
-  _$_Rename get _value => super._value as _$_Rename;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
   }) {
     return _then(_$_Rename(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -106,22 +110,24 @@ class _$_Rename implements _Rename {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Rename &&
-            const DeepCollectionEquality().equals(other.name, name));
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(name));
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RenameCopyWith<_$_Rename> get copyWith =>
       __$$_RenameCopyWithImpl<_$_Rename>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RenameToJson(this);
+    return _$$_RenameToJson(
+      this,
+    );
   }
 }
 
@@ -131,7 +137,7 @@ abstract class _Rename implements Rename {
   factory _Rename.fromJson(Map<String, dynamic> json) = _$_Rename.fromJson;
 
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
   @JsonKey(ignore: true)
   _$$_RenameCopyWith<_$_Rename> get copyWith =>

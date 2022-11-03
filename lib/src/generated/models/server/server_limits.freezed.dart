@@ -37,53 +37,57 @@ mixin _$ServerLimits {
 abstract class $ServerLimitsCopyWith<$Res> {
   factory $ServerLimitsCopyWith(
           ServerLimits value, $Res Function(ServerLimits) then) =
-      _$ServerLimitsCopyWithImpl<$Res>;
+      _$ServerLimitsCopyWithImpl<$Res, ServerLimits>;
+  @useResult
   $Res call({int memory, int swap, int disk, int io, int cpu, String? threads});
 }
 
 /// @nodoc
-class _$ServerLimitsCopyWithImpl<$Res> implements $ServerLimitsCopyWith<$Res> {
+class _$ServerLimitsCopyWithImpl<$Res, $Val extends ServerLimits>
+    implements $ServerLimitsCopyWith<$Res> {
   _$ServerLimitsCopyWithImpl(this._value, this._then);
 
-  final ServerLimits _value;
   // ignore: unused_field
-  final $Res Function(ServerLimits) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? memory = freezed,
-    Object? swap = freezed,
-    Object? disk = freezed,
-    Object? io = freezed,
-    Object? cpu = freezed,
+    Object? memory = null,
+    Object? swap = null,
+    Object? disk = null,
+    Object? io = null,
+    Object? cpu = null,
     Object? threads = freezed,
   }) {
     return _then(_value.copyWith(
-      memory: memory == freezed
+      memory: null == memory
           ? _value.memory
           : memory // ignore: cast_nullable_to_non_nullable
               as int,
-      swap: swap == freezed
+      swap: null == swap
           ? _value.swap
           : swap // ignore: cast_nullable_to_non_nullable
               as int,
-      disk: disk == freezed
+      disk: null == disk
           ? _value.disk
           : disk // ignore: cast_nullable_to_non_nullable
               as int,
-      io: io == freezed
+      io: null == io
           ? _value.io
           : io // ignore: cast_nullable_to_non_nullable
               as int,
-      cpu: cpu == freezed
+      cpu: null == cpu
           ? _value.cpu
           : cpu // ignore: cast_nullable_to_non_nullable
               as int,
-      threads: threads == freezed
+      threads: freezed == threads
           ? _value.threads
           : threads // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -94,51 +98,50 @@ abstract class _$$_ServerLimitsCopyWith<$Res>
           _$_ServerLimits value, $Res Function(_$_ServerLimits) then) =
       __$$_ServerLimitsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int memory, int swap, int disk, int io, int cpu, String? threads});
 }
 
 /// @nodoc
 class __$$_ServerLimitsCopyWithImpl<$Res>
-    extends _$ServerLimitsCopyWithImpl<$Res>
+    extends _$ServerLimitsCopyWithImpl<$Res, _$_ServerLimits>
     implements _$$_ServerLimitsCopyWith<$Res> {
   __$$_ServerLimitsCopyWithImpl(
       _$_ServerLimits _value, $Res Function(_$_ServerLimits) _then)
-      : super(_value, (v) => _then(v as _$_ServerLimits));
+      : super(_value, _then);
 
-  @override
-  _$_ServerLimits get _value => super._value as _$_ServerLimits;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? memory = freezed,
-    Object? swap = freezed,
-    Object? disk = freezed,
-    Object? io = freezed,
-    Object? cpu = freezed,
+    Object? memory = null,
+    Object? swap = null,
+    Object? disk = null,
+    Object? io = null,
+    Object? cpu = null,
     Object? threads = freezed,
   }) {
     return _then(_$_ServerLimits(
-      memory: memory == freezed
+      memory: null == memory
           ? _value.memory
           : memory // ignore: cast_nullable_to_non_nullable
               as int,
-      swap: swap == freezed
+      swap: null == swap
           ? _value.swap
           : swap // ignore: cast_nullable_to_non_nullable
               as int,
-      disk: disk == freezed
+      disk: null == disk
           ? _value.disk
           : disk // ignore: cast_nullable_to_non_nullable
               as int,
-      io: io == freezed
+      io: null == io
           ? _value.io
           : io // ignore: cast_nullable_to_non_nullable
               as int,
-      cpu: cpu == freezed
+      cpu: null == cpu
           ? _value.cpu
           : cpu // ignore: cast_nullable_to_non_nullable
               as int,
-      threads: threads == freezed
+      threads: freezed == threads
           ? _value.threads
           : threads // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -184,33 +187,30 @@ class _$_ServerLimits extends _ServerLimits {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ServerLimits &&
-            const DeepCollectionEquality().equals(other.memory, memory) &&
-            const DeepCollectionEquality().equals(other.swap, swap) &&
-            const DeepCollectionEquality().equals(other.disk, disk) &&
-            const DeepCollectionEquality().equals(other.io, io) &&
-            const DeepCollectionEquality().equals(other.cpu, cpu) &&
-            const DeepCollectionEquality().equals(other.threads, threads));
+            (identical(other.memory, memory) || other.memory == memory) &&
+            (identical(other.swap, swap) || other.swap == swap) &&
+            (identical(other.disk, disk) || other.disk == disk) &&
+            (identical(other.io, io) || other.io == io) &&
+            (identical(other.cpu, cpu) || other.cpu == cpu) &&
+            (identical(other.threads, threads) || other.threads == threads));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(memory),
-      const DeepCollectionEquality().hash(swap),
-      const DeepCollectionEquality().hash(disk),
-      const DeepCollectionEquality().hash(io),
-      const DeepCollectionEquality().hash(cpu),
-      const DeepCollectionEquality().hash(threads));
+  int get hashCode =>
+      Object.hash(runtimeType, memory, swap, disk, io, cpu, threads);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ServerLimitsCopyWith<_$_ServerLimits> get copyWith =>
       __$$_ServerLimitsCopyWithImpl<_$_ServerLimits>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServerLimitsToJson(this);
+    return _$$_ServerLimitsToJson(
+      this,
+    );
   }
 }
 
@@ -228,17 +228,17 @@ abstract class _ServerLimits extends ServerLimits {
       _$_ServerLimits.fromJson;
 
   @override
-  int get memory => throw _privateConstructorUsedError;
+  int get memory;
   @override
-  int get swap => throw _privateConstructorUsedError;
+  int get swap;
   @override
-  int get disk => throw _privateConstructorUsedError;
+  int get disk;
   @override
-  int get io => throw _privateConstructorUsedError;
+  int get io;
   @override
-  int get cpu => throw _privateConstructorUsedError;
+  int get cpu;
   @override
-  String? get threads => throw _privateConstructorUsedError;
+  String? get threads;
   @override
   @JsonKey(ignore: true)
   _$$_ServerLimitsCopyWith<_$_ServerLimits> get copyWith =>

@@ -35,7 +35,8 @@ mixin _$EggConfig {
 /// @nodoc
 abstract class $EggConfigCopyWith<$Res> {
   factory $EggConfigCopyWith(EggConfig value, $Res Function(EggConfig) then) =
-      _$EggConfigCopyWithImpl<$Res>;
+      _$EggConfigCopyWithImpl<$Res, EggConfig>;
+  @useResult
   $Res call(
       {Map<String, dynamic> files,
       EggStartupConfig startup,
@@ -48,60 +49,65 @@ abstract class $EggConfigCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EggConfigCopyWithImpl<$Res> implements $EggConfigCopyWith<$Res> {
+class _$EggConfigCopyWithImpl<$Res, $Val extends EggConfig>
+    implements $EggConfigCopyWith<$Res> {
   _$EggConfigCopyWithImpl(this._value, this._then);
 
-  final EggConfig _value;
   // ignore: unused_field
-  final $Res Function(EggConfig) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? files = freezed,
-    Object? startup = freezed,
-    Object? stop = freezed,
+    Object? files = null,
+    Object? startup = null,
+    Object? stop = null,
     Object? logs = freezed,
-    Object? configExtends = freezed,
+    Object? configExtends = null,
   }) {
     return _then(_value.copyWith(
-      files: files == freezed
+      files: null == files
           ? _value.files
           : files // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      startup: startup == freezed
+      startup: null == startup
           ? _value.startup
           : startup // ignore: cast_nullable_to_non_nullable
               as EggStartupConfig,
-      stop: stop == freezed
+      stop: null == stop
           ? _value.stop
           : stop // ignore: cast_nullable_to_non_nullable
               as String,
-      logs: logs == freezed
+      logs: freezed == logs
           ? _value.logs
           : logs // ignore: cast_nullable_to_non_nullable
               as EggLogsConfig?,
-      configExtends: configExtends == freezed
+      configExtends: null == configExtends
           ? _value.configExtends
           : configExtends // ignore: cast_nullable_to_non_nullable
               as dynamic,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $EggStartupConfigCopyWith<$Res> get startup {
     return $EggStartupConfigCopyWith<$Res>(_value.startup, (value) {
-      return _then(_value.copyWith(startup: value));
+      return _then(_value.copyWith(startup: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $EggLogsConfigCopyWith<$Res>? get logs {
     if (_value.logs == null) {
       return null;
     }
 
     return $EggLogsConfigCopyWith<$Res>(_value.logs!, (value) {
-      return _then(_value.copyWith(logs: value));
+      return _then(_value.copyWith(logs: value) as $Val);
     });
   }
 }
@@ -112,6 +118,7 @@ abstract class _$$_EggConfigCopyWith<$Res> implements $EggConfigCopyWith<$Res> {
           _$_EggConfig value, $Res Function(_$_EggConfig) then) =
       __$$_EggConfigCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Map<String, dynamic> files,
       EggStartupConfig startup,
@@ -126,41 +133,40 @@ abstract class _$$_EggConfigCopyWith<$Res> implements $EggConfigCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_EggConfigCopyWithImpl<$Res> extends _$EggConfigCopyWithImpl<$Res>
+class __$$_EggConfigCopyWithImpl<$Res>
+    extends _$EggConfigCopyWithImpl<$Res, _$_EggConfig>
     implements _$$_EggConfigCopyWith<$Res> {
   __$$_EggConfigCopyWithImpl(
       _$_EggConfig _value, $Res Function(_$_EggConfig) _then)
-      : super(_value, (v) => _then(v as _$_EggConfig));
+      : super(_value, _then);
 
-  @override
-  _$_EggConfig get _value => super._value as _$_EggConfig;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? files = freezed,
-    Object? startup = freezed,
-    Object? stop = freezed,
+    Object? files = null,
+    Object? startup = null,
+    Object? stop = null,
     Object? logs = freezed,
-    Object? configExtends = freezed,
+    Object? configExtends = null,
   }) {
     return _then(_$_EggConfig(
-      files: files == freezed
+      files: null == files
           ? _value._files
           : files // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      startup: startup == freezed
+      startup: null == startup
           ? _value.startup
           : startup // ignore: cast_nullable_to_non_nullable
               as EggStartupConfig,
-      stop: stop == freezed
+      stop: null == stop
           ? _value.stop
           : stop // ignore: cast_nullable_to_non_nullable
               as String,
-      logs: logs == freezed
+      logs: freezed == logs
           ? _value.logs
           : logs // ignore: cast_nullable_to_non_nullable
               as EggLogsConfig?,
-      configExtends: configExtends == freezed
+      configExtends: null == configExtends
           ? _value.configExtends
           : configExtends // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -210,9 +216,9 @@ class _$_EggConfig extends _EggConfig {
         (other.runtimeType == runtimeType &&
             other is _$_EggConfig &&
             const DeepCollectionEquality().equals(other._files, _files) &&
-            const DeepCollectionEquality().equals(other.startup, startup) &&
-            const DeepCollectionEquality().equals(other.stop, stop) &&
-            const DeepCollectionEquality().equals(other.logs, logs) &&
+            (identical(other.startup, startup) || other.startup == startup) &&
+            (identical(other.stop, stop) || other.stop == stop) &&
+            (identical(other.logs, logs) || other.logs == logs) &&
             const DeepCollectionEquality()
                 .equals(other.configExtends, configExtends));
   }
@@ -222,19 +228,22 @@ class _$_EggConfig extends _EggConfig {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_files),
-      const DeepCollectionEquality().hash(startup),
-      const DeepCollectionEquality().hash(stop),
-      const DeepCollectionEquality().hash(logs),
+      startup,
+      stop,
+      logs,
       const DeepCollectionEquality().hash(configExtends));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EggConfigCopyWith<_$_EggConfig> get copyWith =>
       __$$_EggConfigCopyWithImpl<_$_EggConfig>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EggConfigToJson(this);
+    return _$$_EggConfigToJson(
+      this,
+    );
   }
 }
 
@@ -251,15 +260,15 @@ abstract class _EggConfig extends EggConfig {
       _$_EggConfig.fromJson;
 
   @override
-  Map<String, dynamic> get files => throw _privateConstructorUsedError;
+  Map<String, dynamic> get files;
   @override
-  EggStartupConfig get startup => throw _privateConstructorUsedError;
+  EggStartupConfig get startup;
   @override
-  String get stop => throw _privateConstructorUsedError;
+  String get stop;
   @override
-  EggLogsConfig? get logs => throw _privateConstructorUsedError;
+  EggLogsConfig? get logs;
   @override
-  dynamic get configExtends => throw _privateConstructorUsedError;
+  dynamic get configExtends;
   @override
   @JsonKey(ignore: true)
   _$$_EggConfigCopyWith<_$_EggConfig> get copyWith =>

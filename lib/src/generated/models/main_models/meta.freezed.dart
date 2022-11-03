@@ -32,37 +32,41 @@ mixin _$PaginatedMeta {
 abstract class $PaginatedMetaCopyWith<$Res> {
   factory $PaginatedMetaCopyWith(
           PaginatedMeta value, $Res Function(PaginatedMeta) then) =
-      _$PaginatedMetaCopyWithImpl<$Res>;
+      _$PaginatedMetaCopyWithImpl<$Res, PaginatedMeta>;
+  @useResult
   $Res call({Pagination pagination});
 
   $PaginationCopyWith<$Res> get pagination;
 }
 
 /// @nodoc
-class _$PaginatedMetaCopyWithImpl<$Res>
+class _$PaginatedMetaCopyWithImpl<$Res, $Val extends PaginatedMeta>
     implements $PaginatedMetaCopyWith<$Res> {
   _$PaginatedMetaCopyWithImpl(this._value, this._then);
 
-  final PaginatedMeta _value;
   // ignore: unused_field
-  final $Res Function(PaginatedMeta) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pagination = freezed,
+    Object? pagination = null,
   }) {
     return _then(_value.copyWith(
-      pagination: pagination == freezed
+      pagination: null == pagination
           ? _value.pagination
           : pagination // ignore: cast_nullable_to_non_nullable
               as Pagination,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PaginationCopyWith<$Res> get pagination {
     return $PaginationCopyWith<$Res>(_value.pagination, (value) {
-      return _then(_value.copyWith(pagination: value));
+      return _then(_value.copyWith(pagination: value) as $Val);
     });
   }
 }
@@ -74,6 +78,7 @@ abstract class _$$_PaginatedMetaCopyWith<$Res>
           _$_PaginatedMeta value, $Res Function(_$_PaginatedMeta) then) =
       __$$_PaginatedMetaCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Pagination pagination});
 
   @override
@@ -82,21 +87,19 @@ abstract class _$$_PaginatedMetaCopyWith<$Res>
 
 /// @nodoc
 class __$$_PaginatedMetaCopyWithImpl<$Res>
-    extends _$PaginatedMetaCopyWithImpl<$Res>
+    extends _$PaginatedMetaCopyWithImpl<$Res, _$_PaginatedMeta>
     implements _$$_PaginatedMetaCopyWith<$Res> {
   __$$_PaginatedMetaCopyWithImpl(
       _$_PaginatedMeta _value, $Res Function(_$_PaginatedMeta) _then)
-      : super(_value, (v) => _then(v as _$_PaginatedMeta));
+      : super(_value, _then);
 
-  @override
-  _$_PaginatedMeta get _value => super._value as _$_PaginatedMeta;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pagination = freezed,
+    Object? pagination = null,
   }) {
     return _then(_$_PaginatedMeta(
-      pagination: pagination == freezed
+      pagination: null == pagination
           ? _value.pagination
           : pagination // ignore: cast_nullable_to_non_nullable
               as Pagination,
@@ -125,23 +128,25 @@ class _$_PaginatedMeta implements _PaginatedMeta {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PaginatedMeta &&
-            const DeepCollectionEquality()
-                .equals(other.pagination, pagination));
+            (identical(other.pagination, pagination) ||
+                other.pagination == pagination));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(pagination));
+  int get hashCode => Object.hash(runtimeType, pagination);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PaginatedMetaCopyWith<_$_PaginatedMeta> get copyWith =>
       __$$_PaginatedMetaCopyWithImpl<_$_PaginatedMeta>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PaginatedMetaToJson(this);
+    return _$$_PaginatedMetaToJson(
+      this,
+    );
   }
 }
 
@@ -153,7 +158,7 @@ abstract class _PaginatedMeta implements PaginatedMeta {
       _$_PaginatedMeta.fromJson;
 
   @override
-  Pagination get pagination => throw _privateConstructorUsedError;
+  Pagination get pagination;
   @override
   @JsonKey(ignore: true)
   _$$_PaginatedMetaCopyWith<_$_PaginatedMeta> get copyWith =>
@@ -179,33 +184,37 @@ mixin _$ServerMeta {
 abstract class $ServerMetaCopyWith<$Res> {
   factory $ServerMetaCopyWith(
           ServerMeta value, $Res Function(ServerMeta) then) =
-      _$ServerMetaCopyWithImpl<$Res>;
+      _$ServerMetaCopyWithImpl<$Res, ServerMeta>;
+  @useResult
   $Res call({bool isServerOwner, List<String> userPermissions});
 }
 
 /// @nodoc
-class _$ServerMetaCopyWithImpl<$Res> implements $ServerMetaCopyWith<$Res> {
+class _$ServerMetaCopyWithImpl<$Res, $Val extends ServerMeta>
+    implements $ServerMetaCopyWith<$Res> {
   _$ServerMetaCopyWithImpl(this._value, this._then);
 
-  final ServerMeta _value;
   // ignore: unused_field
-  final $Res Function(ServerMeta) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isServerOwner = freezed,
-    Object? userPermissions = freezed,
+    Object? isServerOwner = null,
+    Object? userPermissions = null,
   }) {
     return _then(_value.copyWith(
-      isServerOwner: isServerOwner == freezed
+      isServerOwner: null == isServerOwner
           ? _value.isServerOwner
           : isServerOwner // ignore: cast_nullable_to_non_nullable
               as bool,
-      userPermissions: userPermissions == freezed
+      userPermissions: null == userPermissions
           ? _value.userPermissions
           : userPermissions // ignore: cast_nullable_to_non_nullable
               as List<String>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -216,30 +225,30 @@ abstract class _$$_ServerMetaCopyWith<$Res>
           _$_ServerMeta value, $Res Function(_$_ServerMeta) then) =
       __$$_ServerMetaCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({bool isServerOwner, List<String> userPermissions});
 }
 
 /// @nodoc
-class __$$_ServerMetaCopyWithImpl<$Res> extends _$ServerMetaCopyWithImpl<$Res>
+class __$$_ServerMetaCopyWithImpl<$Res>
+    extends _$ServerMetaCopyWithImpl<$Res, _$_ServerMeta>
     implements _$$_ServerMetaCopyWith<$Res> {
   __$$_ServerMetaCopyWithImpl(
       _$_ServerMeta _value, $Res Function(_$_ServerMeta) _then)
-      : super(_value, (v) => _then(v as _$_ServerMeta));
+      : super(_value, _then);
 
-  @override
-  _$_ServerMeta get _value => super._value as _$_ServerMeta;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isServerOwner = freezed,
-    Object? userPermissions = freezed,
+    Object? isServerOwner = null,
+    Object? userPermissions = null,
   }) {
     return _then(_$_ServerMeta(
-      isServerOwner: isServerOwner == freezed
+      isServerOwner: null == isServerOwner
           ? _value.isServerOwner
           : isServerOwner // ignore: cast_nullable_to_non_nullable
               as bool,
-      userPermissions: userPermissions == freezed
+      userPermissions: null == userPermissions
           ? _value._userPermissions
           : userPermissions // ignore: cast_nullable_to_non_nullable
               as List<String>,
@@ -277,27 +286,28 @@ class _$_ServerMeta implements _ServerMeta {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ServerMeta &&
-            const DeepCollectionEquality()
-                .equals(other.isServerOwner, isServerOwner) &&
+            (identical(other.isServerOwner, isServerOwner) ||
+                other.isServerOwner == isServerOwner) &&
             const DeepCollectionEquality()
                 .equals(other._userPermissions, _userPermissions));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(isServerOwner),
+  int get hashCode => Object.hash(runtimeType, isServerOwner,
       const DeepCollectionEquality().hash(_userPermissions));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ServerMetaCopyWith<_$_ServerMeta> get copyWith =>
       __$$_ServerMetaCopyWithImpl<_$_ServerMeta>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServerMetaToJson(this);
+    return _$$_ServerMetaToJson(
+      this,
+    );
   }
 }
 
@@ -310,9 +320,9 @@ abstract class _ServerMeta implements ServerMeta {
       _$_ServerMeta.fromJson;
 
   @override
-  bool get isServerOwner => throw _privateConstructorUsedError;
+  bool get isServerOwner;
   @override
-  List<String> get userPermissions => throw _privateConstructorUsedError;
+  List<String> get userPermissions;
   @override
   @JsonKey(ignore: true)
   _$$_ServerMetaCopyWith<_$_ServerMeta> get copyWith =>
@@ -339,7 +349,8 @@ mixin _$StartupMeta {
 abstract class $StartupMetaCopyWith<$Res> {
   factory $StartupMetaCopyWith(
           StartupMeta value, $Res Function(StartupMeta) then) =
-      _$StartupMetaCopyWithImpl<$Res>;
+      _$StartupMetaCopyWithImpl<$Res, StartupMeta>;
+  @useResult
   $Res call(
       {String startupCommand,
       String rawStartupCommand,
@@ -347,33 +358,36 @@ abstract class $StartupMetaCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StartupMetaCopyWithImpl<$Res> implements $StartupMetaCopyWith<$Res> {
+class _$StartupMetaCopyWithImpl<$Res, $Val extends StartupMeta>
+    implements $StartupMetaCopyWith<$Res> {
   _$StartupMetaCopyWithImpl(this._value, this._then);
 
-  final StartupMeta _value;
   // ignore: unused_field
-  final $Res Function(StartupMeta) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? startupCommand = freezed,
-    Object? rawStartupCommand = freezed,
-    Object? dockerImages = freezed,
+    Object? startupCommand = null,
+    Object? rawStartupCommand = null,
+    Object? dockerImages = null,
   }) {
     return _then(_value.copyWith(
-      startupCommand: startupCommand == freezed
+      startupCommand: null == startupCommand
           ? _value.startupCommand
           : startupCommand // ignore: cast_nullable_to_non_nullable
               as String,
-      rawStartupCommand: rawStartupCommand == freezed
+      rawStartupCommand: null == rawStartupCommand
           ? _value.rawStartupCommand
           : rawStartupCommand // ignore: cast_nullable_to_non_nullable
               as String,
-      dockerImages: dockerImages == freezed
+      dockerImages: null == dockerImages
           ? _value.dockerImages
           : dockerImages // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -384,6 +398,7 @@ abstract class _$$_StartupMetaCopyWith<$Res>
           _$_StartupMeta value, $Res Function(_$_StartupMeta) then) =
       __$$_StartupMetaCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String startupCommand,
       String rawStartupCommand,
@@ -391,31 +406,30 @@ abstract class _$$_StartupMetaCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_StartupMetaCopyWithImpl<$Res> extends _$StartupMetaCopyWithImpl<$Res>
+class __$$_StartupMetaCopyWithImpl<$Res>
+    extends _$StartupMetaCopyWithImpl<$Res, _$_StartupMeta>
     implements _$$_StartupMetaCopyWith<$Res> {
   __$$_StartupMetaCopyWithImpl(
       _$_StartupMeta _value, $Res Function(_$_StartupMeta) _then)
-      : super(_value, (v) => _then(v as _$_StartupMeta));
+      : super(_value, _then);
 
-  @override
-  _$_StartupMeta get _value => super._value as _$_StartupMeta;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? startupCommand = freezed,
-    Object? rawStartupCommand = freezed,
-    Object? dockerImages = freezed,
+    Object? startupCommand = null,
+    Object? rawStartupCommand = null,
+    Object? dockerImages = null,
   }) {
     return _then(_$_StartupMeta(
-      startupCommand: startupCommand == freezed
+      startupCommand: null == startupCommand
           ? _value.startupCommand
           : startupCommand // ignore: cast_nullable_to_non_nullable
               as String,
-      rawStartupCommand: rawStartupCommand == freezed
+      rawStartupCommand: null == rawStartupCommand
           ? _value.rawStartupCommand
           : rawStartupCommand // ignore: cast_nullable_to_non_nullable
               as String,
-      dockerImages: dockerImages == freezed
+      dockerImages: null == dockerImages
           ? _value._dockerImages
           : dockerImages // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
@@ -456,30 +470,30 @@ class _$_StartupMeta implements _StartupMeta {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_StartupMeta &&
-            const DeepCollectionEquality()
-                .equals(other.startupCommand, startupCommand) &&
-            const DeepCollectionEquality()
-                .equals(other.rawStartupCommand, rawStartupCommand) &&
+            (identical(other.startupCommand, startupCommand) ||
+                other.startupCommand == startupCommand) &&
+            (identical(other.rawStartupCommand, rawStartupCommand) ||
+                other.rawStartupCommand == rawStartupCommand) &&
             const DeepCollectionEquality()
                 .equals(other._dockerImages, _dockerImages));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(startupCommand),
-      const DeepCollectionEquality().hash(rawStartupCommand),
-      const DeepCollectionEquality().hash(_dockerImages));
+  int get hashCode => Object.hash(runtimeType, startupCommand,
+      rawStartupCommand, const DeepCollectionEquality().hash(_dockerImages));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StartupMetaCopyWith<_$_StartupMeta> get copyWith =>
       __$$_StartupMetaCopyWithImpl<_$_StartupMeta>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StartupMetaToJson(this);
+    return _$$_StartupMetaToJson(
+      this,
+    );
   }
 }
 
@@ -493,11 +507,11 @@ abstract class _StartupMeta implements StartupMeta {
       _$_StartupMeta.fromJson;
 
   @override
-  String get startupCommand => throw _privateConstructorUsedError;
+  String get startupCommand;
   @override
-  String get rawStartupCommand => throw _privateConstructorUsedError;
+  String get rawStartupCommand;
   @override
-  Map<String, String> get dockerImages => throw _privateConstructorUsedError;
+  Map<String, String> get dockerImages;
   @override
   @JsonKey(ignore: true)
   _$$_StartupMetaCopyWith<_$_StartupMeta> get copyWith =>
@@ -522,28 +536,32 @@ mixin _$ApiKeyMeta {
 abstract class $ApiKeyMetaCopyWith<$Res> {
   factory $ApiKeyMetaCopyWith(
           ApiKeyMeta value, $Res Function(ApiKeyMeta) then) =
-      _$ApiKeyMetaCopyWithImpl<$Res>;
+      _$ApiKeyMetaCopyWithImpl<$Res, ApiKeyMeta>;
+  @useResult
   $Res call({String secretToken});
 }
 
 /// @nodoc
-class _$ApiKeyMetaCopyWithImpl<$Res> implements $ApiKeyMetaCopyWith<$Res> {
+class _$ApiKeyMetaCopyWithImpl<$Res, $Val extends ApiKeyMeta>
+    implements $ApiKeyMetaCopyWith<$Res> {
   _$ApiKeyMetaCopyWithImpl(this._value, this._then);
 
-  final ApiKeyMeta _value;
   // ignore: unused_field
-  final $Res Function(ApiKeyMeta) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? secretToken = freezed,
+    Object? secretToken = null,
   }) {
     return _then(_value.copyWith(
-      secretToken: secretToken == freezed
+      secretToken: null == secretToken
           ? _value.secretToken
           : secretToken // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -554,25 +572,25 @@ abstract class _$$_ApiKeyMetaCopyWith<$Res>
           _$_ApiKeyMeta value, $Res Function(_$_ApiKeyMeta) then) =
       __$$_ApiKeyMetaCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String secretToken});
 }
 
 /// @nodoc
-class __$$_ApiKeyMetaCopyWithImpl<$Res> extends _$ApiKeyMetaCopyWithImpl<$Res>
+class __$$_ApiKeyMetaCopyWithImpl<$Res>
+    extends _$ApiKeyMetaCopyWithImpl<$Res, _$_ApiKeyMeta>
     implements _$$_ApiKeyMetaCopyWith<$Res> {
   __$$_ApiKeyMetaCopyWithImpl(
       _$_ApiKeyMeta _value, $Res Function(_$_ApiKeyMeta) _then)
-      : super(_value, (v) => _then(v as _$_ApiKeyMeta));
+      : super(_value, _then);
 
-  @override
-  _$_ApiKeyMeta get _value => super._value as _$_ApiKeyMeta;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? secretToken = freezed,
+    Object? secretToken = null,
   }) {
     return _then(_$_ApiKeyMeta(
-      secretToken: secretToken == freezed
+      secretToken: null == secretToken
           ? _value.secretToken
           : secretToken // ignore: cast_nullable_to_non_nullable
               as String,
@@ -601,23 +619,25 @@ class _$_ApiKeyMeta implements _ApiKeyMeta {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ApiKeyMeta &&
-            const DeepCollectionEquality()
-                .equals(other.secretToken, secretToken));
+            (identical(other.secretToken, secretToken) ||
+                other.secretToken == secretToken));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(secretToken));
+  int get hashCode => Object.hash(runtimeType, secretToken);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ApiKeyMetaCopyWith<_$_ApiKeyMeta> get copyWith =>
       __$$_ApiKeyMetaCopyWithImpl<_$_ApiKeyMeta>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApiKeyMetaToJson(this);
+    return _$$_ApiKeyMetaToJson(
+      this,
+    );
   }
 }
 
@@ -628,7 +648,7 @@ abstract class _ApiKeyMeta implements ApiKeyMeta {
       _$_ApiKeyMeta.fromJson;
 
   @override
-  String get secretToken => throw _privateConstructorUsedError;
+  String get secretToken;
   @override
   @JsonKey(ignore: true)
   _$$_ApiKeyMetaCopyWith<_$_ApiKeyMeta> get copyWith =>

@@ -35,7 +35,8 @@ mixin _$PteroError {
 abstract class $PteroErrorCopyWith<$Res> {
   factory $PteroErrorCopyWith(
           PteroError value, $Res Function(PteroError) then) =
-      _$PteroErrorCopyWithImpl<$Res>;
+      _$PteroErrorCopyWithImpl<$Res, PteroError>;
+  @useResult
   $Res call(
       {@JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN) PteroErrorCode code,
       String status,
@@ -43,33 +44,36 @@ abstract class $PteroErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PteroErrorCopyWithImpl<$Res> implements $PteroErrorCopyWith<$Res> {
+class _$PteroErrorCopyWithImpl<$Res, $Val extends PteroError>
+    implements $PteroErrorCopyWith<$Res> {
   _$PteroErrorCopyWithImpl(this._value, this._then);
 
-  final PteroError _value;
   // ignore: unused_field
-  final $Res Function(PteroError) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
-    Object? status = freezed,
-    Object? detail = freezed,
+    Object? code = null,
+    Object? status = null,
+    Object? detail = null,
   }) {
     return _then(_value.copyWith(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as PteroErrorCode,
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      detail: detail == freezed
+      detail: null == detail
           ? _value.detail
           : detail // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -80,6 +84,7 @@ abstract class _$$_PteroErrorCopyWith<$Res>
           _$_PteroError value, $Res Function(_$_PteroError) then) =
       __$$_PteroErrorCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN) PteroErrorCode code,
       String status,
@@ -87,31 +92,30 @@ abstract class _$$_PteroErrorCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PteroErrorCopyWithImpl<$Res> extends _$PteroErrorCopyWithImpl<$Res>
+class __$$_PteroErrorCopyWithImpl<$Res>
+    extends _$PteroErrorCopyWithImpl<$Res, _$_PteroError>
     implements _$$_PteroErrorCopyWith<$Res> {
   __$$_PteroErrorCopyWithImpl(
       _$_PteroError _value, $Res Function(_$_PteroError) _then)
-      : super(_value, (v) => _then(v as _$_PteroError));
+      : super(_value, _then);
 
-  @override
-  _$_PteroError get _value => super._value as _$_PteroError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
-    Object? status = freezed,
-    Object? detail = freezed,
+    Object? code = null,
+    Object? status = null,
+    Object? detail = null,
   }) {
     return _then(_$_PteroError(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as PteroErrorCode,
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      detail: detail == freezed
+      detail: null == detail
           ? _value.detail
           : detail // ignore: cast_nullable_to_non_nullable
               as String,
@@ -149,27 +153,26 @@ class _$_PteroError extends _PteroError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PteroError &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.detail, detail));
+            (identical(other.code, code) || other.code == code) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.detail, detail) || other.detail == detail));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(detail));
+  int get hashCode => Object.hash(runtimeType, code, status, detail);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PteroErrorCopyWith<_$_PteroError> get copyWith =>
       __$$_PteroErrorCopyWithImpl<_$_PteroError>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PteroErrorToJson(this);
+    return _$$_PteroErrorToJson(
+      this,
+    );
   }
 }
 
@@ -186,11 +189,11 @@ abstract class _PteroError extends PteroError {
 
   @override
   @JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
-  PteroErrorCode get code => throw _privateConstructorUsedError;
+  PteroErrorCode get code;
   @override
-  String get status => throw _privateConstructorUsedError;
+  String get status;
   @override
-  String get detail => throw _privateConstructorUsedError;
+  String get detail;
   @override
   @JsonKey(ignore: true)
   _$$_PteroErrorCopyWith<_$_PteroError> get copyWith =>

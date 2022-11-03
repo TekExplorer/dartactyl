@@ -36,7 +36,8 @@ mixin _$Nest {
 /// @nodoc
 abstract class $NestCopyWith<$Res> {
   factory $NestCopyWith(Nest value, $Res Function(Nest) then) =
-      _$NestCopyWithImpl<$Res>;
+      _$NestCopyWithImpl<$Res, Nest>;
+  @useResult
   $Res call(
       {int id,
       String uuid,
@@ -48,53 +49,56 @@ abstract class $NestCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$NestCopyWithImpl<$Res> implements $NestCopyWith<$Res> {
+class _$NestCopyWithImpl<$Res, $Val extends Nest>
+    implements $NestCopyWith<$Res> {
   _$NestCopyWithImpl(this._value, this._then);
 
-  final Nest _value;
   // ignore: unused_field
-  final $Res Function(Nest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? uuid = freezed,
-    Object? author = freezed,
-    Object? name = freezed,
+    Object? id = null,
+    Object? uuid = null,
+    Object? author = null,
+    Object? name = null,
     Object? description = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
+    Object? createdAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      author: author == freezed
+      author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-    ));
+    ) as $Val);
   }
 }
 
@@ -103,6 +107,7 @@ abstract class _$$_NestCopyWith<$Res> implements $NestCopyWith<$Res> {
   factory _$$_NestCopyWith(_$_Nest value, $Res Function(_$_Nest) then) =
       __$$_NestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int id,
       String uuid,
@@ -114,50 +119,48 @@ abstract class _$$_NestCopyWith<$Res> implements $NestCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_NestCopyWithImpl<$Res> extends _$NestCopyWithImpl<$Res>
+class __$$_NestCopyWithImpl<$Res> extends _$NestCopyWithImpl<$Res, _$_Nest>
     implements _$$_NestCopyWith<$Res> {
   __$$_NestCopyWithImpl(_$_Nest _value, $Res Function(_$_Nest) _then)
-      : super(_value, (v) => _then(v as _$_Nest));
+      : super(_value, _then);
 
-  @override
-  _$_Nest get _value => super._value as _$_Nest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? uuid = freezed,
-    Object? author = freezed,
-    Object? name = freezed,
+    Object? id = null,
+    Object? uuid = null,
+    Object? author = null,
+    Object? name = null,
     Object? description = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
+    Object? createdAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_$_Nest(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      author: author == freezed
+      author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
@@ -205,36 +208,34 @@ class _$_Nest extends _Nest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Nest &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.uuid, uuid) &&
-            const DeepCollectionEquality().equals(other.author, author) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.uuid, uuid) || other.uuid == uuid) &&
+            (identical(other.author, author) || other.author == author) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(uuid),
-      const DeepCollectionEquality().hash(author),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(updatedAt));
+      runtimeType, id, uuid, author, name, description, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_NestCopyWith<_$_Nest> get copyWith =>
       __$$_NestCopyWithImpl<_$_Nest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NestToJson(this);
+    return _$$_NestToJson(
+      this,
+    );
   }
 }
 
@@ -252,19 +253,19 @@ abstract class _Nest extends Nest {
   factory _Nest.fromJson(Map<String, dynamic> json) = _$_Nest.fromJson;
 
   @override
-  int get id => throw _privateConstructorUsedError;
+  int get id;
   @override
-  String get uuid => throw _privateConstructorUsedError;
+  String get uuid;
   @override
-  String get author => throw _privateConstructorUsedError;
+  String get author;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String? get description => throw _privateConstructorUsedError;
+  String? get description;
   @override
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt;
   @override
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  DateTime get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$_NestCopyWith<_$_Nest> get copyWith => throw _privateConstructorUsedError;

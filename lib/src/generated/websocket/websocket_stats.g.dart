@@ -24,7 +24,7 @@ Map<String, dynamic> _$$_WebsocketStatsModelToJson(
       'memory_bytes': instance.memoryBytes,
       'memory_limit_bytes': instance.memoryLimitBytes,
       'network': instance.network.toJson(),
-      'state': _$ServerPowerStateEnumMap[instance.state],
+      'state': _$ServerPowerStateEnumMap[instance.state]!,
     };
 
 const _$ServerPowerStateEnumMap = {

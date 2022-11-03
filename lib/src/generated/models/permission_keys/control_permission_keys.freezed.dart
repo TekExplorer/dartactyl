@@ -33,29 +33,33 @@ mixin _$ControlPermissionKeys {
 abstract class $ControlPermissionKeysCopyWith<$Res> {
   factory $ControlPermissionKeysCopyWith(ControlPermissionKeys value,
           $Res Function(ControlPermissionKeys) then) =
-      _$ControlPermissionKeysCopyWithImpl<$Res>;
+      _$ControlPermissionKeysCopyWithImpl<$Res, ControlPermissionKeys>;
+  @useResult
   $Res call({String connect});
 }
 
 /// @nodoc
-class _$ControlPermissionKeysCopyWithImpl<$Res>
+class _$ControlPermissionKeysCopyWithImpl<$Res,
+        $Val extends ControlPermissionKeys>
     implements $ControlPermissionKeysCopyWith<$Res> {
   _$ControlPermissionKeysCopyWithImpl(this._value, this._then);
 
-  final ControlPermissionKeys _value;
   // ignore: unused_field
-  final $Res Function(ControlPermissionKeys) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? connect = freezed,
+    Object? connect = null,
   }) {
     return _then(_value.copyWith(
-      connect: connect == freezed
+      connect: null == connect
           ? _value.connect
           : connect // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -66,27 +70,25 @@ abstract class _$$_ControlPermissionKeysCopyWith<$Res>
           $Res Function(_$_ControlPermissionKeys) then) =
       __$$_ControlPermissionKeysCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String connect});
 }
 
 /// @nodoc
 class __$$_ControlPermissionKeysCopyWithImpl<$Res>
-    extends _$ControlPermissionKeysCopyWithImpl<$Res>
+    extends _$ControlPermissionKeysCopyWithImpl<$Res, _$_ControlPermissionKeys>
     implements _$$_ControlPermissionKeysCopyWith<$Res> {
   __$$_ControlPermissionKeysCopyWithImpl(_$_ControlPermissionKeys _value,
       $Res Function(_$_ControlPermissionKeys) _then)
-      : super(_value, (v) => _then(v as _$_ControlPermissionKeys));
+      : super(_value, _then);
 
-  @override
-  _$_ControlPermissionKeys get _value =>
-      super._value as _$_ControlPermissionKeys;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? connect = freezed,
+    Object? connect = null,
   }) {
     return _then(_$_ControlPermissionKeys(
-      connect: connect == freezed
+      connect: null == connect
           ? _value.connect
           : connect // ignore: cast_nullable_to_non_nullable
               as String,
@@ -115,23 +117,25 @@ class _$_ControlPermissionKeys extends _ControlPermissionKeys {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ControlPermissionKeys &&
-            const DeepCollectionEquality().equals(other.connect, connect));
+            (identical(other.connect, connect) || other.connect == connect));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(connect));
+  int get hashCode => Object.hash(runtimeType, connect);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ControlPermissionKeysCopyWith<_$_ControlPermissionKeys> get copyWith =>
       __$$_ControlPermissionKeysCopyWithImpl<_$_ControlPermissionKeys>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ControlPermissionKeysToJson(this);
+    return _$$_ControlPermissionKeysToJson(
+      this,
+    );
   }
 }
 
@@ -144,7 +148,7 @@ abstract class _ControlPermissionKeys extends ControlPermissionKeys {
       _$_ControlPermissionKeys.fromJson;
 
   @override
-  String get connect => throw _privateConstructorUsedError;
+  String get connect;
   @override
   @JsonKey(ignore: true)
   _$$_ControlPermissionKeysCopyWith<_$_ControlPermissionKeys> get copyWith =>

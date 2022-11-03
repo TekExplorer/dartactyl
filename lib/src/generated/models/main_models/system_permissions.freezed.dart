@@ -51,7 +51,8 @@ mixin _$Permissions {
 abstract class $PermissionsCopyWith<$Res> {
   factory $PermissionsCopyWith(
           Permissions value, $Res Function(Permissions) then) =
-      _$PermissionsCopyWithImpl<$Res>;
+      _$PermissionsCopyWithImpl<$Res, Permissions>;
+  @useResult
   $Res call(
       {PermissionsModel<WebsocketPermissionKeys> websocket,
       PermissionsModel<ControlPermissionKeys> control,
@@ -77,147 +78,160 @@ abstract class $PermissionsCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PermissionsCopyWithImpl<$Res> implements $PermissionsCopyWith<$Res> {
+class _$PermissionsCopyWithImpl<$Res, $Val extends Permissions>
+    implements $PermissionsCopyWith<$Res> {
   _$PermissionsCopyWithImpl(this._value, this._then);
 
-  final Permissions _value;
   // ignore: unused_field
-  final $Res Function(Permissions) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? websocket = freezed,
-    Object? control = freezed,
-    Object? user = freezed,
-    Object? file = freezed,
-    Object? backup = freezed,
-    Object? allocation = freezed,
-    Object? startup = freezed,
-    Object? database = freezed,
-    Object? schedule = freezed,
-    Object? settings = freezed,
+    Object? websocket = null,
+    Object? control = null,
+    Object? user = null,
+    Object? file = null,
+    Object? backup = null,
+    Object? allocation = null,
+    Object? startup = null,
+    Object? database = null,
+    Object? schedule = null,
+    Object? settings = null,
   }) {
     return _then(_value.copyWith(
-      websocket: websocket == freezed
+      websocket: null == websocket
           ? _value.websocket
           : websocket // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<WebsocketPermissionKeys>,
-      control: control == freezed
+      control: null == control
           ? _value.control
           : control // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<ControlPermissionKeys>,
-      user: user == freezed
+      user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<UserPermissionKeys>,
-      file: file == freezed
+      file: null == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<FilePermissionKeys>,
-      backup: backup == freezed
+      backup: null == backup
           ? _value.backup
           : backup // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<BackupPermissionKeys>,
-      allocation: allocation == freezed
+      allocation: null == allocation
           ? _value.allocation
           : allocation // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<AllocationPermissionKeys>,
-      startup: startup == freezed
+      startup: null == startup
           ? _value.startup
           : startup // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<StartupPermissionKeys>,
-      database: database == freezed
+      database: null == database
           ? _value.database
           : database // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<DatabasePermissionKeys>,
-      schedule: schedule == freezed
+      schedule: null == schedule
           ? _value.schedule
           : schedule // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<SchedulePermissionKeys>,
-      settings: settings == freezed
+      settings: null == settings
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<SettingsPermissionKeys>,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PermissionsModelCopyWith<WebsocketPermissionKeys, $Res> get websocket {
     return $PermissionsModelCopyWith<WebsocketPermissionKeys, $Res>(
         _value.websocket, (value) {
-      return _then(_value.copyWith(websocket: value));
+      return _then(_value.copyWith(websocket: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PermissionsModelCopyWith<ControlPermissionKeys, $Res> get control {
     return $PermissionsModelCopyWith<ControlPermissionKeys, $Res>(
         _value.control, (value) {
-      return _then(_value.copyWith(control: value));
+      return _then(_value.copyWith(control: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PermissionsModelCopyWith<UserPermissionKeys, $Res> get user {
     return $PermissionsModelCopyWith<UserPermissionKeys, $Res>(_value.user,
         (value) {
-      return _then(_value.copyWith(user: value));
+      return _then(_value.copyWith(user: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PermissionsModelCopyWith<FilePermissionKeys, $Res> get file {
     return $PermissionsModelCopyWith<FilePermissionKeys, $Res>(_value.file,
         (value) {
-      return _then(_value.copyWith(file: value));
+      return _then(_value.copyWith(file: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PermissionsModelCopyWith<BackupPermissionKeys, $Res> get backup {
     return $PermissionsModelCopyWith<BackupPermissionKeys, $Res>(_value.backup,
         (value) {
-      return _then(_value.copyWith(backup: value));
+      return _then(_value.copyWith(backup: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PermissionsModelCopyWith<AllocationPermissionKeys, $Res> get allocation {
     return $PermissionsModelCopyWith<AllocationPermissionKeys, $Res>(
         _value.allocation, (value) {
-      return _then(_value.copyWith(allocation: value));
+      return _then(_value.copyWith(allocation: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PermissionsModelCopyWith<StartupPermissionKeys, $Res> get startup {
     return $PermissionsModelCopyWith<StartupPermissionKeys, $Res>(
         _value.startup, (value) {
-      return _then(_value.copyWith(startup: value));
+      return _then(_value.copyWith(startup: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PermissionsModelCopyWith<DatabasePermissionKeys, $Res> get database {
     return $PermissionsModelCopyWith<DatabasePermissionKeys, $Res>(
         _value.database, (value) {
-      return _then(_value.copyWith(database: value));
+      return _then(_value.copyWith(database: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PermissionsModelCopyWith<SchedulePermissionKeys, $Res> get schedule {
     return $PermissionsModelCopyWith<SchedulePermissionKeys, $Res>(
         _value.schedule, (value) {
-      return _then(_value.copyWith(schedule: value));
+      return _then(_value.copyWith(schedule: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PermissionsModelCopyWith<SettingsPermissionKeys, $Res> get settings {
     return $PermissionsModelCopyWith<SettingsPermissionKeys, $Res>(
         _value.settings, (value) {
-      return _then(_value.copyWith(settings: value));
+      return _then(_value.copyWith(settings: value) as $Val);
     });
   }
 }
@@ -229,6 +243,7 @@ abstract class _$$_PermissionsCopyWith<$Res>
           _$_Permissions value, $Res Function(_$_Permissions) then) =
       __$$_PermissionsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {PermissionsModel<WebsocketPermissionKeys> websocket,
       PermissionsModel<ControlPermissionKeys> control,
@@ -264,66 +279,65 @@ abstract class _$$_PermissionsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PermissionsCopyWithImpl<$Res> extends _$PermissionsCopyWithImpl<$Res>
+class __$$_PermissionsCopyWithImpl<$Res>
+    extends _$PermissionsCopyWithImpl<$Res, _$_Permissions>
     implements _$$_PermissionsCopyWith<$Res> {
   __$$_PermissionsCopyWithImpl(
       _$_Permissions _value, $Res Function(_$_Permissions) _then)
-      : super(_value, (v) => _then(v as _$_Permissions));
+      : super(_value, _then);
 
-  @override
-  _$_Permissions get _value => super._value as _$_Permissions;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? websocket = freezed,
-    Object? control = freezed,
-    Object? user = freezed,
-    Object? file = freezed,
-    Object? backup = freezed,
-    Object? allocation = freezed,
-    Object? startup = freezed,
-    Object? database = freezed,
-    Object? schedule = freezed,
-    Object? settings = freezed,
+    Object? websocket = null,
+    Object? control = null,
+    Object? user = null,
+    Object? file = null,
+    Object? backup = null,
+    Object? allocation = null,
+    Object? startup = null,
+    Object? database = null,
+    Object? schedule = null,
+    Object? settings = null,
   }) {
     return _then(_$_Permissions(
-      websocket: websocket == freezed
+      websocket: null == websocket
           ? _value.websocket
           : websocket // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<WebsocketPermissionKeys>,
-      control: control == freezed
+      control: null == control
           ? _value.control
           : control // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<ControlPermissionKeys>,
-      user: user == freezed
+      user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<UserPermissionKeys>,
-      file: file == freezed
+      file: null == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<FilePermissionKeys>,
-      backup: backup == freezed
+      backup: null == backup
           ? _value.backup
           : backup // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<BackupPermissionKeys>,
-      allocation: allocation == freezed
+      allocation: null == allocation
           ? _value.allocation
           : allocation // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<AllocationPermissionKeys>,
-      startup: startup == freezed
+      startup: null == startup
           ? _value.startup
           : startup // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<StartupPermissionKeys>,
-      database: database == freezed
+      database: null == database
           ? _value.database
           : database // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<DatabasePermissionKeys>,
-      schedule: schedule == freezed
+      schedule: null == schedule
           ? _value.schedule
           : schedule // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<SchedulePermissionKeys>,
-      settings: settings == freezed
+      settings: null == settings
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
               as PermissionsModel<SettingsPermissionKeys>,
@@ -380,42 +394,39 @@ class _$_Permissions implements _Permissions {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Permissions &&
-            const DeepCollectionEquality().equals(other.websocket, websocket) &&
-            const DeepCollectionEquality().equals(other.control, control) &&
-            const DeepCollectionEquality().equals(other.user, user) &&
-            const DeepCollectionEquality().equals(other.file, file) &&
-            const DeepCollectionEquality().equals(other.backup, backup) &&
-            const DeepCollectionEquality()
-                .equals(other.allocation, allocation) &&
-            const DeepCollectionEquality().equals(other.startup, startup) &&
-            const DeepCollectionEquality().equals(other.database, database) &&
-            const DeepCollectionEquality().equals(other.schedule, schedule) &&
-            const DeepCollectionEquality().equals(other.settings, settings));
+            (identical(other.websocket, websocket) ||
+                other.websocket == websocket) &&
+            (identical(other.control, control) || other.control == control) &&
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.file, file) || other.file == file) &&
+            (identical(other.backup, backup) || other.backup == backup) &&
+            (identical(other.allocation, allocation) ||
+                other.allocation == allocation) &&
+            (identical(other.startup, startup) || other.startup == startup) &&
+            (identical(other.database, database) ||
+                other.database == database) &&
+            (identical(other.schedule, schedule) ||
+                other.schedule == schedule) &&
+            (identical(other.settings, settings) ||
+                other.settings == settings));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(websocket),
-      const DeepCollectionEquality().hash(control),
-      const DeepCollectionEquality().hash(user),
-      const DeepCollectionEquality().hash(file),
-      const DeepCollectionEquality().hash(backup),
-      const DeepCollectionEquality().hash(allocation),
-      const DeepCollectionEquality().hash(startup),
-      const DeepCollectionEquality().hash(database),
-      const DeepCollectionEquality().hash(schedule),
-      const DeepCollectionEquality().hash(settings));
+  int get hashCode => Object.hash(runtimeType, websocket, control, user, file,
+      backup, allocation, startup, database, schedule, settings);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PermissionsCopyWith<_$_Permissions> get copyWith =>
       __$$_PermissionsCopyWithImpl<_$_Permissions>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PermissionsToJson(this);
+    return _$$_PermissionsToJson(
+      this,
+    );
   }
 }
 
@@ -437,35 +448,25 @@ abstract class _Permissions implements Permissions {
       _$_Permissions.fromJson;
 
   @override
-  PermissionsModel<WebsocketPermissionKeys> get websocket =>
-      throw _privateConstructorUsedError;
+  PermissionsModel<WebsocketPermissionKeys> get websocket;
   @override
-  PermissionsModel<ControlPermissionKeys> get control =>
-      throw _privateConstructorUsedError;
+  PermissionsModel<ControlPermissionKeys> get control;
   @override
-  PermissionsModel<UserPermissionKeys> get user =>
-      throw _privateConstructorUsedError;
+  PermissionsModel<UserPermissionKeys> get user;
   @override
-  PermissionsModel<FilePermissionKeys> get file =>
-      throw _privateConstructorUsedError;
+  PermissionsModel<FilePermissionKeys> get file;
   @override
-  PermissionsModel<BackupPermissionKeys> get backup =>
-      throw _privateConstructorUsedError;
+  PermissionsModel<BackupPermissionKeys> get backup;
   @override
-  PermissionsModel<AllocationPermissionKeys> get allocation =>
-      throw _privateConstructorUsedError;
+  PermissionsModel<AllocationPermissionKeys> get allocation;
   @override
-  PermissionsModel<StartupPermissionKeys> get startup =>
-      throw _privateConstructorUsedError;
+  PermissionsModel<StartupPermissionKeys> get startup;
   @override
-  PermissionsModel<DatabasePermissionKeys> get database =>
-      throw _privateConstructorUsedError;
+  PermissionsModel<DatabasePermissionKeys> get database;
   @override
-  PermissionsModel<SchedulePermissionKeys> get schedule =>
-      throw _privateConstructorUsedError;
+  PermissionsModel<SchedulePermissionKeys> get schedule;
   @override
-  PermissionsModel<SettingsPermissionKeys> get settings =>
-      throw _privateConstructorUsedError;
+  PermissionsModel<SettingsPermissionKeys> get settings;
   @override
   @JsonKey(ignore: true)
   _$$_PermissionsCopyWith<_$_Permissions> get copyWith =>
@@ -493,34 +494,38 @@ mixin _$PermissionsModel<T extends SerializableMixin> {
 abstract class $PermissionsModelCopyWith<T extends SerializableMixin, $Res> {
   factory $PermissionsModelCopyWith(
           PermissionsModel<T> value, $Res Function(PermissionsModel<T>) then) =
-      _$PermissionsModelCopyWithImpl<T, $Res>;
+      _$PermissionsModelCopyWithImpl<T, $Res, PermissionsModel<T>>;
+  @useResult
   $Res call({String description, @PermissionKeysConverter() T keys});
 }
 
 /// @nodoc
-class _$PermissionsModelCopyWithImpl<T extends SerializableMixin, $Res>
+class _$PermissionsModelCopyWithImpl<T extends SerializableMixin, $Res,
+        $Val extends PermissionsModel<T>>
     implements $PermissionsModelCopyWith<T, $Res> {
   _$PermissionsModelCopyWithImpl(this._value, this._then);
 
-  final PermissionsModel<T> _value;
   // ignore: unused_field
-  final $Res Function(PermissionsModel<T>) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? description = freezed,
-    Object? keys = freezed,
+    Object? description = null,
+    Object? keys = null,
   }) {
     return _then(_value.copyWith(
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      keys: keys == freezed
+      keys: null == keys
           ? _value.keys
           : keys // ignore: cast_nullable_to_non_nullable
               as T,
-    ));
+    ) as $Val);
   }
 }
 
@@ -531,31 +536,30 @@ abstract class _$$_PermissionsModelCopyWith<T extends SerializableMixin, $Res>
           $Res Function(_$_PermissionsModel<T>) then) =
       __$$_PermissionsModelCopyWithImpl<T, $Res>;
   @override
+  @useResult
   $Res call({String description, @PermissionKeysConverter() T keys});
 }
 
 /// @nodoc
 class __$$_PermissionsModelCopyWithImpl<T extends SerializableMixin, $Res>
-    extends _$PermissionsModelCopyWithImpl<T, $Res>
+    extends _$PermissionsModelCopyWithImpl<T, $Res, _$_PermissionsModel<T>>
     implements _$$_PermissionsModelCopyWith<T, $Res> {
   __$$_PermissionsModelCopyWithImpl(_$_PermissionsModel<T> _value,
       $Res Function(_$_PermissionsModel<T>) _then)
-      : super(_value, (v) => _then(v as _$_PermissionsModel<T>));
+      : super(_value, _then);
 
-  @override
-  _$_PermissionsModel<T> get _value => super._value as _$_PermissionsModel<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? description = freezed,
-    Object? keys = freezed,
+    Object? description = null,
+    Object? keys = null,
   }) {
     return _then(_$_PermissionsModel<T>(
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      keys: keys == freezed
+      keys: null == keys
           ? _value.keys
           : keys // ignore: cast_nullable_to_non_nullable
               as T,
@@ -590,27 +594,28 @@ class _$_PermissionsModel<T extends SerializableMixin>
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PermissionsModel<T> &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             const DeepCollectionEquality().equals(other.keys, keys));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(keys));
+      runtimeType, description, const DeepCollectionEquality().hash(keys));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PermissionsModelCopyWith<T, _$_PermissionsModel<T>> get copyWith =>
       __$$_PermissionsModelCopyWithImpl<T, _$_PermissionsModel<T>>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PermissionsModelToJson(this);
+    return _$$_PermissionsModelToJson<T>(
+      this,
+    );
   }
 }
 
@@ -625,10 +630,10 @@ abstract class _PermissionsModel<T extends SerializableMixin>
       _$_PermissionsModel<T>.fromJson;
 
   @override
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
   @PermissionKeysConverter()
-  T get keys => throw _privateConstructorUsedError;
+  T get keys;
   @override
   @JsonKey(ignore: true)
   _$$_PermissionsModelCopyWith<T, _$_PermissionsModel<T>> get copyWith =>
@@ -653,37 +658,41 @@ mixin _$SystemPermissions {
 abstract class $SystemPermissionsCopyWith<$Res> {
   factory $SystemPermissionsCopyWith(
           SystemPermissions value, $Res Function(SystemPermissions) then) =
-      _$SystemPermissionsCopyWithImpl<$Res>;
+      _$SystemPermissionsCopyWithImpl<$Res, SystemPermissions>;
+  @useResult
   $Res call({Permissions permissions});
 
   $PermissionsCopyWith<$Res> get permissions;
 }
 
 /// @nodoc
-class _$SystemPermissionsCopyWithImpl<$Res>
+class _$SystemPermissionsCopyWithImpl<$Res, $Val extends SystemPermissions>
     implements $SystemPermissionsCopyWith<$Res> {
   _$SystemPermissionsCopyWithImpl(this._value, this._then);
 
-  final SystemPermissions _value;
   // ignore: unused_field
-  final $Res Function(SystemPermissions) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? permissions = freezed,
+    Object? permissions = null,
   }) {
     return _then(_value.copyWith(
-      permissions: permissions == freezed
+      permissions: null == permissions
           ? _value.permissions
           : permissions // ignore: cast_nullable_to_non_nullable
               as Permissions,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PermissionsCopyWith<$Res> get permissions {
     return $PermissionsCopyWith<$Res>(_value.permissions, (value) {
-      return _then(_value.copyWith(permissions: value));
+      return _then(_value.copyWith(permissions: value) as $Val);
     });
   }
 }
@@ -695,6 +704,7 @@ abstract class _$$_SystemPermissionsCopyWith<$Res>
           $Res Function(_$_SystemPermissions) then) =
       __$$_SystemPermissionsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Permissions permissions});
 
   @override
@@ -703,21 +713,19 @@ abstract class _$$_SystemPermissionsCopyWith<$Res>
 
 /// @nodoc
 class __$$_SystemPermissionsCopyWithImpl<$Res>
-    extends _$SystemPermissionsCopyWithImpl<$Res>
+    extends _$SystemPermissionsCopyWithImpl<$Res, _$_SystemPermissions>
     implements _$$_SystemPermissionsCopyWith<$Res> {
   __$$_SystemPermissionsCopyWithImpl(
       _$_SystemPermissions _value, $Res Function(_$_SystemPermissions) _then)
-      : super(_value, (v) => _then(v as _$_SystemPermissions));
+      : super(_value, _then);
 
-  @override
-  _$_SystemPermissions get _value => super._value as _$_SystemPermissions;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? permissions = freezed,
+    Object? permissions = null,
   }) {
     return _then(_$_SystemPermissions(
-      permissions: permissions == freezed
+      permissions: null == permissions
           ? _value.permissions
           : permissions // ignore: cast_nullable_to_non_nullable
               as Permissions,
@@ -746,24 +754,26 @@ class _$_SystemPermissions extends _SystemPermissions {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SystemPermissions &&
-            const DeepCollectionEquality()
-                .equals(other.permissions, permissions));
+            (identical(other.permissions, permissions) ||
+                other.permissions == permissions));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(permissions));
+  int get hashCode => Object.hash(runtimeType, permissions);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SystemPermissionsCopyWith<_$_SystemPermissions> get copyWith =>
       __$$_SystemPermissionsCopyWithImpl<_$_SystemPermissions>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SystemPermissionsToJson(this);
+    return _$$_SystemPermissionsToJson(
+      this,
+    );
   }
 }
 
@@ -776,7 +786,7 @@ abstract class _SystemPermissions extends SystemPermissions {
       _$_SystemPermissions.fromJson;
 
   @override
-  Permissions get permissions => throw _privateConstructorUsedError;
+  Permissions get permissions;
   @override
   @JsonKey(ignore: true)
   _$$_SystemPermissionsCopyWith<_$_SystemPermissions> get copyWith =>

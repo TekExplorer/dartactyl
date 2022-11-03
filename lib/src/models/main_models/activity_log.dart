@@ -16,10 +16,25 @@ class ActivityLog with _$ActivityLog, SerializableMixin {
     required JsonMap properties,
     required bool hasAdditionalMetadata,
     required DateTime timestamp,
-    required ActivityLogRelationships relationships,
+    ActivityLogRelationships? relationships,
   }) = _ActivityLog;
 
   factory ActivityLog.fromJson(JsonMap json) => _$ActivityLogFromJson(json);
 
   ActivityLog._();
+}
+
+@freezed
+class Actor with _$Actor, SerializableMixin {
+  factory Actor({
+    required String uuid,
+    required String username,
+    required String email,
+    @JsonKey(name: '2fa_enabled') required bool twoFaEnabled,
+    required DateTime createdAt,
+  }) = _Actor;
+
+  factory Actor.fromJson(JsonMap json) => _$ActorFromJson(json);
+
+  Actor._();
 }

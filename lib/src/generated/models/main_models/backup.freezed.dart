@@ -38,7 +38,8 @@ mixin _$Backup {
 /// @nodoc
 abstract class $BackupCopyWith<$Res> {
   factory $BackupCopyWith(Backup value, $Res Function(Backup) then) =
-      _$BackupCopyWithImpl<$Res>;
+      _$BackupCopyWithImpl<$Res, Backup>;
+  @useResult
   $Res call(
       {String uuid,
       bool isSuccessful,
@@ -52,63 +53,66 @@ abstract class $BackupCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$BackupCopyWithImpl<$Res> implements $BackupCopyWith<$Res> {
+class _$BackupCopyWithImpl<$Res, $Val extends Backup>
+    implements $BackupCopyWith<$Res> {
   _$BackupCopyWithImpl(this._value, this._then);
 
-  final Backup _value;
   // ignore: unused_field
-  final $Res Function(Backup) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
-    Object? isSuccessful = freezed,
-    Object? isLocked = freezed,
-    Object? name = freezed,
+    Object? uuid = null,
+    Object? isSuccessful = null,
+    Object? isLocked = null,
+    Object? name = null,
     Object? ignoredFiles = freezed,
-    Object? checksum = freezed,
-    Object? bytes = freezed,
-    Object? createdAt = freezed,
+    Object? checksum = null,
+    Object? bytes = null,
+    Object? createdAt = null,
     Object? completedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      isSuccessful: isSuccessful == freezed
+      isSuccessful: null == isSuccessful
           ? _value.isSuccessful
           : isSuccessful // ignore: cast_nullable_to_non_nullable
               as bool,
-      isLocked: isLocked == freezed
+      isLocked: null == isLocked
           ? _value.isLocked
           : isLocked // ignore: cast_nullable_to_non_nullable
               as bool,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      ignoredFiles: ignoredFiles == freezed
+      ignoredFiles: freezed == ignoredFiles
           ? _value.ignoredFiles
           : ignoredFiles // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      checksum: checksum == freezed
+      checksum: null == checksum
           ? _value.checksum
           : checksum // ignore: cast_nullable_to_non_nullable
               as String,
-      bytes: bytes == freezed
+      bytes: null == bytes
           ? _value.bytes
           : bytes // ignore: cast_nullable_to_non_nullable
               as int,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      completedAt: completedAt == freezed
+      completedAt: freezed == completedAt
           ? _value.completedAt
           : completedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -117,6 +121,7 @@ abstract class _$$_BackupCopyWith<$Res> implements $BackupCopyWith<$Res> {
   factory _$$_BackupCopyWith(_$_Backup value, $Res Function(_$_Backup) then) =
       __$$_BackupCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String uuid,
       bool isSuccessful,
@@ -130,60 +135,59 @@ abstract class _$$_BackupCopyWith<$Res> implements $BackupCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_BackupCopyWithImpl<$Res> extends _$BackupCopyWithImpl<$Res>
+class __$$_BackupCopyWithImpl<$Res>
+    extends _$BackupCopyWithImpl<$Res, _$_Backup>
     implements _$$_BackupCopyWith<$Res> {
   __$$_BackupCopyWithImpl(_$_Backup _value, $Res Function(_$_Backup) _then)
-      : super(_value, (v) => _then(v as _$_Backup));
+      : super(_value, _then);
 
-  @override
-  _$_Backup get _value => super._value as _$_Backup;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
-    Object? isSuccessful = freezed,
-    Object? isLocked = freezed,
-    Object? name = freezed,
+    Object? uuid = null,
+    Object? isSuccessful = null,
+    Object? isLocked = null,
+    Object? name = null,
     Object? ignoredFiles = freezed,
-    Object? checksum = freezed,
-    Object? bytes = freezed,
-    Object? createdAt = freezed,
+    Object? checksum = null,
+    Object? bytes = null,
+    Object? createdAt = null,
     Object? completedAt = freezed,
   }) {
     return _then(_$_Backup(
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      isSuccessful: isSuccessful == freezed
+      isSuccessful: null == isSuccessful
           ? _value.isSuccessful
           : isSuccessful // ignore: cast_nullable_to_non_nullable
               as bool,
-      isLocked: isLocked == freezed
+      isLocked: null == isLocked
           ? _value.isLocked
           : isLocked // ignore: cast_nullable_to_non_nullable
               as bool,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      ignoredFiles: ignoredFiles == freezed
+      ignoredFiles: freezed == ignoredFiles
           ? _value._ignoredFiles
           : ignoredFiles // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      checksum: checksum == freezed
+      checksum: null == checksum
           ? _value.checksum
           : checksum // ignore: cast_nullable_to_non_nullable
               as String,
-      bytes: bytes == freezed
+      bytes: null == bytes
           ? _value.bytes
           : bytes // ignore: cast_nullable_to_non_nullable
               as int,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      completedAt: completedAt == freezed
+      completedAt: freezed == completedAt
           ? _value.completedAt
           : completedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
@@ -246,42 +250,48 @@ class _$_Backup extends _Backup {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Backup &&
-            const DeepCollectionEquality().equals(other.uuid, uuid) &&
-            const DeepCollectionEquality()
-                .equals(other.isSuccessful, isSuccessful) &&
-            const DeepCollectionEquality().equals(other.isLocked, isLocked) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
+            (identical(other.uuid, uuid) || other.uuid == uuid) &&
+            (identical(other.isSuccessful, isSuccessful) ||
+                other.isSuccessful == isSuccessful) &&
+            (identical(other.isLocked, isLocked) ||
+                other.isLocked == isLocked) &&
+            (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality()
                 .equals(other._ignoredFiles, _ignoredFiles) &&
-            const DeepCollectionEquality().equals(other.checksum, checksum) &&
-            const DeepCollectionEquality().equals(other.bytes, bytes) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality()
-                .equals(other.completedAt, completedAt));
+            (identical(other.checksum, checksum) ||
+                other.checksum == checksum) &&
+            (identical(other.bytes, bytes) || other.bytes == bytes) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.completedAt, completedAt) ||
+                other.completedAt == completedAt));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(uuid),
-      const DeepCollectionEquality().hash(isSuccessful),
-      const DeepCollectionEquality().hash(isLocked),
-      const DeepCollectionEquality().hash(name),
+      uuid,
+      isSuccessful,
+      isLocked,
+      name,
       const DeepCollectionEquality().hash(_ignoredFiles),
-      const DeepCollectionEquality().hash(checksum),
-      const DeepCollectionEquality().hash(bytes),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(completedAt));
+      checksum,
+      bytes,
+      createdAt,
+      completedAt);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_BackupCopyWith<_$_Backup> get copyWith =>
       __$$_BackupCopyWithImpl<_$_Backup>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BackupToJson(this);
+    return _$$_BackupToJson(
+      this,
+    );
   }
 }
 
@@ -301,23 +311,23 @@ abstract class _Backup extends Backup {
   factory _Backup.fromJson(Map<String, dynamic> json) = _$_Backup.fromJson;
 
   @override
-  String get uuid => throw _privateConstructorUsedError;
+  String get uuid;
   @override
-  bool get isSuccessful => throw _privateConstructorUsedError;
+  bool get isSuccessful;
   @override
-  bool get isLocked => throw _privateConstructorUsedError;
+  bool get isLocked;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  List<String>? get ignoredFiles => throw _privateConstructorUsedError;
+  List<String>? get ignoredFiles;
   @override
-  String get checksum => throw _privateConstructorUsedError;
+  String get checksum;
   @override
-  int get bytes => throw _privateConstructorUsedError;
+  int get bytes;
   @override
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt;
   @override
-  DateTime? get completedAt => throw _privateConstructorUsedError;
+  DateTime? get completedAt;
   @override
   @JsonKey(ignore: true)
   _$$_BackupCopyWith<_$_Backup> get copyWith =>

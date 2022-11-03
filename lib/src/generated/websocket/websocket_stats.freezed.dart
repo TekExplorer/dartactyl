@@ -36,7 +36,8 @@ mixin _$WebsocketStatsModel {
 abstract class $WebsocketStatsModelCopyWith<$Res> {
   factory $WebsocketStatsModelCopyWith(
           WebsocketStatsModel value, $Res Function(WebsocketStatsModel) then) =
-      _$WebsocketStatsModelCopyWithImpl<$Res>;
+      _$WebsocketStatsModelCopyWithImpl<$Res, WebsocketStatsModel>;
+  @useResult
   $Res call(
       {double cpuAbsolute,
       int memoryBytes,
@@ -48,50 +49,53 @@ abstract class $WebsocketStatsModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$WebsocketStatsModelCopyWithImpl<$Res>
+class _$WebsocketStatsModelCopyWithImpl<$Res, $Val extends WebsocketStatsModel>
     implements $WebsocketStatsModelCopyWith<$Res> {
   _$WebsocketStatsModelCopyWithImpl(this._value, this._then);
 
-  final WebsocketStatsModel _value;
   // ignore: unused_field
-  final $Res Function(WebsocketStatsModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cpuAbsolute = freezed,
-    Object? memoryBytes = freezed,
-    Object? memoryLimitBytes = freezed,
-    Object? network = freezed,
-    Object? state = freezed,
+    Object? cpuAbsolute = null,
+    Object? memoryBytes = null,
+    Object? memoryLimitBytes = null,
+    Object? network = null,
+    Object? state = null,
   }) {
     return _then(_value.copyWith(
-      cpuAbsolute: cpuAbsolute == freezed
+      cpuAbsolute: null == cpuAbsolute
           ? _value.cpuAbsolute
           : cpuAbsolute // ignore: cast_nullable_to_non_nullable
               as double,
-      memoryBytes: memoryBytes == freezed
+      memoryBytes: null == memoryBytes
           ? _value.memoryBytes
           : memoryBytes // ignore: cast_nullable_to_non_nullable
               as int,
-      memoryLimitBytes: memoryLimitBytes == freezed
+      memoryLimitBytes: null == memoryLimitBytes
           ? _value.memoryLimitBytes
           : memoryLimitBytes // ignore: cast_nullable_to_non_nullable
               as int,
-      network: network == freezed
+      network: null == network
           ? _value.network
           : network // ignore: cast_nullable_to_non_nullable
               as WebsocketNetworkStatsModel,
-      state: state == freezed
+      state: null == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
               as ServerPowerState,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $WebsocketNetworkStatsModelCopyWith<$Res> get network {
     return $WebsocketNetworkStatsModelCopyWith<$Res>(_value.network, (value) {
-      return _then(_value.copyWith(network: value));
+      return _then(_value.copyWith(network: value) as $Val);
     });
   }
 }
@@ -103,6 +107,7 @@ abstract class _$$_WebsocketStatsModelCopyWith<$Res>
           $Res Function(_$_WebsocketStatsModel) then) =
       __$$_WebsocketStatsModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {double cpuAbsolute,
       int memoryBytes,
@@ -116,41 +121,39 @@ abstract class _$$_WebsocketStatsModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_WebsocketStatsModelCopyWithImpl<$Res>
-    extends _$WebsocketStatsModelCopyWithImpl<$Res>
+    extends _$WebsocketStatsModelCopyWithImpl<$Res, _$_WebsocketStatsModel>
     implements _$$_WebsocketStatsModelCopyWith<$Res> {
   __$$_WebsocketStatsModelCopyWithImpl(_$_WebsocketStatsModel _value,
       $Res Function(_$_WebsocketStatsModel) _then)
-      : super(_value, (v) => _then(v as _$_WebsocketStatsModel));
+      : super(_value, _then);
 
-  @override
-  _$_WebsocketStatsModel get _value => super._value as _$_WebsocketStatsModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cpuAbsolute = freezed,
-    Object? memoryBytes = freezed,
-    Object? memoryLimitBytes = freezed,
-    Object? network = freezed,
-    Object? state = freezed,
+    Object? cpuAbsolute = null,
+    Object? memoryBytes = null,
+    Object? memoryLimitBytes = null,
+    Object? network = null,
+    Object? state = null,
   }) {
     return _then(_$_WebsocketStatsModel(
-      cpuAbsolute: cpuAbsolute == freezed
+      cpuAbsolute: null == cpuAbsolute
           ? _value.cpuAbsolute
           : cpuAbsolute // ignore: cast_nullable_to_non_nullable
               as double,
-      memoryBytes: memoryBytes == freezed
+      memoryBytes: null == memoryBytes
           ? _value.memoryBytes
           : memoryBytes // ignore: cast_nullable_to_non_nullable
               as int,
-      memoryLimitBytes: memoryLimitBytes == freezed
+      memoryLimitBytes: null == memoryLimitBytes
           ? _value.memoryLimitBytes
           : memoryLimitBytes // ignore: cast_nullable_to_non_nullable
               as int,
-      network: network == freezed
+      network: null == network
           ? _value.network
           : network // ignore: cast_nullable_to_non_nullable
               as WebsocketNetworkStatsModel,
-      state: state == freezed
+      state: null == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
               as ServerPowerState,
@@ -192,35 +195,33 @@ class _$_WebsocketStatsModel implements _WebsocketStatsModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WebsocketStatsModel &&
-            const DeepCollectionEquality()
-                .equals(other.cpuAbsolute, cpuAbsolute) &&
-            const DeepCollectionEquality()
-                .equals(other.memoryBytes, memoryBytes) &&
-            const DeepCollectionEquality()
-                .equals(other.memoryLimitBytes, memoryLimitBytes) &&
-            const DeepCollectionEquality().equals(other.network, network) &&
-            const DeepCollectionEquality().equals(other.state, state));
+            (identical(other.cpuAbsolute, cpuAbsolute) ||
+                other.cpuAbsolute == cpuAbsolute) &&
+            (identical(other.memoryBytes, memoryBytes) ||
+                other.memoryBytes == memoryBytes) &&
+            (identical(other.memoryLimitBytes, memoryLimitBytes) ||
+                other.memoryLimitBytes == memoryLimitBytes) &&
+            (identical(other.network, network) || other.network == network) &&
+            (identical(other.state, state) || other.state == state));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(cpuAbsolute),
-      const DeepCollectionEquality().hash(memoryBytes),
-      const DeepCollectionEquality().hash(memoryLimitBytes),
-      const DeepCollectionEquality().hash(network),
-      const DeepCollectionEquality().hash(state));
+      runtimeType, cpuAbsolute, memoryBytes, memoryLimitBytes, network, state);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WebsocketStatsModelCopyWith<_$_WebsocketStatsModel> get copyWith =>
       __$$_WebsocketStatsModelCopyWithImpl<_$_WebsocketStatsModel>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WebsocketStatsModelToJson(this);
+    return _$$_WebsocketStatsModelToJson(
+      this,
+    );
   }
 }
 
@@ -236,15 +237,15 @@ abstract class _WebsocketStatsModel implements WebsocketStatsModel {
       _$_WebsocketStatsModel.fromJson;
 
   @override
-  double get cpuAbsolute => throw _privateConstructorUsedError;
+  double get cpuAbsolute;
   @override
-  int get memoryBytes => throw _privateConstructorUsedError;
+  int get memoryBytes;
   @override
-  int get memoryLimitBytes => throw _privateConstructorUsedError;
+  int get memoryLimitBytes;
   @override
-  WebsocketNetworkStatsModel get network => throw _privateConstructorUsedError;
+  WebsocketNetworkStatsModel get network;
   @override
-  ServerPowerState get state => throw _privateConstructorUsedError;
+  ServerPowerState get state;
   @override
   @JsonKey(ignore: true)
   _$$_WebsocketStatsModelCopyWith<_$_WebsocketStatsModel> get copyWith =>
@@ -271,34 +272,39 @@ mixin _$WebsocketNetworkStatsModel {
 abstract class $WebsocketNetworkStatsModelCopyWith<$Res> {
   factory $WebsocketNetworkStatsModelCopyWith(WebsocketNetworkStatsModel value,
           $Res Function(WebsocketNetworkStatsModel) then) =
-      _$WebsocketNetworkStatsModelCopyWithImpl<$Res>;
+      _$WebsocketNetworkStatsModelCopyWithImpl<$Res,
+          WebsocketNetworkStatsModel>;
+  @useResult
   $Res call({int rxBytes, int txBytes});
 }
 
 /// @nodoc
-class _$WebsocketNetworkStatsModelCopyWithImpl<$Res>
+class _$WebsocketNetworkStatsModelCopyWithImpl<$Res,
+        $Val extends WebsocketNetworkStatsModel>
     implements $WebsocketNetworkStatsModelCopyWith<$Res> {
   _$WebsocketNetworkStatsModelCopyWithImpl(this._value, this._then);
 
-  final WebsocketNetworkStatsModel _value;
   // ignore: unused_field
-  final $Res Function(WebsocketNetworkStatsModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rxBytes = freezed,
-    Object? txBytes = freezed,
+    Object? rxBytes = null,
+    Object? txBytes = null,
   }) {
     return _then(_value.copyWith(
-      rxBytes: rxBytes == freezed
+      rxBytes: null == rxBytes
           ? _value.rxBytes
           : rxBytes // ignore: cast_nullable_to_non_nullable
               as int,
-      txBytes: txBytes == freezed
+      txBytes: null == txBytes
           ? _value.txBytes
           : txBytes // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -310,33 +316,32 @@ abstract class _$$_WebsocketNetworkStatsModelCopyWith<$Res>
           $Res Function(_$_WebsocketNetworkStatsModel) then) =
       __$$_WebsocketNetworkStatsModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int rxBytes, int txBytes});
 }
 
 /// @nodoc
 class __$$_WebsocketNetworkStatsModelCopyWithImpl<$Res>
-    extends _$WebsocketNetworkStatsModelCopyWithImpl<$Res>
+    extends _$WebsocketNetworkStatsModelCopyWithImpl<$Res,
+        _$_WebsocketNetworkStatsModel>
     implements _$$_WebsocketNetworkStatsModelCopyWith<$Res> {
   __$$_WebsocketNetworkStatsModelCopyWithImpl(
       _$_WebsocketNetworkStatsModel _value,
       $Res Function(_$_WebsocketNetworkStatsModel) _then)
-      : super(_value, (v) => _then(v as _$_WebsocketNetworkStatsModel));
+      : super(_value, _then);
 
-  @override
-  _$_WebsocketNetworkStatsModel get _value =>
-      super._value as _$_WebsocketNetworkStatsModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rxBytes = freezed,
-    Object? txBytes = freezed,
+    Object? rxBytes = null,
+    Object? txBytes = null,
   }) {
     return _then(_$_WebsocketNetworkStatsModel(
-      rxBytes: rxBytes == freezed
+      rxBytes: null == rxBytes
           ? _value.rxBytes
           : rxBytes // ignore: cast_nullable_to_non_nullable
               as int,
-      txBytes: txBytes == freezed
+      txBytes: null == txBytes
           ? _value.txBytes
           : txBytes // ignore: cast_nullable_to_non_nullable
               as int,
@@ -367,26 +372,26 @@ class _$_WebsocketNetworkStatsModel implements _WebsocketNetworkStatsModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WebsocketNetworkStatsModel &&
-            const DeepCollectionEquality().equals(other.rxBytes, rxBytes) &&
-            const DeepCollectionEquality().equals(other.txBytes, txBytes));
+            (identical(other.rxBytes, rxBytes) || other.rxBytes == rxBytes) &&
+            (identical(other.txBytes, txBytes) || other.txBytes == txBytes));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(rxBytes),
-      const DeepCollectionEquality().hash(txBytes));
+  int get hashCode => Object.hash(runtimeType, rxBytes, txBytes);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WebsocketNetworkStatsModelCopyWith<_$_WebsocketNetworkStatsModel>
       get copyWith => __$$_WebsocketNetworkStatsModelCopyWithImpl<
           _$_WebsocketNetworkStatsModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WebsocketNetworkStatsModelToJson(this);
+    return _$$_WebsocketNetworkStatsModelToJson(
+      this,
+    );
   }
 }
 
@@ -400,9 +405,9 @@ abstract class _WebsocketNetworkStatsModel
       _$_WebsocketNetworkStatsModel.fromJson;
 
   @override
-  int get rxBytes => throw _privateConstructorUsedError;
+  int get rxBytes;
   @override
-  int get txBytes => throw _privateConstructorUsedError;
+  int get txBytes;
   @override
   @JsonKey(ignore: true)
   _$$_WebsocketNetworkStatsModelCopyWith<_$_WebsocketNetworkStatsModel>

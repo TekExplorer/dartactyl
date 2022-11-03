@@ -32,29 +32,32 @@ mixin _$SendServerCommand {
 abstract class $SendServerCommandCopyWith<$Res> {
   factory $SendServerCommandCopyWith(
           SendServerCommand value, $Res Function(SendServerCommand) then) =
-      _$SendServerCommandCopyWithImpl<$Res>;
+      _$SendServerCommandCopyWithImpl<$Res, SendServerCommand>;
+  @useResult
   $Res call({String command});
 }
 
 /// @nodoc
-class _$SendServerCommandCopyWithImpl<$Res>
+class _$SendServerCommandCopyWithImpl<$Res, $Val extends SendServerCommand>
     implements $SendServerCommandCopyWith<$Res> {
   _$SendServerCommandCopyWithImpl(this._value, this._then);
 
-  final SendServerCommand _value;
   // ignore: unused_field
-  final $Res Function(SendServerCommand) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? command = freezed,
+    Object? command = null,
   }) {
     return _then(_value.copyWith(
-      command: command == freezed
+      command: null == command
           ? _value.command
           : command // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -65,26 +68,25 @@ abstract class _$$_SendServerCommandCopyWith<$Res>
           $Res Function(_$_SendServerCommand) then) =
       __$$_SendServerCommandCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String command});
 }
 
 /// @nodoc
 class __$$_SendServerCommandCopyWithImpl<$Res>
-    extends _$SendServerCommandCopyWithImpl<$Res>
+    extends _$SendServerCommandCopyWithImpl<$Res, _$_SendServerCommand>
     implements _$$_SendServerCommandCopyWith<$Res> {
   __$$_SendServerCommandCopyWithImpl(
       _$_SendServerCommand _value, $Res Function(_$_SendServerCommand) _then)
-      : super(_value, (v) => _then(v as _$_SendServerCommand));
+      : super(_value, _then);
 
-  @override
-  _$_SendServerCommand get _value => super._value as _$_SendServerCommand;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? command = freezed,
+    Object? command = null,
   }) {
     return _then(_$_SendServerCommand(
-      command: command == freezed
+      command: null == command
           ? _value.command
           : command // ignore: cast_nullable_to_non_nullable
               as String,
@@ -113,23 +115,25 @@ class _$_SendServerCommand implements _SendServerCommand {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SendServerCommand &&
-            const DeepCollectionEquality().equals(other.command, command));
+            (identical(other.command, command) || other.command == command));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(command));
+  int get hashCode => Object.hash(runtimeType, command);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SendServerCommandCopyWith<_$_SendServerCommand> get copyWith =>
       __$$_SendServerCommandCopyWithImpl<_$_SendServerCommand>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SendServerCommandToJson(this);
+    return _$$_SendServerCommandToJson(
+      this,
+    );
   }
 }
 
@@ -141,7 +145,7 @@ abstract class _SendServerCommand implements SendServerCommand {
       _$_SendServerCommand.fromJson;
 
   @override
-  String get command => throw _privateConstructorUsedError;
+  String get command;
   @override
   @JsonKey(ignore: true)
   _$$_SendServerCommandCopyWith<_$_SendServerCommand> get copyWith =>

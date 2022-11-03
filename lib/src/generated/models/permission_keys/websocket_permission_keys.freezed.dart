@@ -33,29 +33,33 @@ mixin _$WebsocketPermissionKeys {
 abstract class $WebsocketPermissionKeysCopyWith<$Res> {
   factory $WebsocketPermissionKeysCopyWith(WebsocketPermissionKeys value,
           $Res Function(WebsocketPermissionKeys) then) =
-      _$WebsocketPermissionKeysCopyWithImpl<$Res>;
+      _$WebsocketPermissionKeysCopyWithImpl<$Res, WebsocketPermissionKeys>;
+  @useResult
   $Res call({String connect});
 }
 
 /// @nodoc
-class _$WebsocketPermissionKeysCopyWithImpl<$Res>
+class _$WebsocketPermissionKeysCopyWithImpl<$Res,
+        $Val extends WebsocketPermissionKeys>
     implements $WebsocketPermissionKeysCopyWith<$Res> {
   _$WebsocketPermissionKeysCopyWithImpl(this._value, this._then);
 
-  final WebsocketPermissionKeys _value;
   // ignore: unused_field
-  final $Res Function(WebsocketPermissionKeys) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? connect = freezed,
+    Object? connect = null,
   }) {
     return _then(_value.copyWith(
-      connect: connect == freezed
+      connect: null == connect
           ? _value.connect
           : connect // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -66,27 +70,26 @@ abstract class _$$_WebsocketPermissionKeysCopyWith<$Res>
           $Res Function(_$_WebsocketPermissionKeys) then) =
       __$$_WebsocketPermissionKeysCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String connect});
 }
 
 /// @nodoc
 class __$$_WebsocketPermissionKeysCopyWithImpl<$Res>
-    extends _$WebsocketPermissionKeysCopyWithImpl<$Res>
+    extends _$WebsocketPermissionKeysCopyWithImpl<$Res,
+        _$_WebsocketPermissionKeys>
     implements _$$_WebsocketPermissionKeysCopyWith<$Res> {
   __$$_WebsocketPermissionKeysCopyWithImpl(_$_WebsocketPermissionKeys _value,
       $Res Function(_$_WebsocketPermissionKeys) _then)
-      : super(_value, (v) => _then(v as _$_WebsocketPermissionKeys));
+      : super(_value, _then);
 
-  @override
-  _$_WebsocketPermissionKeys get _value =>
-      super._value as _$_WebsocketPermissionKeys;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? connect = freezed,
+    Object? connect = null,
   }) {
     return _then(_$_WebsocketPermissionKeys(
-      connect: connect == freezed
+      connect: null == connect
           ? _value.connect
           : connect // ignore: cast_nullable_to_non_nullable
               as String,
@@ -115,16 +118,16 @@ class _$_WebsocketPermissionKeys extends _WebsocketPermissionKeys {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WebsocketPermissionKeys &&
-            const DeepCollectionEquality().equals(other.connect, connect));
+            (identical(other.connect, connect) || other.connect == connect));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(connect));
+  int get hashCode => Object.hash(runtimeType, connect);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WebsocketPermissionKeysCopyWith<_$_WebsocketPermissionKeys>
       get copyWith =>
           __$$_WebsocketPermissionKeysCopyWithImpl<_$_WebsocketPermissionKeys>(
@@ -132,7 +135,9 @@ class _$_WebsocketPermissionKeys extends _WebsocketPermissionKeys {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WebsocketPermissionKeysToJson(this);
+    return _$$_WebsocketPermissionKeysToJson(
+      this,
+    );
   }
 }
 
@@ -145,7 +150,7 @@ abstract class _WebsocketPermissionKeys extends WebsocketPermissionKeys {
       _$_WebsocketPermissionKeys.fromJson;
 
   @override
-  String get connect => throw _privateConstructorUsedError;
+  String get connect;
   @override
   @JsonKey(ignore: true)
   _$$_WebsocketPermissionKeysCopyWith<_$_WebsocketPermissionKeys>

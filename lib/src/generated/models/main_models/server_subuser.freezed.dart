@@ -38,7 +38,8 @@ mixin _$ServerSubuser {
 abstract class $ServerSubuserCopyWith<$Res> {
   factory $ServerSubuserCopyWith(
           ServerSubuser value, $Res Function(ServerSubuser) then) =
-      _$ServerSubuserCopyWithImpl<$Res>;
+      _$ServerSubuserCopyWithImpl<$Res, ServerSubuser>;
+  @useResult
   $Res call(
       {String uuid,
       String username,
@@ -50,54 +51,56 @@ abstract class $ServerSubuserCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ServerSubuserCopyWithImpl<$Res>
+class _$ServerSubuserCopyWithImpl<$Res, $Val extends ServerSubuser>
     implements $ServerSubuserCopyWith<$Res> {
   _$ServerSubuserCopyWithImpl(this._value, this._then);
 
-  final ServerSubuser _value;
   // ignore: unused_field
-  final $Res Function(ServerSubuser) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
-    Object? username = freezed,
-    Object? email = freezed,
-    Object? image = freezed,
-    Object? the2FaEnabled = freezed,
-    Object? createdAt = freezed,
-    Object? permissions = freezed,
+    Object? uuid = null,
+    Object? username = null,
+    Object? email = null,
+    Object? image = null,
+    Object? the2FaEnabled = null,
+    Object? createdAt = null,
+    Object? permissions = null,
   }) {
     return _then(_value.copyWith(
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      image: image == freezed
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      the2FaEnabled: the2FaEnabled == freezed
+      the2FaEnabled: null == the2FaEnabled
           ? _value.the2FaEnabled
           : the2FaEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      permissions: permissions == freezed
+      permissions: null == permissions
           ? _value.permissions
           : permissions // ignore: cast_nullable_to_non_nullable
               as List<String>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -108,6 +111,7 @@ abstract class _$$_ServerSubuserCopyWith<$Res>
           _$_ServerSubuser value, $Res Function(_$_ServerSubuser) then) =
       __$$_ServerSubuserCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String uuid,
       String username,
@@ -120,51 +124,49 @@ abstract class _$$_ServerSubuserCopyWith<$Res>
 
 /// @nodoc
 class __$$_ServerSubuserCopyWithImpl<$Res>
-    extends _$ServerSubuserCopyWithImpl<$Res>
+    extends _$ServerSubuserCopyWithImpl<$Res, _$_ServerSubuser>
     implements _$$_ServerSubuserCopyWith<$Res> {
   __$$_ServerSubuserCopyWithImpl(
       _$_ServerSubuser _value, $Res Function(_$_ServerSubuser) _then)
-      : super(_value, (v) => _then(v as _$_ServerSubuser));
+      : super(_value, _then);
 
-  @override
-  _$_ServerSubuser get _value => super._value as _$_ServerSubuser;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
-    Object? username = freezed,
-    Object? email = freezed,
-    Object? image = freezed,
-    Object? the2FaEnabled = freezed,
-    Object? createdAt = freezed,
-    Object? permissions = freezed,
+    Object? uuid = null,
+    Object? username = null,
+    Object? email = null,
+    Object? image = null,
+    Object? the2FaEnabled = null,
+    Object? createdAt = null,
+    Object? permissions = null,
   }) {
     return _then(_$_ServerSubuser(
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      image: image == freezed
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      the2FaEnabled: the2FaEnabled == freezed
+      the2FaEnabled: null == the2FaEnabled
           ? _value.the2FaEnabled
           : the2FaEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      permissions: permissions == freezed
+      permissions: null == permissions
           ? _value._permissions
           : permissions // ignore: cast_nullable_to_non_nullable
               as List<String>,
@@ -218,13 +220,15 @@ class _$_ServerSubuser extends _ServerSubuser {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ServerSubuser &&
-            const DeepCollectionEquality().equals(other.uuid, uuid) &&
-            const DeepCollectionEquality().equals(other.username, username) &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.image, image) &&
-            const DeepCollectionEquality()
-                .equals(other.the2FaEnabled, the2FaEnabled) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            (identical(other.uuid, uuid) || other.uuid == uuid) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.the2FaEnabled, the2FaEnabled) ||
+                other.the2FaEnabled == the2FaEnabled) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
             const DeepCollectionEquality()
                 .equals(other._permissions, _permissions));
   }
@@ -233,22 +237,25 @@ class _$_ServerSubuser extends _ServerSubuser {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(uuid),
-      const DeepCollectionEquality().hash(username),
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(image),
-      const DeepCollectionEquality().hash(the2FaEnabled),
-      const DeepCollectionEquality().hash(createdAt),
+      uuid,
+      username,
+      email,
+      image,
+      the2FaEnabled,
+      createdAt,
       const DeepCollectionEquality().hash(_permissions));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ServerSubuserCopyWith<_$_ServerSubuser> get copyWith =>
       __$$_ServerSubuserCopyWithImpl<_$_ServerSubuser>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServerSubuserToJson(this);
+    return _$$_ServerSubuserToJson(
+      this,
+    );
   }
 }
 
@@ -267,19 +274,19 @@ abstract class _ServerSubuser extends ServerSubuser {
       _$_ServerSubuser.fromJson;
 
   @override
-  String get uuid => throw _privateConstructorUsedError;
+  String get uuid;
   @override
-  String get username => throw _privateConstructorUsedError;
+  String get username;
   @override
-  String get email => throw _privateConstructorUsedError;
+  String get email;
   @override
-  String get image => throw _privateConstructorUsedError;
+  String get image;
   @override
-  bool get the2FaEnabled => throw _privateConstructorUsedError;
+  bool get the2FaEnabled;
   @override
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt;
   @override
-  List<String> get permissions => throw _privateConstructorUsedError;
+  List<String> get permissions;
   @override
   @JsonKey(ignore: true)
   _$$_ServerSubuserCopyWith<_$_ServerSubuser> get copyWith =>

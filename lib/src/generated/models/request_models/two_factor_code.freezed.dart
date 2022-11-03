@@ -32,29 +32,32 @@ mixin _$TwoFactorCode {
 abstract class $TwoFactorCodeCopyWith<$Res> {
   factory $TwoFactorCodeCopyWith(
           TwoFactorCode value, $Res Function(TwoFactorCode) then) =
-      _$TwoFactorCodeCopyWithImpl<$Res>;
+      _$TwoFactorCodeCopyWithImpl<$Res, TwoFactorCode>;
+  @useResult
   $Res call({int code});
 }
 
 /// @nodoc
-class _$TwoFactorCodeCopyWithImpl<$Res>
+class _$TwoFactorCodeCopyWithImpl<$Res, $Val extends TwoFactorCode>
     implements $TwoFactorCodeCopyWith<$Res> {
   _$TwoFactorCodeCopyWithImpl(this._value, this._then);
 
-  final TwoFactorCode _value;
   // ignore: unused_field
-  final $Res Function(TwoFactorCode) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
+    Object? code = null,
   }) {
     return _then(_value.copyWith(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -65,26 +68,25 @@ abstract class _$$_TwoFactorCodeCopyWith<$Res>
           _$_TwoFactorCode value, $Res Function(_$_TwoFactorCode) then) =
       __$$_TwoFactorCodeCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int code});
 }
 
 /// @nodoc
 class __$$_TwoFactorCodeCopyWithImpl<$Res>
-    extends _$TwoFactorCodeCopyWithImpl<$Res>
+    extends _$TwoFactorCodeCopyWithImpl<$Res, _$_TwoFactorCode>
     implements _$$_TwoFactorCodeCopyWith<$Res> {
   __$$_TwoFactorCodeCopyWithImpl(
       _$_TwoFactorCode _value, $Res Function(_$_TwoFactorCode) _then)
-      : super(_value, (v) => _then(v as _$_TwoFactorCode));
+      : super(_value, _then);
 
-  @override
-  _$_TwoFactorCode get _value => super._value as _$_TwoFactorCode;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
+    Object? code = null,
   }) {
     return _then(_$_TwoFactorCode(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as int,
@@ -113,22 +115,24 @@ class _$_TwoFactorCode implements _TwoFactorCode {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TwoFactorCode &&
-            const DeepCollectionEquality().equals(other.code, code));
+            (identical(other.code, code) || other.code == code));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(code));
+  int get hashCode => Object.hash(runtimeType, code);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TwoFactorCodeCopyWith<_$_TwoFactorCode> get copyWith =>
       __$$_TwoFactorCodeCopyWithImpl<_$_TwoFactorCode>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TwoFactorCodeToJson(this);
+    return _$$_TwoFactorCodeToJson(
+      this,
+    );
   }
 }
 
@@ -139,7 +143,7 @@ abstract class _TwoFactorCode implements TwoFactorCode {
       _$_TwoFactorCode.fromJson;
 
   @override
-  int get code => throw _privateConstructorUsedError;
+  int get code;
   @override
   @JsonKey(ignore: true)
   _$$_TwoFactorCodeCopyWith<_$_TwoFactorCode> get copyWith =>

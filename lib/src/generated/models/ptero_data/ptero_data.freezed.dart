@@ -34,29 +34,32 @@ mixin _$PteroData<T extends SerializableMixin> {
 abstract class $PteroDataCopyWith<T extends SerializableMixin, $Res> {
   factory $PteroDataCopyWith(
           PteroData<T> value, $Res Function(PteroData<T>) then) =
-      _$PteroDataCopyWithImpl<T, $Res>;
+      _$PteroDataCopyWithImpl<T, $Res, PteroData<T>>;
+  @useResult
   $Res call({@PteroDataConverter() T data});
 }
 
 /// @nodoc
-class _$PteroDataCopyWithImpl<T extends SerializableMixin, $Res>
-    implements $PteroDataCopyWith<T, $Res> {
+class _$PteroDataCopyWithImpl<T extends SerializableMixin, $Res,
+    $Val extends PteroData<T>> implements $PteroDataCopyWith<T, $Res> {
   _$PteroDataCopyWithImpl(this._value, this._then);
 
-  final PteroData<T> _value;
   // ignore: unused_field
-  final $Res Function(PteroData<T>) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_value.copyWith(
-      data: data == freezed
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as T,
-    ));
+    ) as $Val);
   }
 }
 
@@ -67,26 +70,25 @@ abstract class _$$_PteroDataCopyWith<T extends SerializableMixin, $Res>
           _$_PteroData<T> value, $Res Function(_$_PteroData<T>) then) =
       __$$_PteroDataCopyWithImpl<T, $Res>;
   @override
+  @useResult
   $Res call({@PteroDataConverter() T data});
 }
 
 /// @nodoc
 class __$$_PteroDataCopyWithImpl<T extends SerializableMixin, $Res>
-    extends _$PteroDataCopyWithImpl<T, $Res>
+    extends _$PteroDataCopyWithImpl<T, $Res, _$_PteroData<T>>
     implements _$$_PteroDataCopyWith<T, $Res> {
   __$$_PteroDataCopyWithImpl(
       _$_PteroData<T> _value, $Res Function(_$_PteroData<T>) _then)
-      : super(_value, (v) => _then(v as _$_PteroData<T>));
+      : super(_value, _then);
 
-  @override
-  _$_PteroData<T> get _value => super._value as _$_PteroData<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_PteroData<T>(
-      data: data == freezed
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as T,
@@ -126,12 +128,15 @@ class _$_PteroData<T extends SerializableMixin> implements _PteroData<T> {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PteroDataCopyWith<T, _$_PteroData<T>> get copyWith =>
       __$$_PteroDataCopyWithImpl<T, _$_PteroData<T>>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PteroDataToJson(this);
+    return _$$_PteroDataToJson<T>(
+      this,
+    );
   }
 }
 
@@ -144,7 +149,7 @@ abstract class _PteroData<T extends SerializableMixin> implements PteroData<T> {
 
   @override
   @PteroDataConverter()
-  T get data => throw _privateConstructorUsedError;
+  T get data;
   @override
   @JsonKey(ignore: true)
   _$$_PteroDataCopyWith<T, _$_PteroData<T>> get copyWith =>

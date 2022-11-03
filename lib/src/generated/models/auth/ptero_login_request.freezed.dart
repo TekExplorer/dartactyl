@@ -36,7 +36,8 @@ mixin _$PteroLoginRequest {
 abstract class $PteroLoginRequestCopyWith<$Res> {
   factory $PteroLoginRequestCopyWith(
           PteroLoginRequest value, $Res Function(PteroLoginRequest) then) =
-      _$PteroLoginRequestCopyWithImpl<$Res>;
+      _$PteroLoginRequestCopyWithImpl<$Res, PteroLoginRequest>;
+  @useResult
   $Res call(
       {@JsonKey(name: 'user') String username,
       String password,
@@ -44,34 +45,36 @@ abstract class $PteroLoginRequestCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PteroLoginRequestCopyWithImpl<$Res>
+class _$PteroLoginRequestCopyWithImpl<$Res, $Val extends PteroLoginRequest>
     implements $PteroLoginRequestCopyWith<$Res> {
   _$PteroLoginRequestCopyWithImpl(this._value, this._then);
 
-  final PteroLoginRequest _value;
   // ignore: unused_field
-  final $Res Function(PteroLoginRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = freezed,
-    Object? password = freezed,
+    Object? username = null,
+    Object? password = null,
     Object? gRecaptchaResponse = freezed,
   }) {
     return _then(_value.copyWith(
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      gRecaptchaResponse: gRecaptchaResponse == freezed
+      gRecaptchaResponse: freezed == gRecaptchaResponse
           ? _value.gRecaptchaResponse
           : gRecaptchaResponse // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -82,6 +85,7 @@ abstract class _$$_PterodactylLoginRequestCopyWith<$Res>
           $Res Function(_$_PterodactylLoginRequest) then) =
       __$$_PterodactylLoginRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: 'user') String username,
       String password,
@@ -90,32 +94,29 @@ abstract class _$$_PterodactylLoginRequestCopyWith<$Res>
 
 /// @nodoc
 class __$$_PterodactylLoginRequestCopyWithImpl<$Res>
-    extends _$PteroLoginRequestCopyWithImpl<$Res>
+    extends _$PteroLoginRequestCopyWithImpl<$Res, _$_PterodactylLoginRequest>
     implements _$$_PterodactylLoginRequestCopyWith<$Res> {
   __$$_PterodactylLoginRequestCopyWithImpl(_$_PterodactylLoginRequest _value,
       $Res Function(_$_PterodactylLoginRequest) _then)
-      : super(_value, (v) => _then(v as _$_PterodactylLoginRequest));
+      : super(_value, _then);
 
-  @override
-  _$_PterodactylLoginRequest get _value =>
-      super._value as _$_PterodactylLoginRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = freezed,
-    Object? password = freezed,
+    Object? username = null,
+    Object? password = null,
     Object? gRecaptchaResponse = freezed,
   }) {
     return _then(_$_PterodactylLoginRequest(
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      gRecaptchaResponse: gRecaptchaResponse == freezed
+      gRecaptchaResponse: freezed == gRecaptchaResponse
           ? _value.gRecaptchaResponse
           : gRecaptchaResponse // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -154,22 +155,22 @@ class _$_PterodactylLoginRequest extends _PterodactylLoginRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PterodactylLoginRequest &&
-            const DeepCollectionEquality().equals(other.username, username) &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality()
-                .equals(other.gRecaptchaResponse, gRecaptchaResponse));
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.gRecaptchaResponse, gRecaptchaResponse) ||
+                other.gRecaptchaResponse == gRecaptchaResponse));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(username),
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(gRecaptchaResponse));
+  int get hashCode =>
+      Object.hash(runtimeType, username, password, gRecaptchaResponse);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PterodactylLoginRequestCopyWith<_$_PterodactylLoginRequest>
       get copyWith =>
           __$$_PterodactylLoginRequestCopyWithImpl<_$_PterodactylLoginRequest>(
@@ -177,7 +178,9 @@ class _$_PterodactylLoginRequest extends _PterodactylLoginRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PterodactylLoginRequestToJson(this);
+    return _$$_PterodactylLoginRequestToJson(
+      this,
+    );
   }
 }
 
@@ -195,12 +198,12 @@ abstract class _PterodactylLoginRequest extends PteroLoginRequest {
 
   @override
   @JsonKey(name: 'user')
-  String get username => throw _privateConstructorUsedError;
+  String get username;
   @override
-  String get password => throw _privateConstructorUsedError;
+  String get password;
   @override
   @JsonKey(name: 'g-recaptcha-response')
-  String? get gRecaptchaResponse => throw _privateConstructorUsedError;
+  String? get gRecaptchaResponse;
   @override
   @JsonKey(ignore: true)
   _$$_PterodactylLoginRequestCopyWith<_$_PterodactylLoginRequest>

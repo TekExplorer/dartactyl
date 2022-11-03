@@ -32,29 +32,32 @@ mixin _$RecoveryTokens {
 abstract class $RecoveryTokensCopyWith<$Res> {
   factory $RecoveryTokensCopyWith(
           RecoveryTokens value, $Res Function(RecoveryTokens) then) =
-      _$RecoveryTokensCopyWithImpl<$Res>;
+      _$RecoveryTokensCopyWithImpl<$Res, RecoveryTokens>;
+  @useResult
   $Res call({List<String> tokens});
 }
 
 /// @nodoc
-class _$RecoveryTokensCopyWithImpl<$Res>
+class _$RecoveryTokensCopyWithImpl<$Res, $Val extends RecoveryTokens>
     implements $RecoveryTokensCopyWith<$Res> {
   _$RecoveryTokensCopyWithImpl(this._value, this._then);
 
-  final RecoveryTokens _value;
   // ignore: unused_field
-  final $Res Function(RecoveryTokens) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tokens = freezed,
+    Object? tokens = null,
   }) {
     return _then(_value.copyWith(
-      tokens: tokens == freezed
+      tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
               as List<String>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -65,26 +68,25 @@ abstract class _$$_RecoveryTokensCopyWith<$Res>
           _$_RecoveryTokens value, $Res Function(_$_RecoveryTokens) then) =
       __$$_RecoveryTokensCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<String> tokens});
 }
 
 /// @nodoc
 class __$$_RecoveryTokensCopyWithImpl<$Res>
-    extends _$RecoveryTokensCopyWithImpl<$Res>
+    extends _$RecoveryTokensCopyWithImpl<$Res, _$_RecoveryTokens>
     implements _$$_RecoveryTokensCopyWith<$Res> {
   __$$_RecoveryTokensCopyWithImpl(
       _$_RecoveryTokens _value, $Res Function(_$_RecoveryTokens) _then)
-      : super(_value, (v) => _then(v as _$_RecoveryTokens));
+      : super(_value, _then);
 
-  @override
-  _$_RecoveryTokens get _value => super._value as _$_RecoveryTokens;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tokens = freezed,
+    Object? tokens = null,
   }) {
     return _then(_$_RecoveryTokens(
-      tokens: tokens == freezed
+      tokens: null == tokens
           ? _value._tokens
           : tokens // ignore: cast_nullable_to_non_nullable
               as List<String>,
@@ -129,12 +131,15 @@ class _$_RecoveryTokens extends _RecoveryTokens {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RecoveryTokensCopyWith<_$_RecoveryTokens> get copyWith =>
       __$$_RecoveryTokensCopyWithImpl<_$_RecoveryTokens>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RecoveryTokensToJson(this);
+    return _$$_RecoveryTokensToJson(
+      this,
+    );
   }
 }
 
@@ -147,7 +152,7 @@ abstract class _RecoveryTokens extends RecoveryTokens {
       _$_RecoveryTokens.fromJson;
 
   @override
-  List<String> get tokens => throw _privateConstructorUsedError;
+  List<String> get tokens;
   @override
   @JsonKey(ignore: true)
   _$$_RecoveryTokensCopyWith<_$_RecoveryTokens> get copyWith =>

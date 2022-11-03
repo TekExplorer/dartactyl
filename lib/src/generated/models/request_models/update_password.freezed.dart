@@ -34,40 +34,43 @@ mixin _$UpdatePassword {
 abstract class $UpdatePasswordCopyWith<$Res> {
   factory $UpdatePasswordCopyWith(
           UpdatePassword value, $Res Function(UpdatePassword) then) =
-      _$UpdatePasswordCopyWithImpl<$Res>;
+      _$UpdatePasswordCopyWithImpl<$Res, UpdatePassword>;
+  @useResult
   $Res call(
       {String currentPassword, String password, String passwordConfirmation});
 }
 
 /// @nodoc
-class _$UpdatePasswordCopyWithImpl<$Res>
+class _$UpdatePasswordCopyWithImpl<$Res, $Val extends UpdatePassword>
     implements $UpdatePasswordCopyWith<$Res> {
   _$UpdatePasswordCopyWithImpl(this._value, this._then);
 
-  final UpdatePassword _value;
   // ignore: unused_field
-  final $Res Function(UpdatePassword) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currentPassword = freezed,
-    Object? password = freezed,
-    Object? passwordConfirmation = freezed,
+    Object? currentPassword = null,
+    Object? password = null,
+    Object? passwordConfirmation = null,
   }) {
     return _then(_value.copyWith(
-      currentPassword: currentPassword == freezed
+      currentPassword: null == currentPassword
           ? _value.currentPassword
           : currentPassword // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      passwordConfirmation: passwordConfirmation == freezed
+      passwordConfirmation: null == passwordConfirmation
           ? _value.passwordConfirmation
           : passwordConfirmation // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -78,37 +81,36 @@ abstract class _$$_UpdatePasswordCopyWith<$Res>
           _$_UpdatePassword value, $Res Function(_$_UpdatePassword) then) =
       __$$_UpdatePasswordCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String currentPassword, String password, String passwordConfirmation});
 }
 
 /// @nodoc
 class __$$_UpdatePasswordCopyWithImpl<$Res>
-    extends _$UpdatePasswordCopyWithImpl<$Res>
+    extends _$UpdatePasswordCopyWithImpl<$Res, _$_UpdatePassword>
     implements _$$_UpdatePasswordCopyWith<$Res> {
   __$$_UpdatePasswordCopyWithImpl(
       _$_UpdatePassword _value, $Res Function(_$_UpdatePassword) _then)
-      : super(_value, (v) => _then(v as _$_UpdatePassword));
+      : super(_value, _then);
 
-  @override
-  _$_UpdatePassword get _value => super._value as _$_UpdatePassword;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currentPassword = freezed,
-    Object? password = freezed,
-    Object? passwordConfirmation = freezed,
+    Object? currentPassword = null,
+    Object? password = null,
+    Object? passwordConfirmation = null,
   }) {
     return _then(_$_UpdatePassword(
-      currentPassword: currentPassword == freezed
+      currentPassword: null == currentPassword
           ? _value.currentPassword
           : currentPassword // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      passwordConfirmation: passwordConfirmation == freezed
+      passwordConfirmation: null == passwordConfirmation
           ? _value.passwordConfirmation
           : passwordConfirmation // ignore: cast_nullable_to_non_nullable
               as String,
@@ -144,29 +146,30 @@ class _$_UpdatePassword implements _UpdatePassword {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpdatePassword &&
-            const DeepCollectionEquality()
-                .equals(other.currentPassword, currentPassword) &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality()
-                .equals(other.passwordConfirmation, passwordConfirmation));
+            (identical(other.currentPassword, currentPassword) ||
+                other.currentPassword == currentPassword) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.passwordConfirmation, passwordConfirmation) ||
+                other.passwordConfirmation == passwordConfirmation));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(currentPassword),
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(passwordConfirmation));
+  int get hashCode =>
+      Object.hash(runtimeType, currentPassword, password, passwordConfirmation);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UpdatePasswordCopyWith<_$_UpdatePassword> get copyWith =>
       __$$_UpdatePasswordCopyWithImpl<_$_UpdatePassword>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UpdatePasswordToJson(this);
+    return _$$_UpdatePasswordToJson(
+      this,
+    );
   }
 }
 
@@ -180,11 +183,11 @@ abstract class _UpdatePassword implements UpdatePassword {
       _$_UpdatePassword.fromJson;
 
   @override
-  String get currentPassword => throw _privateConstructorUsedError;
+  String get currentPassword;
   @override
-  String get password => throw _privateConstructorUsedError;
+  String get password;
   @override
-  String get passwordConfirmation => throw _privateConstructorUsedError;
+  String get passwordConfirmation;
   @override
   @JsonKey(ignore: true)
   _$$_UpdatePasswordCopyWith<_$_UpdatePassword> get copyWith =>

@@ -33,33 +33,37 @@ mixin _$UpdateEmail {
 abstract class $UpdateEmailCopyWith<$Res> {
   factory $UpdateEmailCopyWith(
           UpdateEmail value, $Res Function(UpdateEmail) then) =
-      _$UpdateEmailCopyWithImpl<$Res>;
+      _$UpdateEmailCopyWithImpl<$Res, UpdateEmail>;
+  @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class _$UpdateEmailCopyWithImpl<$Res> implements $UpdateEmailCopyWith<$Res> {
+class _$UpdateEmailCopyWithImpl<$Res, $Val extends UpdateEmail>
+    implements $UpdateEmailCopyWith<$Res> {
   _$UpdateEmailCopyWithImpl(this._value, this._then);
 
-  final UpdateEmail _value;
   // ignore: unused_field
-  final $Res Function(UpdateEmail) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
-    Object? password = freezed,
+    Object? email = null,
+    Object? password = null,
   }) {
     return _then(_value.copyWith(
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -70,30 +74,30 @@ abstract class _$$_UpdateEmailCopyWith<$Res>
           _$_UpdateEmail value, $Res Function(_$_UpdateEmail) then) =
       __$$_UpdateEmailCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class __$$_UpdateEmailCopyWithImpl<$Res> extends _$UpdateEmailCopyWithImpl<$Res>
+class __$$_UpdateEmailCopyWithImpl<$Res>
+    extends _$UpdateEmailCopyWithImpl<$Res, _$_UpdateEmail>
     implements _$$_UpdateEmailCopyWith<$Res> {
   __$$_UpdateEmailCopyWithImpl(
       _$_UpdateEmail _value, $Res Function(_$_UpdateEmail) _then)
-      : super(_value, (v) => _then(v as _$_UpdateEmail));
+      : super(_value, _then);
 
-  @override
-  _$_UpdateEmail get _value => super._value as _$_UpdateEmail;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
-    Object? password = freezed,
+    Object? email = null,
+    Object? password = null,
   }) {
     return _then(_$_UpdateEmail(
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
@@ -124,25 +128,26 @@ class _$_UpdateEmail implements _UpdateEmail {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpdateEmail &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.password, password));
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(password));
+  int get hashCode => Object.hash(runtimeType, email, password);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UpdateEmailCopyWith<_$_UpdateEmail> get copyWith =>
       __$$_UpdateEmailCopyWithImpl<_$_UpdateEmail>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UpdateEmailToJson(this);
+    return _$$_UpdateEmailToJson(
+      this,
+    );
   }
 }
 
@@ -155,9 +160,9 @@ abstract class _UpdateEmail implements UpdateEmail {
       _$_UpdateEmail.fromJson;
 
   @override
-  String get email => throw _privateConstructorUsedError;
+  String get email;
   @override
-  String get password => throw _privateConstructorUsedError;
+  String get password;
   @override
   @JsonKey(ignore: true)
   _$$_UpdateEmailCopyWith<_$_UpdateEmail> get copyWith =>

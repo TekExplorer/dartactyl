@@ -16,7 +16,7 @@ _$_WebsocketRecievedModel _$$_WebsocketRecievedModelFromJson(
 Map<String, dynamic> _$$_WebsocketRecievedModelToJson(
         _$_WebsocketRecievedModel instance) =>
     <String, dynamic>{
-      'event': _$WebsocketRecievedModelEventEnumMap[instance.event],
+      'event': _$WebsocketRecievedModelEventEnumMap[instance.event]!,
       'args': instance.args,
     };
 
@@ -42,7 +42,7 @@ _$_WebsocketSendModel _$$_WebsocketSendModelFromJson(
 Map<String, dynamic> _$$_WebsocketSendModelToJson(
         _$_WebsocketSendModel instance) =>
     <String, dynamic>{
-      'event': _$WebsocketSendModelEventEnumMap[instance.event],
+      'event': _$WebsocketSendModelEventEnumMap[instance.event]!,
       'args': instance.args,
     };
 

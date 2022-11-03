@@ -37,7 +37,8 @@ mixin _$Allocation {
 abstract class $AllocationCopyWith<$Res> {
   factory $AllocationCopyWith(
           Allocation value, $Res Function(Allocation) then) =
-      _$AllocationCopyWithImpl<$Res>;
+      _$AllocationCopyWithImpl<$Res, Allocation>;
+  @useResult
   $Res call(
       {int id,
       String ip,
@@ -48,48 +49,51 @@ abstract class $AllocationCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AllocationCopyWithImpl<$Res> implements $AllocationCopyWith<$Res> {
+class _$AllocationCopyWithImpl<$Res, $Val extends Allocation>
+    implements $AllocationCopyWith<$Res> {
   _$AllocationCopyWithImpl(this._value, this._then);
 
-  final Allocation _value;
   // ignore: unused_field
-  final $Res Function(Allocation) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? ip = freezed,
+    Object? id = null,
+    Object? ip = null,
     Object? ipAlias = freezed,
-    Object? port = freezed,
+    Object? port = null,
     Object? notes = freezed,
-    Object? isDefault = freezed,
+    Object? isDefault = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      ip: ip == freezed
+      ip: null == ip
           ? _value.ip
           : ip // ignore: cast_nullable_to_non_nullable
               as String,
-      ipAlias: ipAlias == freezed
+      ipAlias: freezed == ipAlias
           ? _value.ipAlias
           : ipAlias // ignore: cast_nullable_to_non_nullable
               as String?,
-      port: port == freezed
+      port: null == port
           ? _value.port
           : port // ignore: cast_nullable_to_non_nullable
               as int,
-      notes: notes == freezed
+      notes: freezed == notes
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
               as String?,
-      isDefault: isDefault == freezed
+      isDefault: null == isDefault
           ? _value.isDefault
           : isDefault // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -100,6 +104,7 @@ abstract class _$$_AllocationCopyWith<$Res>
           _$_Allocation value, $Res Function(_$_Allocation) then) =
       __$$_AllocationCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int id,
       String ip,
@@ -110,46 +115,45 @@ abstract class _$$_AllocationCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AllocationCopyWithImpl<$Res> extends _$AllocationCopyWithImpl<$Res>
+class __$$_AllocationCopyWithImpl<$Res>
+    extends _$AllocationCopyWithImpl<$Res, _$_Allocation>
     implements _$$_AllocationCopyWith<$Res> {
   __$$_AllocationCopyWithImpl(
       _$_Allocation _value, $Res Function(_$_Allocation) _then)
-      : super(_value, (v) => _then(v as _$_Allocation));
+      : super(_value, _then);
 
-  @override
-  _$_Allocation get _value => super._value as _$_Allocation;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? ip = freezed,
+    Object? id = null,
+    Object? ip = null,
     Object? ipAlias = freezed,
-    Object? port = freezed,
+    Object? port = null,
     Object? notes = freezed,
-    Object? isDefault = freezed,
+    Object? isDefault = null,
   }) {
     return _then(_$_Allocation(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      ip: ip == freezed
+      ip: null == ip
           ? _value.ip
           : ip // ignore: cast_nullable_to_non_nullable
               as String,
-      ipAlias: ipAlias == freezed
+      ipAlias: freezed == ipAlias
           ? _value.ipAlias
           : ipAlias // ignore: cast_nullable_to_non_nullable
               as String?,
-      port: port == freezed
+      port: null == port
           ? _value.port
           : port // ignore: cast_nullable_to_non_nullable
               as int,
-      notes: notes == freezed
+      notes: freezed == notes
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
               as String?,
-      isDefault: isDefault == freezed
+      isDefault: null == isDefault
           ? _value.isDefault
           : isDefault // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -195,33 +199,31 @@ class _$_Allocation extends _Allocation {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Allocation &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.ip, ip) &&
-            const DeepCollectionEquality().equals(other.ipAlias, ipAlias) &&
-            const DeepCollectionEquality().equals(other.port, port) &&
-            const DeepCollectionEquality().equals(other.notes, notes) &&
-            const DeepCollectionEquality().equals(other.isDefault, isDefault));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.ip, ip) || other.ip == ip) &&
+            (identical(other.ipAlias, ipAlias) || other.ipAlias == ipAlias) &&
+            (identical(other.port, port) || other.port == port) &&
+            (identical(other.notes, notes) || other.notes == notes) &&
+            (identical(other.isDefault, isDefault) ||
+                other.isDefault == isDefault));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(ip),
-      const DeepCollectionEquality().hash(ipAlias),
-      const DeepCollectionEquality().hash(port),
-      const DeepCollectionEquality().hash(notes),
-      const DeepCollectionEquality().hash(isDefault));
+  int get hashCode =>
+      Object.hash(runtimeType, id, ip, ipAlias, port, notes, isDefault);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AllocationCopyWith<_$_Allocation> get copyWith =>
       __$$_AllocationCopyWithImpl<_$_Allocation>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AllocationToJson(this);
+    return _$$_AllocationToJson(
+      this,
+    );
   }
 }
 
@@ -239,17 +241,17 @@ abstract class _Allocation extends Allocation {
       _$_Allocation.fromJson;
 
   @override
-  int get id => throw _privateConstructorUsedError;
+  int get id;
   @override
-  String get ip => throw _privateConstructorUsedError;
+  String get ip;
   @override
-  String? get ipAlias => throw _privateConstructorUsedError;
+  String? get ipAlias;
   @override
-  int get port => throw _privateConstructorUsedError;
+  int get port;
   @override
-  String? get notes => throw _privateConstructorUsedError;
+  String? get notes;
   @override
-  bool get isDefault => throw _privateConstructorUsedError;
+  bool get isDefault;
   @override
   @JsonKey(ignore: true)
   _$$_AllocationCopyWith<_$_Allocation> get copyWith =>

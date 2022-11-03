@@ -38,7 +38,8 @@ mixin _$EggVariable {
 abstract class $EggVariableCopyWith<$Res> {
   factory $EggVariableCopyWith(
           EggVariable value, $Res Function(EggVariable) then) =
-      _$EggVariableCopyWithImpl<$Res>;
+      _$EggVariableCopyWithImpl<$Res, EggVariable>;
+  @useResult
   $Res call(
       {String name,
       String description,
@@ -50,53 +51,56 @@ abstract class $EggVariableCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EggVariableCopyWithImpl<$Res> implements $EggVariableCopyWith<$Res> {
+class _$EggVariableCopyWithImpl<$Res, $Val extends EggVariable>
+    implements $EggVariableCopyWith<$Res> {
   _$EggVariableCopyWithImpl(this._value, this._then);
 
-  final EggVariable _value;
   // ignore: unused_field
-  final $Res Function(EggVariable) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? description = freezed,
-    Object? envVariable = freezed,
-    Object? defaultValue = freezed,
+    Object? name = null,
+    Object? description = null,
+    Object? envVariable = null,
+    Object? defaultValue = null,
     Object? serverValue = freezed,
-    Object? isEditable = freezed,
-    Object? rules = freezed,
+    Object? isEditable = null,
+    Object? rules = null,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      envVariable: envVariable == freezed
+      envVariable: null == envVariable
           ? _value.envVariable
           : envVariable // ignore: cast_nullable_to_non_nullable
               as String,
-      defaultValue: defaultValue == freezed
+      defaultValue: null == defaultValue
           ? _value.defaultValue
           : defaultValue // ignore: cast_nullable_to_non_nullable
               as String,
-      serverValue: serverValue == freezed
+      serverValue: freezed == serverValue
           ? _value.serverValue
           : serverValue // ignore: cast_nullable_to_non_nullable
               as String?,
-      isEditable: isEditable == freezed
+      isEditable: null == isEditable
           ? _value.isEditable
           : isEditable // ignore: cast_nullable_to_non_nullable
               as bool,
-      rules: rules == freezed
+      rules: null == rules
           ? _value.rules
           : rules // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -107,6 +111,7 @@ abstract class _$$_EggVariableCopyWith<$Res>
           _$_EggVariable value, $Res Function(_$_EggVariable) then) =
       __$$_EggVariableCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String name,
       String description,
@@ -118,51 +123,50 @@ abstract class _$$_EggVariableCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EggVariableCopyWithImpl<$Res> extends _$EggVariableCopyWithImpl<$Res>
+class __$$_EggVariableCopyWithImpl<$Res>
+    extends _$EggVariableCopyWithImpl<$Res, _$_EggVariable>
     implements _$$_EggVariableCopyWith<$Res> {
   __$$_EggVariableCopyWithImpl(
       _$_EggVariable _value, $Res Function(_$_EggVariable) _then)
-      : super(_value, (v) => _then(v as _$_EggVariable));
+      : super(_value, _then);
 
-  @override
-  _$_EggVariable get _value => super._value as _$_EggVariable;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? description = freezed,
-    Object? envVariable = freezed,
-    Object? defaultValue = freezed,
+    Object? name = null,
+    Object? description = null,
+    Object? envVariable = null,
+    Object? defaultValue = null,
     Object? serverValue = freezed,
-    Object? isEditable = freezed,
-    Object? rules = freezed,
+    Object? isEditable = null,
+    Object? rules = null,
   }) {
     return _then(_$_EggVariable(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      envVariable: envVariable == freezed
+      envVariable: null == envVariable
           ? _value.envVariable
           : envVariable // ignore: cast_nullable_to_non_nullable
               as String,
-      defaultValue: defaultValue == freezed
+      defaultValue: null == defaultValue
           ? _value.defaultValue
           : defaultValue // ignore: cast_nullable_to_non_nullable
               as String,
-      serverValue: serverValue == freezed
+      serverValue: freezed == serverValue
           ? _value.serverValue
           : serverValue // ignore: cast_nullable_to_non_nullable
               as String?,
-      isEditable: isEditable == freezed
+      isEditable: null == isEditable
           ? _value.isEditable
           : isEditable // ignore: cast_nullable_to_non_nullable
               as bool,
-      rules: rules == freezed
+      rules: null == rules
           ? _value.rules
           : rules // ignore: cast_nullable_to_non_nullable
               as String,
@@ -211,40 +215,36 @@ class _$_EggVariable extends _EggVariable {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EggVariable &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            const DeepCollectionEquality()
-                .equals(other.envVariable, envVariable) &&
-            const DeepCollectionEquality()
-                .equals(other.defaultValue, defaultValue) &&
-            const DeepCollectionEquality()
-                .equals(other.serverValue, serverValue) &&
-            const DeepCollectionEquality()
-                .equals(other.isEditable, isEditable) &&
-            const DeepCollectionEquality().equals(other.rules, rules));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.envVariable, envVariable) ||
+                other.envVariable == envVariable) &&
+            (identical(other.defaultValue, defaultValue) ||
+                other.defaultValue == defaultValue) &&
+            (identical(other.serverValue, serverValue) ||
+                other.serverValue == serverValue) &&
+            (identical(other.isEditable, isEditable) ||
+                other.isEditable == isEditable) &&
+            (identical(other.rules, rules) || other.rules == rules));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(envVariable),
-      const DeepCollectionEquality().hash(defaultValue),
-      const DeepCollectionEquality().hash(serverValue),
-      const DeepCollectionEquality().hash(isEditable),
-      const DeepCollectionEquality().hash(rules));
+  int get hashCode => Object.hash(runtimeType, name, description, envVariable,
+      defaultValue, serverValue, isEditable, rules);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EggVariableCopyWith<_$_EggVariable> get copyWith =>
       __$$_EggVariableCopyWithImpl<_$_EggVariable>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EggVariableToJson(this);
+    return _$$_EggVariableToJson(
+      this,
+    );
   }
 }
 
@@ -263,19 +263,19 @@ abstract class _EggVariable extends EggVariable {
       _$_EggVariable.fromJson;
 
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
-  String get envVariable => throw _privateConstructorUsedError;
+  String get envVariable;
   @override
-  String get defaultValue => throw _privateConstructorUsedError;
+  String get defaultValue;
   @override
-  String? get serverValue => throw _privateConstructorUsedError;
+  String? get serverValue;
   @override
-  bool get isEditable => throw _privateConstructorUsedError;
+  bool get isEditable;
   @override
-  String get rules => throw _privateConstructorUsedError;
+  String get rules;
   @override
   @JsonKey(ignore: true)
   _$$_EggVariableCopyWith<_$_EggVariable> get copyWith =>

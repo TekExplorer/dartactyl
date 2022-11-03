@@ -32,33 +32,37 @@ mixin _$KeyValue {
 /// @nodoc
 abstract class $KeyValueCopyWith<$Res> {
   factory $KeyValueCopyWith(KeyValue value, $Res Function(KeyValue) then) =
-      _$KeyValueCopyWithImpl<$Res>;
+      _$KeyValueCopyWithImpl<$Res, KeyValue>;
+  @useResult
   $Res call({String key, String value});
 }
 
 /// @nodoc
-class _$KeyValueCopyWithImpl<$Res> implements $KeyValueCopyWith<$Res> {
+class _$KeyValueCopyWithImpl<$Res, $Val extends KeyValue>
+    implements $KeyValueCopyWith<$Res> {
   _$KeyValueCopyWithImpl(this._value, this._then);
 
-  final KeyValue _value;
   // ignore: unused_field
-  final $Res Function(KeyValue) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? key = freezed,
-    Object? value = freezed,
+    Object? key = null,
+    Object? value = null,
   }) {
     return _then(_value.copyWith(
-      key: key == freezed
+      key: null == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as String,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -68,30 +72,30 @@ abstract class _$$_KeyValueCopyWith<$Res> implements $KeyValueCopyWith<$Res> {
           _$_KeyValue value, $Res Function(_$_KeyValue) then) =
       __$$_KeyValueCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String key, String value});
 }
 
 /// @nodoc
-class __$$_KeyValueCopyWithImpl<$Res> extends _$KeyValueCopyWithImpl<$Res>
+class __$$_KeyValueCopyWithImpl<$Res>
+    extends _$KeyValueCopyWithImpl<$Res, _$_KeyValue>
     implements _$$_KeyValueCopyWith<$Res> {
   __$$_KeyValueCopyWithImpl(
       _$_KeyValue _value, $Res Function(_$_KeyValue) _then)
-      : super(_value, (v) => _then(v as _$_KeyValue));
+      : super(_value, _then);
 
-  @override
-  _$_KeyValue get _value => super._value as _$_KeyValue;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? key = freezed,
-    Object? value = freezed,
+    Object? key = null,
+    Object? value = null,
   }) {
     return _then(_$_KeyValue(
-      key: key == freezed
+      key: null == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as String,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
@@ -122,25 +126,25 @@ class _$_KeyValue implements _KeyValue {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_KeyValue &&
-            const DeepCollectionEquality().equals(other.key, key) &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.key, key) || other.key == key) &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(key),
-      const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, key, value);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_KeyValueCopyWith<_$_KeyValue> get copyWith =>
       __$$_KeyValueCopyWithImpl<_$_KeyValue>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_KeyValueToJson(this);
+    return _$$_KeyValueToJson(
+      this,
+    );
   }
 }
 
@@ -151,9 +155,9 @@ abstract class _KeyValue implements KeyValue {
   factory _KeyValue.fromJson(Map<String, dynamic> json) = _$_KeyValue.fromJson;
 
   @override
-  String get key => throw _privateConstructorUsedError;
+  String get key;
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_KeyValueCopyWith<_$_KeyValue> get copyWith =>

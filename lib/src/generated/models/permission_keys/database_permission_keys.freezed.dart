@@ -37,7 +37,8 @@ mixin _$DatabasePermissionKeys {
 abstract class $DatabasePermissionKeysCopyWith<$Res> {
   factory $DatabasePermissionKeysCopyWith(DatabasePermissionKeys value,
           $Res Function(DatabasePermissionKeys) then) =
-      _$DatabasePermissionKeysCopyWithImpl<$Res>;
+      _$DatabasePermissionKeysCopyWithImpl<$Res, DatabasePermissionKeys>;
+  @useResult
   $Res call(
       {String create,
       String read,
@@ -47,44 +48,47 @@ abstract class $DatabasePermissionKeysCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DatabasePermissionKeysCopyWithImpl<$Res>
+class _$DatabasePermissionKeysCopyWithImpl<$Res,
+        $Val extends DatabasePermissionKeys>
     implements $DatabasePermissionKeysCopyWith<$Res> {
   _$DatabasePermissionKeysCopyWithImpl(this._value, this._then);
 
-  final DatabasePermissionKeys _value;
   // ignore: unused_field
-  final $Res Function(DatabasePermissionKeys) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? create = freezed,
-    Object? read = freezed,
-    Object? update = freezed,
-    Object? delete = freezed,
-    Object? viewPassword = freezed,
+    Object? create = null,
+    Object? read = null,
+    Object? update = null,
+    Object? delete = null,
+    Object? viewPassword = null,
   }) {
     return _then(_value.copyWith(
-      create: create == freezed
+      create: null == create
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
               as String,
-      read: read == freezed
+      read: null == read
           ? _value.read
           : read // ignore: cast_nullable_to_non_nullable
               as String,
-      update: update == freezed
+      update: null == update
           ? _value.update
           : update // ignore: cast_nullable_to_non_nullable
               as String,
-      delete: delete == freezed
+      delete: null == delete
           ? _value.delete
           : delete // ignore: cast_nullable_to_non_nullable
               as String,
-      viewPassword: viewPassword == freezed
+      viewPassword: null == viewPassword
           ? _value.viewPassword
           : viewPassword // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -95,6 +99,7 @@ abstract class _$$_DatabasePermissionKeysCopyWith<$Res>
           $Res Function(_$_DatabasePermissionKeys) then) =
       __$$_DatabasePermissionKeysCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String create,
       String read,
@@ -105,42 +110,40 @@ abstract class _$$_DatabasePermissionKeysCopyWith<$Res>
 
 /// @nodoc
 class __$$_DatabasePermissionKeysCopyWithImpl<$Res>
-    extends _$DatabasePermissionKeysCopyWithImpl<$Res>
+    extends _$DatabasePermissionKeysCopyWithImpl<$Res,
+        _$_DatabasePermissionKeys>
     implements _$$_DatabasePermissionKeysCopyWith<$Res> {
   __$$_DatabasePermissionKeysCopyWithImpl(_$_DatabasePermissionKeys _value,
       $Res Function(_$_DatabasePermissionKeys) _then)
-      : super(_value, (v) => _then(v as _$_DatabasePermissionKeys));
+      : super(_value, _then);
 
-  @override
-  _$_DatabasePermissionKeys get _value =>
-      super._value as _$_DatabasePermissionKeys;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? create = freezed,
-    Object? read = freezed,
-    Object? update = freezed,
-    Object? delete = freezed,
-    Object? viewPassword = freezed,
+    Object? create = null,
+    Object? read = null,
+    Object? update = null,
+    Object? delete = null,
+    Object? viewPassword = null,
   }) {
     return _then(_$_DatabasePermissionKeys(
-      create: create == freezed
+      create: null == create
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
               as String,
-      read: read == freezed
+      read: null == read
           ? _value.read
           : read // ignore: cast_nullable_to_non_nullable
               as String,
-      update: update == freezed
+      update: null == update
           ? _value.update
           : update // ignore: cast_nullable_to_non_nullable
               as String,
-      delete: delete == freezed
+      delete: null == delete
           ? _value.delete
           : delete // ignore: cast_nullable_to_non_nullable
               as String,
-      viewPassword: viewPassword == freezed
+      viewPassword: null == viewPassword
           ? _value.viewPassword
           : viewPassword // ignore: cast_nullable_to_non_nullable
               as String,
@@ -183,33 +186,31 @@ class _$_DatabasePermissionKeys extends _DatabasePermissionKeys {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DatabasePermissionKeys &&
-            const DeepCollectionEquality().equals(other.create, create) &&
-            const DeepCollectionEquality().equals(other.read, read) &&
-            const DeepCollectionEquality().equals(other.update, update) &&
-            const DeepCollectionEquality().equals(other.delete, delete) &&
-            const DeepCollectionEquality()
-                .equals(other.viewPassword, viewPassword));
+            (identical(other.create, create) || other.create == create) &&
+            (identical(other.read, read) || other.read == read) &&
+            (identical(other.update, update) || other.update == update) &&
+            (identical(other.delete, delete) || other.delete == delete) &&
+            (identical(other.viewPassword, viewPassword) ||
+                other.viewPassword == viewPassword));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(create),
-      const DeepCollectionEquality().hash(read),
-      const DeepCollectionEquality().hash(update),
-      const DeepCollectionEquality().hash(delete),
-      const DeepCollectionEquality().hash(viewPassword));
+  int get hashCode =>
+      Object.hash(runtimeType, create, read, update, delete, viewPassword);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DatabasePermissionKeysCopyWith<_$_DatabasePermissionKeys> get copyWith =>
       __$$_DatabasePermissionKeysCopyWithImpl<_$_DatabasePermissionKeys>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DatabasePermissionKeysToJson(this);
+    return _$$_DatabasePermissionKeysToJson(
+      this,
+    );
   }
 }
 
@@ -226,15 +227,15 @@ abstract class _DatabasePermissionKeys extends DatabasePermissionKeys {
       _$_DatabasePermissionKeys.fromJson;
 
   @override
-  String get create => throw _privateConstructorUsedError;
+  String get create;
   @override
-  String get read => throw _privateConstructorUsedError;
+  String get read;
   @override
-  String get update => throw _privateConstructorUsedError;
+  String get update;
   @override
-  String get delete => throw _privateConstructorUsedError;
+  String get delete;
   @override
-  String get viewPassword => throw _privateConstructorUsedError;
+  String get viewPassword;
   @override
   @JsonKey(ignore: true)
   _$$_DatabasePermissionKeysCopyWith<_$_DatabasePermissionKeys> get copyWith =>

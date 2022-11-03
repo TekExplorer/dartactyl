@@ -36,7 +36,8 @@ mixin _$PullFileBody {
 abstract class $PullFileBodyCopyWith<$Res> {
   factory $PullFileBodyCopyWith(
           PullFileBody value, $Res Function(PullFileBody) then) =
-      _$PullFileBodyCopyWithImpl<$Res>;
+      _$PullFileBodyCopyWithImpl<$Res, PullFileBody>;
+  @useResult
   $Res call(
       {Uri url,
       String? directory,
@@ -46,43 +47,46 @@ abstract class $PullFileBodyCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PullFileBodyCopyWithImpl<$Res> implements $PullFileBodyCopyWith<$Res> {
+class _$PullFileBodyCopyWithImpl<$Res, $Val extends PullFileBody>
+    implements $PullFileBodyCopyWith<$Res> {
   _$PullFileBodyCopyWithImpl(this._value, this._then);
 
-  final PullFileBody _value;
   // ignore: unused_field
-  final $Res Function(PullFileBody) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? url = freezed,
+    Object? url = null,
     Object? directory = freezed,
     Object? filename = freezed,
-    Object? useHeader = freezed,
-    Object? foreground = freezed,
+    Object? useHeader = null,
+    Object? foreground = null,
   }) {
     return _then(_value.copyWith(
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as Uri,
-      directory: directory == freezed
+      directory: freezed == directory
           ? _value.directory
           : directory // ignore: cast_nullable_to_non_nullable
               as String?,
-      filename: filename == freezed
+      filename: freezed == filename
           ? _value.filename
           : filename // ignore: cast_nullable_to_non_nullable
               as String?,
-      useHeader: useHeader == freezed
+      useHeader: null == useHeader
           ? _value.useHeader
           : useHeader // ignore: cast_nullable_to_non_nullable
               as bool,
-      foreground: foreground == freezed
+      foreground: null == foreground
           ? _value.foreground
           : foreground // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -93,6 +97,7 @@ abstract class _$$_PullFileBodyCopyWith<$Res>
           _$_PullFileBody value, $Res Function(_$_PullFileBody) then) =
       __$$_PullFileBodyCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Uri url,
       String? directory,
@@ -103,41 +108,39 @@ abstract class _$$_PullFileBodyCopyWith<$Res>
 
 /// @nodoc
 class __$$_PullFileBodyCopyWithImpl<$Res>
-    extends _$PullFileBodyCopyWithImpl<$Res>
+    extends _$PullFileBodyCopyWithImpl<$Res, _$_PullFileBody>
     implements _$$_PullFileBodyCopyWith<$Res> {
   __$$_PullFileBodyCopyWithImpl(
       _$_PullFileBody _value, $Res Function(_$_PullFileBody) _then)
-      : super(_value, (v) => _then(v as _$_PullFileBody));
+      : super(_value, _then);
 
-  @override
-  _$_PullFileBody get _value => super._value as _$_PullFileBody;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? url = freezed,
+    Object? url = null,
     Object? directory = freezed,
     Object? filename = freezed,
-    Object? useHeader = freezed,
-    Object? foreground = freezed,
+    Object? useHeader = null,
+    Object? foreground = null,
   }) {
     return _then(_$_PullFileBody(
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as Uri,
-      directory: directory == freezed
+      directory: freezed == directory
           ? _value.directory
           : directory // ignore: cast_nullable_to_non_nullable
               as String?,
-      filename: filename == freezed
+      filename: freezed == filename
           ? _value.filename
           : filename // ignore: cast_nullable_to_non_nullable
               as String?,
-      useHeader: useHeader == freezed
+      useHeader: null == useHeader
           ? _value.useHeader
           : useHeader // ignore: cast_nullable_to_non_nullable
               as bool,
-      foreground: foreground == freezed
+      foreground: null == foreground
           ? _value.foreground
           : foreground // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -180,32 +183,33 @@ class _$_PullFileBody extends _PullFileBody {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PullFileBody &&
-            const DeepCollectionEquality().equals(other.url, url) &&
-            const DeepCollectionEquality().equals(other.directory, directory) &&
-            const DeepCollectionEquality().equals(other.filename, filename) &&
-            const DeepCollectionEquality().equals(other.useHeader, useHeader) &&
-            const DeepCollectionEquality()
-                .equals(other.foreground, foreground));
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.directory, directory) ||
+                other.directory == directory) &&
+            (identical(other.filename, filename) ||
+                other.filename == filename) &&
+            (identical(other.useHeader, useHeader) ||
+                other.useHeader == useHeader) &&
+            (identical(other.foreground, foreground) ||
+                other.foreground == foreground));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(directory),
-      const DeepCollectionEquality().hash(filename),
-      const DeepCollectionEquality().hash(useHeader),
-      const DeepCollectionEquality().hash(foreground));
+  int get hashCode =>
+      Object.hash(runtimeType, url, directory, filename, useHeader, foreground);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PullFileBodyCopyWith<_$_PullFileBody> get copyWith =>
       __$$_PullFileBodyCopyWithImpl<_$_PullFileBody>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PullFileBodyToJson(this);
+    return _$$_PullFileBodyToJson(
+      this,
+    );
   }
 }
 
@@ -222,15 +226,15 @@ abstract class _PullFileBody extends PullFileBody {
       _$_PullFileBody.fromJson;
 
   @override
-  Uri get url => throw _privateConstructorUsedError;
+  Uri get url;
   @override
-  String? get directory => throw _privateConstructorUsedError;
+  String? get directory;
   @override
-  String? get filename => throw _privateConstructorUsedError;
+  String? get filename;
   @override
-  bool get useHeader => throw _privateConstructorUsedError;
+  bool get useHeader;
   @override
-  bool get foreground => throw _privateConstructorUsedError;
+  bool get foreground;
   @override
   @JsonKey(ignore: true)
   _$$_PullFileBodyCopyWith<_$_PullFileBody> get copyWith =>

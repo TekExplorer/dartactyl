@@ -16,7 +16,7 @@ _$_PteroError _$$_PteroErrorFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_PteroErrorToJson(_$_PteroError instance) =>
     <String, dynamic>{
-      'code': _$PteroErrorCodeEnumMap[instance.code],
+      'code': _$PteroErrorCodeEnumMap[instance.code]!,
       'status': instance.status,
       'detail': instance.detail,
     };

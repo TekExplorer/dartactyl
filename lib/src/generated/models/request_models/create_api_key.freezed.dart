@@ -33,33 +33,37 @@ mixin _$CreateApiKey {
 abstract class $CreateApiKeyCopyWith<$Res> {
   factory $CreateApiKeyCopyWith(
           CreateApiKey value, $Res Function(CreateApiKey) then) =
-      _$CreateApiKeyCopyWithImpl<$Res>;
+      _$CreateApiKeyCopyWithImpl<$Res, CreateApiKey>;
+  @useResult
   $Res call({String description, List<String> allowedIps});
 }
 
 /// @nodoc
-class _$CreateApiKeyCopyWithImpl<$Res> implements $CreateApiKeyCopyWith<$Res> {
+class _$CreateApiKeyCopyWithImpl<$Res, $Val extends CreateApiKey>
+    implements $CreateApiKeyCopyWith<$Res> {
   _$CreateApiKeyCopyWithImpl(this._value, this._then);
 
-  final CreateApiKey _value;
   // ignore: unused_field
-  final $Res Function(CreateApiKey) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? description = freezed,
-    Object? allowedIps = freezed,
+    Object? description = null,
+    Object? allowedIps = null,
   }) {
     return _then(_value.copyWith(
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      allowedIps: allowedIps == freezed
+      allowedIps: null == allowedIps
           ? _value.allowedIps
           : allowedIps // ignore: cast_nullable_to_non_nullable
               as List<String>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -70,31 +74,30 @@ abstract class _$$_CreateApiKeyCopyWith<$Res>
           _$_CreateApiKey value, $Res Function(_$_CreateApiKey) then) =
       __$$_CreateApiKeyCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String description, List<String> allowedIps});
 }
 
 /// @nodoc
 class __$$_CreateApiKeyCopyWithImpl<$Res>
-    extends _$CreateApiKeyCopyWithImpl<$Res>
+    extends _$CreateApiKeyCopyWithImpl<$Res, _$_CreateApiKey>
     implements _$$_CreateApiKeyCopyWith<$Res> {
   __$$_CreateApiKeyCopyWithImpl(
       _$_CreateApiKey _value, $Res Function(_$_CreateApiKey) _then)
-      : super(_value, (v) => _then(v as _$_CreateApiKey));
+      : super(_value, _then);
 
-  @override
-  _$_CreateApiKey get _value => super._value as _$_CreateApiKey;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? description = freezed,
-    Object? allowedIps = freezed,
+    Object? description = null,
+    Object? allowedIps = null,
   }) {
     return _then(_$_CreateApiKey(
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      allowedIps: allowedIps == freezed
+      allowedIps: null == allowedIps
           ? _value._allowedIps
           : allowedIps // ignore: cast_nullable_to_non_nullable
               as List<String>,
@@ -131,27 +134,28 @@ class _$_CreateApiKey implements _CreateApiKey {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateApiKey &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             const DeepCollectionEquality()
                 .equals(other._allowedIps, _allowedIps));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(description),
+  int get hashCode => Object.hash(runtimeType, description,
       const DeepCollectionEquality().hash(_allowedIps));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CreateApiKeyCopyWith<_$_CreateApiKey> get copyWith =>
       __$$_CreateApiKeyCopyWithImpl<_$_CreateApiKey>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CreateApiKeyToJson(this);
+    return _$$_CreateApiKeyToJson(
+      this,
+    );
   }
 }
 
@@ -164,9 +168,9 @@ abstract class _CreateApiKey implements CreateApiKey {
       _$_CreateApiKey.fromJson;
 
   @override
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
-  List<String> get allowedIps => throw _privateConstructorUsedError;
+  List<String> get allowedIps;
   @override
   @JsonKey(ignore: true)
   _$$_CreateApiKeyCopyWith<_$_CreateApiKey> get copyWith =>

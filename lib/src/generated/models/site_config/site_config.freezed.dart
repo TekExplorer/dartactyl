@@ -32,33 +32,37 @@ mixin _$Recaptcha {
 /// @nodoc
 abstract class $RecaptchaCopyWith<$Res> {
   factory $RecaptchaCopyWith(Recaptcha value, $Res Function(Recaptcha) then) =
-      _$RecaptchaCopyWithImpl<$Res>;
+      _$RecaptchaCopyWithImpl<$Res, Recaptcha>;
+  @useResult
   $Res call({bool enabled, String? siteKey});
 }
 
 /// @nodoc
-class _$RecaptchaCopyWithImpl<$Res> implements $RecaptchaCopyWith<$Res> {
+class _$RecaptchaCopyWithImpl<$Res, $Val extends Recaptcha>
+    implements $RecaptchaCopyWith<$Res> {
   _$RecaptchaCopyWithImpl(this._value, this._then);
 
-  final Recaptcha _value;
   // ignore: unused_field
-  final $Res Function(Recaptcha) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? enabled = freezed,
+    Object? enabled = null,
     Object? siteKey = freezed,
   }) {
     return _then(_value.copyWith(
-      enabled: enabled == freezed
+      enabled: null == enabled
           ? _value.enabled
           : enabled // ignore: cast_nullable_to_non_nullable
               as bool,
-      siteKey: siteKey == freezed
+      siteKey: freezed == siteKey
           ? _value.siteKey
           : siteKey // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -68,30 +72,30 @@ abstract class _$$_RecaptchaCopyWith<$Res> implements $RecaptchaCopyWith<$Res> {
           _$_Recaptcha value, $Res Function(_$_Recaptcha) then) =
       __$$_RecaptchaCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({bool enabled, String? siteKey});
 }
 
 /// @nodoc
-class __$$_RecaptchaCopyWithImpl<$Res> extends _$RecaptchaCopyWithImpl<$Res>
+class __$$_RecaptchaCopyWithImpl<$Res>
+    extends _$RecaptchaCopyWithImpl<$Res, _$_Recaptcha>
     implements _$$_RecaptchaCopyWith<$Res> {
   __$$_RecaptchaCopyWithImpl(
       _$_Recaptcha _value, $Res Function(_$_Recaptcha) _then)
-      : super(_value, (v) => _then(v as _$_Recaptcha));
+      : super(_value, _then);
 
-  @override
-  _$_Recaptcha get _value => super._value as _$_Recaptcha;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? enabled = freezed,
+    Object? enabled = null,
     Object? siteKey = freezed,
   }) {
     return _then(_$_Recaptcha(
-      enabled: enabled == freezed
+      enabled: null == enabled
           ? _value.enabled
           : enabled // ignore: cast_nullable_to_non_nullable
               as bool,
-      siteKey: siteKey == freezed
+      siteKey: freezed == siteKey
           ? _value.siteKey
           : siteKey // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -122,25 +126,25 @@ class _$_Recaptcha extends _Recaptcha {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Recaptcha &&
-            const DeepCollectionEquality().equals(other.enabled, enabled) &&
-            const DeepCollectionEquality().equals(other.siteKey, siteKey));
+            (identical(other.enabled, enabled) || other.enabled == enabled) &&
+            (identical(other.siteKey, siteKey) || other.siteKey == siteKey));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(enabled),
-      const DeepCollectionEquality().hash(siteKey));
+  int get hashCode => Object.hash(runtimeType, enabled, siteKey);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RecaptchaCopyWith<_$_Recaptcha> get copyWith =>
       __$$_RecaptchaCopyWithImpl<_$_Recaptcha>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RecaptchaToJson(this);
+    return _$$_RecaptchaToJson(
+      this,
+    );
   }
 }
 
@@ -153,9 +157,9 @@ abstract class _Recaptcha extends Recaptcha {
       _$_Recaptcha.fromJson;
 
   @override
-  bool get enabled => throw _privateConstructorUsedError;
+  bool get enabled;
   @override
-  String? get siteKey => throw _privateConstructorUsedError;
+  String? get siteKey;
   @override
   @JsonKey(ignore: true)
   _$$_RecaptchaCopyWith<_$_Recaptcha> get copyWith =>
@@ -182,46 +186,51 @@ mixin _$SiteConfig {
 abstract class $SiteConfigCopyWith<$Res> {
   factory $SiteConfigCopyWith(
           SiteConfig value, $Res Function(SiteConfig) then) =
-      _$SiteConfigCopyWithImpl<$Res>;
+      _$SiteConfigCopyWithImpl<$Res, SiteConfig>;
+  @useResult
   $Res call({String name, String locale, Recaptcha recaptcha});
 
   $RecaptchaCopyWith<$Res> get recaptcha;
 }
 
 /// @nodoc
-class _$SiteConfigCopyWithImpl<$Res> implements $SiteConfigCopyWith<$Res> {
+class _$SiteConfigCopyWithImpl<$Res, $Val extends SiteConfig>
+    implements $SiteConfigCopyWith<$Res> {
   _$SiteConfigCopyWithImpl(this._value, this._then);
 
-  final SiteConfig _value;
   // ignore: unused_field
-  final $Res Function(SiteConfig) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? locale = freezed,
-    Object? recaptcha = freezed,
+    Object? name = null,
+    Object? locale = null,
+    Object? recaptcha = null,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      locale: locale == freezed
+      locale: null == locale
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as String,
-      recaptcha: recaptcha == freezed
+      recaptcha: null == recaptcha
           ? _value.recaptcha
           : recaptcha // ignore: cast_nullable_to_non_nullable
               as Recaptcha,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $RecaptchaCopyWith<$Res> get recaptcha {
     return $RecaptchaCopyWith<$Res>(_value.recaptcha, (value) {
-      return _then(_value.copyWith(recaptcha: value));
+      return _then(_value.copyWith(recaptcha: value) as $Val);
     });
   }
 }
@@ -233,6 +242,7 @@ abstract class _$$_SiteConfigCopyWith<$Res>
           _$_SiteConfig value, $Res Function(_$_SiteConfig) then) =
       __$$_SiteConfigCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String name, String locale, Recaptcha recaptcha});
 
   @override
@@ -240,31 +250,30 @@ abstract class _$$_SiteConfigCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SiteConfigCopyWithImpl<$Res> extends _$SiteConfigCopyWithImpl<$Res>
+class __$$_SiteConfigCopyWithImpl<$Res>
+    extends _$SiteConfigCopyWithImpl<$Res, _$_SiteConfig>
     implements _$$_SiteConfigCopyWith<$Res> {
   __$$_SiteConfigCopyWithImpl(
       _$_SiteConfig _value, $Res Function(_$_SiteConfig) _then)
-      : super(_value, (v) => _then(v as _$_SiteConfig));
+      : super(_value, _then);
 
-  @override
-  _$_SiteConfig get _value => super._value as _$_SiteConfig;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? locale = freezed,
-    Object? recaptcha = freezed,
+    Object? name = null,
+    Object? locale = null,
+    Object? recaptcha = null,
   }) {
     return _then(_$_SiteConfig(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      locale: locale == freezed
+      locale: null == locale
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as String,
-      recaptcha: recaptcha == freezed
+      recaptcha: null == recaptcha
           ? _value.recaptcha
           : recaptcha // ignore: cast_nullable_to_non_nullable
               as Recaptcha,
@@ -298,27 +307,27 @@ class _$_SiteConfig implements _SiteConfig {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SiteConfig &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.locale, locale) &&
-            const DeepCollectionEquality().equals(other.recaptcha, recaptcha));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.locale, locale) || other.locale == locale) &&
+            (identical(other.recaptcha, recaptcha) ||
+                other.recaptcha == recaptcha));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(locale),
-      const DeepCollectionEquality().hash(recaptcha));
+  int get hashCode => Object.hash(runtimeType, name, locale, recaptcha);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SiteConfigCopyWith<_$_SiteConfig> get copyWith =>
       __$$_SiteConfigCopyWithImpl<_$_SiteConfig>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SiteConfigToJson(this);
+    return _$$_SiteConfigToJson(
+      this,
+    );
   }
 }
 
@@ -332,11 +341,11 @@ abstract class _SiteConfig implements SiteConfig {
       _$_SiteConfig.fromJson;
 
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String get locale => throw _privateConstructorUsedError;
+  String get locale;
   @override
-  Recaptcha get recaptcha => throw _privateConstructorUsedError;
+  Recaptcha get recaptcha;
   @override
   @JsonKey(ignore: true)
   _$$_SiteConfigCopyWith<_$_SiteConfig> get copyWith =>

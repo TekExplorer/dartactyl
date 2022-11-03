@@ -49,7 +49,8 @@ mixin _$Node {
 /// @nodoc
 abstract class $NodeCopyWith<$Res> {
   factory $NodeCopyWith(Node value, $Res Function(Node) then) =
-      _$NodeCopyWithImpl<$Res>;
+      _$NodeCopyWithImpl<$Res, Node>;
+  @useResult
   $Res call(
       {int id,
       String uuid,
@@ -74,118 +75,121 @@ abstract class $NodeCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$NodeCopyWithImpl<$Res> implements $NodeCopyWith<$Res> {
+class _$NodeCopyWithImpl<$Res, $Val extends Node>
+    implements $NodeCopyWith<$Res> {
   _$NodeCopyWithImpl(this._value, this._then);
 
-  final Node _value;
   // ignore: unused_field
-  final $Res Function(Node) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? uuid = freezed,
-    Object? public = freezed,
-    Object? name = freezed,
-    Object? description = freezed,
-    Object? locationId = freezed,
-    Object? fqdn = freezed,
-    Object? scheme = freezed,
-    Object? behindProxy = freezed,
-    Object? maintenanceMode = freezed,
-    Object? memory = freezed,
-    Object? memoryOverallocate = freezed,
-    Object? disk = freezed,
-    Object? diskOverallocate = freezed,
-    Object? uploadSize = freezed,
-    Object? daemonListen = freezed,
-    Object? daemonSftp = freezed,
-    Object? daemonBase = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
+    Object? id = null,
+    Object? uuid = null,
+    Object? public = null,
+    Object? name = null,
+    Object? description = null,
+    Object? locationId = null,
+    Object? fqdn = null,
+    Object? scheme = null,
+    Object? behindProxy = null,
+    Object? maintenanceMode = null,
+    Object? memory = null,
+    Object? memoryOverallocate = null,
+    Object? disk = null,
+    Object? diskOverallocate = null,
+    Object? uploadSize = null,
+    Object? daemonListen = null,
+    Object? daemonSftp = null,
+    Object? daemonBase = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      public: public == freezed
+      public: null == public
           ? _value.public
           : public // ignore: cast_nullable_to_non_nullable
               as bool,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      locationId: locationId == freezed
+      locationId: null == locationId
           ? _value.locationId
           : locationId // ignore: cast_nullable_to_non_nullable
               as int,
-      fqdn: fqdn == freezed
+      fqdn: null == fqdn
           ? _value.fqdn
           : fqdn // ignore: cast_nullable_to_non_nullable
               as String,
-      scheme: scheme == freezed
+      scheme: null == scheme
           ? _value.scheme
           : scheme // ignore: cast_nullable_to_non_nullable
               as String,
-      behindProxy: behindProxy == freezed
+      behindProxy: null == behindProxy
           ? _value.behindProxy
           : behindProxy // ignore: cast_nullable_to_non_nullable
               as bool,
-      maintenanceMode: maintenanceMode == freezed
+      maintenanceMode: null == maintenanceMode
           ? _value.maintenanceMode
           : maintenanceMode // ignore: cast_nullable_to_non_nullable
               as bool,
-      memory: memory == freezed
+      memory: null == memory
           ? _value.memory
           : memory // ignore: cast_nullable_to_non_nullable
               as int,
-      memoryOverallocate: memoryOverallocate == freezed
+      memoryOverallocate: null == memoryOverallocate
           ? _value.memoryOverallocate
           : memoryOverallocate // ignore: cast_nullable_to_non_nullable
               as int,
-      disk: disk == freezed
+      disk: null == disk
           ? _value.disk
           : disk // ignore: cast_nullable_to_non_nullable
               as int,
-      diskOverallocate: diskOverallocate == freezed
+      diskOverallocate: null == diskOverallocate
           ? _value.diskOverallocate
           : diskOverallocate // ignore: cast_nullable_to_non_nullable
               as int,
-      uploadSize: uploadSize == freezed
+      uploadSize: null == uploadSize
           ? _value.uploadSize
           : uploadSize // ignore: cast_nullable_to_non_nullable
               as int,
-      daemonListen: daemonListen == freezed
+      daemonListen: null == daemonListen
           ? _value.daemonListen
           : daemonListen // ignore: cast_nullable_to_non_nullable
               as int,
-      daemonSftp: daemonSftp == freezed
+      daemonSftp: null == daemonSftp
           ? _value.daemonSftp
           : daemonSftp // ignore: cast_nullable_to_non_nullable
               as int,
-      daemonBase: daemonBase == freezed
+      daemonBase: null == daemonBase
           ? _value.daemonBase
           : daemonBase // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-    ));
+    ) as $Val);
   }
 }
 
@@ -194,6 +198,7 @@ abstract class _$$_NodeCopyWith<$Res> implements $NodeCopyWith<$Res> {
   factory _$$_NodeCopyWith(_$_Node value, $Res Function(_$_Node) then) =
       __$$_NodeCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int id,
       String uuid,
@@ -218,115 +223,113 @@ abstract class _$$_NodeCopyWith<$Res> implements $NodeCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_NodeCopyWithImpl<$Res> extends _$NodeCopyWithImpl<$Res>
+class __$$_NodeCopyWithImpl<$Res> extends _$NodeCopyWithImpl<$Res, _$_Node>
     implements _$$_NodeCopyWith<$Res> {
   __$$_NodeCopyWithImpl(_$_Node _value, $Res Function(_$_Node) _then)
-      : super(_value, (v) => _then(v as _$_Node));
+      : super(_value, _then);
 
-  @override
-  _$_Node get _value => super._value as _$_Node;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? uuid = freezed,
-    Object? public = freezed,
-    Object? name = freezed,
-    Object? description = freezed,
-    Object? locationId = freezed,
-    Object? fqdn = freezed,
-    Object? scheme = freezed,
-    Object? behindProxy = freezed,
-    Object? maintenanceMode = freezed,
-    Object? memory = freezed,
-    Object? memoryOverallocate = freezed,
-    Object? disk = freezed,
-    Object? diskOverallocate = freezed,
-    Object? uploadSize = freezed,
-    Object? daemonListen = freezed,
-    Object? daemonSftp = freezed,
-    Object? daemonBase = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
+    Object? id = null,
+    Object? uuid = null,
+    Object? public = null,
+    Object? name = null,
+    Object? description = null,
+    Object? locationId = null,
+    Object? fqdn = null,
+    Object? scheme = null,
+    Object? behindProxy = null,
+    Object? maintenanceMode = null,
+    Object? memory = null,
+    Object? memoryOverallocate = null,
+    Object? disk = null,
+    Object? diskOverallocate = null,
+    Object? uploadSize = null,
+    Object? daemonListen = null,
+    Object? daemonSftp = null,
+    Object? daemonBase = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_$_Node(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      public: public == freezed
+      public: null == public
           ? _value.public
           : public // ignore: cast_nullable_to_non_nullable
               as bool,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      locationId: locationId == freezed
+      locationId: null == locationId
           ? _value.locationId
           : locationId // ignore: cast_nullable_to_non_nullable
               as int,
-      fqdn: fqdn == freezed
+      fqdn: null == fqdn
           ? _value.fqdn
           : fqdn // ignore: cast_nullable_to_non_nullable
               as String,
-      scheme: scheme == freezed
+      scheme: null == scheme
           ? _value.scheme
           : scheme // ignore: cast_nullable_to_non_nullable
               as String,
-      behindProxy: behindProxy == freezed
+      behindProxy: null == behindProxy
           ? _value.behindProxy
           : behindProxy // ignore: cast_nullable_to_non_nullable
               as bool,
-      maintenanceMode: maintenanceMode == freezed
+      maintenanceMode: null == maintenanceMode
           ? _value.maintenanceMode
           : maintenanceMode // ignore: cast_nullable_to_non_nullable
               as bool,
-      memory: memory == freezed
+      memory: null == memory
           ? _value.memory
           : memory // ignore: cast_nullable_to_non_nullable
               as int,
-      memoryOverallocate: memoryOverallocate == freezed
+      memoryOverallocate: null == memoryOverallocate
           ? _value.memoryOverallocate
           : memoryOverallocate // ignore: cast_nullable_to_non_nullable
               as int,
-      disk: disk == freezed
+      disk: null == disk
           ? _value.disk
           : disk // ignore: cast_nullable_to_non_nullable
               as int,
-      diskOverallocate: diskOverallocate == freezed
+      diskOverallocate: null == diskOverallocate
           ? _value.diskOverallocate
           : diskOverallocate // ignore: cast_nullable_to_non_nullable
               as int,
-      uploadSize: uploadSize == freezed
+      uploadSize: null == uploadSize
           ? _value.uploadSize
           : uploadSize // ignore: cast_nullable_to_non_nullable
               as int,
-      daemonListen: daemonListen == freezed
+      daemonListen: null == daemonListen
           ? _value.daemonListen
           : daemonListen // ignore: cast_nullable_to_non_nullable
               as int,
-      daemonSftp: daemonSftp == freezed
+      daemonSftp: null == daemonSftp
           ? _value.daemonSftp
           : daemonSftp // ignore: cast_nullable_to_non_nullable
               as int,
-      daemonBase: daemonBase == freezed
+      daemonBase: null == daemonBase
           ? _value.daemonBase
           : daemonBase // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
@@ -413,72 +416,77 @@ class _$_Node extends _Node {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Node &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.uuid, uuid) &&
-            const DeepCollectionEquality().equals(other.public, public) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            const DeepCollectionEquality()
-                .equals(other.locationId, locationId) &&
-            const DeepCollectionEquality().equals(other.fqdn, fqdn) &&
-            const DeepCollectionEquality().equals(other.scheme, scheme) &&
-            const DeepCollectionEquality()
-                .equals(other.behindProxy, behindProxy) &&
-            const DeepCollectionEquality()
-                .equals(other.maintenanceMode, maintenanceMode) &&
-            const DeepCollectionEquality().equals(other.memory, memory) &&
-            const DeepCollectionEquality()
-                .equals(other.memoryOverallocate, memoryOverallocate) &&
-            const DeepCollectionEquality().equals(other.disk, disk) &&
-            const DeepCollectionEquality()
-                .equals(other.diskOverallocate, diskOverallocate) &&
-            const DeepCollectionEquality()
-                .equals(other.uploadSize, uploadSize) &&
-            const DeepCollectionEquality()
-                .equals(other.daemonListen, daemonListen) &&
-            const DeepCollectionEquality()
-                .equals(other.daemonSftp, daemonSftp) &&
-            const DeepCollectionEquality()
-                .equals(other.daemonBase, daemonBase) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.uuid, uuid) || other.uuid == uuid) &&
+            (identical(other.public, public) || other.public == public) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.locationId, locationId) ||
+                other.locationId == locationId) &&
+            (identical(other.fqdn, fqdn) || other.fqdn == fqdn) &&
+            (identical(other.scheme, scheme) || other.scheme == scheme) &&
+            (identical(other.behindProxy, behindProxy) ||
+                other.behindProxy == behindProxy) &&
+            (identical(other.maintenanceMode, maintenanceMode) ||
+                other.maintenanceMode == maintenanceMode) &&
+            (identical(other.memory, memory) || other.memory == memory) &&
+            (identical(other.memoryOverallocate, memoryOverallocate) ||
+                other.memoryOverallocate == memoryOverallocate) &&
+            (identical(other.disk, disk) || other.disk == disk) &&
+            (identical(other.diskOverallocate, diskOverallocate) ||
+                other.diskOverallocate == diskOverallocate) &&
+            (identical(other.uploadSize, uploadSize) ||
+                other.uploadSize == uploadSize) &&
+            (identical(other.daemonListen, daemonListen) ||
+                other.daemonListen == daemonListen) &&
+            (identical(other.daemonSftp, daemonSftp) ||
+                other.daemonSftp == daemonSftp) &&
+            (identical(other.daemonBase, daemonBase) ||
+                other.daemonBase == daemonBase) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
-        const DeepCollectionEquality().hash(id),
-        const DeepCollectionEquality().hash(uuid),
-        const DeepCollectionEquality().hash(public),
-        const DeepCollectionEquality().hash(name),
-        const DeepCollectionEquality().hash(description),
-        const DeepCollectionEquality().hash(locationId),
-        const DeepCollectionEquality().hash(fqdn),
-        const DeepCollectionEquality().hash(scheme),
-        const DeepCollectionEquality().hash(behindProxy),
-        const DeepCollectionEquality().hash(maintenanceMode),
-        const DeepCollectionEquality().hash(memory),
-        const DeepCollectionEquality().hash(memoryOverallocate),
-        const DeepCollectionEquality().hash(disk),
-        const DeepCollectionEquality().hash(diskOverallocate),
-        const DeepCollectionEquality().hash(uploadSize),
-        const DeepCollectionEquality().hash(daemonListen),
-        const DeepCollectionEquality().hash(daemonSftp),
-        const DeepCollectionEquality().hash(daemonBase),
-        const DeepCollectionEquality().hash(createdAt),
-        const DeepCollectionEquality().hash(updatedAt)
+        id,
+        uuid,
+        public,
+        name,
+        description,
+        locationId,
+        fqdn,
+        scheme,
+        behindProxy,
+        maintenanceMode,
+        memory,
+        memoryOverallocate,
+        disk,
+        diskOverallocate,
+        uploadSize,
+        daemonListen,
+        daemonSftp,
+        daemonBase,
+        createdAt,
+        updatedAt
       ]);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_NodeCopyWith<_$_Node> get copyWith =>
       __$$_NodeCopyWithImpl<_$_Node>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NodeToJson(this);
+    return _$$_NodeToJson(
+      this,
+    );
   }
 }
 
@@ -509,45 +517,45 @@ abstract class _Node extends Node {
   factory _Node.fromJson(Map<String, dynamic> json) = _$_Node.fromJson;
 
   @override
-  int get id => throw _privateConstructorUsedError;
+  int get id;
   @override
-  String get uuid => throw _privateConstructorUsedError;
+  String get uuid;
   @override
-  bool get public => throw _privateConstructorUsedError;
+  bool get public;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
-  int get locationId => throw _privateConstructorUsedError;
+  int get locationId;
   @override
-  String get fqdn => throw _privateConstructorUsedError;
+  String get fqdn;
   @override
-  String get scheme => throw _privateConstructorUsedError;
+  String get scheme;
   @override
-  bool get behindProxy => throw _privateConstructorUsedError;
+  bool get behindProxy;
   @override
-  bool get maintenanceMode => throw _privateConstructorUsedError;
+  bool get maintenanceMode;
   @override
-  int get memory => throw _privateConstructorUsedError;
+  int get memory;
   @override
-  int get memoryOverallocate => throw _privateConstructorUsedError;
+  int get memoryOverallocate;
   @override
-  int get disk => throw _privateConstructorUsedError;
+  int get disk;
   @override
-  int get diskOverallocate => throw _privateConstructorUsedError;
+  int get diskOverallocate;
   @override
-  int get uploadSize => throw _privateConstructorUsedError;
+  int get uploadSize;
   @override
-  int get daemonListen => throw _privateConstructorUsedError;
+  int get daemonListen;
   @override
-  int get daemonSftp => throw _privateConstructorUsedError;
+  int get daemonSftp;
   @override
-  String get daemonBase => throw _privateConstructorUsedError;
+  String get daemonBase;
   @override
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt;
   @override
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  DateTime get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$_NodeCopyWith<_$_Node> get copyWith => throw _privateConstructorUsedError;

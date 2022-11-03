@@ -32,29 +32,32 @@ mixin _$DatabasePassword {
 abstract class $DatabasePasswordCopyWith<$Res> {
   factory $DatabasePasswordCopyWith(
           DatabasePassword value, $Res Function(DatabasePassword) then) =
-      _$DatabasePasswordCopyWithImpl<$Res>;
+      _$DatabasePasswordCopyWithImpl<$Res, DatabasePassword>;
+  @useResult
   $Res call({String password});
 }
 
 /// @nodoc
-class _$DatabasePasswordCopyWithImpl<$Res>
+class _$DatabasePasswordCopyWithImpl<$Res, $Val extends DatabasePassword>
     implements $DatabasePasswordCopyWith<$Res> {
   _$DatabasePasswordCopyWithImpl(this._value, this._then);
 
-  final DatabasePassword _value;
   // ignore: unused_field
-  final $Res Function(DatabasePassword) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = freezed,
+    Object? password = null,
   }) {
     return _then(_value.copyWith(
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -65,26 +68,25 @@ abstract class _$$_DatabasePasswordCopyWith<$Res>
           _$_DatabasePassword value, $Res Function(_$_DatabasePassword) then) =
       __$$_DatabasePasswordCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String password});
 }
 
 /// @nodoc
 class __$$_DatabasePasswordCopyWithImpl<$Res>
-    extends _$DatabasePasswordCopyWithImpl<$Res>
+    extends _$DatabasePasswordCopyWithImpl<$Res, _$_DatabasePassword>
     implements _$$_DatabasePasswordCopyWith<$Res> {
   __$$_DatabasePasswordCopyWithImpl(
       _$_DatabasePassword _value, $Res Function(_$_DatabasePassword) _then)
-      : super(_value, (v) => _then(v as _$_DatabasePassword));
+      : super(_value, _then);
 
-  @override
-  _$_DatabasePassword get _value => super._value as _$_DatabasePassword;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = freezed,
+    Object? password = null,
   }) {
     return _then(_$_DatabasePassword(
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
@@ -113,22 +115,25 @@ class _$_DatabasePassword implements _DatabasePassword {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DatabasePassword &&
-            const DeepCollectionEquality().equals(other.password, password));
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(password));
+  int get hashCode => Object.hash(runtimeType, password);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DatabasePasswordCopyWith<_$_DatabasePassword> get copyWith =>
       __$$_DatabasePasswordCopyWithImpl<_$_DatabasePassword>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DatabasePasswordToJson(this);
+    return _$$_DatabasePasswordToJson(
+      this,
+    );
   }
 }
 
@@ -140,7 +145,7 @@ abstract class _DatabasePassword implements DatabasePassword {
       _$_DatabasePassword.fromJson;
 
   @override
-  String get password => throw _privateConstructorUsedError;
+  String get password;
   @override
   @JsonKey(ignore: true)
   _$$_DatabasePasswordCopyWith<_$_DatabasePassword> get copyWith =>

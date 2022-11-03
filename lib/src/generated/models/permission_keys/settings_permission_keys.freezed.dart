@@ -34,34 +34,38 @@ mixin _$SettingsPermissionKeys {
 abstract class $SettingsPermissionKeysCopyWith<$Res> {
   factory $SettingsPermissionKeysCopyWith(SettingsPermissionKeys value,
           $Res Function(SettingsPermissionKeys) then) =
-      _$SettingsPermissionKeysCopyWithImpl<$Res>;
+      _$SettingsPermissionKeysCopyWithImpl<$Res, SettingsPermissionKeys>;
+  @useResult
   $Res call({String rename, String reinstall});
 }
 
 /// @nodoc
-class _$SettingsPermissionKeysCopyWithImpl<$Res>
+class _$SettingsPermissionKeysCopyWithImpl<$Res,
+        $Val extends SettingsPermissionKeys>
     implements $SettingsPermissionKeysCopyWith<$Res> {
   _$SettingsPermissionKeysCopyWithImpl(this._value, this._then);
 
-  final SettingsPermissionKeys _value;
   // ignore: unused_field
-  final $Res Function(SettingsPermissionKeys) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rename = freezed,
-    Object? reinstall = freezed,
+    Object? rename = null,
+    Object? reinstall = null,
   }) {
     return _then(_value.copyWith(
-      rename: rename == freezed
+      rename: null == rename
           ? _value.rename
           : rename // ignore: cast_nullable_to_non_nullable
               as String,
-      reinstall: reinstall == freezed
+      reinstall: null == reinstall
           ? _value.reinstall
           : reinstall // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -72,32 +76,31 @@ abstract class _$$_SettingsPermissionKeysCopyWith<$Res>
           $Res Function(_$_SettingsPermissionKeys) then) =
       __$$_SettingsPermissionKeysCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String rename, String reinstall});
 }
 
 /// @nodoc
 class __$$_SettingsPermissionKeysCopyWithImpl<$Res>
-    extends _$SettingsPermissionKeysCopyWithImpl<$Res>
+    extends _$SettingsPermissionKeysCopyWithImpl<$Res,
+        _$_SettingsPermissionKeys>
     implements _$$_SettingsPermissionKeysCopyWith<$Res> {
   __$$_SettingsPermissionKeysCopyWithImpl(_$_SettingsPermissionKeys _value,
       $Res Function(_$_SettingsPermissionKeys) _then)
-      : super(_value, (v) => _then(v as _$_SettingsPermissionKeys));
+      : super(_value, _then);
 
-  @override
-  _$_SettingsPermissionKeys get _value =>
-      super._value as _$_SettingsPermissionKeys;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rename = freezed,
-    Object? reinstall = freezed,
+    Object? rename = null,
+    Object? reinstall = null,
   }) {
     return _then(_$_SettingsPermissionKeys(
-      rename: rename == freezed
+      rename: null == rename
           ? _value.rename
           : rename // ignore: cast_nullable_to_non_nullable
               as String,
-      reinstall: reinstall == freezed
+      reinstall: null == reinstall
           ? _value.reinstall
           : reinstall // ignore: cast_nullable_to_non_nullable
               as String,
@@ -129,26 +132,27 @@ class _$_SettingsPermissionKeys extends _SettingsPermissionKeys {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SettingsPermissionKeys &&
-            const DeepCollectionEquality().equals(other.rename, rename) &&
-            const DeepCollectionEquality().equals(other.reinstall, reinstall));
+            (identical(other.rename, rename) || other.rename == rename) &&
+            (identical(other.reinstall, reinstall) ||
+                other.reinstall == reinstall));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(rename),
-      const DeepCollectionEquality().hash(reinstall));
+  int get hashCode => Object.hash(runtimeType, rename, reinstall);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SettingsPermissionKeysCopyWith<_$_SettingsPermissionKeys> get copyWith =>
       __$$_SettingsPermissionKeysCopyWithImpl<_$_SettingsPermissionKeys>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SettingsPermissionKeysToJson(this);
+    return _$$_SettingsPermissionKeysToJson(
+      this,
+    );
   }
 }
 
@@ -162,9 +166,9 @@ abstract class _SettingsPermissionKeys extends SettingsPermissionKeys {
       _$_SettingsPermissionKeys.fromJson;
 
   @override
-  String get rename => throw _privateConstructorUsedError;
+  String get rename;
   @override
-  String get reinstall => throw _privateConstructorUsedError;
+  String get reinstall;
   @override
   @JsonKey(ignore: true)
   _$$_SettingsPermissionKeysCopyWith<_$_SettingsPermissionKeys> get copyWith =>

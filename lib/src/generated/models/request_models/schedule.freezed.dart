@@ -38,7 +38,8 @@ mixin _$RequestSchedule {
 abstract class $RequestScheduleCopyWith<$Res> {
   factory $RequestScheduleCopyWith(
           RequestSchedule value, $Res Function(RequestSchedule) then) =
-      _$RequestScheduleCopyWithImpl<$Res>;
+      _$RequestScheduleCopyWithImpl<$Res, RequestSchedule>;
+  @useResult
   $Res call(
       {bool onlyWhenOnline,
       String name,
@@ -50,54 +51,56 @@ abstract class $RequestScheduleCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RequestScheduleCopyWithImpl<$Res>
+class _$RequestScheduleCopyWithImpl<$Res, $Val extends RequestSchedule>
     implements $RequestScheduleCopyWith<$Res> {
   _$RequestScheduleCopyWithImpl(this._value, this._then);
 
-  final RequestSchedule _value;
   // ignore: unused_field
-  final $Res Function(RequestSchedule) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? onlyWhenOnline = freezed,
-    Object? name = freezed,
-    Object? isActive = freezed,
-    Object? minute = freezed,
-    Object? hour = freezed,
-    Object? dayOfWeek = freezed,
-    Object? dayOfMonth = freezed,
+    Object? onlyWhenOnline = null,
+    Object? name = null,
+    Object? isActive = null,
+    Object? minute = null,
+    Object? hour = null,
+    Object? dayOfWeek = null,
+    Object? dayOfMonth = null,
   }) {
     return _then(_value.copyWith(
-      onlyWhenOnline: onlyWhenOnline == freezed
+      onlyWhenOnline: null == onlyWhenOnline
           ? _value.onlyWhenOnline
           : onlyWhenOnline // ignore: cast_nullable_to_non_nullable
               as bool,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      isActive: isActive == freezed
+      isActive: null == isActive
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
               as bool,
-      minute: minute == freezed
+      minute: null == minute
           ? _value.minute
           : minute // ignore: cast_nullable_to_non_nullable
               as String,
-      hour: hour == freezed
+      hour: null == hour
           ? _value.hour
           : hour // ignore: cast_nullable_to_non_nullable
               as String,
-      dayOfWeek: dayOfWeek == freezed
+      dayOfWeek: null == dayOfWeek
           ? _value.dayOfWeek
           : dayOfWeek // ignore: cast_nullable_to_non_nullable
               as String,
-      dayOfMonth: dayOfMonth == freezed
+      dayOfMonth: null == dayOfMonth
           ? _value.dayOfMonth
           : dayOfMonth // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -108,6 +111,7 @@ abstract class _$$_RequestScheduleCopyWith<$Res>
           _$_RequestSchedule value, $Res Function(_$_RequestSchedule) then) =
       __$$_RequestScheduleCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool onlyWhenOnline,
       String name,
@@ -120,51 +124,49 @@ abstract class _$$_RequestScheduleCopyWith<$Res>
 
 /// @nodoc
 class __$$_RequestScheduleCopyWithImpl<$Res>
-    extends _$RequestScheduleCopyWithImpl<$Res>
+    extends _$RequestScheduleCopyWithImpl<$Res, _$_RequestSchedule>
     implements _$$_RequestScheduleCopyWith<$Res> {
   __$$_RequestScheduleCopyWithImpl(
       _$_RequestSchedule _value, $Res Function(_$_RequestSchedule) _then)
-      : super(_value, (v) => _then(v as _$_RequestSchedule));
+      : super(_value, _then);
 
-  @override
-  _$_RequestSchedule get _value => super._value as _$_RequestSchedule;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? onlyWhenOnline = freezed,
-    Object? name = freezed,
-    Object? isActive = freezed,
-    Object? minute = freezed,
-    Object? hour = freezed,
-    Object? dayOfWeek = freezed,
-    Object? dayOfMonth = freezed,
+    Object? onlyWhenOnline = null,
+    Object? name = null,
+    Object? isActive = null,
+    Object? minute = null,
+    Object? hour = null,
+    Object? dayOfWeek = null,
+    Object? dayOfMonth = null,
   }) {
     return _then(_$_RequestSchedule(
-      onlyWhenOnline: onlyWhenOnline == freezed
+      onlyWhenOnline: null == onlyWhenOnline
           ? _value.onlyWhenOnline
           : onlyWhenOnline // ignore: cast_nullable_to_non_nullable
               as bool,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      isActive: isActive == freezed
+      isActive: null == isActive
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
               as bool,
-      minute: minute == freezed
+      minute: null == minute
           ? _value.minute
           : minute // ignore: cast_nullable_to_non_nullable
               as String,
-      hour: hour == freezed
+      hour: null == hour
           ? _value.hour
           : hour // ignore: cast_nullable_to_non_nullable
               as String,
-      dayOfWeek: dayOfWeek == freezed
+      dayOfWeek: null == dayOfWeek
           ? _value.dayOfWeek
           : dayOfWeek // ignore: cast_nullable_to_non_nullable
               as String,
-      dayOfMonth: dayOfMonth == freezed
+      dayOfMonth: null == dayOfMonth
           ? _value.dayOfMonth
           : dayOfMonth // ignore: cast_nullable_to_non_nullable
               as String,
@@ -212,37 +214,35 @@ class _$_RequestSchedule implements _RequestSchedule {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RequestSchedule &&
-            const DeepCollectionEquality()
-                .equals(other.onlyWhenOnline, onlyWhenOnline) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.isActive, isActive) &&
-            const DeepCollectionEquality().equals(other.minute, minute) &&
-            const DeepCollectionEquality().equals(other.hour, hour) &&
-            const DeepCollectionEquality().equals(other.dayOfWeek, dayOfWeek) &&
-            const DeepCollectionEquality()
-                .equals(other.dayOfMonth, dayOfMonth));
+            (identical(other.onlyWhenOnline, onlyWhenOnline) ||
+                other.onlyWhenOnline == onlyWhenOnline) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.isActive, isActive) ||
+                other.isActive == isActive) &&
+            (identical(other.minute, minute) || other.minute == minute) &&
+            (identical(other.hour, hour) || other.hour == hour) &&
+            (identical(other.dayOfWeek, dayOfWeek) ||
+                other.dayOfWeek == dayOfWeek) &&
+            (identical(other.dayOfMonth, dayOfMonth) ||
+                other.dayOfMonth == dayOfMonth));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(onlyWhenOnline),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(isActive),
-      const DeepCollectionEquality().hash(minute),
-      const DeepCollectionEquality().hash(hour),
-      const DeepCollectionEquality().hash(dayOfWeek),
-      const DeepCollectionEquality().hash(dayOfMonth));
+  int get hashCode => Object.hash(runtimeType, onlyWhenOnline, name, isActive,
+      minute, hour, dayOfWeek, dayOfMonth);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RequestScheduleCopyWith<_$_RequestSchedule> get copyWith =>
       __$$_RequestScheduleCopyWithImpl<_$_RequestSchedule>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RequestScheduleToJson(this);
+    return _$$_RequestScheduleToJson(
+      this,
+    );
   }
 }
 
@@ -260,19 +260,19 @@ abstract class _RequestSchedule implements RequestSchedule {
       _$_RequestSchedule.fromJson;
 
   @override
-  bool get onlyWhenOnline => throw _privateConstructorUsedError;
+  bool get onlyWhenOnline;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  bool get isActive => throw _privateConstructorUsedError;
+  bool get isActive;
   @override
-  String get minute => throw _privateConstructorUsedError;
+  String get minute;
   @override
-  String get hour => throw _privateConstructorUsedError;
+  String get hour;
   @override
-  String get dayOfWeek => throw _privateConstructorUsedError;
+  String get dayOfWeek;
   @override
-  String get dayOfMonth => throw _privateConstructorUsedError;
+  String get dayOfMonth;
   @override
   @JsonKey(ignore: true)
   _$$_RequestScheduleCopyWith<_$_RequestSchedule> get copyWith =>
