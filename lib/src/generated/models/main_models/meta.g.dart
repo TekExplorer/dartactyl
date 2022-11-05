@@ -17,6 +17,21 @@ Map<String, dynamic> _$$_PaginatedMetaToJson(_$_PaginatedMeta instance) =>
       'pagination': instance.pagination.toJson(),
     };
 
+_$_PaginatedBackupsMeta _$$_PaginatedBackupsMetaFromJson(
+        Map<String, dynamic> json) =>
+    _$_PaginatedBackupsMeta(
+      pagination:
+          Pagination.fromJson(json['pagination'] as Map<String, dynamic>),
+      backupCount: json['backup_count'] as int,
+    );
+
+Map<String, dynamic> _$$_PaginatedBackupsMetaToJson(
+        _$_PaginatedBackupsMeta instance) =>
+    <String, dynamic>{
+      'pagination': instance.pagination.toJson(),
+      'backup_count': instance.backupCount,
+    };
+
 _$_ServerMeta _$$_ServerMetaFromJson(Map<String, dynamic> json) =>
     _$_ServerMeta(
       isServerOwner: json['is_server_owner'] as bool,

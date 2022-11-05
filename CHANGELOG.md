@@ -1,85 +1,123 @@
 # CHANGELOG
+## 1.4.5
+
+ - backup-related methods should now be fully functional
+ - `listServerDatabases` now has pagination
+
 ## 1.4.4
+
  - fix more `ActivityLog` stuff
+
 ## 1.4.3
+
  - fix `ActivityLog`
 
 ## 1.4.2
+
  - added activity log stuff
  - improved includes
  - updated `deleteSshKey` to work with new versions, as well as keeping the old method
  - updated `FileObject`
+
 ## 1.4.1
+
  - added `lockBackup`
  - updated server websocket extentions
  - updated dependencies
+
 ## 1.4.0
+
  - bump release
  - fixed an issue with the websocket cubit trying to emit new states after its closed
 
 ## 1.4.0-dev.21
+
  - renames `uploadFile` to `getFileUploadUrl`
  - adds `ServerStateConflictException` error code and specifies an `UNKNOWN` when not in list
 
 ## 1.4.0-dev.20
+
  - Fix `CreateSshKey` model
+
 ## 1.4.0-dev.19
+
  - added `pullFile`, `createSshKey`, `listSshKeys`, and `chmodFile`
 
 ## 1.4.0-dev.18
+
  - Updated models so that `listdockerImages` actually works
 
 ## 1.4.0-dev.17
+
  - Add `listDockerImages` convenience method
 
 ## 1.4.0-dev.16
+
  - Fix the error handler
  
 ## 1.4.0-dev.15
+
  - Fix Pterodactyl v1.7 support
  - Fix Websocket registerListeners not supporting multiple registrations
  
 ## 1.4.0-dev.14
+
  - Add Pterodactyl v1.8 support
 
 ## 1.4.0-dev.13
+
  - Add websocket handler `ServerWebsocketCubit` and websocket convenience class `ServerWebsocketHandler`
 
 ## 1.4.0-dev.12
+
  - Fix `deleteFiles` 
 
 ## 1.4.0-dev.11
+
  - Maybe fix `writeFile` and `FractalResponseList`
 
 ## 1.4.0-dev.10
+
  - Fix FileObject
 
 ## 1.4.0-dev.9
+
  - Remove origin header
 
 ## 1.4.0-dev.8
+
  - `createApiKey` now includes the token secret
 
 ## 1.4.0-dev.7
+
  - Fix `ApiKey` model to make last_used_at nullable
 
 ## 1.4.0-dev.6
+
  - Fix `ServerFeatureLimits`
 
 ## 1.4.0-dev.5
+
  - Forget it. Separate classes it is.
+
 ## 1.4.0-dev.4
 
  - `FileListConverter` was the previous bug. still not working. just gonna throw `UnimplementedError` for now
 ## 1.4.0-dev.3
+
  - Another minor bug that hardly needs mentioning
    - A JsonConverter was being used wrong
 
 ## 1.4.0-dev.2
+
  - Type related bug... `PteroData` needed to require `SerializableMixin`, so `SerializableMixen` needed to be on `WebsocketDetails` 
+
 ## 1.4.0-dev.1
+
  - Accedentally made `FractalServer.server` no longer work. Fixed now.
+
 ## 1.4.0-dev.0
+
  - Make all models `@freezed` where possible
  - Add annotations to better represent certain things
  - Adjust some models (like `Server`) to better represent the api

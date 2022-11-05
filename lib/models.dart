@@ -95,6 +95,7 @@ export 'src/models/query/sort.dart';
 export 'src/models/request_models/allocation_note.dart';
 export 'src/models/request_models/chmod_file.dart';
 export 'src/models/request_models/create_api_key.dart';
+export 'src/models/request_models/create_backup_request.dart';
 export 'src/models/request_models/create_server_database.dart';
 export 'src/models/request_models/create_ssh_key.dart';
 export 'src/models/request_models/delete_ssh_key.dart';

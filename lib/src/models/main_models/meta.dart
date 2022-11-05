@@ -38,12 +38,26 @@ abstract class Meta<T> with SerializableMixin {
   }
 }
 
-/// Shows on `listServers`, `listBackups`
+/// Shows on `listServers`
 @freezed
 class PaginatedMeta with _$PaginatedMeta implements Meta<PaginatedMeta> {
   factory PaginatedMeta({required Pagination pagination}) = _PaginatedMeta;
   factory PaginatedMeta.fromJson(Map<String, dynamic> json) =>
       _$PaginatedMetaFromJson(json);
+}
+
+/// Shows on `listBackups`
+@freezed
+class PaginatedBackupsMeta
+    with _$PaginatedBackupsMeta
+    implements Meta<PaginatedBackupsMeta> {
+  factory PaginatedBackupsMeta({
+    required Pagination pagination,
+    required int backupCount,
+  }) = _PaginatedBackupsMeta;
+
+  factory PaginatedBackupsMeta.fromJson(Map<String, dynamic> json) =>
+      _$PaginatedBackupsMetaFromJson(json);
 }
 
 /// shows on `getServerDetails`

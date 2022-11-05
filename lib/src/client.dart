@@ -299,9 +299,15 @@ abstract class PteroClient {
   ///
   /// Available [Includes]; 'password' (include the database user password)
   @GET('/api/client/servers/{serverId}/databases')
-  Future<FractalList<ServerDatabase>> listServerDatabases({
+  Future<FractalResponseListMeta<ServerDatabase, PaginatedMeta>>
+      listServerDatabases({
     @Path() required String serverId,
     @Query('include') ServerDatabasesIncludes? include,
+    // pagination
+    @Query('page') int? page,
+    @Query('per_page') int? perPage,
+    // filters
+    // ??
   });
 
   /// Create a new database on the server
@@ -432,7 +438,7 @@ abstract class PteroClient {
   // Schedules
   /// List all schedules that the [Server] has
   @GET('/api/client/servers/{serverId}/schedules')
-  Future<Fractal<ServerSchedule>> getSchedules({
+  Future<FractalList<ServerSchedule>> listSchedules({
     @Path() required String serverId,
   });
 
@@ -567,14 +573,17 @@ abstract class PteroClient {
 
   /// List all backups on the [Server]
   @GET('/api/client/servers/{serverId}/backups')
-  Future<FractalList<Backup>> listBackups({
+  Future<FractalResponseListMeta<Backup, PaginatedBackupsMeta>> listBackups({
     @Path() required String serverId,
+    // pagination
+    @Query('page') int? page,
+    @Query('per_page') int? perPage,
   });
 
   /// Create a backup on the [Server]
-  /// TODO: https://github.com/pterodactyl/panel/blob/develop/resources/scripts/api/server/backups/createServerBackup.ts
   @POST('/api/client/servers/{serverId}/backups')
-  Future<Fractal<Backup>> createBackup({
+  Future<Fractal<Backup>> createBackup(
+    @Body() CreateBackupRequest backupData, {
     @Path() required String serverId,
   });
 

@@ -12,6 +12,8 @@ class MetaConverter<M extends Meta> implements JsonConverter<M, JsonMap> {
     switch (M) {
       case PaginatedMeta:
         return PaginatedMeta.fromJson(json) as M;
+      case PaginatedBackupsMeta:
+        return PaginatedBackupsMeta.fromJson(json) as M;
       case ServerMeta:
         return ServerMeta.fromJson(json) as M;
       case ApiKeyMeta:

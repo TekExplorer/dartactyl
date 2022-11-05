@@ -14,7 +14,7 @@ _$_Backup _$$_BackupFromJson(Map<String, dynamic> json) => _$_Backup(
       ignoredFiles: (json['ignored_files'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      checksum: json['checksum'] as String,
+      checksum: json['checksum'] as String?,
       bytes: json['bytes'] as int,
       createdAt: DateTime.parse(json['created_at'] as String),
       completedAt: json['completed_at'] == null

@@ -14,7 +14,7 @@ class Backup with SerializableMixin, _$Backup {
     required bool isLocked,
     required String name,
     List<String>? ignoredFiles,
-    required String checksum,
+    String? checksum,
     required int bytes,
     required DateTime createdAt,
     DateTime? completedAt,

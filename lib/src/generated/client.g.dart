@@ -663,29 +663,39 @@ class _PteroClient implements PteroClient {
   }
 
   @override
-  Future<FractalResponseList<ServerDatabase>> listServerDatabases({
+  Future<FractalResponseListMeta<ServerDatabase, PaginatedMeta>>
+      listServerDatabases({
     required serverId,
     include,
+    page,
+    perPage,
   }) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'include': include?.toJson()};
+    final queryParameters = <String, dynamic>{
+      r'include': include?.toJson(),
+      r'page': page,
+      r'per_page': perPage,
+    };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseList<ServerDatabase>>(Options(
+        _setStreamType<FractalResponseListMeta<ServerDatabase, PaginatedMeta>>(
+            Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/databases',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseList<ServerDatabase>.fromJson(_result.data!);
+                .compose(
+                  _dio.options,
+                  '/api/client/servers/${serverId}/databases',
+                  queryParameters: queryParameters,
+                  data: _data,
+                )
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value =
+        FractalResponseListMeta<ServerDatabase, PaginatedMeta>.fromJson(
+            _result.data!);
     return value;
   }
 
@@ -1097,14 +1107,14 @@ class _PteroClient implements PteroClient {
   }
 
   @override
-  Future<FractalResponseData<ServerSchedule>> getSchedules(
+  Future<FractalResponseList<ServerSchedule>> listSchedules(
       {required serverId}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ServerSchedule>>(Options(
+        _setStreamType<FractalResponseList<ServerSchedule>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -1116,7 +1126,7 @@ class _PteroClient implements PteroClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<ServerSchedule>.fromJson(_result.data!);
+    final value = FractalResponseList<ServerSchedule>.fromJson(_result.data!);
     return value;
   }
 
@@ -1565,34 +1575,49 @@ class _PteroClient implements PteroClient {
   }
 
   @override
-  Future<FractalResponseList<Backup>> listBackups({required serverId}) async {
+  Future<FractalResponseListMeta<Backup, PaginatedBackupsMeta>> listBackups({
+    required serverId,
+    page,
+    perPage,
+  }) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'per_page': perPage,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseList<Backup>>(Options(
+        _setStreamType<FractalResponseListMeta<Backup, PaginatedBackupsMeta>>(
+            Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/backups',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseList<Backup>.fromJson(_result.data!);
+                .compose(
+                  _dio.options,
+                  '/api/client/servers/${serverId}/backups',
+                  queryParameters: queryParameters,
+                  data: _data,
+                )
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value =
+        FractalResponseListMeta<Backup, PaginatedBackupsMeta>.fromJson(
+            _result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<Backup>> createBackup({required serverId}) async {
+  Future<FractalResponseData<Backup>> createBackup(
+    backupData, {
+    required serverId,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
+    _data.addAll(backupData.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<FractalResponseData<Backup>>(Options(
       method: 'POST',

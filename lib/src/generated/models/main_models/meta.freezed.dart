@@ -165,6 +165,178 @@ abstract class _PaginatedMeta implements PaginatedMeta {
       throw _privateConstructorUsedError;
 }
 
+PaginatedBackupsMeta _$PaginatedBackupsMetaFromJson(Map<String, dynamic> json) {
+  return _PaginatedBackupsMeta.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PaginatedBackupsMeta {
+  Pagination get pagination => throw _privateConstructorUsedError;
+  int get backupCount => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PaginatedBackupsMetaCopyWith<PaginatedBackupsMeta> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PaginatedBackupsMetaCopyWith<$Res> {
+  factory $PaginatedBackupsMetaCopyWith(PaginatedBackupsMeta value,
+          $Res Function(PaginatedBackupsMeta) then) =
+      _$PaginatedBackupsMetaCopyWithImpl<$Res, PaginatedBackupsMeta>;
+  @useResult
+  $Res call({Pagination pagination, int backupCount});
+
+  $PaginationCopyWith<$Res> get pagination;
+}
+
+/// @nodoc
+class _$PaginatedBackupsMetaCopyWithImpl<$Res,
+        $Val extends PaginatedBackupsMeta>
+    implements $PaginatedBackupsMetaCopyWith<$Res> {
+  _$PaginatedBackupsMetaCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pagination = null,
+    Object? backupCount = null,
+  }) {
+    return _then(_value.copyWith(
+      pagination: null == pagination
+          ? _value.pagination
+          : pagination // ignore: cast_nullable_to_non_nullable
+              as Pagination,
+      backupCount: null == backupCount
+          ? _value.backupCount
+          : backupCount // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PaginationCopyWith<$Res> get pagination {
+    return $PaginationCopyWith<$Res>(_value.pagination, (value) {
+      return _then(_value.copyWith(pagination: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$_PaginatedBackupsMetaCopyWith<$Res>
+    implements $PaginatedBackupsMetaCopyWith<$Res> {
+  factory _$$_PaginatedBackupsMetaCopyWith(_$_PaginatedBackupsMeta value,
+          $Res Function(_$_PaginatedBackupsMeta) then) =
+      __$$_PaginatedBackupsMetaCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Pagination pagination, int backupCount});
+
+  @override
+  $PaginationCopyWith<$Res> get pagination;
+}
+
+/// @nodoc
+class __$$_PaginatedBackupsMetaCopyWithImpl<$Res>
+    extends _$PaginatedBackupsMetaCopyWithImpl<$Res, _$_PaginatedBackupsMeta>
+    implements _$$_PaginatedBackupsMetaCopyWith<$Res> {
+  __$$_PaginatedBackupsMetaCopyWithImpl(_$_PaginatedBackupsMeta _value,
+      $Res Function(_$_PaginatedBackupsMeta) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pagination = null,
+    Object? backupCount = null,
+  }) {
+    return _then(_$_PaginatedBackupsMeta(
+      pagination: null == pagination
+          ? _value.pagination
+          : pagination // ignore: cast_nullable_to_non_nullable
+              as Pagination,
+      backupCount: null == backupCount
+          ? _value.backupCount
+          : backupCount // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_PaginatedBackupsMeta implements _PaginatedBackupsMeta {
+  _$_PaginatedBackupsMeta(
+      {required this.pagination, required this.backupCount});
+
+  factory _$_PaginatedBackupsMeta.fromJson(Map<String, dynamic> json) =>
+      _$$_PaginatedBackupsMetaFromJson(json);
+
+  @override
+  final Pagination pagination;
+  @override
+  final int backupCount;
+
+  @override
+  String toString() {
+    return 'PaginatedBackupsMeta(pagination: $pagination, backupCount: $backupCount)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PaginatedBackupsMeta &&
+            (identical(other.pagination, pagination) ||
+                other.pagination == pagination) &&
+            (identical(other.backupCount, backupCount) ||
+                other.backupCount == backupCount));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, pagination, backupCount);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PaginatedBackupsMetaCopyWith<_$_PaginatedBackupsMeta> get copyWith =>
+      __$$_PaginatedBackupsMetaCopyWithImpl<_$_PaginatedBackupsMeta>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_PaginatedBackupsMetaToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PaginatedBackupsMeta implements PaginatedBackupsMeta {
+  factory _PaginatedBackupsMeta(
+      {required final Pagination pagination,
+      required final int backupCount}) = _$_PaginatedBackupsMeta;
+
+  factory _PaginatedBackupsMeta.fromJson(Map<String, dynamic> json) =
+      _$_PaginatedBackupsMeta.fromJson;
+
+  @override
+  Pagination get pagination;
+  @override
+  int get backupCount;
+  @override
+  @JsonKey(ignore: true)
+  _$$_PaginatedBackupsMetaCopyWith<_$_PaginatedBackupsMeta> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 ServerMeta _$ServerMetaFromJson(Map<String, dynamic> json) {
   return _ServerMeta.fromJson(json);
 }

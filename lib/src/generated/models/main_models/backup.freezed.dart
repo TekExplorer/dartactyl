@@ -25,7 +25,7 @@ mixin _$Backup {
   bool get isLocked => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   List<String>? get ignoredFiles => throw _privateConstructorUsedError;
-  String get checksum => throw _privateConstructorUsedError;
+  String? get checksum => throw _privateConstructorUsedError;
   int get bytes => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime? get completedAt => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $BackupCopyWith<$Res> {
       bool isLocked,
       String name,
       List<String>? ignoredFiles,
-      String checksum,
+      String? checksum,
       int bytes,
       DateTime createdAt,
       DateTime? completedAt});
@@ -70,7 +70,7 @@ class _$BackupCopyWithImpl<$Res, $Val extends Backup>
     Object? isLocked = null,
     Object? name = null,
     Object? ignoredFiles = freezed,
-    Object? checksum = null,
+    Object? checksum = freezed,
     Object? bytes = null,
     Object? createdAt = null,
     Object? completedAt = freezed,
@@ -96,10 +96,10 @@ class _$BackupCopyWithImpl<$Res, $Val extends Backup>
           ? _value.ignoredFiles
           : ignoredFiles // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      checksum: null == checksum
+      checksum: freezed == checksum
           ? _value.checksum
           : checksum // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       bytes: null == bytes
           ? _value.bytes
           : bytes // ignore: cast_nullable_to_non_nullable
@@ -128,7 +128,7 @@ abstract class _$$_BackupCopyWith<$Res> implements $BackupCopyWith<$Res> {
       bool isLocked,
       String name,
       List<String>? ignoredFiles,
-      String checksum,
+      String? checksum,
       int bytes,
       DateTime createdAt,
       DateTime? completedAt});
@@ -149,7 +149,7 @@ class __$$_BackupCopyWithImpl<$Res>
     Object? isLocked = null,
     Object? name = null,
     Object? ignoredFiles = freezed,
-    Object? checksum = null,
+    Object? checksum = freezed,
     Object? bytes = null,
     Object? createdAt = null,
     Object? completedAt = freezed,
@@ -175,10 +175,10 @@ class __$$_BackupCopyWithImpl<$Res>
           ? _value._ignoredFiles
           : ignoredFiles // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      checksum: null == checksum
+      checksum: freezed == checksum
           ? _value.checksum
           : checksum // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       bytes: null == bytes
           ? _value.bytes
           : bytes // ignore: cast_nullable_to_non_nullable
@@ -204,7 +204,7 @@ class _$_Backup extends _Backup {
       required this.isLocked,
       required this.name,
       final List<String>? ignoredFiles,
-      required this.checksum,
+      this.checksum,
       required this.bytes,
       required this.createdAt,
       this.completedAt})
@@ -232,7 +232,7 @@ class _$_Backup extends _Backup {
   }
 
   @override
-  final String checksum;
+  final String? checksum;
   @override
   final int bytes;
   @override
@@ -302,7 +302,7 @@ abstract class _Backup extends Backup {
       required final bool isLocked,
       required final String name,
       final List<String>? ignoredFiles,
-      required final String checksum,
+      final String? checksum,
       required final int bytes,
       required final DateTime createdAt,
       final DateTime? completedAt}) = _$_Backup;
@@ -321,7 +321,7 @@ abstract class _Backup extends Backup {
   @override
   List<String>? get ignoredFiles;
   @override
-  String get checksum;
+  String? get checksum;
   @override
   int get bytes;
   @override
