@@ -1,4 +1,7 @@
 # CHANGELOG
+## 1.4.6
+ - improved `websocket` handling a little
+
 ## 1.4.5
 
  - backup-related methods should now be fully functional

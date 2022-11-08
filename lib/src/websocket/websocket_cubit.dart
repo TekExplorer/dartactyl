@@ -32,9 +32,9 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
   final String serverId;
 
   final WebsocketListeners listeners = WebsocketListeners();
-  late final WebSocket _socket;
+  WebSocket? _socket;
 
-  late WebsocketSendModel _lastSentEvent;
+  WebsocketSendModel? _lastSentEvent;
   bool _isInitialized = false;
 
   final Queue<WebsocketSendModel> _queuedEvents = Queue();
@@ -59,7 +59,7 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
 
   @override
   close() async {
-    await _socket.close(WebSocketStatus.normalClosure);
+    await _socket?.close(WebSocketStatus.normalClosure);
     // close the specialized streams
     await listeners.closeAllListeners();
     // close the underlying websocket
@@ -143,7 +143,7 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
       );
     });
     // authenticate the socket
-    _socket.listen(_mapToState);
+    _socket?.listen(_mapToState);
   }
 
   Future<void> _connect() async {
@@ -197,7 +197,7 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
       case WebsocketRecievedModelEvent.jwtError:
         _authenticate();
         // resend last event if it failed
-        _sendEventOnceAuthenticated(_lastSentEvent);
+        _sendEventOnceAuthenticated(_lastSentEvent!);
 
         emit(WebsocketState.jwtError(arg ?? 'Unknown'));
         break;
@@ -209,7 +209,7 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
   void _sendEvent(WebsocketSendModel event) {
     log(jsonEncode(event.toJson()), name: 'Websocket Send');
     _lastSentEvent = event;
-    _socket.add(jsonEncode(event.toJson()));
+    _socket?.add(jsonEncode(event.toJson()));
   }
 
   void _sendEventOnceAuthenticated(WebsocketSendModel event) {
