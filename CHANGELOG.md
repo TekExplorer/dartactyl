@@ -1,5 +1,5 @@
 # CHANGELOG
-## 1.4.7
+## 1.4.7-dev
 
  - Maybe fix `ActivityLog.properties`
 
