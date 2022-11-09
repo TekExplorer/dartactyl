@@ -1,10 +1,7 @@
 # CHANGELOG
-## 1.4.7-dev2
+## 1.4.7
 
- - Actually fix `ActivityLog.properties`
-## 1.4.7-dev
-
- - Maybe fix `ActivityLog.properties`
+ - Fix `ActivityLog.properties`
 
 ## 1.4.6
 
