@@ -13,7 +13,7 @@ _$_ActivityLog _$$_ActivityLogFromJson(Map<String, dynamic> json) =>
       ip: json['ip'] as String,
       isApi: json['is_api'] as bool,
       description: json['description'] as String?,
-      properties: json['properties'] as Map<String, dynamic>,
+      properties: activityLogPropertiesFromJson(json['properties']),
       hasAdditionalMetadata: json['has_additional_metadata'] as bool,
       timestamp: DateTime.parse(json['timestamp'] as String),
       relationships: json['relationships'] == null

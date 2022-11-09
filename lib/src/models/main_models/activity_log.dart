@@ -13,21 +13,22 @@ class ActivityLog with _$ActivityLog, SerializableMixin {
     required String ip,
     required bool isApi,
     String? description,
-    // if its a List, set to {}
-    @JsonKey(fromJson: _fromJson) required JsonMap properties,
+    // if its [], set to {}
+    @JsonKey(fromJson: activityLogPropertiesFromJson)
+        required JsonMap properties,
     required bool hasAdditionalMetadata,
     required DateTime timestamp,
     ActivityLogRelationships? relationships,
   }) = _ActivityLog;
 
-  static JsonMap _fromJson(dynamic value) {
-    if (value is List) return {};
-    return value as JsonMap;
-  }
-
   factory ActivityLog.fromJson(JsonMap json) => _$ActivityLogFromJson(json);
 
   ActivityLog._();
+}
+
+JsonMap activityLogPropertiesFromJson(dynamic value) {
+  if (value is List) return {};
+  return value as JsonMap;
 }
 
 @freezed
