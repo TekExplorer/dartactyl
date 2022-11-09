@@ -24,7 +24,9 @@ mixin _$ActivityLog {
   String get event => throw _privateConstructorUsedError;
   String get ip => throw _privateConstructorUsedError;
   bool get isApi => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
+  String? get description =>
+      throw _privateConstructorUsedError; // if its a List, set to {}
+  @JsonKey(fromJson: _fromJson)
   Map<String, dynamic> get properties => throw _privateConstructorUsedError;
   bool get hasAdditionalMetadata => throw _privateConstructorUsedError;
   DateTime get timestamp => throw _privateConstructorUsedError;
@@ -49,7 +51,7 @@ abstract class $ActivityLogCopyWith<$Res> {
       String ip,
       bool isApi,
       String? description,
-      Map<String, dynamic> properties,
+      @JsonKey(fromJson: _fromJson) Map<String, dynamic> properties,
       bool hasAdditionalMetadata,
       DateTime timestamp,
       ActivityLogRelationships? relationships});
@@ -148,7 +150,7 @@ abstract class _$$_ActivityLogCopyWith<$Res>
       String ip,
       bool isApi,
       String? description,
-      Map<String, dynamic> properties,
+      @JsonKey(fromJson: _fromJson) Map<String, dynamic> properties,
       bool hasAdditionalMetadata,
       DateTime timestamp,
       ActivityLogRelationships? relationships});
@@ -228,7 +230,8 @@ class _$_ActivityLog extends _ActivityLog {
       required this.ip,
       required this.isApi,
       this.description,
-      required final Map<String, dynamic> properties,
+      @JsonKey(fromJson: _fromJson)
+          required final Map<String, dynamic> properties,
       required this.hasAdditionalMetadata,
       required this.timestamp,
       this.relationships})
@@ -248,8 +251,11 @@ class _$_ActivityLog extends _ActivityLog {
   final bool isApi;
   @override
   final String? description;
+// if its a List, set to {}
   final Map<String, dynamic> _properties;
+// if its a List, set to {}
   @override
+  @JsonKey(fromJson: _fromJson)
   Map<String, dynamic> get properties {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_properties);
@@ -323,7 +329,8 @@ abstract class _ActivityLog extends ActivityLog {
       required final String ip,
       required final bool isApi,
       final String? description,
-      required final Map<String, dynamic> properties,
+      @JsonKey(fromJson: _fromJson)
+          required final Map<String, dynamic> properties,
       required final bool hasAdditionalMetadata,
       required final DateTime timestamp,
       final ActivityLogRelationships? relationships}) = _$_ActivityLog;
@@ -342,7 +349,8 @@ abstract class _ActivityLog extends ActivityLog {
   bool get isApi;
   @override
   String? get description;
-  @override
+  @override // if its a List, set to {}
+  @JsonKey(fromJson: _fromJson)
   Map<String, dynamic> get properties;
   @override
   bool get hasAdditionalMetadata;

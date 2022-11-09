@@ -1,5 +1,10 @@
 # CHANGELOG
+## 1.4.7
+
+ - Maybe fix `ActivityLog.properties`
+
 ## 1.4.6
+
  - improved `websocket` handling a little
 
 ## 1.4.5
