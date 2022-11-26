@@ -1,8 +1,6 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../models.dart';
-
 part '../../generated/models/request_models/subuser.freezed.dart';
 part '../../generated/models/request_models/subuser.g.dart';
 

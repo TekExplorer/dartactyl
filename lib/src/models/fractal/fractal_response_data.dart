@@ -2,7 +2,6 @@ import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-import '/models.dart';
 import 'meta_converter.dart';
 
 part '../../generated/models/fractal/fractal_response_data.g.dart';
@@ -59,6 +58,8 @@ class AttributesConverter<T extends SerializableMixin>
         return SystemPermissions.fromJson(json) as T;
       case User:
         return User.fromJson(json) as T;
+      case Subuser:
+        return Subuser.fromJson(json) as T;
       case RecoveryTokens:
         return RecoveryTokens.fromJson(json) as T;
       case ApiKey:

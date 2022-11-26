@@ -118,7 +118,6 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
       ));
     } catch (e) {
       emit(WebsocketState.authError(e.toString()));
-      rethrow;
     }
   }
 

@@ -1,142 +1,146 @@
 # CHANGELOG
+## 1.4.8
+
+- Fix `Subuser`
+
 ## 1.4.7
 
- - Fix `ActivityLog.properties`
+- Fix `ActivityLog.properties`
 
 ## 1.4.6
 
- - improved `websocket` handling a little
+- improved `websocket` handling a little
 
 ## 1.4.5
 
- - backup-related methods should now be fully functional
- - `listServerDatabases` now has pagination
+- backup-related methods should now be fully functional
+- `listServerDatabases` now has pagination
 
 ## 1.4.4
 
- - fix more `ActivityLog` stuff
+- fix more `ActivityLog` stuff
 
 ## 1.4.3
 
- - fix `ActivityLog`
+- fix `ActivityLog`
 
 ## 1.4.2
 
- - added activity log stuff
- - improved includes
- - updated `deleteSshKey` to work with new versions, as well as keeping the old method
- - updated `FileObject`
+- added activity log stuff
+- improved includes
+- updated `deleteSshKey` to work with new versions, as well as keeping the old method
+- updated `FileObject`
 
 ## 1.4.1
 
- - added `lockBackup`
- - updated server websocket extentions
- - updated dependencies
+- added `lockBackup`
+- updated server websocket extentions
+- updated dependencies
 
 ## 1.4.0
 
- - bump release
- - fixed an issue with the websocket cubit trying to emit new states after its closed
+- bump release
+- fixed an issue with the websocket cubit trying to emit new states after its closed
 
 ## 1.4.0-dev.21
 
- - renames `uploadFile` to `getFileUploadUrl`
- - adds `ServerStateConflictException` error code and specifies an `UNKNOWN` when not in list
+- renames `uploadFile` to `getFileUploadUrl`
+- adds `ServerStateConflictException` error code and specifies an `UNKNOWN` when not in list
 
 ## 1.4.0-dev.20
 
- - Fix `CreateSshKey` model
+- Fix `CreateSshKey` model
 
 ## 1.4.0-dev.19
 
- - added `pullFile`, `createSshKey`, `listSshKeys`, and `chmodFile`
+- added `pullFile`, `createSshKey`, `listSshKeys`, and `chmodFile`
 
 ## 1.4.0-dev.18
 
- - Updated models so that `listdockerImages` actually works
+- Updated models so that `listdockerImages` actually works
 
 ## 1.4.0-dev.17
 
- - Add `listDockerImages` convenience method
+- Add `listDockerImages` convenience method
 
 ## 1.4.0-dev.16
 
- - Fix the error handler
+- Fix the error handler
  
 ## 1.4.0-dev.15
 
- - Fix Pterodactyl v1.7 support
- - Fix Websocket registerListeners not supporting multiple registrations
+- Fix Pterodactyl v1.7 support
+- Fix Websocket registerListeners not supporting multiple registrations
  
 ## 1.4.0-dev.14
 
- - Add Pterodactyl v1.8 support
+- Add Pterodactyl v1.8 support
 
 ## 1.4.0-dev.13
 
- - Add websocket handler `ServerWebsocketCubit` and websocket convenience class `ServerWebsocketHandler`
+- Add websocket handler `ServerWebsocketCubit` and websocket convenience class `ServerWebsocketHandler`
 
 ## 1.4.0-dev.12
 
- - Fix `deleteFiles` 
+- Fix `deleteFiles` 
 
 ## 1.4.0-dev.11
 
- - Maybe fix `writeFile` and `FractalResponseList`
+- Maybe fix `writeFile` and `FractalResponseList`
 
 ## 1.4.0-dev.10
 
- - Fix FileObject
+- Fix FileObject
 
 ## 1.4.0-dev.9
 
- - Remove origin header
+- Remove origin header
 
 ## 1.4.0-dev.8
 
- - `createApiKey` now includes the token secret
+- `createApiKey` now includes the token secret
 
 ## 1.4.0-dev.7
 
- - Fix `ApiKey` model to make last_used_at nullable
+- Fix `ApiKey` model to make last_used_at nullable
 
 ## 1.4.0-dev.6
 
- - Fix `ServerFeatureLimits`
+- Fix `ServerFeatureLimits`
 
 ## 1.4.0-dev.5
 
- - Forget it. Separate classes it is.
+- Forget it. Separate classes it is.
 
 ## 1.4.0-dev.4
 
- - `FileListConverter` was the previous bug. still not working. just gonna throw `UnimplementedError` for now
+- `FileListConverter` was the previous bug. still not working. just gonna throw `UnimplementedError` for now
 ## 1.4.0-dev.3
 
- - Another minor bug that hardly needs mentioning
-   - A JsonConverter was being used wrong
+- Another minor bug that hardly needs mentioning
+  - A JsonConverter was being used wrong
 
 ## 1.4.0-dev.2
 
- - Type related bug... `PteroData` needed to require `SerializableMixin`, so `SerializableMixen` needed to be on `WebsocketDetails` 
+- Type related bug... `PteroData` needed to require `SerializableMixin`, so `SerializableMixen` needed to be on `WebsocketDetails` 
 
 ## 1.4.0-dev.1
 
- - Accedentally made `FractalServer.server` no longer work. Fixed now.
+- Accedentally made `FractalServer.server` no longer work. Fixed now.
 
 ## 1.4.0-dev.0
 
- - Make all models `@freezed` where possible
- - Add annotations to better represent certain things
- - Adjust some models (like `Server`) to better represent the api
- - Make `Meta` into multiple classes to enforce typed responses
- - Make `Meta` only show where it should, and made it non-nullable.
+- Make all models `@freezed` where possible
+- Add annotations to better represent certain things
+- Adjust some models (like `Server`) to better represent the api
+- Make `Meta` into multiple classes to enforce typed responses
+- Make `Meta` only show where it should, and made it non-nullable.
 
 ## 1.3.9-dev.0
 
 - Refactored the generated files into their own folder, cause thats apparently possible
 - Removed the cookie manager in order to allow web use.
-  - Add `dio_cookie_manager` yourself to make use of it.
+ - Add `dio_cookie_manager` yourself to make use of it.
 
 ## 1.3.8
 
@@ -150,7 +154,7 @@
 
 - `JsonMap` typedef now used anywhere `Map<String, dynamic>` was, not including generated files
 - `getSiteConfiguration()` and `getPterodactylUser()` added to the client
-  - `getSiteConfiguration()` works without needing to be logged in
+ - `getSiteConfiguration()` works without needing to be logged in
 
 ## 1.3.5
 
@@ -169,8 +173,8 @@
 
 - Removed `with SerializableMixin` on stuff that doesnt actually need it, as its only used to make serialization easier in-package. May give to everything with a `toJson` in the future, but its not necessary for now
 - Added a bunch of extentions using those same type aliase
-  - `FractalServer` now has a `server` getter (ie `fractalServer.server` => `Server`)
-  - `FractalServerList` now has a `servers` getter (ie `fractalServerList.servers` => `List<Server>`)
+ - `FractalServer` now has a `server` getter (ie `fractalServer.server` => `Server`)
+ - `FractalServerList` now has a `servers` getter (ie `fractalServerList.servers` => `List<Server>`)
 
 ## 1.3.1
 
@@ -180,11 +184,11 @@
 ## 1.3.0
 
 - Added Query parameters like `includes`
-  - `getServers` is now more powerful with `type` and `filter[ ]`
+ - `getServers` is now more powerful with `type` and `filter[ ]`
 - Renamed a bunch of stuff
-  - `getPermissions` -> `getSystemPermissions`
-  - A bunch of parameters like `server` are now suffexed by `Id` (ex: `serverId`)
-  - Anything that returns a `FractalResponseList` is now prefixed by `list` instead of `get` (ie. `getServers` -> `listServers`)
+ - `getPermissions`-> `getSystemPermissions`
+ - A bunch of parameters like `server` are now suffexed by `Id` (ex: `serverId`)
+ - Anything that returns a `FractalResponseList` is now prefixed by `list` instead of `get` (ie. `getServers`-> `listServers`)
 
 ## 1.2.2
 
@@ -205,14 +209,14 @@
 ## 1.1.7
 
 - Fix an issue with `toJson()` on a couple models
-- Fix `PteroClient.mock()` (needed to include the `https://` -.-)
+- Fix `PteroClient.mock()` (needed to include the `https://`-.-)
 - Add example using `PteroClient.mock()`
 
 ## 1.1.6
 
 - Add `PteroClient.mock()` for testing
-  - Uses `mockapi.ptero.sh` which itself wraps the <https://pterodactyl.stoplight.io> mock server in a way that works with this client, as `/api/client` is hardcoded
-  - *(!!SERVER NOT COMPLETED AS OF WRITING THIS!!)*
+ - Uses `mockapi.ptero.sh` which itself wraps the <https://pterodactyl.stoplight.io> mock server in a way that works with this client, as `/api/client` is hardcoded
+ - *(!!SERVER NOT COMPLETED AS OF WRITING THIS!!)*
 
 ## 1.1.5
 
@@ -240,8 +244,8 @@
 - Instead, use `PteroClient.generate()`
 - Made it possible to use cookies instead of Api Key by simply omitting the key in the PteroClient.generate() constructor
 - Added `login()`, which is only possible if you are in cookie mode!
-  - Conveniently, I will take you out of Key mode and into Cookie mode for you!
-- Added the inverse of `login()`; `logout()`. also takes you out of key mode - but wont work in key mode anyway so...
+ - Conveniently, I will take you out of Key mode and into Cookie mode for you!
+- Added the inverse of `login()`; `logout()`. also takes you out of key mode- but wont work in key mode anyway so...
 - Added an interceptor to do mentioned "taking out of key mode"
 - Updated dependencies
 
