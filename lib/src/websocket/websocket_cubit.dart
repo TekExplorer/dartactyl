@@ -57,11 +57,16 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
   ServerWebsocketHandler get easyHandler =>
       ServerWebsocketHandler.fromCubit(this);
 
+  final List<void Function()> _onCloseCallbacks = [];
+  void onClose(void Function() callback) => _onCloseCallbacks.add(callback);
   @override
   close() async {
     await _socket?.close(WebSocketStatus.normalClosure);
     // close the specialized streams
     await listeners.closeAllListeners();
+    for (var onCloseCallback in _onCloseCallbacks) {
+      onCloseCallback();
+    }
     // close the underlying websocket
     super.close();
   }
@@ -121,7 +126,12 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
     }
   }
 
+  ServerPowerState? lastKnownPowerState;
+
   void _configureListeners() {
+    listeners.registerPowerStateListener((state) {
+      lastKnownPowerState = state;
+    });
     // map to streams first
     stream.listen((event) {
       event.whenOrNull(
@@ -167,9 +177,7 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
         break;
       case WebsocketRecievedModelEvent.stats:
         emit(WebsocketState.stats(
-          WebsocketStatsModel.fromJson(
-            jsonDecode(arg!),
-          ),
+          WebsocketStatsModel.fromJson(jsonDecode(arg!)),
         ));
         break;
 

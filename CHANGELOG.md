@@ -1,4 +1,8 @@
 # CHANGELOG
+## 1.4.9
+
+- Added a `lastKnownPowerState` to the websocket cubit. may or may not stay
+
 ## 1.4.8
 
 - Fix `Subuser`
