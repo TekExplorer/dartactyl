@@ -23,10 +23,41 @@ abstract class DepricatedPteroClient {
   });
 }
 
+// remove any instance of null_resource, which looks like this:
+//  {
+//   "object": "null_resource",
+//   "attributes": null
+// }
+dynamic _removeNullResource(dynamic json) {
+  if (json is Map<String, dynamic>) {
+    if (json['object'] == 'null_resource') return null;
+    return json.map((key, value) => MapEntry(key, _removeNullResource(value)));
+  }
+  if (json is List) {
+    return json.map((e) => _removeNullResource(e)).toList();
+  }
+  return json;
+}
+
 /// Pterodactyl API Client
 @RestApi()
 abstract class PteroClient {
   factory PteroClient(Dio dio, {String? baseUrl}) = _PteroClient;
+
+  /// Remove any instance of null_resource, which looks like this:
+  /// ```json
+  /// {
+  ///   "object": "null_resource",
+  ///   "attributes": null
+  /// }
+  /// ```
+  /// This is done because it breaks serialization anywhere it appears.
+  static final removeNullResourcesInterceptor = InterceptorsWrapper(
+    onResponse: (e, handler) {
+      e.data = _removeNullResource(e.data);
+      handler.next(e);
+    },
+  );
 
   /// Creates an instance of [MockPteroClient]
   /// which will return concrete responses for testing
@@ -64,6 +95,7 @@ abstract class PteroClient {
     dio.interceptors.addAll([
       // if (enableIfAuthNoKeyInterceptor) IfAuthNoKeyInterceptor(),
       if (enableErrorInterceptor) HandleErrorInterceptor(),
+      removeNullResourcesInterceptor,
     ]);
 
     return PteroClient(dio);

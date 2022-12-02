@@ -1,4 +1,8 @@
 # CHANGELOG
+## 1.4.10
+
+- Murdered all existance of "null_resource" in all responses, making them just null, instead of a useless serializer-breaking object through the use of an interceptor
+
 ## 1.4.9
 
 - Added a `lastKnownPowerState` to the websocket cubit. may or may not stay
