@@ -14,7 +14,7 @@ extension FractalGetServerMeta on FractalMeta<Server, ServerMeta> {
   List<String> get userPermissions => meta.userPermissions;
 
   FractalList<Allocation> get allocations => server.relationships.allocations;
-  FractalList<EggVariable> get variables => server.relationships.variables;
+  FractalList<EggVariable>? get variables => server.relationships.variables;
 }
 
 // FractalSystemPermissions

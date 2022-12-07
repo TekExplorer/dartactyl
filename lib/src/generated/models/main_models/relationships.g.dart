@@ -24,8 +24,10 @@ _$_ServerRelationships _$$_ServerRelationshipsFromJson(
     _$_ServerRelationships(
       allocations: FractalResponseList<Allocation>.fromJson(
           json['allocations'] as Map<String, dynamic>),
-      variables: FractalResponseList<EggVariable>.fromJson(
-          json['variables'] as Map<String, dynamic>),
+      variables: json['variables'] == null
+          ? null
+          : FractalResponseList<EggVariable>.fromJson(
+              json['variables'] as Map<String, dynamic>),
       egg: json['egg'] == null
           ? null
           : FractalResponseData<Egg>.fromJson(
@@ -40,7 +42,7 @@ Map<String, dynamic> _$$_ServerRelationshipsToJson(
         _$_ServerRelationships instance) =>
     <String, dynamic>{
       'allocations': instance.allocations.toJson(),
-      'variables': instance.variables.toJson(),
+      'variables': instance.variables?.toJson(),
       'egg': instance.egg?.toJson(),
       'subusers': instance.subusers?.toJson(),
     };

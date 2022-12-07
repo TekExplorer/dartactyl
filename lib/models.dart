@@ -105,6 +105,7 @@ export 'src/models/request_models/from_to.dart';
 export 'src/models/request_models/key_value.dart';
 export 'src/models/request_models/make_file_copy.dart';
 export 'src/models/request_models/pull_file_body.dart';
+export 'src/models/request_models/restore_backup.dart';
 export 'src/models/request_models/schedule.dart';
 export 'src/models/request_models/send_server_command.dart';
 export 'src/models/request_models/server_rename.dart';

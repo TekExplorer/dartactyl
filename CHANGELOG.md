@@ -1,4 +1,12 @@
 # CHANGELOG
+
+## 1.4.11
+
+- Added `restoreBackup`
+- Renamed `lockBackup` to `toggleBackupLock` to better indicate its functionality
+- Some other misc stuff your IDE will direct you to
+- Added a Translation Client, for those of you who need it, not that it supports anything other than `en` anyway
+
 ## 1.4.10
 
 - Murdered all existance of "null_resource" in all responses, making them just null, instead of a useless serializer-breaking object through the use of an interceptor

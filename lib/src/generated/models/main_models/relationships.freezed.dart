@@ -173,7 +173,7 @@ ServerRelationships _$ServerRelationshipsFromJson(Map<String, dynamic> json) {
 mixin _$ServerRelationships {
   FractalResponseList<Allocation> get allocations =>
       throw _privateConstructorUsedError;
-  FractalResponseList<EggVariable> get variables =>
+  FractalResponseList<EggVariable>? get variables =>
       throw _privateConstructorUsedError;
   FractalResponseData<Egg>? get egg => throw _privateConstructorUsedError;
   FractalResponseList<Subuser>? get subusers =>
@@ -193,7 +193,7 @@ abstract class $ServerRelationshipsCopyWith<$Res> {
   @useResult
   $Res call(
       {FractalResponseList<Allocation> allocations,
-      FractalResponseList<EggVariable> variables,
+      FractalResponseList<EggVariable>? variables,
       FractalResponseData<Egg>? egg,
       FractalResponseList<Subuser>? subusers});
 }
@@ -212,7 +212,7 @@ class _$ServerRelationshipsCopyWithImpl<$Res, $Val extends ServerRelationships>
   @override
   $Res call({
     Object? allocations = null,
-    Object? variables = null,
+    Object? variables = freezed,
     Object? egg = freezed,
     Object? subusers = freezed,
   }) {
@@ -221,10 +221,10 @@ class _$ServerRelationshipsCopyWithImpl<$Res, $Val extends ServerRelationships>
           ? _value.allocations
           : allocations // ignore: cast_nullable_to_non_nullable
               as FractalResponseList<Allocation>,
-      variables: null == variables
+      variables: freezed == variables
           ? _value.variables
           : variables // ignore: cast_nullable_to_non_nullable
-              as FractalResponseList<EggVariable>,
+              as FractalResponseList<EggVariable>?,
       egg: freezed == egg
           ? _value.egg
           : egg // ignore: cast_nullable_to_non_nullable
@@ -247,7 +247,7 @@ abstract class _$$_ServerRelationshipsCopyWith<$Res>
   @useResult
   $Res call(
       {FractalResponseList<Allocation> allocations,
-      FractalResponseList<EggVariable> variables,
+      FractalResponseList<EggVariable>? variables,
       FractalResponseData<Egg>? egg,
       FractalResponseList<Subuser>? subusers});
 }
@@ -264,7 +264,7 @@ class __$$_ServerRelationshipsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? allocations = null,
-    Object? variables = null,
+    Object? variables = freezed,
     Object? egg = freezed,
     Object? subusers = freezed,
   }) {
@@ -273,10 +273,10 @@ class __$$_ServerRelationshipsCopyWithImpl<$Res>
           ? _value.allocations
           : allocations // ignore: cast_nullable_to_non_nullable
               as FractalResponseList<Allocation>,
-      variables: null == variables
+      variables: freezed == variables
           ? _value.variables
           : variables // ignore: cast_nullable_to_non_nullable
-              as FractalResponseList<EggVariable>,
+              as FractalResponseList<EggVariable>?,
       egg: freezed == egg
           ? _value.egg
           : egg // ignore: cast_nullable_to_non_nullable
@@ -293,10 +293,7 @@ class __$$_ServerRelationshipsCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ServerRelationships extends _ServerRelationships {
   _$_ServerRelationships(
-      {required this.allocations,
-      required this.variables,
-      this.egg,
-      this.subusers})
+      {required this.allocations, this.variables, this.egg, this.subusers})
       : super._();
 
   factory _$_ServerRelationships.fromJson(Map<String, dynamic> json) =>
@@ -305,7 +302,7 @@ class _$_ServerRelationships extends _ServerRelationships {
   @override
   final FractalResponseList<Allocation> allocations;
   @override
-  final FractalResponseList<EggVariable> variables;
+  final FractalResponseList<EggVariable>? variables;
   @override
   final FractalResponseData<Egg>? egg;
   @override
@@ -353,7 +350,7 @@ class _$_ServerRelationships extends _ServerRelationships {
 abstract class _ServerRelationships extends ServerRelationships {
   factory _ServerRelationships(
       {required final FractalResponseList<Allocation> allocations,
-      required final FractalResponseList<EggVariable> variables,
+      final FractalResponseList<EggVariable>? variables,
       final FractalResponseData<Egg>? egg,
       final FractalResponseList<Subuser>? subusers}) = _$_ServerRelationships;
   _ServerRelationships._() : super._();
@@ -364,7 +361,7 @@ abstract class _ServerRelationships extends ServerRelationships {
   @override
   FractalResponseList<Allocation> get allocations;
   @override
-  FractalResponseList<EggVariable> get variables;
+  FractalResponseList<EggVariable>? get variables;
   @override
   FractalResponseData<Egg>? get egg;
   @override

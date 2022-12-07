@@ -3,13 +3,15 @@ import 'dart:io';
 
 import 'package:dartactyl/models.dart';
 import 'package:dio/dio.dart' hide Headers;
+import 'package:freezed_annotation/freezed_annotation.dart';
 // import 'package:dio/dio.dart' as dioHeaders show Headers;
-import 'package:meta/meta.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'client_extentions.dart';
+part 'generated/client.freezed.dart';
 part 'generated/client.g.dart';
 part 'mock_client.dart';
+part 'translation_client.dart';
 
 @RestApi()
 abstract class DepricatedPteroClient {
@@ -96,6 +98,13 @@ abstract class PteroClient {
       // if (enableIfAuthNoKeyInterceptor) IfAuthNoKeyInterceptor(),
       if (enableErrorInterceptor) HandleErrorInterceptor(),
       removeNullResourcesInterceptor,
+      LogInterceptor(
+        request: false,
+        requestBody: false,
+        responseBody: true,
+        responseHeader: true,
+        requestHeader: false,
+      ),
     ]);
 
     return PteroClient(dio);
@@ -221,8 +230,6 @@ abstract class PteroClient {
     @Body() UpdatePassword data,
   );
 
-  /// TODO: Account Activity; not tested
-  @experimental
   @GET('/api/client/account/activity')
   Future<FractalListMeta<ActivityLog, PaginatedMeta>> getAccountActivity({
     @Query('include') ActivityLogsIncludes? include,
@@ -413,10 +420,10 @@ abstract class PteroClient {
   /// [file]; url encoded path to the desired file
   @POST('/api/client/servers/{serverId}/files/write')
   @Headers(<String, dynamic>{"Content-Type": 'text/plain'})
-  Future<void> writeFile({
+  Future<void> writeFile(
+    @Body() String rawContents, {
     @Path() required String serverId,
     @Query('file', encoded: true) required String file,
-    @Body() required String rawContents,
   });
 
   /// Compress a file into an archive (eg. zip) on the [Server]
@@ -615,7 +622,7 @@ abstract class PteroClient {
   /// Create a backup on the [Server]
   @POST('/api/client/servers/{serverId}/backups')
   Future<Fractal<Backup>> createBackup(
-    @Body() CreateBackupRequest backupData, {
+    @Body() CreateBackup backupData, {
     @Path() required String serverId,
   });
 
@@ -627,8 +634,9 @@ abstract class PteroClient {
   });
 
   /// Lock a [Backup] to protect it from automated or accedental deletions
+  /// If the [Backup] is already locked, this will unlock it instead
   @POST('/api/client/servers/{serverId}/backups/{backupId}/lock')
-  Future<Fractal<Backup>> lockBackup({
+  Future<Fractal<Backup>> toggleBackupLock({
     @Path() required String serverId,
     @Path() required String backupId,
   });
@@ -643,6 +651,14 @@ abstract class PteroClient {
   /// Delete a [Backup] from the [Server]
   @DELETE('/api/client/servers/{serverId}/backups/{backupId}')
   Future<void> deleteBackup({
+    @Path() required String serverId,
+    @Path() required String backupId,
+  });
+
+  /// Restore a [Backup] to the [Server]
+  @POST('/api/client/servers/{serverId}/backups/{backupId}/restore')
+  Future<void> restoreBackup(
+    @Body() RestoreBackup body, {
     @Path() required String serverId,
     @Path() required String backupId,
   });

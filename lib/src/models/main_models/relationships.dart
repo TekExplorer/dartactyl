@@ -20,7 +20,7 @@ class DatabasePasswordRelationships with _$DatabasePasswordRelationships {
 class ServerRelationships with _$ServerRelationships {
   factory ServerRelationships({
     required FractalList<Allocation> allocations,
-    required FractalList<EggVariable> variables,
+    FractalList<EggVariable>? variables,
     Fractal<Egg>? egg,
     FractalList<Subuser>? subusers,
   }) = _ServerRelationships;

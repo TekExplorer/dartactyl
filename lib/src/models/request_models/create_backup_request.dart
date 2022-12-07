@@ -6,13 +6,12 @@ part '../../generated/models/request_models/create_backup_request.freezed.dart';
 part '../../generated/models/request_models/create_backup_request.g.dart';
 
 @freezed
-class CreateBackupRequest with _$CreateBackupRequest {
-  factory CreateBackupRequest({
+class CreateBackup with _$CreateBackup {
+  factory CreateBackup({
     String? name,
     String? ignored,
     required bool isLocked,
-  }) = _CreateBackupRequest;
+  }) = _CreateBackup;
 
-  factory CreateBackupRequest.fromJson(JsonMap json) =>
-      _$CreateBackupRequestFromJson(json);
+  factory CreateBackup.fromJson(JsonMap json) => _$CreateBackupFromJson(json);
 }

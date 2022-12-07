@@ -1,8 +1,6 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../models.dart';
-
 part '../../generated/models/request_models/file_body.freezed.dart';
 part '../../generated/models/request_models/file_body.g.dart';
 

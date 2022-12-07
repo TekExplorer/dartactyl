@@ -4,6 +4,9 @@ extension GetDio on PteroClient {
   Dio get dio => _dio;
   String get url => baseUrl ?? dio.options.baseUrl;
   DepricatedPteroClient get old => DepricatedPteroClient(dio, baseUrl: baseUrl);
+  @experimental
+  PteroTranslationsClient get translations =>
+      PteroTranslationsClient(dio, baseUrl: baseUrl);
 
   /// Alias of listVariables
   Future<FractalListMeta<EggVariable, StartupMeta>> getStartup(
