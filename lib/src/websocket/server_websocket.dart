@@ -27,7 +27,7 @@ class ServerWebsocketHandler {
 
   Future<void> close() async => await cubit.close();
 
-  void init() => cubit.init();
+  Future<void> init() => cubit.init();
 
   void requestLogs() => cubit.requestLogs();
   void requestStats() => cubit.requestStats();
