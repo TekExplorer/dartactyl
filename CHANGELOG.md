@@ -2,7 +2,7 @@
 
 ## 1.4.12
 
- - Correct the Websocket Handler's init() forward function to use Future like the cubit does
+- Correct the Websocket Handler's init() forward function to use Future like the cubit does
 
 ## 1.4.11
 
