@@ -229,7 +229,7 @@ class __$$_UserConfigCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UserConfig extends _UserConfig {
-  _$_UserConfig(
+  const _$_UserConfig(
       {required this.uuid,
       required this.username,
       required this.email,
@@ -320,7 +320,7 @@ class _$_UserConfig extends _UserConfig {
 }
 
 abstract class _UserConfig extends UserConfig {
-  factory _UserConfig(
+  const factory _UserConfig(
       {required final String uuid,
       required final String username,
       required final String email,
@@ -332,7 +332,7 @@ abstract class _UserConfig extends UserConfig {
       required final String updatedAt,
       required final String nameFirst,
       required final String nameLast}) = _$_UserConfig;
-  _UserConfig._() : super._();
+  const _UserConfig._() : super._();
 
   factory _UserConfig.fromJson(Map<String, dynamic> json) =
       _$_UserConfig.fromJson;

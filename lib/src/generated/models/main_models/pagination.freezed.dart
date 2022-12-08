@@ -102,7 +102,7 @@ class __$$_LinksCopyWithImpl<$Res> extends _$LinksCopyWithImpl<$Res, _$_Links>
 /// @nodoc
 @JsonSerializable()
 class _$_Links extends _Links {
-  _$_Links({this.previous, this.next}) : super._();
+  const _$_Links({this.previous, this.next}) : super._();
 
   factory _$_Links.fromJson(Map<String, dynamic> json) =>
       _$$_LinksFromJson(json);
@@ -146,8 +146,8 @@ class _$_Links extends _Links {
 }
 
 abstract class _Links extends Links {
-  factory _Links({final String? previous, final String? next}) = _$_Links;
-  _Links._() : super._();
+  const factory _Links({final String? previous, final String? next}) = _$_Links;
+  const _Links._() : super._();
 
   factory _Links.fromJson(Map<String, dynamic> json) = _$_Links.fromJson;
 
@@ -324,7 +324,7 @@ class __$$_PaginationCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Pagination extends _Pagination {
-  _$_Pagination(
+  const _$_Pagination(
       {required this.total,
       required this.count,
       required this.perPage,
@@ -389,14 +389,14 @@ class _$_Pagination extends _Pagination {
 }
 
 abstract class _Pagination extends Pagination {
-  factory _Pagination(
+  const factory _Pagination(
       {required final int total,
       required final int count,
       required final int perPage,
       required final int currentPage,
       required final int totalPages,
       required final Links links}) = _$_Pagination;
-  _Pagination._() : super._();
+  const _Pagination._() : super._();
 
   factory _Pagination.fromJson(Map<String, dynamic> json) =
       _$_Pagination.fromJson;

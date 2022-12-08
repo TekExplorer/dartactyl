@@ -6,7 +6,7 @@ part '../../generated/models/request_models/file_body.g.dart';
 
 @freezed
 class FileBody with _$FileBody {
-  factory FileBody({
+  const factory FileBody({
     @JsonKey(name: 'root') required String rootDir,
     required String file,
   }) = _FileBody;
@@ -16,7 +16,7 @@ class FileBody with _$FileBody {
 
 @freezed
 class FileBodyListFromTo with _$FileBodyListFromTo {
-  factory FileBodyListFromTo({
+  const factory FileBodyListFromTo({
     @JsonKey(name: 'root') required String rootDir,
     required List<FromTo> files, // String or FromTo
   }) = _FileBodyListFromTo;
@@ -27,7 +27,7 @@ class FileBodyListFromTo with _$FileBodyListFromTo {
 
 @freezed
 class FileBodyListString with _$FileBodyListString {
-  factory FileBodyListString({
+  const factory FileBodyListString({
     @JsonKey(name: 'root') required String rootDir,
     required List<String> files, // String or FromTo
   }) = _FileBodyListString;
@@ -50,7 +50,7 @@ Name:
 
 @freezed
 class FolderBody with _$FolderBody {
-  factory FolderBody({
+  const factory FolderBody({
     @JsonKey(name: 'root') required String rootDir,
     required String name,
   }) = _FolderBody;

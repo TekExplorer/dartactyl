@@ -108,7 +108,7 @@ class __$$_CreateApiKeyCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateApiKey implements _CreateApiKey {
-  _$_CreateApiKey(
+  const _$_CreateApiKey(
       {required this.description, required final List<String> allowedIps})
       : _allowedIps = allowedIps;
 
@@ -160,7 +160,7 @@ class _$_CreateApiKey implements _CreateApiKey {
 }
 
 abstract class _CreateApiKey implements CreateApiKey {
-  factory _CreateApiKey(
+  const factory _CreateApiKey(
       {required final String description,
       required final List<String> allowedIps}) = _$_CreateApiKey;
 

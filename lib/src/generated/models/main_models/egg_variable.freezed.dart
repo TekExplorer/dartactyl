@@ -177,7 +177,7 @@ class __$$_EggVariableCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_EggVariable extends _EggVariable {
-  _$_EggVariable(
+  const _$_EggVariable(
       {required this.name,
       required this.description,
       required this.envVariable,
@@ -249,7 +249,7 @@ class _$_EggVariable extends _EggVariable {
 }
 
 abstract class _EggVariable extends EggVariable {
-  factory _EggVariable(
+  const factory _EggVariable(
       {required final String name,
       required final String description,
       required final String envVariable,
@@ -257,7 +257,7 @@ abstract class _EggVariable extends EggVariable {
       final String? serverValue,
       required final bool isEditable,
       required final String rules}) = _$_EggVariable;
-  _EggVariable._() : super._();
+  const _EggVariable._() : super._();
 
   factory _EggVariable.fromJson(Map<String, dynamic> json) =
       _$_EggVariable.fromJson;

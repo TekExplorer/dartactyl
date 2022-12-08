@@ -1,15 +1,14 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../models.dart';
-
 part '../../generated/models/ptero_data/ptero_data.freezed.dart';
 part '../../generated/models/ptero_data/ptero_data.g.dart';
 
 @freezed
 class PteroData<T extends SerializableMixin> with _$PteroData<T> {
   // Websocket and TwoFactorImage
-  factory PteroData({@PteroDataConverter() required T data}) = _PteroData<T>;
+  const factory PteroData({@PteroDataConverter() required T data}) =
+      _PteroData<T>;
 
   factory PteroData.fromJson(JsonMap json) => _$PteroDataFromJson<T>(json);
 }

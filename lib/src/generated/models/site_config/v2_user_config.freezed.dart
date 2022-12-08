@@ -24,7 +24,6 @@ mixin _$_V2UserConfig {
   String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get language => throw _privateConstructorUsedError;
-  int? get adminRoleId => throw _privateConstructorUsedError;
   bool get rootAdmin => throw _privateConstructorUsedError;
   bool get useTotp => throw _privateConstructorUsedError;
   bool get gravatar => throw _privateConstructorUsedError;
@@ -50,7 +49,6 @@ abstract class _$V2UserConfigCopyWith<$Res> {
       String username,
       String email,
       String language,
-      int? adminRoleId,
       bool rootAdmin,
       bool useTotp,
       bool gravatar,
@@ -77,7 +75,6 @@ class __$V2UserConfigCopyWithImpl<$Res, $Val extends _V2UserConfig>
     Object? username = null,
     Object? email = null,
     Object? language = null,
-    Object? adminRoleId = freezed,
     Object? rootAdmin = null,
     Object? useTotp = null,
     Object? gravatar = null,
@@ -103,10 +100,6 @@ class __$V2UserConfigCopyWithImpl<$Res, $Val extends _V2UserConfig>
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as String,
-      adminRoleId: freezed == adminRoleId
-          ? _value.adminRoleId
-          : adminRoleId // ignore: cast_nullable_to_non_nullable
-              as int?,
       rootAdmin: null == rootAdmin
           ? _value.rootAdmin
           : rootAdmin // ignore: cast_nullable_to_non_nullable
@@ -152,7 +145,6 @@ abstract class _$$__V2UserConfigCopyWith<$Res>
       String username,
       String email,
       String language,
-      int? adminRoleId,
       bool rootAdmin,
       bool useTotp,
       bool gravatar,
@@ -177,7 +169,6 @@ class __$$__V2UserConfigCopyWithImpl<$Res>
     Object? username = null,
     Object? email = null,
     Object? language = null,
-    Object? adminRoleId = freezed,
     Object? rootAdmin = null,
     Object? useTotp = null,
     Object? gravatar = null,
@@ -203,10 +194,6 @@ class __$$__V2UserConfigCopyWithImpl<$Res>
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as String,
-      adminRoleId: freezed == adminRoleId
-          ? _value.adminRoleId
-          : adminRoleId // ignore: cast_nullable_to_non_nullable
-              as int?,
       rootAdmin: null == rootAdmin
           ? _value.rootAdmin
           : rootAdmin // ignore: cast_nullable_to_non_nullable
@@ -242,12 +229,11 @@ class __$$__V2UserConfigCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$__V2UserConfig implements __V2UserConfig {
-  _$__V2UserConfig(
+  const _$__V2UserConfig(
       {required this.uuid,
       required this.username,
       required this.email,
       required this.language,
-      this.adminRoleId,
       required this.rootAdmin,
       required this.useTotp,
       required this.gravatar,
@@ -268,8 +254,6 @@ class _$__V2UserConfig implements __V2UserConfig {
   @override
   final String language;
   @override
-  final int? adminRoleId;
-  @override
   final bool rootAdmin;
   @override
   final bool useTotp;
@@ -286,7 +270,7 @@ class _$__V2UserConfig implements __V2UserConfig {
 
   @override
   String toString() {
-    return '_V2UserConfig(uuid: $uuid, username: $username, email: $email, language: $language, adminRoleId: $adminRoleId, rootAdmin: $rootAdmin, useTotp: $useTotp, gravatar: $gravatar, createdAt: $createdAt, updatedAt: $updatedAt, avatarUrl: $avatarUrl, roleName: $roleName)';
+    return '_V2UserConfig(uuid: $uuid, username: $username, email: $email, language: $language, rootAdmin: $rootAdmin, useTotp: $useTotp, gravatar: $gravatar, createdAt: $createdAt, updatedAt: $updatedAt, avatarUrl: $avatarUrl, roleName: $roleName)';
   }
 
   @override
@@ -300,8 +284,6 @@ class _$__V2UserConfig implements __V2UserConfig {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.language, language) ||
                 other.language == language) &&
-            (identical(other.adminRoleId, adminRoleId) ||
-                other.adminRoleId == adminRoleId) &&
             (identical(other.rootAdmin, rootAdmin) ||
                 other.rootAdmin == rootAdmin) &&
             (identical(other.useTotp, useTotp) || other.useTotp == useTotp) &&
@@ -319,20 +301,8 @@ class _$__V2UserConfig implements __V2UserConfig {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      uuid,
-      username,
-      email,
-      language,
-      adminRoleId,
-      rootAdmin,
-      useTotp,
-      gravatar,
-      createdAt,
-      updatedAt,
-      avatarUrl,
-      roleName);
+  int get hashCode => Object.hash(runtimeType, uuid, username, email, language,
+      rootAdmin, useTotp, gravatar, createdAt, updatedAt, avatarUrl, roleName);
 
   @JsonKey(ignore: true)
   @override
@@ -349,12 +319,11 @@ class _$__V2UserConfig implements __V2UserConfig {
 }
 
 abstract class __V2UserConfig implements _V2UserConfig {
-  factory __V2UserConfig(
+  const factory __V2UserConfig(
       {required final String uuid,
       required final String username,
       required final String email,
       required final String language,
-      final int? adminRoleId,
       required final bool rootAdmin,
       required final bool useTotp,
       required final bool gravatar,
@@ -374,8 +343,6 @@ abstract class __V2UserConfig implements _V2UserConfig {
   String get email;
   @override
   String get language;
-  @override
-  int? get adminRoleId;
   @override
   bool get rootAdmin;
   @override

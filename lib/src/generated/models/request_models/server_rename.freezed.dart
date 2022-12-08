@@ -92,7 +92,7 @@ class __$$_RenameCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Rename implements _Rename {
-  _$_Rename({required this.name});
+  const _$_Rename({required this.name});
 
   factory _$_Rename.fromJson(Map<String, dynamic> json) =>
       _$$_RenameFromJson(json);
@@ -132,7 +132,7 @@ class _$_Rename implements _Rename {
 }
 
 abstract class _Rename implements Rename {
-  factory _Rename({required final String name}) = _$_Rename;
+  const factory _Rename({required final String name}) = _$_Rename;
 
   factory _Rename.fromJson(Map<String, dynamic> json) = _$_Rename.fromJson;
 

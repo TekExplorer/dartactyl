@@ -8,7 +8,8 @@ enum ServerPowerState { running, starting, stopping, offline }
 
 @freezed
 class Stats with SerializableMixin, _$Stats {
-  factory Stats({
+  const Stats._();
+  const factory Stats({
     required ServerPowerState currentState,
     required bool isSuspended,
     required StatsResources resources,
@@ -16,15 +17,14 @@ class Stats with SerializableMixin, _$Stats {
 
   factory Stats.fromJson(JsonMap json) => _$StatsFromJson(json);
 
-  Stats._();
-
   @override
   JsonMap toJson();
 }
 
 @freezed
 class StatsResources with _$StatsResources {
-  factory StatsResources({
+  const StatsResources._();
+  const factory StatsResources({
     required int memoryBytes,
     required double cpuAbsolute,
     required int diskBytes,
@@ -39,5 +39,5 @@ class StatsResources with _$StatsResources {
   factory StatsResources.fromJson(JsonMap json) =>
       _$StatsResourcesFromJson(json);
 
-  StatsResources._();
+  // DateTime get uptimeAsDateTime => DateTime.fromMillisecondsSinceEpoch(uptime!);
 }

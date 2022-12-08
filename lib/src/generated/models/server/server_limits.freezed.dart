@@ -151,15 +151,14 @@ class __$$_ServerLimitsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ServerLimits extends _ServerLimits {
-  _$_ServerLimits(
+class _$_ServerLimits implements _ServerLimits {
+  const _$_ServerLimits(
       {required this.memory,
       required this.swap,
       required this.disk,
       required this.io,
       required this.cpu,
-      this.threads})
-      : super._();
+      this.threads});
 
   factory _$_ServerLimits.fromJson(Map<String, dynamic> json) =>
       _$$_ServerLimitsFromJson(json);
@@ -214,15 +213,14 @@ class _$_ServerLimits extends _ServerLimits {
   }
 }
 
-abstract class _ServerLimits extends ServerLimits {
-  factory _ServerLimits(
+abstract class _ServerLimits implements ServerLimits {
+  const factory _ServerLimits(
       {required final int memory,
       required final int swap,
       required final int disk,
       required final int io,
       required final int cpu,
       final String? threads}) = _$_ServerLimits;
-  _ServerLimits._() : super._();
 
   factory _ServerLimits.fromJson(Map<String, dynamic> json) =
       _$_ServerLimits.fromJson;

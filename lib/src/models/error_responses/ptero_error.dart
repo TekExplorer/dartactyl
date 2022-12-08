@@ -8,8 +8,8 @@ part '../../generated/models/error_responses/ptero_error.g.dart';
 
 @freezed
 class PteroError with _$PteroError implements Exception {
-  PteroError._();
-  factory PteroError({
+  const PteroError._();
+  const factory PteroError({
     @JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
         required PteroErrorCode code,
     required String status,

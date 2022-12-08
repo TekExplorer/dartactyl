@@ -1,8 +1,6 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../models.dart';
-
 part '../../generated/models/ptero_data/two_factor_image.freezed.dart';
 part '../../generated/models/ptero_data/two_factor_image.g.dart';
 

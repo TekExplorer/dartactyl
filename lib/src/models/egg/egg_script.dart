@@ -6,9 +6,9 @@ part '../../generated/models/egg/egg_script.g.dart';
 
 @freezed
 class EggScript with _$EggScript {
-  EggScript._();
+  const EggScript._();
 
-  factory EggScript({
+  const factory EggScript({
     required bool privileged,
     required String install,
     required String entry,

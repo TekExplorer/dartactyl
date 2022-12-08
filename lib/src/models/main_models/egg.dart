@@ -1,14 +1,13 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../models.dart';
-
 part '../../generated/models/main_models/egg.freezed.dart';
 part '../../generated/models/main_models/egg.g.dart';
 
+// TODO: full egg vs server egg
 @freezed
 class Egg with SerializableMixin, _$Egg {
-  factory Egg({
+  const factory Egg({
     // only uuid and name show up in the client api
     // int id,
     required String uuid,
@@ -25,7 +24,7 @@ class Egg with SerializableMixin, _$Egg {
     // Relationships? relationships,
   }) = _Egg;
   factory Egg.fromJson(JsonMap json) => _$EggFromJson(json);
-  Egg._();
+  const Egg._();
   @override
   JsonMap toJson();
 }

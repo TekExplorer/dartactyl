@@ -104,7 +104,8 @@ class __$$_SubuserCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Subuser implements _Subuser {
-  _$_Subuser({required this.email, required final List<String> permissions})
+  const _$_Subuser(
+      {required this.email, required final List<String> permissions})
       : _permissions = permissions;
 
   factory _$_Subuser.fromJson(Map<String, dynamic> json) =>
@@ -154,7 +155,7 @@ class _$_Subuser implements _Subuser {
 }
 
 abstract class _Subuser implements Subuser {
-  factory _Subuser(
+  const factory _Subuser(
       {required final String email,
       required final List<String> permissions}) = _$_Subuser;
 
@@ -253,7 +254,7 @@ class __$$_SubuserPermissionsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SubuserPermissions implements _SubuserPermissions {
-  _$_SubuserPermissions({required final List<String> permissions})
+  const _$_SubuserPermissions({required final List<String> permissions})
       : _permissions = permissions;
 
   factory _$_SubuserPermissions.fromJson(Map<String, dynamic> json) =>
@@ -301,7 +302,7 @@ class _$_SubuserPermissions implements _SubuserPermissions {
 }
 
 abstract class _SubuserPermissions implements SubuserPermissions {
-  factory _SubuserPermissions({required final List<String> permissions}) =
+  const factory _SubuserPermissions({required final List<String> permissions}) =
       _$_SubuserPermissions;
 
   factory _SubuserPermissions.fromJson(Map<String, dynamic> json) =

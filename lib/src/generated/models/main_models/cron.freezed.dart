@@ -145,7 +145,7 @@ class __$$_CronCopyWithImpl<$Res> extends _$CronCopyWithImpl<$Res, _$_Cron>
 /// @nodoc
 @JsonSerializable()
 class _$_Cron extends _Cron {
-  _$_Cron(
+  const _$_Cron(
       {this.name,
       required this.dayOfWeek,
       required this.dayOfMonth,
@@ -206,13 +206,13 @@ class _$_Cron extends _Cron {
 }
 
 abstract class _Cron extends Cron {
-  factory _Cron(
+  const factory _Cron(
       {final String? name,
       required final String dayOfWeek,
       required final String dayOfMonth,
       required final String hour,
       required final String minute}) = _$_Cron;
-  _Cron._() : super._();
+  const _Cron._() : super._();
 
   factory _Cron.fromJson(Map<String, dynamic> json) = _$_Cron.fromJson;
 

@@ -119,7 +119,7 @@ class __$$_CreateBackupCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateBackup implements _CreateBackup {
-  _$_CreateBackup({this.name, this.ignored, required this.isLocked});
+  const _$_CreateBackup({this.name, this.ignored, required this.isLocked});
 
   factory _$_CreateBackup.fromJson(Map<String, dynamic> json) =>
       _$$_CreateBackupFromJson(json);
@@ -166,7 +166,7 @@ class _$_CreateBackup implements _CreateBackup {
 }
 
 abstract class _CreateBackup implements CreateBackup {
-  factory _CreateBackup(
+  const factory _CreateBackup(
       {final String? name,
       final String? ignored,
       required final bool isLocked}) = _$_CreateBackup;

@@ -6,8 +6,8 @@ part '../../generated/models/site_config/user_config.g.dart';
 
 @freezed
 class UserConfig with _$UserConfig {
-  UserConfig._();
-  factory UserConfig({
+  const UserConfig._();
+  const factory UserConfig({
     required final String uuid,
     required final String username,
     required final String email,

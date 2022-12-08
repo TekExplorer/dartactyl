@@ -177,7 +177,7 @@ class __$$_RequestScheduleCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RequestSchedule implements _RequestSchedule {
-  _$_RequestSchedule(
+  const _$_RequestSchedule(
       {required this.onlyWhenOnline,
       required this.name,
       required this.isActive,
@@ -247,7 +247,7 @@ class _$_RequestSchedule implements _RequestSchedule {
 }
 
 abstract class _RequestSchedule implements RequestSchedule {
-  factory _RequestSchedule(
+  const factory _RequestSchedule(
       {required final bool onlyWhenOnline,
       required final String name,
       required final bool isActive,

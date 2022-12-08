@@ -1,14 +1,13 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../models.dart';
-
 part '../../generated/models/main_models/server_schedule.freezed.dart';
 part '../../generated/models/main_models/server_schedule.g.dart';
 
 @freezed
 class ServerSchedule with SerializableMixin, _$ServerSchedule {
-  factory ServerSchedule({
+  const ServerSchedule._();
+  const factory ServerSchedule({
     required int id,
     required String name,
     required Cron cron,
@@ -23,7 +22,6 @@ class ServerSchedule with SerializableMixin, _$ServerSchedule {
   factory ServerSchedule.fromJson(JsonMap json) =>
       _$ServerScheduleFromJson(json);
 
-  ServerSchedule._();
   @override
   JsonMap toJson();
 }

@@ -6,6 +6,6 @@ part '../../generated/models/request_models/server_rename.g.dart';
 
 @freezed
 class Rename with _$Rename {
-  factory Rename({required String name}) = _Rename;
+  const factory Rename({required String name}) = _Rename;
   factory Rename.fromJson(JsonMap json) => _$RenameFromJson(json);
 }

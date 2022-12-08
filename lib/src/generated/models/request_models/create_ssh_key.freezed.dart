@@ -108,7 +108,8 @@ class __$$_CreateSshKeyCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateSshKey extends _CreateSshKey {
-  _$_CreateSshKey({required this.name, required this.publicKey}) : super._();
+  const _$_CreateSshKey({required this.name, required this.publicKey})
+      : super._();
 
   factory _$_CreateSshKey.fromJson(Map<String, dynamic> json) =>
       _$$_CreateSshKeyFromJson(json);
@@ -152,10 +153,10 @@ class _$_CreateSshKey extends _CreateSshKey {
 }
 
 abstract class _CreateSshKey extends CreateSshKey {
-  factory _CreateSshKey(
+  const factory _CreateSshKey(
       {required final String name,
       required final String publicKey}) = _$_CreateSshKey;
-  _CreateSshKey._() : super._();
+  const _CreateSshKey._() : super._();
 
   factory _CreateSshKey.fromJson(Map<String, dynamic> json) =
       _$_CreateSshKey.fromJson;

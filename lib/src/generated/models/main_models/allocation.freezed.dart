@@ -164,7 +164,7 @@ class __$$_AllocationCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Allocation extends _Allocation {
-  _$_Allocation(
+  const _$_Allocation(
       {required this.id,
       required this.ip,
       this.ipAlias,
@@ -228,14 +228,14 @@ class _$_Allocation extends _Allocation {
 }
 
 abstract class _Allocation extends Allocation {
-  factory _Allocation(
+  const factory _Allocation(
       {required final int id,
       required final String ip,
       final String? ipAlias,
       required final int port,
       final String? notes,
       required final bool isDefault}) = _$_Allocation;
-  _Allocation._() : super._();
+  const _Allocation._() : super._();
 
   factory _Allocation.fromJson(Map<String, dynamic> json) =
       _$_Allocation.fromJson;

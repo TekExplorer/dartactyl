@@ -6,9 +6,9 @@ part '../../generated/models/egg/egg_startup_config.g.dart';
 
 @freezed
 class EggStartupConfig with _$EggStartupConfig {
-  EggStartupConfig._();
+  const EggStartupConfig._();
 
-  factory EggStartupConfig({required String done}) = _EggStartupConfig;
+  const factory EggStartupConfig({required String done}) = _EggStartupConfig;
 
   factory EggStartupConfig.fromJson(JsonMap json) =>
       _$EggStartupConfigFromJson(json);

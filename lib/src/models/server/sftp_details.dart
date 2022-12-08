@@ -6,8 +6,7 @@ part '../../generated/models/server/sftp_details.g.dart';
 
 @freezed
 class SftpDetails with _$SftpDetails {
-  SftpDetails._();
-  factory SftpDetails({
+  const factory SftpDetails({
     required String ip,
     required int port,
   }) = _SftpDetails;

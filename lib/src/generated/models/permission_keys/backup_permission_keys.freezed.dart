@@ -131,7 +131,7 @@ class __$$_BackupPermissionKeysCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_BackupPermissionKeys extends _BackupPermissionKeys {
-  _$_BackupPermissionKeys(
+  const _$_BackupPermissionKeys(
       {required this.read,
       required this.create,
       required this.update,
@@ -186,12 +186,12 @@ class _$_BackupPermissionKeys extends _BackupPermissionKeys {
 }
 
 abstract class _BackupPermissionKeys extends BackupPermissionKeys {
-  factory _BackupPermissionKeys(
+  const factory _BackupPermissionKeys(
       {required final String read,
       required final String create,
       required final String update,
       required final String delete}) = _$_BackupPermissionKeys;
-  _BackupPermissionKeys._() : super._();
+  const _BackupPermissionKeys._() : super._();
 
   factory _BackupPermissionKeys.fromJson(Map<String, dynamic> json) =
       _$_BackupPermissionKeys.fromJson;

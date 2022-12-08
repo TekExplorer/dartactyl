@@ -164,7 +164,7 @@ class __$$_WebsocketStatsModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_WebsocketStatsModel implements _WebsocketStatsModel {
-  _$_WebsocketStatsModel(
+  const _$_WebsocketStatsModel(
       {required this.cpuAbsolute,
       required this.memoryBytes,
       required this.memoryLimitBytes,
@@ -226,7 +226,7 @@ class _$_WebsocketStatsModel implements _WebsocketStatsModel {
 }
 
 abstract class _WebsocketStatsModel implements WebsocketStatsModel {
-  factory _WebsocketStatsModel(
+  const factory _WebsocketStatsModel(
       {required final double cpuAbsolute,
       required final int memoryBytes,
       required final int memoryLimitBytes,
@@ -352,7 +352,8 @@ class __$$_WebsocketNetworkStatsModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_WebsocketNetworkStatsModel implements _WebsocketNetworkStatsModel {
-  _$_WebsocketNetworkStatsModel({required this.rxBytes, required this.txBytes});
+  const _$_WebsocketNetworkStatsModel(
+      {required this.rxBytes, required this.txBytes});
 
   factory _$_WebsocketNetworkStatsModel.fromJson(Map<String, dynamic> json) =>
       _$$_WebsocketNetworkStatsModelFromJson(json);
@@ -397,7 +398,7 @@ class _$_WebsocketNetworkStatsModel implements _WebsocketNetworkStatsModel {
 
 abstract class _WebsocketNetworkStatsModel
     implements WebsocketNetworkStatsModel {
-  factory _WebsocketNetworkStatsModel(
+  const factory _WebsocketNetworkStatsModel(
       {required final int rxBytes,
       required final int txBytes}) = _$_WebsocketNetworkStatsModel;
 

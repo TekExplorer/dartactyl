@@ -133,7 +133,7 @@ class __$$_SchedulePermissionKeysCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SchedulePermissionKeys extends _SchedulePermissionKeys {
-  _$_SchedulePermissionKeys(
+  const _$_SchedulePermissionKeys(
       {required this.create,
       required this.read,
       required this.update,
@@ -188,12 +188,12 @@ class _$_SchedulePermissionKeys extends _SchedulePermissionKeys {
 }
 
 abstract class _SchedulePermissionKeys extends SchedulePermissionKeys {
-  factory _SchedulePermissionKeys(
+  const factory _SchedulePermissionKeys(
       {required final String create,
       required final String read,
       required final String update,
       required final String delete}) = _$_SchedulePermissionKeys;
-  _SchedulePermissionKeys._() : super._();
+  const _SchedulePermissionKeys._() : super._();
 
   factory _SchedulePermissionKeys.fromJson(Map<String, dynamic> json) =
       _$_SchedulePermissionKeys.fromJson;

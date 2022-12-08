@@ -20,7 +20,7 @@ class PullFileBody with _$PullFileBody {
   ///   and an identifier may be returned with the request
   ///
   /// If `false`, the [Future] will be completed once the request is sent.
-  factory PullFileBody({
+  const factory PullFileBody({
     required Uri url,
     String? directory,
     String? filename,

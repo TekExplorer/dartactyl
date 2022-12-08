@@ -105,7 +105,7 @@ class __$$_DatabasePasswordRelationshipsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_DatabasePasswordRelationships extends _DatabasePasswordRelationships {
-  _$_DatabasePasswordRelationships({required this.password}) : super._();
+  const _$_DatabasePasswordRelationships({required this.password}) : super._();
 
   factory _$_DatabasePasswordRelationships.fromJson(
           Map<String, dynamic> json) =>
@@ -149,10 +149,10 @@ class _$_DatabasePasswordRelationships extends _DatabasePasswordRelationships {
 
 abstract class _DatabasePasswordRelationships
     extends DatabasePasswordRelationships {
-  factory _DatabasePasswordRelationships(
+  const factory _DatabasePasswordRelationships(
           {required final FractalResponseData<DatabasePassword> password}) =
       _$_DatabasePasswordRelationships;
-  _DatabasePasswordRelationships._() : super._();
+  const _DatabasePasswordRelationships._() : super._();
 
   factory _DatabasePasswordRelationships.fromJson(Map<String, dynamic> json) =
       _$_DatabasePasswordRelationships.fromJson;
@@ -292,7 +292,7 @@ class __$$_ServerRelationshipsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ServerRelationships extends _ServerRelationships {
-  _$_ServerRelationships(
+  const _$_ServerRelationships(
       {required this.allocations, this.variables, this.egg, this.subusers})
       : super._();
 
@@ -348,12 +348,12 @@ class _$_ServerRelationships extends _ServerRelationships {
 }
 
 abstract class _ServerRelationships extends ServerRelationships {
-  factory _ServerRelationships(
+  const factory _ServerRelationships(
       {required final FractalResponseList<Allocation> allocations,
       final FractalResponseList<EggVariable>? variables,
       final FractalResponseData<Egg>? egg,
       final FractalResponseList<Subuser>? subusers}) = _$_ServerRelationships;
-  _ServerRelationships._() : super._();
+  const _ServerRelationships._() : super._();
 
   factory _ServerRelationships.fromJson(Map<String, dynamic> json) =
       _$_ServerRelationships.fromJson;
@@ -463,7 +463,7 @@ class __$$_ServerScheduleRelationshipsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ServerScheduleRelationships extends _ServerScheduleRelationships {
-  _$_ServerScheduleRelationships({required this.tasks}) : super._();
+  const _$_ServerScheduleRelationships({required this.tasks}) : super._();
 
   factory _$_ServerScheduleRelationships.fromJson(Map<String, dynamic> json) =>
       _$$_ServerScheduleRelationshipsFromJson(json);
@@ -505,10 +505,10 @@ class _$_ServerScheduleRelationships extends _ServerScheduleRelationships {
 
 abstract class _ServerScheduleRelationships
     extends ServerScheduleRelationships {
-  factory _ServerScheduleRelationships(
+  const factory _ServerScheduleRelationships(
           {required final FractalResponseList<ScheduleTask> tasks}) =
       _$_ServerScheduleRelationships;
-  _ServerScheduleRelationships._() : super._();
+  const _ServerScheduleRelationships._() : super._();
 
   factory _ServerScheduleRelationships.fromJson(Map<String, dynamic> json) =
       _$_ServerScheduleRelationships.fromJson;
@@ -528,7 +528,6 @@ ActivityLogRelationships _$ActivityLogRelationshipsFromJson(
 
 /// @nodoc
 mixin _$ActivityLogRelationships {
-// JsonMap? actor,
   FractalResponseData<Actor>? get actor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -609,12 +608,11 @@ class __$$_ActivityLogRelationshipsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ActivityLogRelationships extends _ActivityLogRelationships {
-  _$_ActivityLogRelationships({this.actor}) : super._();
+  const _$_ActivityLogRelationships({this.actor}) : super._();
 
   factory _$_ActivityLogRelationships.fromJson(Map<String, dynamic> json) =>
       _$$_ActivityLogRelationshipsFromJson(json);
 
-// JsonMap? actor,
   @override
   final FractalResponseData<Actor>? actor;
 
@@ -651,14 +649,14 @@ class _$_ActivityLogRelationships extends _ActivityLogRelationships {
 }
 
 abstract class _ActivityLogRelationships extends ActivityLogRelationships {
-  factory _ActivityLogRelationships({final FractalResponseData<Actor>? actor}) =
-      _$_ActivityLogRelationships;
-  _ActivityLogRelationships._() : super._();
+  const factory _ActivityLogRelationships(
+      {final FractalResponseData<Actor>? actor}) = _$_ActivityLogRelationships;
+  const _ActivityLogRelationships._() : super._();
 
   factory _ActivityLogRelationships.fromJson(Map<String, dynamic> json) =
       _$_ActivityLogRelationships.fromJson;
 
-  @override // JsonMap? actor,
+  @override
   FractalResponseData<Actor>? get actor;
   @override
   @JsonKey(ignore: true)

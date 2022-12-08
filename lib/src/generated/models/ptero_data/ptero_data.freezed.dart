@@ -99,7 +99,7 @@ class __$$_PteroDataCopyWithImpl<T extends SerializableMixin, $Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PteroData<T extends SerializableMixin> implements _PteroData<T> {
-  _$_PteroData({@PteroDataConverter() required this.data});
+  const _$_PteroData({@PteroDataConverter() required this.data});
 
   factory _$_PteroData.fromJson(Map<String, dynamic> json) =>
       _$$_PteroDataFromJson(json);
@@ -141,7 +141,7 @@ class _$_PteroData<T extends SerializableMixin> implements _PteroData<T> {
 }
 
 abstract class _PteroData<T extends SerializableMixin> implements PteroData<T> {
-  factory _PteroData({@PteroDataConverter() required final T data}) =
+  const factory _PteroData({@PteroDataConverter() required final T data}) =
       _$_PteroData<T>;
 
   factory _PteroData.fromJson(Map<String, dynamic> json) =

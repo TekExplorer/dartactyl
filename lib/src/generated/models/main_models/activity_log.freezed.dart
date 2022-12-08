@@ -226,7 +226,7 @@ class __$$_ActivityLogCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ActivityLog extends _ActivityLog {
-  _$_ActivityLog(
+  const _$_ActivityLog(
       {this.batch,
       required this.event,
       required this.ip,
@@ -325,7 +325,7 @@ class _$_ActivityLog extends _ActivityLog {
 }
 
 abstract class _ActivityLog extends ActivityLog {
-  factory _ActivityLog(
+  const factory _ActivityLog(
       {final String? batch,
       required final String event,
       required final String ip,
@@ -336,7 +336,7 @@ abstract class _ActivityLog extends ActivityLog {
       required final bool hasAdditionalMetadata,
       required final DateTime timestamp,
       final ActivityLogRelationships? relationships}) = _$_ActivityLog;
-  _ActivityLog._() : super._();
+  const _ActivityLog._() : super._();
 
   factory _ActivityLog.fromJson(Map<String, dynamic> json) =
       _$_ActivityLog.fromJson;
@@ -498,7 +498,7 @@ class __$$_ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res, _$_Actor>
 /// @nodoc
 @JsonSerializable()
 class _$_Actor extends _Actor {
-  _$_Actor(
+  const _$_Actor(
       {required this.uuid,
       required this.username,
       required this.email,
@@ -561,13 +561,13 @@ class _$_Actor extends _Actor {
 }
 
 abstract class _Actor extends Actor {
-  factory _Actor(
+  const factory _Actor(
       {required final String uuid,
       required final String username,
       required final String email,
       @JsonKey(name: '2fa_enabled') required final bool twoFaEnabled,
       required final DateTime createdAt}) = _$_Actor;
-  _Actor._() : super._();
+  const _Actor._() : super._();
 
   factory _Actor.fromJson(Map<String, dynamic> json) = _$_Actor.fromJson;
 

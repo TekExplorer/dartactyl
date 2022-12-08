@@ -177,7 +177,7 @@ class __$$_ServerSubuserCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ServerSubuser extends _ServerSubuser {
-  _$_ServerSubuser(
+  const _$_ServerSubuser(
       {required this.uuid,
       required this.username,
       required this.email,
@@ -260,7 +260,7 @@ class _$_ServerSubuser extends _ServerSubuser {
 }
 
 abstract class _ServerSubuser extends ServerSubuser {
-  factory _ServerSubuser(
+  const factory _ServerSubuser(
       {required final String uuid,
       required final String username,
       required final String email,
@@ -268,7 +268,7 @@ abstract class _ServerSubuser extends ServerSubuser {
       required final bool the2FaEnabled,
       required final DateTime createdAt,
       required final List<String> permissions}) = _$_ServerSubuser;
-  _ServerSubuser._() : super._();
+  const _ServerSubuser._() : super._();
 
   factory _ServerSubuser.fromJson(Map<String, dynamic> json) =
       _$_ServerSubuser.fromJson;

@@ -361,7 +361,7 @@ class __$$_ServerCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Server extends _Server {
-  _$_Server(
+  const _$_Server(
       {required this.serverOwner,
       required this.identifier,
       required this.internalId,
@@ -510,7 +510,7 @@ class _$_Server extends _Server {
 }
 
 abstract class _Server extends Server {
-  factory _Server(
+  const factory _Server(
       {required final bool serverOwner,
       required final String identifier,
       required final int internalId,
@@ -529,7 +529,7 @@ abstract class _Server extends Server {
       required final bool isInstalling,
       required final bool isTransferring,
       required final ServerRelationships relationships}) = _$_Server;
-  _Server._() : super._();
+  const _Server._() : super._();
 
   factory _Server.fromJson(Map<String, dynamic> json) = _$_Server.fromJson;
 

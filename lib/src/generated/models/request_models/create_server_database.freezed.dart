@@ -109,7 +109,7 @@ class __$$_CreateServerDatabaseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateServerDatabase implements _CreateServerDatabase {
-  _$_CreateServerDatabase({required this.database, required this.remote});
+  const _$_CreateServerDatabase({required this.database, required this.remote});
 
   factory _$_CreateServerDatabase.fromJson(Map<String, dynamic> json) =>
       _$$_CreateServerDatabaseFromJson(json);
@@ -154,7 +154,7 @@ class _$_CreateServerDatabase implements _CreateServerDatabase {
 }
 
 abstract class _CreateServerDatabase implements CreateServerDatabase {
-  factory _CreateServerDatabase(
+  const factory _CreateServerDatabase(
       {required final String database,
       required final String remote}) = _$_CreateServerDatabase;
 

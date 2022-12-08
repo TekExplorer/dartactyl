@@ -6,7 +6,7 @@ part '../../generated/models/main_models/location.g.dart';
 
 @freezed
 class Location with _$Location {
-  factory Location({
+  const factory Location({
     required int id,
     required String short,
     String? long,
@@ -16,5 +16,5 @@ class Location with _$Location {
 
   factory Location.fromJson(JsonMap json) => _$LocationFromJson(json);
 
-  Location._();
+  const Location._();
 }

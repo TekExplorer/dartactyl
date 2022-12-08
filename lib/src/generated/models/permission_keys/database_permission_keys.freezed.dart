@@ -154,7 +154,7 @@ class __$$_DatabasePermissionKeysCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_DatabasePermissionKeys extends _DatabasePermissionKeys {
-  _$_DatabasePermissionKeys(
+  const _$_DatabasePermissionKeys(
       {required this.create,
       required this.read,
       required this.update,
@@ -215,13 +215,13 @@ class _$_DatabasePermissionKeys extends _DatabasePermissionKeys {
 }
 
 abstract class _DatabasePermissionKeys extends DatabasePermissionKeys {
-  factory _DatabasePermissionKeys(
+  const factory _DatabasePermissionKeys(
       {required final String create,
       required final String read,
       required final String update,
       required final String delete,
       required final String viewPassword}) = _$_DatabasePermissionKeys;
-  _DatabasePermissionKeys._() : super._();
+  const _DatabasePermissionKeys._() : super._();
 
   factory _DatabasePermissionKeys.fromJson(Map<String, dynamic> json) =
       _$_DatabasePermissionKeys.fromJson;

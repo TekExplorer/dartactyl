@@ -6,7 +6,7 @@ part '../../generated/models/request_models/disable_two_factor.g.dart';
 
 @freezed
 class DisableTwoFactor with _$DisableTwoFactor {
-  factory DisableTwoFactor({
+  const factory DisableTwoFactor({
     required String email,
     required String password,
   }) = _DisableTwoFactor;

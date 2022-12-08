@@ -30,7 +30,7 @@ extension ParseSiteConfig on PteroClient {
     final document = parse(html);
     final elements = document.getElementsByTagName('script');
     final element = elements.firstWhere(
-      (element) => element.text.contains('window.' + searchFor.name),
+      (element) => element.text.contains('window.${searchFor.name}'),
       orElse: () => throw ConfigNotFoundException(
         'Could not find window.${searchFor.name}',
       ),

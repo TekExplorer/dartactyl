@@ -229,7 +229,7 @@ class __$$_ServerScheduleCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ServerSchedule extends _ServerSchedule {
-  _$_ServerSchedule(
+  const _$_ServerSchedule(
       {required this.id,
       required this.name,
       required this.cron,
@@ -315,7 +315,7 @@ class _$_ServerSchedule extends _ServerSchedule {
 }
 
 abstract class _ServerSchedule extends ServerSchedule {
-  factory _ServerSchedule(
+  const factory _ServerSchedule(
       {required final int id,
       required final String name,
       required final Cron cron,
@@ -326,7 +326,7 @@ abstract class _ServerSchedule extends ServerSchedule {
       final DateTime? nextRunAt,
       required final DateTime createdAt,
       required final DateTime updatedAt}) = _$_ServerSchedule;
-  _ServerSchedule._() : super._();
+  const _ServerSchedule._() : super._();
 
   factory _ServerSchedule.fromJson(Map<String, dynamic> json) =
       _$_ServerSchedule.fromJson;

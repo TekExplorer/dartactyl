@@ -7,7 +7,7 @@ part '../../generated/models/request_models/create_ssh_key.g.dart';
 
 @freezed
 class CreateSshKey with _$CreateSshKey {
-  factory CreateSshKey({
+  const factory CreateSshKey({
     required String name,
     required String publicKey,
   }) = _CreateSshKey;

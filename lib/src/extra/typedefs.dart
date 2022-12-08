@@ -3,7 +3,7 @@ import 'package:dartactyl/models.dart';
 typedef JsonMap = Map<String, dynamic>;
 
 typedef Fractal<T extends SerializableMixin> = FractalResponseData<T>;
-typedef FractalMeta<T extends SerializableMixin, M extends Meta>
+typedef FractalMeta<T extends SerializableMixin, M extends Meta<M>>
     = FractalResponseDataMeta<T, M>;
 
 typedef FractalServer = Fractal<Server>;
@@ -27,7 +27,7 @@ typedef FractalNest = Fractal<Nest>;
 typedef FractalEgg = Fractal<Egg>;
 
 typedef FractalList<T extends SerializableMixin> = FractalResponseList<T>;
-typedef FractalListMeta<T extends SerializableMixin, M extends Meta>
+typedef FractalListMeta<T extends SerializableMixin, M extends Meta<M>>
     = FractalResponseListMeta<T, M>;
 
 typedef FractalServerList = FractalList<Server>;

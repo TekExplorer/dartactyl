@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of '../../../models/main_models/meta.dart';
+part of '../../../models/fractal/meta.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -110,7 +110,7 @@ class __$$_PaginatedMetaCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PaginatedMeta implements _PaginatedMeta {
-  _$_PaginatedMeta({required this.pagination});
+  const _$_PaginatedMeta({required this.pagination});
 
   factory _$_PaginatedMeta.fromJson(Map<String, dynamic> json) =>
       _$$_PaginatedMetaFromJson(json);
@@ -151,7 +151,7 @@ class _$_PaginatedMeta implements _PaginatedMeta {
 }
 
 abstract class _PaginatedMeta implements PaginatedMeta {
-  factory _PaginatedMeta({required final Pagination pagination}) =
+  const factory _PaginatedMeta({required final Pagination pagination}) =
       _$_PaginatedMeta;
 
   factory _PaginatedMeta.fromJson(Map<String, dynamic> json) =
@@ -273,7 +273,7 @@ class __$$_PaginatedBackupsMetaCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PaginatedBackupsMeta implements _PaginatedBackupsMeta {
-  _$_PaginatedBackupsMeta(
+  const _$_PaginatedBackupsMeta(
       {required this.pagination, required this.backupCount});
 
   factory _$_PaginatedBackupsMeta.fromJson(Map<String, dynamic> json) =>
@@ -320,7 +320,7 @@ class _$_PaginatedBackupsMeta implements _PaginatedBackupsMeta {
 }
 
 abstract class _PaginatedBackupsMeta implements PaginatedBackupsMeta {
-  factory _PaginatedBackupsMeta(
+  const factory _PaginatedBackupsMeta(
       {required final Pagination pagination,
       required final int backupCount}) = _$_PaginatedBackupsMeta;
 
@@ -431,7 +431,7 @@ class __$$_ServerMetaCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ServerMeta implements _ServerMeta {
-  _$_ServerMeta(
+  const _$_ServerMeta(
       {required this.isServerOwner,
       required final List<String> userPermissions})
       : _userPermissions = userPermissions;
@@ -484,7 +484,7 @@ class _$_ServerMeta implements _ServerMeta {
 }
 
 abstract class _ServerMeta implements ServerMeta {
-  factory _ServerMeta(
+  const factory _ServerMeta(
       {required final bool isServerOwner,
       required final List<String> userPermissions}) = _$_ServerMeta;
 
@@ -612,7 +612,7 @@ class __$$_StartupMetaCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_StartupMeta implements _StartupMeta {
-  _$_StartupMeta(
+  const _$_StartupMeta(
       {required this.startupCommand,
       required this.rawStartupCommand,
       required final Map<String, String> dockerImages})
@@ -670,7 +670,7 @@ class _$_StartupMeta implements _StartupMeta {
 }
 
 abstract class _StartupMeta implements StartupMeta {
-  factory _StartupMeta(
+  const factory _StartupMeta(
       {required final String startupCommand,
       required final String rawStartupCommand,
       required final Map<String, String> dockerImages}) = _$_StartupMeta;
@@ -773,7 +773,7 @@ class __$$_ApiKeyMetaCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ApiKeyMeta implements _ApiKeyMeta {
-  _$_ApiKeyMeta({required this.secretToken});
+  const _$_ApiKeyMeta({required this.secretToken});
 
   factory _$_ApiKeyMeta.fromJson(Map<String, dynamic> json) =>
       _$$_ApiKeyMetaFromJson(json);
@@ -814,7 +814,8 @@ class _$_ApiKeyMeta implements _ApiKeyMeta {
 }
 
 abstract class _ApiKeyMeta implements ApiKeyMeta {
-  factory _ApiKeyMeta({required final String secretToken}) = _$_ApiKeyMeta;
+  const factory _ApiKeyMeta({required final String secretToken}) =
+      _$_ApiKeyMeta;
 
   factory _ApiKeyMeta.fromJson(Map<String, dynamic> json) =
       _$_ApiKeyMeta.fromJson;

@@ -149,7 +149,7 @@ class __$$_EggScriptCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_EggScript extends _EggScript {
-  _$_EggScript(
+  const _$_EggScript(
       {required this.privileged,
       required this.install,
       required this.entry,
@@ -211,13 +211,13 @@ class _$_EggScript extends _EggScript {
 }
 
 abstract class _EggScript extends EggScript {
-  factory _EggScript(
+  const factory _EggScript(
       {required final bool privileged,
       required final String install,
       required final String entry,
       required final String container,
       required final dynamic scriptExtends}) = _$_EggScript;
-  _EggScript._() : super._();
+  const _EggScript._() : super._();
 
   factory _EggScript.fromJson(Map<String, dynamic> json) =
       _$_EggScript.fromJson;

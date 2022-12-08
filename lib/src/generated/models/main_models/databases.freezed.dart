@@ -201,7 +201,7 @@ class __$$_DatabasesCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Databases extends _Databases {
-  _$_Databases(
+  const _$_Databases(
       {required this.id,
       required this.server,
       required this.host,
@@ -281,7 +281,7 @@ class _$_Databases extends _Databases {
 }
 
 abstract class _Databases extends Databases {
-  factory _Databases(
+  const factory _Databases(
       {required final int id,
       required final int server,
       required final int host,
@@ -291,7 +291,7 @@ abstract class _Databases extends Databases {
       required final int maxConnections,
       required final String createdAt,
       required final String updatedAt}) = _$_Databases;
-  _Databases._() : super._();
+  const _Databases._() : super._();
 
   factory _Databases.fromJson(Map<String, dynamic> json) =
       _$_Databases.fromJson;

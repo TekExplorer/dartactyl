@@ -97,7 +97,7 @@ class __$$_RecoveryTokensCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RecoveryTokens extends _RecoveryTokens {
-  _$_RecoveryTokens({required final List<String> tokens})
+  const _$_RecoveryTokens({required final List<String> tokens})
       : _tokens = tokens,
         super._();
 
@@ -144,9 +144,9 @@ class _$_RecoveryTokens extends _RecoveryTokens {
 }
 
 abstract class _RecoveryTokens extends RecoveryTokens {
-  factory _RecoveryTokens({required final List<String> tokens}) =
+  const factory _RecoveryTokens({required final List<String> tokens}) =
       _$_RecoveryTokens;
-  _RecoveryTokens._() : super._();
+  const _RecoveryTokens._() : super._();
 
   factory _RecoveryTokens.fromJson(Map<String, dynamic> json) =
       _$_RecoveryTokens.fromJson;

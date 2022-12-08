@@ -126,7 +126,7 @@ class __$$_PteroErrorCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PteroError extends _PteroError {
-  _$_PteroError(
+  const _$_PteroError(
       {@JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN) required this.code,
       required this.status,
       required this.detail})
@@ -177,12 +177,12 @@ class _$_PteroError extends _PteroError {
 }
 
 abstract class _PteroError extends PteroError {
-  factory _PteroError(
+  const factory _PteroError(
       {@JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
           required final PteroErrorCode code,
       required final String status,
       required final String detail}) = _$_PteroError;
-  _PteroError._() : super._();
+  const _PteroError._() : super._();
 
   factory _PteroError.fromJson(Map<String, dynamic> json) =
       _$_PteroError.fromJson;

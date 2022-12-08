@@ -97,7 +97,7 @@ class __$$_TranslationDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_TranslationData implements _TranslationData {
-  const _$_TranslationData({required final Map<String, dynamic> en}) : _en = en;
+  _$_TranslationData({required final Map<String, dynamic> en}) : _en = en;
 
   factory _$_TranslationData.fromJson(Map<String, dynamic> json) =>
       _$$_TranslationDataFromJson(json);
@@ -142,7 +142,7 @@ class _$_TranslationData implements _TranslationData {
 }
 
 abstract class _TranslationData implements TranslationData {
-  const factory _TranslationData({required final Map<String, dynamic> en}) =
+  factory _TranslationData({required final Map<String, dynamic> en}) =
       _$_TranslationData;
 
   factory _TranslationData.fromJson(Map<String, dynamic> json) =

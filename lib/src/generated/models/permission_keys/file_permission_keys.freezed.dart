@@ -164,7 +164,7 @@ class __$$_FilePermissionKeysCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_FilePermissionKeys extends _FilePermissionKeys {
-  _$_FilePermissionKeys(
+  const _$_FilePermissionKeys(
       {required this.create,
       required this.read,
       required this.update,
@@ -228,14 +228,14 @@ class _$_FilePermissionKeys extends _FilePermissionKeys {
 }
 
 abstract class _FilePermissionKeys extends FilePermissionKeys {
-  factory _FilePermissionKeys(
+  const factory _FilePermissionKeys(
       {required final String create,
       required final String read,
       required final String update,
       required final String delete,
       required final String archive,
       required final String sftp}) = _$_FilePermissionKeys;
-  _FilePermissionKeys._() : super._();
+  const _FilePermissionKeys._() : super._();
 
   factory _FilePermissionKeys.fromJson(Map<String, dynamic> json) =
       _$_FilePermissionKeys.fromJson;

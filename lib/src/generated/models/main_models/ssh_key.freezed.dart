@@ -127,7 +127,7 @@ class __$$_SshKeyCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SshKey extends _SshKey {
-  _$_SshKey(
+  const _$_SshKey(
       {required this.name,
       required this.fingerprint,
       required this.publicKey,
@@ -185,12 +185,12 @@ class _$_SshKey extends _SshKey {
 }
 
 abstract class _SshKey extends SshKey {
-  factory _SshKey(
+  const factory _SshKey(
       {required final String name,
       required final String fingerprint,
       required final String publicKey,
       required final DateTime createdAt}) = _$_SshKey;
-  _SshKey._() : super._();
+  const _SshKey._() : super._();
 
   factory _SshKey.fromJson(Map<String, dynamic> json) = _$_SshKey.fromJson;
 

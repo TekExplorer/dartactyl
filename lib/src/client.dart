@@ -15,8 +15,9 @@ part 'translation_client.dart';
 
 @RestApi()
 abstract class DepricatedPteroClient {
+  const DepricatedPteroClient._();
   factory DepricatedPteroClient(Dio dio, {String? baseUrl}) =
-      _DepricatedPteroClient;
+      _DepricatedPteroClient._;
 
   /// Delete an [SshKey] on your account. (1.8.0-1.8.1)
   @DELETE('/api/client/account/ssh-keys/{fingerprint}')
@@ -44,7 +45,8 @@ dynamic _removeNullResource(dynamic json) {
 /// Pterodactyl API Client
 @RestApi()
 abstract class PteroClient {
-  factory PteroClient(Dio dio, {String? baseUrl}) = _PteroClient;
+  const PteroClient._();
+  factory PteroClient(Dio dio, {String? baseUrl}) = _PteroClient._;
 
   /// Remove any instance of null_resource, which looks like this:
   /// ```json

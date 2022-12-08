@@ -1,13 +1,11 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../models.dart';
-
 part '../../generated/models/error_responses/ptero_errors.freezed.dart';
 part '../../generated/models/error_responses/ptero_errors.g.dart';
 
 @freezed
 class PteroErrors with _$PteroErrors {
-  factory PteroErrors({required List<PteroError> errors}) = _PteroErrors;
+  const factory PteroErrors({required List<PteroError> errors}) = _PteroErrors;
   factory PteroErrors.fromJson(JsonMap json) => _$PteroErrorsFromJson(json);
 }

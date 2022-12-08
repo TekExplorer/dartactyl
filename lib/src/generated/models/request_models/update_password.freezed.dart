@@ -121,7 +121,7 @@ class __$$_UpdatePasswordCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UpdatePassword implements _UpdatePassword {
-  _$_UpdatePassword(
+  const _$_UpdatePassword(
       {required this.currentPassword,
       required this.password,
       required this.passwordConfirmation});
@@ -174,7 +174,7 @@ class _$_UpdatePassword implements _UpdatePassword {
 }
 
 abstract class _UpdatePassword implements UpdatePassword {
-  factory _UpdatePassword(
+  const factory _UpdatePassword(
       {required final String currentPassword,
       required final String password,
       required final String passwordConfirmation}) = _$_UpdatePassword;

@@ -11,11 +11,12 @@ part '../../generated/models/auth/ptero_login_request.g.dart';
 /// [gRecaptchaResponse] is the Google reCAPTCHA response.
 ///
 /// [gRecaptchaResponse] is not required if you dont have recaptcha enabled.
+@experimental
 @freezed
 class PteroLoginRequest with _$PteroLoginRequest {
-  PteroLoginRequest._();
+  const PteroLoginRequest._();
 
-  factory PteroLoginRequest({
+  const factory PteroLoginRequest({
     @JsonKey(name: 'user') required String username,
     required String password,
     @JsonKey(name: 'g-recaptcha-response') String? gRecaptchaResponse,

@@ -6,7 +6,7 @@ part '../../generated/models/request_models/key_value.g.dart';
 
 @freezed
 class KeyValue with _$KeyValue {
-  factory KeyValue({
+  const factory KeyValue({
     required String key,
     required String value,
   }) = _KeyValue;

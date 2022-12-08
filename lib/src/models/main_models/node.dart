@@ -6,7 +6,7 @@ part '../../generated/models/main_models/node.g.dart';
 
 @freezed
 class Node with _$Node {
-  factory Node({
+  const factory Node({
     required int id,
     required String uuid,
     required bool public,
@@ -31,5 +31,5 @@ class Node with _$Node {
 
   factory Node.fromJson(JsonMap json) => _$NodeFromJson(json);
 
-  Node._();
+  const Node._();
 }

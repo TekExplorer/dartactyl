@@ -54,7 +54,7 @@ const _$AttributeObjectEnumMap = {
 
 FractalResponseListMeta<T, M> _$FractalResponseListMetaFromJson<
         T extends SerializableMixin,
-        M extends Meta<dynamic>>(Map<String, dynamic> json) =>
+        M extends Meta<M>>(Map<String, dynamic> json) =>
     FractalResponseListMeta<T, M>(
       object: $enumDecode(_$AttributeObjectEnumMap, json['object']),
       data: (json['data'] as List<dynamic>?)
@@ -67,7 +67,7 @@ FractalResponseListMeta<T, M> _$FractalResponseListMetaFromJson<
 
 Map<String, dynamic> _$FractalResponseListMetaToJson<
         T extends SerializableMixin,
-        M extends Meta<dynamic>>(FractalResponseListMeta<T, M> instance) =>
+        M extends Meta<M>>(FractalResponseListMeta<T, M> instance) =>
     <String, dynamic>{
       'object': _$AttributeObjectEnumMap[instance.object]!,
       'data': instance.data.map((e) => e.toJson()).toList(),

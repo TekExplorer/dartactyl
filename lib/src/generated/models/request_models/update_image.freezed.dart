@@ -97,7 +97,7 @@ class __$$_UpdateImageCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UpdateImage implements _UpdateImage {
-  _$_UpdateImage({required this.dockerImage});
+  const _$_UpdateImage({required this.dockerImage});
 
   factory _$_UpdateImage.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateImageFromJson(json);
@@ -138,7 +138,8 @@ class _$_UpdateImage implements _UpdateImage {
 }
 
 abstract class _UpdateImage implements UpdateImage {
-  factory _UpdateImage({required final String dockerImage}) = _$_UpdateImage;
+  const factory _UpdateImage({required final String dockerImage}) =
+      _$_UpdateImage;
 
   factory _UpdateImage.fromJson(Map<String, dynamic> json) =
       _$_UpdateImage.fromJson;

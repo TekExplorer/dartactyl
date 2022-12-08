@@ -171,7 +171,7 @@ class __$$_NestCopyWithImpl<$Res> extends _$NestCopyWithImpl<$Res, _$_Nest>
 /// @nodoc
 @JsonSerializable()
 class _$_Nest extends _Nest {
-  _$_Nest(
+  const _$_Nest(
       {required this.id,
       required this.uuid,
       required this.author,
@@ -240,7 +240,7 @@ class _$_Nest extends _Nest {
 }
 
 abstract class _Nest extends Nest {
-  factory _Nest(
+  const factory _Nest(
       {required final int id,
       required final String uuid,
       required final String author,
@@ -248,7 +248,7 @@ abstract class _Nest extends Nest {
       final String? description,
       required final DateTime createdAt,
       required final DateTime updatedAt}) = _$_Nest;
-  _Nest._() : super._();
+  const _Nest._() : super._();
 
   factory _Nest.fromJson(Map<String, dynamic> json) = _$_Nest.fromJson;
 

@@ -130,7 +130,7 @@ class __$$_UserPermissionKeysCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UserPermissionKeys implements _UserPermissionKeys {
-  _$_UserPermissionKeys(
+  const _$_UserPermissionKeys(
       {required this.create,
       required this.read,
       required this.update,
@@ -184,7 +184,7 @@ class _$_UserPermissionKeys implements _UserPermissionKeys {
 }
 
 abstract class _UserPermissionKeys implements UserPermissionKeys {
-  factory _UserPermissionKeys(
+  const factory _UserPermissionKeys(
       {required final String create,
       required final String read,
       required final String update,

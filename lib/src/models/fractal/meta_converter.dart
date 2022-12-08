@@ -4,42 +4,12 @@ import 'package:meta/meta.dart';
 import '../../../models.dart';
 
 @protected
-class MetaConverter<M extends Meta> implements JsonConverter<M, JsonMap> {
+class MetaConverter<M extends Meta<M>> implements JsonConverter<M, JsonMap> {
   const MetaConverter();
 
   @override
-  M fromJson(JsonMap json) {
-    switch (M) {
-      case PaginatedMeta:
-        return PaginatedMeta.fromJson(json) as M;
-      case PaginatedBackupsMeta:
-        return PaginatedBackupsMeta.fromJson(json) as M;
-      case ServerMeta:
-        return ServerMeta.fromJson(json) as M;
-      case ApiKeyMeta:
-        return ApiKeyMeta.fromJson(json) as M;
-      case Meta:
-        return Meta.fromJson(json) as M;
-      case StartupMeta:
-        return StartupMeta.fromJson(json) as M;
-      default:
-        throw UnsupportedError('Meta type $M not supported');
-    }
-  }
+  M fromJson(JsonMap json) => Meta<M>.fromJson(json) as M;
 
   @override
-  JsonMap toJson(M object) {
-    switch (M) {
-      case PaginatedMeta:
-        return (object as PaginatedMeta).toJson();
-      case ServerMeta:
-        return (object as ServerMeta).toJson();
-      case ApiKeyMeta:
-        return (object as ApiKeyMeta).toJson();
-      case StartupMeta:
-        return (object as StartupMeta).toJson();
-      default:
-        return (object).toJson();
-    }
-  }
+  JsonMap toJson(M object) => object.toJson();
 }

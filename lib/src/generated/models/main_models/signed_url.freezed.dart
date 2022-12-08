@@ -95,7 +95,7 @@ class __$$_SignedUrlCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SignedUrl extends _SignedUrl {
-  _$_SignedUrl({required this.url}) : super._();
+  const _$_SignedUrl({required this.url}) : super._();
 
   factory _$_SignedUrl.fromJson(Map<String, dynamic> json) =>
       _$$_SignedUrlFromJson(json);
@@ -135,8 +135,8 @@ class _$_SignedUrl extends _SignedUrl {
 }
 
 abstract class _SignedUrl extends SignedUrl {
-  factory _SignedUrl({required final String url}) = _$_SignedUrl;
-  _SignedUrl._() : super._();
+  const factory _SignedUrl({required final String url}) = _$_SignedUrl;
+  const _SignedUrl._() : super._();
 
   factory _SignedUrl.fromJson(Map<String, dynamic> json) =
       _$_SignedUrl.fromJson;

@@ -2,75 +2,16 @@ part of 'client.dart';
 
 @RestApi()
 abstract class PteroTranslationsClient {
+  const PteroTranslationsClient._();
   factory PteroTranslationsClient(Dio dio, {String? baseUrl}) =
-      _PteroTranslationsClient;
+      _PteroTranslationsClient._;
 
   @GET('/locales/locale.json')
   Future<TranslationData> getTranslation({
     @Query('locale') @Default('en') String? locale,
     @Query('namespace') String? namespace,
   });
-}
 
-abstract class KnownNamespaces {
-  // activity
-  // auth
-  // exceptions
-  // pagination
-  // passwords
-  // strings
-  // validation
-  // admin.nests
-  // admin.nodes
-  // admin.servers
-  // admin.user
-  // command.messages
-  // dashboard.account
-  // dashboard.index
-  // server.users
-  static const String activity = 'activity';
-  static const String auth = 'auth';
-  static const String exceptions = 'exceptions';
-  static const String pagination = 'pagination';
-  static const String passwords = 'passwords';
-  static const String strings = 'strings';
-  static const String validation = 'validation';
-  static const String adminNests = 'admin.nests';
-  static const String adminNodes = 'admin.nodes';
-  static const String adminServers = 'admin.servers';
-  static const String adminUser = 'admin.user';
-  static const String commandMessages = 'command.messages';
-  static const String dashboardAccount = 'dashboard.account';
-  static const String dashboardIndex = 'dashboard.index';
-  static const String serverUsers = 'server.users';
-  static const List<String> all = [
-    activity,
-    auth,
-    exceptions,
-    pagination,
-    passwords,
-    strings,
-    validation,
-    adminNests,
-    adminNodes,
-    adminServers,
-    adminUser,
-    commandMessages,
-    dashboardAccount,
-    dashboardIndex,
-    serverUsers,
-  ];
-}
-
-@freezed
-class TranslationData with _$TranslationData {
-  const factory TranslationData({required JsonMap en}) = _TranslationData;
-
-  factory TranslationData.fromJson(Map<String, dynamic> json) =>
-      _$TranslationDataFromJson(json);
-}
-
-extension TranslationMethods on PteroTranslationsClient {
   Future<TranslationData> getActivityTranslations({String? locale = 'en'}) =>
       getTranslation(
         locale: locale,
@@ -160,4 +101,47 @@ extension TranslationMethods on PteroTranslationsClient {
         locale: locale,
         namespace: KnownNamespaces.serverUsers,
       );
+}
+
+abstract class KnownNamespaces {
+  static const String activity = 'activity';
+  static const String auth = 'auth';
+  static const String exceptions = 'exceptions';
+  static const String pagination = 'pagination';
+  static const String passwords = 'passwords';
+  static const String strings = 'strings';
+  static const String validation = 'validation';
+  static const String adminNests = 'admin.nests';
+  static const String adminNodes = 'admin.nodes';
+  static const String adminServers = 'admin.servers';
+  static const String adminUser = 'admin.user';
+  static const String commandMessages = 'command.messages';
+  static const String dashboardAccount = 'dashboard.account';
+  static const String dashboardIndex = 'dashboard.index';
+  static const String serverUsers = 'server.users';
+  static const List<String> all = [
+    activity,
+    auth,
+    exceptions,
+    pagination,
+    passwords,
+    strings,
+    validation,
+    adminNests,
+    adminNodes,
+    adminServers,
+    adminUser,
+    commandMessages,
+    dashboardAccount,
+    dashboardIndex,
+    serverUsers,
+  ];
+}
+
+@freezed
+class TranslationData with _$TranslationData {
+  factory TranslationData({required JsonMap en}) = _TranslationData;
+
+  factory TranslationData.fromJson(Map<String, dynamic> json) =>
+      _$TranslationDataFromJson(json);
 }

@@ -6,7 +6,7 @@ part '../generated/websocket/websocket_stats.g.dart';
 
 @freezed
 class WebsocketStatsModel with _$WebsocketStatsModel {
-  factory WebsocketStatsModel({
+  const factory WebsocketStatsModel({
     required double cpuAbsolute,
     required int memoryBytes,
     required int memoryLimitBytes,
@@ -20,7 +20,7 @@ class WebsocketStatsModel with _$WebsocketStatsModel {
 
 @freezed
 class WebsocketNetworkStatsModel with _$WebsocketNetworkStatsModel {
-  factory WebsocketNetworkStatsModel({
+  const factory WebsocketNetworkStatsModel({
     required int rxBytes,
     required int txBytes,
   }) = _WebsocketNetworkStatsModel;

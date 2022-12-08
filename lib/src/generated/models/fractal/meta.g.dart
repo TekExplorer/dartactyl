@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../models/main_models/meta.dart';
+part of '../../../models/fractal/meta.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

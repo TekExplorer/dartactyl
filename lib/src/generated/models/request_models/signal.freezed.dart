@@ -92,7 +92,7 @@ class __$$_SignalCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Signal implements _Signal {
-  _$_Signal({required this.signal});
+  const _$_Signal({required this.signal});
 
   factory _$_Signal.fromJson(Map<String, dynamic> json) =>
       _$$_SignalFromJson(json);
@@ -132,7 +132,7 @@ class _$_Signal implements _Signal {
 }
 
 abstract class _Signal implements Signal {
-  factory _Signal({required final ServerPowerAction signal}) = _$_Signal;
+  const factory _Signal({required final ServerPowerAction signal}) = _$_Signal;
 
   factory _Signal.fromJson(Map<String, dynamic> json) = _$_Signal.fromJson;
 

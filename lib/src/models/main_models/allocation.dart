@@ -1,16 +1,13 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../models.dart';
-
 part '../../generated/models/main_models/allocation.freezed.dart';
 part '../../generated/models/main_models/allocation.g.dart';
 
 @freezed
 class Allocation with SerializableMixin, _$Allocation {
-  Allocation._();
-
-  factory Allocation({
+  const Allocation._();
+  const factory Allocation({
     required int id,
     required String ip,
     String? ipAlias,

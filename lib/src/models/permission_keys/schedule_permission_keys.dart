@@ -1,16 +1,14 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../models.dart';
-
 part '../../generated/models/permission_keys/schedule_permission_keys.freezed.dart';
 part '../../generated/models/permission_keys/schedule_permission_keys.g.dart';
 
 @freezed
 class SchedulePermissionKeys with SerializableMixin, _$SchedulePermissionKeys {
-  SchedulePermissionKeys._();
+  const SchedulePermissionKeys._();
 
-  factory SchedulePermissionKeys({
+  const factory SchedulePermissionKeys({
     required String create,
     required String read,
     required String update,

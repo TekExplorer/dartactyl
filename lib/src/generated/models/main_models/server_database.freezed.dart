@@ -138,7 +138,8 @@ class __$$_DatabaseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Database extends _Database {
-  _$_Database({required this.address, required this.port, this.relationships})
+  const _$_Database(
+      {required this.address, required this.port, this.relationships})
       : super._();
 
   factory _$_Database.fromJson(Map<String, dynamic> json) =>
@@ -186,11 +187,11 @@ class _$_Database extends _Database {
 }
 
 abstract class _Database extends Database {
-  factory _Database(
+  const factory _Database(
       {required final String address,
       required final int port,
       final DatabasePasswordRelationships? relationships}) = _$_Database;
-  _Database._() : super._();
+  const _Database._() : super._();
 
   factory _Database.fromJson(Map<String, dynamic> json) = _$_Database.fromJson;
 
@@ -369,7 +370,7 @@ class __$$_ServerDatabaseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ServerDatabase extends _ServerDatabase {
-  _$_ServerDatabase(
+  const _$_ServerDatabase(
       {required this.id,
       required this.name,
       required this.host,
@@ -435,14 +436,14 @@ class _$_ServerDatabase extends _ServerDatabase {
 }
 
 abstract class _ServerDatabase extends ServerDatabase {
-  factory _ServerDatabase(
+  const factory _ServerDatabase(
       {required final int id,
       required final String name,
       required final Database host,
       required final String username,
       required final String connectionsFrom,
       required final int maxConnections}) = _$_ServerDatabase;
-  _ServerDatabase._() : super._();
+  const _ServerDatabase._() : super._();
 
   factory _ServerDatabase.fromJson(Map<String, dynamic> json) =
       _$_ServerDatabase.fromJson;

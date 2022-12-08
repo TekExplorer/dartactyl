@@ -97,7 +97,8 @@ class __$$_PteroErrorsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PteroErrors implements _PteroErrors {
-  _$_PteroErrors({required final List<PteroError> errors}) : _errors = errors;
+  const _$_PteroErrors({required final List<PteroError> errors})
+      : _errors = errors;
 
   factory _$_PteroErrors.fromJson(Map<String, dynamic> json) =>
       _$$_PteroErrorsFromJson(json);
@@ -142,7 +143,7 @@ class _$_PteroErrors implements _PteroErrors {
 }
 
 abstract class _PteroErrors implements PteroErrors {
-  factory _PteroErrors({required final List<PteroError> errors}) =
+  const factory _PteroErrors({required final List<PteroError> errors}) =
       _$_PteroErrors;
 
   factory _PteroErrors.fromJson(Map<String, dynamic> json) =

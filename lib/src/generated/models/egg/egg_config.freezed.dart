@@ -177,7 +177,7 @@ class __$$_EggConfigCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_EggConfig extends _EggConfig {
-  _$_EggConfig(
+  const _$_EggConfig(
       {required final Map<String, dynamic> files,
       required this.startup,
       required this.stop,
@@ -248,13 +248,13 @@ class _$_EggConfig extends _EggConfig {
 }
 
 abstract class _EggConfig extends EggConfig {
-  factory _EggConfig(
+  const factory _EggConfig(
       {required final Map<String, dynamic> files,
       required final EggStartupConfig startup,
       required final String stop,
       final EggLogsConfig? logs,
       final dynamic configExtends}) = _$_EggConfig;
-  _EggConfig._() : super._();
+  const _EggConfig._() : super._();
 
   factory _EggConfig.fromJson(Map<String, dynamic> json) =
       _$_EggConfig.fromJson;

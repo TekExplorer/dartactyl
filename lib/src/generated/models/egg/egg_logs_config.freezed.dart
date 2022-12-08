@@ -108,7 +108,7 @@ class __$$_EggLogsConfigCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_EggLogsConfig implements _EggLogsConfig {
-  _$_EggLogsConfig({required this.custom, this.location});
+  const _$_EggLogsConfig({required this.custom, this.location});
 
   factory _$_EggLogsConfig.fromJson(Map<String, dynamic> json) =>
       _$$_EggLogsConfigFromJson(json);
@@ -152,8 +152,8 @@ class _$_EggLogsConfig implements _EggLogsConfig {
 }
 
 abstract class _EggLogsConfig implements EggLogsConfig {
-  factory _EggLogsConfig({required final bool custom, final String? location}) =
-      _$_EggLogsConfig;
+  const factory _EggLogsConfig(
+      {required final bool custom, final String? location}) = _$_EggLogsConfig;
 
   factory _EggLogsConfig.fromJson(Map<String, dynamic> json) =
       _$_EggLogsConfig.fromJson;

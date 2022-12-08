@@ -24,9 +24,9 @@ class FractalResponseData<T extends SerializableMixin> {
 }
 
 @JsonSerializable()
-class FractalResponseDataMeta<T extends SerializableMixin, M extends Meta>
+class FractalResponseDataMeta<T extends SerializableMixin, M extends Meta<M>>
     extends FractalResponseData<T> {
-  @MetaConverter()
+  @MetaConverter<M>()
   final M meta;
 
   const FractalResponseDataMeta({

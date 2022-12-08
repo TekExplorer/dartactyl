@@ -203,7 +203,7 @@ class __$$_FileObjectCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_FileObject extends _FileObject {
-  _$_FileObject(
+  const _$_FileObject(
       {required this.name,
       required this.mode,
       required this.modeBits,
@@ -283,7 +283,7 @@ class _$_FileObject extends _FileObject {
 }
 
 abstract class _FileObject extends FileObject {
-  factory _FileObject(
+  const factory _FileObject(
       {required final String name,
       required final String mode,
       required final String modeBits,
@@ -293,7 +293,7 @@ abstract class _FileObject extends FileObject {
       required final String mimetype,
       required final DateTime createdAt,
       required final DateTime modifiedAt}) = _$_FileObject;
-  _FileObject._() : super._();
+  const _FileObject._() : super._();
 
   factory _FileObject.fromJson(Map<String, dynamic> json) =
       _$_FileObject.fromJson;

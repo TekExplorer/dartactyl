@@ -1,14 +1,13 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../models.dart';
-
 part '../../generated/models/main_models/server_subuser.freezed.dart';
 part '../../generated/models/main_models/server_subuser.g.dart';
 
 @freezed
 class ServerSubuser with SerializableMixin, _$ServerSubuser {
-  factory ServerSubuser({
+  const ServerSubuser._();
+  const factory ServerSubuser({
     required String uuid,
     required String username,
     required String email,
@@ -20,7 +19,6 @@ class ServerSubuser with SerializableMixin, _$ServerSubuser {
 
   factory ServerSubuser.fromJson(JsonMap json) => _$ServerSubuserFromJson(json);
 
-  ServerSubuser._();
   @override
   JsonMap toJson();
 }

@@ -6,7 +6,7 @@ part '../../generated/models/egg/egg_logs_config.g.dart';
 
 @freezed
 class EggLogsConfig with _$EggLogsConfig {
-  factory EggLogsConfig({
+  const factory EggLogsConfig({
     required bool custom,
     String? location,
   }) = _EggLogsConfig;

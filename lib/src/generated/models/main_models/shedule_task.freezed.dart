@@ -203,7 +203,7 @@ class __$$_ScheduleTaskCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ScheduleTask extends _ScheduleTask {
-  _$_ScheduleTask(
+  const _$_ScheduleTask(
       {required this.id,
       required this.sequenceId,
       required this.action,
@@ -284,7 +284,7 @@ class _$_ScheduleTask extends _ScheduleTask {
 }
 
 abstract class _ScheduleTask extends ScheduleTask {
-  factory _ScheduleTask(
+  const factory _ScheduleTask(
       {required final int id,
       required final int sequenceId,
       required final String action,
@@ -294,7 +294,7 @@ abstract class _ScheduleTask extends ScheduleTask {
       final bool? continueOnFailure,
       required final DateTime createdAt,
       required final DateTime updatedAt}) = _$_ScheduleTask;
-  _ScheduleTask._() : super._();
+  const _ScheduleTask._() : super._();
 
   factory _ScheduleTask.fromJson(Map<String, dynamic> json) =
       _$_ScheduleTask.fromJson;

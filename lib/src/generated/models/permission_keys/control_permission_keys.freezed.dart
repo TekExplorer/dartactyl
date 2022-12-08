@@ -99,7 +99,7 @@ class __$$_ControlPermissionKeysCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ControlPermissionKeys extends _ControlPermissionKeys {
-  _$_ControlPermissionKeys({required this.connect}) : super._();
+  const _$_ControlPermissionKeys({required this.connect}) : super._();
 
   factory _$_ControlPermissionKeys.fromJson(Map<String, dynamic> json) =>
       _$$_ControlPermissionKeysFromJson(json);
@@ -140,9 +140,9 @@ class _$_ControlPermissionKeys extends _ControlPermissionKeys {
 }
 
 abstract class _ControlPermissionKeys extends ControlPermissionKeys {
-  factory _ControlPermissionKeys({required final String connect}) =
+  const factory _ControlPermissionKeys({required final String connect}) =
       _$_ControlPermissionKeys;
-  _ControlPermissionKeys._() : super._();
+  const _ControlPermissionKeys._() : super._();
 
   factory _ControlPermissionKeys.fromJson(Map<String, dynamic> json) =
       _$_ControlPermissionKeys.fromJson;

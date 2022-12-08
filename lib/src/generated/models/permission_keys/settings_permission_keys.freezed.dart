@@ -111,7 +111,8 @@ class __$$_SettingsPermissionKeysCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SettingsPermissionKeys extends _SettingsPermissionKeys {
-  _$_SettingsPermissionKeys({required this.rename, required this.reinstall})
+  const _$_SettingsPermissionKeys(
+      {required this.rename, required this.reinstall})
       : super._();
 
   factory _$_SettingsPermissionKeys.fromJson(Map<String, dynamic> json) =>
@@ -157,10 +158,10 @@ class _$_SettingsPermissionKeys extends _SettingsPermissionKeys {
 }
 
 abstract class _SettingsPermissionKeys extends SettingsPermissionKeys {
-  factory _SettingsPermissionKeys(
+  const factory _SettingsPermissionKeys(
       {required final String rename,
       required final String reinstall}) = _$_SettingsPermissionKeys;
-  _SettingsPermissionKeys._() : super._();
+  const _SettingsPermissionKeys._() : super._();
 
   factory _SettingsPermissionKeys.fromJson(Map<String, dynamic> json) =
       _$_SettingsPermissionKeys.fromJson;

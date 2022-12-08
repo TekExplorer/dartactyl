@@ -6,11 +6,11 @@ part '../../generated/models/main_models/signed_url.g.dart';
 
 @freezed
 class SignedUrl with SerializableMixin, _$SignedUrl {
-  factory SignedUrl({required String url}) = _SignedUrl;
+  const factory SignedUrl({required String url}) = _SignedUrl;
 
   factory SignedUrl.fromJson(JsonMap json) => _$SignedUrlFromJson(json);
 
-  SignedUrl._();
+  const SignedUrl._();
 
   @override
   JsonMap toJson();

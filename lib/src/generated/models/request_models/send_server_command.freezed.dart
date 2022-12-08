@@ -97,7 +97,7 @@ class __$$_SendServerCommandCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SendServerCommand implements _SendServerCommand {
-  _$_SendServerCommand({required this.command});
+  const _$_SendServerCommand({required this.command});
 
   factory _$_SendServerCommand.fromJson(Map<String, dynamic> json) =>
       _$$_SendServerCommandFromJson(json);
@@ -138,7 +138,7 @@ class _$_SendServerCommand implements _SendServerCommand {
 }
 
 abstract class _SendServerCommand implements SendServerCommand {
-  factory _SendServerCommand({required final String command}) =
+  const factory _SendServerCommand({required final String command}) =
       _$_SendServerCommand;
 
   factory _SendServerCommand.fromJson(Map<String, dynamic> json) =

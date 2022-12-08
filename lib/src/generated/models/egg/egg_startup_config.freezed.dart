@@ -97,7 +97,7 @@ class __$$_EggStartupConfigCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_EggStartupConfig extends _EggStartupConfig {
-  _$_EggStartupConfig({required this.done}) : super._();
+  const _$_EggStartupConfig({required this.done}) : super._();
 
   factory _$_EggStartupConfig.fromJson(Map<String, dynamic> json) =>
       _$$_EggStartupConfigFromJson(json);
@@ -137,8 +137,9 @@ class _$_EggStartupConfig extends _EggStartupConfig {
 }
 
 abstract class _EggStartupConfig extends EggStartupConfig {
-  factory _EggStartupConfig({required final String done}) = _$_EggStartupConfig;
-  _EggStartupConfig._() : super._();
+  const factory _EggStartupConfig({required final String done}) =
+      _$_EggStartupConfig;
+  const _EggStartupConfig._() : super._();
 
   factory _EggStartupConfig.fromJson(Map<String, dynamic> json) =
       _$_EggStartupConfig.fromJson;

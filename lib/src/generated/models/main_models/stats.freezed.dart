@@ -132,7 +132,7 @@ class __$$_StatsCopyWithImpl<$Res> extends _$StatsCopyWithImpl<$Res, _$_Stats>
 /// @nodoc
 @JsonSerializable()
 class _$_Stats extends _Stats {
-  _$_Stats(
+  const _$_Stats(
       {required this.currentState,
       required this.isSuspended,
       required this.resources})
@@ -186,11 +186,11 @@ class _$_Stats extends _Stats {
 }
 
 abstract class _Stats extends Stats {
-  factory _Stats(
+  const factory _Stats(
       {required final ServerPowerState currentState,
       required final bool isSuspended,
       required final StatsResources resources}) = _$_Stats;
-  _Stats._() : super._();
+  const _Stats._() : super._();
 
   factory _Stats.fromJson(Map<String, dynamic> json) = _$_Stats.fromJson;
 
@@ -359,7 +359,7 @@ class __$$_StatsResourcesCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_StatsResources extends _StatsResources {
-  _$_StatsResources(
+  const _$_StatsResources(
       {required this.memoryBytes,
       required this.cpuAbsolute,
       required this.diskBytes,
@@ -430,14 +430,14 @@ class _$_StatsResources extends _StatsResources {
 }
 
 abstract class _StatsResources extends StatsResources {
-  factory _StatsResources(
+  const factory _StatsResources(
       {required final int memoryBytes,
       required final double cpuAbsolute,
       required final int diskBytes,
       required final int networkRxBytes,
       required final int networkTxBytes,
       final int? uptime}) = _$_StatsResources;
-  _StatsResources._() : super._();
+  const _StatsResources._() : super._();
 
   factory _StatsResources.fromJson(Map<String, dynamic> json) =
       _$_StatsResources.fromJson;

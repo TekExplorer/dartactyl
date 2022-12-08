@@ -103,7 +103,7 @@ class __$$_EggCopyWithImpl<$Res> extends _$EggCopyWithImpl<$Res, _$_Egg>
 /// @nodoc
 @JsonSerializable()
 class _$_Egg extends _Egg {
-  _$_Egg({required this.uuid, required this.name}) : super._();
+  const _$_Egg({required this.uuid, required this.name}) : super._();
 
   factory _$_Egg.fromJson(Map<String, dynamic> json) => _$$_EggFromJson(json);
 
@@ -147,9 +147,9 @@ class _$_Egg extends _Egg {
 }
 
 abstract class _Egg extends Egg {
-  factory _Egg({required final String uuid, required final String name}) =
+  const factory _Egg({required final String uuid, required final String name}) =
       _$_Egg;
-  _Egg._() : super._();
+  const _Egg._() : super._();
 
   factory _Egg.fromJson(Map<String, dynamic> json) = _$_Egg.fromJson;
 

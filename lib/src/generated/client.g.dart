@@ -22,11 +22,11 @@ Map<String, dynamic> _$$_TranslationDataToJson(_$_TranslationData instance) =>
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _DepricatedPteroClient implements DepricatedPteroClient {
-  _DepricatedPteroClient(
+class _DepricatedPteroClient extends DepricatedPteroClient {
+  _DepricatedPteroClient._(
     this._dio, {
     this.baseUrl,
-  });
+  }) : super._();
 
   final Dio _dio;
 
@@ -69,11 +69,11 @@ class _DepricatedPteroClient implements DepricatedPteroClient {
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _PteroClient implements PteroClient {
-  _PteroClient(
+class _PteroClient extends PteroClient {
+  _PteroClient._(
     this._dio, {
     this.baseUrl,
-  });
+  }) : super._();
 
   final Dio _dio;
 
@@ -1917,11 +1917,11 @@ class _PteroClient implements PteroClient {
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _PteroTranslationsClient implements PteroTranslationsClient {
-  _PteroTranslationsClient(
+class _PteroTranslationsClient extends PteroTranslationsClient {
+  _PteroTranslationsClient._(
     this._dio, {
     this.baseUrl,
-  });
+  }) : super._();
 
   final Dio _dio;
 

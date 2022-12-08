@@ -7,24 +7,20 @@ part '../../generated/models/request_models/chmod_file.g.dart';
 
 @freezed
 class ChmodFileBody with _$ChmodFileBody {
-  factory ChmodFileBody({
+  const factory ChmodFileBody({
     String? root,
     required List<ChmodFile> files,
   }) = _ChmodFileBody;
 
   factory ChmodFileBody.fromJson(JsonMap json) => _$ChmodFileBodyFromJson(json);
-
-  ChmodFileBody._();
 }
 
 @freezed
 class ChmodFile with _$ChmodFile {
-  factory ChmodFile({
+  const factory ChmodFile({
     required String file,
     required int mode,
   }) = _ChmodFile;
 
   factory ChmodFile.fromJson(JsonMap json) => _$ChmodFileFromJson(json);
-
-  ChmodFile._();
 }

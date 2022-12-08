@@ -100,7 +100,7 @@ class __$$_WebsocketPermissionKeysCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_WebsocketPermissionKeys extends _WebsocketPermissionKeys {
-  _$_WebsocketPermissionKeys({required this.connect}) : super._();
+  const _$_WebsocketPermissionKeys({required this.connect}) : super._();
 
   factory _$_WebsocketPermissionKeys.fromJson(Map<String, dynamic> json) =>
       _$$_WebsocketPermissionKeysFromJson(json);
@@ -142,9 +142,9 @@ class _$_WebsocketPermissionKeys extends _WebsocketPermissionKeys {
 }
 
 abstract class _WebsocketPermissionKeys extends WebsocketPermissionKeys {
-  factory _WebsocketPermissionKeys({required final String connect}) =
+  const factory _WebsocketPermissionKeys({required final String connect}) =
       _$_WebsocketPermissionKeys;
-  _WebsocketPermissionKeys._() : super._();
+  const _WebsocketPermissionKeys._() : super._();
 
   factory _WebsocketPermissionKeys.fromJson(Map<String, dynamic> json) =
       _$_WebsocketPermissionKeys.fromJson;

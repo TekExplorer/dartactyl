@@ -1,15 +1,13 @@
 import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../models.dart';
-
 part '../../generated/models/error_responses/ptero_error_meta.g.dart';
 
 @JsonSerializable()
 class PteroErrorMeta {
   final String rule;
 
-  PteroErrorMeta({required this.rule});
+  const PteroErrorMeta({required this.rule});
 
   factory PteroErrorMeta.fromJson(JsonMap json) =>
       _$PteroErrorMetaFromJson(json);
@@ -24,7 +22,7 @@ class PteroErrorStringMeta extends PteroErrorMeta {
   @JsonKey(name: 'source_field')
   final PteroErrorScheduleMetaRule? sourceField;
 
-  PteroErrorStringMeta({required super.rule, required this.sourceField});
+  const PteroErrorStringMeta({required super.rule, required this.sourceField});
 
   factory PteroErrorStringMeta.fromJson(JsonMap json) =>
       _$PteroErrorStringMetaFromJson(json);
@@ -38,7 +36,10 @@ class PteroErrorScheduleMeta extends PteroErrorMeta {
   @JsonKey(name: 'source_field')
   final Cron sourceField;
 
-  PteroErrorScheduleMeta({required super.rule, required this.sourceField});
+  const PteroErrorScheduleMeta({
+    required super.rule,
+    required this.sourceField,
+  });
 
   factory PteroErrorScheduleMeta.fromJson(JsonMap json) =>
       _$PteroErrorScheduleMetaFromJson(json);

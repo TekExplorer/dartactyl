@@ -97,7 +97,7 @@ class __$$_AllocationNoteCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_AllocationNote extends _AllocationNote {
-  _$_AllocationNote({required this.notes}) : super._();
+  const _$_AllocationNote({required this.notes}) : super._();
 
   factory _$_AllocationNote.fromJson(Map<String, dynamic> json) =>
       _$$_AllocationNoteFromJson(json);
@@ -137,8 +137,9 @@ class _$_AllocationNote extends _AllocationNote {
 }
 
 abstract class _AllocationNote extends AllocationNote {
-  factory _AllocationNote({required final String notes}) = _$_AllocationNote;
-  _AllocationNote._() : super._();
+  const factory _AllocationNote({required final String notes}) =
+      _$_AllocationNote;
+  const _AllocationNote._() : super._();
 
   factory _AllocationNote.fromJson(Map<String, dynamic> json) =
       _$_AllocationNote.fromJson;

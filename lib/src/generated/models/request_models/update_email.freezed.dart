@@ -108,7 +108,7 @@ class __$$_UpdateEmailCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UpdateEmail implements _UpdateEmail {
-  _$_UpdateEmail({required this.email, required this.password});
+  const _$_UpdateEmail({required this.email, required this.password});
 
   factory _$_UpdateEmail.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateEmailFromJson(json);
@@ -152,7 +152,7 @@ class _$_UpdateEmail implements _UpdateEmail {
 }
 
 abstract class _UpdateEmail implements UpdateEmail {
-  factory _UpdateEmail(
+  const factory _UpdateEmail(
       {required final String email,
       required final String password}) = _$_UpdateEmail;
 

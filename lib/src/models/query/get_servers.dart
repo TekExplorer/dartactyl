@@ -6,23 +6,13 @@
 ///
 /// [member] - [Server]s you are an [owner] or subuser of
 enum GetServersQueryType {
-  admin,
-  adminAll,
-  owner,
-  member,
-}
+  admin('admin'),
+  adminAll('admin-all'),
+  owner('owner'),
+  member('user');
 
-extension GetServersQueryTypeExtension on GetServersQueryType {
-  String toJson() {
-    switch (this) {
-      case GetServersQueryType.admin:
-        return 'admin';
-      case GetServersQueryType.adminAll:
-        return 'admin-all';
-      case GetServersQueryType.owner:
-        return 'owner';
-      case GetServersQueryType.member:
-        return 'user';
-    }
-  }
+  final String value;
+  const GetServersQueryType(this.value);
+
+  String toJson() => value;
 }

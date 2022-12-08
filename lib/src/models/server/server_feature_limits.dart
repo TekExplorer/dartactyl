@@ -6,8 +6,7 @@ part '../../generated/models/server/server_feature_limits.g.dart';
 
 @freezed
 class ServerFeatureLimits with _$ServerFeatureLimits {
-  ServerFeatureLimits._();
-  factory ServerFeatureLimits({
+  const factory ServerFeatureLimits({
     required int allocations,
     int? databases,
     int? backups,

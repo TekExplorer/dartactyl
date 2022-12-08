@@ -6,7 +6,7 @@ part '../../generated/models/request_models/schedule.g.dart';
 
 @freezed
 class RequestSchedule with _$RequestSchedule {
-  factory RequestSchedule({
+  const factory RequestSchedule({
     required bool onlyWhenOnline,
     required String name,
     required bool isActive,

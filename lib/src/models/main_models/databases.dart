@@ -1,14 +1,12 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../models.dart';
-
 part '../../generated/models/main_models/databases.freezed.dart';
 part '../../generated/models/main_models/databases.g.dart';
 
 @freezed
 class Databases with SerializableMixin, _$Databases {
-  factory Databases({
+  const factory Databases({
     required int id,
     required int server,
     required int host,
@@ -22,7 +20,7 @@ class Databases with SerializableMixin, _$Databases {
 
   factory Databases.fromJson(JsonMap json) => _$DatabasesFromJson(json);
 
-  Databases._();
+  const Databases._();
   @override
   JsonMap toJson();
 }

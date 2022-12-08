@@ -146,7 +146,7 @@ class __$$_ApiKeyCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ApiKey extends _ApiKey {
-  _$_ApiKey(
+  const _$_ApiKey(
       {required this.identifier,
       this.description,
       final List<String>? allowedIps,
@@ -218,13 +218,13 @@ class _$_ApiKey extends _ApiKey {
 }
 
 abstract class _ApiKey extends ApiKey {
-  factory _ApiKey(
+  const factory _ApiKey(
       {required final String identifier,
       final String? description,
       final List<String>? allowedIps,
       final DateTime? lastUsedAt,
       required final DateTime createdAt}) = _$_ApiKey;
-  _ApiKey._() : super._();
+  const _ApiKey._() : super._();
 
   factory _ApiKey.fromJson(Map<String, dynamic> json) = _$_ApiKey.fromJson;
 

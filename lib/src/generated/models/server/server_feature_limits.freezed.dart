@@ -118,10 +118,9 @@ class __$$_ServerFeatureLimitsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ServerFeatureLimits extends _ServerFeatureLimits {
-  _$_ServerFeatureLimits(
-      {required this.allocations, this.databases, this.backups})
-      : super._();
+class _$_ServerFeatureLimits implements _ServerFeatureLimits {
+  const _$_ServerFeatureLimits(
+      {required this.allocations, this.databases, this.backups});
 
   factory _$_ServerFeatureLimits.fromJson(Map<String, dynamic> json) =>
       _$$_ServerFeatureLimitsFromJson(json);
@@ -169,12 +168,11 @@ class _$_ServerFeatureLimits extends _ServerFeatureLimits {
   }
 }
 
-abstract class _ServerFeatureLimits extends ServerFeatureLimits {
-  factory _ServerFeatureLimits(
+abstract class _ServerFeatureLimits implements ServerFeatureLimits {
+  const factory _ServerFeatureLimits(
       {required final int allocations,
       final int? databases,
       final int? backups}) = _$_ServerFeatureLimits;
-  _ServerFeatureLimits._() : super._();
 
   factory _ServerFeatureLimits.fromJson(Map<String, dynamic> json) =
       _$_ServerFeatureLimits.fromJson;

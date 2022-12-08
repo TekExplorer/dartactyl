@@ -340,7 +340,7 @@ class __$$_NodeCopyWithImpl<$Res> extends _$NodeCopyWithImpl<$Res, _$_Node>
 /// @nodoc
 @JsonSerializable()
 class _$_Node extends _Node {
-  _$_Node(
+  const _$_Node(
       {required this.id,
       required this.uuid,
       required this.public,
@@ -491,7 +491,7 @@ class _$_Node extends _Node {
 }
 
 abstract class _Node extends Node {
-  factory _Node(
+  const factory _Node(
       {required final int id,
       required final String uuid,
       required final bool public,
@@ -512,7 +512,7 @@ abstract class _Node extends Node {
       required final String daemonBase,
       required final DateTime createdAt,
       required final DateTime updatedAt}) = _$_Node;
-  _Node._() : super._();
+  const _Node._() : super._();
 
   factory _Node.fromJson(Map<String, dynamic> json) = _$_Node.fromJson;
 

@@ -134,7 +134,7 @@ class __$$_AllocationPermissionKeysCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_AllocationPermissionKeys extends _AllocationPermissionKeys {
-  _$_AllocationPermissionKeys(
+  const _$_AllocationPermissionKeys(
       {required this.read,
       required this.create,
       required this.update,
@@ -189,12 +189,12 @@ class _$_AllocationPermissionKeys extends _AllocationPermissionKeys {
 }
 
 abstract class _AllocationPermissionKeys extends AllocationPermissionKeys {
-  factory _AllocationPermissionKeys(
+  const factory _AllocationPermissionKeys(
       {required final String read,
       required final String create,
       required final String update,
       required final String delete}) = _$_AllocationPermissionKeys;
-  _AllocationPermissionKeys._() : super._();
+  const _AllocationPermissionKeys._() : super._();
 
   factory _AllocationPermissionKeys.fromJson(Map<String, dynamic> json) =
       _$_AllocationPermissionKeys.fromJson;

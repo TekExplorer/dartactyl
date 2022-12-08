@@ -1,8 +1,6 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../models.dart';
-
 part '../../generated/models/main_models/file_object.freezed.dart';
 part '../../generated/models/main_models/file_object.g.dart';
 
@@ -26,7 +24,7 @@ part '../../generated/models/main_models/file_object.g.dart';
 ///
 /// [modifiedAt] '2020-01-01T00:00:00.000Z'
 class FileObject with SerializableMixin, _$FileObject {
-  factory FileObject({
+  const factory FileObject({
     required String name,
     required String mode,
     required String modeBits,
@@ -39,7 +37,7 @@ class FileObject with SerializableMixin, _$FileObject {
   }) = _FileObject;
   factory FileObject.fromJson(JsonMap json) => _$FileObjectFromJson(json);
 
-  FileObject._();
+  const FileObject._();
 
   @override
   JsonMap toJson();

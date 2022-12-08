@@ -198,7 +198,7 @@ class __$$_BackupCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Backup extends _Backup {
-  _$_Backup(
+  const _$_Backup(
       {required this.uuid,
       required this.isSuccessful,
       required this.isLocked,
@@ -296,7 +296,7 @@ class _$_Backup extends _Backup {
 }
 
 abstract class _Backup extends Backup {
-  factory _Backup(
+  const factory _Backup(
       {required final String uuid,
       required final bool isSuccessful,
       required final bool isLocked,
@@ -306,7 +306,7 @@ abstract class _Backup extends Backup {
       required final int bytes,
       required final DateTime createdAt,
       final DateTime? completedAt}) = _$_Backup;
-  _Backup._() : super._();
+  const _Backup._() : super._();
 
   factory _Backup.fromJson(Map<String, dynamic> json) = _$_Backup.fromJson;
 

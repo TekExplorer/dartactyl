@@ -6,8 +6,7 @@ part '../../generated/models/server/server_limits.g.dart';
 
 @freezed
 class ServerLimits with _$ServerLimits {
-  ServerLimits._();
-  factory ServerLimits({
+  const factory ServerLimits({
     required int memory,
     required int swap,
     required int disk,

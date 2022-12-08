@@ -110,7 +110,7 @@ class __$$_StartupPermissionKeysCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_StartupPermissionKeys extends _StartupPermissionKeys {
-  _$_StartupPermissionKeys({required this.read, required this.update})
+  const _$_StartupPermissionKeys({required this.read, required this.update})
       : super._();
 
   factory _$_StartupPermissionKeys.fromJson(Map<String, dynamic> json) =>
@@ -155,10 +155,10 @@ class _$_StartupPermissionKeys extends _StartupPermissionKeys {
 }
 
 abstract class _StartupPermissionKeys extends StartupPermissionKeys {
-  factory _StartupPermissionKeys(
+  const factory _StartupPermissionKeys(
       {required final String read,
       required final String update}) = _$_StartupPermissionKeys;
-  _StartupPermissionKeys._() : super._();
+  const _StartupPermissionKeys._() : super._();
 
   factory _StartupPermissionKeys.fromJson(Map<String, dynamic> json) =
       _$_StartupPermissionKeys.fromJson;

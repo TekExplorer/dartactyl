@@ -151,7 +151,7 @@ class __$$_PullFileBodyCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PullFileBody extends _PullFileBody {
-  _$_PullFileBody(
+  const _$_PullFileBody(
       {required this.url,
       this.directory,
       this.filename,
@@ -214,13 +214,13 @@ class _$_PullFileBody extends _PullFileBody {
 }
 
 abstract class _PullFileBody extends PullFileBody {
-  factory _PullFileBody(
+  const factory _PullFileBody(
       {required final Uri url,
       final String? directory,
       final String? filename,
       required final bool useHeader,
       required final bool foreground}) = _$_PullFileBody;
-  _PullFileBody._() : super._();
+  const _PullFileBody._() : super._();
 
   factory _PullFileBody.fromJson(Map<String, dynamic> json) =
       _$_PullFileBody.fromJson;

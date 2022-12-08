@@ -1,16 +1,14 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../models.dart';
-
 part '../../generated/models/permission_keys/database_permission_keys.freezed.dart';
 part '../../generated/models/permission_keys/database_permission_keys.g.dart';
 
 @freezed
 class DatabasePermissionKeys with SerializableMixin, _$DatabasePermissionKeys {
-  DatabasePermissionKeys._();
+  const DatabasePermissionKeys._();
 
-  factory DatabasePermissionKeys({
+  const factory DatabasePermissionKeys({
     required String create,
     required String read,
     required String update,

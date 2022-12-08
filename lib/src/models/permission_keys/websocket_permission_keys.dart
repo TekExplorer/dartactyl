@@ -1,8 +1,6 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../models.dart';
-
 part '../../generated/models/permission_keys/websocket_permission_keys.freezed.dart';
 part '../../generated/models/permission_keys/websocket_permission_keys.g.dart';
 
@@ -10,9 +8,9 @@ part '../../generated/models/permission_keys/websocket_permission_keys.g.dart';
 @With<SerializableMixin>()
 class WebsocketPermissionKeys
     with SerializableMixin, _$WebsocketPermissionKeys {
-  WebsocketPermissionKeys._();
+  const WebsocketPermissionKeys._();
 
-  factory WebsocketPermissionKeys({
+  const factory WebsocketPermissionKeys({
     required String connect,
   }) = _WebsocketPermissionKeys;
 

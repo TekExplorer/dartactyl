@@ -1,14 +1,13 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../models.dart';
-
 part '../../generated/models/main_models/server.freezed.dart';
 part '../../generated/models/main_models/server.g.dart';
 
 @freezed
 class Server with SerializableMixin, _$Server {
-  factory Server({
+  const Server._();
+  const factory Server({
     required bool serverOwner,
     required String identifier,
     required int internalId,
@@ -31,7 +30,6 @@ class Server with SerializableMixin, _$Server {
 
   factory Server.fromJson(JsonMap json) => _$ServerFromJson(json);
 
-  Server._();
   @override
   JsonMap toJson();
 }
@@ -43,5 +41,5 @@ enum ServerStatus {
   suspended,
   @JsonValue('restoring_backup')
   restoringBackup,
-  transferring,
+  transferring;
 }

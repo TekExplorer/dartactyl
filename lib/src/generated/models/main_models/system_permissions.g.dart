@@ -6,6 +6,18 @@ part of '../../../models/main_models/system_permissions.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$_SystemPermissions _$$_SystemPermissionsFromJson(Map<String, dynamic> json) =>
+    _$_SystemPermissions(
+      permissions:
+          Permissions.fromJson(json['permissions'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$_SystemPermissionsToJson(
+        _$_SystemPermissions instance) =>
+    <String, dynamic>{
+      'permissions': instance.permissions.toJson(),
+    };
+
 _$_Permissions _$$_PermissionsFromJson(Map<String, dynamic> json) =>
     _$_Permissions(
       websocket: PermissionsModel<WebsocketPermissionKeys>.fromJson(
@@ -58,16 +70,4 @@ Map<String, dynamic> _$$_PermissionsModelToJson<T extends SerializableMixin>(
     <String, dynamic>{
       'description': instance.description,
       'keys': PermissionKeysConverter<T>().toJson(instance.keys),
-    };
-
-_$_SystemPermissions _$$_SystemPermissionsFromJson(Map<String, dynamic> json) =>
-    _$_SystemPermissions(
-      permissions:
-          Permissions.fromJson(json['permissions'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$$_SystemPermissionsToJson(
-        _$_SystemPermissions instance) =>
-    <String, dynamic>{
-      'permissions': instance.permissions.toJson(),
     };

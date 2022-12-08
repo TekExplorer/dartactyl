@@ -127,7 +127,7 @@ class __$$_PterodactylLoginRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PterodactylLoginRequest extends _PterodactylLoginRequest {
-  _$_PterodactylLoginRequest(
+  const _$_PterodactylLoginRequest(
       {@JsonKey(name: 'user') required this.username,
       required this.password,
       @JsonKey(name: 'g-recaptcha-response') this.gRecaptchaResponse})
@@ -185,13 +185,13 @@ class _$_PterodactylLoginRequest extends _PterodactylLoginRequest {
 }
 
 abstract class _PterodactylLoginRequest extends PteroLoginRequest {
-  factory _PterodactylLoginRequest(
+  const factory _PterodactylLoginRequest(
       {@JsonKey(name: 'user')
           required final String username,
       required final String password,
       @JsonKey(name: 'g-recaptcha-response')
           final String? gRecaptchaResponse}) = _$_PterodactylLoginRequest;
-  _PterodactylLoginRequest._() : super._();
+  const _PterodactylLoginRequest._() : super._();
 
   factory _PterodactylLoginRequest.fromJson(Map<String, dynamic> json) =
       _$_PterodactylLoginRequest.fromJson;

@@ -111,7 +111,7 @@ class __$$_WebsocketRecievedModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_WebsocketRecievedModel implements _WebsocketRecievedModel {
-  _$_WebsocketRecievedModel(this.event, [final List<String>? args])
+  const _$_WebsocketRecievedModel(this.event, [final List<String>? args])
       : _args = args;
 
   factory _$_WebsocketRecievedModel.fromJson(Map<String, dynamic> json) =>
@@ -163,7 +163,7 @@ class _$_WebsocketRecievedModel implements _WebsocketRecievedModel {
 }
 
 abstract class _WebsocketRecievedModel implements WebsocketRecievedModel {
-  factory _WebsocketRecievedModel(final WebsocketRecievedModelEvent event,
+  const factory _WebsocketRecievedModel(final WebsocketRecievedModelEvent event,
       [final List<String>? args]) = _$_WebsocketRecievedModel;
 
   factory _WebsocketRecievedModel.fromJson(Map<String, dynamic> json) =
@@ -273,7 +273,8 @@ class __$$_WebsocketSendModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_WebsocketSendModel implements _WebsocketSendModel {
-  _$_WebsocketSendModel(this.event, [final List<String>? args]) : _args = args;
+  const _$_WebsocketSendModel(this.event, [final List<String>? args])
+      : _args = args;
 
   factory _$_WebsocketSendModel.fromJson(Map<String, dynamic> json) =>
       _$$_WebsocketSendModelFromJson(json);
@@ -324,7 +325,7 @@ class _$_WebsocketSendModel implements _WebsocketSendModel {
 }
 
 abstract class _WebsocketSendModel implements WebsocketSendModel {
-  factory _WebsocketSendModel(final WebsocketSendModelEvent event,
+  const factory _WebsocketSendModel(final WebsocketSendModelEvent event,
       [final List<String>? args]) = _$_WebsocketSendModel;
 
   factory _WebsocketSendModel.fromJson(Map<String, dynamic> json) =

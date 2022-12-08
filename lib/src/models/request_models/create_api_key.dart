@@ -6,7 +6,7 @@ part '../../generated/models/request_models/create_api_key.g.dart';
 
 @freezed
 class CreateApiKey with _$CreateApiKey {
-  factory CreateApiKey({
+  const factory CreateApiKey({
     required String description,
     required List<String> allowedIps,
   }) = _CreateApiKey;

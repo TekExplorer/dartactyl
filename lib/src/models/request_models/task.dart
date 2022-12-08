@@ -6,7 +6,7 @@ part '../../generated/models/request_models/task.g.dart';
 
 @freezed
 class Task with _$Task {
-  factory Task({
+  const factory Task({
     required Action action,
     required String payload,
     required int timeOffset,

@@ -96,8 +96,8 @@ class __$$_DatabasePasswordCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DatabasePassword implements _DatabasePassword {
-  _$_DatabasePassword({required this.password});
+class _$_DatabasePassword extends _DatabasePassword {
+  const _$_DatabasePassword({required this.password}) : super._();
 
   factory _$_DatabasePassword.fromJson(Map<String, dynamic> json) =>
       _$$_DatabasePasswordFromJson(json);
@@ -137,9 +137,10 @@ class _$_DatabasePassword implements _DatabasePassword {
   }
 }
 
-abstract class _DatabasePassword implements DatabasePassword {
-  factory _DatabasePassword({required final String password}) =
+abstract class _DatabasePassword extends DatabasePassword {
+  const factory _DatabasePassword({required final String password}) =
       _$_DatabasePassword;
+  const _DatabasePassword._() : super._();
 
   factory _DatabasePassword.fromJson(Map<String, dynamic> json) =
       _$_DatabasePassword.fromJson;
