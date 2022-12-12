@@ -1,11 +1,12 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../generated/models/main_models/node.freezed.dart';
-part '../../generated/models/main_models/node.g.dart';
+part '../../generated/models/application_models/node.freezed.dart';
+part '../../generated/models/application_models/node.g.dart';
 
+//TODO: ensure all fields are correct
 @freezed
-class Node with _$Node {
+class Node with _$Node, SerializableMixin {
   const factory Node({
     required int id,
     required String uuid,
@@ -27,9 +28,24 @@ class Node with _$Node {
     required String daemonBase,
     required DateTime createdAt,
     required DateTime updatedAt,
+    NodeRelationships? relationships,
   }) = _Node;
 
   factory Node.fromJson(JsonMap json) => _$NodeFromJson(json);
 
   const Node._();
+}
+
+@freezed
+class NodeRelationships with _$NodeRelationships, SerializableMixin {
+  const factory NodeRelationships({
+    Fractal<ApplicationAllocation>? allocation,
+    Fractal<Location>? location,
+    FractalList<ApplicationServer>? servers,
+  }) = _NodeRelationships;
+
+  factory NodeRelationships.fromJson(JsonMap json) =>
+      _$NodeRelationshipsFromJson(json);
+
+  const NodeRelationships._();
 }

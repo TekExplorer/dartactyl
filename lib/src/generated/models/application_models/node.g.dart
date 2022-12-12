@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../models/main_models/node.dart';
+part of '../../../models/application_models/node.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -27,6 +27,10 @@ _$_Node _$$_NodeFromJson(Map<String, dynamic> json) => _$_Node(
       daemonBase: json['daemon_base'] as String,
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: DateTime.parse(json['updated_at'] as String),
+      relationships: json['relationships'] == null
+          ? null
+          : NodeRelationships.fromJson(
+              json['relationships'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_NodeToJson(_$_Node instance) => <String, dynamic>{
@@ -50,4 +54,29 @@ Map<String, dynamic> _$$_NodeToJson(_$_Node instance) => <String, dynamic>{
       'daemon_base': instance.daemonBase,
       'created_at': instance.createdAt.toIso8601String(),
       'updated_at': instance.updatedAt.toIso8601String(),
+      'relationships': instance.relationships?.toJson(),
+    };
+
+_$_NodeRelationships _$$_NodeRelationshipsFromJson(Map<String, dynamic> json) =>
+    _$_NodeRelationships(
+      allocation: json['allocation'] == null
+          ? null
+          : FractalResponseData<ApplicationAllocation>.fromJson(
+              json['allocation'] as Map<String, dynamic>),
+      location: json['location'] == null
+          ? null
+          : FractalResponseData<Location>.fromJson(
+              json['location'] as Map<String, dynamic>),
+      servers: json['servers'] == null
+          ? null
+          : FractalResponseList<ApplicationServer>.fromJson(
+              json['servers'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$_NodeRelationshipsToJson(
+        _$_NodeRelationships instance) =>
+    <String, dynamic>{
+      'allocation': instance.allocation?.toJson(),
+      'location': instance.location?.toJson(),
+      'servers': instance.servers?.toJson(),
     };

@@ -528,7 +528,7 @@ ActivityLogRelationships _$ActivityLogRelationshipsFromJson(
 
 /// @nodoc
 mixin _$ActivityLogRelationships {
-  FractalResponseData<Actor>? get actor => throw _privateConstructorUsedError;
+  FractalResponseData<User>? get actor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -542,7 +542,7 @@ abstract class $ActivityLogRelationshipsCopyWith<$Res> {
           $Res Function(ActivityLogRelationships) then) =
       _$ActivityLogRelationshipsCopyWithImpl<$Res, ActivityLogRelationships>;
   @useResult
-  $Res call({FractalResponseData<Actor>? actor});
+  $Res call({FractalResponseData<User>? actor});
 }
 
 /// @nodoc
@@ -565,7 +565,7 @@ class _$ActivityLogRelationshipsCopyWithImpl<$Res,
       actor: freezed == actor
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
-              as FractalResponseData<Actor>?,
+              as FractalResponseData<User>?,
     ) as $Val);
   }
 }
@@ -579,7 +579,7 @@ abstract class _$$_ActivityLogRelationshipsCopyWith<$Res>
       __$$_ActivityLogRelationshipsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({FractalResponseData<Actor>? actor});
+  $Res call({FractalResponseData<User>? actor});
 }
 
 /// @nodoc
@@ -600,7 +600,7 @@ class __$$_ActivityLogRelationshipsCopyWithImpl<$Res>
       actor: freezed == actor
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
-              as FractalResponseData<Actor>?,
+              as FractalResponseData<User>?,
     ));
   }
 }
@@ -614,7 +614,7 @@ class _$_ActivityLogRelationships extends _ActivityLogRelationships {
       _$$_ActivityLogRelationshipsFromJson(json);
 
   @override
-  final FractalResponseData<Actor>? actor;
+  final FractalResponseData<User>? actor;
 
   @override
   String toString() {
@@ -650,14 +650,14 @@ class _$_ActivityLogRelationships extends _ActivityLogRelationships {
 
 abstract class _ActivityLogRelationships extends ActivityLogRelationships {
   const factory _ActivityLogRelationships(
-      {final FractalResponseData<Actor>? actor}) = _$_ActivityLogRelationships;
+      {final FractalResponseData<User>? actor}) = _$_ActivityLogRelationships;
   const _ActivityLogRelationships._() : super._();
 
   factory _ActivityLogRelationships.fromJson(Map<String, dynamic> json) =
       _$_ActivityLogRelationships.fromJson;
 
   @override
-  FractalResponseData<Actor>? get actor;
+  FractalResponseData<User>? get actor;
   @override
   @JsonKey(ignore: true)
   _$$_ActivityLogRelationshipsCopyWith<_$_ActivityLogRelationships>

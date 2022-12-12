@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../models/main_models/nest.dart';
+part of '../../../models/application_models/nest.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

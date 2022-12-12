@@ -1,8 +1,8 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../generated/models/main_models/nest.freezed.dart';
-part '../../generated/models/main_models/nest.g.dart';
+part '../../generated/models/application_models/nest.freezed.dart';
+part '../../generated/models/application_models/nest.g.dart';
 
 @freezed
 class Nest with SerializableMixin, _$Nest {

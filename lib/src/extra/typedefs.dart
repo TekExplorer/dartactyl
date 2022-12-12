@@ -8,7 +8,7 @@ typedef FractalMeta<T extends SerializableMixin, M extends Meta<M>>
 
 typedef FractalServer = Fractal<Server>;
 typedef FractalSystemPermissions = Fractal<SystemPermissions>;
-typedef FractalUser = Fractal<User>;
+typedef FractalUser = Fractal<Account>;
 typedef FractalTwoFactorImage = Fractal<TwoFactorImage>;
 typedef FractalRecoveryTokens = Fractal<RecoveryTokens>;
 typedef FractalApiKey = Fractal<ApiKey>;
@@ -41,3 +41,6 @@ typedef FractalEggVariableList = FractalList<EggVariable>;
 typedef FractalDatabasesList = FractalList<Databases>;
 typedef FractalScheduleTaskList = FractalList<ScheduleTask>;
 typedef FractalSubuserList = FractalList<Subuser>;
+
+@Deprecated('Actor has been renamed to [User]')
+typedef Actor = User;

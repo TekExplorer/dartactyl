@@ -30,18 +30,3 @@ JsonMap activityLogPropertiesFromJson(dynamic value) {
   if (value is List) return {};
   return value as JsonMap;
 }
-
-@freezed
-class Actor with _$Actor, SerializableMixin {
-  const factory Actor({
-    required String uuid,
-    required String username,
-    required String email,
-    @JsonKey(name: '2fa_enabled') required bool twoFaEnabled,
-    required DateTime createdAt,
-  }) = _Actor;
-
-  factory Actor.fromJson(JsonMap json) => _$ActorFromJson(json);
-
-  const Actor._();
-}

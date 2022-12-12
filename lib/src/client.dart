@@ -1,11 +1,14 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:dartactyl/dartactyl.dart';
 import 'package:dartactyl/models.dart';
 import 'package:dio/dio.dart' hide Headers;
 import 'package:freezed_annotation/freezed_annotation.dart';
 // import 'package:dio/dio.dart' as dioHeaders show Headers;
 import 'package:retrofit/retrofit.dart';
+
+import 'application.dart';
 
 part 'client_extentions.dart';
 part 'generated/client.freezed.dart';
@@ -14,10 +17,10 @@ part 'mock_client.dart';
 part 'translation_client.dart';
 
 @RestApi()
-abstract class DepricatedPteroClient {
-  const DepricatedPteroClient._();
-  factory DepricatedPteroClient(Dio dio, {String? baseUrl}) =
-      _DepricatedPteroClient._;
+abstract class DeprecatedPteroClient {
+  const DeprecatedPteroClient._();
+  factory DeprecatedPteroClient(Dio dio, {String? baseUrl}) =
+      _DeprecatedPteroClient._;
 
   /// Delete an [SshKey] on your account. (1.8.0-1.8.1)
   @DELETE('/api/client/account/ssh-keys/{fingerprint}')
@@ -26,51 +29,15 @@ abstract class DepricatedPteroClient {
   });
 }
 
-// remove any instance of null_resource, which looks like this:
-//  {
-//   "object": "null_resource",
-//   "attributes": null
-// }
-dynamic _removeNullResource(dynamic json) {
-  if (json is Map<String, dynamic>) {
-    if (json['object'] == 'null_resource') return null;
-    return json.map((key, value) => MapEntry(key, _removeNullResource(value)));
-  }
-  if (json is List) {
-    return json.map((e) => _removeNullResource(e)).toList();
-  }
-  return json;
-}
-
 /// Pterodactyl API Client
 @RestApi()
 abstract class PteroClient {
   const PteroClient._();
   factory PteroClient(Dio dio, {String? baseUrl}) = _PteroClient._;
 
-  /// Remove any instance of null_resource, which looks like this:
-  /// ```json
-  /// {
-  ///   "object": "null_resource",
-  ///   "attributes": null
-  /// }
-  /// ```
-  /// This is done because it breaks serialization anywhere it appears.
-  static final removeNullResourcesInterceptor = InterceptorsWrapper(
-    onResponse: (e, handler) {
-      e.data = _removeNullResource(e.data);
-      handler.next(e);
-    },
-  );
-
-  /// Creates an instance of [MockPteroClient]
-  /// which will return concrete responses for testing
-  // @experimental
-  // static MockPteroClient mock(Dio dio, {String? baseUrl}) =>
-  //     MockPteroClient(dio, baseUrl: baseUrl);
-
-  Dio get _dio;
-  String? get baseUrl;
+  @Deprecated('Use RemoveNullResourcesInterceptor() instead.')
+  static final removeNullResourcesInterceptor =
+      RemoveNullResourcesInterceptor();
 
   /// Set up a Pterodactyl API Client in one go!
   /// [baseUrl] is the base URL of the Pterodactyl server.
@@ -82,7 +49,6 @@ abstract class PteroClient {
     Dio? dio,
     String userAgent = 'Dartactyl/v1',
     bool enableErrorInterceptor = true,
-    bool enableIfAuthNoKeyInterceptor = false,
   }) {
     dio ??= Dio();
 
@@ -97,24 +63,11 @@ abstract class PteroClient {
       ..baseUrl = url;
 
     dio.interceptors.addAll([
-      // if (enableIfAuthNoKeyInterceptor) IfAuthNoKeyInterceptor(),
       if (enableErrorInterceptor) HandleErrorInterceptor(),
-      removeNullResourcesInterceptor,
-      LogInterceptor(
-        request: false,
-        requestBody: false,
-        responseBody: true,
-        responseHeader: true,
-        requestHeader: false,
-      ),
+      RemoveNullResourcesInterceptor(),
     ]);
 
     return PteroClient(dio);
-
-    //     ..headers['Accept'] = 'application/json'
-    // ..headers['Authorization'] = 'Bearer $apiKey'
-    // ..headers['Content-Type'] = 'application/json'
-    // ..baseUrl = panelUrl;
   }
 
   /// Creates an instance of the [PteroClient] class.
@@ -129,6 +82,30 @@ abstract class PteroClient {
         dio: dio,
         key: 'mock-api-key',
       );
+
+  Dio get _dio;
+  Dio get dio => _dio;
+  String? get baseUrl;
+  String get url => baseUrl ?? dio.options.baseUrl;
+
+  @Deprecated('Update your panel! These endpoints are deprecated!')
+  DeprecatedPteroClient get old => DeprecatedPteroClient(dio, baseUrl: baseUrl);
+
+  @experimental
+  PteroTranslationsClient get translations =>
+      PteroTranslationsClient(dio, baseUrl: baseUrl);
+
+  @experimental
+  PteroApplication get application => PteroApplication(dio, baseUrl: baseUrl);
+
+  /// Alias of listVariables
+  Future<FractalListMeta<EggVariable, StartupMeta>> getStartup(
+          {required String serverId}) =>
+      listVariables(serverId: serverId);
+
+  Future<Map<String, String>> listDockerImages(
+          {required String serverId}) async =>
+      (await getStartup(serverId: serverId)).dockerImages;
 
   // /// Login to Pterodactyl using username and password.
   // ///
@@ -202,7 +179,7 @@ abstract class PteroClient {
 
   /// Get account information.
   @GET('/api/client/account')
-  Future<Fractal<User>> getAccountInfo();
+  Future<Fractal<Account>> getAccountInfo();
 
   /// Get two factor authentication image.
   @GET('/api/client/account/two-factor')
@@ -220,13 +197,13 @@ abstract class PteroClient {
     @Body() DisableTwoFactor data,
   );
 
-  /// Update your [User] account email address.
+  /// Update your [Account] account email address.
   @PUT('/api/client/account/email')
   Future<void> updateEmail(
     @Body() UpdateEmail data,
   );
 
-  /// Update your [User] account password.
+  /// Update your [Account] account password.
   @PUT('/api/client/account/password')
   Future<void> updatePassword(
     @Body() UpdatePassword data,
@@ -303,8 +280,6 @@ abstract class PteroClient {
     @Path() required String serverId,
   });
 
-  /// TODO: Server Activity; not tested
-  @experimental
   @GET('/api/client/servers/{serverId}/activity')
   Future<FractalListMeta<ActivityLog, PaginatedMeta>> getServerActivity({
     @Path() required String serverId,

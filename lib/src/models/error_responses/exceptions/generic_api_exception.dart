@@ -1,7 +1,6 @@
-import '../../../../models.dart';
+import 'package:dartactyl/models.dart';
 import 'package:dio/dio.dart';
 
-import 'package:dartactyl/models.dart';
 part 'ptero_api_exception.dart';
 
 /// Base ApiException class for dartactyl. All api errors should be an instance of this class

@@ -6,8 +6,10 @@ part '../../generated/models/request_models/subuser.g.dart';
 
 @freezed
 class Subuser with SerializableMixin, _$Subuser {
-  const factory Subuser(
-      {required String email, required List<String> permissions}) = _Subuser;
+  const factory Subuser({
+    required String email,
+    required List<String> permissions,
+  }) = _Subuser;
 
   factory Subuser.fromJson(JsonMap json) => _$SubuserFromJson(json);
 

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of '../../../models/main_models/node.dart';
+part of '../../../models/application_models/node.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -40,6 +40,7 @@ mixin _$Node {
   String get daemonBase => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
+  NodeRelationships? get relationships => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -71,7 +72,10 @@ abstract class $NodeCopyWith<$Res> {
       int daemonSftp,
       String daemonBase,
       DateTime createdAt,
-      DateTime updatedAt});
+      DateTime updatedAt,
+      NodeRelationships? relationships});
+
+  $NodeRelationshipsCopyWith<$Res>? get relationships;
 }
 
 /// @nodoc
@@ -107,6 +111,7 @@ class _$NodeCopyWithImpl<$Res, $Val extends Node>
     Object? daemonBase = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? relationships = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -189,7 +194,23 @@ class _$NodeCopyWithImpl<$Res, $Val extends Node>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      relationships: freezed == relationships
+          ? _value.relationships
+          : relationships // ignore: cast_nullable_to_non_nullable
+              as NodeRelationships?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $NodeRelationshipsCopyWith<$Res>? get relationships {
+    if (_value.relationships == null) {
+      return null;
+    }
+
+    return $NodeRelationshipsCopyWith<$Res>(_value.relationships!, (value) {
+      return _then(_value.copyWith(relationships: value) as $Val);
+    });
   }
 }
 
@@ -219,7 +240,11 @@ abstract class _$$_NodeCopyWith<$Res> implements $NodeCopyWith<$Res> {
       int daemonSftp,
       String daemonBase,
       DateTime createdAt,
-      DateTime updatedAt});
+      DateTime updatedAt,
+      NodeRelationships? relationships});
+
+  @override
+  $NodeRelationshipsCopyWith<$Res>? get relationships;
 }
 
 /// @nodoc
@@ -251,6 +276,7 @@ class __$$_NodeCopyWithImpl<$Res> extends _$NodeCopyWithImpl<$Res, _$_Node>
     Object? daemonBase = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? relationships = freezed,
   }) {
     return _then(_$_Node(
       id: null == id
@@ -333,6 +359,10 @@ class __$$_NodeCopyWithImpl<$Res> extends _$NodeCopyWithImpl<$Res, _$_Node>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      relationships: freezed == relationships
+          ? _value.relationships
+          : relationships // ignore: cast_nullable_to_non_nullable
+              as NodeRelationships?,
     ));
   }
 }
@@ -360,7 +390,8 @@ class _$_Node extends _Node {
       required this.daemonSftp,
       required this.daemonBase,
       required this.createdAt,
-      required this.updatedAt})
+      required this.updatedAt,
+      this.relationships})
       : super._();
 
   factory _$_Node.fromJson(Map<String, dynamic> json) => _$$_NodeFromJson(json);
@@ -405,10 +436,12 @@ class _$_Node extends _Node {
   final DateTime createdAt;
   @override
   final DateTime updatedAt;
+  @override
+  final NodeRelationships? relationships;
 
   @override
   String toString() {
-    return 'Node(id: $id, uuid: $uuid, public: $public, name: $name, description: $description, locationId: $locationId, fqdn: $fqdn, scheme: $scheme, behindProxy: $behindProxy, maintenanceMode: $maintenanceMode, memory: $memory, memoryOverallocate: $memoryOverallocate, disk: $disk, diskOverallocate: $diskOverallocate, uploadSize: $uploadSize, daemonListen: $daemonListen, daemonSftp: $daemonSftp, daemonBase: $daemonBase, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Node(id: $id, uuid: $uuid, public: $public, name: $name, description: $description, locationId: $locationId, fqdn: $fqdn, scheme: $scheme, behindProxy: $behindProxy, maintenanceMode: $maintenanceMode, memory: $memory, memoryOverallocate: $memoryOverallocate, disk: $disk, diskOverallocate: $diskOverallocate, uploadSize: $uploadSize, daemonListen: $daemonListen, daemonSftp: $daemonSftp, daemonBase: $daemonBase, createdAt: $createdAt, updatedAt: $updatedAt, relationships: $relationships)';
   }
 
   @override
@@ -447,7 +480,9 @@ class _$_Node extends _Node {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.relationships, relationships) ||
+                other.relationships == relationships));
   }
 
   @JsonKey(ignore: true)
@@ -473,7 +508,8 @@ class _$_Node extends _Node {
         daemonSftp,
         daemonBase,
         createdAt,
-        updatedAt
+        updatedAt,
+        relationships
       ]);
 
   @JsonKey(ignore: true)
@@ -511,7 +547,8 @@ abstract class _Node extends Node {
       required final int daemonSftp,
       required final String daemonBase,
       required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$_Node;
+      required final DateTime updatedAt,
+      final NodeRelationships? relationships}) = _$_Node;
   const _Node._() : super._();
 
   factory _Node.fromJson(Map<String, dynamic> json) = _$_Node.fromJson;
@@ -557,6 +594,194 @@ abstract class _Node extends Node {
   @override
   DateTime get updatedAt;
   @override
+  NodeRelationships? get relationships;
+  @override
   @JsonKey(ignore: true)
   _$$_NodeCopyWith<_$_Node> get copyWith => throw _privateConstructorUsedError;
+}
+
+NodeRelationships _$NodeRelationshipsFromJson(Map<String, dynamic> json) {
+  return _NodeRelationships.fromJson(json);
+}
+
+/// @nodoc
+mixin _$NodeRelationships {
+  FractalResponseData<ApplicationAllocation>? get allocation =>
+      throw _privateConstructorUsedError;
+  FractalResponseData<Location>? get location =>
+      throw _privateConstructorUsedError;
+  FractalResponseList<ApplicationServer>? get servers =>
+      throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $NodeRelationshipsCopyWith<NodeRelationships> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $NodeRelationshipsCopyWith<$Res> {
+  factory $NodeRelationshipsCopyWith(
+          NodeRelationships value, $Res Function(NodeRelationships) then) =
+      _$NodeRelationshipsCopyWithImpl<$Res, NodeRelationships>;
+  @useResult
+  $Res call(
+      {FractalResponseData<ApplicationAllocation>? allocation,
+      FractalResponseData<Location>? location,
+      FractalResponseList<ApplicationServer>? servers});
+}
+
+/// @nodoc
+class _$NodeRelationshipsCopyWithImpl<$Res, $Val extends NodeRelationships>
+    implements $NodeRelationshipsCopyWith<$Res> {
+  _$NodeRelationshipsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? allocation = freezed,
+    Object? location = freezed,
+    Object? servers = freezed,
+  }) {
+    return _then(_value.copyWith(
+      allocation: freezed == allocation
+          ? _value.allocation
+          : allocation // ignore: cast_nullable_to_non_nullable
+              as FractalResponseData<ApplicationAllocation>?,
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as FractalResponseData<Location>?,
+      servers: freezed == servers
+          ? _value.servers
+          : servers // ignore: cast_nullable_to_non_nullable
+              as FractalResponseList<ApplicationServer>?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_NodeRelationshipsCopyWith<$Res>
+    implements $NodeRelationshipsCopyWith<$Res> {
+  factory _$$_NodeRelationshipsCopyWith(_$_NodeRelationships value,
+          $Res Function(_$_NodeRelationships) then) =
+      __$$_NodeRelationshipsCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {FractalResponseData<ApplicationAllocation>? allocation,
+      FractalResponseData<Location>? location,
+      FractalResponseList<ApplicationServer>? servers});
+}
+
+/// @nodoc
+class __$$_NodeRelationshipsCopyWithImpl<$Res>
+    extends _$NodeRelationshipsCopyWithImpl<$Res, _$_NodeRelationships>
+    implements _$$_NodeRelationshipsCopyWith<$Res> {
+  __$$_NodeRelationshipsCopyWithImpl(
+      _$_NodeRelationships _value, $Res Function(_$_NodeRelationships) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? allocation = freezed,
+    Object? location = freezed,
+    Object? servers = freezed,
+  }) {
+    return _then(_$_NodeRelationships(
+      allocation: freezed == allocation
+          ? _value.allocation
+          : allocation // ignore: cast_nullable_to_non_nullable
+              as FractalResponseData<ApplicationAllocation>?,
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as FractalResponseData<Location>?,
+      servers: freezed == servers
+          ? _value.servers
+          : servers // ignore: cast_nullable_to_non_nullable
+              as FractalResponseList<ApplicationServer>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_NodeRelationships extends _NodeRelationships {
+  const _$_NodeRelationships({this.allocation, this.location, this.servers})
+      : super._();
+
+  factory _$_NodeRelationships.fromJson(Map<String, dynamic> json) =>
+      _$$_NodeRelationshipsFromJson(json);
+
+  @override
+  final FractalResponseData<ApplicationAllocation>? allocation;
+  @override
+  final FractalResponseData<Location>? location;
+  @override
+  final FractalResponseList<ApplicationServer>? servers;
+
+  @override
+  String toString() {
+    return 'NodeRelationships(allocation: $allocation, location: $location, servers: $servers)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_NodeRelationships &&
+            (identical(other.allocation, allocation) ||
+                other.allocation == allocation) &&
+            (identical(other.location, location) ||
+                other.location == location) &&
+            (identical(other.servers, servers) || other.servers == servers));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, allocation, location, servers);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_NodeRelationshipsCopyWith<_$_NodeRelationships> get copyWith =>
+      __$$_NodeRelationshipsCopyWithImpl<_$_NodeRelationships>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_NodeRelationshipsToJson(
+      this,
+    );
+  }
+}
+
+abstract class _NodeRelationships extends NodeRelationships {
+  const factory _NodeRelationships(
+          {final FractalResponseData<ApplicationAllocation>? allocation,
+          final FractalResponseData<Location>? location,
+          final FractalResponseList<ApplicationServer>? servers}) =
+      _$_NodeRelationships;
+  const _NodeRelationships._() : super._();
+
+  factory _NodeRelationships.fromJson(Map<String, dynamic> json) =
+      _$_NodeRelationships.fromJson;
+
+  @override
+  FractalResponseData<ApplicationAllocation>? get allocation;
+  @override
+  FractalResponseData<Location>? get location;
+  @override
+  FractalResponseList<ApplicationServer>? get servers;
+  @override
+  @JsonKey(ignore: true)
+  _$$_NodeRelationshipsCopyWith<_$_NodeRelationships> get copyWith =>
+      throw _privateConstructorUsedError;
 }

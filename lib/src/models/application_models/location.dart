@@ -1,11 +1,11 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../generated/models/main_models/location.freezed.dart';
-part '../../generated/models/main_models/location.g.dart';
+part '../../generated/models/application_models/location.freezed.dart';
+part '../../generated/models/application_models/location.g.dart';
 
 @freezed
-class Location with _$Location {
+class Location with _$Location, SerializableMixin {
   const factory Location({
     required int id,
     required String short,

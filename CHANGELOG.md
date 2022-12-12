@@ -1,7 +1,10 @@
 # CHANGELOG
 
-## 1.4.13
+## 1.5.0
 - const all the things, where possible.
+- Get work done for Application Client. some of it might even work
+- Renamed User to Account
+- Renamed Actor to User. Yes this will get confusing. Yes this is breaking.
 
 ## 1.4.12
 

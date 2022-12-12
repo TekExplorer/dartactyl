@@ -28,7 +28,7 @@ class PullFileBody with _$PullFileBody {
     required bool foreground,
   }) = _PullFileBody;
 
-  PullFileBody._();
+  const PullFileBody._();
 
   factory PullFileBody.fromJson(JsonMap json) => _$PullFileBodyFromJson(json);
 }

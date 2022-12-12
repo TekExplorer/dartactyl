@@ -5,19 +5,19 @@ import '../../../dartactyl.dart';
 part '../../generated/models/fractal/meta.freezed.dart';
 part '../../generated/models/fractal/meta.g.dart';
 
-abstract class Meta<T extends Meta<T>> with SerializableMixin {
+abstract class Meta<M> with SerializableMixin {
   factory Meta.fromJson(JsonMap json) {
-    switch (T) {
+    switch (M) {
       case PaginatedMeta:
-        return PaginatedMeta.fromJson(json) as T;
+        return PaginatedMeta.fromJson(json) as Meta<M>;
       case PaginatedBackupsMeta:
-        return PaginatedBackupsMeta.fromJson(json) as T;
+        return PaginatedBackupsMeta.fromJson(json) as Meta<M>;
       case ServerMeta:
-        return ServerMeta.fromJson(json) as T;
+        return ServerMeta.fromJson(json) as Meta<M>;
       case ApiKeyMeta:
-        return ApiKeyMeta.fromJson(json) as T;
+        return ApiKeyMeta.fromJson(json) as Meta<M>;
       case StartupMeta:
-        return StartupMeta.fromJson(json) as T;
+        return StartupMeta.fromJson(json) as Meta<M>;
       // case Meta:
       //   return Meta<T>.fromJson(json) as T;
       default:
@@ -30,7 +30,7 @@ abstract class Meta<T extends Meta<T>> with SerializableMixin {
         // } else if (json.containsKey('startup_command')) {
         //   return StartupMeta.fromJson(json) as Meta<T>;
         // } else {
-        throw UnsupportedError('Meta type $T not supported');
+        throw UnsupportedError('Meta type $M not supported');
       // }
     }
   }
@@ -88,4 +88,12 @@ class ApiKeyMeta with _$ApiKeyMeta implements Meta<ApiKeyMeta> {
   const factory ApiKeyMeta({required String secretToken}) = _ApiKeyMeta;
   factory ApiKeyMeta.fromJson(Map<String, dynamic> json) =>
       _$ApiKeyMetaFromJson(json);
+}
+
+/// Shows on `application.createNode`
+@freezed
+class ResourceMeta with _$ResourceMeta implements Meta<ResourceMeta> {
+  const factory ResourceMeta({required Uri resource}) = _ResourceMeta;
+  factory ResourceMeta.fromJson(Map<String, dynamic> json) =>
+      _$ResourceMetaFromJson(json);
 }

@@ -11,7 +11,7 @@ void main(List<String> args) async {
   print('Getting Data!');
 
   await client.translations.getActivityTranslations().then((response) {
-    print(response);
+    print(response.en);
   });
 
   print('Done!');

@@ -69,3 +69,13 @@ Map<String, dynamic> _$$_ApiKeyMetaToJson(_$_ApiKeyMeta instance) =>
     <String, dynamic>{
       'secret_token': instance.secretToken,
     };
+
+_$_ResourceMeta _$$_ResourceMetaFromJson(Map<String, dynamic> json) =>
+    _$_ResourceMeta(
+      resource: Uri.parse(json['resource'] as String),
+    );
+
+Map<String, dynamic> _$$_ResourceMetaToJson(_$_ResourceMeta instance) =>
+    <String, dynamic>{
+      'resource': instance.resource.toString(),
+    };

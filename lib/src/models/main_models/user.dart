@@ -5,20 +5,17 @@ part '../../generated/models/main_models/user.freezed.dart';
 part '../../generated/models/main_models/user.g.dart';
 
 @freezed
-class User with SerializableMixin, _$User {
-  const User._();
+class User with _$User, SerializableMixin {
   const factory User({
-    required int id,
-    required bool admin,
+    required String uuid,
     required String username,
     required String email,
-    required String firstName,
-    required String lastName,
-    required String language,
+    @experimental Uri? image,
+    @JsonKey(name: '2fa_enabled') required bool twoFaEnabled,
+    required DateTime createdAt,
   }) = _User;
 
   factory User.fromJson(JsonMap json) => _$UserFromJson(json);
 
-  @override
-  JsonMap toJson();
+  const User._();
 }

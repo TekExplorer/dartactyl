@@ -1,8 +1,6 @@
 import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'meta_converter.dart';
-
 part '../../generated/models/fractal/fractal_response_list.g.dart';
 
 @JsonSerializable()
@@ -25,7 +23,7 @@ class FractalResponseList<T extends SerializableMixin> {
 @JsonSerializable()
 class FractalResponseListMeta<T extends SerializableMixin, M extends Meta<M>>
     extends FractalResponseList<T> {
-  @MetaConverter<M>()
+  @MetaConverter()
   final M meta;
   const FractalResponseListMeta({
     required super.object,
@@ -38,4 +36,7 @@ class FractalResponseListMeta<T extends SerializableMixin, M extends Meta<M>>
 
   @override
   JsonMap toJson() => _$FractalResponseListMetaToJson(this);
+
+  static JsonMap metaToJson<M extends Meta<M>>(M meta) =>
+      MetaConverter<M>().toJson(meta);
 }

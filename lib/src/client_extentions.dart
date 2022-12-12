@@ -1,23 +1,5 @@
 part of 'client.dart';
 
-extension GetDio on PteroClient {
-  Dio get dio => _dio;
-  String get url => baseUrl ?? dio.options.baseUrl;
-  DepricatedPteroClient get old => DepricatedPteroClient(dio, baseUrl: baseUrl);
-  @experimental
-  PteroTranslationsClient get translations =>
-      PteroTranslationsClient(dio, baseUrl: baseUrl);
-
-  /// Alias of listVariables
-  Future<FractalListMeta<EggVariable, StartupMeta>> getStartup(
-          {required String serverId}) =>
-      listVariables(serverId: serverId);
-
-  Future<Map<String, String>> listDockerImages(
-          {required String serverId}) async =>
-      (await getStartup(serverId: serverId)).dockerImages;
-}
-
 // I want to turn this into an interceptor, but i dont see how.
 extension Login on PteroClient {
   /// Login to Pterodactyl using username and password.

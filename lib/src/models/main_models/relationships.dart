@@ -46,7 +46,7 @@ class ServerScheduleRelationships with _$ServerScheduleRelationships {
 @freezed
 class ActivityLogRelationships with _$ActivityLogRelationships {
   const factory ActivityLogRelationships({
-    Fractal<Actor>? actor,
+    Fractal<User>? actor,
   }) = _ActivityLogRelationships;
 
   factory ActivityLogRelationships.fromJson(JsonMap json) =>

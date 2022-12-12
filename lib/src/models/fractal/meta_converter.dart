@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 import '../../../models.dart';
 
 @protected
-class MetaConverter<M extends Meta<M>> implements JsonConverter<M, JsonMap> {
+class MetaConverter<M extends Meta> implements JsonConverter<M, JsonMap> {
   const MetaConverter();
 
   @override

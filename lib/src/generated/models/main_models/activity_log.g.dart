@@ -34,19 +34,3 @@ Map<String, dynamic> _$$_ActivityLogToJson(_$_ActivityLog instance) =>
       'timestamp': instance.timestamp.toIso8601String(),
       'relationships': instance.relationships?.toJson(),
     };
-
-_$_Actor _$$_ActorFromJson(Map<String, dynamic> json) => _$_Actor(
-      uuid: json['uuid'] as String,
-      username: json['username'] as String,
-      email: json['email'] as String,
-      twoFaEnabled: json['2fa_enabled'] as bool,
-      createdAt: DateTime.parse(json['created_at'] as String),
-    );
-
-Map<String, dynamic> _$$_ActorToJson(_$_Actor instance) => <String, dynamic>{
-      'uuid': instance.uuid,
-      'username': instance.username,
-      'email': instance.email,
-      '2fa_enabled': instance.twoFaEnabled,
-      'created_at': instance.createdAt.toIso8601String(),
-    };

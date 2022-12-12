@@ -16,7 +16,7 @@ void main(List<String> args) async {
   });
 
   await client.getAccountInfo().then((response) {
-    User accountInfo = response.attributes;
+    Account accountInfo = response.attributes;
     print('${accountInfo.username} : ${accountInfo.email}');
   });
 

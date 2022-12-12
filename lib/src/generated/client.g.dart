@@ -22,8 +22,8 @@ Map<String, dynamic> _$$_TranslationDataToJson(_$_TranslationData instance) =>
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _DepricatedPteroClient extends DepricatedPteroClient {
-  _DepricatedPteroClient._(
+class _DeprecatedPteroClient extends DeprecatedPteroClient {
+  _DeprecatedPteroClient._(
     this._dio, {
     this.baseUrl,
   }) : super._();
@@ -196,13 +196,13 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseData<User>> getAccountInfo() async {
+  Future<FractalResponseData<Account>> getAccountInfo() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<User>>(Options(
+        _setStreamType<FractalResponseData<Account>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -214,7 +214,7 @@ class _PteroClient extends PteroClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<User>.fromJson(_result.data!);
+    final value = FractalResponseData<Account>.fromJson(_result.data!);
     return value;
   }
 

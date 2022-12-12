@@ -20,13 +20,14 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
-  int get id => throw _privateConstructorUsedError;
-  bool get admin => throw _privateConstructorUsedError;
+  String get uuid => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
-  String get firstName => throw _privateConstructorUsedError;
-  String get lastName => throw _privateConstructorUsedError;
-  String get language => throw _privateConstructorUsedError;
+  @experimental
+  Uri? get image => throw _privateConstructorUsedError;
+  @JsonKey(name: '2fa_enabled')
+  bool get twoFaEnabled => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,13 +40,12 @@ abstract class $UserCopyWith<$Res> {
       _$UserCopyWithImpl<$Res, User>;
   @useResult
   $Res call(
-      {int id,
-      bool admin,
+      {String uuid,
       String username,
       String email,
-      String firstName,
-      String lastName,
-      String language});
+      @experimental Uri? image,
+      @JsonKey(name: '2fa_enabled') bool twoFaEnabled,
+      DateTime createdAt});
 }
 
 /// @nodoc
@@ -61,23 +61,18 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? admin = null,
+    Object? uuid = null,
     Object? username = null,
     Object? email = null,
-    Object? firstName = null,
-    Object? lastName = null,
-    Object? language = null,
+    Object? image = freezed,
+    Object? twoFaEnabled = null,
+    Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      admin: null == admin
-          ? _value.admin
-          : admin // ignore: cast_nullable_to_non_nullable
-              as bool,
+      uuid: null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -86,18 +81,18 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      firstName: null == firstName
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      lastName: null == lastName
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
-              as String,
-      language: null == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as Uri?,
+      twoFaEnabled: null == twoFaEnabled
+          ? _value.twoFaEnabled
+          : twoFaEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ) as $Val);
   }
 }
@@ -109,13 +104,12 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
-      bool admin,
+      {String uuid,
       String username,
       String email,
-      String firstName,
-      String lastName,
-      String language});
+      @experimental Uri? image,
+      @JsonKey(name: '2fa_enabled') bool twoFaEnabled,
+      DateTime createdAt});
 }
 
 /// @nodoc
@@ -127,23 +121,18 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? admin = null,
+    Object? uuid = null,
     Object? username = null,
     Object? email = null,
-    Object? firstName = null,
-    Object? lastName = null,
-    Object? language = null,
+    Object? image = freezed,
+    Object? twoFaEnabled = null,
+    Object? createdAt = null,
   }) {
     return _then(_$_User(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      admin: null == admin
-          ? _value.admin
-          : admin // ignore: cast_nullable_to_non_nullable
-              as bool,
+      uuid: null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -152,18 +141,18 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      firstName: null == firstName
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      lastName: null == lastName
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
-              as String,
-      language: null == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as Uri?,
+      twoFaEnabled: null == twoFaEnabled
+          ? _value.twoFaEnabled
+          : twoFaEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -172,35 +161,34 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 @JsonSerializable()
 class _$_User extends _User {
   const _$_User(
-      {required this.id,
-      required this.admin,
+      {required this.uuid,
       required this.username,
       required this.email,
-      required this.firstName,
-      required this.lastName,
-      required this.language})
+      @experimental this.image,
+      @JsonKey(name: '2fa_enabled') required this.twoFaEnabled,
+      required this.createdAt})
       : super._();
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
-  final int id;
-  @override
-  final bool admin;
+  final String uuid;
   @override
   final String username;
   @override
   final String email;
   @override
-  final String firstName;
+  @experimental
+  final Uri? image;
   @override
-  final String lastName;
+  @JsonKey(name: '2fa_enabled')
+  final bool twoFaEnabled;
   @override
-  final String language;
+  final DateTime createdAt;
 
   @override
   String toString() {
-    return 'User(id: $id, admin: $admin, username: $username, email: $email, firstName: $firstName, lastName: $lastName, language: $language)';
+    return 'User(uuid: $uuid, username: $username, email: $email, image: $image, twoFaEnabled: $twoFaEnabled, createdAt: $createdAt)';
   }
 
   @override
@@ -208,23 +196,21 @@ class _$_User extends _User {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_User &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.admin, admin) || other.admin == admin) &&
+            (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.firstName, firstName) ||
-                other.firstName == firstName) &&
-            (identical(other.lastName, lastName) ||
-                other.lastName == lastName) &&
-            (identical(other.language, language) ||
-                other.language == language));
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.twoFaEnabled, twoFaEnabled) ||
+                other.twoFaEnabled == twoFaEnabled) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, admin, username, email, firstName, lastName, language);
+      runtimeType, uuid, username, email, image, twoFaEnabled, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -242,31 +228,30 @@ class _$_User extends _User {
 
 abstract class _User extends User {
   const factory _User(
-      {required final int id,
-      required final bool admin,
+      {required final String uuid,
       required final String username,
       required final String email,
-      required final String firstName,
-      required final String lastName,
-      required final String language}) = _$_User;
+      @experimental final Uri? image,
+      @JsonKey(name: '2fa_enabled') required final bool twoFaEnabled,
+      required final DateTime createdAt}) = _$_User;
   const _User._() : super._();
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
-  int get id;
-  @override
-  bool get admin;
+  String get uuid;
   @override
   String get username;
   @override
   String get email;
   @override
-  String get firstName;
+  @experimental
+  Uri? get image;
   @override
-  String get lastName;
+  @JsonKey(name: '2fa_enabled')
+  bool get twoFaEnabled;
   @override
-  String get language;
+  DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;

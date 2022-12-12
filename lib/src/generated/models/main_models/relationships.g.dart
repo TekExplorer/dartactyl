@@ -65,7 +65,7 @@ _$_ActivityLogRelationships _$$_ActivityLogRelationshipsFromJson(
     _$_ActivityLogRelationships(
       actor: json['actor'] == null
           ? null
-          : FractalResponseData<Actor>.fromJson(
+          : FractalResponseData<User>.fromJson(
               json['actor'] as Map<String, dynamic>),
     );
 

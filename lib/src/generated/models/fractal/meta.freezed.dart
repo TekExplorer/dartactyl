@@ -827,3 +827,140 @@ abstract class _ApiKeyMeta implements ApiKeyMeta {
   _$$_ApiKeyMetaCopyWith<_$_ApiKeyMeta> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+ResourceMeta _$ResourceMetaFromJson(Map<String, dynamic> json) {
+  return _ResourceMeta.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ResourceMeta {
+  Uri get resource => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ResourceMetaCopyWith<ResourceMeta> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ResourceMetaCopyWith<$Res> {
+  factory $ResourceMetaCopyWith(
+          ResourceMeta value, $Res Function(ResourceMeta) then) =
+      _$ResourceMetaCopyWithImpl<$Res, ResourceMeta>;
+  @useResult
+  $Res call({Uri resource});
+}
+
+/// @nodoc
+class _$ResourceMetaCopyWithImpl<$Res, $Val extends ResourceMeta>
+    implements $ResourceMetaCopyWith<$Res> {
+  _$ResourceMetaCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? resource = null,
+  }) {
+    return _then(_value.copyWith(
+      resource: null == resource
+          ? _value.resource
+          : resource // ignore: cast_nullable_to_non_nullable
+              as Uri,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_ResourceMetaCopyWith<$Res>
+    implements $ResourceMetaCopyWith<$Res> {
+  factory _$$_ResourceMetaCopyWith(
+          _$_ResourceMeta value, $Res Function(_$_ResourceMeta) then) =
+      __$$_ResourceMetaCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Uri resource});
+}
+
+/// @nodoc
+class __$$_ResourceMetaCopyWithImpl<$Res>
+    extends _$ResourceMetaCopyWithImpl<$Res, _$_ResourceMeta>
+    implements _$$_ResourceMetaCopyWith<$Res> {
+  __$$_ResourceMetaCopyWithImpl(
+      _$_ResourceMeta _value, $Res Function(_$_ResourceMeta) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? resource = null,
+  }) {
+    return _then(_$_ResourceMeta(
+      resource: null == resource
+          ? _value.resource
+          : resource // ignore: cast_nullable_to_non_nullable
+              as Uri,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ResourceMeta implements _ResourceMeta {
+  const _$_ResourceMeta({required this.resource});
+
+  factory _$_ResourceMeta.fromJson(Map<String, dynamic> json) =>
+      _$$_ResourceMetaFromJson(json);
+
+  @override
+  final Uri resource;
+
+  @override
+  String toString() {
+    return 'ResourceMeta(resource: $resource)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ResourceMeta &&
+            (identical(other.resource, resource) ||
+                other.resource == resource));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, resource);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ResourceMetaCopyWith<_$_ResourceMeta> get copyWith =>
+      __$$_ResourceMetaCopyWithImpl<_$_ResourceMeta>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ResourceMetaToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ResourceMeta implements ResourceMeta {
+  const factory _ResourceMeta({required final Uri resource}) = _$_ResourceMeta;
+
+  factory _ResourceMeta.fromJson(Map<String, dynamic> json) =
+      _$_ResourceMeta.fromJson;
+
+  @override
+  Uri get resource;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ResourceMetaCopyWith<_$_ResourceMeta> get copyWith =>
+      throw _privateConstructorUsedError;
+}

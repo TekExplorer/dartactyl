@@ -23,8 +23,8 @@ extension FractalGetSystemPermissions on Fractal<SystemPermissions> {
 }
 
 // FractalUser
-extension FractalGetUser on Fractal<User> {
-  User get user => attributes;
+extension FractalGetUser on Fractal<Account> {
+  Account get user => attributes;
 }
 
 // FractalTwoFactorImage

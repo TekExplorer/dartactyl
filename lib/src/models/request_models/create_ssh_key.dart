@@ -12,7 +12,7 @@ class CreateSshKey with _$CreateSshKey {
     required String publicKey,
   }) = _CreateSshKey;
 
-  CreateSshKey._();
+  const CreateSshKey._();
 
   factory CreateSshKey.fromJson(JsonMap json) => _$CreateSshKeyFromJson(json);
 }
