@@ -20,7 +20,7 @@ abstract class DeprecatedPteroClient {
   Future<void> deleteSshKey1_8({
     @Path() required String fingerprint,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 }
 
@@ -99,23 +99,23 @@ abstract class PteroClient {
   Future<FractalListMeta<EggVariable, StartupMeta>> getStartup({
     required String serverId,
     CancelToken? cancelToken,
-    ProgressCallback? onProgress,
+    @experimental ProgressCallback? onSendProgress,
   }) =>
       listVariables(
         serverId: serverId,
         cancelToken: cancelToken,
-        onProgress: onProgress,
+        onSendProgress: onSendProgress,
       );
 
   Future<Map<String, String>> listDockerImages({
     required String serverId,
     CancelToken? cancelToken,
-    ProgressCallback? onProgress,
+    @experimental ProgressCallback? onSendProgress,
   }) async =>
       (await getStartup(
         serverId: serverId,
         cancelToken: cancelToken,
-        onProgress: onProgress,
+        onSendProgress: onSendProgress,
       ))
           .dockerImages;
 
@@ -182,14 +182,14 @@ abstract class PteroClient {
     // What servers to return by access type
     @Query('type') GetServersQueryType? type = GetServersQueryType.member,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Get system permissions
   @GET('/api/client/permissions')
   Future<Fractal<SystemPermissions>> getSystemPermissions({
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /*       Account       */
@@ -198,14 +198,14 @@ abstract class PteroClient {
   @GET('/api/client/account')
   Future<Fractal<Account>> getAccountInfo({
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Get two factor authentication image.
   @GET('/api/client/account/two-factor')
   Future<Fractal<TwoFactorImage>> getTwoFactor({
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Enable two factor authentication.
@@ -213,7 +213,7 @@ abstract class PteroClient {
   Future<Fractal<RecoveryTokens>> enableTwoFactor(
     @Body() TwoFactorCode code, {
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Disable two factor authentication.
@@ -221,7 +221,7 @@ abstract class PteroClient {
   Future<void> disableTwoFactor(
     @Body() DisableTwoFactor data, {
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Update your [Account] account email address.
@@ -229,7 +229,7 @@ abstract class PteroClient {
   Future<void> updateEmail(
     @Body() UpdateEmail data, {
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Update your [Account] account password.
@@ -237,7 +237,7 @@ abstract class PteroClient {
   Future<void> updatePassword(
     @Body() UpdatePassword data, {
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   @GET('/api/client/account/activity')
@@ -253,7 +253,7 @@ abstract class PteroClient {
     // Sort
     @Query('sort') ActivityLogSort? sort,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Get all current [ApiKey]s on your account.
@@ -261,7 +261,7 @@ abstract class PteroClient {
   @GET('/api/client/account/api-keys')
   Future<FractalList<ApiKey>> listApiKeys({
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Create a new [ApiKey] on your account.
@@ -270,7 +270,7 @@ abstract class PteroClient {
   Future<FractalMeta<ApiKey, ApiKeyMeta>> createApiKey(
     @Body() CreateApiKey data, {
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Delete an [ApiKey] on your account.
@@ -278,14 +278,14 @@ abstract class PteroClient {
   Future<void> deleteApiKey({
     @Path() required String apiKeyId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// List all [SshKey]s on your account.
   @GET('/api/client/account/ssh-keys')
   Future<FractalList<SshKey>> listSshKeys({
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Create a new [SshKey] on your account.
@@ -293,7 +293,7 @@ abstract class PteroClient {
   Future<Fractal<SshKey>> createSshKey(
     @Body() CreateSshKey data, {
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Delete an [SshKey] on your account. (1.9+)
@@ -301,7 +301,7 @@ abstract class PteroClient {
   Future<void> deleteSshKey(
     @Body() DeleteSSHKey body, {
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   // '/api/client/servers/{server}'
@@ -314,7 +314,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Query('include') ServerIncludes? include,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Get the [Server]'s [WebsocketDetails].
@@ -322,7 +322,7 @@ abstract class PteroClient {
   Future<PteroData<WebsocketDetails>> getServerWebsocket({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Get the [Server]'s current [Stats].
@@ -330,7 +330,7 @@ abstract class PteroClient {
   Future<Fractal<Stats>> getServerResources({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   @GET('/api/client/servers/{serverId}/activity')
@@ -347,7 +347,7 @@ abstract class PteroClient {
     // Sort
     @Query('sort') ActivityLogSort? sort,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Send a command to the [Server].
@@ -356,7 +356,7 @@ abstract class PteroClient {
     @Body() SendServerCommand data, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// send a Power [Signal] to the [Server].
@@ -365,7 +365,7 @@ abstract class PteroClient {
     @Body() Signal signal, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   // Databases
@@ -384,7 +384,7 @@ abstract class PteroClient {
     // filters
     // ??
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Create a new database on the server
@@ -393,7 +393,7 @@ abstract class PteroClient {
     @Body() CreateServerDatabase data, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Delete a [ServerDatabase]
@@ -402,7 +402,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Path() required String databaseId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// TODO: on [rotateDatabasePassword]
@@ -411,7 +411,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Path() required String databaseId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   // Files
@@ -424,7 +424,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Query('directory', encoded: true) required String directory,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Get a [file]'s contents from the [Server]
@@ -435,7 +435,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Query('file', encoded: true) required String file,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Download a [file] from the [Server]
@@ -446,7 +446,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Query('file', encoded: true) required String file,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Rename a file on the [Server]
@@ -455,7 +455,7 @@ abstract class PteroClient {
     @Body() FileBodyListFromTo rename, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Make a copy of a file on the [Server]
@@ -464,7 +464,7 @@ abstract class PteroClient {
     @Body() MakeFileCopy data, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Write a [file] to the [Server]
@@ -479,7 +479,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Query('file', encoded: true) required String file,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Compress a file into an archive (eg. zip) on the [Server]
@@ -488,7 +488,7 @@ abstract class PteroClient {
     @Body() FileBodyListString data, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Decompress an archive (eg. zip) on the [Server]
@@ -497,7 +497,7 @@ abstract class PteroClient {
     @Body() FileBody data, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Delete one or more files on the [Server]
@@ -506,7 +506,7 @@ abstract class PteroClient {
     @Body() FileBodyListString data, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Creates the specified folder in the specified directory
@@ -515,7 +515,7 @@ abstract class PteroClient {
     @Body() FolderBody data, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Changes the permissions of a file or folder on the [Server]
@@ -524,7 +524,7 @@ abstract class PteroClient {
     @Body() ChmodFileBody data, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Download a file from a remote url to the [Server] directly
@@ -533,7 +533,7 @@ abstract class PteroClient {
     @Body() PullFileBody data, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Returns a [SignedUrl] used to upload files to the [Server] using POST
@@ -541,7 +541,7 @@ abstract class PteroClient {
   Future<Fractal<SignedUrl>> getFileUploadUrl({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   // Schedules
@@ -550,7 +550,7 @@ abstract class PteroClient {
   Future<FractalList<ServerSchedule>> listSchedules({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Create a [ServerSchedule] on the [Server]
@@ -559,7 +559,7 @@ abstract class PteroClient {
     @Body() RequestSchedule scheduleData, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Get a [ServerSchedule]'s details from the [Server]
@@ -568,7 +568,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Path() required int scheduleId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Update a [ServerSchedule] on the [Server]
@@ -578,7 +578,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Path() required int scheduleId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Delete a [ServerSchedule] from the [Server]
@@ -587,7 +587,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Path() required int scheduleId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Create a scheduled [Task] on a [ServerSchedule]
@@ -597,7 +597,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Path() required int scheduleId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Update a scheduled [Task] on a [ServerSchedule]
@@ -608,7 +608,7 @@ abstract class PteroClient {
     @Path() required int scheduleId,
     @Path() required int taskId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Delete a scheduled [Task] on a [ServerSchedule]
@@ -619,7 +619,7 @@ abstract class PteroClient {
     @Path() required int scheduleId,
     @Path() required int taskId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   // Network
@@ -628,7 +628,7 @@ abstract class PteroClient {
   Future<FractalList<Allocation>> listAllocations({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Automatically assign an allocation on the [Server]
@@ -636,7 +636,7 @@ abstract class PteroClient {
   Future<Fractal<Allocation>> autoAssignAllocation({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Set the allocation note for an [Allocation] on the [Server]
@@ -646,7 +646,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Path() required int allocationId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Set an [Allocation] as the primary allocation on [Server]
@@ -655,7 +655,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Path() required int allocationId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Unassign an [Allocation] from [Server]
@@ -664,7 +664,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Path() required int allocationId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /*                                  Users                                  */
@@ -674,7 +674,7 @@ abstract class PteroClient {
   Future<FractalList<ServerSubuser>> listSubusers({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Create [ServerSubuser] on the [Server]
@@ -683,7 +683,7 @@ abstract class PteroClient {
     @Body() Subuser subuserData, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Get a [ServerSubuser]'s details on the [Server]
@@ -692,7 +692,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Path() required String subuserId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Update a [ServerSubuser] on the [Server]
@@ -702,7 +702,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Path() required String subuserId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Delete a [ServerSubuser] from the [Server]
@@ -711,7 +711,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Path() required String subuserId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   // Backups
@@ -724,7 +724,7 @@ abstract class PteroClient {
     @Query('page') int? page,
     @Query('per_page') int? perPage,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Create a backup on the [Server]
@@ -733,7 +733,7 @@ abstract class PteroClient {
     @Body() CreateBackup backupData, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Get information about a [Backup] from the [Server]
@@ -742,7 +742,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Path() required String backupId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Lock a [Backup] to protect it from automated or accedental deletions
@@ -752,7 +752,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Path() required String backupId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Generate download url for a [Backup] from  the [Server]
@@ -761,7 +761,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Path() required String backupId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Delete a [Backup] from the [Server]
@@ -770,7 +770,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Path() required String backupId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Restore a [Backup] to the [Server]
@@ -780,7 +780,7 @@ abstract class PteroClient {
     @Path() required String serverId,
     @Path() required String backupId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   // Startup
@@ -790,7 +790,7 @@ abstract class PteroClient {
   Future<FractalListMeta<EggVariable, StartupMeta>> listVariables({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Update the [Server] startup variable with the contents of [variable]
@@ -799,7 +799,7 @@ abstract class PteroClient {
     @Body() KeyValue variable, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   // Settings
@@ -809,7 +809,7 @@ abstract class PteroClient {
     @Body() Rename rename, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Reinstall the [Server]
@@ -817,7 +817,7 @@ abstract class PteroClient {
   Future<void> reinstallServer({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 
   /// Update the [Server] docker image to [dockerImage]
@@ -826,6 +826,6 @@ abstract class PteroClient {
     @Body() UpdateImage dockerImage, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() ProgressCallback? onProgress,
+    @SendProgress() @experimental ProgressCallback? onSendProgress,
   });
 }

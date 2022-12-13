@@ -1,5 +1,8 @@
 # CHANGELOG
-
+## 1.6.0
+- Renamed `onProgress` to `onSendProgress` to properly indicate its usage.
+  - Also annotated it with @experimental until its use case is better understood
+  
 ## 1.5.1
 - Add `cancelToken` and `onProgress` to all methods (I can't believe I didn't know this was an option.)
   - This allows you to use a `CancelToken` to cancel api calls, and read the current progress of the call
