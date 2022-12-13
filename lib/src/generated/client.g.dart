@@ -33,9 +33,14 @@ class _DeprecatedPteroClient extends DeprecatedPteroClient {
   String? baseUrl;
 
   @override
-  Future<void> deleteSshKey1_8({required fingerprint}) async {
+  Future<void> deleteSshKey1_8({
+    required fingerprint,
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -48,6 +53,8 @@ class _DeprecatedPteroClient extends DeprecatedPteroClient {
           '/api/client/account/ssh-keys/${fingerprint}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -80,53 +87,6 @@ class _PteroClient extends PteroClient {
   String? baseUrl;
 
   @override
-  Future<void> _login(
-    credentials,
-    xsrfHeader,
-  ) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'X-XSRF-TOKEN': xsrfHeader};
-    _headers.removeWhere((k, v) => v == null);
-    final _data = <String, dynamic>{};
-    _data.addAll(credentials.toJson());
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/auth/login',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
-  }
-
-  @override
-  Future<void> logout() async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/auth/logout',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
-  }
-
-  @override
   Future<FractalResponseListMeta<Server, PaginatedMeta>> listServers({
     page = 1,
     perPage = 50,
@@ -137,6 +97,8 @@ class _PteroClient extends PteroClient {
     filterByExternalId,
     filterByDescription,
     type = GetServersQueryType.member,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -164,6 +126,8 @@ class _PteroClient extends PteroClient {
               '/api/client',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
@@ -172,9 +136,13 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseData<SystemPermissions>> getSystemPermissions() async {
+  Future<FractalResponseData<SystemPermissions>> getSystemPermissions({
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -188,6 +156,8 @@ class _PteroClient extends PteroClient {
               '/api/client/permissions',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
@@ -196,9 +166,13 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseData<Account>> getAccountInfo() async {
+  Future<FractalResponseData<Account>> getAccountInfo({
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -212,6 +186,8 @@ class _PteroClient extends PteroClient {
               '/api/client/account',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Account>.fromJson(_result.data!);
@@ -219,9 +195,13 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseData<TwoFactorImage>> getTwoFactor() async {
+  Future<FractalResponseData<TwoFactorImage>> getTwoFactor({
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -235,6 +215,8 @@ class _PteroClient extends PteroClient {
               '/api/client/account/two-factor',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<TwoFactorImage>.fromJson(_result.data!);
@@ -242,9 +224,14 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseData<RecoveryTokens>> enableTwoFactor(code) async {
+  Future<FractalResponseData<RecoveryTokens>> enableTwoFactor(
+    code, {
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(code.toJson());
@@ -259,6 +246,8 @@ class _PteroClient extends PteroClient {
               '/api/client/account/two-factor',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<RecoveryTokens>.fromJson(_result.data!);
@@ -266,9 +255,14 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<void> disableTwoFactor(data) async {
+  Future<void> disableTwoFactor(
+    data, {
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
@@ -282,15 +276,22 @@ class _PteroClient extends PteroClient {
           '/api/client/account/two-factor',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<void> updateEmail(data) async {
+  Future<void> updateEmail(
+    data, {
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
@@ -304,15 +305,22 @@ class _PteroClient extends PteroClient {
           '/api/client/account/email',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<void> updatePassword(data) async {
+  Future<void> updatePassword(
+    data, {
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
@@ -326,6 +334,8 @@ class _PteroClient extends PteroClient {
           '/api/client/account/password',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -339,6 +349,8 @@ class _PteroClient extends PteroClient {
     perPage,
     filterByEvent,
     sort,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -363,6 +375,8 @@ class _PteroClient extends PteroClient {
                   '/api/client/account/activity',
                   queryParameters: queryParameters,
                   data: _data,
+                  cancelToken: cancelToken,
+                  onSendProgress: onProgress,
                 )
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseListMeta<ActivityLog, PaginatedMeta>.fromJson(
@@ -371,9 +385,13 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseList<ApiKey>> listApiKeys() async {
+  Future<FractalResponseList<ApiKey>> listApiKeys({
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -387,6 +405,8 @@ class _PteroClient extends PteroClient {
               '/api/client/account/api-keys',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseList<ApiKey>.fromJson(_result.data!);
@@ -394,9 +414,14 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseDataMeta<ApiKey, ApiKeyMeta>> createApiKey(data) async {
+  Future<FractalResponseDataMeta<ApiKey, ApiKeyMeta>> createApiKey(
+    data, {
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
@@ -411,6 +436,8 @@ class _PteroClient extends PteroClient {
               '/api/client/account/api-keys',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
@@ -419,9 +446,14 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<void> deleteApiKey({required apiKeyId}) async {
+  Future<void> deleteApiKey({
+    required apiKeyId,
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -434,15 +466,21 @@ class _PteroClient extends PteroClient {
           '/api/client/account/api-keys/${apiKeyId}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<FractalResponseList<SshKey>> listSshKeys() async {
+  Future<FractalResponseList<SshKey>> listSshKeys({
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -456,6 +494,8 @@ class _PteroClient extends PteroClient {
               '/api/client/account/ssh-keys',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseList<SshKey>.fromJson(_result.data!);
@@ -463,9 +503,14 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseData<SshKey>> createSshKey(data) async {
+  Future<FractalResponseData<SshKey>> createSshKey(
+    data, {
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
@@ -480,6 +525,8 @@ class _PteroClient extends PteroClient {
               '/api/client/account/ssh-keys',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<SshKey>.fromJson(_result.data!);
@@ -487,9 +534,14 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<void> deleteSshKey(body) async {
+  Future<void> deleteSshKey(
+    body, {
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -503,6 +555,8 @@ class _PteroClient extends PteroClient {
           '/api/client/account/ssh-keys/remove',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -512,6 +566,8 @@ class _PteroClient extends PteroClient {
   Future<FractalResponseDataMeta<Server, ServerMeta>> getServerDetails({
     required serverId,
     include,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'include': include?.toJson()};
@@ -529,6 +585,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
@@ -537,10 +595,14 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<PteroData<WebsocketDetails>> getServerWebsocket(
-      {required serverId}) async {
+  Future<PteroData<WebsocketDetails>> getServerWebsocket({
+    required serverId,
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -554,6 +616,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/websocket',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = PteroData<WebsocketDetails>.fromJson(_result.data!);
@@ -561,10 +625,14 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseData<Stats>> getServerResources(
-      {required serverId}) async {
+  Future<FractalResponseData<Stats>> getServerResources({
+    required serverId,
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -578,6 +646,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/resources',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Stats>.fromJson(_result.data!);
@@ -594,6 +664,8 @@ class _PteroClient extends PteroClient {
     filterByIp,
     filterByEvent,
     sort,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -619,6 +691,8 @@ class _PteroClient extends PteroClient {
                   '/api/client/servers/${serverId}/activity',
                   queryParameters: queryParameters,
                   data: _data,
+                  cancelToken: cancelToken,
+                  onSendProgress: onProgress,
                 )
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseListMeta<ActivityLog, PaginatedMeta>.fromJson(
@@ -630,9 +704,12 @@ class _PteroClient extends PteroClient {
   Future<void> sendServerCommand(
     data, {
     required serverId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
@@ -646,6 +723,8 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/command',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -655,9 +734,12 @@ class _PteroClient extends PteroClient {
   Future<void> sendServerPowerAction(
     signal, {
     required serverId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(signal.toJson());
@@ -671,6 +753,8 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/power',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -683,6 +767,8 @@ class _PteroClient extends PteroClient {
     include,
     page,
     perPage,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -705,6 +791,8 @@ class _PteroClient extends PteroClient {
                   '/api/client/servers/${serverId}/databases',
                   queryParameters: queryParameters,
                   data: _data,
+                  cancelToken: cancelToken,
+                  onSendProgress: onProgress,
                 )
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
@@ -717,9 +805,12 @@ class _PteroClient extends PteroClient {
   Future<FractalResponseData<ServerDatabase>> createServerDatabase(
     data, {
     required serverId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
@@ -734,6 +825,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/databases',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ServerDatabase>.fromJson(_result.data!);
@@ -744,9 +837,12 @@ class _PteroClient extends PteroClient {
   Future<void> deleteDatabase({
     required serverId,
     required databaseId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -759,6 +855,8 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/databases/${databaseId}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -768,9 +866,12 @@ class _PteroClient extends PteroClient {
   Future<FractalResponseData<ServerDatabase>> rotateDatabasePassword({
     required serverId,
     required databaseId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -784,6 +885,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/databases/${databaseId}/rotate-password',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ServerDatabase>.fromJson(_result.data!);
@@ -794,9 +897,12 @@ class _PteroClient extends PteroClient {
   Future<FractalResponseList<FileObject>> listFiles({
     required serverId,
     required directory,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'directory': directory};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -810,6 +916,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/files/list',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseList<FileObject>.fromJson(_result.data!);
@@ -820,9 +928,12 @@ class _PteroClient extends PteroClient {
   Future<String?> getFileContents({
     required serverId,
     required file,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'file': file};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
@@ -835,6 +946,8 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/files/contents',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = _result.data;
@@ -845,9 +958,12 @@ class _PteroClient extends PteroClient {
   Future<FractalResponseData<SignedUrl>> downloadFile({
     required serverId,
     required file,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'file': file};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -861,6 +977,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/files/download',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<SignedUrl>.fromJson(_result.data!);
@@ -871,9 +989,12 @@ class _PteroClient extends PteroClient {
   Future<void> renameFile(
     rename, {
     required serverId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(rename.toJson());
@@ -887,6 +1008,8 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/files/rename',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -896,9 +1019,12 @@ class _PteroClient extends PteroClient {
   Future<void> makeFileCopy(
     data, {
     required serverId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
@@ -912,6 +1038,8 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/files/copy',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -922,9 +1050,12 @@ class _PteroClient extends PteroClient {
     rawContents, {
     required serverId,
     required file,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'file': file};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Content-Type': 'text/plain'};
     _headers.removeWhere((k, v) => v == null);
     final _data = rawContents;
@@ -939,6 +1070,8 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/files/write',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -948,9 +1081,12 @@ class _PteroClient extends PteroClient {
   Future<FractalResponseData<FileObject>> compressFile(
     data, {
     required serverId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
@@ -965,6 +1101,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/files/compress',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<FileObject>.fromJson(_result.data!);
@@ -975,9 +1113,12 @@ class _PteroClient extends PteroClient {
   Future<void> decompressFile(
     data, {
     required serverId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
@@ -991,6 +1132,8 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/files/decompress',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -1000,9 +1143,12 @@ class _PteroClient extends PteroClient {
   Future<void> deleteFiles(
     data, {
     required serverId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
@@ -1016,6 +1162,8 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/files/delete',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -1025,9 +1173,12 @@ class _PteroClient extends PteroClient {
   Future<void> createFolder(
     data, {
     required serverId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
@@ -1041,6 +1192,8 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/files/create-folder',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -1050,9 +1203,12 @@ class _PteroClient extends PteroClient {
   Future<void> chmodFile(
     data, {
     required serverId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
@@ -1066,6 +1222,8 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/files/chmod',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -1075,9 +1233,12 @@ class _PteroClient extends PteroClient {
   Future<void> pullFile(
     data, {
     required serverId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
@@ -1091,16 +1252,22 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/files/pull',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<FractalResponseData<SignedUrl>> getFileUploadUrl(
-      {required serverId}) async {
+  Future<FractalResponseData<SignedUrl>> getFileUploadUrl({
+    required serverId,
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1114,6 +1281,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/files/upload',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<SignedUrl>.fromJson(_result.data!);
@@ -1121,10 +1290,14 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseList<ServerSchedule>> listSchedules(
-      {required serverId}) async {
+  Future<FractalResponseList<ServerSchedule>> listSchedules({
+    required serverId,
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1138,6 +1311,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/schedules',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseList<ServerSchedule>.fromJson(_result.data!);
@@ -1148,9 +1323,12 @@ class _PteroClient extends PteroClient {
   Future<FractalResponseData<ServerSchedule>> createSchedule(
     scheduleData, {
     required serverId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(scheduleData.toJson());
@@ -1165,6 +1343,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/schedules',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ServerSchedule>.fromJson(_result.data!);
@@ -1175,9 +1355,12 @@ class _PteroClient extends PteroClient {
   Future<FractalResponseData<ServerSchedule>> getScheduleDetails({
     required serverId,
     required scheduleId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1191,6 +1374,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/schedules/${scheduleId}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ServerSchedule>.fromJson(_result.data!);
@@ -1202,9 +1387,12 @@ class _PteroClient extends PteroClient {
     scheduleData, {
     required serverId,
     required scheduleId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(scheduleData.toJson());
@@ -1219,6 +1407,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/schedules/${scheduleId}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ServerSchedule>.fromJson(_result.data!);
@@ -1229,9 +1419,12 @@ class _PteroClient extends PteroClient {
   Future<void> deleteSchedule({
     required serverId,
     required scheduleId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -1244,6 +1437,8 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/schedules/${scheduleId}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -1254,9 +1449,12 @@ class _PteroClient extends PteroClient {
     taskData, {
     required serverId,
     required scheduleId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(taskData.toJson());
@@ -1271,6 +1469,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/schedules/${scheduleId}/tasks',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ScheduleTask>.fromJson(_result.data!);
@@ -1283,9 +1483,12 @@ class _PteroClient extends PteroClient {
     required serverId,
     required scheduleId,
     required taskId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(taskData.toJson());
@@ -1300,6 +1503,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/schedules/${scheduleId}/tasks/${taskId}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ScheduleTask>.fromJson(_result.data!);
@@ -1311,9 +1516,12 @@ class _PteroClient extends PteroClient {
     required serverId,
     required scheduleId,
     required taskId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -1326,16 +1534,22 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/schedules/${scheduleId}/tasks/${taskId}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<FractalResponseList<Allocation>> listAllocations(
-      {required serverId}) async {
+  Future<FractalResponseList<Allocation>> listAllocations({
+    required serverId,
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1349,6 +1563,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/network',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseList<Allocation>.fromJson(_result.data!);
@@ -1356,10 +1572,14 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseData<Allocation>> autoAssignAllocation(
-      {required serverId}) async {
+  Future<FractalResponseData<Allocation>> autoAssignAllocation({
+    required serverId,
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1373,6 +1593,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/network',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Allocation>.fromJson(_result.data!);
@@ -1384,9 +1606,12 @@ class _PteroClient extends PteroClient {
     note, {
     required serverId,
     required allocationId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(note.toJson());
@@ -1401,6 +1626,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/network/${allocationId}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Allocation>.fromJson(_result.data!);
@@ -1411,9 +1638,12 @@ class _PteroClient extends PteroClient {
   Future<FractalResponseData<Allocation>> setPrimaryAllocation({
     required serverId,
     required allocationId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1427,6 +1657,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/network/${allocationId}/primary',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Allocation>.fromJson(_result.data!);
@@ -1437,9 +1669,12 @@ class _PteroClient extends PteroClient {
   Future<FractalResponseData<Allocation>> unassignAllocation({
     required serverId,
     required allocationId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1453,6 +1688,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/network/${allocationId}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Allocation>.fromJson(_result.data!);
@@ -1460,10 +1697,14 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseList<ServerSubuser>> listSubusers(
-      {required serverId}) async {
+  Future<FractalResponseList<ServerSubuser>> listSubusers({
+    required serverId,
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1477,6 +1718,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/users',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseList<ServerSubuser>.fromJson(_result.data!);
@@ -1487,9 +1730,12 @@ class _PteroClient extends PteroClient {
   Future<FractalResponseData<ServerSubuser>> createSubuser(
     subuserData, {
     required serverId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(subuserData.toJson());
@@ -1504,6 +1750,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/users',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ServerSubuser>.fromJson(_result.data!);
@@ -1514,9 +1762,12 @@ class _PteroClient extends PteroClient {
   Future<FractalResponseData<ServerSubuser>> getSubuserDetails({
     required serverId,
     required subuserId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1530,6 +1781,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/users/${subuserId}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ServerSubuser>.fromJson(_result.data!);
@@ -1541,9 +1794,12 @@ class _PteroClient extends PteroClient {
     subuserData, {
     required serverId,
     required subuserId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(subuserData.toJson());
@@ -1558,6 +1814,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/users/${subuserId}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ServerSubuser>.fromJson(_result.data!);
@@ -1568,9 +1826,12 @@ class _PteroClient extends PteroClient {
   Future<void> deleteSubuser({
     required serverId,
     required subuserId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -1583,6 +1844,8 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/users/${subuserId}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -1593,6 +1856,8 @@ class _PteroClient extends PteroClient {
     required serverId,
     page,
     perPage,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -1614,6 +1879,8 @@ class _PteroClient extends PteroClient {
                   '/api/client/servers/${serverId}/backups',
                   queryParameters: queryParameters,
                   data: _data,
+                  cancelToken: cancelToken,
+                  onSendProgress: onProgress,
                 )
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
@@ -1626,9 +1893,12 @@ class _PteroClient extends PteroClient {
   Future<FractalResponseData<Backup>> createBackup(
     backupData, {
     required serverId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(backupData.toJson());
@@ -1643,6 +1913,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/backups',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Backup>.fromJson(_result.data!);
@@ -1653,9 +1925,12 @@ class _PteroClient extends PteroClient {
   Future<FractalResponseData<Backup>> getBackupDetails({
     required serverId,
     required backupId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1669,6 +1944,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/backups/${backupId}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Backup>.fromJson(_result.data!);
@@ -1679,9 +1956,12 @@ class _PteroClient extends PteroClient {
   Future<FractalResponseData<Backup>> toggleBackupLock({
     required serverId,
     required backupId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1695,6 +1975,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/backups/${backupId}/lock',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Backup>.fromJson(_result.data!);
@@ -1705,9 +1987,12 @@ class _PteroClient extends PteroClient {
   Future<FractalResponseData<SignedUrl>> downloadBackup({
     required serverId,
     required backupId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1721,6 +2006,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/backups/${backupId}/download',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<SignedUrl>.fromJson(_result.data!);
@@ -1731,9 +2018,12 @@ class _PteroClient extends PteroClient {
   Future<void> deleteBackup({
     required serverId,
     required backupId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -1746,6 +2036,8 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/backups/${backupId}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -1756,9 +2048,12 @@ class _PteroClient extends PteroClient {
     body, {
     required serverId,
     required backupId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -1772,16 +2067,22 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/backups/${backupId}/restore',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<FractalResponseListMeta<EggVariable, StartupMeta>> listVariables(
-      {required serverId}) async {
+  Future<FractalResponseListMeta<EggVariable, StartupMeta>> listVariables({
+    required serverId,
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1796,6 +2097,8 @@ class _PteroClient extends PteroClient {
                   '/api/client/servers/${serverId}/startup',
                   queryParameters: queryParameters,
                   data: _data,
+                  cancelToken: cancelToken,
+                  onSendProgress: onProgress,
                 )
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseListMeta<EggVariable, StartupMeta>.fromJson(
@@ -1807,9 +2110,12 @@ class _PteroClient extends PteroClient {
   Future<FractalResponseData<EggVariable>> updateVariable(
     variable, {
     required serverId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(variable.toJson());
@@ -1824,6 +2130,8 @@ class _PteroClient extends PteroClient {
               '/api/client/servers/${serverId}/startup/variable',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<EggVariable>.fromJson(_result.data!);
@@ -1834,9 +2142,12 @@ class _PteroClient extends PteroClient {
   Future<void> renameServer(
     rename, {
     required serverId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(rename.toJson());
@@ -1850,15 +2161,22 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/settings/rename',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<void> reinstallServer({required serverId}) async {
+  Future<void> reinstallServer({
+    required serverId,
+    cancelToken,
+    onProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -1871,6 +2189,8 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/settings/reinstall',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -1880,9 +2200,12 @@ class _PteroClient extends PteroClient {
   Future<void> updateDockerImage(
     dockerImage, {
     required serverId,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(dockerImage.toJson());
@@ -1896,6 +2219,8 @@ class _PteroClient extends PteroClient {
           '/api/client/servers/${serverId}/settings/docker-image',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
+          onSendProgress: onProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -1931,6 +2256,8 @@ class _PteroTranslationsClient extends PteroTranslationsClient {
   Future<TranslationData> getTranslation({
     locale,
     namespace,
+    cancelToken,
+    onProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -1951,6 +2278,8 @@ class _PteroTranslationsClient extends PteroTranslationsClient {
               '/locales/locale.json',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = TranslationData.fromJson(_result.data!);

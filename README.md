@@ -3,7 +3,9 @@ Dartactyl is an api client that you can use to connect to the Pterodactyl Panel 
 
 ## Features
 
-Nearly all api functions are available for the client-side api, ~~but error checking has not been implemented yet.~~ It's here!
+Nearly all api functions are available for the client-side api. If there's anything missing, let me know with an issue!
+
+Application API is a WIP.
 
 ## Usage
 
@@ -18,7 +20,7 @@ PteroClient client = PteroClient.generate(
 ## Development
 
 To get started, generate needed files by running 
-```
+```bash
 dart run build_runner build
 ```
 

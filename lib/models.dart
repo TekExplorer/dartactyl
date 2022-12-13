@@ -3,6 +3,8 @@
 /// Admin/Application API not yet supported
 library dartactyl;
 
+export 'package:dio/dio.dart' show CancelToken;
+
 export 'src/extra/fractal_extentions.dart';
 export 'src/extra/fractal_list_extentions.dart';
 export 'src/extra/site_config.dart';
@@ -21,7 +23,6 @@ export 'src/models/application_models/application_models.dart';
 export 'src/models/application_request_models/application_request_models.dart';
 
 ///
-export 'src/models/auth/ptero_login_request.dart';
 export 'src/models/base/serializable.dart';
 
 /// Egg Models

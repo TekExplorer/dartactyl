@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.5.1
+- Add `cancelToken` and `onProgress` to all methods (I can't believe I didn't know this was an option.)
+  - This allows you to use a `CancelToken` to cancel api calls, and read the current progress of the call
+- Removed experamental (and outdated) login methods. I may come back to this later.
+
 ## 1.5.0
 - const all the things, where possible.
 - Get work done for Application Client. some of it might even work
