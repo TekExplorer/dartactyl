@@ -38,6 +38,7 @@ class _PteroTranslationsClient extends PteroTranslationsClient {
     namespace,
     cancelToken,
     onSendProgress,
+    onReceiveProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -60,6 +61,7 @@ class _PteroTranslationsClient extends PteroTranslationsClient {
               data: _data,
               cancelToken: cancelToken,
               onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = TranslationData.fromJson(_result.data!);

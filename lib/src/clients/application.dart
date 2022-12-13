@@ -14,11 +14,11 @@ abstract class PteroApplication {
   factory PteroApplication(Dio dio, {String? baseUrl}) = _PteroApplication._;
 
   // Users
-
   @GET('/api/application/users')
   Future<FractalListMeta<ApplicationUser, PaginatedMeta>> getUsers({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
+    @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
     //
     @Query('include') ApplicationUsersIncludes? include,
     @Query('sort') UsersSort? sort,
@@ -36,6 +36,7 @@ abstract class PteroApplication {
   Future<Fractal<ApplicationUser>> getUser({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
+    @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
     //
     @Path('id') required int id,
     @Query('include') ApplicationUsersIncludes? include,
@@ -45,6 +46,7 @@ abstract class PteroApplication {
   Future<Fractal<ApplicationUser>> getUserByExternalId({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
+    @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
     //
     @Path('externalId') required String externalId,
     @Query('include') ApplicationUsersIncludes? include,
@@ -54,6 +56,7 @@ abstract class PteroApplication {
   Future<Fractal<ApplicationUser>> createUser({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
+    @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
     //
     @Body() required CreateUserRequest request,
   });
@@ -62,6 +65,7 @@ abstract class PteroApplication {
   Future<Fractal<ApplicationUser>> updateUser({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
+    @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
     //
     @Path('id') required int id,
     @Body() required UpdateUserRequest request,
@@ -71,6 +75,7 @@ abstract class PteroApplication {
   Future<void> deleteUser({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
+    @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
     //
     @Path('id') required int id,
   });
@@ -81,6 +86,7 @@ abstract class PteroApplication {
   Future<FractalListMeta<Node, PaginatedMeta>> getNodes({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
+    @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
     //
     @Query('include') NodeIncludes? include,
     @Query('sort') NodesSort? sort,
@@ -98,6 +104,7 @@ abstract class PteroApplication {
   Future<Fractal<Node>> getNode({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
+    @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
     //
     @Path('id') required int id,
     @Query('include') NodeIncludes? include,
@@ -113,6 +120,7 @@ abstract class PteroApplication {
   Future<FractalMeta<Node, ResourceMeta>> createNode({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
+    @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
     //
     @Body() required CreateNodeRequest request,
   });
@@ -122,6 +130,7 @@ abstract class PteroApplication {
   Future<FractalMeta<Node, ResourceMeta>> updateNode({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
+    @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
     //
     @Path('id') required int id,
     @Body() required UpdateNodeRequest request,
@@ -131,6 +140,7 @@ abstract class PteroApplication {
   Future<void> deleteNode({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
+    @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
     //
     @Path('id') required int id,
   });
@@ -140,6 +150,7 @@ abstract class PteroApplication {
       getNodeAllocations({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
+    @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
     //
     @Path('id') required int id,
     @Query('include') AllocationIncludes? include,

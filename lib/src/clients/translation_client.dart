@@ -22,186 +22,217 @@ abstract class PteroTranslationsClient {
     @Query('namespace') String? namespace,
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
+    @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
   });
 
   Future<TranslationData> getActivityTranslations({
     String? locale = 'en',
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
+    @experimental ProgressCallback? onReceiveProgress,
   }) =>
       getTranslation(
         locale: locale,
         namespace: KnownNamespaces.activity,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
       );
 
   Future<TranslationData> getAuthTranslations({
     String? locale,
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
+    @experimental ProgressCallback? onReceiveProgress,
   }) =>
       getTranslation(
         locale: locale,
         namespace: KnownNamespaces.auth,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
       );
 
   Future<TranslationData> getExceptionsTranslations({
     String? locale,
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
+    @experimental ProgressCallback? onReceiveProgress,
   }) =>
       getTranslation(
         locale: locale,
         namespace: KnownNamespaces.exceptions,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
       );
 
   Future<TranslationData> getPaginationTranslations({
     String? locale,
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
+    @experimental ProgressCallback? onReceiveProgress,
   }) =>
       getTranslation(
         locale: locale,
         namespace: KnownNamespaces.pagination,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
       );
 
   Future<TranslationData> getPasswordsTranslations({
     String? locale,
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
+    @experimental ProgressCallback? onReceiveProgress,
   }) =>
       getTranslation(
         locale: locale,
         namespace: KnownNamespaces.passwords,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
       );
 
   Future<TranslationData> getStringsTranslations({
     String? locale,
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
+    @experimental ProgressCallback? onReceiveProgress,
   }) =>
       getTranslation(
         locale: locale,
         namespace: KnownNamespaces.strings,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
       );
 
   Future<TranslationData> getValidationTranslations({
     String? locale,
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
+    @experimental ProgressCallback? onReceiveProgress,
   }) =>
       getTranslation(
         locale: locale,
         namespace: KnownNamespaces.validation,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
       );
 
   Future<TranslationData> getAdminNestsTranslations({
     String? locale,
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
+    @experimental ProgressCallback? onReceiveProgress,
   }) =>
       getTranslation(
         locale: locale,
         namespace: KnownNamespaces.adminNests,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
       );
 
   Future<TranslationData> getAdminNodesTranslations({
     String? locale,
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
+    @experimental ProgressCallback? onReceiveProgress,
   }) =>
       getTranslation(
         locale: locale,
         namespace: KnownNamespaces.adminNodes,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
       );
 
   Future<TranslationData> getAdminServersTranslations({
     String? locale,
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
+    @experimental ProgressCallback? onReceiveProgress,
   }) =>
       getTranslation(
         locale: locale,
         namespace: KnownNamespaces.adminServers,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
       );
 
   Future<TranslationData> getAdminUserTranslations({
     String? locale,
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
+    @experimental ProgressCallback? onReceiveProgress,
   }) =>
       getTranslation(
         locale: locale,
         namespace: KnownNamespaces.adminUser,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
       );
 
   Future<TranslationData> getCommandMessagesTranslations({
     String? locale,
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
+    @experimental ProgressCallback? onReceiveProgress,
   }) =>
       getTranslation(
         locale: locale,
         namespace: KnownNamespaces.commandMessages,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
       );
 
   Future<TranslationData> getDashboardAccountTranslations({
     String? locale,
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
+    @experimental ProgressCallback? onReceiveProgress,
   }) =>
       getTranslation(
         locale: locale,
         namespace: KnownNamespaces.dashboardAccount,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
       );
 
   Future<TranslationData> getDashboardIndexTranslations({
     String? locale,
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
+    @experimental ProgressCallback? onReceiveProgress,
   }) =>
       getTranslation(
         locale: locale,
         namespace: KnownNamespaces.dashboardIndex,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
       );
 
   Future<TranslationData> getServerUsersTranslations({
     String? locale,
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
+    @experimental ProgressCallback? onReceiveProgress,
   }) =>
       getTranslation(
         locale: locale,
         namespace: KnownNamespaces.serverUsers,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
       );
 }
 

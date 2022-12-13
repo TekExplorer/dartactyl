@@ -22,6 +22,7 @@ class _PteroApplication extends PteroApplication {
   Future<FractalResponseListMeta<ApplicationUser, PaginatedMeta>> getUsers({
     cancelToken,
     onSendProgress,
+    onReceiveProgress,
     include,
     sort,
     page,
@@ -61,6 +62,7 @@ class _PteroApplication extends PteroApplication {
                   data: _data,
                   cancelToken: cancelToken,
                   onSendProgress: onSendProgress,
+                  onReceiveProgress: onReceiveProgress,
                 )
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
@@ -73,6 +75,7 @@ class _PteroApplication extends PteroApplication {
   Future<FractalResponseData<ApplicationUser>> getUser({
     cancelToken,
     onSendProgress,
+    onReceiveProgress,
     required id,
     include,
   }) async {
@@ -94,6 +97,7 @@ class _PteroApplication extends PteroApplication {
               data: _data,
               cancelToken: cancelToken,
               onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ApplicationUser>.fromJson(_result.data!);
@@ -104,6 +108,7 @@ class _PteroApplication extends PteroApplication {
   Future<FractalResponseData<ApplicationUser>> getUserByExternalId({
     cancelToken,
     onSendProgress,
+    onReceiveProgress,
     required externalId,
     include,
   }) async {
@@ -125,6 +130,7 @@ class _PteroApplication extends PteroApplication {
               data: _data,
               cancelToken: cancelToken,
               onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ApplicationUser>.fromJson(_result.data!);
@@ -135,6 +141,7 @@ class _PteroApplication extends PteroApplication {
   Future<FractalResponseData<ApplicationUser>> createUser({
     cancelToken,
     onSendProgress,
+    onReceiveProgress,
     required request,
   }) async {
     const _extra = <String, dynamic>{};
@@ -156,6 +163,7 @@ class _PteroApplication extends PteroApplication {
               data: _data,
               cancelToken: cancelToken,
               onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ApplicationUser>.fromJson(_result.data!);
@@ -166,6 +174,7 @@ class _PteroApplication extends PteroApplication {
   Future<FractalResponseData<ApplicationUser>> updateUser({
     cancelToken,
     onSendProgress,
+    onReceiveProgress,
     required id,
     required request,
   }) async {
@@ -188,6 +197,7 @@ class _PteroApplication extends PteroApplication {
               data: _data,
               cancelToken: cancelToken,
               onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<ApplicationUser>.fromJson(_result.data!);
@@ -198,6 +208,7 @@ class _PteroApplication extends PteroApplication {
   Future<void> deleteUser({
     cancelToken,
     onSendProgress,
+    onReceiveProgress,
     required id,
   }) async {
     const _extra = <String, dynamic>{};
@@ -217,6 +228,7 @@ class _PteroApplication extends PteroApplication {
           data: _data,
           cancelToken: cancelToken,
           onSendProgress: onSendProgress,
+          onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -226,6 +238,7 @@ class _PteroApplication extends PteroApplication {
   Future<FractalResponseListMeta<Node, PaginatedMeta>> getNodes({
     cancelToken,
     onSendProgress,
+    onReceiveProgress,
     include,
     sort,
     page,
@@ -264,6 +277,7 @@ class _PteroApplication extends PteroApplication {
               data: _data,
               cancelToken: cancelToken,
               onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
@@ -275,6 +289,7 @@ class _PteroApplication extends PteroApplication {
   Future<FractalResponseData<Node>> getNode({
     cancelToken,
     onSendProgress,
+    onReceiveProgress,
     required id,
     include,
   }) async {
@@ -296,6 +311,7 @@ class _PteroApplication extends PteroApplication {
               data: _data,
               cancelToken: cancelToken,
               onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FractalResponseData<Node>.fromJson(_result.data!);
@@ -306,6 +322,7 @@ class _PteroApplication extends PteroApplication {
   Future<FractalResponseDataMeta<Node, ResourceMeta>> createNode({
     cancelToken,
     onSendProgress,
+    onReceiveProgress,
     required request,
   }) async {
     const _extra = <String, dynamic>{};
@@ -327,6 +344,7 @@ class _PteroApplication extends PteroApplication {
               data: _data,
               cancelToken: cancelToken,
               onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
@@ -338,6 +356,7 @@ class _PteroApplication extends PteroApplication {
   Future<FractalResponseDataMeta<Node, ResourceMeta>> updateNode({
     cancelToken,
     onSendProgress,
+    onReceiveProgress,
     required id,
     required request,
   }) async {
@@ -360,6 +379,7 @@ class _PteroApplication extends PteroApplication {
               data: _data,
               cancelToken: cancelToken,
               onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
@@ -371,6 +391,7 @@ class _PteroApplication extends PteroApplication {
   Future<void> deleteNode({
     cancelToken,
     onSendProgress,
+    onReceiveProgress,
     required id,
   }) async {
     const _extra = <String, dynamic>{};
@@ -390,6 +411,7 @@ class _PteroApplication extends PteroApplication {
           data: _data,
           cancelToken: cancelToken,
           onSendProgress: onSendProgress,
+          onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -400,6 +422,7 @@ class _PteroApplication extends PteroApplication {
       getNodeAllocations({
     cancelToken,
     onSendProgress,
+    onReceiveProgress,
     required id,
     include,
     page,
@@ -435,6 +458,7 @@ class _PteroApplication extends PteroApplication {
           data: _data,
           cancelToken: cancelToken,
           onSendProgress: onSendProgress,
+          onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
