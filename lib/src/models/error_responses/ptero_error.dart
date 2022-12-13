@@ -10,6 +10,7 @@ part '../../generated/models/error_responses/ptero_error.g.dart';
 class PteroError with _$PteroError implements Exception {
   const PteroError._();
   const factory PteroError({
+    // ignore: invalid_annotation_target
     @JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
         required PteroErrorCode code,
     required String status,

@@ -17,8 +17,10 @@ class PteroLoginRequest with _$PteroLoginRequest {
   const PteroLoginRequest._();
 
   const factory PteroLoginRequest({
+    // ignore: invalid_annotation_target
     @JsonKey(name: 'user') required String username,
     required String password,
+    // ignore: invalid_annotation_target
     @JsonKey(name: 'g-recaptcha-response') String? gRecaptchaResponse,
   }) = _PterodactylLoginRequest;
 

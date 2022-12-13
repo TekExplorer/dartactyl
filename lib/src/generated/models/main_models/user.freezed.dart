@@ -24,7 +24,8 @@ mixin _$User {
   String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   @experimental
-  Uri? get image => throw _privateConstructorUsedError;
+  Uri? get image =>
+      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
   @JsonKey(name: '2fa_enabled')
   bool get twoFaEnabled => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -180,6 +181,7 @@ class _$_User extends _User {
   @override
   @experimental
   final Uri? image;
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: '2fa_enabled')
   final bool twoFaEnabled;
@@ -247,7 +249,7 @@ abstract class _User extends User {
   @override
   @experimental
   Uri? get image;
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: '2fa_enabled')
   bool get twoFaEnabled;
   @override

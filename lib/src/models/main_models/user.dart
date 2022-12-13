@@ -11,6 +11,7 @@ class User with _$User, SerializableMixin {
     required String username,
     required String email,
     @experimental Uri? image,
+    // ignore: invalid_annotation_target
     @JsonKey(name: '2fa_enabled') required bool twoFaEnabled,
     required DateTime createdAt,
   }) = _User;

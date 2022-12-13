@@ -19,6 +19,7 @@ class PteroErrorMeta {
 
 @JsonSerializable()
 class PteroErrorStringMeta extends PteroErrorMeta {
+  // ignore: invalid_annotation_target
   @JsonKey(name: 'source_field')
   final PteroErrorScheduleMetaRule? sourceField;
 
@@ -33,6 +34,7 @@ class PteroErrorStringMeta extends PteroErrorMeta {
 
 @JsonSerializable()
 class PteroErrorScheduleMeta extends PteroErrorMeta {
+  // ignore: invalid_annotation_target
   @JsonKey(name: 'source_field')
   final Cron sourceField;
 

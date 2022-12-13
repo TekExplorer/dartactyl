@@ -18,6 +18,7 @@ class ApplicationUser with _$ApplicationUser, SerializableMixin {
     required String lastName,
     required String language,
     required bool rootAdmin,
+    // ignore: invalid_annotation_target
     @JsonKey(name: '2fa') required bool tfaEnabled,
     required DateTime createdAt,
     required DateTime updatedAt,

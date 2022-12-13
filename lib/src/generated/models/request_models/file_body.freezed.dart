@@ -20,6 +20,7 @@ FileBody _$FileBodyFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FileBody {
+// ignore: invalid_annotation_target
   @JsonKey(name: 'root')
   String get rootDir => throw _privateConstructorUsedError;
   String get file => throw _privateConstructorUsedError;
@@ -113,6 +114,7 @@ class _$_FileBody implements _FileBody {
   factory _$_FileBody.fromJson(Map<String, dynamic> json) =>
       _$$_FileBodyFromJson(json);
 
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: 'root')
   final String rootDir;
@@ -158,7 +160,7 @@ abstract class _FileBody implements FileBody {
 
   factory _FileBody.fromJson(Map<String, dynamic> json) = _$_FileBody.fromJson;
 
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: 'root')
   String get rootDir;
   @override
@@ -175,6 +177,7 @@ FileBodyListFromTo _$FileBodyListFromToFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FileBodyListFromTo {
+// ignore: invalid_annotation_target
   @JsonKey(name: 'root')
   String get rootDir => throw _privateConstructorUsedError;
   List<FromTo> get files => throw _privateConstructorUsedError;
@@ -272,6 +275,7 @@ class _$_FileBodyListFromTo implements _FileBodyListFromTo {
   factory _$_FileBodyListFromTo.fromJson(Map<String, dynamic> json) =>
       _$$_FileBodyListFromToFromJson(json);
 
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: 'root')
   final String rootDir;
@@ -324,7 +328,7 @@ abstract class _FileBodyListFromTo implements FileBodyListFromTo {
   factory _FileBodyListFromTo.fromJson(Map<String, dynamic> json) =
       _$_FileBodyListFromTo.fromJson;
 
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: 'root')
   String get rootDir;
   @override
@@ -341,6 +345,7 @@ FileBodyListString _$FileBodyListStringFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FileBodyListString {
+// ignore: invalid_annotation_target
   @JsonKey(name: 'root')
   String get rootDir => throw _privateConstructorUsedError;
   List<String> get files => throw _privateConstructorUsedError;
@@ -438,6 +443,7 @@ class _$_FileBodyListString implements _FileBodyListString {
   factory _$_FileBodyListString.fromJson(Map<String, dynamic> json) =>
       _$$_FileBodyListStringFromJson(json);
 
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: 'root')
   final String rootDir;
@@ -490,7 +496,7 @@ abstract class _FileBodyListString implements FileBodyListString {
   factory _FileBodyListString.fromJson(Map<String, dynamic> json) =
       _$_FileBodyListString.fromJson;
 
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: 'root')
   String get rootDir;
   @override
@@ -507,6 +513,7 @@ FolderBody _$FolderBodyFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FolderBody {
+// ignore: invalid_annotation_target
   @JsonKey(name: 'root')
   String get rootDir => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
@@ -602,6 +609,7 @@ class _$_FolderBody implements _FolderBody {
   factory _$_FolderBody.fromJson(Map<String, dynamic> json) =>
       _$$_FolderBodyFromJson(json);
 
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: 'root')
   final String rootDir;
@@ -648,7 +656,7 @@ abstract class _FolderBody implements FolderBody {
   factory _FolderBody.fromJson(Map<String, dynamic> json) =
       _$_FolderBody.fromJson;
 
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: 'root')
   String get rootDir;
   @override

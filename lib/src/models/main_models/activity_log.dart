@@ -14,6 +14,7 @@ class ActivityLog with _$ActivityLog, SerializableMixin {
     required bool isApi,
     String? description,
     // if its [], set to {}
+    // ignore: invalid_annotation_target
     @JsonKey(fromJson: activityLogPropertiesFromJson)
         required JsonMap properties,
     required bool hasAdditionalMetadata,

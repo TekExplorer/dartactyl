@@ -1,4 +1,14 @@
-part of 'client.dart';
+import 'dart:async';
+
+import 'package:dartactyl/dartactyl.dart';
+import 'package:dartactyl/models.dart';
+import 'package:dio/dio.dart' hide Headers;
+import 'package:freezed_annotation/freezed_annotation.dart';
+// import 'package:dio/dio.dart' as dioHeaders show Headers;
+import 'package:retrofit/retrofit.dart';
+
+part '../generated/clients/translation_client.freezed.dart';
+part '../generated/clients/translation_client.g.dart';
 
 @RestApi()
 abstract class PteroTranslationsClient {

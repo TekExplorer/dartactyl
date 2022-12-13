@@ -20,9 +20,11 @@ PteroLoginRequest _$PteroLoginRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PteroLoginRequest {
+// ignore: invalid_annotation_target
   @JsonKey(name: 'user')
   String get username => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
+  String get password =>
+      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
   @JsonKey(name: 'g-recaptcha-response')
   String? get gRecaptchaResponse => throw _privateConstructorUsedError;
 
@@ -136,11 +138,13 @@ class _$_PterodactylLoginRequest extends _PterodactylLoginRequest {
   factory _$_PterodactylLoginRequest.fromJson(Map<String, dynamic> json) =>
       _$$_PterodactylLoginRequestFromJson(json);
 
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: 'user')
   final String username;
   @override
   final String password;
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: 'g-recaptcha-response')
   final String? gRecaptchaResponse;
@@ -196,12 +200,12 @@ abstract class _PterodactylLoginRequest extends PteroLoginRequest {
   factory _PterodactylLoginRequest.fromJson(Map<String, dynamic> json) =
       _$_PterodactylLoginRequest.fromJson;
 
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: 'user')
   String get username;
   @override
   String get password;
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: 'g-recaptcha-response')
   String? get gRecaptchaResponse;
   @override

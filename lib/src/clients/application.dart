@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
-import '../models.dart';
+import '../../models.dart';
 
-part 'generated/application.g.dart';
+part '../generated/clients/application.g.dart';
 
 /// Pterodactyl Application API Client
 @RestApi()

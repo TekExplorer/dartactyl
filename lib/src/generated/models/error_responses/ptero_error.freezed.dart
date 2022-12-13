@@ -20,6 +20,7 @@ PteroError _$PteroErrorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PteroError {
+// ignore: invalid_annotation_target
   @JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
   PteroErrorCode get code => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
@@ -135,6 +136,7 @@ class _$_PteroError extends _PteroError {
   factory _$_PteroError.fromJson(Map<String, dynamic> json) =>
       _$$_PteroErrorFromJson(json);
 
+// ignore: invalid_annotation_target
   @override
   @JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
   final PteroErrorCode code;
@@ -187,7 +189,7 @@ abstract class _PteroError extends PteroError {
   factory _PteroError.fromJson(Map<String, dynamic> json) =
       _$_PteroError.fromJson;
 
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
   PteroErrorCode get code;
   @override

@@ -7,6 +7,7 @@ part '../../generated/models/request_models/file_body.g.dart';
 @freezed
 class FileBody with _$FileBody {
   const factory FileBody({
+    // ignore: invalid_annotation_target
     @JsonKey(name: 'root') required String rootDir,
     required String file,
   }) = _FileBody;
@@ -17,6 +18,7 @@ class FileBody with _$FileBody {
 @freezed
 class FileBodyListFromTo with _$FileBodyListFromTo {
   const factory FileBodyListFromTo({
+    // ignore: invalid_annotation_target
     @JsonKey(name: 'root') required String rootDir,
     required List<FromTo> files, // String or FromTo
   }) = _FileBodyListFromTo;
@@ -28,6 +30,7 @@ class FileBodyListFromTo with _$FileBodyListFromTo {
 @freezed
 class FileBodyListString with _$FileBodyListString {
   const factory FileBodyListString({
+    // ignore: invalid_annotation_target
     @JsonKey(name: 'root') required String rootDir,
     required List<String> files, // String or FromTo
   }) = _FileBodyListString;
@@ -51,6 +54,7 @@ Name:
 @freezed
 class FolderBody with _$FolderBody {
   const factory FolderBody({
+    // ignore: invalid_annotation_target
     @JsonKey(name: 'root') required String rootDir,
     required String name,
   }) = _FolderBody;

@@ -28,7 +28,8 @@ mixin _$ApplicationUser {
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
   String get language => throw _privateConstructorUsedError;
-  bool get rootAdmin => throw _privateConstructorUsedError;
+  bool get rootAdmin =>
+      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
   @JsonKey(name: '2fa')
   bool get tfaEnabled => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -308,6 +309,7 @@ class _$_ApplicationUser extends _ApplicationUser {
   final String language;
   @override
   final bool rootAdmin;
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: '2fa')
   final bool tfaEnabled;
@@ -424,7 +426,7 @@ abstract class _ApplicationUser extends ApplicationUser {
   String get language;
   @override
   bool get rootAdmin;
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: '2fa')
   bool get tfaEnabled;
   @override

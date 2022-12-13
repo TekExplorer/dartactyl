@@ -2,19 +2,12 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:dartactyl/dartactyl.dart';
-import 'package:dartactyl/models.dart';
 import 'package:dio/dio.dart' hide Headers;
 import 'package:freezed_annotation/freezed_annotation.dart';
 // import 'package:dio/dio.dart' as dioHeaders show Headers;
 import 'package:retrofit/retrofit.dart';
 
-import 'application.dart';
-
-part 'client_extentions.dart';
-part 'generated/client.freezed.dart';
-part 'generated/client.g.dart';
-part 'mock_client.dart';
-part 'translation_client.dart';
+part '../generated/clients/client.g.dart';
 
 @RestApi()
 abstract class DeprecatedPteroClient {

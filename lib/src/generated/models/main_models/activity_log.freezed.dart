@@ -26,6 +26,7 @@ mixin _$ActivityLog {
   bool get isApi => throw _privateConstructorUsedError;
   String? get description =>
       throw _privateConstructorUsedError; // if its [], set to {}
+// ignore: invalid_annotation_target
   @JsonKey(fromJson: activityLogPropertiesFromJson)
   Map<String, dynamic> get properties => throw _privateConstructorUsedError;
   bool get hasAdditionalMetadata => throw _privateConstructorUsedError;
@@ -254,8 +255,10 @@ class _$_ActivityLog extends _ActivityLog {
   @override
   final String? description;
 // if its [], set to {}
+// ignore: invalid_annotation_target
   final Map<String, dynamic> _properties;
 // if its [], set to {}
+// ignore: invalid_annotation_target
   @override
   @JsonKey(fromJson: activityLogPropertiesFromJson)
   Map<String, dynamic> get properties {
@@ -352,6 +355,7 @@ abstract class _ActivityLog extends ActivityLog {
   @override
   String? get description;
   @override // if its [], set to {}
+// ignore: invalid_annotation_target
   @JsonKey(fromJson: activityLogPropertiesFromJson)
   Map<String, dynamic> get properties;
   @override

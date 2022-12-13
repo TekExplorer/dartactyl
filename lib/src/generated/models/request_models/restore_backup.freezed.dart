@@ -20,6 +20,7 @@ RestoreBackup _$RestoreBackupFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RestoreBackup {
+// ignore: invalid_annotation_target
   @JsonKey(name: 'truncate')
   bool? get deleteExistingFiles => throw _privateConstructorUsedError;
 
@@ -103,6 +104,7 @@ class _$_RestoreBackup implements _RestoreBackup {
   factory _$_RestoreBackup.fromJson(Map<String, dynamic> json) =>
       _$$_RestoreBackupFromJson(json);
 
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: 'truncate')
   final bool? deleteExistingFiles;
@@ -147,7 +149,7 @@ abstract class _RestoreBackup implements RestoreBackup {
   factory _RestoreBackup.fromJson(Map<String, dynamic> json) =
       _$_RestoreBackup.fromJson;
 
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: 'truncate')
   bool? get deleteExistingFiles;
   @override
