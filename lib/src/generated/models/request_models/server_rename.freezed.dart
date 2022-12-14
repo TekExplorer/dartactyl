@@ -22,6 +22,9 @@ Rename _$RenameFromJson(Map<String, dynamic> json) {
 mixin _$Rename {
   String get name => throw _privateConstructorUsedError;
 
+  /// Not including this will remove your server [description] entirely.
+  String? get description => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RenameCopyWith<Rename> get copyWith => throw _privateConstructorUsedError;
@@ -32,7 +35,7 @@ abstract class $RenameCopyWith<$Res> {
   factory $RenameCopyWith(Rename value, $Res Function(Rename) then) =
       _$RenameCopyWithImpl<$Res, Rename>;
   @useResult
-  $Res call({String name});
+  $Res call({String name, String? description});
 }
 
 /// @nodoc
@@ -49,12 +52,17 @@ class _$RenameCopyWithImpl<$Res, $Val extends Rename>
   @override
   $Res call({
     Object? name = null,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -65,7 +73,7 @@ abstract class _$$_RenameCopyWith<$Res> implements $RenameCopyWith<$Res> {
       __$$_RenameCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name});
+  $Res call({String name, String? description});
 }
 
 /// @nodoc
@@ -79,12 +87,17 @@ class __$$_RenameCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
+    Object? description = freezed,
   }) {
     return _then(_$_Rename(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -92,7 +105,7 @@ class __$$_RenameCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Rename implements _Rename {
-  const _$_Rename({required this.name});
+  const _$_Rename({required this.name, this.description});
 
   factory _$_Rename.fromJson(Map<String, dynamic> json) =>
       _$$_RenameFromJson(json);
@@ -100,9 +113,13 @@ class _$_Rename implements _Rename {
   @override
   final String name;
 
+  /// Not including this will remove your server [description] entirely.
+  @override
+  final String? description;
+
   @override
   String toString() {
-    return 'Rename(name: $name)';
+    return 'Rename(name: $name, description: $description)';
   }
 
   @override
@@ -110,12 +127,14 @@ class _$_Rename implements _Rename {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Rename &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name);
+  int get hashCode => Object.hash(runtimeType, name, description);
 
   @JsonKey(ignore: true)
   @override
@@ -132,12 +151,17 @@ class _$_Rename implements _Rename {
 }
 
 abstract class _Rename implements Rename {
-  const factory _Rename({required final String name}) = _$_Rename;
+  const factory _Rename(
+      {required final String name, final String? description}) = _$_Rename;
 
   factory _Rename.fromJson(Map<String, dynamic> json) = _$_Rename.fromJson;
 
   @override
   String get name;
+  @override
+
+  /// Not including this will remove your server [description] entirely.
+  String? get description;
   @override
   @JsonKey(ignore: true)
   _$$_RenameCopyWith<_$_Rename> get copyWith =>

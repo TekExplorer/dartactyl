@@ -8,8 +8,10 @@ part of '../../../models/request_models/server_rename.dart';
 
 _$_Rename _$$_RenameFromJson(Map<String, dynamic> json) => _$_Rename(
       name: json['name'] as String,
+      description: json['description'] as String?,
     );
 
 Map<String, dynamic> _$$_RenameToJson(_$_Rename instance) => <String, dynamic>{
       'name': instance.name,
+      'description': instance.description,
     };
