@@ -1,4 +1,10 @@
 # CHANGELOG
+## 1.6.3
+
+- Added object-based filters in order to cut down on unnecessarily many filter parameters.
+  - Those filter parameters are now deprecated
+- Moved the dio getter for the PteroClient into an extension so you can optionally show `PteroClientVisibleDio` if you dont want to be able to directly mess with the dio instance
+
 ## 1.6.2
 
 - Updated `Rename` class to support changing the server description

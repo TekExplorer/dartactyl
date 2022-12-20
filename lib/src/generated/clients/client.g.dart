@@ -79,6 +79,7 @@ class _PteroClient extends PteroClient {
     page = 1,
     perPage = 50,
     include,
+    filters,
     filter,
     filterByUuid,
     filterByName,
@@ -101,6 +102,7 @@ class _PteroClient extends PteroClient {
       r'filter[description]': filterByDescription,
       r'type': type?.toJson(),
     };
+    queryParameters.addAll(filters?.toJson() ?? <String, dynamic>{});
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
@@ -351,6 +353,7 @@ class _PteroClient extends PteroClient {
     include,
     page,
     perPage,
+    filters,
     filterByEvent,
     sort,
     cancelToken,
@@ -365,6 +368,7 @@ class _PteroClient extends PteroClient {
       r'filter[event]': filterByEvent,
       r'sort': sort?.toJson(),
     };
+    queryParameters.addAll(filters?.toJson() ?? <String, dynamic>{});
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
@@ -685,7 +689,7 @@ class _PteroClient extends PteroClient {
     include,
     page,
     perPage,
-    filterByIp,
+    filters,
     filterByEvent,
     sort,
     cancelToken,
@@ -697,10 +701,10 @@ class _PteroClient extends PteroClient {
       r'include': include?.toJson(),
       r'page': page,
       r'per_page': perPage,
-      r'filter[ip]': filterByIp,
       r'filter[event]': filterByEvent,
       r'sort': sort?.toJson(),
     };
+    queryParameters.addAll(filters?.toJson() ?? <String, dynamic>{});
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};

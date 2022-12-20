@@ -22,7 +22,7 @@ Rename _$RenameFromJson(Map<String, dynamic> json) {
 mixin _$Rename {
   String get name => throw _privateConstructorUsedError;
 
-  /// Not including this will remove your server [description] entirely.
+  /// Not including this will remove your server [description] entirely (1.11.1)
   String? get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -113,7 +113,7 @@ class _$_Rename implements _Rename {
   @override
   final String name;
 
-  /// Not including this will remove your server [description] entirely.
+  /// Not including this will remove your server [description] entirely (1.11.1)
   @override
   final String? description;
 
@@ -160,7 +160,7 @@ abstract class _Rename implements Rename {
   String get name;
   @override
 
-  /// Not including this will remove your server [description] entirely.
+  /// Not including this will remove your server [description] entirely (1.11.1)
   String? get description;
   @override
   @JsonKey(ignore: true)

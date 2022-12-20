@@ -25,7 +25,6 @@ mixin _$WebsocketRecievedModel {
   List<String>? get args => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  // ignore: invalid_annotation_target
   @JsonKey(ignore: true)
   $WebsocketRecievedModelCopyWith<WebsocketRecievedModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -143,13 +142,11 @@ class _$_WebsocketRecievedModel implements _WebsocketRecievedModel {
             const DeepCollectionEquality().equals(other._args, _args));
   }
 
-  // ignore: invalid_annotation_target
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, event, const DeepCollectionEquality().hash(_args));
 
-  // ignore: invalid_annotation_target
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
@@ -177,7 +174,6 @@ abstract class _WebsocketRecievedModel implements WebsocketRecievedModel {
   @override
   List<String>? get args;
   @override
-  // ignore: invalid_annotation_target
   @JsonKey(ignore: true)
   _$$_WebsocketRecievedModelCopyWith<_$_WebsocketRecievedModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -193,7 +189,6 @@ mixin _$WebsocketSendModel {
   List<String>? get args => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  // ignore: invalid_annotation_target
   @JsonKey(ignore: true)
   $WebsocketSendModelCopyWith<WebsocketSendModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -309,13 +304,11 @@ class _$_WebsocketSendModel implements _WebsocketSendModel {
             const DeepCollectionEquality().equals(other._args, _args));
   }
 
-  // ignore: invalid_annotation_target
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, event, const DeepCollectionEquality().hash(_args));
 
-  // ignore: invalid_annotation_target
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
@@ -343,7 +336,6 @@ abstract class _WebsocketSendModel implements WebsocketSendModel {
   @override
   List<String>? get args;
   @override
-  // ignore: invalid_annotation_target
   @JsonKey(ignore: true)
   _$$_WebsocketSendModelCopyWith<_$_WebsocketSendModel> get copyWith =>
       throw _privateConstructorUsedError;

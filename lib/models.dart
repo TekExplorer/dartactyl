@@ -5,9 +5,9 @@ library dartactyl;
 
 export 'package:dio/dio.dart' show CancelToken;
 
+export 'src/clients/client_site_config.dart';
 export 'src/extra/fractal_extentions.dart';
 export 'src/extra/fractal_list_extentions.dart';
-export 'src/extra/site_config.dart';
 
 /// Extra
 export 'src/extra/typedefs.dart';
@@ -57,9 +57,7 @@ export 'src/models/query/application_includes.dart';
 export 'src/models/query/application_sort.dart';
 
 /// Query
-export 'src/models/query/get_servers.dart';
-export 'src/models/query/includes.dart';
-export 'src/models/query/sort.dart';
+export 'src/models/query/query.dart';
 
 /// Request Models
 export 'src/models/request_models/request_models.dart';

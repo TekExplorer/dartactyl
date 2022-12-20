@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:dartactyl/dartactyl.dart';
+import 'package:dartactyl/dartactyl_visible_dio.dart';
 import 'package:dio/dio.dart';
 import 'package:html/parser.dart' show parse;
 

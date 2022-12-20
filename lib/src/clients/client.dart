@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:dartactyl/dartactyl.dart';
 import 'package:dio/dio.dart' hide Headers;
 import 'package:freezed_annotation/freezed_annotation.dart';
-// import 'package:dio/dio.dart' as dioHeaders show Headers;
 import 'package:retrofit/retrofit.dart';
 
 part '../generated/clients/client.g.dart';
@@ -23,6 +22,13 @@ abstract class DeprecatedPteroClient {
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
   });
+}
+
+extension PteroClientVisibleDio on PteroClient {
+  /// Returns the Dio instance used by the client.
+  ///
+  /// This is useful for adding interceptors, etc.
+  Dio get dio => _dio;
 }
 
 /// Pterodactyl API Client
@@ -82,19 +88,20 @@ abstract class PteroClient {
       );
 
   Dio get _dio;
-  Dio get dio => _dio;
+  // Dio get dio => _dio;
   String? get baseUrl;
   String get url => baseUrl ?? dio.options.baseUrl;
 
   @Deprecated('Update your panel! These endpoints are deprecated!')
-  DeprecatedPteroClient get old => DeprecatedPteroClient(dio, baseUrl: baseUrl);
+  DeprecatedPteroClient get old =>
+      DeprecatedPteroClient(_dio, baseUrl: baseUrl);
 
   @experimental
   PteroTranslationsClient get translations =>
-      PteroTranslationsClient(dio, baseUrl: baseUrl);
+      PteroTranslationsClient(_dio, baseUrl: baseUrl);
 
   @experimental
-  PteroApplication get application => PteroApplication(dio, baseUrl: baseUrl);
+  PteroApplication get application => PteroApplication(_dio, baseUrl: baseUrl);
 
   /// Alias of listVariables
   Future<FractalListMeta<EggVariable, StartupMeta>> getStartup({
@@ -149,6 +156,7 @@ abstract class PteroClient {
 
   /// Get a list of servers.
   ///
+  /// [filters]: filter the results. See [ServerFilters] for more info.
   /// You can filter the results using:
   ///
   /// [filter]; filters by all (uuid, name, externalId, ip:port, :port, ip)
@@ -177,13 +185,21 @@ abstract class PteroClient {
 
     /// [include]; egg, subusers
     @Query('include') ServerIncludes? include,
-
     // Filters
-    @Query('filter[*]') String? filter,
-    @Query('filter[uuid]') String? filterByUuid,
-    @Query('filter[name]') String? filterByName,
-    @Query('filter[external_id]') String? filterByExternalId,
-    @Query('filter[description]') String? filterByDescription,
+    @Queries() ServerFilters? filters,
+    @Deprecated('Use filters instead') @Query('filter[*]') String? filter,
+    @Deprecated('Use filters instead')
+    @Query('filter[uuid]')
+        String? filterByUuid,
+    @Deprecated('Use filters instead')
+    @Query('filter[name]')
+        String? filterByName,
+    @Deprecated('Use filters instead')
+    @Query('filter[external_id]')
+        String? filterByExternalId,
+    @Deprecated('Use filters instead')
+    @Query('filter[description]')
+        String? filterByDescription,
     // What servers to return by access type
     @Query('type') GetServersQueryType? type = GetServersQueryType.member,
     @CancelRequest() CancelToken? cancelToken,
@@ -260,9 +276,10 @@ abstract class PteroClient {
     @Query('page') int? page,
     @Query('per_page') int? perPage,
     // Filters
-    // @Query('filter[*]') String? filter,
-    // @Query('filter[ip]') String? filterByIp,
-    @Query('filter[event]') String? filterByEvent,
+    @Queries() ActivityFilters? filters,
+    @Deprecated('Use filters instead')
+    @Query('filter[event]')
+        String? filterByEvent,
     // Sort
     @Query('sort') ActivityLogSort? sort,
     @CancelRequest() CancelToken? cancelToken,
@@ -364,9 +381,10 @@ abstract class PteroClient {
     @Query('page') int? page,
     @Query('per_page') int? perPage,
     // Filters
-    // @Query('filter[*]') String? filter,
-    @Query('filter[ip]') String? filterByIp,
-    @Query('filter[event]') String? filterByEvent,
+    @Queries() ActivityFilters? filters,
+    @Deprecated('Use filters instead')
+    @Query('filter[event]')
+        String? filterByEvent,
     // Sort
     @Query('sort') ActivityLogSort? sort,
     @CancelRequest() CancelToken? cancelToken,
