@@ -2,6 +2,7 @@
 ## 1.6.4
 
 - Added serialization checks so that issues with the source data can be more easily found
+- Also made sure everything had a private constructor for consistancy
 
 ## 1.6.3
 
