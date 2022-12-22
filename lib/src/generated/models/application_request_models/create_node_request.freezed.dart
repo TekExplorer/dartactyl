@@ -228,7 +228,7 @@ class __$$_CreateNodeRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CreateNodeRequest implements _CreateNodeRequest {
+class _$_CreateNodeRequest extends _CreateNodeRequest {
   const _$_CreateNodeRequest(
       {required this.name,
       required this.locationId,
@@ -240,7 +240,8 @@ class _$_CreateNodeRequest implements _CreateNodeRequest {
       required this.diskOverallocate,
       required this.uploadSize,
       required this.daemonSftp,
-      required this.daemonListen});
+      required this.daemonListen})
+      : super._();
 
   factory _$_CreateNodeRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateNodeRequestFromJson(json);
@@ -328,7 +329,7 @@ class _$_CreateNodeRequest implements _CreateNodeRequest {
   }
 }
 
-abstract class _CreateNodeRequest implements CreateNodeRequest {
+abstract class _CreateNodeRequest extends CreateNodeRequest {
   const factory _CreateNodeRequest(
       {required final String name,
       required final int locationId,
@@ -341,6 +342,7 @@ abstract class _CreateNodeRequest implements CreateNodeRequest {
       required final int uploadSize,
       required final int daemonSftp,
       required final int daemonListen}) = _$_CreateNodeRequest;
+  const _CreateNodeRequest._() : super._();
 
   factory _CreateNodeRequest.fromJson(Map<String, dynamic> json) =
       _$_CreateNodeRequest.fromJson;

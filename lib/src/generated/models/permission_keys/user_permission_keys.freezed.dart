@@ -129,12 +129,13 @@ class __$$_UserPermissionKeysCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserPermissionKeys implements _UserPermissionKeys {
+class _$_UserPermissionKeys extends _UserPermissionKeys {
   const _$_UserPermissionKeys(
       {required this.create,
       required this.read,
       required this.update,
-      required this.delete});
+      required this.delete})
+      : super._();
 
   factory _$_UserPermissionKeys.fromJson(Map<String, dynamic> json) =>
       _$$_UserPermissionKeysFromJson(json);
@@ -183,12 +184,13 @@ class _$_UserPermissionKeys implements _UserPermissionKeys {
   }
 }
 
-abstract class _UserPermissionKeys implements UserPermissionKeys {
+abstract class _UserPermissionKeys extends UserPermissionKeys {
   const factory _UserPermissionKeys(
       {required final String create,
       required final String read,
       required final String update,
       required final String delete}) = _$_UserPermissionKeys;
+  const _UserPermissionKeys._() : super._();
 
   factory _UserPermissionKeys.fromJson(Map<String, dynamic> json) =
       _$_UserPermissionKeys.fromJson;

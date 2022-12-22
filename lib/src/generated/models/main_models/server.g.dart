@@ -6,31 +6,52 @@ part of '../../../models/main_models/server.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Server _$$_ServerFromJson(Map<String, dynamic> json) => _$_Server(
-      serverOwner: json['server_owner'] as bool,
-      identifier: json['identifier'] as String,
-      internalId: json['internal_id'] as int,
-      uuid: json['uuid'] as String,
-      name: json['name'] as String,
-      node: json['node'] as String,
-      sftpDetails:
-          SftpDetails.fromJson(json['sftp_details'] as Map<String, dynamic>),
-      description: json['description'] as String,
-      limits: ServerLimits.fromJson(json['limits'] as Map<String, dynamic>),
-      invocation: json['invocation'] as String,
-      dockerImage: json['docker_image'] as String,
-      eggFeatures: (json['egg_features'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const [],
-      featureLimits: ServerFeatureLimits.fromJson(
-          json['feature_limits'] as Map<String, dynamic>),
-      status: $enumDecodeNullable(_$ServerStatusEnumMap, json['status']),
-      isSuspended: json['is_suspended'] as bool,
-      isInstalling: json['is_installing'] as bool,
-      isTransferring: json['is_transferring'] as bool,
-      relationships: ServerRelationships.fromJson(
-          json['relationships'] as Map<String, dynamic>),
+_$_Server _$$_ServerFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$_Server',
+      json,
+      ($checkedConvert) {
+        final val = _$_Server(
+          serverOwner: $checkedConvert('server_owner', (v) => v as bool),
+          identifier: $checkedConvert('identifier', (v) => v as String),
+          internalId: $checkedConvert('internal_id', (v) => v as int),
+          uuid: $checkedConvert('uuid', (v) => v as String),
+          name: $checkedConvert('name', (v) => v as String),
+          node: $checkedConvert('node', (v) => v as String),
+          sftpDetails: $checkedConvert('sftp_details',
+              (v) => SftpDetails.fromJson(v as Map<String, dynamic>)),
+          description: $checkedConvert('description', (v) => v as String),
+          limits: $checkedConvert('limits',
+              (v) => ServerLimits.fromJson(v as Map<String, dynamic>)),
+          invocation: $checkedConvert('invocation', (v) => v as String),
+          dockerImage: $checkedConvert('docker_image', (v) => v as String),
+          eggFeatures: $checkedConvert(
+              'egg_features',
+              (v) =>
+                  (v as List<dynamic>?)?.map((e) => e as String).toList() ??
+                  const []),
+          featureLimits: $checkedConvert('feature_limits',
+              (v) => ServerFeatureLimits.fromJson(v as Map<String, dynamic>)),
+          status: $checkedConvert(
+              'status', (v) => $enumDecodeNullable(_$ServerStatusEnumMap, v)),
+          isSuspended: $checkedConvert('is_suspended', (v) => v as bool),
+          isInstalling: $checkedConvert('is_installing', (v) => v as bool),
+          isTransferring: $checkedConvert('is_transferring', (v) => v as bool),
+          relationships: $checkedConvert('relationships',
+              (v) => ServerRelationships.fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'serverOwner': 'server_owner',
+        'internalId': 'internal_id',
+        'sftpDetails': 'sftp_details',
+        'dockerImage': 'docker_image',
+        'eggFeatures': 'egg_features',
+        'featureLimits': 'feature_limits',
+        'isSuspended': 'is_suspended',
+        'isInstalling': 'is_installing',
+        'isTransferring': 'is_transferring'
+      },
     );
 
 Map<String, dynamic> _$$_ServerToJson(_$_Server instance) => <String, dynamic>{

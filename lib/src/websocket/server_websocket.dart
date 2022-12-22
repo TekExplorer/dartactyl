@@ -11,7 +11,7 @@ export 'websocket_stats.dart';
 /// A wrapper for the WebsocketCubit that makes it easier to use
 class ServerWebsocketHandler {
   final ServerWebsocketCubit cubit;
-  ServerWebsocketHandler.fromCubit(this.cubit);
+  const ServerWebsocketHandler.fromCubit(this.cubit);
 
   factory ServerWebsocketHandler({
     required PteroClient client,

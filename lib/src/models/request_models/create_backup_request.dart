@@ -7,6 +7,7 @@ part '../../generated/models/request_models/create_backup_request.g.dart';
 
 @freezed
 class CreateBackup with _$CreateBackup {
+  const CreateBackup._();
   const factory CreateBackup({
     String? name,
     String? ignored,

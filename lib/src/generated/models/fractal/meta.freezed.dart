@@ -109,8 +109,8 @@ class __$$_PaginatedMetaCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PaginatedMeta implements _PaginatedMeta {
-  const _$_PaginatedMeta({required this.pagination});
+class _$_PaginatedMeta extends _PaginatedMeta {
+  const _$_PaginatedMeta({required this.pagination}) : super._();
 
   factory _$_PaginatedMeta.fromJson(Map<String, dynamic> json) =>
       _$$_PaginatedMetaFromJson(json);
@@ -150,9 +150,10 @@ class _$_PaginatedMeta implements _PaginatedMeta {
   }
 }
 
-abstract class _PaginatedMeta implements PaginatedMeta {
+abstract class _PaginatedMeta extends PaginatedMeta {
   const factory _PaginatedMeta({required final Pagination pagination}) =
       _$_PaginatedMeta;
+  const _PaginatedMeta._() : super._();
 
   factory _PaginatedMeta.fromJson(Map<String, dynamic> json) =
       _$_PaginatedMeta.fromJson;
@@ -272,9 +273,10 @@ class __$$_PaginatedBackupsMetaCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PaginatedBackupsMeta implements _PaginatedBackupsMeta {
+class _$_PaginatedBackupsMeta extends _PaginatedBackupsMeta {
   const _$_PaginatedBackupsMeta(
-      {required this.pagination, required this.backupCount});
+      {required this.pagination, required this.backupCount})
+      : super._();
 
   factory _$_PaginatedBackupsMeta.fromJson(Map<String, dynamic> json) =>
       _$$_PaginatedBackupsMetaFromJson(json);
@@ -319,10 +321,11 @@ class _$_PaginatedBackupsMeta implements _PaginatedBackupsMeta {
   }
 }
 
-abstract class _PaginatedBackupsMeta implements PaginatedBackupsMeta {
+abstract class _PaginatedBackupsMeta extends PaginatedBackupsMeta {
   const factory _PaginatedBackupsMeta(
       {required final Pagination pagination,
       required final int backupCount}) = _$_PaginatedBackupsMeta;
+  const _PaginatedBackupsMeta._() : super._();
 
   factory _PaginatedBackupsMeta.fromJson(Map<String, dynamic> json) =
       _$_PaginatedBackupsMeta.fromJson;
@@ -430,11 +433,12 @@ class __$$_ServerMetaCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ServerMeta implements _ServerMeta {
+class _$_ServerMeta extends _ServerMeta {
   const _$_ServerMeta(
       {required this.isServerOwner,
       required final List<String> userPermissions})
-      : _userPermissions = userPermissions;
+      : _userPermissions = userPermissions,
+        super._();
 
   factory _$_ServerMeta.fromJson(Map<String, dynamic> json) =>
       _$$_ServerMetaFromJson(json);
@@ -483,10 +487,11 @@ class _$_ServerMeta implements _ServerMeta {
   }
 }
 
-abstract class _ServerMeta implements ServerMeta {
+abstract class _ServerMeta extends ServerMeta {
   const factory _ServerMeta(
       {required final bool isServerOwner,
       required final List<String> userPermissions}) = _$_ServerMeta;
+  const _ServerMeta._() : super._();
 
   factory _ServerMeta.fromJson(Map<String, dynamic> json) =
       _$_ServerMeta.fromJson;
@@ -611,12 +616,13 @@ class __$$_StartupMetaCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_StartupMeta implements _StartupMeta {
+class _$_StartupMeta extends _StartupMeta {
   const _$_StartupMeta(
       {required this.startupCommand,
       required this.rawStartupCommand,
       required final Map<String, String> dockerImages})
-      : _dockerImages = dockerImages;
+      : _dockerImages = dockerImages,
+        super._();
 
   factory _$_StartupMeta.fromJson(Map<String, dynamic> json) =>
       _$$_StartupMetaFromJson(json);
@@ -669,11 +675,12 @@ class _$_StartupMeta implements _StartupMeta {
   }
 }
 
-abstract class _StartupMeta implements StartupMeta {
+abstract class _StartupMeta extends StartupMeta {
   const factory _StartupMeta(
       {required final String startupCommand,
       required final String rawStartupCommand,
       required final Map<String, String> dockerImages}) = _$_StartupMeta;
+  const _StartupMeta._() : super._();
 
   factory _StartupMeta.fromJson(Map<String, dynamic> json) =
       _$_StartupMeta.fromJson;
@@ -772,8 +779,8 @@ class __$$_ApiKeyMetaCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApiKeyMeta implements _ApiKeyMeta {
-  const _$_ApiKeyMeta({required this.secretToken});
+class _$_ApiKeyMeta extends _ApiKeyMeta {
+  const _$_ApiKeyMeta({required this.secretToken}) : super._();
 
   factory _$_ApiKeyMeta.fromJson(Map<String, dynamic> json) =>
       _$$_ApiKeyMetaFromJson(json);
@@ -813,9 +820,10 @@ class _$_ApiKeyMeta implements _ApiKeyMeta {
   }
 }
 
-abstract class _ApiKeyMeta implements ApiKeyMeta {
+abstract class _ApiKeyMeta extends ApiKeyMeta {
   const factory _ApiKeyMeta({required final String secretToken}) =
       _$_ApiKeyMeta;
+  const _ApiKeyMeta._() : super._();
 
   factory _ApiKeyMeta.fromJson(Map<String, dynamic> json) =
       _$_ApiKeyMeta.fromJson;
@@ -910,8 +918,8 @@ class __$$_ResourceMetaCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ResourceMeta implements _ResourceMeta {
-  const _$_ResourceMeta({required this.resource});
+class _$_ResourceMeta extends _ResourceMeta {
+  const _$_ResourceMeta({required this.resource}) : super._();
 
   factory _$_ResourceMeta.fromJson(Map<String, dynamic> json) =>
       _$$_ResourceMetaFromJson(json);
@@ -951,8 +959,9 @@ class _$_ResourceMeta implements _ResourceMeta {
   }
 }
 
-abstract class _ResourceMeta implements ResourceMeta {
+abstract class _ResourceMeta extends ResourceMeta {
   const factory _ResourceMeta({required final Uri resource}) = _$_ResourceMeta;
+  const _ResourceMeta._() : super._();
 
   factory _ResourceMeta.fromJson(Map<String, dynamic> json) =
       _$_ResourceMeta.fromJson;

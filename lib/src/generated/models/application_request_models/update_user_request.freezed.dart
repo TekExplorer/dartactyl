@@ -163,14 +163,15 @@ class __$$_UpdateUserRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UpdateUserRequest implements _UpdateUserRequest {
+class _$_UpdateUserRequest extends _UpdateUserRequest {
   const _$_UpdateUserRequest(
       {required this.email,
       required this.username,
       required this.firstName,
       required this.lastName,
       required this.language,
-      required this.password});
+      required this.password})
+      : super._();
 
   factory _$_UpdateUserRequest.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateUserRequestFromJson(json);
@@ -232,7 +233,7 @@ class _$_UpdateUserRequest implements _UpdateUserRequest {
   }
 }
 
-abstract class _UpdateUserRequest implements UpdateUserRequest {
+abstract class _UpdateUserRequest extends UpdateUserRequest {
   const factory _UpdateUserRequest(
       {required final String email,
       required final String username,
@@ -240,6 +241,7 @@ abstract class _UpdateUserRequest implements UpdateUserRequest {
       required final String lastName,
       required final String language,
       required final String password}) = _$_UpdateUserRequest;
+  const _UpdateUserRequest._() : super._();
 
   factory _UpdateUserRequest.fromJson(Map<String, dynamic> json) =
       _$_UpdateUserRequest.fromJson;

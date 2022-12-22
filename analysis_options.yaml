@@ -32,5 +32,5 @@ analyzer:
   exclude:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
-  # errors:
-    # invalid_annotation_target: ignore
+  errors:
+    invalid_annotation_target: ignore

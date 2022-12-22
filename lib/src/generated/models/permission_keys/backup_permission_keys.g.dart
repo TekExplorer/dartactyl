@@ -8,11 +8,18 @@ part of '../../../models/permission_keys/backup_permission_keys.dart';
 
 _$_BackupPermissionKeys _$$_BackupPermissionKeysFromJson(
         Map<String, dynamic> json) =>
-    _$_BackupPermissionKeys(
-      read: json['read'] as String,
-      create: json['create'] as String,
-      update: json['update'] as String,
-      delete: json['delete'] as String,
+    $checkedCreate(
+      r'_$_BackupPermissionKeys',
+      json,
+      ($checkedConvert) {
+        final val = _$_BackupPermissionKeys(
+          read: $checkedConvert('read', (v) => v as String),
+          create: $checkedConvert('create', (v) => v as String),
+          update: $checkedConvert('update', (v) => v as String),
+          delete: $checkedConvert('delete', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_BackupPermissionKeysToJson(

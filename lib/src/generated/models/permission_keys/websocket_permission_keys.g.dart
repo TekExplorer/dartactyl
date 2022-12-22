@@ -8,8 +8,15 @@ part of '../../../models/permission_keys/websocket_permission_keys.dart';
 
 _$_WebsocketPermissionKeys _$$_WebsocketPermissionKeysFromJson(
         Map<String, dynamic> json) =>
-    _$_WebsocketPermissionKeys(
-      connect: json['connect'] as String,
+    $checkedCreate(
+      r'_$_WebsocketPermissionKeys',
+      json,
+      ($checkedConvert) {
+        final val = _$_WebsocketPermissionKeys(
+          connect: $checkedConvert('connect', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_WebsocketPermissionKeysToJson(

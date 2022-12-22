@@ -96,8 +96,8 @@ class __$$_DeleteSSHKeyCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DeleteSSHKey implements _DeleteSSHKey {
-  const _$_DeleteSSHKey({required this.fingerprint});
+class _$_DeleteSSHKey extends _DeleteSSHKey {
+  const _$_DeleteSSHKey({required this.fingerprint}) : super._();
 
   factory _$_DeleteSSHKey.fromJson(Map<String, dynamic> json) =>
       _$$_DeleteSSHKeyFromJson(json);
@@ -137,9 +137,10 @@ class _$_DeleteSSHKey implements _DeleteSSHKey {
   }
 }
 
-abstract class _DeleteSSHKey implements DeleteSSHKey {
+abstract class _DeleteSSHKey extends DeleteSSHKey {
   const factory _DeleteSSHKey({required final String fingerprint}) =
       _$_DeleteSSHKey;
+  const _DeleteSSHKey._() : super._();
 
   factory _DeleteSSHKey.fromJson(Map<String, dynamic> json) =
       _$_DeleteSSHKey.fromJson;

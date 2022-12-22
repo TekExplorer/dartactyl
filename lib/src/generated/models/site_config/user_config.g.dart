@@ -7,18 +7,33 @@ part of '../../../models/site_config/user_config.dart';
 // **************************************************************************
 
 _$_UserConfig _$$_UserConfigFromJson(Map<String, dynamic> json) =>
-    _$_UserConfig(
-      uuid: json['uuid'] as String,
-      username: json['username'] as String,
-      email: json['email'] as String,
-      language: json['language'] as String,
-      rootAdmin: json['root_admin'] as bool,
-      useTotp: json['use_totp'] as bool,
-      gravatar: json['gravatar'] as bool,
-      createdAt: json['created_at'] as String,
-      updatedAt: json['updated_at'] as String,
-      nameFirst: json['name_first'] as String,
-      nameLast: json['name_last'] as String,
+    $checkedCreate(
+      r'_$_UserConfig',
+      json,
+      ($checkedConvert) {
+        final val = _$_UserConfig(
+          uuid: $checkedConvert('uuid', (v) => v as String),
+          username: $checkedConvert('username', (v) => v as String),
+          email: $checkedConvert('email', (v) => v as String),
+          language: $checkedConvert('language', (v) => v as String),
+          rootAdmin: $checkedConvert('root_admin', (v) => v as bool),
+          useTotp: $checkedConvert('use_totp', (v) => v as bool),
+          gravatar: $checkedConvert('gravatar', (v) => v as bool),
+          createdAt: $checkedConvert('created_at', (v) => v as String),
+          updatedAt: $checkedConvert('updated_at', (v) => v as String),
+          nameFirst: $checkedConvert('name_first', (v) => v as String),
+          nameLast: $checkedConvert('name_last', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'rootAdmin': 'root_admin',
+        'useTotp': 'use_totp',
+        'createdAt': 'created_at',
+        'updatedAt': 'updated_at',
+        'nameFirst': 'name_first',
+        'nameLast': 'name_last'
+      },
     );
 
 Map<String, dynamic> _$$_UserConfigToJson(_$_UserConfig instance) =>

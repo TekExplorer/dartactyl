@@ -24,6 +24,7 @@ part '../../generated/models/main_models/file_object.g.dart';
 ///
 /// [modifiedAt] '2020-01-01T00:00:00.000Z'
 class FileObject with SerializableMixin, _$FileObject {
+  const FileObject._();
   const factory FileObject({
     required String name,
     required String mode,
@@ -36,11 +37,6 @@ class FileObject with SerializableMixin, _$FileObject {
     required DateTime modifiedAt,
   }) = _FileObject;
   factory FileObject.fromJson(JsonMap json) => _$FileObjectFromJson(json);
-
-  const FileObject._();
-
-  @override
-  JsonMap toJson();
 
   // /// Translates file codes (ie: 0755) to a string representation. ex: 'drwxr-xr-x'
   // String get modeString {

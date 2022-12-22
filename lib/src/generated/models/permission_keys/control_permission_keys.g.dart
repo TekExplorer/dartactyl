@@ -8,8 +8,15 @@ part of '../../../models/permission_keys/control_permission_keys.dart';
 
 _$_ControlPermissionKeys _$$_ControlPermissionKeysFromJson(
         Map<String, dynamic> json) =>
-    _$_ControlPermissionKeys(
-      connect: json['connect'] as String,
+    $checkedCreate(
+      r'_$_ControlPermissionKeys',
+      json,
+      ($checkedConvert) {
+        final val = _$_ControlPermissionKeys(
+          connect: $checkedConvert('connect', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_ControlPermissionKeysToJson(

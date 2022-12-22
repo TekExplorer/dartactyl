@@ -6,8 +6,8 @@ part '../../generated/models/application_models/server.g.dart';
 
 @freezed
 class ApplicationServer with _$ApplicationServer, SerializableMixin {
-  const ApplicationServer._();
   // https://github.com/pterodactyl/panel/blob/1.0-develop/app/Transformers/Api/Application/ServerTransformer.php
+  const ApplicationServer._();
   const factory ApplicationServer({
     required int id,
     required String externalId,
@@ -36,6 +36,7 @@ class ApplicationServer with _$ApplicationServer, SerializableMixin {
 
 @freezed
 class ApplicationServerContainer with _$ApplicationServerContainer {
+  const ApplicationServerContainer._();
   const factory ApplicationServerContainer({
     required String startupCommand,
     required String image,
@@ -49,8 +50,8 @@ class ApplicationServerContainer with _$ApplicationServerContainer {
 
 @freezed
 class ApplicationServerRelationships with _$ApplicationServerRelationships {
-  const ApplicationServerRelationships._();
   // https://github.com/pterodactyl/panel/blob/1.0-develop/app/Transformers/Api/Application/ServerTransformer.php
+  const ApplicationServerRelationships._();
   const factory ApplicationServerRelationships(
     Fractal<ApplicationUser>? user,
     // todo: add all relationships

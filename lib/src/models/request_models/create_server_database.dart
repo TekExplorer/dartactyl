@@ -6,6 +6,7 @@ part '../../generated/models/request_models/create_server_database.g.dart';
 
 @freezed
 class CreateServerDatabase with _$CreateServerDatabase {
+  const CreateServerDatabase._();
   const factory CreateServerDatabase({
     required String database,
     required String remote,

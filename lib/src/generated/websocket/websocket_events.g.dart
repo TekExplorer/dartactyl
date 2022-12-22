@@ -8,9 +8,18 @@ part of '../../websocket/websocket_events.dart';
 
 _$_WebsocketRecievedModel _$$_WebsocketRecievedModelFromJson(
         Map<String, dynamic> json) =>
-    _$_WebsocketRecievedModel(
-      $enumDecode(_$WebsocketRecievedModelEventEnumMap, json['event']),
-      (json['args'] as List<dynamic>?)?.map((e) => e as String).toList(),
+    $checkedCreate(
+      r'_$_WebsocketRecievedModel',
+      json,
+      ($checkedConvert) {
+        final val = _$_WebsocketRecievedModel(
+          $checkedConvert('event',
+              (v) => $enumDecode(_$WebsocketRecievedModelEventEnumMap, v)),
+          $checkedConvert('args',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_WebsocketRecievedModelToJson(
@@ -34,9 +43,18 @@ const _$WebsocketRecievedModelEventEnumMap = {
 
 _$_WebsocketSendModel _$$_WebsocketSendModelFromJson(
         Map<String, dynamic> json) =>
-    _$_WebsocketSendModel(
-      $enumDecode(_$WebsocketSendModelEventEnumMap, json['event']),
-      (json['args'] as List<dynamic>?)?.map((e) => e as String).toList(),
+    $checkedCreate(
+      r'_$_WebsocketSendModel',
+      json,
+      ($checkedConvert) {
+        final val = _$_WebsocketSendModel(
+          $checkedConvert(
+              'event', (v) => $enumDecode(_$WebsocketSendModelEventEnumMap, v)),
+          $checkedConvert('args',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_WebsocketSendModelToJson(

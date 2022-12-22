@@ -735,13 +735,14 @@ class __$$_ApplicationServerContainerCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApplicationServerContainer implements _ApplicationServerContainer {
+class _$_ApplicationServerContainer extends _ApplicationServerContainer {
   const _$_ApplicationServerContainer(
       {required this.startupCommand,
       required this.image,
       @Deprecated('Use status instead') required this.installed,
       required final Map<String, dynamic> environment})
-      : _environment = environment;
+      : _environment = environment,
+        super._();
 
   factory _$_ApplicationServerContainer.fromJson(Map<String, dynamic> json) =>
       _$$_ApplicationServerContainerFromJson(json);
@@ -799,14 +800,14 @@ class _$_ApplicationServerContainer implements _ApplicationServerContainer {
   }
 }
 
-abstract class _ApplicationServerContainer
-    implements ApplicationServerContainer {
+abstract class _ApplicationServerContainer extends ApplicationServerContainer {
   const factory _ApplicationServerContainer(
           {required final String startupCommand,
           required final String image,
           @Deprecated('Use status instead') required final bool installed,
           required final Map<String, dynamic> environment}) =
       _$_ApplicationServerContainer;
+  const _ApplicationServerContainer._() : super._();
 
   factory _ApplicationServerContainer.fromJson(Map<String, dynamic> json) =
       _$_ApplicationServerContainer.fromJson;

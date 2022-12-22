@@ -6,14 +6,23 @@ part of '../../../models/fractal/fractal_response_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FractalResponseData<T>
-    _$FractalResponseDataFromJson<T extends SerializableMixin>(
-            Map<String, dynamic> json) =>
-        FractalResponseData<T>(
-          object: $enumDecode(_$AttributeObjectEnumMap, json['object']),
-          attributes: AttributesConverter<T>()
-              .fromJson(json['attributes'] as Map<String, dynamic>),
+FractalResponseData<T> _$FractalResponseDataFromJson<
+        T extends SerializableMixin>(Map<String, dynamic> json) =>
+    $checkedCreate(
+      'FractalResponseData',
+      json,
+      ($checkedConvert) {
+        final val = FractalResponseData<T>(
+          object: $checkedConvert(
+              'object', (v) => $enumDecode(_$AttributeObjectEnumMap, v)),
+          attributes: $checkedConvert(
+              'attributes',
+              (v) =>
+                  AttributesConverter<T>().fromJson(v as Map<String, dynamic>)),
         );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$FractalResponseDataToJson<T extends SerializableMixin>(
         FractalResponseData<T> instance) =>
@@ -53,11 +62,22 @@ const _$AttributeObjectEnumMap = {
 FractalResponseDataMeta<T, M> _$FractalResponseDataMetaFromJson<
         T extends SerializableMixin,
         M extends Meta<M>>(Map<String, dynamic> json) =>
-    FractalResponseDataMeta<T, M>(
-      object: $enumDecode(_$AttributeObjectEnumMap, json['object']),
-      attributes: AttributesConverter<T>()
-          .fromJson(json['attributes'] as Map<String, dynamic>),
-      meta: MetaConverter<M>().fromJson(json['meta'] as Map<String, dynamic>),
+    $checkedCreate(
+      'FractalResponseDataMeta',
+      json,
+      ($checkedConvert) {
+        final val = FractalResponseDataMeta<T, M>(
+          object: $checkedConvert(
+              'object', (v) => $enumDecode(_$AttributeObjectEnumMap, v)),
+          attributes: $checkedConvert(
+              'attributes',
+              (v) =>
+                  AttributesConverter<T>().fromJson(v as Map<String, dynamic>)),
+          meta: $checkedConvert('meta',
+              (v) => MetaConverter<M>().fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$FractalResponseDataMetaToJson<

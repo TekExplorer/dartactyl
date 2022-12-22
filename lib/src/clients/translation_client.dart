@@ -273,7 +273,8 @@ abstract class KnownNamespaces {
 
 @freezed
 class TranslationData with _$TranslationData {
-  factory TranslationData({required JsonMap en}) = _TranslationData;
+  const TranslationData._();
+  const factory TranslationData({required JsonMap en}) = _TranslationData;
 
   factory TranslationData.fromJson(Map<String, dynamic> json) =>
       _$TranslationDataFromJson(json);

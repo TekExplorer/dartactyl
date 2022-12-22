@@ -1,4 +1,8 @@
 # CHANGELOG
+## 1.6.4
+
+- Added serialization checks so that issues with the source data can be more easily found
+
 ## 1.6.3
 
 - Added object-based filters in order to cut down on unnecessarily many filter parameters.

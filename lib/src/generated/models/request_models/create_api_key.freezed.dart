@@ -107,10 +107,11 @@ class __$$_CreateApiKeyCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CreateApiKey implements _CreateApiKey {
+class _$_CreateApiKey extends _CreateApiKey {
   const _$_CreateApiKey(
       {required this.description, required final List<String> allowedIps})
-      : _allowedIps = allowedIps;
+      : _allowedIps = allowedIps,
+        super._();
 
   factory _$_CreateApiKey.fromJson(Map<String, dynamic> json) =>
       _$$_CreateApiKeyFromJson(json);
@@ -159,10 +160,11 @@ class _$_CreateApiKey implements _CreateApiKey {
   }
 }
 
-abstract class _CreateApiKey implements CreateApiKey {
+abstract class _CreateApiKey extends CreateApiKey {
   const factory _CreateApiKey(
       {required final String description,
       required final List<String> allowedIps}) = _$_CreateApiKey;
+  const _CreateApiKey._() : super._();
 
   factory _CreateApiKey.fromJson(Map<String, dynamic> json) =
       _$_CreateApiKey.fromJson;

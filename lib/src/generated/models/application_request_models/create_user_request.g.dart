@@ -7,11 +7,19 @@ part of '../../../models/application_request_models/create_user_request.dart';
 // **************************************************************************
 
 _$_CreateUserRequest _$$_CreateUserRequestFromJson(Map<String, dynamic> json) =>
-    _$_CreateUserRequest(
-      email: json['email'] as String,
-      username: json['username'] as String,
-      firstName: json['first_name'] as String,
-      lastName: json['last_name'] as String,
+    $checkedCreate(
+      r'_$_CreateUserRequest',
+      json,
+      ($checkedConvert) {
+        final val = _$_CreateUserRequest(
+          email: $checkedConvert('email', (v) => v as String),
+          username: $checkedConvert('username', (v) => v as String),
+          firstName: $checkedConvert('first_name', (v) => v as String),
+          lastName: $checkedConvert('last_name', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'firstName': 'first_name', 'lastName': 'last_name'},
     );
 
 Map<String, dynamic> _$$_CreateUserRequestToJson(

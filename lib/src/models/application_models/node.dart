@@ -7,6 +7,7 @@ part '../../generated/models/application_models/node.g.dart';
 //TODO: ensure all fields are correct
 @freezed
 class Node with _$Node, SerializableMixin {
+  const Node._();
   const factory Node({
     required int id,
     required String uuid,
@@ -32,12 +33,11 @@ class Node with _$Node, SerializableMixin {
   }) = _Node;
 
   factory Node.fromJson(JsonMap json) => _$NodeFromJson(json);
-
-  const Node._();
 }
 
 @freezed
 class NodeRelationships with _$NodeRelationships, SerializableMixin {
+  const NodeRelationships._();
   const factory NodeRelationships({
     Fractal<ApplicationAllocation>? allocation,
     Fractal<Location>? location,
@@ -46,6 +46,4 @@ class NodeRelationships with _$NodeRelationships, SerializableMixin {
 
   factory NodeRelationships.fromJson(JsonMap json) =>
       _$NodeRelationshipsFromJson(json);
-
-  const NodeRelationships._();
 }

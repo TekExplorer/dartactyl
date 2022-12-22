@@ -129,12 +129,13 @@ class __$$_CreateUserRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CreateUserRequest implements _CreateUserRequest {
+class _$_CreateUserRequest extends _CreateUserRequest {
   const _$_CreateUserRequest(
       {required this.email,
       required this.username,
       required this.firstName,
-      required this.lastName});
+      required this.lastName})
+      : super._();
 
   factory _$_CreateUserRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateUserRequestFromJson(json);
@@ -187,12 +188,13 @@ class _$_CreateUserRequest implements _CreateUserRequest {
   }
 }
 
-abstract class _CreateUserRequest implements CreateUserRequest {
+abstract class _CreateUserRequest extends CreateUserRequest {
   const factory _CreateUserRequest(
       {required final String email,
       required final String username,
       required final String firstName,
       required final String lastName}) = _$_CreateUserRequest;
+  const _CreateUserRequest._() : super._();
 
   factory _CreateUserRequest.fromJson(Map<String, dynamic> json) =
       _$_CreateUserRequest.fromJson;

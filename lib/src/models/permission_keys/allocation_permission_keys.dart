@@ -8,7 +8,6 @@ part '../../generated/models/permission_keys/allocation_permission_keys.g.dart';
 class AllocationPermissionKeys
     with SerializableMixin, _$AllocationPermissionKeys {
   const AllocationPermissionKeys._();
-
   const factory AllocationPermissionKeys({
     required String read,
     required String create,
@@ -18,7 +17,4 @@ class AllocationPermissionKeys
 
   factory AllocationPermissionKeys.fromJson(JsonMap json) =>
       _$AllocationPermissionKeysFromJson(json);
-
-  @override
-  JsonMap toJson();
 }

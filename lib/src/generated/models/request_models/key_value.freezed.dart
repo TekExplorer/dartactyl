@@ -105,8 +105,8 @@ class __$$_KeyValueCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_KeyValue implements _KeyValue {
-  const _$_KeyValue({required this.key, required this.value});
+class _$_KeyValue extends _KeyValue {
+  const _$_KeyValue({required this.key, required this.value}) : super._();
 
   factory _$_KeyValue.fromJson(Map<String, dynamic> json) =>
       _$$_KeyValueFromJson(json);
@@ -148,9 +148,10 @@ class _$_KeyValue implements _KeyValue {
   }
 }
 
-abstract class _KeyValue implements KeyValue {
+abstract class _KeyValue extends KeyValue {
   const factory _KeyValue(
       {required final String key, required final String value}) = _$_KeyValue;
+  const _KeyValue._() : super._();
 
   factory _KeyValue.fromJson(Map<String, dynamic> json) = _$_KeyValue.fromJson;
 

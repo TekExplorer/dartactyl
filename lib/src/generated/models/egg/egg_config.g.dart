@@ -6,15 +6,25 @@ part of '../../../models/egg/egg_config.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EggConfig _$$_EggConfigFromJson(Map<String, dynamic> json) => _$_EggConfig(
-      files: json['files'] as Map<String, dynamic>,
-      startup:
-          EggStartupConfig.fromJson(json['startup'] as Map<String, dynamic>),
-      stop: json['stop'] as String,
-      logs: json['logs'] == null
-          ? null
-          : EggLogsConfig.fromJson(json['logs'] as Map<String, dynamic>),
-      configExtends: json['config_extends'],
+_$_EggConfig _$$_EggConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$_EggConfig',
+      json,
+      ($checkedConvert) {
+        final val = _$_EggConfig(
+          files: $checkedConvert('files', (v) => v as Map<String, dynamic>),
+          startup: $checkedConvert('startup',
+              (v) => EggStartupConfig.fromJson(v as Map<String, dynamic>)),
+          stop: $checkedConvert('stop', (v) => v as String),
+          logs: $checkedConvert(
+              'logs',
+              (v) => v == null
+                  ? null
+                  : EggLogsConfig.fromJson(v as Map<String, dynamic>)),
+          configExtends: $checkedConvert('config_extends', (v) => v),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'configExtends': 'config_extends'},
     );
 
 Map<String, dynamic> _$$_EggConfigToJson(_$_EggConfig instance) =>

@@ -7,9 +7,16 @@ part of '../../../models/ptero_data/websocket_details.dart';
 // **************************************************************************
 
 _$_WebsocketDetails _$$_WebsocketDetailsFromJson(Map<String, dynamic> json) =>
-    _$_WebsocketDetails(
-      token: json['token'] as String,
-      socket: json['socket'] as String,
+    $checkedCreate(
+      r'_$_WebsocketDetails',
+      json,
+      ($checkedConvert) {
+        final val = _$_WebsocketDetails(
+          token: $checkedConvert('token', (v) => v as String),
+          socket: $checkedConvert('socket', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_WebsocketDetailsToJson(_$_WebsocketDetails instance) =>

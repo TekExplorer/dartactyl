@@ -14,7 +14,4 @@ class TwoFactorImage with SerializableMixin, _$TwoFactorImage {
 
   factory TwoFactorImage.fromJson(JsonMap json) =>
       _$TwoFactorImageFromJson(json);
-
-  @override
-  JsonMap toJson();
 }

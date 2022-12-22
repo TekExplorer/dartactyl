@@ -7,11 +7,20 @@ part of '../../../models/request_models/chmod_file.dart';
 // **************************************************************************
 
 _$_ChmodFileBody _$$_ChmodFileBodyFromJson(Map<String, dynamic> json) =>
-    _$_ChmodFileBody(
-      root: json['root'] as String?,
-      files: (json['files'] as List<dynamic>)
-          .map((e) => ChmodFile.fromJson(e as Map<String, dynamic>))
-          .toList(),
+    $checkedCreate(
+      r'_$_ChmodFileBody',
+      json,
+      ($checkedConvert) {
+        final val = _$_ChmodFileBody(
+          root: $checkedConvert('root', (v) => v as String?),
+          files: $checkedConvert(
+              'files',
+              (v) => (v as List<dynamic>)
+                  .map((e) => ChmodFile.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_ChmodFileBodyToJson(_$_ChmodFileBody instance) =>
@@ -20,9 +29,16 @@ Map<String, dynamic> _$$_ChmodFileBodyToJson(_$_ChmodFileBody instance) =>
       'files': instance.files.map((e) => e.toJson()).toList(),
     };
 
-_$_ChmodFile _$$_ChmodFileFromJson(Map<String, dynamic> json) => _$_ChmodFile(
-      file: json['file'] as String,
-      mode: json['mode'] as int,
+_$_ChmodFile _$$_ChmodFileFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$_ChmodFile',
+      json,
+      ($checkedConvert) {
+        final val = _$_ChmodFile(
+          file: $checkedConvert('file', (v) => v as String),
+          mode: $checkedConvert('mode', (v) => v as int),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_ChmodFileToJson(_$_ChmodFile instance) =>

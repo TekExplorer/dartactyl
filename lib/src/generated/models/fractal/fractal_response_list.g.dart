@@ -6,16 +6,28 @@ part of '../../../models/fractal/fractal_response_list.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FractalResponseList<T> _$FractalResponseListFromJson<
-        T extends SerializableMixin>(Map<String, dynamic> json) =>
-    FractalResponseList<T>(
-      object: $enumDecode(_$AttributeObjectEnumMap, json['object']),
-      data: (json['data'] as List<dynamic>?)
-              ?.map((e) =>
-                  FractalResponseData<T>.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
-    );
+FractalResponseList<T>
+    _$FractalResponseListFromJson<T extends SerializableMixin>(
+            Map<String, dynamic> json) =>
+        $checkedCreate(
+          'FractalResponseList',
+          json,
+          ($checkedConvert) {
+            final val = FractalResponseList<T>(
+              object: $checkedConvert(
+                  'object', (v) => $enumDecode(_$AttributeObjectEnumMap, v)),
+              data: $checkedConvert(
+                  'data',
+                  (v) =>
+                      (v as List<dynamic>?)
+                          ?.map((e) => FractalResponseData<T>.fromJson(
+                              e as Map<String, dynamic>))
+                          .toList() ??
+                      const []),
+            );
+            return val;
+          },
+        );
 
 Map<String, dynamic> _$FractalResponseListToJson<T extends SerializableMixin>(
         FractalResponseList<T> instance) =>
@@ -55,14 +67,26 @@ const _$AttributeObjectEnumMap = {
 FractalResponseListMeta<T, M> _$FractalResponseListMetaFromJson<
         T extends SerializableMixin,
         M extends Meta<M>>(Map<String, dynamic> json) =>
-    FractalResponseListMeta<T, M>(
-      object: $enumDecode(_$AttributeObjectEnumMap, json['object']),
-      data: (json['data'] as List<dynamic>?)
-              ?.map((e) =>
-                  FractalResponseData<T>.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
-      meta: MetaConverter<M>().fromJson(json['meta'] as Map<String, dynamic>),
+    $checkedCreate(
+      'FractalResponseListMeta',
+      json,
+      ($checkedConvert) {
+        final val = FractalResponseListMeta<T, M>(
+          object: $checkedConvert(
+              'object', (v) => $enumDecode(_$AttributeObjectEnumMap, v)),
+          data: $checkedConvert(
+              'data',
+              (v) =>
+                  (v as List<dynamic>?)
+                      ?.map((e) => FractalResponseData<T>.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  const []),
+          meta: $checkedConvert('meta',
+              (v) => MetaConverter<M>().fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$FractalResponseListMetaToJson<

@@ -7,8 +7,15 @@ part of '../../../models/request_models/make_file_copy.dart';
 // **************************************************************************
 
 _$_MakeFileCopy _$$_MakeFileCopyFromJson(Map<String, dynamic> json) =>
-    _$_MakeFileCopy(
-      location: json['location'] as String,
+    $checkedCreate(
+      r'_$_MakeFileCopy',
+      json,
+      ($checkedConvert) {
+        final val = _$_MakeFileCopy(
+          location: $checkedConvert('location', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_MakeFileCopyToJson(_$_MakeFileCopy instance) =>

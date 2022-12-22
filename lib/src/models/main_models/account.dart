@@ -18,7 +18,4 @@ class Account with SerializableMixin, _$Account {
   }) = _Account;
 
   factory Account.fromJson(JsonMap json) => _$AccountFromJson(json);
-
-  @override
-  JsonMap toJson();
 }

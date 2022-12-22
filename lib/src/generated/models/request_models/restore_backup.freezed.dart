@@ -98,8 +98,9 @@ class __$$_RestoreBackupCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RestoreBackup implements _RestoreBackup {
-  const _$_RestoreBackup({@JsonKey(name: 'truncate') this.deleteExistingFiles});
+class _$_RestoreBackup extends _RestoreBackup {
+  const _$_RestoreBackup({@JsonKey(name: 'truncate') this.deleteExistingFiles})
+      : super._();
 
   factory _$_RestoreBackup.fromJson(Map<String, dynamic> json) =>
       _$$_RestoreBackupFromJson(json);
@@ -141,10 +142,11 @@ class _$_RestoreBackup implements _RestoreBackup {
   }
 }
 
-abstract class _RestoreBackup implements RestoreBackup {
+abstract class _RestoreBackup extends RestoreBackup {
   const factory _RestoreBackup(
           {@JsonKey(name: 'truncate') final bool? deleteExistingFiles}) =
       _$_RestoreBackup;
+  const _RestoreBackup._() : super._();
 
   factory _RestoreBackup.fromJson(Map<String, dynamic> json) =
       _$_RestoreBackup.fromJson;

@@ -8,9 +8,18 @@ part of '../../../models/ptero_data/ptero_data.dart';
 
 _$_PteroData<T> _$$_PteroDataFromJson<T extends SerializableMixin>(
         Map<String, dynamic> json) =>
-    _$_PteroData<T>(
-      data: PteroDataConverter<T>()
-          .fromJson(json['data'] as Map<String, dynamic>),
+    $checkedCreate(
+      r'_$_PteroData',
+      json,
+      ($checkedConvert) {
+        final val = _$_PteroData<T>(
+          data: $checkedConvert(
+              'data',
+              (v) =>
+                  PteroDataConverter<T>().fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_PteroDataToJson<T extends SerializableMixin>(

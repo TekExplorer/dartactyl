@@ -7,8 +7,15 @@ part of '../../../models/error_responses/ptero_error_meta.dart';
 // **************************************************************************
 
 PteroErrorMeta _$PteroErrorMetaFromJson(Map<String, dynamic> json) =>
-    PteroErrorMeta(
-      rule: json['rule'] as String,
+    $checkedCreate(
+      'PteroErrorMeta',
+      json,
+      ($checkedConvert) {
+        final val = PteroErrorMeta(
+          rule: $checkedConvert('rule', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$PteroErrorMetaToJson(PteroErrorMeta instance) =>
@@ -18,10 +25,20 @@ Map<String, dynamic> _$PteroErrorMetaToJson(PteroErrorMeta instance) =>
 
 PteroErrorStringMeta _$PteroErrorStringMetaFromJson(
         Map<String, dynamic> json) =>
-    PteroErrorStringMeta(
-      rule: json['rule'] as String,
-      sourceField: $enumDecodeNullable(
-          _$PteroErrorScheduleMetaRuleEnumMap, json['source_field']),
+    $checkedCreate(
+      'PteroErrorStringMeta',
+      json,
+      ($checkedConvert) {
+        final val = PteroErrorStringMeta(
+          rule: $checkedConvert('rule', (v) => v as String),
+          sourceField: $checkedConvert(
+              'source_field',
+              (v) =>
+                  $enumDecodeNullable(_$PteroErrorScheduleMetaRuleEnumMap, v)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'sourceField': 'source_field'},
     );
 
 Map<String, dynamic> _$PteroErrorStringMetaToJson(
@@ -38,9 +55,18 @@ const _$PteroErrorScheduleMetaRuleEnumMap = {
 
 PteroErrorScheduleMeta _$PteroErrorScheduleMetaFromJson(
         Map<String, dynamic> json) =>
-    PteroErrorScheduleMeta(
-      rule: json['rule'] as String,
-      sourceField: Cron.fromJson(json['source_field'] as Map<String, dynamic>),
+    $checkedCreate(
+      'PteroErrorScheduleMeta',
+      json,
+      ($checkedConvert) {
+        final val = PteroErrorScheduleMeta(
+          rule: $checkedConvert('rule', (v) => v as String),
+          sourceField: $checkedConvert(
+              'source_field', (v) => Cron.fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'sourceField': 'source_field'},
     );
 
 Map<String, dynamic> _$PteroErrorScheduleMetaToJson(

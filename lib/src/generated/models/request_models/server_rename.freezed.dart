@@ -104,8 +104,8 @@ class __$$_RenameCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Rename implements _Rename {
-  const _$_Rename({required this.name, this.description});
+class _$_Rename extends _Rename {
+  const _$_Rename({required this.name, this.description}) : super._();
 
   factory _$_Rename.fromJson(Map<String, dynamic> json) =>
       _$$_RenameFromJson(json);
@@ -150,9 +150,10 @@ class _$_Rename implements _Rename {
   }
 }
 
-abstract class _Rename implements Rename {
+abstract class _Rename extends Rename {
   const factory _Rename(
       {required final String name, final String? description}) = _$_Rename;
+  const _Rename._() : super._();
 
   factory _Rename.fromJson(Map<String, dynamic> json) = _$_Rename.fromJson;
 

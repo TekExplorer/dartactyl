@@ -7,11 +7,20 @@ part of '../../../models/error_responses/ptero_error.dart';
 // **************************************************************************
 
 _$_PteroError _$$_PteroErrorFromJson(Map<String, dynamic> json) =>
-    _$_PteroError(
-      code: $enumDecode(_$PteroErrorCodeEnumMap, json['code'],
-          unknownValue: PteroErrorCode.UNKNOWN),
-      status: json['status'] as String,
-      detail: json['detail'] as String,
+    $checkedCreate(
+      r'_$_PteroError',
+      json,
+      ($checkedConvert) {
+        final val = _$_PteroError(
+          code: $checkedConvert(
+              'code',
+              (v) => $enumDecode(_$PteroErrorCodeEnumMap, v,
+                  unknownValue: PteroErrorCode.UNKNOWN)),
+          status: $checkedConvert('status', (v) => v as String),
+          detail: $checkedConvert('detail', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_PteroErrorToJson(_$_PteroError instance) =>

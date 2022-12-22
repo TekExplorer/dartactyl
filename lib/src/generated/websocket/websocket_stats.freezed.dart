@@ -163,13 +163,14 @@ class __$$_WebsocketStatsModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WebsocketStatsModel implements _WebsocketStatsModel {
+class _$_WebsocketStatsModel extends _WebsocketStatsModel {
   const _$_WebsocketStatsModel(
       {required this.cpuAbsolute,
       required this.memoryBytes,
       required this.memoryLimitBytes,
       required this.network,
-      required this.state});
+      required this.state})
+      : super._();
 
   factory _$_WebsocketStatsModel.fromJson(Map<String, dynamic> json) =>
       _$$_WebsocketStatsModelFromJson(json);
@@ -225,13 +226,14 @@ class _$_WebsocketStatsModel implements _WebsocketStatsModel {
   }
 }
 
-abstract class _WebsocketStatsModel implements WebsocketStatsModel {
+abstract class _WebsocketStatsModel extends WebsocketStatsModel {
   const factory _WebsocketStatsModel(
       {required final double cpuAbsolute,
       required final int memoryBytes,
       required final int memoryLimitBytes,
       required final WebsocketNetworkStatsModel network,
       required final ServerPowerState state}) = _$_WebsocketStatsModel;
+  const _WebsocketStatsModel._() : super._();
 
   factory _WebsocketStatsModel.fromJson(Map<String, dynamic> json) =
       _$_WebsocketStatsModel.fromJson;
@@ -351,9 +353,10 @@ class __$$_WebsocketNetworkStatsModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WebsocketNetworkStatsModel implements _WebsocketNetworkStatsModel {
+class _$_WebsocketNetworkStatsModel extends _WebsocketNetworkStatsModel {
   const _$_WebsocketNetworkStatsModel(
-      {required this.rxBytes, required this.txBytes});
+      {required this.rxBytes, required this.txBytes})
+      : super._();
 
   factory _$_WebsocketNetworkStatsModel.fromJson(Map<String, dynamic> json) =>
       _$$_WebsocketNetworkStatsModelFromJson(json);
@@ -396,11 +399,11 @@ class _$_WebsocketNetworkStatsModel implements _WebsocketNetworkStatsModel {
   }
 }
 
-abstract class _WebsocketNetworkStatsModel
-    implements WebsocketNetworkStatsModel {
+abstract class _WebsocketNetworkStatsModel extends WebsocketNetworkStatsModel {
   const factory _WebsocketNetworkStatsModel(
       {required final int rxBytes,
       required final int txBytes}) = _$_WebsocketNetworkStatsModel;
+  const _WebsocketNetworkStatsModel._() : super._();
 
   factory _WebsocketNetworkStatsModel.fromJson(Map<String, dynamic> json) =
       _$_WebsocketNetworkStatsModel.fromJson;

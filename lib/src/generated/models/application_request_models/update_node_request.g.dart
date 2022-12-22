@@ -7,21 +7,41 @@ part of '../../../models/application_request_models/update_node_request.dart';
 // **************************************************************************
 
 _$_UpdateNodeRequest _$$_UpdateNodeRequestFromJson(Map<String, dynamic> json) =>
-    _$_UpdateNodeRequest(
-      name: json['name'] as String,
-      locationId: json['location_id'] as int,
-      fqdn: json['fqdn'] as String,
-      scheme: json['scheme'] as String,
-      memory: json['memory'] as int,
-      memoryOverallocate: json['memory_overallocate'] as int,
-      disk: json['disk'] as int,
-      diskOverallocate: json['disk_overallocate'] as int,
-      uploadSize: json['upload_size'] as int,
-      daemonSftp: json['daemon_sftp'] as int,
-      daemonListen: json['daemon_listen'] as int,
-      behindProxy: json['behind_proxy'] as bool,
-      maintenanceMode: json['maintenance_mode'] as bool,
-      description: json['description'] as String,
+    $checkedCreate(
+      r'_$_UpdateNodeRequest',
+      json,
+      ($checkedConvert) {
+        final val = _$_UpdateNodeRequest(
+          name: $checkedConvert('name', (v) => v as String),
+          locationId: $checkedConvert('location_id', (v) => v as int),
+          fqdn: $checkedConvert('fqdn', (v) => v as String),
+          scheme: $checkedConvert('scheme', (v) => v as String),
+          memory: $checkedConvert('memory', (v) => v as int),
+          memoryOverallocate:
+              $checkedConvert('memory_overallocate', (v) => v as int),
+          disk: $checkedConvert('disk', (v) => v as int),
+          diskOverallocate:
+              $checkedConvert('disk_overallocate', (v) => v as int),
+          uploadSize: $checkedConvert('upload_size', (v) => v as int),
+          daemonSftp: $checkedConvert('daemon_sftp', (v) => v as int),
+          daemonListen: $checkedConvert('daemon_listen', (v) => v as int),
+          behindProxy: $checkedConvert('behind_proxy', (v) => v as bool),
+          maintenanceMode:
+              $checkedConvert('maintenance_mode', (v) => v as bool),
+          description: $checkedConvert('description', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'locationId': 'location_id',
+        'memoryOverallocate': 'memory_overallocate',
+        'diskOverallocate': 'disk_overallocate',
+        'uploadSize': 'upload_size',
+        'daemonSftp': 'daemon_sftp',
+        'daemonListen': 'daemon_listen',
+        'behindProxy': 'behind_proxy',
+        'maintenanceMode': 'maintenance_mode'
+      },
     );
 
 Map<String, dynamic> _$$_UpdateNodeRequestToJson(

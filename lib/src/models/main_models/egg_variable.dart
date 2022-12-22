@@ -6,6 +6,7 @@ part '../../generated/models/main_models/egg_variable.g.dart';
 
 @freezed
 class EggVariable with SerializableMixin, _$EggVariable {
+  const EggVariable._();
   const factory EggVariable({
     required String name,
     required String description,
@@ -16,8 +17,4 @@ class EggVariable with SerializableMixin, _$EggVariable {
     required String rules,
   }) = _EggVariable;
   factory EggVariable.fromJson(JsonMap json) => _$EggVariableFromJson(json);
-
-  const EggVariable._();
-  @override
-  JsonMap toJson();
 }

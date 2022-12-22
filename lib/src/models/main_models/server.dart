@@ -29,9 +29,6 @@ class Server with SerializableMixin, _$Server {
   }) = _Server;
 
   factory Server.fromJson(JsonMap json) => _$ServerFromJson(json);
-
-  @override
-  JsonMap toJson();
 }
 
 enum ServerStatus {

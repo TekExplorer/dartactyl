@@ -7,9 +7,16 @@ part of '../../../models/main_models/system_permissions.dart';
 // **************************************************************************
 
 _$_SystemPermissions _$$_SystemPermissionsFromJson(Map<String, dynamic> json) =>
-    _$_SystemPermissions(
-      permissions:
-          Permissions.fromJson(json['permissions'] as Map<String, dynamic>),
+    $checkedCreate(
+      r'_$_SystemPermissions',
+      json,
+      ($checkedConvert) {
+        final val = _$_SystemPermissions(
+          permissions: $checkedConvert('permissions',
+              (v) => Permissions.fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_SystemPermissionsToJson(
@@ -19,27 +26,54 @@ Map<String, dynamic> _$$_SystemPermissionsToJson(
     };
 
 _$_Permissions _$$_PermissionsFromJson(Map<String, dynamic> json) =>
-    _$_Permissions(
-      websocket: PermissionsModel<WebsocketPermissionKeys>.fromJson(
-          json['websocket'] as Map<String, dynamic>),
-      control: PermissionsModel<ControlPermissionKeys>.fromJson(
-          json['control'] as Map<String, dynamic>),
-      user: PermissionsModel<UserPermissionKeys>.fromJson(
-          json['user'] as Map<String, dynamic>),
-      file: PermissionsModel<FilePermissionKeys>.fromJson(
-          json['file'] as Map<String, dynamic>),
-      backup: PermissionsModel<BackupPermissionKeys>.fromJson(
-          json['backup'] as Map<String, dynamic>),
-      allocation: PermissionsModel<AllocationPermissionKeys>.fromJson(
-          json['allocation'] as Map<String, dynamic>),
-      startup: PermissionsModel<StartupPermissionKeys>.fromJson(
-          json['startup'] as Map<String, dynamic>),
-      database: PermissionsModel<DatabasePermissionKeys>.fromJson(
-          json['database'] as Map<String, dynamic>),
-      schedule: PermissionsModel<SchedulePermissionKeys>.fromJson(
-          json['schedule'] as Map<String, dynamic>),
-      settings: PermissionsModel<SettingsPermissionKeys>.fromJson(
-          json['settings'] as Map<String, dynamic>),
+    $checkedCreate(
+      r'_$_Permissions',
+      json,
+      ($checkedConvert) {
+        final val = _$_Permissions(
+          websocket: $checkedConvert(
+              'websocket',
+              (v) => PermissionsModel<WebsocketPermissionKeys>.fromJson(
+                  v as Map<String, dynamic>)),
+          control: $checkedConvert(
+              'control',
+              (v) => PermissionsModel<ControlPermissionKeys>.fromJson(
+                  v as Map<String, dynamic>)),
+          user: $checkedConvert(
+              'user',
+              (v) => PermissionsModel<UserPermissionKeys>.fromJson(
+                  v as Map<String, dynamic>)),
+          file: $checkedConvert(
+              'file',
+              (v) => PermissionsModel<FilePermissionKeys>.fromJson(
+                  v as Map<String, dynamic>)),
+          backup: $checkedConvert(
+              'backup',
+              (v) => PermissionsModel<BackupPermissionKeys>.fromJson(
+                  v as Map<String, dynamic>)),
+          allocation: $checkedConvert(
+              'allocation',
+              (v) => PermissionsModel<AllocationPermissionKeys>.fromJson(
+                  v as Map<String, dynamic>)),
+          startup: $checkedConvert(
+              'startup',
+              (v) => PermissionsModel<StartupPermissionKeys>.fromJson(
+                  v as Map<String, dynamic>)),
+          database: $checkedConvert(
+              'database',
+              (v) => PermissionsModel<DatabasePermissionKeys>.fromJson(
+                  v as Map<String, dynamic>)),
+          schedule: $checkedConvert(
+              'schedule',
+              (v) => PermissionsModel<SchedulePermissionKeys>.fromJson(
+                  v as Map<String, dynamic>)),
+          settings: $checkedConvert(
+              'settings',
+              (v) => PermissionsModel<SettingsPermissionKeys>.fromJson(
+                  v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_PermissionsToJson(_$_Permissions instance) =>
@@ -59,10 +93,19 @@ Map<String, dynamic> _$$_PermissionsToJson(_$_Permissions instance) =>
 _$_PermissionsModel<T>
     _$$_PermissionsModelFromJson<T extends SerializableMixin>(
             Map<String, dynamic> json) =>
-        _$_PermissionsModel<T>(
-          description: json['description'] as String,
-          keys: PermissionKeysConverter<T>()
-              .fromJson(json['keys'] as Map<String, dynamic>),
+        $checkedCreate(
+          r'_$_PermissionsModel',
+          json,
+          ($checkedConvert) {
+            final val = _$_PermissionsModel<T>(
+              description: $checkedConvert('description', (v) => v as String),
+              keys: $checkedConvert(
+                  'keys',
+                  (v) => PermissionKeysConverter<T>()
+                      .fromJson(v as Map<String, dynamic>)),
+            );
+            return val;
+          },
         );
 
 Map<String, dynamic> _$$_PermissionsModelToJson<T extends SerializableMixin>(

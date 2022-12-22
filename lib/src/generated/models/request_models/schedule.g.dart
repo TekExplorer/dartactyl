@@ -7,14 +7,27 @@ part of '../../../models/request_models/schedule.dart';
 // **************************************************************************
 
 _$_RequestSchedule _$$_RequestScheduleFromJson(Map<String, dynamic> json) =>
-    _$_RequestSchedule(
-      onlyWhenOnline: json['only_when_online'] as bool,
-      name: json['name'] as String,
-      isActive: json['is_active'] as bool,
-      minute: json['minute'] as String,
-      hour: json['hour'] as String,
-      dayOfWeek: json['day_of_week'] as String,
-      dayOfMonth: json['day_of_month'] as String,
+    $checkedCreate(
+      r'_$_RequestSchedule',
+      json,
+      ($checkedConvert) {
+        final val = _$_RequestSchedule(
+          onlyWhenOnline: $checkedConvert('only_when_online', (v) => v as bool),
+          name: $checkedConvert('name', (v) => v as String),
+          isActive: $checkedConvert('is_active', (v) => v as bool),
+          minute: $checkedConvert('minute', (v) => v as String),
+          hour: $checkedConvert('hour', (v) => v as String),
+          dayOfWeek: $checkedConvert('day_of_week', (v) => v as String),
+          dayOfMonth: $checkedConvert('day_of_month', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'onlyWhenOnline': 'only_when_online',
+        'isActive': 'is_active',
+        'dayOfWeek': 'day_of_week',
+        'dayOfMonth': 'day_of_month'
+      },
     );
 
 Map<String, dynamic> _$$_RequestScheduleToJson(_$_RequestSchedule instance) =>

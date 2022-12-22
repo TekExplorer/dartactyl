@@ -8,13 +8,20 @@ part of '../../../models/permission_keys/file_permission_keys.dart';
 
 _$_FilePermissionKeys _$$_FilePermissionKeysFromJson(
         Map<String, dynamic> json) =>
-    _$_FilePermissionKeys(
-      create: json['create'] as String,
-      read: json['read'] as String,
-      update: json['update'] as String,
-      delete: json['delete'] as String,
-      archive: json['archive'] as String,
-      sftp: json['sftp'] as String,
+    $checkedCreate(
+      r'_$_FilePermissionKeys',
+      json,
+      ($checkedConvert) {
+        final val = _$_FilePermissionKeys(
+          create: $checkedConvert('create', (v) => v as String),
+          read: $checkedConvert('read', (v) => v as String),
+          update: $checkedConvert('update', (v) => v as String),
+          delete: $checkedConvert('delete', (v) => v as String),
+          archive: $checkedConvert('archive', (v) => v as String),
+          sftp: $checkedConvert('sftp', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_FilePermissionKeysToJson(

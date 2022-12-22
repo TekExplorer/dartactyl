@@ -96,8 +96,8 @@ class __$$_TwoFactorCodeCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TwoFactorCode implements _TwoFactorCode {
-  const _$_TwoFactorCode({required this.code});
+class _$_TwoFactorCode extends _TwoFactorCode {
+  const _$_TwoFactorCode({required this.code}) : super._();
 
   factory _$_TwoFactorCode.fromJson(Map<String, dynamic> json) =>
       _$$_TwoFactorCodeFromJson(json);
@@ -136,8 +136,9 @@ class _$_TwoFactorCode implements _TwoFactorCode {
   }
 }
 
-abstract class _TwoFactorCode implements TwoFactorCode {
+abstract class _TwoFactorCode extends TwoFactorCode {
   const factory _TwoFactorCode({required final int code}) = _$_TwoFactorCode;
+  const _TwoFactorCode._() : super._();
 
   factory _TwoFactorCode.fromJson(Map<String, dynamic> json) =
       _$_TwoFactorCode.fromJson;

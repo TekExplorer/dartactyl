@@ -6,9 +6,16 @@ part of '../../../models/request_models/server_rename.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Rename _$$_RenameFromJson(Map<String, dynamic> json) => _$_Rename(
-      name: json['name'] as String,
-      description: json['description'] as String?,
+_$_Rename _$$_RenameFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$_Rename',
+      json,
+      ($checkedConvert) {
+        final val = _$_Rename(
+          name: $checkedConvert('name', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String?),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_RenameToJson(_$_Rename instance) => <String, dynamic>{

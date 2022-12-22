@@ -7,9 +7,16 @@ part of '../../../models/main_models/recovery_tokens.dart';
 // **************************************************************************
 
 _$_RecoveryTokens _$$_RecoveryTokensFromJson(Map<String, dynamic> json) =>
-    _$_RecoveryTokens(
-      tokens:
-          (json['tokens'] as List<dynamic>).map((e) => e as String).toList(),
+    $checkedCreate(
+      r'_$_RecoveryTokens',
+      json,
+      ($checkedConvert) {
+        final val = _$_RecoveryTokens(
+          tokens: $checkedConvert('tokens',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_RecoveryTokensToJson(_$_RecoveryTokens instance) =>

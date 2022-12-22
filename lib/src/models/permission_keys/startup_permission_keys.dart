@@ -14,7 +14,4 @@ class StartupPermissionKeys with SerializableMixin, _$StartupPermissionKeys {
 
   factory StartupPermissionKeys.fromJson(JsonMap json) =>
       _$StartupPermissionKeysFromJson(json);
-
-  @override
-  JsonMap toJson();
 }

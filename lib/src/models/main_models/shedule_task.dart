@@ -20,7 +20,4 @@ class ScheduleTask with SerializableMixin, _$ScheduleTask {
   }) = _ScheduleTask;
 
   factory ScheduleTask.fromJson(JsonMap json) => _$ScheduleTaskFromJson(json);
-
-  @override
-  JsonMap toJson();
 }

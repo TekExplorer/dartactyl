@@ -7,7 +7,6 @@ part '../../generated/models/egg/egg_script.g.dart';
 @freezed
 class EggScript with _$EggScript {
   const EggScript._();
-
   const factory EggScript({
     required bool privileged,
     required String install,
@@ -16,7 +15,4 @@ class EggScript with _$EggScript {
     required dynamic scriptExtends,
   }) = _EggScript;
   factory EggScript.fromJson(JsonMap json) => _$EggScriptFromJson(json);
-
-  @override
-  JsonMap toJson();
 }

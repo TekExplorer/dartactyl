@@ -6,6 +6,7 @@ part '../../generated/models/request_models/delete_ssh_key.g.dart';
 
 @freezed
 class DeleteSSHKey with _$DeleteSSHKey {
+  const DeleteSSHKey._();
   const factory DeleteSSHKey({
     required String fingerprint,
   }) = _DeleteSSHKey;

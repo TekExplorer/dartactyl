@@ -8,9 +8,18 @@ part of '../../../models/main_models/relationships.dart';
 
 _$_DatabasePasswordRelationships _$$_DatabasePasswordRelationshipsFromJson(
         Map<String, dynamic> json) =>
-    _$_DatabasePasswordRelationships(
-      password: FractalResponseData<DatabasePassword>.fromJson(
-          json['password'] as Map<String, dynamic>),
+    $checkedCreate(
+      r'_$_DatabasePasswordRelationships',
+      json,
+      ($checkedConvert) {
+        final val = _$_DatabasePasswordRelationships(
+          password: $checkedConvert(
+              'password',
+              (v) => FractalResponseData<DatabasePassword>.fromJson(
+                  v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_DatabasePasswordRelationshipsToJson(
@@ -21,21 +30,36 @@ Map<String, dynamic> _$$_DatabasePasswordRelationshipsToJson(
 
 _$_ServerRelationships _$$_ServerRelationshipsFromJson(
         Map<String, dynamic> json) =>
-    _$_ServerRelationships(
-      allocations: FractalResponseList<Allocation>.fromJson(
-          json['allocations'] as Map<String, dynamic>),
-      variables: json['variables'] == null
-          ? null
-          : FractalResponseList<EggVariable>.fromJson(
-              json['variables'] as Map<String, dynamic>),
-      egg: json['egg'] == null
-          ? null
-          : FractalResponseData<Egg>.fromJson(
-              json['egg'] as Map<String, dynamic>),
-      subusers: json['subusers'] == null
-          ? null
-          : FractalResponseList<Subuser>.fromJson(
-              json['subusers'] as Map<String, dynamic>),
+    $checkedCreate(
+      r'_$_ServerRelationships',
+      json,
+      ($checkedConvert) {
+        final val = _$_ServerRelationships(
+          allocations: $checkedConvert(
+              'allocations',
+              (v) => FractalResponseList<Allocation>.fromJson(
+                  v as Map<String, dynamic>)),
+          variables: $checkedConvert(
+              'variables',
+              (v) => v == null
+                  ? null
+                  : FractalResponseList<EggVariable>.fromJson(
+                      v as Map<String, dynamic>)),
+          egg: $checkedConvert(
+              'egg',
+              (v) => v == null
+                  ? null
+                  : FractalResponseData<Egg>.fromJson(
+                      v as Map<String, dynamic>)),
+          subusers: $checkedConvert(
+              'subusers',
+              (v) => v == null
+                  ? null
+                  : FractalResponseList<Subuser>.fromJson(
+                      v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_ServerRelationshipsToJson(
@@ -49,9 +73,18 @@ Map<String, dynamic> _$$_ServerRelationshipsToJson(
 
 _$_ServerScheduleRelationships _$$_ServerScheduleRelationshipsFromJson(
         Map<String, dynamic> json) =>
-    _$_ServerScheduleRelationships(
-      tasks: FractalResponseList<ScheduleTask>.fromJson(
-          json['tasks'] as Map<String, dynamic>),
+    $checkedCreate(
+      r'_$_ServerScheduleRelationships',
+      json,
+      ($checkedConvert) {
+        final val = _$_ServerScheduleRelationships(
+          tasks: $checkedConvert(
+              'tasks',
+              (v) => FractalResponseList<ScheduleTask>.fromJson(
+                  v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_ServerScheduleRelationshipsToJson(
@@ -62,11 +95,20 @@ Map<String, dynamic> _$$_ServerScheduleRelationshipsToJson(
 
 _$_ActivityLogRelationships _$$_ActivityLogRelationshipsFromJson(
         Map<String, dynamic> json) =>
-    _$_ActivityLogRelationships(
-      actor: json['actor'] == null
-          ? null
-          : FractalResponseData<User>.fromJson(
-              json['actor'] as Map<String, dynamic>),
+    $checkedCreate(
+      r'_$_ActivityLogRelationships',
+      json,
+      ($checkedConvert) {
+        final val = _$_ActivityLogRelationships(
+          actor: $checkedConvert(
+              'actor',
+              (v) => v == null
+                  ? null
+                  : FractalResponseData<User>.fromJson(
+                      v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_ActivityLogRelationshipsToJson(

@@ -7,8 +7,15 @@ part of '../../../models/request_models/allocation_note.dart';
 // **************************************************************************
 
 _$_AllocationNote _$$_AllocationNoteFromJson(Map<String, dynamic> json) =>
-    _$_AllocationNote(
-      notes: json['notes'] as String,
+    $checkedCreate(
+      r'_$_AllocationNote',
+      json,
+      ($checkedConvert) {
+        final val = _$_AllocationNote(
+          notes: $checkedConvert('notes', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_AllocationNoteToJson(_$_AllocationNote instance) =>

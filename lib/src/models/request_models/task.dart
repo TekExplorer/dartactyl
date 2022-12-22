@@ -6,6 +6,7 @@ part '../../generated/models/request_models/task.g.dart';
 
 @freezed
 class Task with _$Task {
+  const Task._();
   const factory Task({
     required Action action,
     required String payload,

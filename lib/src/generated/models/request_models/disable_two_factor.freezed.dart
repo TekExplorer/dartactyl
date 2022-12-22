@@ -107,8 +107,9 @@ class __$$_DisableTwoFactorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DisableTwoFactor implements _DisableTwoFactor {
-  const _$_DisableTwoFactor({required this.email, required this.password});
+class _$_DisableTwoFactor extends _DisableTwoFactor {
+  const _$_DisableTwoFactor({required this.email, required this.password})
+      : super._();
 
   factory _$_DisableTwoFactor.fromJson(Map<String, dynamic> json) =>
       _$$_DisableTwoFactorFromJson(json);
@@ -151,10 +152,11 @@ class _$_DisableTwoFactor implements _DisableTwoFactor {
   }
 }
 
-abstract class _DisableTwoFactor implements DisableTwoFactor {
+abstract class _DisableTwoFactor extends DisableTwoFactor {
   const factory _DisableTwoFactor(
       {required final String email,
       required final String password}) = _$_DisableTwoFactor;
+  const _DisableTwoFactor._() : super._();
 
   factory _DisableTwoFactor.fromJson(Map<String, dynamic> json) =
       _$_DisableTwoFactor.fromJson;

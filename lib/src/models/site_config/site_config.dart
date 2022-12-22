@@ -6,6 +6,7 @@ part '../../generated/models/site_config/site_config.g.dart';
 
 @freezed
 class Recaptcha with _$Recaptcha {
+  const Recaptcha._();
   const factory Recaptcha({
     required bool enabled,
     String? siteKey,
@@ -16,6 +17,7 @@ class Recaptcha with _$Recaptcha {
 
 @freezed
 class SiteConfig with _$SiteConfig {
+  const SiteConfig._();
   const factory SiteConfig({
     required String name,
     required String locale,

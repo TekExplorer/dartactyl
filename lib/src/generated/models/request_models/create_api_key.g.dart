@@ -7,11 +7,18 @@ part of '../../../models/request_models/create_api_key.dart';
 // **************************************************************************
 
 _$_CreateApiKey _$$_CreateApiKeyFromJson(Map<String, dynamic> json) =>
-    _$_CreateApiKey(
-      description: json['description'] as String,
-      allowedIps: (json['allowed_ips'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
+    $checkedCreate(
+      r'_$_CreateApiKey',
+      json,
+      ($checkedConvert) {
+        final val = _$_CreateApiKey(
+          description: $checkedConvert('description', (v) => v as String),
+          allowedIps: $checkedConvert('allowed_ips',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'allowedIps': 'allowed_ips'},
     );
 
 Map<String, dynamic> _$$_CreateApiKeyToJson(_$_CreateApiKey instance) =>

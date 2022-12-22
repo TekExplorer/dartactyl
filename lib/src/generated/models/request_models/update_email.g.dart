@@ -7,9 +7,16 @@ part of '../../../models/request_models/update_email.dart';
 // **************************************************************************
 
 _$_UpdateEmail _$$_UpdateEmailFromJson(Map<String, dynamic> json) =>
-    _$_UpdateEmail(
-      email: json['email'] as String,
-      password: json['password'] as String,
+    $checkedCreate(
+      r'_$_UpdateEmail',
+      json,
+      ($checkedConvert) {
+        final val = _$_UpdateEmail(
+          email: $checkedConvert('email', (v) => v as String),
+          password: $checkedConvert('password', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_UpdateEmailToJson(_$_UpdateEmail instance) =>

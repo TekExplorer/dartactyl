@@ -8,12 +8,20 @@ part of '../../../models/permission_keys/database_permission_keys.dart';
 
 _$_DatabasePermissionKeys _$$_DatabasePermissionKeysFromJson(
         Map<String, dynamic> json) =>
-    _$_DatabasePermissionKeys(
-      create: json['create'] as String,
-      read: json['read'] as String,
-      update: json['update'] as String,
-      delete: json['delete'] as String,
-      viewPassword: json['view_password'] as String,
+    $checkedCreate(
+      r'_$_DatabasePermissionKeys',
+      json,
+      ($checkedConvert) {
+        final val = _$_DatabasePermissionKeys(
+          create: $checkedConvert('create', (v) => v as String),
+          read: $checkedConvert('read', (v) => v as String),
+          update: $checkedConvert('update', (v) => v as String),
+          delete: $checkedConvert('delete', (v) => v as String),
+          viewPassword: $checkedConvert('view_password', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'viewPassword': 'view_password'},
     );
 
 Map<String, dynamic> _$$_DatabasePermissionKeysToJson(

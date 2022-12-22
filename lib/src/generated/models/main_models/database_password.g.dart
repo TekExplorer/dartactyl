@@ -7,8 +7,15 @@ part of '../../../models/main_models/database_password.dart';
 // **************************************************************************
 
 _$_DatabasePassword _$$_DatabasePasswordFromJson(Map<String, dynamic> json) =>
-    _$_DatabasePassword(
-      password: json['password'] as String,
+    $checkedCreate(
+      r'_$_DatabasePassword',
+      json,
+      ($checkedConvert) {
+        final val = _$_DatabasePassword(
+          password: $checkedConvert('password', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_DatabasePasswordToJson(_$_DatabasePassword instance) =>

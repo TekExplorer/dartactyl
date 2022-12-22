@@ -176,7 +176,7 @@ class __$$_RequestScheduleCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RequestSchedule implements _RequestSchedule {
+class _$_RequestSchedule extends _RequestSchedule {
   const _$_RequestSchedule(
       {required this.onlyWhenOnline,
       required this.name,
@@ -184,7 +184,8 @@ class _$_RequestSchedule implements _RequestSchedule {
       required this.minute,
       required this.hour,
       required this.dayOfWeek,
-      required this.dayOfMonth});
+      required this.dayOfMonth})
+      : super._();
 
   factory _$_RequestSchedule.fromJson(Map<String, dynamic> json) =>
       _$$_RequestScheduleFromJson(json);
@@ -246,7 +247,7 @@ class _$_RequestSchedule implements _RequestSchedule {
   }
 }
 
-abstract class _RequestSchedule implements RequestSchedule {
+abstract class _RequestSchedule extends RequestSchedule {
   const factory _RequestSchedule(
       {required final bool onlyWhenOnline,
       required final String name,
@@ -255,6 +256,7 @@ abstract class _RequestSchedule implements RequestSchedule {
       required final String hour,
       required final String dayOfWeek,
       required final String dayOfMonth}) = _$_RequestSchedule;
+  const _RequestSchedule._() : super._();
 
   factory _RequestSchedule.fromJson(Map<String, dynamic> json) =
       _$_RequestSchedule.fromJson;

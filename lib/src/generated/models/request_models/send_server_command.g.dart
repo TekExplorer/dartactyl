@@ -7,8 +7,15 @@ part of '../../../models/request_models/send_server_command.dart';
 // **************************************************************************
 
 _$_SendServerCommand _$$_SendServerCommandFromJson(Map<String, dynamic> json) =>
-    _$_SendServerCommand(
-      command: json['command'] as String,
+    $checkedCreate(
+      r'_$_SendServerCommand',
+      json,
+      ($checkedConvert) {
+        final val = _$_SendServerCommand(
+          command: $checkedConvert('command', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_SendServerCommandToJson(

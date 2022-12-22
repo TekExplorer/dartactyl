@@ -17,6 +17,4 @@ class Allocation with SerializableMixin, _$Allocation {
   }) = _Allocation;
 
   factory Allocation.fromJson(JsonMap json) => _$AllocationFromJson(json);
-  @override
-  JsonMap toJson();
 }

@@ -6,13 +6,26 @@ part of '../../../models/main_models/user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
-      uuid: json['uuid'] as String,
-      username: json['username'] as String,
-      email: json['email'] as String,
-      image: json['image'] == null ? null : Uri.parse(json['image'] as String),
-      twoFaEnabled: json['2fa_enabled'] as bool,
-      createdAt: DateTime.parse(json['created_at'] as String),
+_$_User _$$_UserFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$_User',
+      json,
+      ($checkedConvert) {
+        final val = _$_User(
+          uuid: $checkedConvert('uuid', (v) => v as String),
+          username: $checkedConvert('username', (v) => v as String),
+          email: $checkedConvert('email', (v) => v as String),
+          image: $checkedConvert(
+              'image', (v) => v == null ? null : Uri.parse(v as String)),
+          twoFaEnabled: $checkedConvert('2fa_enabled', (v) => v as bool),
+          createdAt:
+              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'twoFaEnabled': '2fa_enabled',
+        'createdAt': 'created_at'
+      },
     );
 
 Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{

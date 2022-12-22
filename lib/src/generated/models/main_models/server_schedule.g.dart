@@ -7,21 +7,38 @@ part of '../../../models/main_models/server_schedule.dart';
 // **************************************************************************
 
 _$_ServerSchedule _$$_ServerScheduleFromJson(Map<String, dynamic> json) =>
-    _$_ServerSchedule(
-      id: json['id'] as int,
-      name: json['name'] as String,
-      cron: Cron.fromJson(json['cron'] as Map<String, dynamic>),
-      isActive: json['is_active'] as bool,
-      isProcessing: json['is_processing'] as bool,
-      onlyWhenOnline: json['only_when_online'] as bool,
-      lastRunAt: json['last_run_at'] == null
-          ? null
-          : DateTime.parse(json['last_run_at'] as String),
-      nextRunAt: json['next_run_at'] == null
-          ? null
-          : DateTime.parse(json['next_run_at'] as String),
-      createdAt: DateTime.parse(json['created_at'] as String),
-      updatedAt: DateTime.parse(json['updated_at'] as String),
+    $checkedCreate(
+      r'_$_ServerSchedule',
+      json,
+      ($checkedConvert) {
+        final val = _$_ServerSchedule(
+          id: $checkedConvert('id', (v) => v as int),
+          name: $checkedConvert('name', (v) => v as String),
+          cron: $checkedConvert(
+              'cron', (v) => Cron.fromJson(v as Map<String, dynamic>)),
+          isActive: $checkedConvert('is_active', (v) => v as bool),
+          isProcessing: $checkedConvert('is_processing', (v) => v as bool),
+          onlyWhenOnline: $checkedConvert('only_when_online', (v) => v as bool),
+          lastRunAt: $checkedConvert('last_run_at',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          nextRunAt: $checkedConvert('next_run_at',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          createdAt:
+              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
+          updatedAt:
+              $checkedConvert('updated_at', (v) => DateTime.parse(v as String)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'isActive': 'is_active',
+        'isProcessing': 'is_processing',
+        'onlyWhenOnline': 'only_when_online',
+        'lastRunAt': 'last_run_at',
+        'nextRunAt': 'next_run_at',
+        'createdAt': 'created_at',
+        'updatedAt': 'updated_at'
+      },
     );
 
 Map<String, dynamic> _$$_ServerScheduleToJson(_$_ServerSchedule instance) =>

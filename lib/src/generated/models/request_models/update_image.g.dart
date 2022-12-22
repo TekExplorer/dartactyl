@@ -7,8 +7,16 @@ part of '../../../models/request_models/update_image.dart';
 // **************************************************************************
 
 _$_UpdateImage _$$_UpdateImageFromJson(Map<String, dynamic> json) =>
-    _$_UpdateImage(
-      dockerImage: json['docker_image'] as String,
+    $checkedCreate(
+      r'_$_UpdateImage',
+      json,
+      ($checkedConvert) {
+        final val = _$_UpdateImage(
+          dockerImage: $checkedConvert('docker_image', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'dockerImage': 'docker_image'},
     );
 
 Map<String, dynamic> _$$_UpdateImageToJson(_$_UpdateImage instance) =>

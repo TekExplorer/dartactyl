@@ -16,9 +16,6 @@ class Stats with SerializableMixin, _$Stats {
   }) = _Stats;
 
   factory Stats.fromJson(JsonMap json) => _$StatsFromJson(json);
-
-  @override
-  JsonMap toJson();
 }
 
 @freezed

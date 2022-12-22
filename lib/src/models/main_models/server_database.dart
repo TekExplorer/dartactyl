@@ -28,7 +28,4 @@ class ServerDatabase with SerializableMixin, _$ServerDatabase {
   }) = _ServerDatabase;
   factory ServerDatabase.fromJson(JsonMap json) =>
       _$ServerDatabaseFromJson(json);
-
-  @override
-  JsonMap toJson();
 }

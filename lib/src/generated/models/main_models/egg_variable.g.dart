@@ -7,14 +7,27 @@ part of '../../../models/main_models/egg_variable.dart';
 // **************************************************************************
 
 _$_EggVariable _$$_EggVariableFromJson(Map<String, dynamic> json) =>
-    _$_EggVariable(
-      name: json['name'] as String,
-      description: json['description'] as String,
-      envVariable: json['env_variable'] as String,
-      defaultValue: json['default_value'] as String,
-      serverValue: json['server_value'] as String?,
-      isEditable: json['is_editable'] as bool,
-      rules: json['rules'] as String,
+    $checkedCreate(
+      r'_$_EggVariable',
+      json,
+      ($checkedConvert) {
+        final val = _$_EggVariable(
+          name: $checkedConvert('name', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String),
+          envVariable: $checkedConvert('env_variable', (v) => v as String),
+          defaultValue: $checkedConvert('default_value', (v) => v as String),
+          serverValue: $checkedConvert('server_value', (v) => v as String?),
+          isEditable: $checkedConvert('is_editable', (v) => v as bool),
+          rules: $checkedConvert('rules', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'envVariable': 'env_variable',
+        'defaultValue': 'default_value',
+        'serverValue': 'server_value',
+        'isEditable': 'is_editable'
+      },
     );
 
 Map<String, dynamic> _$$_EggVariableToJson(_$_EggVariable instance) =>

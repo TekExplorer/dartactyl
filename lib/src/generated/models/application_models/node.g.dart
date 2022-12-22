@@ -6,31 +6,57 @@ part of '../../../models/application_models/node.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Node _$$_NodeFromJson(Map<String, dynamic> json) => _$_Node(
-      id: json['id'] as int,
-      uuid: json['uuid'] as String,
-      public: json['public'] as bool,
-      name: json['name'] as String,
-      description: json['description'] as String,
-      locationId: json['location_id'] as int,
-      fqdn: json['fqdn'] as String,
-      scheme: json['scheme'] as String,
-      behindProxy: json['behind_proxy'] as bool,
-      maintenanceMode: json['maintenance_mode'] as bool,
-      memory: json['memory'] as int,
-      memoryOverallocate: json['memory_overallocate'] as int,
-      disk: json['disk'] as int,
-      diskOverallocate: json['disk_overallocate'] as int,
-      uploadSize: json['upload_size'] as int,
-      daemonListen: json['daemon_listen'] as int,
-      daemonSftp: json['daemon_sftp'] as int,
-      daemonBase: json['daemon_base'] as String,
-      createdAt: DateTime.parse(json['created_at'] as String),
-      updatedAt: DateTime.parse(json['updated_at'] as String),
-      relationships: json['relationships'] == null
-          ? null
-          : NodeRelationships.fromJson(
-              json['relationships'] as Map<String, dynamic>),
+_$_Node _$$_NodeFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$_Node',
+      json,
+      ($checkedConvert) {
+        final val = _$_Node(
+          id: $checkedConvert('id', (v) => v as int),
+          uuid: $checkedConvert('uuid', (v) => v as String),
+          public: $checkedConvert('public', (v) => v as bool),
+          name: $checkedConvert('name', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String),
+          locationId: $checkedConvert('location_id', (v) => v as int),
+          fqdn: $checkedConvert('fqdn', (v) => v as String),
+          scheme: $checkedConvert('scheme', (v) => v as String),
+          behindProxy: $checkedConvert('behind_proxy', (v) => v as bool),
+          maintenanceMode:
+              $checkedConvert('maintenance_mode', (v) => v as bool),
+          memory: $checkedConvert('memory', (v) => v as int),
+          memoryOverallocate:
+              $checkedConvert('memory_overallocate', (v) => v as int),
+          disk: $checkedConvert('disk', (v) => v as int),
+          diskOverallocate:
+              $checkedConvert('disk_overallocate', (v) => v as int),
+          uploadSize: $checkedConvert('upload_size', (v) => v as int),
+          daemonListen: $checkedConvert('daemon_listen', (v) => v as int),
+          daemonSftp: $checkedConvert('daemon_sftp', (v) => v as int),
+          daemonBase: $checkedConvert('daemon_base', (v) => v as String),
+          createdAt:
+              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
+          updatedAt:
+              $checkedConvert('updated_at', (v) => DateTime.parse(v as String)),
+          relationships: $checkedConvert(
+              'relationships',
+              (v) => v == null
+                  ? null
+                  : NodeRelationships.fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'locationId': 'location_id',
+        'behindProxy': 'behind_proxy',
+        'maintenanceMode': 'maintenance_mode',
+        'memoryOverallocate': 'memory_overallocate',
+        'diskOverallocate': 'disk_overallocate',
+        'uploadSize': 'upload_size',
+        'daemonListen': 'daemon_listen',
+        'daemonSftp': 'daemon_sftp',
+        'daemonBase': 'daemon_base',
+        'createdAt': 'created_at',
+        'updatedAt': 'updated_at'
+      },
     );
 
 Map<String, dynamic> _$$_NodeToJson(_$_Node instance) => <String, dynamic>{
@@ -58,19 +84,32 @@ Map<String, dynamic> _$$_NodeToJson(_$_Node instance) => <String, dynamic>{
     };
 
 _$_NodeRelationships _$$_NodeRelationshipsFromJson(Map<String, dynamic> json) =>
-    _$_NodeRelationships(
-      allocation: json['allocation'] == null
-          ? null
-          : FractalResponseData<ApplicationAllocation>.fromJson(
-              json['allocation'] as Map<String, dynamic>),
-      location: json['location'] == null
-          ? null
-          : FractalResponseData<Location>.fromJson(
-              json['location'] as Map<String, dynamic>),
-      servers: json['servers'] == null
-          ? null
-          : FractalResponseList<ApplicationServer>.fromJson(
-              json['servers'] as Map<String, dynamic>),
+    $checkedCreate(
+      r'_$_NodeRelationships',
+      json,
+      ($checkedConvert) {
+        final val = _$_NodeRelationships(
+          allocation: $checkedConvert(
+              'allocation',
+              (v) => v == null
+                  ? null
+                  : FractalResponseData<ApplicationAllocation>.fromJson(
+                      v as Map<String, dynamic>)),
+          location: $checkedConvert(
+              'location',
+              (v) => v == null
+                  ? null
+                  : FractalResponseData<Location>.fromJson(
+                      v as Map<String, dynamic>)),
+          servers: $checkedConvert(
+              'servers',
+              (v) => v == null
+                  ? null
+                  : FractalResponseList<ApplicationServer>.fromJson(
+                      v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_NodeRelationshipsToJson(

@@ -7,12 +7,20 @@ part of '../../../models/request_models/pull_file_body.dart';
 // **************************************************************************
 
 _$_PullFileBody _$$_PullFileBodyFromJson(Map<String, dynamic> json) =>
-    _$_PullFileBody(
-      url: Uri.parse(json['url'] as String),
-      directory: json['directory'] as String?,
-      filename: json['filename'] as String?,
-      useHeader: json['use_header'] as bool,
-      foreground: json['foreground'] as bool,
+    $checkedCreate(
+      r'_$_PullFileBody',
+      json,
+      ($checkedConvert) {
+        final val = _$_PullFileBody(
+          url: $checkedConvert('url', (v) => Uri.parse(v as String)),
+          directory: $checkedConvert('directory', (v) => v as String?),
+          filename: $checkedConvert('filename', (v) => v as String?),
+          useHeader: $checkedConvert('use_header', (v) => v as bool),
+          foreground: $checkedConvert('foreground', (v) => v as bool),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'useHeader': 'use_header'},
     );
 
 Map<String, dynamic> _$$_PullFileBodyToJson(_$_PullFileBody instance) =>

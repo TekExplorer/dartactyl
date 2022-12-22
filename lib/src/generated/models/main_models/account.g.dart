@@ -6,14 +6,22 @@ part of '../../../models/main_models/account.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Account _$$_AccountFromJson(Map<String, dynamic> json) => _$_Account(
-      id: json['id'] as int,
-      admin: json['admin'] as bool,
-      username: json['username'] as String,
-      email: json['email'] as String,
-      firstName: json['first_name'] as String,
-      lastName: json['last_name'] as String,
-      language: json['language'] as String,
+_$_Account _$$_AccountFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$_Account',
+      json,
+      ($checkedConvert) {
+        final val = _$_Account(
+          id: $checkedConvert('id', (v) => v as int),
+          admin: $checkedConvert('admin', (v) => v as bool),
+          username: $checkedConvert('username', (v) => v as String),
+          email: $checkedConvert('email', (v) => v as String),
+          firstName: $checkedConvert('first_name', (v) => v as String),
+          lastName: $checkedConvert('last_name', (v) => v as String),
+          language: $checkedConvert('language', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'firstName': 'first_name', 'lastName': 'last_name'},
     );
 
 Map<String, dynamic> _$$_AccountToJson(_$_Account instance) =>

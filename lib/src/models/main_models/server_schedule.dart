@@ -21,7 +21,4 @@ class ServerSchedule with SerializableMixin, _$ServerSchedule {
   }) = _ServerSchedule;
   factory ServerSchedule.fromJson(JsonMap json) =>
       _$ServerScheduleFromJson(json);
-
-  @override
-  JsonMap toJson();
 }

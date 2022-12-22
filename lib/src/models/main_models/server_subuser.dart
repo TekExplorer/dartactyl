@@ -18,7 +18,4 @@ class ServerSubuser with SerializableMixin, _$ServerSubuser {
   }) = _ServerSubuser;
 
   factory ServerSubuser.fromJson(JsonMap json) => _$ServerSubuserFromJson(json);
-
-  @override
-  JsonMap toJson();
 }

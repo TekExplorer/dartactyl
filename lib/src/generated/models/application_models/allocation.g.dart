@@ -8,13 +8,21 @@ part of '../../../models/application_models/allocation.dart';
 
 _$_ApplicationAllocation _$$_ApplicationAllocationFromJson(
         Map<String, dynamic> json) =>
-    _$_ApplicationAllocation(
-      id: json['id'] as int,
-      ip: json['ip'] as String,
-      ipAlias: json['ip_alias'] as String?,
-      port: json['port'] as int,
-      notes: json['notes'] as String?,
-      assigned: json['assigned'] as bool,
+    $checkedCreate(
+      r'_$_ApplicationAllocation',
+      json,
+      ($checkedConvert) {
+        final val = _$_ApplicationAllocation(
+          id: $checkedConvert('id', (v) => v as int),
+          ip: $checkedConvert('ip', (v) => v as String),
+          ipAlias: $checkedConvert('ip_alias', (v) => v as String?),
+          port: $checkedConvert('port', (v) => v as int),
+          notes: $checkedConvert('notes', (v) => v as String?),
+          assigned: $checkedConvert('assigned', (v) => v as bool),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'ipAlias': 'ip_alias'},
     );
 
 Map<String, dynamic> _$$_ApplicationAllocationToJson(

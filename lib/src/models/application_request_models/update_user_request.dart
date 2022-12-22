@@ -6,6 +6,7 @@ part '../../generated/models/application_request_models/update_user_request.g.da
 
 @freezed
 class UpdateUserRequest with _$UpdateUserRequest {
+  const UpdateUserRequest._();
   const factory UpdateUserRequest({
     required String email,
     required String username,

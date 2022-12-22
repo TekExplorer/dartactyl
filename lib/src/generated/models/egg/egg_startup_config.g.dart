@@ -7,8 +7,15 @@ part of '../../../models/egg/egg_startup_config.dart';
 // **************************************************************************
 
 _$_EggStartupConfig _$$_EggStartupConfigFromJson(Map<String, dynamic> json) =>
-    _$_EggStartupConfig(
-      done: json['done'] as String,
+    $checkedCreate(
+      r'_$_EggStartupConfig',
+      json,
+      ($checkedConvert) {
+        final val = _$_EggStartupConfig(
+          done: $checkedConvert('done', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_EggStartupConfigToJson(_$_EggStartupConfig instance) =>

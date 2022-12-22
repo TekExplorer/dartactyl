@@ -107,9 +107,10 @@ class __$$_FileBodyCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FileBody implements _FileBody {
+class _$_FileBody extends _FileBody {
   const _$_FileBody(
-      {@JsonKey(name: 'root') required this.rootDir, required this.file});
+      {@JsonKey(name: 'root') required this.rootDir, required this.file})
+      : super._();
 
   factory _$_FileBody.fromJson(Map<String, dynamic> json) =>
       _$$_FileBodyFromJson(json);
@@ -153,10 +154,11 @@ class _$_FileBody implements _FileBody {
   }
 }
 
-abstract class _FileBody implements FileBody {
+abstract class _FileBody extends FileBody {
   const factory _FileBody(
       {@JsonKey(name: 'root') required final String rootDir,
       required final String file}) = _$_FileBody;
+  const _FileBody._() : super._();
 
   factory _FileBody.fromJson(Map<String, dynamic> json) = _$_FileBody.fromJson;
 
@@ -266,11 +268,12 @@ class __$$_FileBodyListFromToCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FileBodyListFromTo implements _FileBodyListFromTo {
+class _$_FileBodyListFromTo extends _FileBodyListFromTo {
   const _$_FileBodyListFromTo(
       {@JsonKey(name: 'root') required this.rootDir,
       required final List<FromTo> files})
-      : _files = files;
+      : _files = files,
+        super._();
 
   factory _$_FileBodyListFromTo.fromJson(Map<String, dynamic> json) =>
       _$$_FileBodyListFromToFromJson(json);
@@ -320,10 +323,11 @@ class _$_FileBodyListFromTo implements _FileBodyListFromTo {
   }
 }
 
-abstract class _FileBodyListFromTo implements FileBodyListFromTo {
+abstract class _FileBodyListFromTo extends FileBodyListFromTo {
   const factory _FileBodyListFromTo(
       {@JsonKey(name: 'root') required final String rootDir,
       required final List<FromTo> files}) = _$_FileBodyListFromTo;
+  const _FileBodyListFromTo._() : super._();
 
   factory _FileBodyListFromTo.fromJson(Map<String, dynamic> json) =
       _$_FileBodyListFromTo.fromJson;
@@ -434,11 +438,12 @@ class __$$_FileBodyListStringCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FileBodyListString implements _FileBodyListString {
+class _$_FileBodyListString extends _FileBodyListString {
   const _$_FileBodyListString(
       {@JsonKey(name: 'root') required this.rootDir,
       required final List<String> files})
-      : _files = files;
+      : _files = files,
+        super._();
 
   factory _$_FileBodyListString.fromJson(Map<String, dynamic> json) =>
       _$$_FileBodyListStringFromJson(json);
@@ -488,10 +493,11 @@ class _$_FileBodyListString implements _FileBodyListString {
   }
 }
 
-abstract class _FileBodyListString implements FileBodyListString {
+abstract class _FileBodyListString extends FileBodyListString {
   const factory _FileBodyListString(
       {@JsonKey(name: 'root') required final String rootDir,
       required final List<String> files}) = _$_FileBodyListString;
+  const _FileBodyListString._() : super._();
 
   factory _FileBodyListString.fromJson(Map<String, dynamic> json) =
       _$_FileBodyListString.fromJson;
@@ -602,9 +608,10 @@ class __$$_FolderBodyCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FolderBody implements _FolderBody {
+class _$_FolderBody extends _FolderBody {
   const _$_FolderBody(
-      {@JsonKey(name: 'root') required this.rootDir, required this.name});
+      {@JsonKey(name: 'root') required this.rootDir, required this.name})
+      : super._();
 
   factory _$_FolderBody.fromJson(Map<String, dynamic> json) =>
       _$$_FolderBodyFromJson(json);
@@ -648,10 +655,11 @@ class _$_FolderBody implements _FolderBody {
   }
 }
 
-abstract class _FolderBody implements FolderBody {
+abstract class _FolderBody extends FolderBody {
   const factory _FolderBody(
       {@JsonKey(name: 'root') required final String rootDir,
       required final String name}) = _$_FolderBody;
+  const _FolderBody._() : super._();
 
   factory _FolderBody.fromJson(Map<String, dynamic> json) =
       _$_FolderBody.fromJson;

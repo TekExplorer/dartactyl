@@ -14,7 +14,4 @@ class SettingsPermissionKeys with SerializableMixin, _$SettingsPermissionKeys {
 
   factory SettingsPermissionKeys.fromJson(JsonMap json) =>
       _$SettingsPermissionKeysFromJson(json);
-
-  @override
-  JsonMap toJson();
 }

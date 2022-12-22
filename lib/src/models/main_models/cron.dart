@@ -6,6 +6,7 @@ part '../../generated/models/main_models/cron.g.dart';
 
 @freezed
 class Cron with _$Cron {
+  const Cron._();
   const factory Cron({
     String? name, // exists?
     required String dayOfWeek,
@@ -15,7 +16,4 @@ class Cron with _$Cron {
   }) = _Cron;
 
   factory Cron.fromJson(JsonMap json) => _$CronFromJson(json);
-  const Cron._();
-  @override
-  JsonMap toJson();
 }

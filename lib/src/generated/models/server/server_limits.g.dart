@@ -7,13 +7,20 @@ part of '../../../models/server/server_limits.dart';
 // **************************************************************************
 
 _$_ServerLimits _$$_ServerLimitsFromJson(Map<String, dynamic> json) =>
-    _$_ServerLimits(
-      memory: json['memory'] as int,
-      swap: json['swap'] as int,
-      disk: json['disk'] as int,
-      io: json['io'] as int,
-      cpu: json['cpu'] as int,
-      threads: json['threads'] as String?,
+    $checkedCreate(
+      r'_$_ServerLimits',
+      json,
+      ($checkedConvert) {
+        final val = _$_ServerLimits(
+          memory: $checkedConvert('memory', (v) => v as int),
+          swap: $checkedConvert('swap', (v) => v as int),
+          disk: $checkedConvert('disk', (v) => v as int),
+          io: $checkedConvert('io', (v) => v as int),
+          cpu: $checkedConvert('cpu', (v) => v as int),
+          threads: $checkedConvert('threads', (v) => v as String?),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_ServerLimitsToJson(_$_ServerLimits instance) =>

@@ -7,9 +7,17 @@ part of '../../../models/request_models/create_ssh_key.dart';
 // **************************************************************************
 
 _$_CreateSshKey _$$_CreateSshKeyFromJson(Map<String, dynamic> json) =>
-    _$_CreateSshKey(
-      name: json['name'] as String,
-      publicKey: json['public_key'] as String,
+    $checkedCreate(
+      r'_$_CreateSshKey',
+      json,
+      ($checkedConvert) {
+        final val = _$_CreateSshKey(
+          name: $checkedConvert('name', (v) => v as String),
+          publicKey: $checkedConvert('public_key', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'publicKey': 'public_key'},
     );
 
 Map<String, dynamic> _$$_CreateSshKeyToJson(_$_CreateSshKey instance) =>

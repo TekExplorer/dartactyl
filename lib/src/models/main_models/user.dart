@@ -6,6 +6,7 @@ part '../../generated/models/main_models/user.g.dart';
 
 @freezed
 class User with _$User, SerializableMixin {
+  const User._();
   const factory User({
     required String uuid,
     required String username,
@@ -17,6 +18,4 @@ class User with _$User, SerializableMixin {
   }) = _User;
 
   factory User.fromJson(JsonMap json) => _$UserFromJson(json);
-
-  const User._();
 }

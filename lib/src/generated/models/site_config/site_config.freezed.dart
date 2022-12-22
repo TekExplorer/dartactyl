@@ -105,8 +105,8 @@ class __$$_RecaptchaCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Recaptcha implements _Recaptcha {
-  const _$_Recaptcha({required this.enabled, this.siteKey});
+class _$_Recaptcha extends _Recaptcha {
+  const _$_Recaptcha({required this.enabled, this.siteKey}) : super._();
 
   factory _$_Recaptcha.fromJson(Map<String, dynamic> json) =>
       _$$_RecaptchaFromJson(json);
@@ -148,9 +148,10 @@ class _$_Recaptcha implements _Recaptcha {
   }
 }
 
-abstract class _Recaptcha implements Recaptcha {
+abstract class _Recaptcha extends Recaptcha {
   const factory _Recaptcha(
       {required final bool enabled, final String? siteKey}) = _$_Recaptcha;
+  const _Recaptcha._() : super._();
 
   factory _Recaptcha.fromJson(Map<String, dynamic> json) =
       _$_Recaptcha.fromJson;
@@ -282,9 +283,10 @@ class __$$_SiteConfigCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SiteConfig implements _SiteConfig {
+class _$_SiteConfig extends _SiteConfig {
   const _$_SiteConfig(
-      {required this.name, required this.locale, required this.recaptcha});
+      {required this.name, required this.locale, required this.recaptcha})
+      : super._();
 
   factory _$_SiteConfig.fromJson(Map<String, dynamic> json) =>
       _$$_SiteConfigFromJson(json);
@@ -330,11 +332,12 @@ class _$_SiteConfig implements _SiteConfig {
   }
 }
 
-abstract class _SiteConfig implements SiteConfig {
+abstract class _SiteConfig extends SiteConfig {
   const factory _SiteConfig(
       {required final String name,
       required final String locale,
       required final Recaptcha recaptcha}) = _$_SiteConfig;
+  const _SiteConfig._() : super._();
 
   factory _SiteConfig.fromJson(Map<String, dynamic> json) =
       _$_SiteConfig.fromJson;

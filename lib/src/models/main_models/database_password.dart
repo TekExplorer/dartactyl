@@ -11,6 +11,4 @@ class DatabasePassword with SerializableMixin, _$DatabasePassword {
       _DatabasePassword;
   factory DatabasePassword.fromJson(JsonMap json) =>
       _$DatabasePasswordFromJson(json);
-  @override
-  JsonMap toJson();
 }

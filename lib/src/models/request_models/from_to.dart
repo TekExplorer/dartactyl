@@ -6,6 +6,7 @@ part '../../generated/models/request_models/from_to.g.dart';
 
 @freezed
 class FromTo with _$FromTo, SerializableMixin {
+  const FromTo._();
   const factory FromTo({
     required String from,
     required String to,

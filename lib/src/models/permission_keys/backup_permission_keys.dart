@@ -7,7 +7,6 @@ part '../../generated/models/permission_keys/backup_permission_keys.g.dart';
 @freezed
 class BackupPermissionKeys with SerializableMixin, _$BackupPermissionKeys {
   const BackupPermissionKeys._();
-
   const factory BackupPermissionKeys({
     required String read,
     required String create,
@@ -17,7 +16,4 @@ class BackupPermissionKeys with SerializableMixin, _$BackupPermissionKeys {
 
   factory BackupPermissionKeys.fromJson(JsonMap json) =>
       _$BackupPermissionKeysFromJson(json);
-
-  @override
-  JsonMap toJson();
 }

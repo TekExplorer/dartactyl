@@ -6,6 +6,7 @@ part '../../generated/models/request_models/server_rename.g.dart';
 
 @freezed
 class Rename with _$Rename {
+  const Rename._();
   const factory Rename({
     required String name,
 

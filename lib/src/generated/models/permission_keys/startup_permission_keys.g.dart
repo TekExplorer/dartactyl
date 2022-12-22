@@ -8,9 +8,16 @@ part of '../../../models/permission_keys/startup_permission_keys.dart';
 
 _$_StartupPermissionKeys _$$_StartupPermissionKeysFromJson(
         Map<String, dynamic> json) =>
-    _$_StartupPermissionKeys(
-      read: json['read'] as String,
-      update: json['update'] as String,
+    $checkedCreate(
+      r'_$_StartupPermissionKeys',
+      json,
+      ($checkedConvert) {
+        final val = _$_StartupPermissionKeys(
+          read: $checkedConvert('read', (v) => v as String),
+          update: $checkedConvert('update', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_StartupPermissionKeysToJson(

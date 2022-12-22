@@ -15,7 +15,6 @@ part '../../generated/models/auth/ptero_login_request.g.dart';
 @freezed
 class PteroLoginRequest with _$PteroLoginRequest {
   const PteroLoginRequest._();
-
   const factory PteroLoginRequest({
     // ignore: invalid_annotation_target
     @JsonKey(name: 'user') required String username,

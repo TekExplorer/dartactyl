@@ -6,6 +6,7 @@ part '../../generated/models/request_models/update_email.g.dart';
 
 @freezed
 class UpdateEmail with _$UpdateEmail {
+  const UpdateEmail._();
   const factory UpdateEmail({
     required String email,
     required String password,

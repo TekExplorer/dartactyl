@@ -107,8 +107,8 @@ class __$$_SftpDetailsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SftpDetails implements _SftpDetails {
-  const _$_SftpDetails({required this.ip, required this.port});
+class _$_SftpDetails extends _SftpDetails {
+  const _$_SftpDetails({required this.ip, required this.port}) : super._();
 
   factory _$_SftpDetails.fromJson(Map<String, dynamic> json) =>
       _$$_SftpDetailsFromJson(json);
@@ -150,9 +150,10 @@ class _$_SftpDetails implements _SftpDetails {
   }
 }
 
-abstract class _SftpDetails implements SftpDetails {
+abstract class _SftpDetails extends SftpDetails {
   const factory _SftpDetails(
       {required final String ip, required final int port}) = _$_SftpDetails;
+  const _SftpDetails._() : super._();
 
   factory _SftpDetails.fromJson(Map<String, dynamic> json) =
       _$_SftpDetails.fromJson;

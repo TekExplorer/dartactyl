@@ -6,6 +6,7 @@ part '../../generated/models/request_models/update_password.g.dart';
 
 @freezed
 class UpdatePassword with _$UpdatePassword {
+  const UpdatePassword._();
   const factory UpdatePassword({
     required String currentPassword,
     required String password,

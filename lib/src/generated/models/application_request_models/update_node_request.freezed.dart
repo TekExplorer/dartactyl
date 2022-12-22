@@ -268,7 +268,7 @@ class __$$_UpdateNodeRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UpdateNodeRequest implements _UpdateNodeRequest {
+class _$_UpdateNodeRequest extends _UpdateNodeRequest {
   const _$_UpdateNodeRequest(
       {required this.name,
       required this.locationId,
@@ -283,7 +283,8 @@ class _$_UpdateNodeRequest implements _UpdateNodeRequest {
       required this.daemonListen,
       required this.behindProxy,
       required this.maintenanceMode,
-      required this.description});
+      required this.description})
+      : super._();
 
   factory _$_UpdateNodeRequest.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateNodeRequestFromJson(json);
@@ -387,7 +388,7 @@ class _$_UpdateNodeRequest implements _UpdateNodeRequest {
   }
 }
 
-abstract class _UpdateNodeRequest implements UpdateNodeRequest {
+abstract class _UpdateNodeRequest extends UpdateNodeRequest {
   const factory _UpdateNodeRequest(
       {required final String name,
       required final int locationId,
@@ -403,6 +404,7 @@ abstract class _UpdateNodeRequest implements UpdateNodeRequest {
       required final bool behindProxy,
       required final bool maintenanceMode,
       required final String description}) = _$_UpdateNodeRequest;
+  const _UpdateNodeRequest._() : super._();
 
   factory _UpdateNodeRequest.fromJson(Map<String, dynamic> json) =
       _$_UpdateNodeRequest.fromJson;

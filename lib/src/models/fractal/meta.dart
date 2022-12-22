@@ -39,6 +39,7 @@ abstract class Meta<M> with SerializableMixin {
 /// Shows on `listServers`
 @freezed
 class PaginatedMeta with _$PaginatedMeta implements Meta<PaginatedMeta> {
+  const PaginatedMeta._();
   const factory PaginatedMeta({required Pagination pagination}) =
       _PaginatedMeta;
   factory PaginatedMeta.fromJson(Map<String, dynamic> json) =>
@@ -50,6 +51,7 @@ class PaginatedMeta with _$PaginatedMeta implements Meta<PaginatedMeta> {
 class PaginatedBackupsMeta
     with _$PaginatedBackupsMeta
     implements Meta<PaginatedBackupsMeta> {
+  const PaginatedBackupsMeta._();
   const factory PaginatedBackupsMeta({
     required Pagination pagination,
     required int backupCount,
@@ -62,6 +64,7 @@ class PaginatedBackupsMeta
 /// shows on `getServerDetails`
 @freezed
 class ServerMeta with _$ServerMeta implements Meta<ServerMeta> {
+  const ServerMeta._();
   const factory ServerMeta({
     required bool isServerOwner,
     required List<String> userPermissions,
@@ -73,6 +76,7 @@ class ServerMeta with _$ServerMeta implements Meta<ServerMeta> {
 /// Shows up on `listVariables`
 @freezed
 class StartupMeta with _$StartupMeta implements Meta<StartupMeta> {
+  const StartupMeta._();
   const factory StartupMeta({
     required String startupCommand,
     required String rawStartupCommand,
@@ -85,6 +89,7 @@ class StartupMeta with _$StartupMeta implements Meta<StartupMeta> {
 /// Shows on `createApiKey`
 @freezed
 class ApiKeyMeta with _$ApiKeyMeta implements Meta<ApiKeyMeta> {
+  const ApiKeyMeta._();
   const factory ApiKeyMeta({required String secretToken}) = _ApiKeyMeta;
   factory ApiKeyMeta.fromJson(Map<String, dynamic> json) =>
       _$ApiKeyMetaFromJson(json);
@@ -93,6 +98,7 @@ class ApiKeyMeta with _$ApiKeyMeta implements Meta<ApiKeyMeta> {
 /// Shows on `application.createNode`
 @freezed
 class ResourceMeta with _$ResourceMeta implements Meta<ResourceMeta> {
+  const ResourceMeta._();
   const factory ResourceMeta({required Uri resource}) = _ResourceMeta;
   factory ResourceMeta.fromJson(Map<String, dynamic> json) =>
       _$ResourceMetaFromJson(json);

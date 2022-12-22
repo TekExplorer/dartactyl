@@ -7,31 +7,52 @@ part of '../../../models/application_models/server.dart';
 // **************************************************************************
 
 _$_ApplicationServer _$$_ApplicationServerFromJson(Map<String, dynamic> json) =>
-    _$_ApplicationServer(
-      id: json['id'] as int,
-      externalId: json['external_id'] as String,
-      uuid: json['uuid'] as String,
-      identifier: json['identifier'] as String,
-      name: json['name'] as String,
-      description: json['description'] as String,
-      status: $enumDecode(_$ServerStatusEnumMap, json['status']),
-      suspended: json['suspended'] as bool,
-      limits: ServerLimits.fromJson(json['limits'] as Map<String, dynamic>),
-      featureLimits: ServerFeatureLimits.fromJson(
-          json['feature_limits'] as Map<String, dynamic>),
-      user: json['user'] as int,
-      node: json['node'] as int,
-      allocation: json['allocation'] as int,
-      nest: json['nest'] as int,
-      egg: json['egg'] as int,
-      container: ApplicationServerContainer.fromJson(
-          json['container'] as Map<String, dynamic>),
-      createdAt: DateTime.parse(json['created_at'] as String),
-      updatedAt: DateTime.parse(json['updated_at'] as String),
-      relationships: json['relationships'] == null
-          ? null
-          : ApplicationServerRelationships.fromJson(
-              json['relationships'] as Map<String, dynamic>),
+    $checkedCreate(
+      r'_$_ApplicationServer',
+      json,
+      ($checkedConvert) {
+        final val = _$_ApplicationServer(
+          id: $checkedConvert('id', (v) => v as int),
+          externalId: $checkedConvert('external_id', (v) => v as String),
+          uuid: $checkedConvert('uuid', (v) => v as String),
+          identifier: $checkedConvert('identifier', (v) => v as String),
+          name: $checkedConvert('name', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String),
+          status: $checkedConvert(
+              'status', (v) => $enumDecode(_$ServerStatusEnumMap, v)),
+          suspended: $checkedConvert('suspended', (v) => v as bool),
+          limits: $checkedConvert('limits',
+              (v) => ServerLimits.fromJson(v as Map<String, dynamic>)),
+          featureLimits: $checkedConvert('feature_limits',
+              (v) => ServerFeatureLimits.fromJson(v as Map<String, dynamic>)),
+          user: $checkedConvert('user', (v) => v as int),
+          node: $checkedConvert('node', (v) => v as int),
+          allocation: $checkedConvert('allocation', (v) => v as int),
+          nest: $checkedConvert('nest', (v) => v as int),
+          egg: $checkedConvert('egg', (v) => v as int),
+          container: $checkedConvert(
+              'container',
+              (v) => ApplicationServerContainer.fromJson(
+                  v as Map<String, dynamic>)),
+          createdAt:
+              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
+          updatedAt:
+              $checkedConvert('updated_at', (v) => DateTime.parse(v as String)),
+          relationships: $checkedConvert(
+              'relationships',
+              (v) => v == null
+                  ? null
+                  : ApplicationServerRelationships.fromJson(
+                      v as Map<String, dynamic>)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'externalId': 'external_id',
+        'featureLimits': 'feature_limits',
+        'createdAt': 'created_at',
+        'updatedAt': 'updated_at'
+      },
     );
 
 Map<String, dynamic> _$$_ApplicationServerToJson(
@@ -68,11 +89,21 @@ const _$ServerStatusEnumMap = {
 
 _$_ApplicationServerContainer _$$_ApplicationServerContainerFromJson(
         Map<String, dynamic> json) =>
-    _$_ApplicationServerContainer(
-      startupCommand: json['startup_command'] as String,
-      image: json['image'] as String,
-      installed: json['installed'] as bool,
-      environment: json['environment'] as Map<String, dynamic>,
+    $checkedCreate(
+      r'_$_ApplicationServerContainer',
+      json,
+      ($checkedConvert) {
+        final val = _$_ApplicationServerContainer(
+          startupCommand:
+              $checkedConvert('startup_command', (v) => v as String),
+          image: $checkedConvert('image', (v) => v as String),
+          installed: $checkedConvert('installed', (v) => v as bool),
+          environment:
+              $checkedConvert('environment', (v) => v as Map<String, dynamic>),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'startupCommand': 'startup_command'},
     );
 
 Map<String, dynamic> _$$_ApplicationServerContainerToJson(
@@ -86,11 +117,20 @@ Map<String, dynamic> _$$_ApplicationServerContainerToJson(
 
 _$_ApplicationServerRelationships _$$_ApplicationServerRelationshipsFromJson(
         Map<String, dynamic> json) =>
-    _$_ApplicationServerRelationships(
-      json['user'] == null
-          ? null
-          : FractalResponseData<ApplicationUser>.fromJson(
-              json['user'] as Map<String, dynamic>),
+    $checkedCreate(
+      r'_$_ApplicationServerRelationships',
+      json,
+      ($checkedConvert) {
+        final val = _$_ApplicationServerRelationships(
+          $checkedConvert(
+              'user',
+              (v) => v == null
+                  ? null
+                  : FractalResponseData<ApplicationUser>.fromJson(
+                      v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_ApplicationServerRelationshipsToJson(

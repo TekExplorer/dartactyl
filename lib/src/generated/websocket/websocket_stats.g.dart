@@ -8,13 +8,30 @@ part of '../../websocket/websocket_stats.dart';
 
 _$_WebsocketStatsModel _$$_WebsocketStatsModelFromJson(
         Map<String, dynamic> json) =>
-    _$_WebsocketStatsModel(
-      cpuAbsolute: (json['cpu_absolute'] as num).toDouble(),
-      memoryBytes: json['memory_bytes'] as int,
-      memoryLimitBytes: json['memory_limit_bytes'] as int,
-      network: WebsocketNetworkStatsModel.fromJson(
-          json['network'] as Map<String, dynamic>),
-      state: $enumDecode(_$ServerPowerStateEnumMap, json['state']),
+    $checkedCreate(
+      r'_$_WebsocketStatsModel',
+      json,
+      ($checkedConvert) {
+        final val = _$_WebsocketStatsModel(
+          cpuAbsolute:
+              $checkedConvert('cpu_absolute', (v) => (v as num).toDouble()),
+          memoryBytes: $checkedConvert('memory_bytes', (v) => v as int),
+          memoryLimitBytes:
+              $checkedConvert('memory_limit_bytes', (v) => v as int),
+          network: $checkedConvert(
+              'network',
+              (v) => WebsocketNetworkStatsModel.fromJson(
+                  v as Map<String, dynamic>)),
+          state: $checkedConvert(
+              'state', (v) => $enumDecode(_$ServerPowerStateEnumMap, v)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'cpuAbsolute': 'cpu_absolute',
+        'memoryBytes': 'memory_bytes',
+        'memoryLimitBytes': 'memory_limit_bytes'
+      },
     );
 
 Map<String, dynamic> _$$_WebsocketStatsModelToJson(
@@ -36,9 +53,17 @@ const _$ServerPowerStateEnumMap = {
 
 _$_WebsocketNetworkStatsModel _$$_WebsocketNetworkStatsModelFromJson(
         Map<String, dynamic> json) =>
-    _$_WebsocketNetworkStatsModel(
-      rxBytes: json['rx_bytes'] as int,
-      txBytes: json['tx_bytes'] as int,
+    $checkedCreate(
+      r'_$_WebsocketNetworkStatsModel',
+      json,
+      ($checkedConvert) {
+        final val = _$_WebsocketNetworkStatsModel(
+          rxBytes: $checkedConvert('rx_bytes', (v) => v as int),
+          txBytes: $checkedConvert('tx_bytes', (v) => v as int),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'rxBytes': 'rx_bytes', 'txBytes': 'tx_bytes'},
     );
 
 Map<String, dynamic> _$$_WebsocketNetworkStatsModelToJson(

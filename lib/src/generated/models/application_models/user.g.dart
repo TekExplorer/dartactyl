@@ -7,21 +7,41 @@ part of '../../../models/application_models/user.dart';
 // **************************************************************************
 
 _$_ApplicationUser _$$_ApplicationUserFromJson(Map<String, dynamic> json) =>
-    _$_ApplicationUser(
-      id: json['id'] as String,
-      externalId: json['external_id'] as String?,
-      uuid: json['uuid'] as String,
-      username: json['username'] as String,
-      email: json['email'] as String,
-      firstName: json['first_name'] as String,
-      lastName: json['last_name'] as String,
-      language: json['language'] as String,
-      rootAdmin: json['root_admin'] as bool,
-      tfaEnabled: json['2fa'] as bool,
-      createdAt: DateTime.parse(json['created_at'] as String),
-      updatedAt: DateTime.parse(json['updated_at'] as String),
-      relationships: ApplicationUserRelationships.fromJson(
-          json['relationships'] as Map<String, dynamic>),
+    $checkedCreate(
+      r'_$_ApplicationUser',
+      json,
+      ($checkedConvert) {
+        final val = _$_ApplicationUser(
+          id: $checkedConvert('id', (v) => v as String),
+          externalId: $checkedConvert('external_id', (v) => v as String?),
+          uuid: $checkedConvert('uuid', (v) => v as String),
+          username: $checkedConvert('username', (v) => v as String),
+          email: $checkedConvert('email', (v) => v as String),
+          firstName: $checkedConvert('first_name', (v) => v as String),
+          lastName: $checkedConvert('last_name', (v) => v as String),
+          language: $checkedConvert('language', (v) => v as String),
+          rootAdmin: $checkedConvert('root_admin', (v) => v as bool),
+          tfaEnabled: $checkedConvert('2fa', (v) => v as bool),
+          createdAt:
+              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
+          updatedAt:
+              $checkedConvert('updated_at', (v) => DateTime.parse(v as String)),
+          relationships: $checkedConvert(
+              'relationships',
+              (v) => ApplicationUserRelationships.fromJson(
+                  v as Map<String, dynamic>)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'externalId': 'external_id',
+        'firstName': 'first_name',
+        'lastName': 'last_name',
+        'rootAdmin': 'root_admin',
+        'tfaEnabled': '2fa',
+        'createdAt': 'created_at',
+        'updatedAt': 'updated_at'
+      },
     );
 
 Map<String, dynamic> _$$_ApplicationUserToJson(_$_ApplicationUser instance) =>
@@ -43,9 +63,18 @@ Map<String, dynamic> _$$_ApplicationUserToJson(_$_ApplicationUser instance) =>
 
 _$_ApplicationUserRelationships _$$_ApplicationUserRelationshipsFromJson(
         Map<String, dynamic> json) =>
-    _$_ApplicationUserRelationships(
-      servers: FractalResponseList<ApplicationServer>.fromJson(
-          json['servers'] as Map<String, dynamic>),
+    $checkedCreate(
+      r'_$_ApplicationUserRelationships',
+      json,
+      ($checkedConvert) {
+        final val = _$_ApplicationUserRelationships(
+          servers: $checkedConvert(
+              'servers',
+              (v) => FractalResponseList<ApplicationServer>.fromJson(
+                  v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_ApplicationUserRelationshipsToJson(

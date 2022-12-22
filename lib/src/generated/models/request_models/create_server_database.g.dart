@@ -8,9 +8,16 @@ part of '../../../models/request_models/create_server_database.dart';
 
 _$_CreateServerDatabase _$$_CreateServerDatabaseFromJson(
         Map<String, dynamic> json) =>
-    _$_CreateServerDatabase(
-      database: json['database'] as String,
-      remote: json['remote'] as String,
+    $checkedCreate(
+      r'_$_CreateServerDatabase',
+      json,
+      ($checkedConvert) {
+        final val = _$_CreateServerDatabase(
+          database: $checkedConvert('database', (v) => v as String),
+          remote: $checkedConvert('remote', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_CreateServerDatabaseToJson(

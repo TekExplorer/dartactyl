@@ -107,9 +107,10 @@ class __$$_ChmodFileBodyCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ChmodFileBody implements _ChmodFileBody {
+class _$_ChmodFileBody extends _ChmodFileBody {
   const _$_ChmodFileBody({this.root, required final List<ChmodFile> files})
-      : _files = files;
+      : _files = files,
+        super._();
 
   factory _$_ChmodFileBody.fromJson(Map<String, dynamic> json) =>
       _$$_ChmodFileBodyFromJson(json);
@@ -156,10 +157,11 @@ class _$_ChmodFileBody implements _ChmodFileBody {
   }
 }
 
-abstract class _ChmodFileBody implements ChmodFileBody {
+abstract class _ChmodFileBody extends ChmodFileBody {
   const factory _ChmodFileBody(
       {final String? root,
       required final List<ChmodFile> files}) = _$_ChmodFileBody;
+  const _ChmodFileBody._() : super._();
 
   factory _ChmodFileBody.fromJson(Map<String, dynamic> json) =
       _$_ChmodFileBody.fromJson;
@@ -265,8 +267,8 @@ class __$$_ChmodFileCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ChmodFile implements _ChmodFile {
-  const _$_ChmodFile({required this.file, required this.mode});
+class _$_ChmodFile extends _ChmodFile {
+  const _$_ChmodFile({required this.file, required this.mode}) : super._();
 
   factory _$_ChmodFile.fromJson(Map<String, dynamic> json) =>
       _$$_ChmodFileFromJson(json);
@@ -308,9 +310,10 @@ class _$_ChmodFile implements _ChmodFile {
   }
 }
 
-abstract class _ChmodFile implements ChmodFile {
+abstract class _ChmodFile extends ChmodFile {
   const factory _ChmodFile(
       {required final String file, required final int mode}) = _$_ChmodFile;
+  const _ChmodFile._() : super._();
 
   factory _ChmodFile.fromJson(Map<String, dynamic> json) =
       _$_ChmodFile.fromJson;

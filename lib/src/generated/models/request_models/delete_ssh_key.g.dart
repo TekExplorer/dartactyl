@@ -7,8 +7,15 @@ part of '../../../models/request_models/delete_ssh_key.dart';
 // **************************************************************************
 
 _$_DeleteSSHKey _$$_DeleteSSHKeyFromJson(Map<String, dynamic> json) =>
-    _$_DeleteSSHKey(
-      fingerprint: json['fingerprint'] as String,
+    $checkedCreate(
+      r'_$_DeleteSSHKey',
+      json,
+      ($checkedConvert) {
+        final val = _$_DeleteSSHKey(
+          fingerprint: $checkedConvert('fingerprint', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_DeleteSSHKeyToJson(_$_DeleteSSHKey instance) =>

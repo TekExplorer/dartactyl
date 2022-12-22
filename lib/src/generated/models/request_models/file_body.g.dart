@@ -6,9 +6,17 @@ part of '../../../models/request_models/file_body.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_FileBody _$$_FileBodyFromJson(Map<String, dynamic> json) => _$_FileBody(
-      rootDir: json['root'] as String,
-      file: json['file'] as String,
+_$_FileBody _$$_FileBodyFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$_FileBody',
+      json,
+      ($checkedConvert) {
+        final val = _$_FileBody(
+          rootDir: $checkedConvert('root', (v) => v as String),
+          file: $checkedConvert('file', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'rootDir': 'root'},
     );
 
 Map<String, dynamic> _$$_FileBodyToJson(_$_FileBody instance) =>
@@ -19,11 +27,21 @@ Map<String, dynamic> _$$_FileBodyToJson(_$_FileBody instance) =>
 
 _$_FileBodyListFromTo _$$_FileBodyListFromToFromJson(
         Map<String, dynamic> json) =>
-    _$_FileBodyListFromTo(
-      rootDir: json['root'] as String,
-      files: (json['files'] as List<dynamic>)
-          .map((e) => FromTo.fromJson(e as Map<String, dynamic>))
-          .toList(),
+    $checkedCreate(
+      r'_$_FileBodyListFromTo',
+      json,
+      ($checkedConvert) {
+        final val = _$_FileBodyListFromTo(
+          rootDir: $checkedConvert('root', (v) => v as String),
+          files: $checkedConvert(
+              'files',
+              (v) => (v as List<dynamic>)
+                  .map((e) => FromTo.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'rootDir': 'root'},
     );
 
 Map<String, dynamic> _$$_FileBodyListFromToToJson(
@@ -35,9 +53,18 @@ Map<String, dynamic> _$$_FileBodyListFromToToJson(
 
 _$_FileBodyListString _$$_FileBodyListStringFromJson(
         Map<String, dynamic> json) =>
-    _$_FileBodyListString(
-      rootDir: json['root'] as String,
-      files: (json['files'] as List<dynamic>).map((e) => e as String).toList(),
+    $checkedCreate(
+      r'_$_FileBodyListString',
+      json,
+      ($checkedConvert) {
+        final val = _$_FileBodyListString(
+          rootDir: $checkedConvert('root', (v) => v as String),
+          files: $checkedConvert('files',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'rootDir': 'root'},
     );
 
 Map<String, dynamic> _$$_FileBodyListStringToJson(
@@ -48,9 +75,17 @@ Map<String, dynamic> _$$_FileBodyListStringToJson(
     };
 
 _$_FolderBody _$$_FolderBodyFromJson(Map<String, dynamic> json) =>
-    _$_FolderBody(
-      rootDir: json['root'] as String,
-      name: json['name'] as String,
+    $checkedCreate(
+      r'_$_FolderBody',
+      json,
+      ($checkedConvert) {
+        final val = _$_FolderBody(
+          rootDir: $checkedConvert('root', (v) => v as String),
+          name: $checkedConvert('name', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'rootDir': 'root'},
     );
 
 Map<String, dynamic> _$$_FolderBodyToJson(_$_FolderBody instance) =>

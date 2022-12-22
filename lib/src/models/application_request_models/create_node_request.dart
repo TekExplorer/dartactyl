@@ -22,6 +22,7 @@ part '../../generated/models/application_request_models/create_node_request.g.da
 
 @freezed
 class CreateNodeRequest with _$CreateNodeRequest {
+  const CreateNodeRequest._();
   const factory CreateNodeRequest({
     required String name,
     required int locationId,

@@ -10,6 +10,7 @@ part '../generated/clients/application.g.dart';
 @RestApi()
 abstract class PteroApplication {
   // https://github.com/pterodactyl/panel/blob/1.0-develop/routes/api-application.php
+
   const PteroApplication._();
   factory PteroApplication(Dio dio, {String? baseUrl}) = _PteroApplication._;
 

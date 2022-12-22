@@ -8,6 +8,7 @@ part '../../generated/models/request_models/make_file_copy.g.dart';
 class MakeFileCopy with _$MakeFileCopy {
   // String location;
   // MakeFileCopy({required this.location});
+  const MakeFileCopy._();
   const factory MakeFileCopy({required String location}) = _MakeFileCopy;
 
   factory MakeFileCopy.fromJson(JsonMap json) => _$MakeFileCopyFromJson(json);

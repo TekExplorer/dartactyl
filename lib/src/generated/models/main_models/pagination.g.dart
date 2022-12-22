@@ -6,9 +6,16 @@ part of '../../../models/main_models/pagination.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Links _$$_LinksFromJson(Map<String, dynamic> json) => _$_Links(
-      previous: json['previous'] as String?,
-      next: json['next'] as String?,
+_$_Links _$$_LinksFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$_Links',
+      json,
+      ($checkedConvert) {
+        final val = _$_Links(
+          previous: $checkedConvert('previous', (v) => v as String?),
+          next: $checkedConvert('next', (v) => v as String?),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_LinksToJson(_$_Links instance) => <String, dynamic>{
@@ -17,13 +24,26 @@ Map<String, dynamic> _$$_LinksToJson(_$_Links instance) => <String, dynamic>{
     };
 
 _$_Pagination _$$_PaginationFromJson(Map<String, dynamic> json) =>
-    _$_Pagination(
-      total: json['total'] as int,
-      count: json['count'] as int,
-      perPage: json['per_page'] as int,
-      currentPage: json['current_page'] as int,
-      totalPages: json['total_pages'] as int,
-      links: Links.fromJson(json['links'] as Map<String, dynamic>),
+    $checkedCreate(
+      r'_$_Pagination',
+      json,
+      ($checkedConvert) {
+        final val = _$_Pagination(
+          total: $checkedConvert('total', (v) => v as int),
+          count: $checkedConvert('count', (v) => v as int),
+          perPage: $checkedConvert('per_page', (v) => v as int),
+          currentPage: $checkedConvert('current_page', (v) => v as int),
+          totalPages: $checkedConvert('total_pages', (v) => v as int),
+          links: $checkedConvert(
+              'links', (v) => Links.fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'perPage': 'per_page',
+        'currentPage': 'current_page',
+        'totalPages': 'total_pages'
+      },
     );
 
 Map<String, dynamic> _$$_PaginationToJson(_$_Pagination instance) =>

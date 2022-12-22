@@ -8,11 +8,18 @@ part of '../../../models/permission_keys/user_permission_keys.dart';
 
 _$_UserPermissionKeys _$$_UserPermissionKeysFromJson(
         Map<String, dynamic> json) =>
-    _$_UserPermissionKeys(
-      create: json['create'] as String,
-      read: json['read'] as String,
-      update: json['update'] as String,
-      delete: json['delete'] as String,
+    $checkedCreate(
+      r'_$_UserPermissionKeys',
+      json,
+      ($checkedConvert) {
+        final val = _$_UserPermissionKeys(
+          create: $checkedConvert('create', (v) => v as String),
+          read: $checkedConvert('read', (v) => v as String),
+          update: $checkedConvert('update', (v) => v as String),
+          delete: $checkedConvert('delete', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_UserPermissionKeysToJson(

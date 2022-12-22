@@ -110,9 +110,10 @@ class __$$_WebsocketRecievedModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WebsocketRecievedModel implements _WebsocketRecievedModel {
+class _$_WebsocketRecievedModel extends _WebsocketRecievedModel {
   const _$_WebsocketRecievedModel(this.event, [final List<String>? args])
-      : _args = args;
+      : _args = args,
+        super._();
 
   factory _$_WebsocketRecievedModel.fromJson(Map<String, dynamic> json) =>
       _$$_WebsocketRecievedModelFromJson(json);
@@ -162,9 +163,10 @@ class _$_WebsocketRecievedModel implements _WebsocketRecievedModel {
   }
 }
 
-abstract class _WebsocketRecievedModel implements WebsocketRecievedModel {
+abstract class _WebsocketRecievedModel extends WebsocketRecievedModel {
   const factory _WebsocketRecievedModel(final WebsocketRecievedModelEvent event,
       [final List<String>? args]) = _$_WebsocketRecievedModel;
+  const _WebsocketRecievedModel._() : super._();
 
   factory _WebsocketRecievedModel.fromJson(Map<String, dynamic> json) =
       _$_WebsocketRecievedModel.fromJson;
@@ -272,9 +274,10 @@ class __$$_WebsocketSendModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WebsocketSendModel implements _WebsocketSendModel {
+class _$_WebsocketSendModel extends _WebsocketSendModel {
   const _$_WebsocketSendModel(this.event, [final List<String>? args])
-      : _args = args;
+      : _args = args,
+        super._();
 
   factory _$_WebsocketSendModel.fromJson(Map<String, dynamic> json) =>
       _$$_WebsocketSendModelFromJson(json);
@@ -324,9 +327,10 @@ class _$_WebsocketSendModel implements _WebsocketSendModel {
   }
 }
 
-abstract class _WebsocketSendModel implements WebsocketSendModel {
+abstract class _WebsocketSendModel extends WebsocketSendModel {
   const factory _WebsocketSendModel(final WebsocketSendModelEvent event,
       [final List<String>? args]) = _$_WebsocketSendModel;
+  const _WebsocketSendModel._() : super._();
 
   factory _WebsocketSendModel.fromJson(Map<String, dynamic> json) =
       _$_WebsocketSendModel.fromJson;

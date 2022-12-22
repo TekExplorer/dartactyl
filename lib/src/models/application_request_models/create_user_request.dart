@@ -6,6 +6,7 @@ part '../../generated/models/application_request_models/create_user_request.g.da
 
 @freezed
 class CreateUserRequest with _$CreateUserRequest {
+  const CreateUserRequest._();
   const factory CreateUserRequest({
     required String email,
     required String username,

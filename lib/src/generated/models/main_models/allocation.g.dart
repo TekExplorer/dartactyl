@@ -7,13 +7,21 @@ part of '../../../models/main_models/allocation.dart';
 // **************************************************************************
 
 _$_Allocation _$$_AllocationFromJson(Map<String, dynamic> json) =>
-    _$_Allocation(
-      id: json['id'] as int,
-      ip: json['ip'] as String,
-      ipAlias: json['ip_alias'] as String?,
-      port: json['port'] as int,
-      notes: json['notes'] as String?,
-      isDefault: json['is_default'] as bool,
+    $checkedCreate(
+      r'_$_Allocation',
+      json,
+      ($checkedConvert) {
+        final val = _$_Allocation(
+          id: $checkedConvert('id', (v) => v as int),
+          ip: $checkedConvert('ip', (v) => v as String),
+          ipAlias: $checkedConvert('ip_alias', (v) => v as String?),
+          port: $checkedConvert('port', (v) => v as int),
+          notes: $checkedConvert('notes', (v) => v as String?),
+          isDefault: $checkedConvert('is_default', (v) => v as bool),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'ipAlias': 'ip_alias', 'isDefault': 'is_default'},
     );
 
 Map<String, dynamic> _$$_AllocationToJson(_$_Allocation instance) =>

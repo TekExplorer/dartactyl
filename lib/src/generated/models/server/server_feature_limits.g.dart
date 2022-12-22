@@ -8,10 +8,17 @@ part of '../../../models/server/server_feature_limits.dart';
 
 _$_ServerFeatureLimits _$$_ServerFeatureLimitsFromJson(
         Map<String, dynamic> json) =>
-    _$_ServerFeatureLimits(
-      allocations: json['allocations'] as int,
-      databases: json['databases'] as int?,
-      backups: json['backups'] as int?,
+    $checkedCreate(
+      r'_$_ServerFeatureLimits',
+      json,
+      ($checkedConvert) {
+        final val = _$_ServerFeatureLimits(
+          allocations: $checkedConvert('allocations', (v) => v as int),
+          databases: $checkedConvert('databases', (v) => v as int?),
+          backups: $checkedConvert('backups', (v) => v as int?),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_ServerFeatureLimitsToJson(

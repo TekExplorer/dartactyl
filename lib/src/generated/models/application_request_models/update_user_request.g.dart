@@ -7,13 +7,21 @@ part of '../../../models/application_request_models/update_user_request.dart';
 // **************************************************************************
 
 _$_UpdateUserRequest _$$_UpdateUserRequestFromJson(Map<String, dynamic> json) =>
-    _$_UpdateUserRequest(
-      email: json['email'] as String,
-      username: json['username'] as String,
-      firstName: json['first_name'] as String,
-      lastName: json['last_name'] as String,
-      language: json['language'] as String,
-      password: json['password'] as String,
+    $checkedCreate(
+      r'_$_UpdateUserRequest',
+      json,
+      ($checkedConvert) {
+        final val = _$_UpdateUserRequest(
+          email: $checkedConvert('email', (v) => v as String),
+          username: $checkedConvert('username', (v) => v as String),
+          firstName: $checkedConvert('first_name', (v) => v as String),
+          lastName: $checkedConvert('last_name', (v) => v as String),
+          language: $checkedConvert('language', (v) => v as String),
+          password: $checkedConvert('password', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'firstName': 'first_name', 'lastName': 'last_name'},
     );
 
 Map<String, dynamic> _$$_UpdateUserRequestToJson(

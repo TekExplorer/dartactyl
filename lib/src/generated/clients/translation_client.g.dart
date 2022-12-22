@@ -7,8 +7,15 @@ part of '../../clients/translation_client.dart';
 // **************************************************************************
 
 _$_TranslationData _$$_TranslationDataFromJson(Map<String, dynamic> json) =>
-    _$_TranslationData(
-      en: json['en'] as Map<String, dynamic>,
+    $checkedCreate(
+      r'_$_TranslationData',
+      json,
+      ($checkedConvert) {
+        final val = _$_TranslationData(
+          en: $checkedConvert('en', (v) => v as Map<String, dynamic>),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_TranslationDataToJson(_$_TranslationData instance) =>

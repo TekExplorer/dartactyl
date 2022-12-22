@@ -12,9 +12,6 @@ class SystemPermissions with SerializableMixin, _$SystemPermissions {
 
   factory SystemPermissions.fromJson(JsonMap json) =>
       _$SystemPermissionsFromJson(json);
-
-  @override
-  JsonMap toJson();
 }
 
 @freezed
@@ -48,6 +45,7 @@ class PermissionsModel<T extends SerializableMixin> with _$PermissionsModel<T> {
       _$PermissionsModelFromJson<T>(json);
 }
 
+@protected
 class PermissionKeysConverter<T extends SerializableMixin>
     implements JsonConverter<T, JsonMap> {
   const PermissionKeysConverter();

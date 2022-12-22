@@ -7,16 +7,27 @@ part of '../../../models/main_models/server_subuser.dart';
 // **************************************************************************
 
 _$_ServerSubuser _$$_ServerSubuserFromJson(Map<String, dynamic> json) =>
-    _$_ServerSubuser(
-      uuid: json['uuid'] as String,
-      username: json['username'] as String,
-      email: json['email'] as String,
-      image: json['image'] as String,
-      the2FaEnabled: json['the2_fa_enabled'] as bool,
-      createdAt: DateTime.parse(json['created_at'] as String),
-      permissions: (json['permissions'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
+    $checkedCreate(
+      r'_$_ServerSubuser',
+      json,
+      ($checkedConvert) {
+        final val = _$_ServerSubuser(
+          uuid: $checkedConvert('uuid', (v) => v as String),
+          username: $checkedConvert('username', (v) => v as String),
+          email: $checkedConvert('email', (v) => v as String),
+          image: $checkedConvert('image', (v) => v as String),
+          the2FaEnabled: $checkedConvert('the2_fa_enabled', (v) => v as bool),
+          createdAt:
+              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
+          permissions: $checkedConvert('permissions',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'the2FaEnabled': 'the2_fa_enabled',
+        'createdAt': 'created_at'
+      },
     );
 
 Map<String, dynamic> _$$_ServerSubuserToJson(_$_ServerSubuser instance) =>

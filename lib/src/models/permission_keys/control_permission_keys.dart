@@ -13,7 +13,4 @@ class ControlPermissionKeys with SerializableMixin, _$ControlPermissionKeys {
 
   factory ControlPermissionKeys.fromJson(JsonMap json) =>
       _$ControlPermissionKeysFromJson(json);
-
-  @override
-  JsonMap toJson();
 }

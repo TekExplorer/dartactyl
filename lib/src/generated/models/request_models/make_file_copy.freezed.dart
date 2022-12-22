@@ -96,8 +96,8 @@ class __$$_MakeFileCopyCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MakeFileCopy implements _MakeFileCopy {
-  const _$_MakeFileCopy({required this.location});
+class _$_MakeFileCopy extends _MakeFileCopy {
+  const _$_MakeFileCopy({required this.location}) : super._();
 
   factory _$_MakeFileCopy.fromJson(Map<String, dynamic> json) =>
       _$$_MakeFileCopyFromJson(json);
@@ -137,9 +137,10 @@ class _$_MakeFileCopy implements _MakeFileCopy {
   }
 }
 
-abstract class _MakeFileCopy implements MakeFileCopy {
+abstract class _MakeFileCopy extends MakeFileCopy {
   const factory _MakeFileCopy({required final String location}) =
       _$_MakeFileCopy;
+  const _MakeFileCopy._() : super._();
 
   factory _MakeFileCopy.fromJson(Map<String, dynamic> json) =
       _$_MakeFileCopy.fromJson;

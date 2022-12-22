@@ -13,7 +13,4 @@ class WebsocketDetails with _$WebsocketDetails, SerializableMixin {
 
   factory WebsocketDetails.fromJson(JsonMap json) =>
       _$WebsocketDetailsFromJson(json);
-
-  @override
-  JsonMap toJson();
 }

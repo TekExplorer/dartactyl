@@ -7,6 +7,7 @@ part '../../generated/models/main_models/activity_log.g.dart';
 @freezed
 class ActivityLog with _$ActivityLog, SerializableMixin {
   /// [hasAdditionalMetadata] is set to true if [properties] contains a key that isn't `useragent` or `ip`.
+  const ActivityLog._();
   const factory ActivityLog({
     String? batch,
     required String event,
@@ -23,8 +24,6 @@ class ActivityLog with _$ActivityLog, SerializableMixin {
   }) = _ActivityLog;
 
   factory ActivityLog.fromJson(JsonMap json) => _$ActivityLogFromJson(json);
-
-  const ActivityLog._();
 }
 
 JsonMap activityLogPropertiesFromJson(dynamic value) {

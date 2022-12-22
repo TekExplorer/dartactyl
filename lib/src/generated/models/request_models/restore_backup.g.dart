@@ -7,8 +7,16 @@ part of '../../../models/request_models/restore_backup.dart';
 // **************************************************************************
 
 _$_RestoreBackup _$$_RestoreBackupFromJson(Map<String, dynamic> json) =>
-    _$_RestoreBackup(
-      deleteExistingFiles: json['truncate'] as bool?,
+    $checkedCreate(
+      r'_$_RestoreBackup',
+      json,
+      ($checkedConvert) {
+        final val = _$_RestoreBackup(
+          deleteExistingFiles: $checkedConvert('truncate', (v) => v as bool?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'deleteExistingFiles': 'truncate'},
     );
 
 Map<String, dynamic> _$$_RestoreBackupToJson(_$_RestoreBackup instance) =>

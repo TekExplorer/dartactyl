@@ -7,16 +7,32 @@ part of '../../../models/main_models/file_object.dart';
 // **************************************************************************
 
 _$_FileObject _$$_FileObjectFromJson(Map<String, dynamic> json) =>
-    _$_FileObject(
-      name: json['name'] as String,
-      mode: json['mode'] as String,
-      modeBits: json['mode_bits'] as String,
-      size: json['size'] as int,
-      isFile: json['is_file'] as bool,
-      isSymlink: json['is_symlink'] as bool,
-      mimetype: json['mimetype'] as String,
-      createdAt: DateTime.parse(json['created_at'] as String),
-      modifiedAt: DateTime.parse(json['modified_at'] as String),
+    $checkedCreate(
+      r'_$_FileObject',
+      json,
+      ($checkedConvert) {
+        final val = _$_FileObject(
+          name: $checkedConvert('name', (v) => v as String),
+          mode: $checkedConvert('mode', (v) => v as String),
+          modeBits: $checkedConvert('mode_bits', (v) => v as String),
+          size: $checkedConvert('size', (v) => v as int),
+          isFile: $checkedConvert('is_file', (v) => v as bool),
+          isSymlink: $checkedConvert('is_symlink', (v) => v as bool),
+          mimetype: $checkedConvert('mimetype', (v) => v as String),
+          createdAt:
+              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
+          modifiedAt: $checkedConvert(
+              'modified_at', (v) => DateTime.parse(v as String)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'modeBits': 'mode_bits',
+        'isFile': 'is_file',
+        'isSymlink': 'is_symlink',
+        'createdAt': 'created_at',
+        'modifiedAt': 'modified_at'
+      },
     );
 
 Map<String, dynamic> _$$_FileObjectToJson(_$_FileObject instance) =>

@@ -7,6 +7,7 @@ part '../generated/websocket/websocket_events.g.dart';
 
 @freezed
 class WebsocketRecievedModel with _$WebsocketRecievedModel {
+  const WebsocketRecievedModel._();
   const factory WebsocketRecievedModel(
     WebsocketRecievedModelEvent event, [
     List<String>? args,
@@ -18,6 +19,7 @@ class WebsocketRecievedModel with _$WebsocketRecievedModel {
 
 @freezed
 class WebsocketSendModel with _$WebsocketSendModel {
+  const WebsocketSendModel._();
   const factory WebsocketSendModel(
     WebsocketSendModelEvent event, [
     List<String>? args,

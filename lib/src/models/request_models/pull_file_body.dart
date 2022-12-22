@@ -20,6 +20,7 @@ class PullFileBody with _$PullFileBody {
   ///   and an identifier may be returned with the request
   ///
   /// If `false`, the [Future] will be completed once the request is sent.
+  const PullFileBody._();
   const factory PullFileBody({
     required Uri url,
     String? directory,
@@ -27,8 +28,6 @@ class PullFileBody with _$PullFileBody {
     required bool useHeader,
     required bool foreground,
   }) = _PullFileBody;
-
-  const PullFileBody._();
 
   factory PullFileBody.fromJson(JsonMap json) => _$PullFileBodyFromJson(json);
 }

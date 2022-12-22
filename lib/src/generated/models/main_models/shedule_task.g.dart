@@ -7,16 +7,34 @@ part of '../../../models/main_models/shedule_task.dart';
 // **************************************************************************
 
 _$_ScheduleTask _$$_ScheduleTaskFromJson(Map<String, dynamic> json) =>
-    _$_ScheduleTask(
-      id: json['id'] as int,
-      sequenceId: json['sequence_id'] as int,
-      action: json['action'] as String,
-      payload: json['payload'] as String,
-      timeOffset: json['time_offset'] as int,
-      isQueued: json['is_queued'] as bool,
-      continueOnFailure: json['continue_on_failure'] as bool?,
-      createdAt: DateTime.parse(json['created_at'] as String),
-      updatedAt: DateTime.parse(json['updated_at'] as String),
+    $checkedCreate(
+      r'_$_ScheduleTask',
+      json,
+      ($checkedConvert) {
+        final val = _$_ScheduleTask(
+          id: $checkedConvert('id', (v) => v as int),
+          sequenceId: $checkedConvert('sequence_id', (v) => v as int),
+          action: $checkedConvert('action', (v) => v as String),
+          payload: $checkedConvert('payload', (v) => v as String),
+          timeOffset: $checkedConvert('time_offset', (v) => v as int),
+          isQueued: $checkedConvert('is_queued', (v) => v as bool),
+          continueOnFailure:
+              $checkedConvert('continue_on_failure', (v) => v as bool?),
+          createdAt:
+              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
+          updatedAt:
+              $checkedConvert('updated_at', (v) => DateTime.parse(v as String)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'sequenceId': 'sequence_id',
+        'timeOffset': 'time_offset',
+        'isQueued': 'is_queued',
+        'continueOnFailure': 'continue_on_failure',
+        'createdAt': 'created_at',
+        'updatedAt': 'updated_at'
+      },
     );
 
 Map<String, dynamic> _$$_ScheduleTaskToJson(_$_ScheduleTask instance) =>

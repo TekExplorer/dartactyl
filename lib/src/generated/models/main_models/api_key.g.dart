@@ -6,16 +6,27 @@ part of '../../../models/main_models/api_key.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApiKey _$$_ApiKeyFromJson(Map<String, dynamic> json) => _$_ApiKey(
-      identifier: json['identifier'] as String,
-      description: json['description'] as String?,
-      allowedIps: (json['allowed_ips'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      lastUsedAt: json['last_used_at'] == null
-          ? null
-          : DateTime.parse(json['last_used_at'] as String),
-      createdAt: DateTime.parse(json['created_at'] as String),
+_$_ApiKey _$$_ApiKeyFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$_ApiKey',
+      json,
+      ($checkedConvert) {
+        final val = _$_ApiKey(
+          identifier: $checkedConvert('identifier', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String?),
+          allowedIps: $checkedConvert('allowed_ips',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          lastUsedAt: $checkedConvert('last_used_at',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          createdAt:
+              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'allowedIps': 'allowed_ips',
+        'lastUsedAt': 'last_used_at',
+        'createdAt': 'created_at'
+      },
     );
 
 Map<String, dynamic> _$$_ApiKeyToJson(_$_ApiKey instance) => <String, dynamic>{

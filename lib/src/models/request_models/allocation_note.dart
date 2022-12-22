@@ -11,7 +11,4 @@ class AllocationNote with _$AllocationNote {
 
   factory AllocationNote.fromJson(JsonMap json) =>
       _$AllocationNoteFromJson(json);
-
-  @override
-  JsonMap toJson();
 }

@@ -102,8 +102,8 @@ class __$$_FromToCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FromTo implements _FromTo {
-  const _$_FromTo({required this.from, required this.to});
+class _$_FromTo extends _FromTo {
+  const _$_FromTo({required this.from, required this.to}) : super._();
 
   factory _$_FromTo.fromJson(Map<String, dynamic> json) =>
       _$$_FromToFromJson(json);
@@ -145,9 +145,10 @@ class _$_FromTo implements _FromTo {
   }
 }
 
-abstract class _FromTo implements FromTo {
+abstract class _FromTo extends FromTo {
   const factory _FromTo(
       {required final String from, required final String to}) = _$_FromTo;
+  const _FromTo._() : super._();
 
   factory _FromTo.fromJson(Map<String, dynamic> json) = _$_FromTo.fromJson;
 
