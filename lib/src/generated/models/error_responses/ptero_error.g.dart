@@ -13,11 +13,10 @@ _$_PteroError _$$_PteroErrorFromJson(Map<String, dynamic> json) =>
       ($checkedConvert) {
         final val = _$_PteroError(
           code: $checkedConvert(
-              'code',
-              (v) => $enumDecode(_$PteroErrorCodeEnumMap, v,
-                  unknownValue: PteroErrorCode.UNKNOWN)),
+              'code', (v) => PteroErrorCode.fromJson(v as String)),
           status: $checkedConvert('status', (v) => v as String),
           detail: $checkedConvert('detail', (v) => v as String),
+          meta: $checkedConvert('meta', (v) => v as Map<String, dynamic>?),
         );
         return val;
       },
@@ -25,27 +24,8 @@ _$_PteroError _$$_PteroErrorFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_PteroErrorToJson(_$_PteroError instance) =>
     <String, dynamic>{
-      'code': _$PteroErrorCodeEnumMap[instance.code]!,
+      'code': instance.code.toJson(),
       'status': instance.status,
       'detail': instance.detail,
+      'meta': instance.meta,
     };
-
-const _$PteroErrorCodeEnumMap = {
-  PteroErrorCode.BadMethodCallException: 'BadMethodCallException',
-  PteroErrorCode.TwoFactorAuthenticationTokenInvalid:
-      'TwoFactorAuthenticationTokenInvalid',
-  PteroErrorCode.BadRequestHttpException: 'BadRequestHttpException',
-  PteroErrorCode.email: 'email',
-  PteroErrorCode.InvalidPasswordProvidedException:
-      'InvalidPasswordProvidedException',
-  PteroErrorCode.NotFoundHttpException: 'NotFoundHttpException',
-  PteroErrorCode.AccessDeniedHttpException: 'AccessDeniedHttpException',
-  PteroErrorCode.HttpException: 'HttpException',
-  PteroErrorCode.DisplayException: 'DisplayException',
-  PteroErrorCode.MethodNotAllowedHttpException: 'MethodNotAllowedHttpException',
-  PteroErrorCode.AuthenticationException: 'AuthenticationException',
-  PteroErrorCode.DaemonConnectionException: 'DaemonConnectionException',
-  PteroErrorCode.ValidationException: 'ValidationException',
-  PteroErrorCode.ServerStateConflictException: 'ServerStateConflictException',
-  PteroErrorCode.UNKNOWN: 'UNKNOWN',
-};

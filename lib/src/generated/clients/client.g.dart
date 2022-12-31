@@ -1645,7 +1645,7 @@ class _PteroClient extends PteroClient {
     )
             .compose(
               _dio.options,
-              '/api/client/servers/${serverId}/network',
+              '/api/client/servers/${serverId}/network/allocations',
               queryParameters: queryParameters,
               data: _data,
               cancelToken: cancelToken,
@@ -1677,7 +1677,7 @@ class _PteroClient extends PteroClient {
     )
             .compose(
               _dio.options,
-              '/api/client/servers/${serverId}/network',
+              '/api/client/servers/${serverId}/network/allocations',
               queryParameters: queryParameters,
               data: _data,
               cancelToken: cancelToken,
@@ -1712,7 +1712,7 @@ class _PteroClient extends PteroClient {
     )
             .compose(
               _dio.options,
-              '/api/client/servers/${serverId}/network/${allocationId}',
+              '/api/client/servers/${serverId}/network/allocations/${allocationId}',
               queryParameters: queryParameters,
               data: _data,
               cancelToken: cancelToken,
@@ -1745,7 +1745,7 @@ class _PteroClient extends PteroClient {
     )
             .compose(
               _dio.options,
-              '/api/client/servers/${serverId}/network/${allocationId}/primary',
+              '/api/client/servers/${serverId}/network/allocations/${allocationId}/primary',
               queryParameters: queryParameters,
               data: _data,
               cancelToken: cancelToken,
@@ -1778,7 +1778,7 @@ class _PteroClient extends PteroClient {
     )
             .compose(
               _dio.options,
-              '/api/client/servers/${serverId}/network/${allocationId}',
+              '/api/client/servers/${serverId}/network/allocations/${allocationId}',
               queryParameters: queryParameters,
               data: _data,
               cancelToken: cancelToken,

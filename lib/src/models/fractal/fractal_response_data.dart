@@ -18,6 +18,11 @@ class FractalResponseData<T extends SerializableMixin> {
 
   factory FractalResponseData.fromJson(JsonMap json) =>
       _$FractalResponseDataFromJson(json);
+
+  @override
+  String toString() {
+    return 'FractalResponseData{object: $object, attributes: $attributes}';
+  }
 }
 
 @JsonSerializable()
@@ -40,4 +45,9 @@ class FractalResponseDataMeta<T extends SerializableMixin, M extends Meta<M>>
 
   static JsonMap metaToJson<M extends Meta<M>>(M meta) =>
       MetaConverter<M>().toJson(meta);
+
+  @override
+  String toString() {
+    return 'FractalResponseDataMeta{object: $object, attributes: $attributes, meta: $meta}';
+  }
 }

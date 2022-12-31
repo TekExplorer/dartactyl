@@ -21,7 +21,8 @@ Account _$AccountFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Account {
   int get id => throw _privateConstructorUsedError;
-  bool get admin => throw _privateConstructorUsedError;
+  @JsonKey(name: 'admin')
+  bool get isAdmin => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get firstName => throw _privateConstructorUsedError;
@@ -40,7 +41,7 @@ abstract class $AccountCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      bool admin,
+      @JsonKey(name: 'admin') bool isAdmin,
       String username,
       String email,
       String firstName,
@@ -62,7 +63,7 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
   @override
   $Res call({
     Object? id = null,
-    Object? admin = null,
+    Object? isAdmin = null,
     Object? username = null,
     Object? email = null,
     Object? firstName = null,
@@ -74,9 +75,9 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      admin: null == admin
-          ? _value.admin
-          : admin // ignore: cast_nullable_to_non_nullable
+      isAdmin: null == isAdmin
+          ? _value.isAdmin
+          : isAdmin // ignore: cast_nullable_to_non_nullable
               as bool,
       username: null == username
           ? _value.username
@@ -111,7 +112,7 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      bool admin,
+      @JsonKey(name: 'admin') bool isAdmin,
       String username,
       String email,
       String firstName,
@@ -130,7 +131,7 @@ class __$$_AccountCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? admin = null,
+    Object? isAdmin = null,
     Object? username = null,
     Object? email = null,
     Object? firstName = null,
@@ -142,9 +143,9 @@ class __$$_AccountCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      admin: null == admin
-          ? _value.admin
-          : admin // ignore: cast_nullable_to_non_nullable
+      isAdmin: null == isAdmin
+          ? _value.isAdmin
+          : isAdmin // ignore: cast_nullable_to_non_nullable
               as bool,
       username: null == username
           ? _value.username
@@ -175,7 +176,7 @@ class __$$_AccountCopyWithImpl<$Res>
 class _$_Account extends _Account {
   const _$_Account(
       {required this.id,
-      required this.admin,
+      @JsonKey(name: 'admin') required this.isAdmin,
       required this.username,
       required this.email,
       required this.firstName,
@@ -189,7 +190,8 @@ class _$_Account extends _Account {
   @override
   final int id;
   @override
-  final bool admin;
+  @JsonKey(name: 'admin')
+  final bool isAdmin;
   @override
   final String username;
   @override
@@ -203,7 +205,7 @@ class _$_Account extends _Account {
 
   @override
   String toString() {
-    return 'Account(id: $id, admin: $admin, username: $username, email: $email, firstName: $firstName, lastName: $lastName, language: $language)';
+    return 'Account(id: $id, isAdmin: $isAdmin, username: $username, email: $email, firstName: $firstName, lastName: $lastName, language: $language)';
   }
 
   @override
@@ -212,7 +214,7 @@ class _$_Account extends _Account {
         (other.runtimeType == runtimeType &&
             other is _$_Account &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.admin, admin) || other.admin == admin) &&
+            (identical(other.isAdmin, isAdmin) || other.isAdmin == isAdmin) &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
@@ -227,7 +229,7 @@ class _$_Account extends _Account {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, admin, username, email, firstName, lastName, language);
+      runtimeType, id, isAdmin, username, email, firstName, lastName, language);
 
   @JsonKey(ignore: true)
   @override
@@ -246,7 +248,7 @@ class _$_Account extends _Account {
 abstract class _Account extends Account {
   const factory _Account(
       {required final int id,
-      required final bool admin,
+      @JsonKey(name: 'admin') required final bool isAdmin,
       required final String username,
       required final String email,
       required final String firstName,
@@ -259,7 +261,8 @@ abstract class _Account extends Account {
   @override
   int get id;
   @override
-  bool get admin;
+  @JsonKey(name: 'admin')
+  bool get isAdmin;
   @override
   String get username;
   @override

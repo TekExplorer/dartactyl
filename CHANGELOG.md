@@ -1,14 +1,23 @@
 # CHANGELOG
+
+## 1.6.5
+
+- Deprecated Account.admin in favor of Account.isAdmin
+- Attempted to improve the error class
+- Fix all network/allocation related endpoints
+- Add toString implementation to Fractal and FractalList
+- Made filter related classes non private (for example, so you can use a switch case with the enum of available filters)
+
 ## 1.6.4
 
 - Added serialization checks so that issues with the source data can be more easily found
-- Also made sure everything had a private constructor for consistancy
+- Also made sure everything had a private constructor for consistency
 
 ## 1.6.3
 
 - Added object-based filters in order to cut down on unnecessarily many filter parameters.
   - Those filter parameters are now deprecated
-- Moved the dio getter for the PteroClient into an extension so you can optionally show `PteroClientVisibleDio` if you dont want to be able to directly mess with the dio instance
+- Moved the dio getter for the PteroClient into an extension so you can optionally show `PteroClientVisibleDio` if you don't want to be able to directly mess with the dio instance
 
 ## 1.6.2
 
@@ -28,7 +37,7 @@
 
 - Add `cancelToken` and `onProgress` to all methods (I can't believe I didn't know this was an option.)
   - This allows you to use a `CancelToken` to cancel api calls, and read the current progress of the call
-- Removed experamental (and outdated) login methods. I may come back to this later.
+- Removed experimental (and outdated) login methods. I may come back to this later.
 
 ## 1.5.0
 - const all the things, where possible.
@@ -90,7 +99,7 @@
 ## 1.4.1
 
 - added `lockBackup`
-- updated server websocket extentions
+- updated server websocket extensions
 - updated dependencies
 
 ## 1.4.0
@@ -113,7 +122,7 @@
 
 ## 1.4.0-dev.18
 
-- Updated models so that `listdockerImages` actually works
+- Updated models so that `listDockerImages` actually works
 
 ## 1.4.0-dev.17
 
@@ -178,11 +187,11 @@
 
 ## 1.4.0-dev.2
 
-- Type related bug... `PteroData` needed to require `SerializableMixin`, so `SerializableMixen` needed to be on `WebsocketDetails` 
+- Type related bug... `PteroData` needed to require `SerializableMixin`, so `SerializableMixin` needed to be on `WebsocketDetails` 
 
 ## 1.4.0-dev.1
 
-- Accedentally made `FractalServer.server` no longer work. Fixed now.
+- Accidentally made `FractalServer.server` no longer work. Fixed now.
 
 ## 1.4.0-dev.0
 
@@ -228,7 +237,7 @@
 ## 1.3.2
 
 - Removed `with SerializableMixin` on stuff that doesnt actually need it, as its only used to make serialization easier in-package. May give to everything with a `toJson` in the future, but its not necessary for now
-- Added a bunch of extentions using those same type aliase
+- Added a bunch of extensions using those same type aliases
  - `FractalServer` now has a `server` getter (ie `fractalServer.server` => `Server`)
  - `FractalServerList` now has a `servers` getter (ie `fractalServerList.servers` => `List<Server>`)
 
@@ -243,12 +252,12 @@
  - `getServers` is now more powerful with `type` and `filter[ ]`
 - Renamed a bunch of stuff
  - `getPermissions`-> `getSystemPermissions`
- - A bunch of parameters like `server` are now suffexed by `Id` (ex: `serverId`)
+ - A bunch of parameters like `server` are now suffixed by `Id` (ex: `serverId`)
  - Anything that returns a `FractalResponseList` is now prefixed by `list` instead of `get` (ie. `getServers`-> `listServers`)
 
 ## 1.2.2
 
-- Barrels apparently dont work. Why?
+- Barrels apparently don't work. Why?
 
 ## 1.2.1
 
@@ -280,11 +289,11 @@
 
 ## 1.1.4
 
-- Add a utility extention for the `Server`, such as getting the docker images on the object directly
+- Add a utility extension for the `Server`, such as getting the docker images on the object directly
 
 ## 1.1.3
 
-- Add a utility extention for the client
+- Add a utility extension for the client
 
 ## 1.1.2
 

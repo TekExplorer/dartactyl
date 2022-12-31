@@ -18,6 +18,11 @@ class FractalResponseList<T extends SerializableMixin> {
       _$FractalResponseListFromJson(json);
 
   JsonMap toJson() => _$FractalResponseListToJson(this);
+
+  @override
+  String toString() {
+    return 'FractalResponseList{object: $object, data: $data}';
+  }
 }
 
 @JsonSerializable()
@@ -39,4 +44,8 @@ class FractalResponseListMeta<T extends SerializableMixin, M extends Meta<M>>
 
   static JsonMap metaToJson<M extends Meta<M>>(M meta) =>
       MetaConverter<M>().toJson(meta);
+
+  @override
+  String toString() =>
+      'FractalResponseListMeta{object: $object, data: $data, meta: $meta}';
 }

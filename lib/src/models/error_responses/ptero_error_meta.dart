@@ -3,6 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part '../../generated/models/error_responses/ptero_error_meta.g.dart';
 
+//TODO: actually use somewhere
 @JsonSerializable()
 class PteroErrorMeta {
   final String rule;
@@ -15,7 +16,7 @@ class PteroErrorMeta {
   JsonMap toJson() => _$PteroErrorMetaToJson(this);
 }
 
-// extentions
+// extensions
 
 @JsonSerializable()
 class PteroErrorStringMeta extends PteroErrorMeta {

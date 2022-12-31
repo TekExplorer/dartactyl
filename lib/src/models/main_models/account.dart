@@ -9,7 +9,7 @@ class Account with SerializableMixin, _$Account {
   const Account._();
   const factory Account({
     required int id,
-    required bool admin,
+    @JsonKey(name: 'admin') required bool isAdmin,
     required String username,
     required String email,
     required String firstName,
@@ -18,4 +18,7 @@ class Account with SerializableMixin, _$Account {
   }) = _Account;
 
   factory Account.fromJson(JsonMap json) => _$AccountFromJson(json);
+
+  @Deprecated('Use `isAdmin` instead')
+  bool get admin => isAdmin;
 }

@@ -2,5 +2,9 @@
     "dartImport.fixOnSave": true,
     "files.exclude": {
         "lib/src/generated": false
-    }
+    },
+    "cSpell.words": [
+        "dartactyl",
+        "Ptero"
+    ]
 }

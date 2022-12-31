@@ -1,4 +1,4 @@
-enum _ServerFilterEnum with _FilterEnumMixin {
+enum ServerFilterEnum with FilterEnumMixin {
   all('*'),
   uuid,
   name,
@@ -7,10 +7,10 @@ enum _ServerFilterEnum with _FilterEnumMixin {
 
   @override
   final String? _filterBy;
-  const _ServerFilterEnum([this._filterBy]);
+  const ServerFilterEnum([this._filterBy]);
 }
 
-class ServerFilters extends _Filters<_ServerFilterEnum> {
+class ServerFilters extends Filters<ServerFilterEnum> {
   /// [all] Search all values
   ///
   /// [uuid] Search by UUID
@@ -49,20 +49,20 @@ class ServerFilters extends _Filters<_ServerFilterEnum> {
       );
 
   @override
-  Map<_ServerFilterEnum, String> get _filters => {
-        if (all != null) _ServerFilterEnum.all: all!,
-        if (uuid != null) _ServerFilterEnum.uuid: uuid!,
-        if (name != null) _ServerFilterEnum.name: name!,
-        if (externalId != null) _ServerFilterEnum.externalId: externalId!,
-        if (description != null) _ServerFilterEnum.description: description!,
+  Map<ServerFilterEnum, String> get filters => {
+        if (all != null) ServerFilterEnum.all: all!,
+        if (uuid != null) ServerFilterEnum.uuid: uuid!,
+        if (name != null) ServerFilterEnum.name: name!,
+        if (externalId != null) ServerFilterEnum.externalId: externalId!,
+        if (description != null) ServerFilterEnum.description: description!,
       };
 }
 
-enum _ActivityFilterEnum with _FilterEnumMixin {
+enum ActivityFilterEnum with FilterEnumMixin {
   event;
 }
 
-class ActivityFilters extends _Filters<_ActivityFilterEnum> {
+class ActivityFilters extends Filters<ActivityFilterEnum> {
   /// [event] Search by event
   const ActivityFilters({this.event});
   final String? event;
@@ -71,25 +71,26 @@ class ActivityFilters extends _Filters<_ActivityFilterEnum> {
       ActivityFilters(event: event ?? this.event);
 
   @override
-  Map<_ActivityFilterEnum, String> get _filters => {
-        if (event != null) _ActivityFilterEnum.event: event!,
+  Map<ActivityFilterEnum, String> get filters => {
+        if (event != null) ActivityFilterEnum.event: event!,
       };
 }
 
 //
-mixin _FilterEnumMixin on Enum {
+mixin FilterEnumMixin on Enum {
   String? get _filterBy => null;
   String get filterBy => _filterBy ?? name;
 }
 
-abstract class _Filters<E extends _FilterEnumMixin> {
-  Map<E, String> get _filters;
+abstract class Filters<E extends FilterEnumMixin> {
+  /// Returns a map which maps the possible filters (as an enum) to their values.
+  Map<E, String> get filters;
 
-  const _Filters();
+  const Filters();
 
   Map<String, String> toJson() {
     final map = <String, String>{};
-    for (final filter in _filters.entries) {
+    for (final filter in filters.entries) {
       map.addAll({
         'filter[${filter.key.filterBy}]': filter.value,
       });
@@ -98,15 +99,15 @@ abstract class _Filters<E extends _FilterEnumMixin> {
   }
 
   @override
-  String toString() => 'Filters{filters: $_filters}';
+  String toString() => 'Filters{filters: $filters}';
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is _Filters &&
+      other is Filters &&
           runtimeType == other.runtimeType &&
-          _filters == other._filters;
+          filters == other.filters;
 
   @override
-  int get hashCode => _filters.hashCode;
+  int get hashCode => filters.hashCode;
 }

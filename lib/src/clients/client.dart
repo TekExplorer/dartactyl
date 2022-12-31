@@ -693,7 +693,7 @@ abstract class PteroClient {
 
   // Network
   /// List all allocations that the [Server] has
-  @GET('/api/client/servers/{serverId}/network')
+  @GET('/api/client/servers/{serverId}/network/allocations')
   Future<FractalList<Allocation>> listAllocations({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
@@ -702,7 +702,7 @@ abstract class PteroClient {
   });
 
   /// Automatically assign an allocation on the [Server]
-  @POST('/api/client/servers/{serverId}/network')
+  @POST('/api/client/servers/{serverId}/network/allocations')
   Future<Fractal<Allocation>> autoAssignAllocation({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
@@ -711,7 +711,7 @@ abstract class PteroClient {
   });
 
   /// Set the allocation note for an [Allocation] on the [Server]
-  @POST('/api/client/servers/{serverId}/network/{allocationId}')
+  @POST('/api/client/servers/{serverId}/network/allocations/{allocationId}')
   Future<Fractal<Allocation>> setAllocationNote(
     @Body() AllocationNote note, {
     @Path() required String serverId,
@@ -722,7 +722,8 @@ abstract class PteroClient {
   });
 
   /// Set an [Allocation] as the primary allocation on [Server]
-  @POST('/api/client/servers/{serverId}/network/{allocationId}/primary')
+  @POST(
+      '/api/client/servers/{serverId}/network/allocations/{allocationId}/primary')
   Future<Fractal<Allocation>> setPrimaryAllocation({
     @Path() required String serverId,
     @Path() required int allocationId,
@@ -732,7 +733,7 @@ abstract class PteroClient {
   });
 
   /// Unassign an [Allocation] from [Server]
-  @DELETE('/api/client/servers/{serverId}/network/{allocationId}')
+  @DELETE('/api/client/servers/{serverId}/network/allocations/{allocationId}')
   Future<Fractal<Allocation>> unassignAllocation({
     @Path() required String serverId,
     @Path() required int allocationId,

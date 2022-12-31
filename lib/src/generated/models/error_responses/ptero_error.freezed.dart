@@ -20,11 +20,10 @@ PteroError _$PteroErrorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PteroError {
-// ignore: invalid_annotation_target
-  @JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
   PteroErrorCode get code => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
   String get detail => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get meta => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,9 +38,10 @@ abstract class $PteroErrorCopyWith<$Res> {
       _$PteroErrorCopyWithImpl<$Res, PteroError>;
   @useResult
   $Res call(
-      {@JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN) PteroErrorCode code,
+      {PteroErrorCode code,
       String status,
-      String detail});
+      String detail,
+      Map<String, dynamic>? meta});
 }
 
 /// @nodoc
@@ -60,6 +60,7 @@ class _$PteroErrorCopyWithImpl<$Res, $Val extends PteroError>
     Object? code = null,
     Object? status = null,
     Object? detail = null,
+    Object? meta = freezed,
   }) {
     return _then(_value.copyWith(
       code: null == code
@@ -74,6 +75,10 @@ class _$PteroErrorCopyWithImpl<$Res, $Val extends PteroError>
           ? _value.detail
           : detail // ignore: cast_nullable_to_non_nullable
               as String,
+      meta: freezed == meta
+          ? _value.meta
+          : meta // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -87,9 +92,10 @@ abstract class _$$_PteroErrorCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN) PteroErrorCode code,
+      {PteroErrorCode code,
       String status,
-      String detail});
+      String detail,
+      Map<String, dynamic>? meta});
 }
 
 /// @nodoc
@@ -106,6 +112,7 @@ class __$$_PteroErrorCopyWithImpl<$Res>
     Object? code = null,
     Object? status = null,
     Object? detail = null,
+    Object? meta = freezed,
   }) {
     return _then(_$_PteroError(
       code: null == code
@@ -120,6 +127,10 @@ class __$$_PteroErrorCopyWithImpl<$Res>
           ? _value.detail
           : detail // ignore: cast_nullable_to_non_nullable
               as String,
+      meta: freezed == meta
+          ? _value._meta
+          : meta // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -128,26 +139,34 @@ class __$$_PteroErrorCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PteroError extends _PteroError {
   const _$_PteroError(
-      {@JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN) required this.code,
+      {required this.code,
       required this.status,
-      required this.detail})
-      : super._();
+      required this.detail,
+      final Map<String, dynamic>? meta})
+      : _meta = meta,
+        super._();
 
   factory _$_PteroError.fromJson(Map<String, dynamic> json) =>
       _$$_PteroErrorFromJson(json);
 
-// ignore: invalid_annotation_target
   @override
-  @JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
   final PteroErrorCode code;
   @override
   final String status;
   @override
   final String detail;
+  final Map<String, dynamic>? _meta;
+  @override
+  Map<String, dynamic>? get meta {
+    final value = _meta;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'PteroError(code: $code, status: $status, detail: $detail)';
+    return 'PteroError(code: $code, status: $status, detail: $detail, meta: $meta)';
   }
 
   @override
@@ -157,12 +176,14 @@ class _$_PteroError extends _PteroError {
             other is _$_PteroError &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.detail, detail) || other.detail == detail));
+            (identical(other.detail, detail) || other.detail == detail) &&
+            const DeepCollectionEquality().equals(other._meta, _meta));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, code, status, detail);
+  int get hashCode => Object.hash(runtimeType, code, status, detail,
+      const DeepCollectionEquality().hash(_meta));
 
   @JsonKey(ignore: true)
   @override
@@ -180,22 +201,23 @@ class _$_PteroError extends _PteroError {
 
 abstract class _PteroError extends PteroError {
   const factory _PteroError(
-      {@JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
-          required final PteroErrorCode code,
+      {required final PteroErrorCode code,
       required final String status,
-      required final String detail}) = _$_PteroError;
+      required final String detail,
+      final Map<String, dynamic>? meta}) = _$_PteroError;
   const _PteroError._() : super._();
 
   factory _PteroError.fromJson(Map<String, dynamic> json) =
       _$_PteroError.fromJson;
 
-  @override // ignore: invalid_annotation_target
-  @JsonKey(unknownEnumValue: PteroErrorCode.UNKNOWN)
+  @override
   PteroErrorCode get code;
   @override
   String get status;
   @override
   String get detail;
+  @override
+  Map<String, dynamic>? get meta;
   @override
   @JsonKey(ignore: true)
   _$$_PteroErrorCopyWith<_$_PteroError> get copyWith =>
