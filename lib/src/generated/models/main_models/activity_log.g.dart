@@ -14,7 +14,7 @@ _$_ActivityLog _$$_ActivityLogFromJson(Map<String, dynamic> json) =>
         final val = _$_ActivityLog(
           batch: $checkedConvert('batch', (v) => v as String?),
           event: $checkedConvert('event', (v) => v as String),
-          ip: $checkedConvert('ip', (v) => v as String),
+          ip: $checkedConvert('ip', (v) => v as String?),
           isApi: $checkedConvert('is_api', (v) => v as bool),
           description: $checkedConvert('description', (v) => v as String?),
           properties: $checkedConvert(

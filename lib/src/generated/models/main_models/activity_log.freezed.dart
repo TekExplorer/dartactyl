@@ -21,8 +21,9 @@ ActivityLog _$ActivityLogFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ActivityLog {
   String? get batch => throw _privateConstructorUsedError;
-  String get event => throw _privateConstructorUsedError;
-  String get ip => throw _privateConstructorUsedError;
+  String get event =>
+      throw _privateConstructorUsedError; // TODO: changing this to nullable. lets see how that goes
+  String? get ip => throw _privateConstructorUsedError;
   bool get isApi => throw _privateConstructorUsedError;
   String? get description =>
       throw _privateConstructorUsedError; // if its [], set to {}
@@ -49,7 +50,7 @@ abstract class $ActivityLogCopyWith<$Res> {
   $Res call(
       {String? batch,
       String event,
-      String ip,
+      String? ip,
       bool isApi,
       String? description,
       @JsonKey(fromJson: activityLogPropertiesFromJson)
@@ -76,7 +77,7 @@ class _$ActivityLogCopyWithImpl<$Res, $Val extends ActivityLog>
   $Res call({
     Object? batch = freezed,
     Object? event = null,
-    Object? ip = null,
+    Object? ip = freezed,
     Object? isApi = null,
     Object? description = freezed,
     Object? properties = null,
@@ -93,10 +94,10 @@ class _$ActivityLogCopyWithImpl<$Res, $Val extends ActivityLog>
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as String,
-      ip: null == ip
+      ip: freezed == ip
           ? _value.ip
           : ip // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isApi: null == isApi
           ? _value.isApi
           : isApi // ignore: cast_nullable_to_non_nullable
@@ -149,7 +150,7 @@ abstract class _$$_ActivityLogCopyWith<$Res>
   $Res call(
       {String? batch,
       String event,
-      String ip,
+      String? ip,
       bool isApi,
       String? description,
       @JsonKey(fromJson: activityLogPropertiesFromJson)
@@ -175,7 +176,7 @@ class __$$_ActivityLogCopyWithImpl<$Res>
   $Res call({
     Object? batch = freezed,
     Object? event = null,
-    Object? ip = null,
+    Object? ip = freezed,
     Object? isApi = null,
     Object? description = freezed,
     Object? properties = null,
@@ -192,10 +193,10 @@ class __$$_ActivityLogCopyWithImpl<$Res>
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as String,
-      ip: null == ip
+      ip: freezed == ip
           ? _value.ip
           : ip // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isApi: null == isApi
           ? _value.isApi
           : isApi // ignore: cast_nullable_to_non_nullable
@@ -230,7 +231,7 @@ class _$_ActivityLog extends _ActivityLog {
   const _$_ActivityLog(
       {this.batch,
       required this.event,
-      required this.ip,
+      this.ip,
       required this.isApi,
       this.description,
       @JsonKey(fromJson: activityLogPropertiesFromJson)
@@ -248,8 +249,9 @@ class _$_ActivityLog extends _ActivityLog {
   final String? batch;
   @override
   final String event;
+// TODO: changing this to nullable. lets see how that goes
   @override
-  final String ip;
+  final String? ip;
   @override
   final bool isApi;
   @override
@@ -331,7 +333,7 @@ abstract class _ActivityLog extends ActivityLog {
   const factory _ActivityLog(
       {final String? batch,
       required final String event,
-      required final String ip,
+      final String? ip,
       required final bool isApi,
       final String? description,
       @JsonKey(fromJson: activityLogPropertiesFromJson)
@@ -348,8 +350,8 @@ abstract class _ActivityLog extends ActivityLog {
   String? get batch;
   @override
   String get event;
-  @override
-  String get ip;
+  @override // TODO: changing this to nullable. lets see how that goes
+  String? get ip;
   @override
   bool get isApi;
   @override

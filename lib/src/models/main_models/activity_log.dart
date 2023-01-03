@@ -11,7 +11,7 @@ class ActivityLog with _$ActivityLog, SerializableMixin {
   const factory ActivityLog({
     String? batch,
     required String event,
-    required String ip,
+    String? ip,
     required bool isApi,
     String? description,
     // if its [], set to {}

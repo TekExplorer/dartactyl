@@ -1,5 +1,7 @@
 # CHANGELOG
+## 1.6.6
 
+- Changed ActivityLog.ip to be nullable, as non-admins may not always see the ip
 ## 1.6.5
 
 - Deprecated Account.admin in favor of Account.isAdmin
@@ -58,7 +60,7 @@
 
 ## 1.4.10
 
-- Murdered all existance of "null_resource" in all responses, making them just null, instead of a useless serializer-breaking object through the use of an interceptor
+- Murdered all existence of "null_resource" in all responses, making them just null, instead of a useless serializer-breaking object through the use of an interceptor
 
 ## 1.4.9
 
@@ -236,7 +238,7 @@
 
 ## 1.3.2
 
-- Removed `with SerializableMixin` on stuff that doesnt actually need it, as its only used to make serialization easier in-package. May give to everything with a `toJson` in the future, but its not necessary for now
+- Removed `with SerializableMixin` on stuff that doesn't actually need it, as its only used to make serialization easier in-package. May give to everything with a `toJson` in the future, but its not necessary for now
 - Added a bunch of extensions using those same type aliases
  - `FractalServer` now has a `server` getter (ie `fractalServer.server` => `Server`)
  - `FractalServerList` now has a `servers` getter (ie `fractalServerList.servers` => `List<Server>`)
