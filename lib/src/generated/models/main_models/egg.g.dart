@@ -11,7 +11,7 @@ _$_Egg _$$_EggFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_Egg(
-          uuid: $checkedConvert('uuid', (v) => v as String),
+          uuid: $checkedConvert('uuid', (v) => v as String?),
           name: $checkedConvert('name', (v) => v as String),
         );
         return val;

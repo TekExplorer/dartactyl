@@ -22,7 +22,8 @@ Egg _$EggFromJson(Map<String, dynamic> json) {
 mixin _$Egg {
 // only uuid and name show up in the client api
 // int id,
-  String get uuid => throw _privateConstructorUsedError;
+  /// Can be null if the egg was updated after the server was created.
+  String? get uuid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +36,7 @@ abstract class $EggCopyWith<$Res> {
   factory $EggCopyWith(Egg value, $Res Function(Egg) then) =
       _$EggCopyWithImpl<$Res, Egg>;
   @useResult
-  $Res call({String uuid, String name});
+  $Res call({String? uuid, String name});
 }
 
 /// @nodoc
@@ -50,14 +51,14 @@ class _$EggCopyWithImpl<$Res, $Val extends Egg> implements $EggCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = null,
+    Object? uuid = freezed,
     Object? name = null,
   }) {
     return _then(_value.copyWith(
-      uuid: null == uuid
+      uuid: freezed == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -72,7 +73,7 @@ abstract class _$$_EggCopyWith<$Res> implements $EggCopyWith<$Res> {
       __$$_EggCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String uuid, String name});
+  $Res call({String? uuid, String name});
 }
 
 /// @nodoc
@@ -84,14 +85,14 @@ class __$$_EggCopyWithImpl<$Res> extends _$EggCopyWithImpl<$Res, _$_Egg>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = null,
+    Object? uuid = freezed,
     Object? name = null,
   }) {
     return _then(_$_Egg(
-      uuid: null == uuid
+      uuid: freezed == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -103,14 +104,15 @@ class __$$_EggCopyWithImpl<$Res> extends _$EggCopyWithImpl<$Res, _$_Egg>
 /// @nodoc
 @JsonSerializable()
 class _$_Egg extends _Egg {
-  const _$_Egg({required this.uuid, required this.name}) : super._();
+  const _$_Egg({this.uuid, required this.name}) : super._();
 
   factory _$_Egg.fromJson(Map<String, dynamic> json) => _$$_EggFromJson(json);
 
 // only uuid and name show up in the client api
 // int id,
+  /// Can be null if the egg was updated after the server was created.
   @override
-  final String uuid;
+  final String? uuid;
   @override
   final String name;
 
@@ -147,15 +149,15 @@ class _$_Egg extends _Egg {
 }
 
 abstract class _Egg extends Egg {
-  const factory _Egg({required final String uuid, required final String name}) =
-      _$_Egg;
+  const factory _Egg({final String? uuid, required final String name}) = _$_Egg;
   const _Egg._() : super._();
 
   factory _Egg.fromJson(Map<String, dynamic> json) = _$_Egg.fromJson;
 
   @override // only uuid and name show up in the client api
 // int id,
-  String get uuid;
+  /// Can be null if the egg was updated after the server was created.
+  String? get uuid;
   @override
   String get name;
   @override

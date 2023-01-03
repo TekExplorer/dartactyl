@@ -1,7 +1,13 @@
 # CHANGELOG
+
+## 1.6.7
+
+- Changed Egg.uuid to be nullable. This can happen if the egg was changed and the server is still using the old one.
+
 ## 1.6.6
 
 - Changed ActivityLog.ip to be nullable, as non-admins may not always see the ip
+
 ## 1.6.5
 
 - Deprecated Account.admin in favor of Account.isAdmin

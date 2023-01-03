@@ -21,8 +21,7 @@ ActivityLog _$ActivityLogFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ActivityLog {
   String? get batch => throw _privateConstructorUsedError;
-  String get event =>
-      throw _privateConstructorUsedError; // TODO: changing this to nullable. lets see how that goes
+  String get event => throw _privateConstructorUsedError;
   String? get ip => throw _privateConstructorUsedError;
   bool get isApi => throw _privateConstructorUsedError;
   String? get description =>
@@ -249,7 +248,6 @@ class _$_ActivityLog extends _ActivityLog {
   final String? batch;
   @override
   final String event;
-// TODO: changing this to nullable. lets see how that goes
   @override
   final String? ip;
   @override
@@ -350,7 +348,7 @@ abstract class _ActivityLog extends ActivityLog {
   String? get batch;
   @override
   String get event;
-  @override // TODO: changing this to nullable. lets see how that goes
+  @override
   String? get ip;
   @override
   bool get isApi;

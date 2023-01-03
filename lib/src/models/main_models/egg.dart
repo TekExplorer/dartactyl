@@ -11,7 +11,9 @@ class Egg with SerializableMixin, _$Egg {
   const factory Egg({
     // only uuid and name show up in the client api
     // int id,
-    required String uuid,
+    // TODO: double check this
+    /// Can be null if the egg was updated after the server was created.
+    String? uuid,
     required String name,
     // required int nest,
     // required String author,
