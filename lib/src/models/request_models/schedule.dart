@@ -15,6 +15,7 @@ class RequestSchedule with _$RequestSchedule {
     required String hour,
     required String dayOfWeek,
     required String dayOfMonth,
+    required String month,
   }) = _RequestSchedule;
 
   factory RequestSchedule.fromJson(JsonMap json) =>

@@ -27,6 +27,7 @@ mixin _$RequestSchedule {
   String get hour => throw _privateConstructorUsedError;
   String get dayOfWeek => throw _privateConstructorUsedError;
   String get dayOfMonth => throw _privateConstructorUsedError;
+  String get month => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +48,8 @@ abstract class $RequestScheduleCopyWith<$Res> {
       String minute,
       String hour,
       String dayOfWeek,
-      String dayOfMonth});
+      String dayOfMonth,
+      String month});
 }
 
 /// @nodoc
@@ -70,6 +72,7 @@ class _$RequestScheduleCopyWithImpl<$Res, $Val extends RequestSchedule>
     Object? hour = null,
     Object? dayOfWeek = null,
     Object? dayOfMonth = null,
+    Object? month = null,
   }) {
     return _then(_value.copyWith(
       onlyWhenOnline: null == onlyWhenOnline
@@ -100,6 +103,10 @@ class _$RequestScheduleCopyWithImpl<$Res, $Val extends RequestSchedule>
           ? _value.dayOfMonth
           : dayOfMonth // ignore: cast_nullable_to_non_nullable
               as String,
+      month: null == month
+          ? _value.month
+          : month // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -119,7 +126,8 @@ abstract class _$$_RequestScheduleCopyWith<$Res>
       String minute,
       String hour,
       String dayOfWeek,
-      String dayOfMonth});
+      String dayOfMonth,
+      String month});
 }
 
 /// @nodoc
@@ -140,6 +148,7 @@ class __$$_RequestScheduleCopyWithImpl<$Res>
     Object? hour = null,
     Object? dayOfWeek = null,
     Object? dayOfMonth = null,
+    Object? month = null,
   }) {
     return _then(_$_RequestSchedule(
       onlyWhenOnline: null == onlyWhenOnline
@@ -170,6 +179,10 @@ class __$$_RequestScheduleCopyWithImpl<$Res>
           ? _value.dayOfMonth
           : dayOfMonth // ignore: cast_nullable_to_non_nullable
               as String,
+      month: null == month
+          ? _value.month
+          : month // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -184,7 +197,8 @@ class _$_RequestSchedule extends _RequestSchedule {
       required this.minute,
       required this.hour,
       required this.dayOfWeek,
-      required this.dayOfMonth})
+      required this.dayOfMonth,
+      required this.month})
       : super._();
 
   factory _$_RequestSchedule.fromJson(Map<String, dynamic> json) =>
@@ -204,10 +218,12 @@ class _$_RequestSchedule extends _RequestSchedule {
   final String dayOfWeek;
   @override
   final String dayOfMonth;
+  @override
+  final String month;
 
   @override
   String toString() {
-    return 'RequestSchedule(onlyWhenOnline: $onlyWhenOnline, name: $name, isActive: $isActive, minute: $minute, hour: $hour, dayOfWeek: $dayOfWeek, dayOfMonth: $dayOfMonth)';
+    return 'RequestSchedule(onlyWhenOnline: $onlyWhenOnline, name: $name, isActive: $isActive, minute: $minute, hour: $hour, dayOfWeek: $dayOfWeek, dayOfMonth: $dayOfMonth, month: $month)';
   }
 
   @override
@@ -225,13 +241,14 @@ class _$_RequestSchedule extends _RequestSchedule {
             (identical(other.dayOfWeek, dayOfWeek) ||
                 other.dayOfWeek == dayOfWeek) &&
             (identical(other.dayOfMonth, dayOfMonth) ||
-                other.dayOfMonth == dayOfMonth));
+                other.dayOfMonth == dayOfMonth) &&
+            (identical(other.month, month) || other.month == month));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, onlyWhenOnline, name, isActive,
-      minute, hour, dayOfWeek, dayOfMonth);
+      minute, hour, dayOfWeek, dayOfMonth, month);
 
   @JsonKey(ignore: true)
   @override
@@ -255,7 +272,8 @@ abstract class _RequestSchedule extends RequestSchedule {
       required final String minute,
       required final String hour,
       required final String dayOfWeek,
-      required final String dayOfMonth}) = _$_RequestSchedule;
+      required final String dayOfMonth,
+      required final String month}) = _$_RequestSchedule;
   const _RequestSchedule._() : super._();
 
   factory _RequestSchedule.fromJson(Map<String, dynamic> json) =
@@ -275,6 +293,8 @@ abstract class _RequestSchedule extends RequestSchedule {
   String get dayOfWeek;
   @override
   String get dayOfMonth;
+  @override
+  String get month;
   @override
   @JsonKey(ignore: true)
   _$$_RequestScheduleCopyWith<_$_RequestSchedule> get copyWith =>

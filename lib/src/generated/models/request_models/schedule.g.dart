@@ -19,6 +19,7 @@ _$_RequestSchedule _$$_RequestScheduleFromJson(Map<String, dynamic> json) =>
           hour: $checkedConvert('hour', (v) => v as String),
           dayOfWeek: $checkedConvert('day_of_week', (v) => v as String),
           dayOfMonth: $checkedConvert('day_of_month', (v) => v as String),
+          month: $checkedConvert('month', (v) => v as String),
         );
         return val;
       },
@@ -39,4 +40,5 @@ Map<String, dynamic> _$$_RequestScheduleToJson(_$_RequestSchedule instance) =>
       'hour': instance.hour,
       'day_of_week': instance.dayOfWeek,
       'day_of_month': instance.dayOfMonth,
+      'month': instance.month,
     };

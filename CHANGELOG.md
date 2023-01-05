@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.6.9
+
+- Add `month` to `RequestSchedule`
+
 ## 1.6.8
 
 - Add `month` to `Cron`
