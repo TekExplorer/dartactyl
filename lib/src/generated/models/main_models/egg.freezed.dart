@@ -22,6 +22,7 @@ Egg _$EggFromJson(Map<String, dynamic> json) {
 mixin _$Egg {
 // only uuid and name show up in the client api
 // int id,
+// TODO: double check this
   /// Can be null if the egg was updated after the server was created.
   String? get uuid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
@@ -110,6 +111,7 @@ class _$_Egg extends _Egg {
 
 // only uuid and name show up in the client api
 // int id,
+// TODO: double check this
   /// Can be null if the egg was updated after the server was created.
   @override
   final String? uuid;
@@ -156,6 +158,7 @@ abstract class _Egg extends Egg {
 
   @override // only uuid and name show up in the client api
 // int id,
+// TODO: double check this
   /// Can be null if the egg was updated after the server was created.
   String? get uuid;
   @override

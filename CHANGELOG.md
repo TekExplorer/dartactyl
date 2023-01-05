@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.6.8
+
+- Add `month` to `Cron`
+
 ## 1.6.7
 
 - Changed Egg.uuid to be nullable. This can happen if the egg was changed and the server is still using the old one.

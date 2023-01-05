@@ -9,10 +9,11 @@ class Cron with _$Cron {
   const Cron._();
   const factory Cron({
     String? name, // exists?
+    required String minute,
+    required String hour,
     required String dayOfWeek,
     required String dayOfMonth,
-    required String hour,
-    required String minute,
+    required String month,
   }) = _Cron;
 
   factory Cron.fromJson(JsonMap json) => _$CronFromJson(json);

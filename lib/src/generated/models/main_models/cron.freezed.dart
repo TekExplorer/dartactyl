@@ -21,10 +21,11 @@ Cron _$CronFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Cron {
   String? get name => throw _privateConstructorUsedError; // exists?
+  String get minute => throw _privateConstructorUsedError;
+  String get hour => throw _privateConstructorUsedError;
   String get dayOfWeek => throw _privateConstructorUsedError;
   String get dayOfMonth => throw _privateConstructorUsedError;
-  String get hour => throw _privateConstructorUsedError;
-  String get minute => throw _privateConstructorUsedError;
+  String get month => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,10 +39,11 @@ abstract class $CronCopyWith<$Res> {
   @useResult
   $Res call(
       {String? name,
+      String minute,
+      String hour,
       String dayOfWeek,
       String dayOfMonth,
-      String hour,
-      String minute});
+      String month});
 }
 
 /// @nodoc
@@ -58,16 +60,25 @@ class _$CronCopyWithImpl<$Res, $Val extends Cron>
   @override
   $Res call({
     Object? name = freezed,
+    Object? minute = null,
+    Object? hour = null,
     Object? dayOfWeek = null,
     Object? dayOfMonth = null,
-    Object? hour = null,
-    Object? minute = null,
+    Object? month = null,
   }) {
     return _then(_value.copyWith(
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      minute: null == minute
+          ? _value.minute
+          : minute // ignore: cast_nullable_to_non_nullable
+              as String,
+      hour: null == hour
+          ? _value.hour
+          : hour // ignore: cast_nullable_to_non_nullable
+              as String,
       dayOfWeek: null == dayOfWeek
           ? _value.dayOfWeek
           : dayOfWeek // ignore: cast_nullable_to_non_nullable
@@ -76,13 +87,9 @@ class _$CronCopyWithImpl<$Res, $Val extends Cron>
           ? _value.dayOfMonth
           : dayOfMonth // ignore: cast_nullable_to_non_nullable
               as String,
-      hour: null == hour
-          ? _value.hour
-          : hour // ignore: cast_nullable_to_non_nullable
-              as String,
-      minute: null == minute
-          ? _value.minute
-          : minute // ignore: cast_nullable_to_non_nullable
+      month: null == month
+          ? _value.month
+          : month // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -96,10 +103,11 @@ abstract class _$$_CronCopyWith<$Res> implements $CronCopyWith<$Res> {
   @useResult
   $Res call(
       {String? name,
+      String minute,
+      String hour,
       String dayOfWeek,
       String dayOfMonth,
-      String hour,
-      String minute});
+      String month});
 }
 
 /// @nodoc
@@ -112,16 +120,25 @@ class __$$_CronCopyWithImpl<$Res> extends _$CronCopyWithImpl<$Res, _$_Cron>
   @override
   $Res call({
     Object? name = freezed,
+    Object? minute = null,
+    Object? hour = null,
     Object? dayOfWeek = null,
     Object? dayOfMonth = null,
-    Object? hour = null,
-    Object? minute = null,
+    Object? month = null,
   }) {
     return _then(_$_Cron(
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      minute: null == minute
+          ? _value.minute
+          : minute // ignore: cast_nullable_to_non_nullable
+              as String,
+      hour: null == hour
+          ? _value.hour
+          : hour // ignore: cast_nullable_to_non_nullable
+              as String,
       dayOfWeek: null == dayOfWeek
           ? _value.dayOfWeek
           : dayOfWeek // ignore: cast_nullable_to_non_nullable
@@ -130,13 +147,9 @@ class __$$_CronCopyWithImpl<$Res> extends _$CronCopyWithImpl<$Res, _$_Cron>
           ? _value.dayOfMonth
           : dayOfMonth // ignore: cast_nullable_to_non_nullable
               as String,
-      hour: null == hour
-          ? _value.hour
-          : hour // ignore: cast_nullable_to_non_nullable
-              as String,
-      minute: null == minute
-          ? _value.minute
-          : minute // ignore: cast_nullable_to_non_nullable
+      month: null == month
+          ? _value.month
+          : month // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -147,10 +160,11 @@ class __$$_CronCopyWithImpl<$Res> extends _$CronCopyWithImpl<$Res, _$_Cron>
 class _$_Cron extends _Cron {
   const _$_Cron(
       {this.name,
+      required this.minute,
+      required this.hour,
       required this.dayOfWeek,
       required this.dayOfMonth,
-      required this.hour,
-      required this.minute})
+      required this.month})
       : super._();
 
   factory _$_Cron.fromJson(Map<String, dynamic> json) => _$$_CronFromJson(json);
@@ -159,17 +173,19 @@ class _$_Cron extends _Cron {
   final String? name;
 // exists?
   @override
+  final String minute;
+  @override
+  final String hour;
+  @override
   final String dayOfWeek;
   @override
   final String dayOfMonth;
   @override
-  final String hour;
-  @override
-  final String minute;
+  final String month;
 
   @override
   String toString() {
-    return 'Cron(name: $name, dayOfWeek: $dayOfWeek, dayOfMonth: $dayOfMonth, hour: $hour, minute: $minute)';
+    return 'Cron(name: $name, minute: $minute, hour: $hour, dayOfWeek: $dayOfWeek, dayOfMonth: $dayOfMonth, month: $month)';
   }
 
   @override
@@ -178,18 +194,19 @@ class _$_Cron extends _Cron {
         (other.runtimeType == runtimeType &&
             other is _$_Cron &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.minute, minute) || other.minute == minute) &&
+            (identical(other.hour, hour) || other.hour == hour) &&
             (identical(other.dayOfWeek, dayOfWeek) ||
                 other.dayOfWeek == dayOfWeek) &&
             (identical(other.dayOfMonth, dayOfMonth) ||
                 other.dayOfMonth == dayOfMonth) &&
-            (identical(other.hour, hour) || other.hour == hour) &&
-            (identical(other.minute, minute) || other.minute == minute));
+            (identical(other.month, month) || other.month == month));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, dayOfWeek, dayOfMonth, hour, minute);
+  int get hashCode => Object.hash(
+      runtimeType, name, minute, hour, dayOfWeek, dayOfMonth, month);
 
   @JsonKey(ignore: true)
   @override
@@ -208,10 +225,11 @@ class _$_Cron extends _Cron {
 abstract class _Cron extends Cron {
   const factory _Cron(
       {final String? name,
+      required final String minute,
+      required final String hour,
       required final String dayOfWeek,
       required final String dayOfMonth,
-      required final String hour,
-      required final String minute}) = _$_Cron;
+      required final String month}) = _$_Cron;
   const _Cron._() : super._();
 
   factory _Cron.fromJson(Map<String, dynamic> json) = _$_Cron.fromJson;
@@ -219,13 +237,15 @@ abstract class _Cron extends Cron {
   @override
   String? get name;
   @override // exists?
+  String get minute;
+  @override
+  String get hour;
+  @override
   String get dayOfWeek;
   @override
   String get dayOfMonth;
   @override
-  String get hour;
-  @override
-  String get minute;
+  String get month;
   @override
   @JsonKey(ignore: true)
   _$$_CronCopyWith<_$_Cron> get copyWith => throw _privateConstructorUsedError;

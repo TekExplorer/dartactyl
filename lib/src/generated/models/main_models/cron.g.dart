@@ -12,10 +12,11 @@ _$_Cron _$$_CronFromJson(Map<String, dynamic> json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_Cron(
           name: $checkedConvert('name', (v) => v as String?),
+          minute: $checkedConvert('minute', (v) => v as String),
+          hour: $checkedConvert('hour', (v) => v as String),
           dayOfWeek: $checkedConvert('day_of_week', (v) => v as String),
           dayOfMonth: $checkedConvert('day_of_month', (v) => v as String),
-          hour: $checkedConvert('hour', (v) => v as String),
-          minute: $checkedConvert('minute', (v) => v as String),
+          month: $checkedConvert('month', (v) => v as String),
         );
         return val;
       },
@@ -27,8 +28,9 @@ _$_Cron _$$_CronFromJson(Map<String, dynamic> json) => $checkedCreate(
 
 Map<String, dynamic> _$$_CronToJson(_$_Cron instance) => <String, dynamic>{
       'name': instance.name,
+      'minute': instance.minute,
+      'hour': instance.hour,
       'day_of_week': instance.dayOfWeek,
       'day_of_month': instance.dayOfMonth,
-      'hour': instance.hour,
-      'minute': instance.minute,
+      'month': instance.month,
     };
