@@ -1,9 +1,9 @@
-import 'generic_api_exception.dart';
+import 'package:dartactyl/src/models/error_responses/exceptions/generic_api_exception.dart';
 
 /// We could not reach the server
-class NoConnectionPteroApiExcepton extends GenericApiException {
-  /// Simple class for when we cant connect to the serverw
-  NoConnectionPteroApiExcepton({
+class NoConnectionPteroApiException extends GenericApiException {
+  /// Simple class for when we cant connect to the server
+  NoConnectionPteroApiException({
     required super.rawDioError,
     super.message,
   });
@@ -15,11 +15,12 @@ class NoConnectionPteroApiExcepton extends GenericApiException {
 
   @override
   String toString() =>
-      'NoConnectionPteroApiExcepton{statusMessage: $statusMessage}';
+      'NoConnectionPteroApiException{statusMessage: $statusMessage}';
 }
 
 /// We reached the server, but we did not get any data
 class NoDataPteroApiException extends GenericApiException {
+  /// Simple class for when we did not get any data from the server
   NoDataPteroApiException({
     required super.rawDioError,
     super.statusCode,

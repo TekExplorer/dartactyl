@@ -75,7 +75,7 @@ class _PteroClient extends PteroClient {
   String? baseUrl;
 
   @override
-  Future<FractalResponseListMeta<Server, PaginatedMeta>> listServers({
+  Future<FractalListMeta<Server, PaginatedMeta>> listServers({
     page = 1,
     perPage = 50,
     include,
@@ -107,7 +107,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseListMeta<Server, PaginatedMeta>>(Options(
+        _setStreamType<FractalListMeta<Server, PaginatedMeta>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -123,12 +123,12 @@ class _PteroClient extends PteroClient {
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
-        FractalResponseListMeta<Server, PaginatedMeta>.fromJson(_result.data!);
+        FractalListMeta<Server, PaginatedMeta>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<SystemPermissions>> getSystemPermissions({
+  Future<FractalData<SystemPermissions>> getSystemPermissions({
     cancelToken,
     onSendProgress,
     onReceiveProgress,
@@ -139,7 +139,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<SystemPermissions>>(Options(
+        _setStreamType<FractalData<SystemPermissions>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -154,13 +154,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value =
-        FractalResponseData<SystemPermissions>.fromJson(_result.data!);
+    final value = FractalData<SystemPermissions>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<Account>> getAccountInfo({
+  Future<FractalData<Account>> getAccountInfo({
     cancelToken,
     onSendProgress,
     onReceiveProgress,
@@ -171,7 +170,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<Account>>(Options(
+        _setStreamType<FractalData<Account>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -186,12 +185,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<Account>.fromJson(_result.data!);
+    final value = FractalData<Account>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<TwoFactorImage>> getTwoFactor({
+  Future<FractalData<TwoFactorImage>> getTwoFactor({
     cancelToken,
     onSendProgress,
     onReceiveProgress,
@@ -202,7 +201,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<TwoFactorImage>>(Options(
+        _setStreamType<FractalData<TwoFactorImage>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -217,12 +216,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<TwoFactorImage>.fromJson(_result.data!);
+    final value = FractalData<TwoFactorImage>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<RecoveryTokens>> enableTwoFactor(
+  Future<FractalData<RecoveryTokens>> enableTwoFactor(
     code, {
     cancelToken,
     onSendProgress,
@@ -235,7 +234,7 @@ class _PteroClient extends PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(code.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<RecoveryTokens>>(Options(
+        _setStreamType<FractalData<RecoveryTokens>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -250,7 +249,7 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<RecoveryTokens>.fromJson(_result.data!);
+    final value = FractalData<RecoveryTokens>.fromJson(_result.data!);
     return value;
   }
 
@@ -348,8 +347,7 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseListMeta<ActivityLog, PaginatedMeta>>
-      getAccountActivity({
+  Future<FractalListMeta<ActivityLog, PaginatedMeta>> getAccountActivity({
     include,
     page,
     perPage,
@@ -373,29 +371,28 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseListMeta<ActivityLog, PaginatedMeta>>(
-            Options(
+        _setStreamType<FractalListMeta<ActivityLog, PaginatedMeta>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-                .compose(
-                  _dio.options,
-                  '/api/client/account/activity',
-                  queryParameters: queryParameters,
-                  data: _data,
-                  cancelToken: cancelToken,
-                  onSendProgress: onSendProgress,
-                  onReceiveProgress: onReceiveProgress,
-                )
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseListMeta<ActivityLog, PaginatedMeta>.fromJson(
-        _result.data!);
+            .compose(
+              _dio.options,
+              '/api/client/account/activity',
+              queryParameters: queryParameters,
+              data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value =
+        FractalListMeta<ActivityLog, PaginatedMeta>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseList<ApiKey>> listApiKeys({
+  Future<FractalListData<ApiKey>> listApiKeys({
     cancelToken,
     onSendProgress,
     onReceiveProgress,
@@ -406,7 +403,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseList<ApiKey>>(Options(
+        _setStreamType<FractalListData<ApiKey>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -421,12 +418,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseList<ApiKey>.fromJson(_result.data!);
+    final value = FractalListData<ApiKey>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseDataMeta<ApiKey, ApiKeyMeta>> createApiKey(
+  Future<FractalDataMeta<ApiKey, ApiKeyMeta>> createApiKey(
     data, {
     cancelToken,
     onSendProgress,
@@ -439,7 +436,7 @@ class _PteroClient extends PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseDataMeta<ApiKey, ApiKeyMeta>>(Options(
+        _setStreamType<FractalDataMeta<ApiKey, ApiKeyMeta>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -454,8 +451,7 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value =
-        FractalResponseDataMeta<ApiKey, ApiKeyMeta>.fromJson(_result.data!);
+    final value = FractalDataMeta<ApiKey, ApiKeyMeta>.fromJson(_result.data!);
     return value;
   }
 
@@ -490,7 +486,7 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseList<SshKey>> listSshKeys({
+  Future<FractalListData<SshKey>> listSshKeys({
     cancelToken,
     onSendProgress,
     onReceiveProgress,
@@ -501,7 +497,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseList<SshKey>>(Options(
+        _setStreamType<FractalListData<SshKey>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -516,12 +512,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseList<SshKey>.fromJson(_result.data!);
+    final value = FractalListData<SshKey>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<SshKey>> createSshKey(
+  Future<FractalData<SshKey>> createSshKey(
     data, {
     cancelToken,
     onSendProgress,
@@ -534,7 +530,7 @@ class _PteroClient extends PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<SshKey>>(Options(
+        _setStreamType<FractalData<SshKey>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -549,7 +545,7 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<SshKey>.fromJson(_result.data!);
+    final value = FractalData<SshKey>.fromJson(_result.data!);
     return value;
   }
 
@@ -585,7 +581,7 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseDataMeta<Server, ServerMeta>> getServerDetails({
+  Future<FractalDataMeta<Server, ServerMeta>> getServerDetails({
     required serverId,
     include,
     cancelToken,
@@ -598,7 +594,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseDataMeta<Server, ServerMeta>>(Options(
+        _setStreamType<FractalDataMeta<Server, ServerMeta>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -613,8 +609,7 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value =
-        FractalResponseDataMeta<Server, ServerMeta>.fromJson(_result.data!);
+    final value = FractalDataMeta<Server, ServerMeta>.fromJson(_result.data!);
     return value;
   }
 
@@ -651,7 +646,7 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseData<Stats>> getServerResources({
+  Future<FractalData<Stats>> getServerResources({
     required serverId,
     cancelToken,
     onSendProgress,
@@ -662,8 +657,8 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<Stats>>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<FractalData<Stats>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -678,13 +673,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<Stats>.fromJson(_result.data!);
+    final value = FractalData<Stats>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseListMeta<ActivityLog, PaginatedMeta>>
-      getServerActivity({
+  Future<FractalListMeta<ActivityLog, PaginatedMeta>> getServerActivity({
     required serverId,
     include,
     page,
@@ -709,24 +703,23 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseListMeta<ActivityLog, PaginatedMeta>>(
-            Options(
+        _setStreamType<FractalListMeta<ActivityLog, PaginatedMeta>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-                .compose(
-                  _dio.options,
-                  '/api/client/servers/${serverId}/activity',
-                  queryParameters: queryParameters,
-                  data: _data,
-                  cancelToken: cancelToken,
-                  onSendProgress: onSendProgress,
-                  onReceiveProgress: onReceiveProgress,
-                )
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseListMeta<ActivityLog, PaginatedMeta>.fromJson(
-        _result.data!);
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/activity',
+              queryParameters: queryParameters,
+              data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value =
+        FractalListMeta<ActivityLog, PaginatedMeta>.fromJson(_result.data!);
     return value;
   }
 
@@ -795,50 +788,40 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseListMeta<ServerDatabase, PaginatedMeta>>
-      listServerDatabases({
+  Future<FractalListData<ServerDatabase>> listServerDatabases({
     required serverId,
     include,
-    page,
-    perPage,
     cancelToken,
     onSendProgress,
     onReceiveProgress,
   }) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'include': include?.toJson(),
-      r'page': page,
-      r'per_page': perPage,
-    };
+    final queryParameters = <String, dynamic>{r'include': include?.toJson()};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseListMeta<ServerDatabase, PaginatedMeta>>(
-            Options(
+        _setStreamType<FractalListData<ServerDatabase>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-                .compose(
-                  _dio.options,
-                  '/api/client/servers/${serverId}/databases',
-                  queryParameters: queryParameters,
-                  data: _data,
-                  cancelToken: cancelToken,
-                  onSendProgress: onSendProgress,
-                  onReceiveProgress: onReceiveProgress,
-                )
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value =
-        FractalResponseListMeta<ServerDatabase, PaginatedMeta>.fromJson(
-            _result.data!);
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/databases',
+              queryParameters: queryParameters,
+              data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = FractalListData<ServerDatabase>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<ServerDatabase>> createServerDatabase(
+  Future<FractalData<ServerDatabase>> createServerDatabase(
     data, {
     required serverId,
     cancelToken,
@@ -852,7 +835,7 @@ class _PteroClient extends PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ServerDatabase>>(Options(
+        _setStreamType<FractalData<ServerDatabase>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -867,7 +850,7 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<ServerDatabase>.fromJson(_result.data!);
+    final value = FractalData<ServerDatabase>.fromJson(_result.data!);
     return value;
   }
 
@@ -903,7 +886,7 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseData<ServerDatabase>> rotateDatabasePassword({
+  Future<FractalData<ServerDatabase>> rotateDatabasePassword({
     required serverId,
     required databaseId,
     cancelToken,
@@ -916,7 +899,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ServerDatabase>>(Options(
+        _setStreamType<FractalData<ServerDatabase>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -931,12 +914,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<ServerDatabase>.fromJson(_result.data!);
+    final value = FractalData<ServerDatabase>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseList<FileObject>> listFiles({
+  Future<FractalListData<FileObject>> listFiles({
     required serverId,
     required directory,
     cancelToken,
@@ -949,7 +932,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseList<FileObject>>(Options(
+        _setStreamType<FractalListData<FileObject>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -964,7 +947,7 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseList<FileObject>.fromJson(_result.data!);
+    final value = FractalListData<FileObject>.fromJson(_result.data!);
     return value;
   }
 
@@ -1001,7 +984,7 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseData<SignedUrl>> downloadFile({
+  Future<FractalData<SignedUrl>> getFileDownloadUrl({
     required serverId,
     required file,
     cancelToken,
@@ -1014,7 +997,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<SignedUrl>>(Options(
+        _setStreamType<FractalData<SignedUrl>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -1029,7 +1012,7 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<SignedUrl>.fromJson(_result.data!);
+    final value = FractalData<SignedUrl>.fromJson(_result.data!);
     return value;
   }
 
@@ -1132,7 +1115,7 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseData<FileObject>> compressFile(
+  Future<FractalData<FileObject>> compressFile(
     data, {
     required serverId,
     cancelToken,
@@ -1146,7 +1129,7 @@ class _PteroClient extends PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(data.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<FileObject>>(Options(
+        _setStreamType<FractalData<FileObject>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -1161,7 +1144,7 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<FileObject>.fromJson(_result.data!);
+    final value = FractalData<FileObject>.fromJson(_result.data!);
     return value;
   }
 
@@ -1326,7 +1309,7 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseData<SignedUrl>> getFileUploadUrl({
+  Future<FractalData<SignedUrl>> getFileUploadUrl({
     required serverId,
     cancelToken,
     onSendProgress,
@@ -1338,7 +1321,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<SignedUrl>>(Options(
+        _setStreamType<FractalData<SignedUrl>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -1353,12 +1336,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<SignedUrl>.fromJson(_result.data!);
+    final value = FractalData<SignedUrl>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseList<ServerSchedule>> listSchedules({
+  Future<FractalListData<ServerSchedule>> listSchedules({
     required serverId,
     cancelToken,
     onSendProgress,
@@ -1370,7 +1353,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseList<ServerSchedule>>(Options(
+        _setStreamType<FractalListData<ServerSchedule>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -1385,12 +1368,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseList<ServerSchedule>.fromJson(_result.data!);
+    final value = FractalListData<ServerSchedule>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<ServerSchedule>> createSchedule(
+  Future<FractalData<ServerSchedule>> createSchedule(
     scheduleData, {
     required serverId,
     cancelToken,
@@ -1404,7 +1387,7 @@ class _PteroClient extends PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(scheduleData.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ServerSchedule>>(Options(
+        _setStreamType<FractalData<ServerSchedule>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -1419,12 +1402,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<ServerSchedule>.fromJson(_result.data!);
+    final value = FractalData<ServerSchedule>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<ServerSchedule>> getScheduleDetails({
+  Future<FractalData<ServerSchedule>> getScheduleDetails({
     required serverId,
     required scheduleId,
     cancelToken,
@@ -1437,7 +1420,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ServerSchedule>>(Options(
+        _setStreamType<FractalData<ServerSchedule>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -1452,12 +1435,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<ServerSchedule>.fromJson(_result.data!);
+    final value = FractalData<ServerSchedule>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<ServerSchedule>> updateSchedule(
+  Future<FractalData<ServerSchedule>> updateSchedule(
     scheduleData, {
     required serverId,
     required scheduleId,
@@ -1472,7 +1455,7 @@ class _PteroClient extends PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(scheduleData.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ServerSchedule>>(Options(
+        _setStreamType<FractalData<ServerSchedule>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -1487,7 +1470,7 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<ServerSchedule>.fromJson(_result.data!);
+    final value = FractalData<ServerSchedule>.fromJson(_result.data!);
     return value;
   }
 
@@ -1523,7 +1506,7 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseData<ScheduleTask>> createTask(
+  Future<FractalData<ScheduleTask>> createTask(
     taskData, {
     required serverId,
     required scheduleId,
@@ -1538,7 +1521,7 @@ class _PteroClient extends PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(taskData.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ScheduleTask>>(Options(
+        _setStreamType<FractalData<ScheduleTask>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -1553,12 +1536,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<ScheduleTask>.fromJson(_result.data!);
+    final value = FractalData<ScheduleTask>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<ScheduleTask>> updateTask(
+  Future<FractalData<ScheduleTask>> updateTask(
     taskData, {
     required serverId,
     required scheduleId,
@@ -1574,7 +1557,7 @@ class _PteroClient extends PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(taskData.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ScheduleTask>>(Options(
+        _setStreamType<FractalData<ScheduleTask>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -1589,7 +1572,7 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<ScheduleTask>.fromJson(_result.data!);
+    final value = FractalData<ScheduleTask>.fromJson(_result.data!);
     return value;
   }
 
@@ -1626,7 +1609,7 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseList<Allocation>> listAllocations({
+  Future<FractalListData<Allocation>> listAllocations({
     required serverId,
     cancelToken,
     onSendProgress,
@@ -1638,7 +1621,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseList<Allocation>>(Options(
+        _setStreamType<FractalListData<Allocation>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -1653,12 +1636,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseList<Allocation>.fromJson(_result.data!);
+    final value = FractalListData<Allocation>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<Allocation>> autoAssignAllocation({
+  Future<FractalData<Allocation>> autoAssignAllocation({
     required serverId,
     cancelToken,
     onSendProgress,
@@ -1670,7 +1653,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<Allocation>>(Options(
+        _setStreamType<FractalData<Allocation>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -1685,12 +1668,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<Allocation>.fromJson(_result.data!);
+    final value = FractalData<Allocation>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<Allocation>> setAllocationNote(
+  Future<FractalData<Allocation>> setAllocationNote(
     note, {
     required serverId,
     required allocationId,
@@ -1705,7 +1688,7 @@ class _PteroClient extends PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(note.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<Allocation>>(Options(
+        _setStreamType<FractalData<Allocation>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -1720,12 +1703,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<Allocation>.fromJson(_result.data!);
+    final value = FractalData<Allocation>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<Allocation>> setPrimaryAllocation({
+  Future<FractalData<Allocation>> setPrimaryAllocation({
     required serverId,
     required allocationId,
     cancelToken,
@@ -1738,7 +1721,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<Allocation>>(Options(
+        _setStreamType<FractalData<Allocation>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -1753,12 +1736,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<Allocation>.fromJson(_result.data!);
+    final value = FractalData<Allocation>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<Allocation>> unassignAllocation({
+  Future<FractalData<Allocation>> unassignAllocation({
     required serverId,
     required allocationId,
     cancelToken,
@@ -1771,7 +1754,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<Allocation>>(Options(
+        _setStreamType<FractalData<Allocation>>(Options(
       method: 'DELETE',
       headers: _headers,
       extra: _extra,
@@ -1786,12 +1769,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<Allocation>.fromJson(_result.data!);
+    final value = FractalData<Allocation>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseList<ServerSubuser>> listSubusers({
+  Future<FractalListData<ServerSubuser>> listSubusers({
     required serverId,
     cancelToken,
     onSendProgress,
@@ -1803,7 +1786,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseList<ServerSubuser>>(Options(
+        _setStreamType<FractalListData<ServerSubuser>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -1818,12 +1801,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseList<ServerSubuser>.fromJson(_result.data!);
+    final value = FractalListData<ServerSubuser>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<ServerSubuser>> createSubuser(
+  Future<FractalData<ServerSubuser>> createSubuser(
     subuserData, {
     required serverId,
     cancelToken,
@@ -1837,7 +1820,7 @@ class _PteroClient extends PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(subuserData.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ServerSubuser>>(Options(
+        _setStreamType<FractalData<ServerSubuser>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -1852,12 +1835,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<ServerSubuser>.fromJson(_result.data!);
+    final value = FractalData<ServerSubuser>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<ServerSubuser>> getSubuserDetails({
+  Future<FractalData<ServerSubuser>> getSubuserDetails({
     required serverId,
     required subuserId,
     cancelToken,
@@ -1870,7 +1853,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ServerSubuser>>(Options(
+        _setStreamType<FractalData<ServerSubuser>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -1885,12 +1868,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<ServerSubuser>.fromJson(_result.data!);
+    final value = FractalData<ServerSubuser>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<ServerSubuser>> updateSubuser(
+  Future<FractalData<ServerSubuser>> updateSubuser(
     subuserData, {
     required serverId,
     required subuserId,
@@ -1905,7 +1888,7 @@ class _PteroClient extends PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(subuserData.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<ServerSubuser>>(Options(
+        _setStreamType<FractalData<ServerSubuser>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -1920,7 +1903,7 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<ServerSubuser>.fromJson(_result.data!);
+    final value = FractalData<ServerSubuser>.fromJson(_result.data!);
     return value;
   }
 
@@ -1956,7 +1939,7 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseListMeta<Backup, PaginatedBackupsMeta>> listBackups({
+  Future<FractalListMeta<Backup, PaginatedBackupsMeta>> listBackups({
     required serverId,
     page,
     perPage,
@@ -1973,30 +1956,28 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseListMeta<Backup, PaginatedBackupsMeta>>(
-            Options(
+        _setStreamType<FractalListMeta<Backup, PaginatedBackupsMeta>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-                .compose(
-                  _dio.options,
-                  '/api/client/servers/${serverId}/backups',
-                  queryParameters: queryParameters,
-                  data: _data,
-                  cancelToken: cancelToken,
-                  onSendProgress: onSendProgress,
-                  onReceiveProgress: onReceiveProgress,
-                )
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/backups',
+              queryParameters: queryParameters,
+              data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
-        FractalResponseListMeta<Backup, PaginatedBackupsMeta>.fromJson(
-            _result.data!);
+        FractalListMeta<Backup, PaginatedBackupsMeta>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<Backup>> createBackup(
+  Future<FractalData<Backup>> createBackup(
     backupData, {
     required serverId,
     cancelToken,
@@ -2010,7 +1991,7 @@ class _PteroClient extends PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(backupData.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<Backup>>(Options(
+        _setStreamType<FractalData<Backup>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -2025,12 +2006,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<Backup>.fromJson(_result.data!);
+    final value = FractalData<Backup>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<Backup>> getBackupDetails({
+  Future<FractalData<Backup>> getBackupDetails({
     required serverId,
     required backupId,
     cancelToken,
@@ -2043,7 +2024,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<Backup>>(Options(
+        _setStreamType<FractalData<Backup>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -2058,12 +2039,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<Backup>.fromJson(_result.data!);
+    final value = FractalData<Backup>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<Backup>> toggleBackupLock({
+  Future<FractalData<Backup>> toggleBackupLock({
     required serverId,
     required backupId,
     cancelToken,
@@ -2076,7 +2057,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<Backup>>(Options(
+        _setStreamType<FractalData<Backup>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -2091,12 +2072,12 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<Backup>.fromJson(_result.data!);
+    final value = FractalData<Backup>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<SignedUrl>> downloadBackup({
+  Future<FractalData<SignedUrl>> getBackupDownloadUrl({
     required serverId,
     required backupId,
     cancelToken,
@@ -2109,7 +2090,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<SignedUrl>>(Options(
+        _setStreamType<FractalData<SignedUrl>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -2124,7 +2105,7 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<SignedUrl>.fromJson(_result.data!);
+    final value = FractalData<SignedUrl>.fromJson(_result.data!);
     return value;
   }
 
@@ -2193,7 +2174,7 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalResponseListMeta<EggVariable, StartupMeta>> listVariables({
+  Future<FractalListMeta<EggVariable, StartupMeta>> listVariables({
     required serverId,
     cancelToken,
     onSendProgress,
@@ -2205,29 +2186,28 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseListMeta<EggVariable, StartupMeta>>(
-            Options(
+        _setStreamType<FractalListMeta<EggVariable, StartupMeta>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-                .compose(
-                  _dio.options,
-                  '/api/client/servers/${serverId}/startup',
-                  queryParameters: queryParameters,
-                  data: _data,
-                  cancelToken: cancelToken,
-                  onSendProgress: onSendProgress,
-                  onReceiveProgress: onReceiveProgress,
-                )
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseListMeta<EggVariable, StartupMeta>.fromJson(
-        _result.data!);
+            .compose(
+              _dio.options,
+              '/api/client/servers/${serverId}/startup',
+              queryParameters: queryParameters,
+              data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value =
+        FractalListMeta<EggVariable, StartupMeta>.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FractalResponseData<EggVariable>> updateVariable(
+  Future<FractalData<EggVariable>> updateVariable(
     variable, {
     required serverId,
     cancelToken,
@@ -2241,7 +2221,7 @@ class _PteroClient extends PteroClient {
     final _data = <String, dynamic>{};
     _data.addAll(variable.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalResponseData<EggVariable>>(Options(
+        _setStreamType<FractalData<EggVariable>>(Options(
       method: 'PUT',
       headers: _headers,
       extra: _extra,
@@ -2256,7 +2236,7 @@ class _PteroClient extends PteroClient {
               onReceiveProgress: onReceiveProgress,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = FractalResponseData<EggVariable>.fromJson(_result.data!);
+    final value = FractalData<EggVariable>.fromJson(_result.data!);
     return value;
   }
 

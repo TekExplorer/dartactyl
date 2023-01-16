@@ -93,19 +93,18 @@ _$_NodeRelationships _$$_NodeRelationshipsFromJson(Map<String, dynamic> json) =>
               'allocation',
               (v) => v == null
                   ? null
-                  : FractalResponseData<ApplicationAllocation>.fromJson(
+                  : FractalData<ApplicationAllocation>.fromJson(
                       v as Map<String, dynamic>)),
           location: $checkedConvert(
               'location',
               (v) => v == null
                   ? null
-                  : FractalResponseData<Location>.fromJson(
-                      v as Map<String, dynamic>)),
+                  : FractalData<Location>.fromJson(v as Map<String, dynamic>)),
           servers: $checkedConvert(
               'servers',
               (v) => v == null
                   ? null
-                  : FractalResponseList<ApplicationServer>.fromJson(
+                  : FractalListData<ApplicationServer>.fromJson(
                       v as Map<String, dynamic>)),
         );
         return val;

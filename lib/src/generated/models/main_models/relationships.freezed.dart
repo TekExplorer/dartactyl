@@ -21,7 +21,7 @@ DatabasePasswordRelationships _$DatabasePasswordRelationshipsFromJson(
 
 /// @nodoc
 mixin _$DatabasePasswordRelationships {
-  FractalResponseData<DatabasePassword> get password =>
+  FractalData<DatabasePassword> get password =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +38,9 @@ abstract class $DatabasePasswordRelationshipsCopyWith<$Res> {
       _$DatabasePasswordRelationshipsCopyWithImpl<$Res,
           DatabasePasswordRelationships>;
   @useResult
-  $Res call({FractalResponseData<DatabasePassword> password});
+  $Res call({FractalData<DatabasePassword> password});
+
+  $FractalDataCopyWith<DatabasePassword, $Res> get password;
 }
 
 /// @nodoc
@@ -61,8 +63,17 @@ class _$DatabasePasswordRelationshipsCopyWithImpl<$Res,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as FractalResponseData<DatabasePassword>,
+              as FractalData<DatabasePassword>,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FractalDataCopyWith<DatabasePassword, $Res> get password {
+    return $FractalDataCopyWith<DatabasePassword, $Res>(_value.password,
+        (value) {
+      return _then(_value.copyWith(password: value) as $Val);
+    });
   }
 }
 
@@ -75,7 +86,10 @@ abstract class _$$_DatabasePasswordRelationshipsCopyWith<$Res>
       __$$_DatabasePasswordRelationshipsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({FractalResponseData<DatabasePassword> password});
+  $Res call({FractalData<DatabasePassword> password});
+
+  @override
+  $FractalDataCopyWith<DatabasePassword, $Res> get password;
 }
 
 /// @nodoc
@@ -97,7 +111,7 @@ class __$$_DatabasePasswordRelationshipsCopyWithImpl<$Res>
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as FractalResponseData<DatabasePassword>,
+              as FractalData<DatabasePassword>,
     ));
   }
 }
@@ -112,7 +126,7 @@ class _$_DatabasePasswordRelationships extends _DatabasePasswordRelationships {
       _$$_DatabasePasswordRelationshipsFromJson(json);
 
   @override
-  final FractalResponseData<DatabasePassword> password;
+  final FractalData<DatabasePassword> password;
 
   @override
   String toString() {
@@ -150,7 +164,7 @@ class _$_DatabasePasswordRelationships extends _DatabasePasswordRelationships {
 abstract class _DatabasePasswordRelationships
     extends DatabasePasswordRelationships {
   const factory _DatabasePasswordRelationships(
-          {required final FractalResponseData<DatabasePassword> password}) =
+          {required final FractalData<DatabasePassword> password}) =
       _$_DatabasePasswordRelationships;
   const _DatabasePasswordRelationships._() : super._();
 
@@ -158,7 +172,7 @@ abstract class _DatabasePasswordRelationships
       _$_DatabasePasswordRelationships.fromJson;
 
   @override
-  FractalResponseData<DatabasePassword> get password;
+  FractalData<DatabasePassword> get password;
   @override
   @JsonKey(ignore: true)
   _$$_DatabasePasswordRelationshipsCopyWith<_$_DatabasePasswordRelationships>
@@ -171,13 +185,12 @@ ServerRelationships _$ServerRelationshipsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ServerRelationships {
-  FractalResponseList<Allocation> get allocations =>
+  FractalListData<Allocation> get allocations =>
       throw _privateConstructorUsedError;
-  FractalResponseList<EggVariable>? get variables =>
+  FractalListData<EggVariable>? get variables =>
       throw _privateConstructorUsedError;
-  FractalResponseData<Egg>? get egg => throw _privateConstructorUsedError;
-  FractalResponseList<Subuser>? get subusers =>
-      throw _privateConstructorUsedError;
+  FractalData<Egg>? get egg => throw _privateConstructorUsedError;
+  FractalListData<Subuser>? get subusers => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -192,10 +205,15 @@ abstract class $ServerRelationshipsCopyWith<$Res> {
       _$ServerRelationshipsCopyWithImpl<$Res, ServerRelationships>;
   @useResult
   $Res call(
-      {FractalResponseList<Allocation> allocations,
-      FractalResponseList<EggVariable>? variables,
-      FractalResponseData<Egg>? egg,
-      FractalResponseList<Subuser>? subusers});
+      {FractalListData<Allocation> allocations,
+      FractalListData<EggVariable>? variables,
+      FractalData<Egg>? egg,
+      FractalListData<Subuser>? subusers});
+
+  $FractalListDataCopyWith<Allocation, $Res> get allocations;
+  $FractalListDataCopyWith<EggVariable, $Res>? get variables;
+  $FractalDataCopyWith<Egg, $Res>? get egg;
+  $FractalListDataCopyWith<Subuser, $Res>? get subusers;
 }
 
 /// @nodoc
@@ -220,20 +238,66 @@ class _$ServerRelationshipsCopyWithImpl<$Res, $Val extends ServerRelationships>
       allocations: null == allocations
           ? _value.allocations
           : allocations // ignore: cast_nullable_to_non_nullable
-              as FractalResponseList<Allocation>,
+              as FractalListData<Allocation>,
       variables: freezed == variables
           ? _value.variables
           : variables // ignore: cast_nullable_to_non_nullable
-              as FractalResponseList<EggVariable>?,
+              as FractalListData<EggVariable>?,
       egg: freezed == egg
           ? _value.egg
           : egg // ignore: cast_nullable_to_non_nullable
-              as FractalResponseData<Egg>?,
+              as FractalData<Egg>?,
       subusers: freezed == subusers
           ? _value.subusers
           : subusers // ignore: cast_nullable_to_non_nullable
-              as FractalResponseList<Subuser>?,
+              as FractalListData<Subuser>?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FractalListDataCopyWith<Allocation, $Res> get allocations {
+    return $FractalListDataCopyWith<Allocation, $Res>(_value.allocations,
+        (value) {
+      return _then(_value.copyWith(allocations: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FractalListDataCopyWith<EggVariable, $Res>? get variables {
+    if (_value.variables == null) {
+      return null;
+    }
+
+    return $FractalListDataCopyWith<EggVariable, $Res>(_value.variables!,
+        (value) {
+      return _then(_value.copyWith(variables: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FractalDataCopyWith<Egg, $Res>? get egg {
+    if (_value.egg == null) {
+      return null;
+    }
+
+    return $FractalDataCopyWith<Egg, $Res>(_value.egg!, (value) {
+      return _then(_value.copyWith(egg: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FractalListDataCopyWith<Subuser, $Res>? get subusers {
+    if (_value.subusers == null) {
+      return null;
+    }
+
+    return $FractalListDataCopyWith<Subuser, $Res>(_value.subusers!, (value) {
+      return _then(_value.copyWith(subusers: value) as $Val);
+    });
   }
 }
 
@@ -246,10 +310,19 @@ abstract class _$$_ServerRelationshipsCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {FractalResponseList<Allocation> allocations,
-      FractalResponseList<EggVariable>? variables,
-      FractalResponseData<Egg>? egg,
-      FractalResponseList<Subuser>? subusers});
+      {FractalListData<Allocation> allocations,
+      FractalListData<EggVariable>? variables,
+      FractalData<Egg>? egg,
+      FractalListData<Subuser>? subusers});
+
+  @override
+  $FractalListDataCopyWith<Allocation, $Res> get allocations;
+  @override
+  $FractalListDataCopyWith<EggVariable, $Res>? get variables;
+  @override
+  $FractalDataCopyWith<Egg, $Res>? get egg;
+  @override
+  $FractalListDataCopyWith<Subuser, $Res>? get subusers;
 }
 
 /// @nodoc
@@ -272,19 +345,19 @@ class __$$_ServerRelationshipsCopyWithImpl<$Res>
       allocations: null == allocations
           ? _value.allocations
           : allocations // ignore: cast_nullable_to_non_nullable
-              as FractalResponseList<Allocation>,
+              as FractalListData<Allocation>,
       variables: freezed == variables
           ? _value.variables
           : variables // ignore: cast_nullable_to_non_nullable
-              as FractalResponseList<EggVariable>?,
+              as FractalListData<EggVariable>?,
       egg: freezed == egg
           ? _value.egg
           : egg // ignore: cast_nullable_to_non_nullable
-              as FractalResponseData<Egg>?,
+              as FractalData<Egg>?,
       subusers: freezed == subusers
           ? _value.subusers
           : subusers // ignore: cast_nullable_to_non_nullable
-              as FractalResponseList<Subuser>?,
+              as FractalListData<Subuser>?,
     ));
   }
 }
@@ -300,13 +373,13 @@ class _$_ServerRelationships extends _ServerRelationships {
       _$$_ServerRelationshipsFromJson(json);
 
   @override
-  final FractalResponseList<Allocation> allocations;
+  final FractalListData<Allocation> allocations;
   @override
-  final FractalResponseList<EggVariable>? variables;
+  final FractalListData<EggVariable>? variables;
   @override
-  final FractalResponseData<Egg>? egg;
+  final FractalData<Egg>? egg;
   @override
-  final FractalResponseList<Subuser>? subusers;
+  final FractalListData<Subuser>? subusers;
 
   @override
   String toString() {
@@ -349,23 +422,23 @@ class _$_ServerRelationships extends _ServerRelationships {
 
 abstract class _ServerRelationships extends ServerRelationships {
   const factory _ServerRelationships(
-      {required final FractalResponseList<Allocation> allocations,
-      final FractalResponseList<EggVariable>? variables,
-      final FractalResponseData<Egg>? egg,
-      final FractalResponseList<Subuser>? subusers}) = _$_ServerRelationships;
+      {required final FractalListData<Allocation> allocations,
+      final FractalListData<EggVariable>? variables,
+      final FractalData<Egg>? egg,
+      final FractalListData<Subuser>? subusers}) = _$_ServerRelationships;
   const _ServerRelationships._() : super._();
 
   factory _ServerRelationships.fromJson(Map<String, dynamic> json) =
       _$_ServerRelationships.fromJson;
 
   @override
-  FractalResponseList<Allocation> get allocations;
+  FractalListData<Allocation> get allocations;
   @override
-  FractalResponseList<EggVariable>? get variables;
+  FractalListData<EggVariable>? get variables;
   @override
-  FractalResponseData<Egg>? get egg;
+  FractalData<Egg>? get egg;
   @override
-  FractalResponseList<Subuser>? get subusers;
+  FractalListData<Subuser>? get subusers;
   @override
   @JsonKey(ignore: true)
   _$$_ServerRelationshipsCopyWith<_$_ServerRelationships> get copyWith =>
@@ -379,8 +452,7 @@ ServerScheduleRelationships _$ServerScheduleRelationshipsFromJson(
 
 /// @nodoc
 mixin _$ServerScheduleRelationships {
-  FractalResponseList<ScheduleTask> get tasks =>
-      throw _privateConstructorUsedError;
+  FractalListData<ScheduleTask> get tasks => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -396,7 +468,9 @@ abstract class $ServerScheduleRelationshipsCopyWith<$Res> {
       _$ServerScheduleRelationshipsCopyWithImpl<$Res,
           ServerScheduleRelationships>;
   @useResult
-  $Res call({FractalResponseList<ScheduleTask> tasks});
+  $Res call({FractalListData<ScheduleTask> tasks});
+
+  $FractalListDataCopyWith<ScheduleTask, $Res> get tasks;
 }
 
 /// @nodoc
@@ -419,8 +493,16 @@ class _$ServerScheduleRelationshipsCopyWithImpl<$Res,
       tasks: null == tasks
           ? _value.tasks
           : tasks // ignore: cast_nullable_to_non_nullable
-              as FractalResponseList<ScheduleTask>,
+              as FractalListData<ScheduleTask>,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FractalListDataCopyWith<ScheduleTask, $Res> get tasks {
+    return $FractalListDataCopyWith<ScheduleTask, $Res>(_value.tasks, (value) {
+      return _then(_value.copyWith(tasks: value) as $Val);
+    });
   }
 }
 
@@ -433,7 +515,10 @@ abstract class _$$_ServerScheduleRelationshipsCopyWith<$Res>
       __$$_ServerScheduleRelationshipsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({FractalResponseList<ScheduleTask> tasks});
+  $Res call({FractalListData<ScheduleTask> tasks});
+
+  @override
+  $FractalListDataCopyWith<ScheduleTask, $Res> get tasks;
 }
 
 /// @nodoc
@@ -455,7 +540,7 @@ class __$$_ServerScheduleRelationshipsCopyWithImpl<$Res>
       tasks: null == tasks
           ? _value.tasks
           : tasks // ignore: cast_nullable_to_non_nullable
-              as FractalResponseList<ScheduleTask>,
+              as FractalListData<ScheduleTask>,
     ));
   }
 }
@@ -469,7 +554,7 @@ class _$_ServerScheduleRelationships extends _ServerScheduleRelationships {
       _$$_ServerScheduleRelationshipsFromJson(json);
 
   @override
-  final FractalResponseList<ScheduleTask> tasks;
+  final FractalListData<ScheduleTask> tasks;
 
   @override
   String toString() {
@@ -506,7 +591,7 @@ class _$_ServerScheduleRelationships extends _ServerScheduleRelationships {
 abstract class _ServerScheduleRelationships
     extends ServerScheduleRelationships {
   const factory _ServerScheduleRelationships(
-          {required final FractalResponseList<ScheduleTask> tasks}) =
+          {required final FractalListData<ScheduleTask> tasks}) =
       _$_ServerScheduleRelationships;
   const _ServerScheduleRelationships._() : super._();
 
@@ -514,7 +599,7 @@ abstract class _ServerScheduleRelationships
       _$_ServerScheduleRelationships.fromJson;
 
   @override
-  FractalResponseList<ScheduleTask> get tasks;
+  FractalListData<ScheduleTask> get tasks;
   @override
   @JsonKey(ignore: true)
   _$$_ServerScheduleRelationshipsCopyWith<_$_ServerScheduleRelationships>
@@ -528,7 +613,7 @@ ActivityLogRelationships _$ActivityLogRelationshipsFromJson(
 
 /// @nodoc
 mixin _$ActivityLogRelationships {
-  FractalResponseData<User>? get actor => throw _privateConstructorUsedError;
+  FractalData<User>? get actor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -542,7 +627,9 @@ abstract class $ActivityLogRelationshipsCopyWith<$Res> {
           $Res Function(ActivityLogRelationships) then) =
       _$ActivityLogRelationshipsCopyWithImpl<$Res, ActivityLogRelationships>;
   @useResult
-  $Res call({FractalResponseData<User>? actor});
+  $Res call({FractalData<User>? actor});
+
+  $FractalDataCopyWith<User, $Res>? get actor;
 }
 
 /// @nodoc
@@ -565,8 +652,20 @@ class _$ActivityLogRelationshipsCopyWithImpl<$Res,
       actor: freezed == actor
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
-              as FractalResponseData<User>?,
+              as FractalData<User>?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FractalDataCopyWith<User, $Res>? get actor {
+    if (_value.actor == null) {
+      return null;
+    }
+
+    return $FractalDataCopyWith<User, $Res>(_value.actor!, (value) {
+      return _then(_value.copyWith(actor: value) as $Val);
+    });
   }
 }
 
@@ -579,7 +678,10 @@ abstract class _$$_ActivityLogRelationshipsCopyWith<$Res>
       __$$_ActivityLogRelationshipsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({FractalResponseData<User>? actor});
+  $Res call({FractalData<User>? actor});
+
+  @override
+  $FractalDataCopyWith<User, $Res>? get actor;
 }
 
 /// @nodoc
@@ -600,7 +702,7 @@ class __$$_ActivityLogRelationshipsCopyWithImpl<$Res>
       actor: freezed == actor
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
-              as FractalResponseData<User>?,
+              as FractalData<User>?,
     ));
   }
 }
@@ -614,7 +716,7 @@ class _$_ActivityLogRelationships extends _ActivityLogRelationships {
       _$$_ActivityLogRelationshipsFromJson(json);
 
   @override
-  final FractalResponseData<User>? actor;
+  final FractalData<User>? actor;
 
   @override
   String toString() {
@@ -649,15 +751,15 @@ class _$_ActivityLogRelationships extends _ActivityLogRelationships {
 }
 
 abstract class _ActivityLogRelationships extends ActivityLogRelationships {
-  const factory _ActivityLogRelationships(
-      {final FractalResponseData<User>? actor}) = _$_ActivityLogRelationships;
+  const factory _ActivityLogRelationships({final FractalData<User>? actor}) =
+      _$_ActivityLogRelationships;
   const _ActivityLogRelationships._() : super._();
 
   factory _ActivityLogRelationships.fromJson(Map<String, dynamic> json) =
       _$_ActivityLogRelationships.fromJson;
 
   @override
-  FractalResponseData<User>? get actor;
+  FractalData<User>? get actor;
   @override
   @JsonKey(ignore: true)
   _$$_ActivityLogRelationshipsCopyWith<_$_ActivityLogRelationships>

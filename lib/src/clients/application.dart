@@ -34,7 +34,7 @@ abstract class PteroApplication {
   });
 
   @GET('/api/application/users/{id}')
-  Future<Fractal<ApplicationUser>> getUser({
+  Future<FractalData<ApplicationUser>> getUser({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -44,7 +44,7 @@ abstract class PteroApplication {
   });
 
   @GET('/api/application/users/external/{externalId}')
-  Future<Fractal<ApplicationUser>> getUserByExternalId({
+  Future<FractalData<ApplicationUser>> getUserByExternalId({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -54,7 +54,7 @@ abstract class PteroApplication {
   });
 
   @POST('/api/application/users')
-  Future<Fractal<ApplicationUser>> createUser({
+  Future<FractalData<ApplicationUser>> createUser({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -63,7 +63,7 @@ abstract class PteroApplication {
   });
 
   @PATCH('/api/application/users/{id}')
-  Future<Fractal<ApplicationUser>> updateUser({
+  Future<FractalData<ApplicationUser>> updateUser({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -102,7 +102,7 @@ abstract class PteroApplication {
   });
 
   @GET('/api/application/nodes/{id}')
-  Future<Fractal<Node>> getNode({
+  Future<FractalData<Node>> getNode({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -118,7 +118,7 @@ abstract class PteroApplication {
   // });
 
   @POST('/api/application/nodes')
-  Future<FractalMeta<Node, ResourceMeta>> createNode({
+  Future<FractalDataMeta<Node, ResourceMeta>> createNode({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -128,7 +128,7 @@ abstract class PteroApplication {
 
   //TODO: check that the response is in fact a [Node]
   @PATCH('/api/application/nodes/{id}')
-  Future<FractalMeta<Node, ResourceMeta>> updateNode({
+  Future<FractalDataMeta<Node, ResourceMeta>> updateNode({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,

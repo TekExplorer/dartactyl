@@ -834,8 +834,7 @@ ApplicationServerRelationships _$ApplicationServerRelationshipsFromJson(
 
 /// @nodoc
 mixin _$ApplicationServerRelationships {
-  FractalResponseData<ApplicationUser>? get user =>
-      throw _privateConstructorUsedError;
+  FractalData<ApplicationUser>? get user => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -851,7 +850,9 @@ abstract class $ApplicationServerRelationshipsCopyWith<$Res> {
       _$ApplicationServerRelationshipsCopyWithImpl<$Res,
           ApplicationServerRelationships>;
   @useResult
-  $Res call({FractalResponseData<ApplicationUser>? user});
+  $Res call({FractalData<ApplicationUser>? user});
+
+  $FractalDataCopyWith<ApplicationUser, $Res>? get user;
 }
 
 /// @nodoc
@@ -874,8 +875,20 @@ class _$ApplicationServerRelationshipsCopyWithImpl<$Res,
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as FractalResponseData<ApplicationUser>?,
+              as FractalData<ApplicationUser>?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FractalDataCopyWith<ApplicationUser, $Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $FractalDataCopyWith<ApplicationUser, $Res>(_value.user!, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
+    });
   }
 }
 
@@ -888,7 +901,10 @@ abstract class _$$_ApplicationServerRelationshipsCopyWith<$Res>
       __$$_ApplicationServerRelationshipsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({FractalResponseData<ApplicationUser>? user});
+  $Res call({FractalData<ApplicationUser>? user});
+
+  @override
+  $FractalDataCopyWith<ApplicationUser, $Res>? get user;
 }
 
 /// @nodoc
@@ -910,7 +926,7 @@ class __$$_ApplicationServerRelationshipsCopyWithImpl<$Res>
       freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as FractalResponseData<ApplicationUser>?,
+              as FractalData<ApplicationUser>?,
     ));
   }
 }
@@ -926,7 +942,7 @@ class _$_ApplicationServerRelationships
       _$$_ApplicationServerRelationshipsFromJson(json);
 
   @override
-  final FractalResponseData<ApplicationUser>? user;
+  final FractalData<ApplicationUser>? user;
 
   @override
   String toString() {
@@ -963,7 +979,7 @@ class _$_ApplicationServerRelationships
 abstract class _ApplicationServerRelationships
     extends ApplicationServerRelationships {
   const factory _ApplicationServerRelationships(
-          final FractalResponseData<ApplicationUser>? user) =
+          final FractalData<ApplicationUser>? user) =
       _$_ApplicationServerRelationships;
   const _ApplicationServerRelationships._() : super._();
 
@@ -971,7 +987,7 @@ abstract class _ApplicationServerRelationships
       _$_ApplicationServerRelationships.fromJson;
 
   @override
-  FractalResponseData<ApplicationUser>? get user;
+  FractalData<ApplicationUser>? get user;
   @override
   @JsonKey(ignore: true)
   _$$_ApplicationServerRelationshipsCopyWith<_$_ApplicationServerRelationships>

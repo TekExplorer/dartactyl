@@ -22,8 +22,6 @@ Database _$DatabaseFromJson(Map<String, dynamic> json) {
 mixin _$Database {
   String get address => throw _privateConstructorUsedError;
   int get port => throw _privateConstructorUsedError;
-  DatabasePasswordRelationships? get relationships =>
-      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,10 +34,7 @@ abstract class $DatabaseCopyWith<$Res> {
   factory $DatabaseCopyWith(Database value, $Res Function(Database) then) =
       _$DatabaseCopyWithImpl<$Res, Database>;
   @useResult
-  $Res call(
-      {String address, int port, DatabasePasswordRelationships? relationships});
-
-  $DatabasePasswordRelationshipsCopyWith<$Res>? get relationships;
+  $Res call({String address, int port});
 }
 
 /// @nodoc
@@ -57,7 +52,6 @@ class _$DatabaseCopyWithImpl<$Res, $Val extends Database>
   $Res call({
     Object? address = null,
     Object? port = null,
-    Object? relationships = freezed,
   }) {
     return _then(_value.copyWith(
       address: null == address
@@ -68,24 +62,7 @@ class _$DatabaseCopyWithImpl<$Res, $Val extends Database>
           ? _value.port
           : port // ignore: cast_nullable_to_non_nullable
               as int,
-      relationships: freezed == relationships
-          ? _value.relationships
-          : relationships // ignore: cast_nullable_to_non_nullable
-              as DatabasePasswordRelationships?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $DatabasePasswordRelationshipsCopyWith<$Res>? get relationships {
-    if (_value.relationships == null) {
-      return null;
-    }
-
-    return $DatabasePasswordRelationshipsCopyWith<$Res>(_value.relationships!,
-        (value) {
-      return _then(_value.copyWith(relationships: value) as $Val);
-    });
   }
 }
 
@@ -96,11 +73,7 @@ abstract class _$$_DatabaseCopyWith<$Res> implements $DatabaseCopyWith<$Res> {
       __$$_DatabaseCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String address, int port, DatabasePasswordRelationships? relationships});
-
-  @override
-  $DatabasePasswordRelationshipsCopyWith<$Res>? get relationships;
+  $Res call({String address, int port});
 }
 
 /// @nodoc
@@ -116,7 +89,6 @@ class __$$_DatabaseCopyWithImpl<$Res>
   $Res call({
     Object? address = null,
     Object? port = null,
-    Object? relationships = freezed,
   }) {
     return _then(_$_Database(
       address: null == address
@@ -127,10 +99,6 @@ class __$$_DatabaseCopyWithImpl<$Res>
           ? _value.port
           : port // ignore: cast_nullable_to_non_nullable
               as int,
-      relationships: freezed == relationships
-          ? _value.relationships
-          : relationships // ignore: cast_nullable_to_non_nullable
-              as DatabasePasswordRelationships?,
     ));
   }
 }
@@ -138,9 +106,7 @@ class __$$_DatabaseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Database extends _Database {
-  const _$_Database(
-      {required this.address, required this.port, this.relationships})
-      : super._();
+  const _$_Database({required this.address, required this.port}) : super._();
 
   factory _$_Database.fromJson(Map<String, dynamic> json) =>
       _$$_DatabaseFromJson(json);
@@ -149,12 +115,10 @@ class _$_Database extends _Database {
   final String address;
   @override
   final int port;
-  @override
-  final DatabasePasswordRelationships? relationships;
 
   @override
   String toString() {
-    return 'Database(address: $address, port: $port, relationships: $relationships)';
+    return 'Database(address: $address, port: $port)';
   }
 
   @override
@@ -163,14 +127,12 @@ class _$_Database extends _Database {
         (other.runtimeType == runtimeType &&
             other is _$_Database &&
             (identical(other.address, address) || other.address == address) &&
-            (identical(other.port, port) || other.port == port) &&
-            (identical(other.relationships, relationships) ||
-                other.relationships == relationships));
+            (identical(other.port, port) || other.port == port));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, address, port, relationships);
+  int get hashCode => Object.hash(runtimeType, address, port);
 
   @JsonKey(ignore: true)
   @override
@@ -188,9 +150,7 @@ class _$_Database extends _Database {
 
 abstract class _Database extends Database {
   const factory _Database(
-      {required final String address,
-      required final int port,
-      final DatabasePasswordRelationships? relationships}) = _$_Database;
+      {required final String address, required final int port}) = _$_Database;
   const _Database._() : super._();
 
   factory _Database.fromJson(Map<String, dynamic> json) = _$_Database.fromJson;
@@ -199,8 +159,6 @@ abstract class _Database extends Database {
   String get address;
   @override
   int get port;
-  @override
-  DatabasePasswordRelationships? get relationships;
   @override
   @JsonKey(ignore: true)
   _$$_DatabaseCopyWith<_$_Database> get copyWith =>
@@ -220,6 +178,10 @@ mixin _$ServerDatabase {
   String get connectionsFrom => throw _privateConstructorUsedError;
   int get maxConnections => throw _privateConstructorUsedError;
 
+  /// Prefer to use the [password] getter
+  DatabasePasswordRelationships? get relationships =>
+      throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ServerDatabaseCopyWith<ServerDatabase> get copyWith =>
@@ -238,9 +200,11 @@ abstract class $ServerDatabaseCopyWith<$Res> {
       Database host,
       String username,
       String connectionsFrom,
-      int maxConnections});
+      int maxConnections,
+      DatabasePasswordRelationships? relationships});
 
   $DatabaseCopyWith<$Res> get host;
+  $DatabasePasswordRelationshipsCopyWith<$Res>? get relationships;
 }
 
 /// @nodoc
@@ -262,6 +226,7 @@ class _$ServerDatabaseCopyWithImpl<$Res, $Val extends ServerDatabase>
     Object? username = null,
     Object? connectionsFrom = null,
     Object? maxConnections = null,
+    Object? relationships = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -288,6 +253,10 @@ class _$ServerDatabaseCopyWithImpl<$Res, $Val extends ServerDatabase>
           ? _value.maxConnections
           : maxConnections // ignore: cast_nullable_to_non_nullable
               as int,
+      relationships: freezed == relationships
+          ? _value.relationships
+          : relationships // ignore: cast_nullable_to_non_nullable
+              as DatabasePasswordRelationships?,
     ) as $Val);
   }
 
@@ -296,6 +265,19 @@ class _$ServerDatabaseCopyWithImpl<$Res, $Val extends ServerDatabase>
   $DatabaseCopyWith<$Res> get host {
     return $DatabaseCopyWith<$Res>(_value.host, (value) {
       return _then(_value.copyWith(host: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DatabasePasswordRelationshipsCopyWith<$Res>? get relationships {
+    if (_value.relationships == null) {
+      return null;
+    }
+
+    return $DatabasePasswordRelationshipsCopyWith<$Res>(_value.relationships!,
+        (value) {
+      return _then(_value.copyWith(relationships: value) as $Val);
     });
   }
 }
@@ -314,10 +296,13 @@ abstract class _$$_ServerDatabaseCopyWith<$Res>
       Database host,
       String username,
       String connectionsFrom,
-      int maxConnections});
+      int maxConnections,
+      DatabasePasswordRelationships? relationships});
 
   @override
   $DatabaseCopyWith<$Res> get host;
+  @override
+  $DatabasePasswordRelationshipsCopyWith<$Res>? get relationships;
 }
 
 /// @nodoc
@@ -337,6 +322,7 @@ class __$$_ServerDatabaseCopyWithImpl<$Res>
     Object? username = null,
     Object? connectionsFrom = null,
     Object? maxConnections = null,
+    Object? relationships = freezed,
   }) {
     return _then(_$_ServerDatabase(
       id: null == id
@@ -363,6 +349,10 @@ class __$$_ServerDatabaseCopyWithImpl<$Res>
           ? _value.maxConnections
           : maxConnections // ignore: cast_nullable_to_non_nullable
               as int,
+      relationships: freezed == relationships
+          ? _value.relationships
+          : relationships // ignore: cast_nullable_to_non_nullable
+              as DatabasePasswordRelationships?,
     ));
   }
 }
@@ -376,7 +366,8 @@ class _$_ServerDatabase extends _ServerDatabase {
       required this.host,
       required this.username,
       required this.connectionsFrom,
-      required this.maxConnections})
+      required this.maxConnections,
+      this.relationships})
       : super._();
 
   factory _$_ServerDatabase.fromJson(Map<String, dynamic> json) =>
@@ -395,9 +386,13 @@ class _$_ServerDatabase extends _ServerDatabase {
   @override
   final int maxConnections;
 
+  /// Prefer to use the [password] getter
+  @override
+  final DatabasePasswordRelationships? relationships;
+
   @override
   String toString() {
-    return 'ServerDatabase(id: $id, name: $name, host: $host, username: $username, connectionsFrom: $connectionsFrom, maxConnections: $maxConnections)';
+    return 'ServerDatabase(id: $id, name: $name, host: $host, username: $username, connectionsFrom: $connectionsFrom, maxConnections: $maxConnections, relationships: $relationships)';
   }
 
   @override
@@ -413,13 +408,15 @@ class _$_ServerDatabase extends _ServerDatabase {
             (identical(other.connectionsFrom, connectionsFrom) ||
                 other.connectionsFrom == connectionsFrom) &&
             (identical(other.maxConnections, maxConnections) ||
-                other.maxConnections == maxConnections));
+                other.maxConnections == maxConnections) &&
+            (identical(other.relationships, relationships) ||
+                other.relationships == relationships));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, name, host, username, connectionsFrom, maxConnections);
+  int get hashCode => Object.hash(runtimeType, id, name, host, username,
+      connectionsFrom, maxConnections, relationships);
 
   @JsonKey(ignore: true)
   @override
@@ -442,7 +439,8 @@ abstract class _ServerDatabase extends ServerDatabase {
       required final Database host,
       required final String username,
       required final String connectionsFrom,
-      required final int maxConnections}) = _$_ServerDatabase;
+      required final int maxConnections,
+      final DatabasePasswordRelationships? relationships}) = _$_ServerDatabase;
   const _ServerDatabase._() : super._();
 
   factory _ServerDatabase.fromJson(Map<String, dynamic> json) =
@@ -460,6 +458,10 @@ abstract class _ServerDatabase extends ServerDatabase {
   String get connectionsFrom;
   @override
   int get maxConnections;
+  @override
+
+  /// Prefer to use the [password] getter
+  DatabasePasswordRelationships? get relationships;
   @override
   @JsonKey(ignore: true)
   _$$_ServerDatabaseCopyWith<_$_ServerDatabase> get copyWith =>

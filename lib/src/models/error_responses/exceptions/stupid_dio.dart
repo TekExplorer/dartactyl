@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 
 /// Created by ipcjs on 2020/9/2.
 abstract class DeprecatedDioError implements DioError {
-  static const deprecatedMessage = 'Dio is confusing. Dont use this.';
+  static const deprecatedMessage = "Dio is confusing. Don't use this.";
   static final defaultErrorRequestOptions =
       RequestOptions(path: 'https://error.com');
 

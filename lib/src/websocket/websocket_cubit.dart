@@ -5,14 +5,11 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartactyl/dartactyl.dart';
-import 'package:meta/meta.dart';
-import 'package:universal_io/io.dart';
-
 // import 'package:web_socket_channel/web_socket_channel.dart';
 
-import '../k_is_web.dart';
-
-typedef FractalMetaServer = FractalMeta<Server, ServerMeta>;
+import 'package:dartactyl/src/k_is_web.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 // ApiService().client.getServerWebsocket(server: '')
 // bloc that interfaces with a websocket
@@ -28,6 +25,13 @@ abstract class IWebsocketCubit {
 
 /// Best used in a BlocListener
 class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
+  ServerWebsocketCubit({
+    required this.client,
+    required this.serverId,
+    bool autoInitialize = true,
+  }) : super(const WebsocketState.initial()) {
+    if (autoInitialize) init();
+  }
   final PteroClient client;
   final String serverId;
 
@@ -39,16 +43,8 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
 
   final Queue<WebsocketSendModel> _queuedEvents = Queue();
 
-  ServerWebsocketCubit({
-    required this.client,
-    required this.serverId,
-    bool autoInitialize = true,
-  }) : super(const WebsocketState.initial()) {
-    if (autoInitialize) init();
-  }
-
   @override
-  void emit(state) {
+  void emit(WebsocketState state) {
     if (isClosed) return;
     super.emit(state);
   }
@@ -64,11 +60,11 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
     await _socket?.close(WebSocketStatus.normalClosure);
     // close the specialized streams
     await listeners.closeAllListeners();
-    for (var onCloseCallback in _onCloseCallbacks) {
+    for (final onCloseCallback in _onCloseCallbacks) {
       onCloseCallback();
     }
     // close the underlying websocket
-    super.close();
+    await super.close();
   }
 
   /// Creates the listener that makes the individual streams work
@@ -82,32 +78,38 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
 
   @override
   void requestLogs() {
-    _sendEvent(WebsocketSendModel(WebsocketSendModelEvent.sendLogs, []));
+    _sendEvent(const WebsocketSendModel(WebsocketSendModelEvent.sendLogs, []));
   }
 
   /// Gets both [stats] and [powerState]
   @override
   void requestStats() {
-    _sendEvent(WebsocketSendModel(
-      WebsocketSendModelEvent.sendStats,
-      [],
-    ));
+    _sendEvent(
+      const WebsocketSendModel(
+        WebsocketSendModelEvent.sendStats,
+        [],
+      ),
+    );
   }
 
   @override
   void sendCommand(String command) {
-    _sendEvent(WebsocketSendModel(
-      WebsocketSendModelEvent.sendCommand,
-      [command],
-    ));
+    _sendEvent(
+      WebsocketSendModel(
+        WebsocketSendModelEvent.sendCommand,
+        [command],
+      ),
+    );
   }
 
   @override
   void setPowerState(ServerPowerAction action) {
-    _sendEvent(WebsocketSendModel(
-      WebsocketSendModelEvent.setState,
-      [action.name],
-    ));
+    _sendEvent(
+      WebsocketSendModel(
+        WebsocketSendModelEvent.setState,
+        [action.name],
+      ),
+    );
     // requestStats();
   }
 
@@ -115,12 +117,14 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
     log('Authenticating websocket', name: 'WebsocketCubit._authenticate');
     emit(const WebsocketState.authenticating());
     try {
-      var socketDetails = await client.getServerWebsocket(serverId: serverId);
+      final socketDetails = await client.getServerWebsocket(serverId: serverId);
 
-      _sendEvent(WebsocketSendModel(
-        WebsocketSendModelEvent.auth,
-        [socketDetails.data.token],
-      ));
+      _sendEvent(
+        WebsocketSendModel(
+          WebsocketSendModelEvent.auth,
+          [socketDetails.data.token],
+        ),
+      );
     } catch (e) {
       emit(WebsocketState.authError(e.toString()));
     }
@@ -140,7 +144,7 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
           // stats include power state
           listeners._powerStateStreamController.add(s.state);
         },
-        powerState: (s) => listeners._powerStateStreamController.add(s),
+        powerState: listeners._powerStateStreamController.add,
         consoleOutput: (o) {
           listeners._outputStreamController.add(o); // dual purpose...
           listeners._consoleStreamController.add(o);
@@ -156,8 +160,8 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
   }
 
   Future<void> _connect() async {
-    var res = await client.getServerWebsocket(serverId: serverId);
-    WebsocketDetails socketDetails = res.data;
+    final res = await client.getServerWebsocket(serverId: serverId);
+    final socketDetails = res.data;
     log(socketDetails.toString(), name: 'Websocket Details');
 
     _socket = await WebSocket.connect(
@@ -166,9 +170,11 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
     );
   }
 
-  void _mapToState(rawEvent) {
-    final event = WebsocketRecievedModel.fromJson(jsonDecode(rawEvent));
-    final String? arg = event.args?.first; // when is there ever more than one?
+  void _mapToState(dynamic rawEvent) {
+    if (rawEvent is! String) return;
+    final event =
+        WebsocketRecievedModel.fromJson(jsonDecode(rawEvent) as JsonMap);
+    final arg = event.args?.first; // when is there ever more than one?
 
     switch (event.event) {
       // status and stats
@@ -176,9 +182,11 @@ class ServerWebsocketCubit extends Cubit<WebsocketState> with IWebsocketCubit {
         emit(WebsocketState.powerState(ServerPowerStateFromJson[arg]!));
         break;
       case WebsocketRecievedModelEvent.stats:
-        emit(WebsocketState.stats(
-          WebsocketStatsModel.fromJson(jsonDecode(arg!)),
-        ));
+        emit(
+          WebsocketState.stats(
+            WebsocketStatsModel.fromJson(jsonDecode(arg!) as JsonMap),
+          ),
+        );
         break;
 
       // outputs
@@ -253,26 +261,31 @@ class WebsocketListeners {
 
   /// Stream of console and install [output]
   StreamSubscription<String> registerOutputListener(
-          void Function(String output) listener) =>
+    void Function(String output) listener,
+  ) =>
       _outputStreamController.stream.listen(listener);
 
   /// Stream of console [output]
   StreamSubscription<String> registerConsoleListener(
-          void Function(String output) listener) =>
+    void Function(String output) listener,
+  ) =>
       _consoleStreamController.stream.listen(listener);
 
   /// Stream of install [output]
   StreamSubscription<String> registerInstallListener(
-          void Function(String output) listener) =>
+    void Function(String output) listener,
+  ) =>
       _installStreamController.stream.listen(listener);
 
   /// Stream of [status]
   StreamSubscription<ServerPowerState> registerPowerStateListener(
-          void Function(ServerPowerState status) listener) =>
+    void Function(ServerPowerState status) listener,
+  ) =>
       _powerStateStreamController.stream.listen(listener);
 
   /// Stream of [stats], which is the power status of the server
   StreamSubscription<WebsocketStatsModel> registerStatsListener(
-          void Function(WebsocketStatsModel stats) listener) =>
+    void Function(WebsocketStatsModel stats) listener,
+  ) =>
       _statsStreamController.stream.listen(listener);
 }

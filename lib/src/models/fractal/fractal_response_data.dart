@@ -1,53 +1,47 @@
 import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../generated/models/fractal/fractal_response_data.freezed.dart';
 part '../../generated/models/fractal/fractal_response_data.g.dart';
 
-@JsonSerializable()
-class FractalResponseData<T extends SerializableMixin> {
-  final AttributeObject object;
-  @AttributesConverter()
-  final T attributes;
+@Deprecated('Use FractalData or Fractal instead')
+typedef FractalResponseData<T extends SerializableMixin> = FractalData<T>;
+@Deprecated('Use FractalDataMeta or FractalMeta instead')
+typedef FractalResponseDataMeta<T extends SerializableMixin, M extends Meta>
+    = FractalDataMeta<T, M>;
 
-  const FractalResponseData({
-    required this.object,
-    required this.attributes,
-  });
-
-  JsonMap toJson() => _$FractalResponseDataToJson<T>(this);
-
-  factory FractalResponseData.fromJson(JsonMap json) =>
-      _$FractalResponseDataFromJson(json);
-
-  @override
-  String toString() {
-    return 'FractalResponseData{object: $object, attributes: $attributes}';
-  }
+/// A mixin for FractalData and FractalMeta
+mixin Fractal<T extends SerializableMixin> {
+  // AttributeObject get object;
+  T get attributes;
 }
 
-@JsonSerializable()
-class FractalResponseDataMeta<T extends SerializableMixin, M extends Meta<M>>
-    extends FractalResponseData<T> {
-  @MetaConverter()
-  final M meta;
+@freezed
+class FractalData<T extends SerializableMixin>
+    with _$FractalData<T>, Fractal<T> {
+  const factory FractalData({
+    required AttributeObject object,
+    @AttributesConverter() required T attributes,
+  }) = _FractalData<T>;
+  const FractalData._();
 
-  const FractalResponseDataMeta({
-    required super.object,
-    required super.attributes,
-    required this.meta,
-  });
+  factory FractalData.fromJson(JsonMap json) => _$FractalDataFromJson(json);
+}
 
-  @override
-  JsonMap toJson() => _$FractalResponseDataMetaToJson<T, M>(this);
+mixin FractalMeta<T extends SerializableMixin, M extends Meta> on Fractal<T> {
+  M get meta;
+}
 
-  factory FractalResponseDataMeta.fromJson(JsonMap json) =>
-      _$FractalResponseDataMetaFromJson(json);
+@freezed
+class FractalDataMeta<T extends SerializableMixin, M extends Meta>
+    with _$FractalDataMeta<T, M>, Fractal<T>, FractalMeta<T, M> {
+  const factory FractalDataMeta({
+    required AttributeObject object,
+    @AttributesConverter() required T attributes,
+    @MetaConverter() required M meta,
+  }) = _FractalDataMeta<T, M>;
+  const FractalDataMeta._();
 
-  static JsonMap metaToJson<M extends Meta<M>>(M meta) =>
-      MetaConverter<M>().toJson(meta);
-
-  @override
-  String toString() {
-    return 'FractalResponseDataMeta{object: $object, attributes: $attributes, meta: $meta}';
-  }
+  factory FractalDataMeta.fromJson(JsonMap json) =>
+      _$FractalDataMetaFromJson(json);
 }

@@ -6,31 +6,30 @@ part of '../../../models/fractal/fractal_response_list.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FractalResponseList<T>
-    _$FractalResponseListFromJson<T extends SerializableMixin>(
-            Map<String, dynamic> json) =>
-        $checkedCreate(
-          'FractalResponseList',
-          json,
-          ($checkedConvert) {
-            final val = FractalResponseList<T>(
-              object: $checkedConvert(
-                  'object', (v) => $enumDecode(_$AttributeObjectEnumMap, v)),
-              data: $checkedConvert(
-                  'data',
-                  (v) =>
-                      (v as List<dynamic>?)
-                          ?.map((e) => FractalResponseData<T>.fromJson(
-                              e as Map<String, dynamic>))
-                          .toList() ??
-                      const []),
-            );
-            return val;
-          },
+_$_FractalListData<T> _$$_FractalListDataFromJson<T extends SerializableMixin>(
+        Map<String, dynamic> json) =>
+    $checkedCreate(
+      r'_$_FractalListData',
+      json,
+      ($checkedConvert) {
+        final val = _$_FractalListData<T>(
+          object: $checkedConvert(
+              'object', (v) => $enumDecode(_$AttributeObjectEnumMap, v)),
+          data: $checkedConvert(
+              'data',
+              (v) =>
+                  (v as List<dynamic>?)
+                      ?.map((e) =>
+                          FractalData<T>.fromJson(e as Map<String, dynamic>))
+                      .toList() ??
+                  const []),
         );
+        return val;
+      },
+    );
 
-Map<String, dynamic> _$FractalResponseListToJson<T extends SerializableMixin>(
-        FractalResponseList<T> instance) =>
+Map<String, dynamic> _$$_FractalListDataToJson<T extends SerializableMixin>(
+        _$_FractalListData<T> instance) =>
     <String, dynamic>{
       'object': _$AttributeObjectEnumMap[instance.object]!,
       'data': instance.data.map((e) => e.toJson()).toList(),
@@ -64,22 +63,22 @@ const _$AttributeObjectEnumMap = {
   AttributeObject.activityLog: 'activity_log',
 };
 
-FractalResponseListMeta<T, M> _$FractalResponseListMetaFromJson<
+_$_FractalListMeta<T, M> _$$_FractalListMetaFromJson<
         T extends SerializableMixin,
-        M extends Meta<M>>(Map<String, dynamic> json) =>
+        M extends Meta>(Map<String, dynamic> json) =>
     $checkedCreate(
-      'FractalResponseListMeta',
+      r'_$_FractalListMeta',
       json,
       ($checkedConvert) {
-        final val = FractalResponseListMeta<T, M>(
+        final val = _$_FractalListMeta<T, M>(
           object: $checkedConvert(
               'object', (v) => $enumDecode(_$AttributeObjectEnumMap, v)),
           data: $checkedConvert(
               'data',
               (v) =>
                   (v as List<dynamic>?)
-                      ?.map((e) => FractalResponseData<T>.fromJson(
-                          e as Map<String, dynamic>))
+                      ?.map((e) =>
+                          FractalData<T>.fromJson(e as Map<String, dynamic>))
                       .toList() ??
                   const []),
           meta: $checkedConvert('meta',
@@ -89,11 +88,11 @@ FractalResponseListMeta<T, M> _$FractalResponseListMetaFromJson<
       },
     );
 
-Map<String, dynamic> _$FractalResponseListMetaToJson<
-        T extends SerializableMixin,
-        M extends Meta<M>>(FractalResponseListMeta<T, M> instance) =>
-    <String, dynamic>{
-      'object': _$AttributeObjectEnumMap[instance.object]!,
-      'data': instance.data.map((e) => e.toJson()).toList(),
-      'meta': MetaConverter<M>().toJson(instance.meta),
-    };
+Map<String, dynamic>
+    _$$_FractalListMetaToJson<T extends SerializableMixin, M extends Meta>(
+            _$_FractalListMeta<T, M> instance) =>
+        <String, dynamic>{
+          'object': _$AttributeObjectEnumMap[instance.object]!,
+          'data': instance.data.map((e) => e.toJson()).toList(),
+          'meta': MetaConverter<M>().toJson(instance.meta),
+        };

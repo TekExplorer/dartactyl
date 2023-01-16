@@ -15,7 +15,7 @@ _$_DatabasePasswordRelationships _$$_DatabasePasswordRelationshipsFromJson(
         final val = _$_DatabasePasswordRelationships(
           password: $checkedConvert(
               'password',
-              (v) => FractalResponseData<DatabasePassword>.fromJson(
+              (v) => FractalData<DatabasePassword>.fromJson(
                   v as Map<String, dynamic>)),
         );
         return val;
@@ -37,25 +37,24 @@ _$_ServerRelationships _$$_ServerRelationshipsFromJson(
         final val = _$_ServerRelationships(
           allocations: $checkedConvert(
               'allocations',
-              (v) => FractalResponseList<Allocation>.fromJson(
+              (v) => FractalListData<Allocation>.fromJson(
                   v as Map<String, dynamic>)),
           variables: $checkedConvert(
               'variables',
               (v) => v == null
                   ? null
-                  : FractalResponseList<EggVariable>.fromJson(
+                  : FractalListData<EggVariable>.fromJson(
                       v as Map<String, dynamic>)),
           egg: $checkedConvert(
               'egg',
               (v) => v == null
                   ? null
-                  : FractalResponseData<Egg>.fromJson(
-                      v as Map<String, dynamic>)),
+                  : FractalData<Egg>.fromJson(v as Map<String, dynamic>)),
           subusers: $checkedConvert(
               'subusers',
               (v) => v == null
                   ? null
-                  : FractalResponseList<Subuser>.fromJson(
+                  : FractalListData<Subuser>.fromJson(
                       v as Map<String, dynamic>)),
         );
         return val;
@@ -80,7 +79,7 @@ _$_ServerScheduleRelationships _$$_ServerScheduleRelationshipsFromJson(
         final val = _$_ServerScheduleRelationships(
           tasks: $checkedConvert(
               'tasks',
-              (v) => FractalResponseList<ScheduleTask>.fromJson(
+              (v) => FractalListData<ScheduleTask>.fromJson(
                   v as Map<String, dynamic>)),
         );
         return val;
@@ -104,8 +103,7 @@ _$_ActivityLogRelationships _$$_ActivityLogRelationshipsFromJson(
               'actor',
               (v) => v == null
                   ? null
-                  : FractalResponseData<User>.fromJson(
-                      v as Map<String, dynamic>)),
+                  : FractalData<User>.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },

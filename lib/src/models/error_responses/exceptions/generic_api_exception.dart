@@ -5,6 +5,16 @@ part 'ptero_api_exception.dart';
 
 /// Base ApiException class for dartactyl. All api errors should be an instance of this class
 class GenericApiException extends DeprecatedDioError {
+  GenericApiException({
+    required this.rawDioError,
+    this.rawData,
+    int? statusCode,
+    String? statusMessage,
+    String? message,
+  })  : _message = message,
+        _statusMessage = statusMessage,
+        statusCode = statusCode ?? rawDioError.response?.statusCode;
+
   /// The status code of the response if available.
   final int? statusCode;
   final String? _message;
@@ -15,16 +25,6 @@ class GenericApiException extends DeprecatedDioError {
 
   /// The original [DioError] that was thrown
   final DioError rawDioError;
-
-  GenericApiException({
-    required this.rawDioError,
-    this.rawData,
-    int? statusCode,
-    String? statusMessage,
-    String? message,
-  })  : _message = message,
-        _statusMessage = statusMessage,
-        statusCode = statusCode ?? rawDioError.response?.statusCode;
 
   @override
   String get message => _message ?? '';

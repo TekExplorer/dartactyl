@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.6.10-dev
+
+ - Use VeryGoodVentures' lint rules
+ - Rename `FractalResponseData` to `FractalData` (which implements `Fractal`)
+   - It is now a Freezed Class
+ - Rename `FractalResponseList` to `FractalDataList` (which implements `FractalList`)
+   - It is now a Freezed Class
+
 ## 1.6.9
 
 - Add `month` to `RequestSchedule`

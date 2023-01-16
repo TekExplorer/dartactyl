@@ -5,16 +5,16 @@ import 'package:dio/dio.dart';
 class HandleErrorInterceptor extends Interceptor {
   // should be last to intercept
   @override
-  onError(DioError err, ErrorInterceptorHandler handler) {
-    Response? response = err.response;
+  void onError(DioError err, ErrorInterceptorHandler handler) {
+    final response = err.response;
 
     if (response != null) {
-      dynamic data = response.data;
+      final dynamic data = response.data;
 
       if (data is JsonMap) {
         // we have an error!
         // convert to PteroError
-        PteroErrors errors = PteroErrors.fromJson(data);
+        final errors = PteroErrors.fromJson(data);
 
         return handler.reject(
           PteroApiException(
@@ -26,17 +26,19 @@ class HandleErrorInterceptor extends Interceptor {
         );
       }
       // print('we have a response but no valid data: $data');
-      return handler.reject(NoDataPteroApiException(
-        message: err.message,
-        statusMessage: response.statusMessage,
-        rawDioError: err,
-        rawData: err.response?.data,
-      )..requestOptions = err.requestOptions);
+      return handler.reject(
+        NoDataPteroApiException(
+          message: err.message,
+          statusMessage: response.statusMessage,
+          rawDioError: err,
+          rawData: err.response?.data,
+        )..requestOptions = err.requestOptions,
+      );
     }
     // we cant connect to the server
 
     return handler.next(err);
-    // return handler.next(NoConnectionPteroApiExcepton(
+    // return handler.next(NoConnectionPteroApiException(
     //   message: err.message,
     //   rawDioError: err,
     // )..requestOptions = err.requestOptions);

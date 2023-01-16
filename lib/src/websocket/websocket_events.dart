@@ -1,17 +1,16 @@
+import 'package:dartactyl/src/websocket/websocket_event_types.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import 'websocket_event_types.dart';
 
 part '../generated/websocket/websocket_events.freezed.dart';
 part '../generated/websocket/websocket_events.g.dart';
 
 @freezed
 class WebsocketRecievedModel with _$WebsocketRecievedModel {
-  const WebsocketRecievedModel._();
   const factory WebsocketRecievedModel(
     WebsocketRecievedModelEvent event, [
     List<String>? args,
   ]) = _WebsocketRecievedModel;
+  const WebsocketRecievedModel._();
 
   factory WebsocketRecievedModel.fromJson(Map<String, dynamic> json) =>
       _$WebsocketRecievedModelFromJson(json);
@@ -19,11 +18,11 @@ class WebsocketRecievedModel with _$WebsocketRecievedModel {
 
 @freezed
 class WebsocketSendModel with _$WebsocketSendModel {
-  const WebsocketSendModel._();
   const factory WebsocketSendModel(
     WebsocketSendModelEvent event, [
     List<String>? args,
   ]) = _WebsocketSendModel;
+  const WebsocketSendModel._();
 
   factory WebsocketSendModel.fromJson(Map<String, dynamic> json) =>
       _$WebsocketSendModelFromJson(json);

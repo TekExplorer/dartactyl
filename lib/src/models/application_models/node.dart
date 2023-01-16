@@ -39,9 +39,9 @@ class Node with _$Node, SerializableMixin {
 class NodeRelationships with _$NodeRelationships, SerializableMixin {
   const NodeRelationships._();
   const factory NodeRelationships({
-    Fractal<ApplicationAllocation>? allocation,
-    Fractal<Location>? location,
-    FractalList<ApplicationServer>? servers,
+    FractalData<ApplicationAllocation>? allocation,
+    FractalData<Location>? location,
+    FractalListData<ApplicationServer>? servers,
   }) = _NodeRelationships;
 
   factory NodeRelationships.fromJson(JsonMap json) =>

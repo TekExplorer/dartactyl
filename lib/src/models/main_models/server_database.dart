@@ -10,7 +10,7 @@ class Database with _$Database {
   const factory Database({
     required String address,
     required int port,
-    DatabasePasswordRelationships? relationships,
+    // DatabasePasswordRelationships? relationships,
   }) = _Database;
   factory Database.fromJson(JsonMap json) => _$DatabaseFromJson(json);
 }
@@ -25,7 +25,12 @@ class ServerDatabase with SerializableMixin, _$ServerDatabase {
     required String username,
     required String connectionsFrom,
     required int maxConnections,
+
+    /// Prefer to use the [password] getter
+    DatabasePasswordRelationships? relationships,
   }) = _ServerDatabase;
   factory ServerDatabase.fromJson(JsonMap json) =>
       _$ServerDatabaseFromJson(json);
+
+  String? get password => relationships?.password.attributes.password;
 }

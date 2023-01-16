@@ -70,7 +70,7 @@ _$_ApplicationUserRelationships _$$_ApplicationUserRelationshipsFromJson(
         final val = _$_ApplicationUserRelationships(
           servers: $checkedConvert(
               'servers',
-              (v) => FractalResponseList<ApplicationServer>.fromJson(
+              (v) => FractalListData<ApplicationServer>.fromJson(
                   v as Map<String, dynamic>)),
         );
         return val;

@@ -2,10 +2,11 @@ import 'package:dartactyl/models.dart';
 
 typedef JsonMap = Map<String, dynamic>;
 
-typedef Fractal<T extends SerializableMixin> = FractalResponseData<T>;
-typedef FractalMeta<T extends SerializableMixin, M extends Meta<M>>
-    = FractalResponseDataMeta<T, M>;
+// typedef Fractal<T extends SerializableMixin> = FractalResponseData<T>;
+// typedef FractalMeta<T extends SerializableMixin, M extends Meta>
+//     = FractalResponseDataMeta<T, M>;
 
+typedef FractalMetaServer = FractalMeta<Server, ServerMeta>;
 typedef FractalServer = Fractal<Server>;
 typedef FractalSystemPermissions = Fractal<SystemPermissions>;
 typedef FractalUser = Fractal<Account>;
@@ -26,9 +27,9 @@ typedef FractalDatabasePassword = Fractal<DatabasePassword>;
 typedef FractalNest = Fractal<Nest>;
 typedef FractalEgg = Fractal<Egg>;
 
-typedef FractalList<T extends SerializableMixin> = FractalResponseList<T>;
-typedef FractalListMeta<T extends SerializableMixin, M extends Meta<M>>
-    = FractalResponseListMeta<T, M>;
+// typedef FractalList<T extends SerializableMixin> = FractalResponseList<T>;
+// typedef FractalListMeta<T extends SerializableMixin, M extends Meta>
+//     = FractalResponseListMeta<T, M>;
 
 typedef FractalServerList = FractalList<Server>;
 typedef FractalApiKeyList = FractalList<ApiKey>;

@@ -13,12 +13,6 @@ _$_Database _$$_DatabaseFromJson(Map<String, dynamic> json) => $checkedCreate(
         final val = _$_Database(
           address: $checkedConvert('address', (v) => v as String),
           port: $checkedConvert('port', (v) => v as int),
-          relationships: $checkedConvert(
-              'relationships',
-              (v) => v == null
-                  ? null
-                  : DatabasePasswordRelationships.fromJson(
-                      v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -28,7 +22,6 @@ Map<String, dynamic> _$$_DatabaseToJson(_$_Database instance) =>
     <String, dynamic>{
       'address': instance.address,
       'port': instance.port,
-      'relationships': instance.relationships?.toJson(),
     };
 
 _$_ServerDatabase _$$_ServerDatabaseFromJson(Map<String, dynamic> json) =>
@@ -45,6 +38,12 @@ _$_ServerDatabase _$$_ServerDatabaseFromJson(Map<String, dynamic> json) =>
           connectionsFrom:
               $checkedConvert('connections_from', (v) => v as String),
           maxConnections: $checkedConvert('max_connections', (v) => v as int),
+          relationships: $checkedConvert(
+              'relationships',
+              (v) => v == null
+                  ? null
+                  : DatabasePasswordRelationships.fromJson(
+                      v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -62,4 +61,5 @@ Map<String, dynamic> _$$_ServerDatabaseToJson(_$_ServerDatabase instance) =>
       'username': instance.username,
       'connections_from': instance.connectionsFrom,
       'max_connections': instance.maxConnections,
+      'relationships': instance.relationships?.toJson(),
     };

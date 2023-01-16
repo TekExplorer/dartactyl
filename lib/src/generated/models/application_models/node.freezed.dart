@@ -606,11 +606,10 @@ NodeRelationships _$NodeRelationshipsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NodeRelationships {
-  FractalResponseData<ApplicationAllocation>? get allocation =>
+  FractalData<ApplicationAllocation>? get allocation =>
       throw _privateConstructorUsedError;
-  FractalResponseData<Location>? get location =>
-      throw _privateConstructorUsedError;
-  FractalResponseList<ApplicationServer>? get servers =>
+  FractalData<Location>? get location => throw _privateConstructorUsedError;
+  FractalListData<ApplicationServer>? get servers =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -626,9 +625,13 @@ abstract class $NodeRelationshipsCopyWith<$Res> {
       _$NodeRelationshipsCopyWithImpl<$Res, NodeRelationships>;
   @useResult
   $Res call(
-      {FractalResponseData<ApplicationAllocation>? allocation,
-      FractalResponseData<Location>? location,
-      FractalResponseList<ApplicationServer>? servers});
+      {FractalData<ApplicationAllocation>? allocation,
+      FractalData<Location>? location,
+      FractalListData<ApplicationServer>? servers});
+
+  $FractalDataCopyWith<ApplicationAllocation, $Res>? get allocation;
+  $FractalDataCopyWith<Location, $Res>? get location;
+  $FractalListDataCopyWith<ApplicationServer, $Res>? get servers;
 }
 
 /// @nodoc
@@ -652,16 +655,54 @@ class _$NodeRelationshipsCopyWithImpl<$Res, $Val extends NodeRelationships>
       allocation: freezed == allocation
           ? _value.allocation
           : allocation // ignore: cast_nullable_to_non_nullable
-              as FractalResponseData<ApplicationAllocation>?,
+              as FractalData<ApplicationAllocation>?,
       location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as FractalResponseData<Location>?,
+              as FractalData<Location>?,
       servers: freezed == servers
           ? _value.servers
           : servers // ignore: cast_nullable_to_non_nullable
-              as FractalResponseList<ApplicationServer>?,
+              as FractalListData<ApplicationServer>?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FractalDataCopyWith<ApplicationAllocation, $Res>? get allocation {
+    if (_value.allocation == null) {
+      return null;
+    }
+
+    return $FractalDataCopyWith<ApplicationAllocation, $Res>(_value.allocation!,
+        (value) {
+      return _then(_value.copyWith(allocation: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FractalDataCopyWith<Location, $Res>? get location {
+    if (_value.location == null) {
+      return null;
+    }
+
+    return $FractalDataCopyWith<Location, $Res>(_value.location!, (value) {
+      return _then(_value.copyWith(location: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FractalListDataCopyWith<ApplicationServer, $Res>? get servers {
+    if (_value.servers == null) {
+      return null;
+    }
+
+    return $FractalListDataCopyWith<ApplicationServer, $Res>(_value.servers!,
+        (value) {
+      return _then(_value.copyWith(servers: value) as $Val);
+    });
   }
 }
 
@@ -674,9 +715,16 @@ abstract class _$$_NodeRelationshipsCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {FractalResponseData<ApplicationAllocation>? allocation,
-      FractalResponseData<Location>? location,
-      FractalResponseList<ApplicationServer>? servers});
+      {FractalData<ApplicationAllocation>? allocation,
+      FractalData<Location>? location,
+      FractalListData<ApplicationServer>? servers});
+
+  @override
+  $FractalDataCopyWith<ApplicationAllocation, $Res>? get allocation;
+  @override
+  $FractalDataCopyWith<Location, $Res>? get location;
+  @override
+  $FractalListDataCopyWith<ApplicationServer, $Res>? get servers;
 }
 
 /// @nodoc
@@ -698,15 +746,15 @@ class __$$_NodeRelationshipsCopyWithImpl<$Res>
       allocation: freezed == allocation
           ? _value.allocation
           : allocation // ignore: cast_nullable_to_non_nullable
-              as FractalResponseData<ApplicationAllocation>?,
+              as FractalData<ApplicationAllocation>?,
       location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as FractalResponseData<Location>?,
+              as FractalData<Location>?,
       servers: freezed == servers
           ? _value.servers
           : servers // ignore: cast_nullable_to_non_nullable
-              as FractalResponseList<ApplicationServer>?,
+              as FractalListData<ApplicationServer>?,
     ));
   }
 }
@@ -721,11 +769,11 @@ class _$_NodeRelationships extends _NodeRelationships {
       _$$_NodeRelationshipsFromJson(json);
 
   @override
-  final FractalResponseData<ApplicationAllocation>? allocation;
+  final FractalData<ApplicationAllocation>? allocation;
   @override
-  final FractalResponseData<Location>? location;
+  final FractalData<Location>? location;
   @override
-  final FractalResponseList<ApplicationServer>? servers;
+  final FractalListData<ApplicationServer>? servers;
 
   @override
   String toString() {
@@ -765,9 +813,9 @@ class _$_NodeRelationships extends _NodeRelationships {
 
 abstract class _NodeRelationships extends NodeRelationships {
   const factory _NodeRelationships(
-          {final FractalResponseData<ApplicationAllocation>? allocation,
-          final FractalResponseData<Location>? location,
-          final FractalResponseList<ApplicationServer>? servers}) =
+          {final FractalData<ApplicationAllocation>? allocation,
+          final FractalData<Location>? location,
+          final FractalListData<ApplicationServer>? servers}) =
       _$_NodeRelationships;
   const _NodeRelationships._() : super._();
 
@@ -775,11 +823,11 @@ abstract class _NodeRelationships extends NodeRelationships {
       _$_NodeRelationships.fromJson;
 
   @override
-  FractalResponseData<ApplicationAllocation>? get allocation;
+  FractalData<ApplicationAllocation>? get allocation;
   @override
-  FractalResponseData<Location>? get location;
+  FractalData<Location>? get location;
   @override
-  FractalResponseList<ApplicationServer>? get servers;
+  FractalListData<ApplicationServer>? get servers;
   @override
   @JsonKey(ignore: true)
   _$$_NodeRelationshipsCopyWith<_$_NodeRelationships> get copyWith =>

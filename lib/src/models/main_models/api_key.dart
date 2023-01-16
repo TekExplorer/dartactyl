@@ -6,7 +6,6 @@ part '../../generated/models/main_models/api_key.g.dart';
 
 @freezed
 class ApiKey with SerializableMixin, _$ApiKey {
-  const ApiKey._();
   const factory ApiKey({
     required String identifier,
     String? description,
@@ -14,6 +13,7 @@ class ApiKey with SerializableMixin, _$ApiKey {
     DateTime? lastUsedAt,
     required DateTime createdAt,
   }) = _ApiKey;
+  const ApiKey._();
 
   factory ApiKey.fromJson(JsonMap json) => _$ApiKeyFromJson(json);
 }

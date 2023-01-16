@@ -53,7 +53,7 @@ class ApplicationServerRelationships with _$ApplicationServerRelationships {
   // https://github.com/pterodactyl/panel/blob/1.0-develop/app/Transformers/Api/Application/ServerTransformer.php
   const ApplicationServerRelationships._();
   const factory ApplicationServerRelationships(
-    Fractal<ApplicationUser>? user,
+    FractalData<ApplicationUser>? user,
     // todo: add all relationships
   ) = _ApplicationServerRelationships;
 

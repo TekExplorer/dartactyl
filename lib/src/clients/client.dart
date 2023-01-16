@@ -8,11 +8,20 @@ import 'package:retrofit/retrofit.dart';
 
 part '../generated/clients/client.g.dart';
 
+/// A client for deprecated Pterodactyl APIs.
 @RestApi()
 abstract class DeprecatedPteroClient {
-  const DeprecatedPteroClient._();
+  /// Creates an instance of the [DeprecatedPteroClient] class.
+  ///
+  /// [dio] is the Dio instance to use.
+  ///
+  /// [baseUrl] is the base URL of the Pterodactyl server.
+  ///
+  // ignore: deprecated_member_use_from_same_package
+  /// It is recommended to use [PteroClient.old] instead.
   factory DeprecatedPteroClient(Dio dio, {String? baseUrl}) =
       _DeprecatedPteroClient._;
+  const DeprecatedPteroClient._();
 
   /// Delete an [SshKey] on your account. (1.8.0-1.8.1)
   @DELETE('/api/client/account/ssh-keys/{fingerprint}')
@@ -24,6 +33,7 @@ abstract class DeprecatedPteroClient {
   });
 }
 
+/// An extension that allows you to access the Dio instance used by the client.
 extension PteroClientVisibleDio on PteroClient {
   /// Returns the Dio instance used by the client.
   ///
@@ -31,20 +41,52 @@ extension PteroClientVisibleDio on PteroClient {
   Dio get dio => _dio;
 }
 
+extension PteroClientStuff on PteroClient {
+  /// The URL of the configured Pterodactyl server.
+  String get url => baseUrl ?? dio.options.baseUrl;
+
+  /// A client for old implementations of the Pterodactyl API.
+  @Deprecated('Update your panel! These endpoints are deprecated!')
+  DeprecatedPteroClient get old =>
+      DeprecatedPteroClient(_dio, baseUrl: baseUrl);
+
+  /// A client for the translations endpoints.
+  @experimental
+  PteroTranslationsClient get translations =>
+      PteroTranslationsClient(_dio, baseUrl: baseUrl);
+
+  /// An experimental client for the application endpoints.
+  @experimental
+  PteroApplication get application => PteroApplication(_dio, baseUrl: baseUrl);
+}
+
 /// Pterodactyl API Client
 @RestApi()
 abstract class PteroClient {
-  const PteroClient._();
+  /// Creates an instance of the [PteroClient] class.
+  ///
+  /// This is the default constructor.
+  ///
+  /// [dio] is the Dio instance to use.
+  ///
+  /// [baseUrl] is the base URL of the Pterodactyl server.
+  /// Not needed if you've already set it in the Dio instance.
   factory PteroClient(Dio dio, {String? baseUrl}) = _PteroClient._;
 
-  @Deprecated('Use RemoveNullResourcesInterceptor() instead.')
-  static final removeNullResourcesInterceptor =
-      RemoveNullResourcesInterceptor();
-
-  static final defaultInterceptors = [
-    HandleErrorInterceptor(),
-    RemoveNullResourcesInterceptor(),
-  ];
+  /// Creates an instance of the [PteroClient] class.
+  ///
+  /// This can be used to test the client without actually
+  ///  connecting to a server.
+  ///
+  /// Uses mockapi.ptero.sh as the base URL, which redirects to the
+  ///  pterodactyl.stoplight.io mock server.
+  ///
+  /// Does not work with /auth endpoints - only /api/client
+  factory PteroClient.mockApi([Dio? dio]) => PteroClient.generate(
+        url: 'https://mockapi.ptero.sh',
+        dio: dio,
+        apiKey: 'mock-api-key',
+      );
 
   /// Set up a Pterodactyl API Client in one go!
   /// [baseUrl] is the base URL of the Pterodactyl server.
@@ -52,16 +94,18 @@ abstract class PteroClient {
   /// leave [apiKey] blank if you'd rather use cookies with user/pass.
   factory PteroClient.generate({
     required String url,
-    String? key,
+    @Deprecated('Use apiKey instead.') String? key,
+    String? apiKey,
     Dio? dio,
     String userAgent = 'Dartactyl/v1',
     bool addDefaultInterceptors = true,
   }) {
     dio ??= Dio();
 
-    if (key != null) {
-      // use key
-      dio.options.headers[HttpHeaders.authorizationHeader] = "Bearer $key";
+    if (apiKey != null) {
+      dio.options.headers[HttpHeaders.authorizationHeader] = 'Bearer $apiKey';
+    } else if (key != null) {
+      dio.options.headers[HttpHeaders.authorizationHeader] = 'Bearer $key';
     }
     dio.options
       ..headers[HttpHeaders.userAgentHeader] = userAgent
@@ -73,35 +117,27 @@ abstract class PteroClient {
 
     return PteroClient(dio);
   }
+  const PteroClient._();
 
-  /// Creates an instance of the [PteroClient] class.
-  ///
-  /// This can be used to test the client without actually connecting to a server.
-  ///
-  /// Uses mockapi.ptero.sh as the base URL, which redirects to the pterodactyl.stoplight.io mock server.
-  ///
-  /// Does not work with /auth endpoints - only /api/client
-  factory PteroClient.mockApi([Dio? dio]) => PteroClient.generate(
-        url: 'https://mockapi.ptero.sh',
-        dio: dio,
-        key: 'mock-api-key',
-      );
+  /// Interceptor that removes null resources from the response.
+  @Deprecated('Use RemoveNullResourcesInterceptor() instead.')
+  static final removeNullResourcesInterceptor =
+      RemoveNullResourcesInterceptor();
+
+  /// A list of interceptors that are added
+  ///  by default with [PteroClient.generate].
+  static final defaultInterceptors = [
+    HandleErrorInterceptor(),
+    RemoveNullResourcesInterceptor(),
+  ];
 
   Dio get _dio;
   // Dio get dio => _dio;
+  /// The base URL of the Pterodactyl server.
+  ///
+  /// This can be null if you've set it in the Dio instance.
+  @protected
   String? get baseUrl;
-  String get url => baseUrl ?? dio.options.baseUrl;
-
-  @Deprecated('Update your panel! These endpoints are deprecated!')
-  DeprecatedPteroClient get old =>
-      DeprecatedPteroClient(_dio, baseUrl: baseUrl);
-
-  @experimental
-  PteroTranslationsClient get translations =>
-      PteroTranslationsClient(_dio, baseUrl: baseUrl);
-
-  @experimental
-  PteroApplication get application => PteroApplication(_dio, baseUrl: baseUrl);
 
   /// Alias of listVariables
   Future<FractalListMeta<EggVariable, StartupMeta>> getStartup({
@@ -117,6 +153,10 @@ abstract class PteroClient {
         onReceiveProgress: onReceiveProgress,
       );
 
+  /// List all docker images for a server.
+  ///
+  /// This is equivalent to calling [getStartup] and
+  ///  then accessing the `dockerImages` property.
   Future<Map<String, String>> listDockerImages({
     required String serverId,
     CancelToken? cancelToken,
@@ -174,7 +214,7 @@ abstract class PteroClient {
   /// [perPage]; number of results per page
   ///
   /// You can also limit what servers are returned by
-  /// providing a [GetServersQueryType] to [type] (defualt is 'member')
+  /// providing a [GetServersQueryType] to [type] (default is 'member')
   ///
   /// Available [Includes]; 'egg', 'subusers'
   @GET('/api/client')
@@ -183,7 +223,7 @@ abstract class PteroClient {
     @Query('page') int? page = 1,
     @Query('per_page') int? perPage = 50,
 
-    /// [include]; egg, subusers
+    // [include]; egg, subusers
     @Query('include') ServerIncludes? include,
     // Filters
     @Queries() ServerFilters? filters,
@@ -209,7 +249,7 @@ abstract class PteroClient {
 
   /// Get system permissions
   @GET('/api/client/permissions')
-  Future<Fractal<SystemPermissions>> getSystemPermissions({
+  Future<FractalData<SystemPermissions>> getSystemPermissions({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -219,7 +259,7 @@ abstract class PteroClient {
 
   /// Get account information.
   @GET('/api/client/account')
-  Future<Fractal<Account>> getAccountInfo({
+  Future<FractalData<Account>> getAccountInfo({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -227,7 +267,7 @@ abstract class PteroClient {
 
   /// Get two factor authentication image.
   @GET('/api/client/account/two-factor')
-  Future<Fractal<TwoFactorImage>> getTwoFactor({
+  Future<FractalData<TwoFactorImage>> getTwoFactor({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -235,7 +275,7 @@ abstract class PteroClient {
 
   /// Enable two factor authentication.
   @POST('/api/client/account/two-factor')
-  Future<Fractal<RecoveryTokens>> enableTwoFactor(
+  Future<FractalData<RecoveryTokens>> enableTwoFactor(
     @Body() TwoFactorCode code, {
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
@@ -269,6 +309,7 @@ abstract class PteroClient {
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
   });
 
+  /// Get your [Account] activity.
   @GET('/api/client/account/activity')
   Future<FractalListMeta<ActivityLog, PaginatedMeta>> getAccountActivity({
     @Query('include') ActivityLogsIncludes? include,
@@ -290,7 +331,7 @@ abstract class PteroClient {
   /// Get all current [ApiKey]s on your account.
   /// Keys are shortened to the first x characters.
   @GET('/api/client/account/api-keys')
-  Future<FractalList<ApiKey>> listApiKeys({
+  Future<FractalListData<ApiKey>> listApiKeys({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -299,7 +340,7 @@ abstract class PteroClient {
   /// Create a new [ApiKey] on your account.
   /// This is the only time you will ever get the full key.
   @POST('/api/client/account/api-keys')
-  Future<FractalMeta<ApiKey, ApiKeyMeta>> createApiKey(
+  Future<FractalDataMeta<ApiKey, ApiKeyMeta>> createApiKey(
     @Body() CreateApiKey data, {
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
@@ -317,7 +358,7 @@ abstract class PteroClient {
 
   /// List all [SshKey]s on your account.
   @GET('/api/client/account/ssh-keys')
-  Future<FractalList<SshKey>> listSshKeys({
+  Future<FractalListData<SshKey>> listSshKeys({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -325,7 +366,7 @@ abstract class PteroClient {
 
   /// Create a new [SshKey] on your account.
   @POST('/api/client/account/ssh-keys')
-  Future<Fractal<SshKey>> createSshKey(
+  Future<FractalData<SshKey>> createSshKey(
     @Body() CreateSshKey data, {
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
@@ -347,7 +388,7 @@ abstract class PteroClient {
   ///
   /// Available [Includes]; 'egg', 'subusers'
   @GET('/api/client/servers/{serverId}')
-  Future<FractalMeta<Server, ServerMeta>> getServerDetails({
+  Future<FractalDataMeta<Server, ServerMeta>> getServerDetails({
     @Path() required String serverId,
     @Query('include') ServerIncludes? include,
     @CancelRequest() CancelToken? cancelToken,
@@ -366,13 +407,14 @@ abstract class PteroClient {
 
   /// Get the [Server]'s current [Stats].
   @GET('/api/client/servers/{serverId}/resources')
-  Future<Fractal<Stats>> getServerResources({
+  Future<FractalData<Stats>> getServerResources({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
   });
 
+  /// Get the [Server] activity.
   @GET('/api/client/servers/{serverId}/activity')
   Future<FractalListMeta<ActivityLog, PaginatedMeta>> getServerActivity({
     @Path() required String serverId,
@@ -418,13 +460,12 @@ abstract class PteroClient {
   ///
   /// Available [Includes]; 'password' (include the database user password)
   @GET('/api/client/servers/{serverId}/databases')
-  Future<FractalResponseListMeta<ServerDatabase, PaginatedMeta>>
-      listServerDatabases({
+  Future<FractalListData<ServerDatabase>> listServerDatabases({
     @Path() required String serverId,
     @Query('include') ServerDatabasesIncludes? include,
     // pagination
-    @Query('page') int? page,
-    @Query('per_page') int? perPage,
+    // @Query('page') int? page,
+    // @Query('per_page') int? perPage,
     // filters
     // ??
     @CancelRequest() CancelToken? cancelToken,
@@ -434,7 +475,7 @@ abstract class PteroClient {
 
   /// Create a new database on the server
   @POST('/api/client/servers/{serverId}/databases')
-  Future<Fractal<ServerDatabase>> createServerDatabase(
+  Future<FractalData<ServerDatabase>> createServerDatabase(
     @Body() CreateServerDatabase data, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
@@ -454,7 +495,7 @@ abstract class PteroClient {
 
   /// TODO: on [rotateDatabasePassword]
   @POST('/api/client/servers/{serverId}/databases/{databaseId}/rotate-password')
-  Future<Fractal<ServerDatabase>> rotateDatabasePassword({
+  Future<FractalData<ServerDatabase>> rotateDatabasePassword({
     @Path() required String serverId,
     @Path() required String databaseId,
     @CancelRequest() CancelToken? cancelToken,
@@ -468,7 +509,7 @@ abstract class PteroClient {
   ///
   /// [directory]; path to list files from
   @GET('/api/client/servers/{serverId}/files/list')
-  Future<FractalList<FileObject>> listFiles({
+  Future<FractalListData<FileObject>> listFiles({
     @Path() required String serverId,
     @Query('directory', encoded: true) required String directory,
     @CancelRequest() CancelToken? cancelToken,
@@ -488,11 +529,21 @@ abstract class PteroClient {
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
   });
 
+  ///
+  @Deprecated('Use getFileDownloadUrl instead')
+  Future<FractalData<SignedUrl>> Function({
+    required String serverId,
+    required String file,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) get downloadFile => getFileDownloadUrl;
+
   /// Download a [file] from the [Server]
   ///
   /// [file]; path to the desired file
   @GET('/api/client/servers/{serverId}/files/download')
-  Future<Fractal<SignedUrl>> downloadFile({
+  Future<FractalData<SignedUrl>> getFileDownloadUrl({
     @Path() required String serverId,
     @Query('file', encoded: true) required String file,
     @CancelRequest() CancelToken? cancelToken,
@@ -526,7 +577,7 @@ abstract class PteroClient {
   ///
   /// [file]; url encoded path to the desired file
   @POST('/api/client/servers/{serverId}/files/write')
-  @Headers(<String, dynamic>{"Content-Type": 'text/plain'})
+  @Headers(<String, dynamic>{'Content-Type': 'text/plain'})
   Future<void> writeFile(
     @Body() String rawContents, {
     @Path() required String serverId,
@@ -538,7 +589,7 @@ abstract class PteroClient {
 
   /// Compress a file into an archive (eg. zip) on the [Server]
   @POST('/api/client/servers/{serverId}/files/compress')
-  Future<Fractal<FileObject>> compressFile(
+  Future<FractalData<FileObject>> compressFile(
     @Body() FileBodyListString data, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
@@ -598,17 +649,19 @@ abstract class PteroClient {
 
   /// Returns a [SignedUrl] used to upload files to the [Server] using POST
   @GET('/api/client/servers/{serverId}/files/upload')
-  Future<Fractal<SignedUrl>> getFileUploadUrl({
+  Future<FractalData<SignedUrl>> getFileUploadUrl({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
   });
 
+  // TODO: upload file
+
   // Schedules
   /// List all schedules that the [Server] has
   @GET('/api/client/servers/{serverId}/schedules')
-  Future<FractalList<ServerSchedule>> listSchedules({
+  Future<FractalListData<ServerSchedule>> listSchedules({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
@@ -617,7 +670,7 @@ abstract class PteroClient {
 
   /// Create a [ServerSchedule] on the [Server]
   @POST('/api/client/servers/{serverId}/schedules')
-  Future<Fractal<ServerSchedule>> createSchedule(
+  Future<FractalData<ServerSchedule>> createSchedule(
     @Body() RequestSchedule scheduleData, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
@@ -627,7 +680,7 @@ abstract class PteroClient {
 
   /// Get a [ServerSchedule]'s details from the [Server]
   @GET('/api/client/servers/{serverId}/schedules/{scheduleId}')
-  Future<Fractal<ServerSchedule>> getScheduleDetails({
+  Future<FractalData<ServerSchedule>> getScheduleDetails({
     @Path() required String serverId,
     @Path() required int scheduleId,
     @CancelRequest() CancelToken? cancelToken,
@@ -637,7 +690,7 @@ abstract class PteroClient {
 
   /// Update a [ServerSchedule] on the [Server]
   @POST('/api/client/servers/{serverId}/schedules/{scheduleId}')
-  Future<Fractal<ServerSchedule>> updateSchedule(
+  Future<FractalData<ServerSchedule>> updateSchedule(
     @Body() RequestSchedule scheduleData, {
     @Path() required String serverId,
     @Path() required int scheduleId,
@@ -658,7 +711,7 @@ abstract class PteroClient {
 
   /// Create a scheduled [Task] on a [ServerSchedule]
   @POST('/api/client/servers/{serverId}/schedules/{scheduleId}/tasks')
-  Future<Fractal<ScheduleTask>> createTask(
+  Future<FractalData<ScheduleTask>> createTask(
     @Body() Task taskData, {
     @Path() required String serverId,
     @Path() required int scheduleId,
@@ -669,7 +722,7 @@ abstract class PteroClient {
 
   /// Update a scheduled [Task] on a [ServerSchedule]
   @POST('/api/client/servers/{serverId}/schedules/{scheduleId}/tasks/{taskId}')
-  Future<Fractal<ScheduleTask>> updateTask(
+  Future<FractalData<ScheduleTask>> updateTask(
     @Body() Task taskData, {
     @Path() required String serverId,
     @Path() required int scheduleId,
@@ -681,7 +734,8 @@ abstract class PteroClient {
 
   /// Delete a scheduled [Task] on a [ServerSchedule]
   @DELETE(
-      '/api/client/servers/{serverId}/schedules/{scheduleId}/tasks/{taskId}')
+    '/api/client/servers/{serverId}/schedules/{scheduleId}/tasks/{taskId}',
+  )
   Future<void> deleteTask({
     @Path() required String serverId,
     @Path() required int scheduleId,
@@ -694,7 +748,7 @@ abstract class PteroClient {
   // Network
   /// List all allocations that the [Server] has
   @GET('/api/client/servers/{serverId}/network/allocations')
-  Future<FractalList<Allocation>> listAllocations({
+  Future<FractalListData<Allocation>> listAllocations({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
@@ -703,7 +757,7 @@ abstract class PteroClient {
 
   /// Automatically assign an allocation on the [Server]
   @POST('/api/client/servers/{serverId}/network/allocations')
-  Future<Fractal<Allocation>> autoAssignAllocation({
+  Future<FractalData<Allocation>> autoAssignAllocation({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
@@ -712,7 +766,7 @@ abstract class PteroClient {
 
   /// Set the allocation note for an [Allocation] on the [Server]
   @POST('/api/client/servers/{serverId}/network/allocations/{allocationId}')
-  Future<Fractal<Allocation>> setAllocationNote(
+  Future<FractalData<Allocation>> setAllocationNote(
     @Body() AllocationNote note, {
     @Path() required String serverId,
     @Path() required int allocationId,
@@ -723,8 +777,9 @@ abstract class PteroClient {
 
   /// Set an [Allocation] as the primary allocation on [Server]
   @POST(
-      '/api/client/servers/{serverId}/network/allocations/{allocationId}/primary')
-  Future<Fractal<Allocation>> setPrimaryAllocation({
+    '/api/client/servers/{serverId}/network/allocations/{allocationId}/primary',
+  )
+  Future<FractalData<Allocation>> setPrimaryAllocation({
     @Path() required String serverId,
     @Path() required int allocationId,
     @CancelRequest() CancelToken? cancelToken,
@@ -734,7 +789,7 @@ abstract class PteroClient {
 
   /// Unassign an [Allocation] from [Server]
   @DELETE('/api/client/servers/{serverId}/network/allocations/{allocationId}')
-  Future<Fractal<Allocation>> unassignAllocation({
+  Future<FractalData<Allocation>> unassignAllocation({
     @Path() required String serverId,
     @Path() required int allocationId,
     @CancelRequest() CancelToken? cancelToken,
@@ -746,7 +801,7 @@ abstract class PteroClient {
 
   /// List all [ServerSubuser]s on the [Server]
   @GET('/api/client/servers/{serverId}/users')
-  Future<FractalList<ServerSubuser>> listSubusers({
+  Future<FractalListData<ServerSubuser>> listSubusers({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
@@ -755,7 +810,7 @@ abstract class PteroClient {
 
   /// Create [ServerSubuser] on the [Server]
   @POST('/api/client/servers/{serverId}/users')
-  Future<Fractal<ServerSubuser>> createSubuser(
+  Future<FractalData<ServerSubuser>> createSubuser(
     @Body() Subuser subuserData, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
@@ -765,7 +820,7 @@ abstract class PteroClient {
 
   /// Get a [ServerSubuser]'s details on the [Server]
   @GET('/api/client/servers/{serverId}/users/{subuserId}')
-  Future<Fractal<ServerSubuser>> getSubuserDetails({
+  Future<FractalData<ServerSubuser>> getSubuserDetails({
     @Path() required String serverId,
     @Path() required String subuserId,
     @CancelRequest() CancelToken? cancelToken,
@@ -775,7 +830,7 @@ abstract class PteroClient {
 
   /// Update a [ServerSubuser] on the [Server]
   @POST('/api/client/servers/{serverId}/users/{subuserId}')
-  Future<Fractal<ServerSubuser>> updateSubuser(
+  Future<FractalData<ServerSubuser>> updateSubuser(
     @Body() SubuserPermissions subuserData, {
     @Path() required String serverId,
     @Path() required String subuserId,
@@ -798,7 +853,7 @@ abstract class PteroClient {
 
   /// List all backups on the [Server]
   @GET('/api/client/servers/{serverId}/backups')
-  Future<FractalResponseListMeta<Backup, PaginatedBackupsMeta>> listBackups({
+  Future<FractalListMeta<Backup, PaginatedBackupsMeta>> listBackups({
     @Path() required String serverId,
     // pagination
     @Query('page') int? page,
@@ -810,7 +865,7 @@ abstract class PteroClient {
 
   /// Create a backup on the [Server]
   @POST('/api/client/servers/{serverId}/backups')
-  Future<Fractal<Backup>> createBackup(
+  Future<FractalData<Backup>> createBackup(
     @Body() CreateBackup backupData, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
@@ -820,7 +875,7 @@ abstract class PteroClient {
 
   /// Get information about a [Backup] from the [Server]
   @GET('/api/client/servers/{serverId}/backups/{backupId}')
-  Future<Fractal<Backup>> getBackupDetails({
+  Future<FractalData<Backup>> getBackupDetails({
     @Path() required String serverId,
     @Path() required String backupId,
     @CancelRequest() CancelToken? cancelToken,
@@ -828,20 +883,31 @@ abstract class PteroClient {
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
   });
 
-  /// Lock a [Backup] to protect it from automated or accedental deletions
+  /// Lock a [Backup] to protect it from automated or accidental deletions
+  ///
   /// If the [Backup] is already locked, this will unlock it instead
   @POST('/api/client/servers/{serverId}/backups/{backupId}/lock')
-  Future<Fractal<Backup>> toggleBackupLock({
+  Future<FractalData<Backup>> toggleBackupLock({
     @Path() required String serverId,
     @Path() required String backupId,
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
   });
+
+  ///
+  @Deprecated('Use getBackupDownloadUrl instead')
+  Future<FractalData<SignedUrl>> Function({
+    required String serverId,
+    required String backupId,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) get downloadBackup => getBackupDownloadUrl;
 
   /// Generate download url for a [Backup] from  the [Server]
   @GET('/api/client/servers/{serverId}/backups/{backupId}/download')
-  Future<Fractal<SignedUrl>> downloadBackup({
+  Future<FractalData<SignedUrl>> getBackupDownloadUrl({
     @Path() required String serverId,
     @Path() required String backupId,
     @CancelRequest() CancelToken? cancelToken,
@@ -883,7 +949,7 @@ abstract class PteroClient {
 
   /// Update the [Server] startup variable with the contents of [variable]
   @PUT('/api/client/servers/{serverId}/startup/variable')
-  Future<Fractal<EggVariable>> updateVariable(
+  Future<FractalData<EggVariable>> updateVariable(
     @Body() KeyValue variable, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,

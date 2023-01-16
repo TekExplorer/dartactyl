@@ -8,7 +8,7 @@ part '../../generated/models/main_models/relationships.g.dart';
 class DatabasePasswordRelationships with _$DatabasePasswordRelationships {
   const DatabasePasswordRelationships._();
   const factory DatabasePasswordRelationships({
-    required Fractal<DatabasePassword> password,
+    required FractalData<DatabasePassword> password,
   }) = _DatabasePasswordRelationships;
 
   factory DatabasePasswordRelationships.fromJson(JsonMap json) =>
@@ -19,10 +19,10 @@ class DatabasePasswordRelationships with _$DatabasePasswordRelationships {
 class ServerRelationships with _$ServerRelationships {
   const ServerRelationships._();
   const factory ServerRelationships({
-    required FractalList<Allocation> allocations,
-    FractalList<EggVariable>? variables,
-    Fractal<Egg>? egg,
-    FractalList<Subuser>? subusers,
+    required FractalListData<Allocation> allocations,
+    FractalListData<EggVariable>? variables,
+    FractalData<Egg>? egg,
+    FractalListData<Subuser>? subusers,
   }) = _ServerRelationships;
 
   factory ServerRelationships.fromJson(JsonMap json) =>
@@ -33,7 +33,7 @@ class ServerRelationships with _$ServerRelationships {
 class ServerScheduleRelationships with _$ServerScheduleRelationships {
   const ServerScheduleRelationships._();
   const factory ServerScheduleRelationships({
-    required FractalList<ScheduleTask> tasks,
+    required FractalListData<ScheduleTask> tasks,
   }) = _ServerScheduleRelationships;
 
   factory ServerScheduleRelationships.fromJson(JsonMap json) =>
@@ -44,7 +44,7 @@ class ServerScheduleRelationships with _$ServerScheduleRelationships {
 class ActivityLogRelationships with _$ActivityLogRelationships {
   const ActivityLogRelationships._();
   const factory ActivityLogRelationships({
-    Fractal<User>? actor,
+    FractalData<User>? actor,
   }) = _ActivityLogRelationships;
 
   factory ActivityLogRelationships.fromJson(JsonMap json) =>

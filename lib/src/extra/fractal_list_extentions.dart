@@ -55,12 +55,12 @@ extension EggVariableList on FractalList<EggVariable> {
 }
 
 extension EggVariableListResponse on FractalListMeta<EggVariable, StartupMeta> {
-  /// Only accessable through `listVariables`
+  /// Only accessible through `listVariables`
   Map<String, String> get dockerImages => meta.dockerImages;
 
-  /// Only accessable through `listVariables`
+  /// Only accessible through `listVariables`
   String get rawStartupCommand => meta.rawStartupCommand;
 
-  /// Only accessable through `listVariables`
+  /// Only accessible through `listVariables`
   String get startupCommand => meta.startupCommand;
 }

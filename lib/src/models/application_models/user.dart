@@ -33,7 +33,7 @@ class ApplicationUser with _$ApplicationUser, SerializableMixin {
 class ApplicationUserRelationships with _$ApplicationUserRelationships {
   const ApplicationUserRelationships._();
   const factory ApplicationUserRelationships({
-    required FractalList<ApplicationServer> servers,
+    required FractalListData<ApplicationServer> servers,
   }) = _ApplicationUserRelationships;
 
   factory ApplicationUserRelationships.fromJson(JsonMap json) =>

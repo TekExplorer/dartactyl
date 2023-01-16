@@ -150,7 +150,7 @@ class _$_PaginatedMeta extends _PaginatedMeta {
   }
 }
 
-abstract class _PaginatedMeta extends PaginatedMeta {
+abstract class _PaginatedMeta extends PaginatedMeta implements PaginationMixin {
   const factory _PaginatedMeta({required final Pagination pagination}) =
       _$_PaginatedMeta;
   const _PaginatedMeta._() : super._();
@@ -321,7 +321,8 @@ class _$_PaginatedBackupsMeta extends _PaginatedBackupsMeta {
   }
 }
 
-abstract class _PaginatedBackupsMeta extends PaginatedBackupsMeta {
+abstract class _PaginatedBackupsMeta extends PaginatedBackupsMeta
+    implements PaginationMixin {
   const factory _PaginatedBackupsMeta(
       {required final Pagination pagination,
       required final int backupCount}) = _$_PaginatedBackupsMeta;

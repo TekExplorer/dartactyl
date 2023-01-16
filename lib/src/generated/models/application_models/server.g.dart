@@ -126,7 +126,7 @@ _$_ApplicationServerRelationships _$$_ApplicationServerRelationshipsFromJson(
               'user',
               (v) => v == null
                   ? null
-                  : FractalResponseData<ApplicationUser>.fromJson(
+                  : FractalData<ApplicationUser>.fromJson(
                       v as Map<String, dynamic>)),
         );
         return val;
