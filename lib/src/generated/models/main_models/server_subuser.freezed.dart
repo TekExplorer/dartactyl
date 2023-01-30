@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of '../../../models/main_models/server_subuser.dart';
 
@@ -24,7 +24,8 @@ mixin _$ServerSubuser {
   String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
-  bool get the2FaEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: '2fa_enabled')
+  bool get twoFaEnabled => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   List<String> get permissions => throw _privateConstructorUsedError;
 
@@ -45,7 +46,7 @@ abstract class $ServerSubuserCopyWith<$Res> {
       String username,
       String email,
       String image,
-      bool the2FaEnabled,
+      @JsonKey(name: '2fa_enabled') bool twoFaEnabled,
       DateTime createdAt,
       List<String> permissions});
 }
@@ -67,7 +68,7 @@ class _$ServerSubuserCopyWithImpl<$Res, $Val extends ServerSubuser>
     Object? username = null,
     Object? email = null,
     Object? image = null,
-    Object? the2FaEnabled = null,
+    Object? twoFaEnabled = null,
     Object? createdAt = null,
     Object? permissions = null,
   }) {
@@ -88,9 +89,9 @@ class _$ServerSubuserCopyWithImpl<$Res, $Val extends ServerSubuser>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      the2FaEnabled: null == the2FaEnabled
-          ? _value.the2FaEnabled
-          : the2FaEnabled // ignore: cast_nullable_to_non_nullable
+      twoFaEnabled: null == twoFaEnabled
+          ? _value.twoFaEnabled
+          : twoFaEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
       createdAt: null == createdAt
           ? _value.createdAt
@@ -117,7 +118,7 @@ abstract class _$$_ServerSubuserCopyWith<$Res>
       String username,
       String email,
       String image,
-      bool the2FaEnabled,
+      @JsonKey(name: '2fa_enabled') bool twoFaEnabled,
       DateTime createdAt,
       List<String> permissions});
 }
@@ -137,7 +138,7 @@ class __$$_ServerSubuserCopyWithImpl<$Res>
     Object? username = null,
     Object? email = null,
     Object? image = null,
-    Object? the2FaEnabled = null,
+    Object? twoFaEnabled = null,
     Object? createdAt = null,
     Object? permissions = null,
   }) {
@@ -158,9 +159,9 @@ class __$$_ServerSubuserCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      the2FaEnabled: null == the2FaEnabled
-          ? _value.the2FaEnabled
-          : the2FaEnabled // ignore: cast_nullable_to_non_nullable
+      twoFaEnabled: null == twoFaEnabled
+          ? _value.twoFaEnabled
+          : twoFaEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
       createdAt: null == createdAt
           ? _value.createdAt
@@ -182,7 +183,7 @@ class _$_ServerSubuser extends _ServerSubuser {
       required this.username,
       required this.email,
       required this.image,
-      required this.the2FaEnabled,
+      @JsonKey(name: '2fa_enabled') required this.twoFaEnabled,
       required this.createdAt,
       required final List<String> permissions})
       : _permissions = permissions,
@@ -200,19 +201,21 @@ class _$_ServerSubuser extends _ServerSubuser {
   @override
   final String image;
   @override
-  final bool the2FaEnabled;
+  @JsonKey(name: '2fa_enabled')
+  final bool twoFaEnabled;
   @override
   final DateTime createdAt;
   final List<String> _permissions;
   @override
   List<String> get permissions {
+    if (_permissions is EqualUnmodifiableListView) return _permissions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_permissions);
   }
 
   @override
   String toString() {
-    return 'ServerSubuser(uuid: $uuid, username: $username, email: $email, image: $image, the2FaEnabled: $the2FaEnabled, createdAt: $createdAt, permissions: $permissions)';
+    return 'ServerSubuser(uuid: $uuid, username: $username, email: $email, image: $image, twoFaEnabled: $twoFaEnabled, createdAt: $createdAt, permissions: $permissions)';
   }
 
   @override
@@ -225,8 +228,8 @@ class _$_ServerSubuser extends _ServerSubuser {
                 other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.image, image) || other.image == image) &&
-            (identical(other.the2FaEnabled, the2FaEnabled) ||
-                other.the2FaEnabled == the2FaEnabled) &&
+            (identical(other.twoFaEnabled, twoFaEnabled) ||
+                other.twoFaEnabled == twoFaEnabled) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             const DeepCollectionEquality()
@@ -241,7 +244,7 @@ class _$_ServerSubuser extends _ServerSubuser {
       username,
       email,
       image,
-      the2FaEnabled,
+      twoFaEnabled,
       createdAt,
       const DeepCollectionEquality().hash(_permissions));
 
@@ -265,7 +268,7 @@ abstract class _ServerSubuser extends ServerSubuser {
       required final String username,
       required final String email,
       required final String image,
-      required final bool the2FaEnabled,
+      @JsonKey(name: '2fa_enabled') required final bool twoFaEnabled,
       required final DateTime createdAt,
       required final List<String> permissions}) = _$_ServerSubuser;
   const _ServerSubuser._() : super._();
@@ -282,7 +285,8 @@ abstract class _ServerSubuser extends ServerSubuser {
   @override
   String get image;
   @override
-  bool get the2FaEnabled;
+  @JsonKey(name: '2fa_enabled')
+  bool get twoFaEnabled;
   @override
   DateTime get createdAt;
   @override

@@ -16,9 +16,10 @@ include: package:very_good_analysis/analysis_options.yaml
 
 # Uncomment the following section to specify additional rules.
 
-# linter:
-#   rules:
-#     - camel_case_types
+linter:
+  rules:
+    # - camel_case_types
+    public_member_api_docs: false
 
 # analyzer:
 #   exclude:

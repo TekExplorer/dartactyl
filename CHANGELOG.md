@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.6.10-dev.2
+
+ - fix ServerSubuser two factor parameter
+ 
 ## 1.6.10-dev
 
  - Use VeryGoodVentures' lint rules

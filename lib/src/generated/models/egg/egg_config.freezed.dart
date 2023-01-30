@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of '../../../models/egg/egg_config.dart';
 
@@ -65,7 +65,7 @@ class _$EggConfigCopyWithImpl<$Res, $Val extends EggConfig>
     Object? startup = null,
     Object? stop = null,
     Object? logs = freezed,
-    Object? configExtends = null,
+    Object? configExtends = freezed,
   }) {
     return _then(_value.copyWith(
       files: null == files
@@ -84,7 +84,7 @@ class _$EggConfigCopyWithImpl<$Res, $Val extends EggConfig>
           ? _value.logs
           : logs // ignore: cast_nullable_to_non_nullable
               as EggLogsConfig?,
-      configExtends: null == configExtends
+      configExtends: freezed == configExtends
           ? _value.configExtends
           : configExtends // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -147,7 +147,7 @@ class __$$_EggConfigCopyWithImpl<$Res>
     Object? startup = null,
     Object? stop = null,
     Object? logs = freezed,
-    Object? configExtends = null,
+    Object? configExtends = freezed,
   }) {
     return _then(_$_EggConfig(
       files: null == files
@@ -166,7 +166,7 @@ class __$$_EggConfigCopyWithImpl<$Res>
           ? _value.logs
           : logs // ignore: cast_nullable_to_non_nullable
               as EggLogsConfig?,
-      configExtends: null == configExtends
+      configExtends: freezed == configExtends
           ? _value.configExtends
           : configExtends // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -192,6 +192,7 @@ class _$_EggConfig extends _EggConfig {
   final Map<String, dynamic> _files;
   @override
   Map<String, dynamic> get files {
+    if (_files is EqualUnmodifiableMapView) return _files;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_files);
   }

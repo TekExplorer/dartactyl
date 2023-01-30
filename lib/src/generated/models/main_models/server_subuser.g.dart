@@ -16,7 +16,7 @@ _$_ServerSubuser _$$_ServerSubuserFromJson(Map<String, dynamic> json) =>
           username: $checkedConvert('username', (v) => v as String),
           email: $checkedConvert('email', (v) => v as String),
           image: $checkedConvert('image', (v) => v as String),
-          the2FaEnabled: $checkedConvert('the2_fa_enabled', (v) => v as bool),
+          twoFaEnabled: $checkedConvert('2fa_enabled', (v) => v as bool),
           createdAt:
               $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
           permissions: $checkedConvert('permissions',
@@ -25,7 +25,7 @@ _$_ServerSubuser _$$_ServerSubuserFromJson(Map<String, dynamic> json) =>
         return val;
       },
       fieldKeyMap: const {
-        'the2FaEnabled': 'the2_fa_enabled',
+        'twoFaEnabled': '2fa_enabled',
         'createdAt': 'created_at'
       },
     );
@@ -36,7 +36,7 @@ Map<String, dynamic> _$$_ServerSubuserToJson(_$_ServerSubuser instance) =>
       'username': instance.username,
       'email': instance.email,
       'image': instance.image,
-      'the2_fa_enabled': instance.the2FaEnabled,
+      '2fa_enabled': instance.twoFaEnabled,
       'created_at': instance.createdAt.toIso8601String(),
       'permissions': instance.permissions,
     };
