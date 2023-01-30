@@ -1,7 +1,7 @@
 name: dartactyl
 description: An API client wrapper for Pterodactyl Panel. Following V1 for now.
 repository: https://github.com/TekExplorer/dartactyl/
-version: 1.6.10-dev
+version: 1.6.10-dev.2
 # homepage: https://www.example.com
 environment:
   sdk: '>=2.17.0 <3.0.0'
@@ -17,11 +17,11 @@ dependencies:
   universal_io: ^2.0.4
 
 dev_dependencies:
+  build_runner: '>2.3.0 <4.0.0' 
   freezed: ^2.0.3+1
   json_serializable: ^6.0.1
   lints: ^2.0.0
+  retrofit_generator: '>=4.0.0 <5.0.0'
   source_gen: ^1.2.1
   test: ^1.20.2
-  retrofit_generator: '>=4.0.0 <5.0.0'
-  build_runner: '>2.3.0 <4.0.0' 
   very_good_analysis: ^3.1.0
