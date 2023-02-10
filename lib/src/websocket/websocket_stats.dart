@@ -19,6 +19,8 @@ class WebsocketStats with _$WebsocketStats {
 
   factory WebsocketStats.fromJson(Map<String, dynamic> json) =>
       _$WebsocketStatsFromJson(json);
+
+  ServerPowerState get powerState => state;
 }
 
 // typedef WebsocketNetworkStatsModel = WebsocketNetworkStats;

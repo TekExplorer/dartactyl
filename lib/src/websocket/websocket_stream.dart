@@ -131,15 +131,6 @@ class ConsoleWebsocket {
     final event = _ServerEvent.fromJson(json);
 
     final arg = event.args?.first;
-    String requireArg() {
-      if (arg == null) {
-        // TODO: send to error stream?
-        throw StateError(
-          'Expected an argument for event ${event.event}, but none was provided.',
-        );
-      }
-      return arg;
-    }
 
     switch (event.event) {
       // Auth
@@ -179,36 +170,63 @@ class ConsoleWebsocket {
 
       // Daemon
       case 'daemon message':
-        // TODO: Implement this
+        // TODO: Implement this (unknown)
 
         break;
       case 'daemon error':
-        // TODO: Implement this
+        // TODO: Implement this (unknown)
 
         break;
       // Install
       case 'install output':
         // TODO: Implement this
-        _logsController.add(requireArg());
+        if (arg == null) {
+          log(
+            'Warning: Received an invalid install output from wings',
+            name: 'dartactyl websocket _onData',
+            error: arg,
+            stackTrace: StackTrace.current,
+          );
+          return;
+        }
+        _logsController.add(arg);
 
         break;
       case 'install started':
-        // TODO: Implement this
+        // TODO: Implement this (unknown)
 
         break;
       case 'install completed':
-        // TODO: Implement this
+        // TODO: Implement this (unknown)
 
         break;
       // Console
       case 'console output':
         // TODO: Implement this
-        _logsController.add(requireArg());
+        if (arg == null) {
+          log(
+            'Warning: Received an invalid console output from wings',
+            name: 'dartactyl websocket _onData',
+            error: arg,
+            stackTrace: StackTrace.current,
+          );
+          return;
+        }
+        _logsController.add(arg);
 
         break;
       // Power
       case 'status':
-        final powerAction = ServerPowerState.maybeFromJson(requireArg());
+        if (arg == null) {
+          log(
+            'Warning: Received an invalid power status from wings',
+            name: 'dartactyl websocket _onData',
+            error: arg,
+            stackTrace: StackTrace.current,
+          );
+          return;
+        }
+        final powerAction = ServerPowerState.maybeFromJson(arg);
         if (powerAction == null) {
           log(
             'Warning: Received an invalid power action from wings',
@@ -224,20 +242,39 @@ class ConsoleWebsocket {
       // Stats (includes Power)
       case 'stats':
         // TODO: Handle errors
-        // decoding errors, cast errors.
-        final json = jsonDecode(requireArg()) as JsonMap;
+        if (arg == null) {
+          log(
+            'Warning: Received an invalid stats from wings',
+            name: 'dartactyl websocket _onData',
+            error: arg,
+            stackTrace: StackTrace.current,
+          );
+          return;
+        }
+
+        final json = jsonDecode(arg);
+        if (json is! JsonMap) {
+          log(
+            'Warning: Received an invalid stats from wings',
+            name: 'dartactyl websocket _onData',
+            error: arg,
+            stackTrace: StackTrace.current,
+          );
+          return;
+        }
 
         final stats = WebsocketStats.fromJson(json);
         _statsController.add(stats);
+        _powerActionController.add(stats.powerState);
 
         break;
       // Transfer
       case 'transfer logs':
-        // TODO: Implement this
+        // TODO: Implement this (unknown)
 
         break;
       case 'transfer status':
-        // TODO: Implement this
+        // TODO: Implement this (unknown)
         // enum TransferStatus
         // starting
         // success
@@ -252,16 +289,18 @@ class ConsoleWebsocket {
         // cancelled
         // failed
         // completed
+
+        // TODO: we need to reconnect in order to get the new endpoint
         _connect();
 
         break;
       // Backup
       case 'backup completed':
-        // TODO: Implement this
+        // TODO: Implement this (unknown)
 
         break;
       case 'backup restore completed':
-        // TODO: Implement this
+        // TODO: Implement this (unknown)
         break;
     }
   }
