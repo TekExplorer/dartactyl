@@ -25,30 +25,61 @@ class _ServerEvent with _$_ServerEvent {
       _$_ServerEventFromJson(json);
 }
 
-class ConsoleWebsocket {
-  ConsoleWebsocket(this.client, this.serverId) {
+class ServerWebsocket {
+  ServerWebsocket(
+    this.client, {
+    required this.serverId,
+  }) {
     _connect();
   }
+
+  // TODO: is this a good api?
+  @experimental
+  static Future<ServerWebsocket> connect(
+    PteroClient client, {
+    required String serverId,
+  }) async {
+    final websocket = ServerWebsocket(client, serverId: serverId);
+    await websocket.ready;
+    return websocket;
+  }
+
   final PteroClient client;
   final String serverId;
 
-  // Streams
+  /* *** Streams *** */
+  @experimental
   final BehaviorSubject<String> _logsController = BehaviorSubject();
+  @experimental
   Stream<String> get logsStream => _logsController.stream;
 
+  @experimental
   final BehaviorSubject<WebsocketStats> _statsController = BehaviorSubject();
+  @experimental
   Stream<WebsocketStats> get statsStream => _statsController.stream;
 
+  @experimental
   final BehaviorSubject<ServerPowerState> _powerActionController =
       BehaviorSubject();
 
+  @experimental
   Stream<ServerPowerState> get powerStateStream =>
       _powerActionController.stream;
 
   // TODO: Custom object for extra data?
+  @experimental
   final BehaviorSubject<String> _errorController = BehaviorSubject();
+  @experimental
   Stream<String> get errorStream => _errorController.stream;
-  //
+
+  // TODO: Consider carefully where its used and how it interacts with isAuthenticated
+  @experimental
+  final BehaviorSubject<ConnectionState> _connectionStateController =
+      BehaviorSubject();
+  @experimental
+  Stream<ConnectionState> get connectionStateStream =>
+      _connectionStateController.stream;
+  /* *** ******* *** */
 
   /// Completes when the websocket is connected and authenticated.
   Future<void> get ready => _isAuthenticated.future;
@@ -59,19 +90,39 @@ class ConsoleWebsocket {
   late final WebSocketChannel _websocket;
 
   Future<void> _connect() async {
+    _connectionStateController.add(ConnectionState.connecting);
+    // if _connect() is called again to reconnect, do we need to reset the
+    // authentication state?
+
     final res = await client.getServerWebsocket(serverId: serverId);
     _websocket = WebSocketChannel.connect(Uri.parse(res.data.socket));
     await _websocket.ready;
 
     _websocket.stream.listen(
       _onData,
-      // onDone: () {
-      // TODO: no longer connected
-      // },
+      onDone: () {
+        _connectionStateController.add(ConnectionState.disconnected);
+        log(
+          'Websocket closed',
+          name: 'dartactyl websocket closed',
+        );
+      },
+      onError: (Object? error, StackTrace? stackTrace) {
+        log(
+          'Warning: Websocket error',
+          name: 'dartactyl websocket error',
+          error: error,
+          stackTrace: stackTrace,
+        );
+
+        _errorController.add('Websocket error: $error');
+        _connectionStateController.add(ConnectionState.disconnected);
+      },
     );
 
     await _authenticate();
     await _isAuthenticated.future;
+    _connectionStateController.add(ConnectionState.connected);
   }
 
   Future<void> _send(String event, String? args) async {
@@ -89,21 +140,24 @@ class ConsoleWebsocket {
     if (_isAuthenticated.isCompleted) {
       _isAuthenticated = Completer<void>();
     }
+    _connectionStateController.add(ConnectionState.authenticating);
 
+    // TODO: if this throws, do we forever fail to authenticate?
     final socketDetails = await client.getServerWebsocket(serverId: serverId);
 
     await _send('auth', socketDetails.data.token);
   }
 
-  void requestStats() => _send('send stats', null);
+  Future<void> requestStats() => _send('send stats', null);
+  Future<void> requestLogs() => _send('send logs', null);
+  Future<void> sendCommand(String command) => _send('send command', command);
+  Future<void> startServer() => _sendPowerAction(ServerPowerAction.start);
+  Future<void> restartServer() => _sendPowerAction(ServerPowerAction.restart);
+  Future<void> stopServer() => _sendPowerAction(ServerPowerAction.stop);
+  Future<void> killServer() => _sendPowerAction(ServerPowerAction.kill);
 
-  void requestLogs() => _send('send logs', null);
-
-  void sendCommand(String command) => _send('send command', command);
-
-  void sendPowerAction(ServerPowerAction powerAction) {
-    _send('set state', powerAction.toJson());
-  }
+  Future<void> _sendPowerAction(ServerPowerAction powerAction) =>
+      _send('set state', powerAction.toJson());
 
   static const _reconnectErrors = [
     'jwt: exp claim is invalid',
@@ -156,6 +210,7 @@ class ConsoleWebsocket {
           return;
         }
         _isAuthenticated.complete();
+        _connectionStateController.add(ConnectionState.connected);
         break;
       case 'token expiring':
         if (_isAuthenticated.isCompleted) _authenticate();
@@ -164,7 +219,7 @@ class ConsoleWebsocket {
         if (_isAuthenticated.isCompleted) _authenticate();
         break;
       case 'jwt error':
-        // TODO: no longer connected
+        _connectionStateController.add(ConnectionState.disconnected);
         log(
           'Warning: JWT validation error from Wings',
           name: 'dartactyl websocket _onData',
@@ -175,7 +230,11 @@ class ConsoleWebsocket {
         if (_reconnectErrors.contains(arg)) {
           if (_isAuthenticated.isCompleted) _authenticate();
         } else {
-          // TODO: no longer connected due to a validation error.
+          // JWT validation error.
+          // 'There was an error validating the credentials provided for the
+          // websocket. Please refresh the page.'
+
+          // TODO: Dont check for isCompleted?
           if (_isAuthenticated.isCompleted) _authenticate();
         }
         break;
@@ -198,7 +257,7 @@ class ConsoleWebsocket {
             error: arg,
             stackTrace: StackTrace.current,
           );
-          _errorController.add('Received null install output from Wings');
+          // _errorController.add('Received null install output from Wings');
           return;
         }
         _logsController.add(arg);
@@ -221,7 +280,7 @@ class ConsoleWebsocket {
             error: arg,
             stackTrace: StackTrace.current,
           );
-          _errorController.add('Received null console output from Wings');
+          // _errorController.add('Received null console output from Wings');
           return;
         }
         _logsController.add(arg);
@@ -236,7 +295,7 @@ class ConsoleWebsocket {
             error: arg,
             stackTrace: StackTrace.current,
           );
-          _errorController.add('Received a null power state from Wings');
+          // _errorController.add('Received a null power state from Wings');
           return;
         }
         final powerState = ServerPowerState.maybeFromJson(arg);
@@ -247,7 +306,7 @@ class ConsoleWebsocket {
             error: arg,
             stackTrace: StackTrace.current,
           );
-          _errorController.add('Received an invalid power state from Wings');
+          // _errorController.add('Received an invalid power state from Wings');
           return;
         }
         _powerActionController.add(powerState);
@@ -262,7 +321,7 @@ class ConsoleWebsocket {
             error: arg,
             stackTrace: StackTrace.current,
           );
-          _errorController.add('Received null stats from Wings');
+          // _errorController.add('Received null stats from Wings');
           return;
         }
 
@@ -274,7 +333,7 @@ class ConsoleWebsocket {
             error: arg,
             stackTrace: StackTrace.current,
           );
-          _errorController.add('Received invalid stats from Wings');
+          // _errorController.add('Received invalid stats from Wings');
           return;
         }
         try {
@@ -288,7 +347,7 @@ class ConsoleWebsocket {
             error: error,
             stackTrace: stackTrace,
           );
-          _errorController.add('Received invalid stats from Wings');
+          // _errorController.add('Received invalid stats from Wings');
           return;
         }
 
@@ -315,6 +374,7 @@ class ConsoleWebsocket {
         // failed
         // completed
 
+        _connectionStateController.add(ConnectionState.disconnected);
         // TODO: we need to reconnect in order to get the new endpoint
         _connect();
 
