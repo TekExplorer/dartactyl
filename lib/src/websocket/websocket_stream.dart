@@ -41,8 +41,13 @@ class ConsoleWebsocket {
 
   final BehaviorSubject<ServerPowerState> _powerActionController =
       BehaviorSubject();
+
   Stream<ServerPowerState> get powerStateStream =>
       _powerActionController.stream;
+
+  // TODO: Custom object for extra data?
+  final BehaviorSubject<String> _errorController = BehaviorSubject();
+  Stream<String> get errorStream => _errorController.stream;
   //
 
   /// Completes when the websocket is connected and authenticated.
@@ -114,6 +119,7 @@ class ConsoleWebsocket {
         name: 'dartactyl websocket _onData',
         stackTrace: StackTrace.current,
       );
+      _errorController.add('Received a binary event from Wings');
       return;
     }
     final dynamic json = jsonDecode(data);
@@ -125,6 +131,7 @@ class ConsoleWebsocket {
         name: 'dartactyl websocket _onData',
         stackTrace: StackTrace.current,
       );
+      _errorController.add('Received a non-JSON event from Wings');
       return;
     }
 
@@ -142,6 +149,10 @@ class ConsoleWebsocket {
             name: 'dartactyl websocket _onData',
             stackTrace: StackTrace.current,
           );
+          _errorController.add(
+            'Received an authentication response,'
+            ' but we were not waiting on one.',
+          );
           return;
         }
         _isAuthenticated.complete();
@@ -155,11 +166,12 @@ class ConsoleWebsocket {
       case 'jwt error':
         // TODO: no longer connected
         log(
-          'Warning: JWT validation error from wings',
+          'Warning: JWT validation error from Wings',
           name: 'dartactyl websocket _onData',
           error: arg,
           stackTrace: StackTrace.current,
         );
+        _errorController.add('JWT validation error from Wings: $arg');
         if (_reconnectErrors.contains(arg)) {
           if (_isAuthenticated.isCompleted) _authenticate();
         } else {
@@ -179,14 +191,14 @@ class ConsoleWebsocket {
         break;
       // Install
       case 'install output':
-        // TODO: Implement this
         if (arg == null) {
           log(
-            'Warning: Received an invalid install output from wings',
+            'Warning: Received an invalid install output from Wings',
             name: 'dartactyl websocket _onData',
             error: arg,
             stackTrace: StackTrace.current,
           );
+          _errorController.add('Received null install output from Wings');
           return;
         }
         _logsController.add(arg);
@@ -202,14 +214,14 @@ class ConsoleWebsocket {
         break;
       // Console
       case 'console output':
-        // TODO: Implement this
         if (arg == null) {
           log(
-            'Warning: Received an invalid console output from wings',
+            'Warning: Received an invalid console output from Wings',
             name: 'dartactyl websocket _onData',
             error: arg,
             stackTrace: StackTrace.current,
           );
+          _errorController.add('Received null console output from Wings');
           return;
         }
         _logsController.add(arg);
@@ -219,53 +231,66 @@ class ConsoleWebsocket {
       case 'status':
         if (arg == null) {
           log(
-            'Warning: Received an invalid power status from wings',
+            'Warning: Received an invalid power status from Wings',
             name: 'dartactyl websocket _onData',
             error: arg,
             stackTrace: StackTrace.current,
           );
+          _errorController.add('Received a null power state from Wings');
           return;
         }
-        final powerAction = ServerPowerState.maybeFromJson(arg);
-        if (powerAction == null) {
+        final powerState = ServerPowerState.maybeFromJson(arg);
+        if (powerState == null) {
           log(
-            'Warning: Received an invalid power action from wings',
+            'Warning: Received an invalid power action from Wings',
             name: 'dartactyl websocket _onData',
             error: arg,
             stackTrace: StackTrace.current,
           );
+          _errorController.add('Received an invalid power state from Wings');
           return;
         }
-        _powerActionController.add(powerAction);
+        _powerActionController.add(powerState);
 
         break;
       // Stats (includes Power)
       case 'stats':
-        // TODO: Handle errors
         if (arg == null) {
           log(
-            'Warning: Received an invalid stats from wings',
-            name: 'dartactyl websocket _onData',
+            'Warning: Received an invalid stats from Wings',
+            name: 'dartactyl websocket _onData (stats) (arg)',
             error: arg,
             stackTrace: StackTrace.current,
           );
+          _errorController.add('Received null stats from Wings');
           return;
         }
 
         final json = jsonDecode(arg);
         if (json is! JsonMap) {
           log(
-            'Warning: Received an invalid stats from wings',
-            name: 'dartactyl websocket _onData',
+            'Warning: Received an invalid stats from Wings',
+            name: 'dartactyl websocket _onData (stats) (json)',
             error: arg,
             stackTrace: StackTrace.current,
           );
+          _errorController.add('Received invalid stats from Wings');
           return;
         }
-
-        final stats = WebsocketStats.fromJson(json);
-        _statsController.add(stats);
-        _powerActionController.add(stats.powerState);
+        try {
+          final stats = WebsocketStats.fromJson(json);
+          _statsController.add(stats);
+          _powerActionController.add(stats.powerState);
+        } catch (error, stackTrace) {
+          log(
+            'Warning: Received an invalid stats object from Wings',
+            name: 'dartactyl websocket _onData (stats) (final)',
+            error: error,
+            stackTrace: stackTrace,
+          );
+          _errorController.add('Received invalid stats from Wings');
+          return;
+        }
 
         break;
       // Transfer
