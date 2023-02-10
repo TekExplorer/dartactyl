@@ -20,6 +20,8 @@ linter:
   rules:
     # - camel_case_types
     public_member_api_docs: false
+    omit_local_variable_types: false
+
 
 # analyzer:
 #   exclude:
@@ -31,8 +33,9 @@ linter:
 # For additional information about configuring this file, see
 # https://dart.dev/guides/language/analysis-options
 analyzer:
-  exclude:
-    - "**/*.g.dart"
-    - "**/*.freezed.dart"
+  # exclude:
+    # - "**/*.g.dart"
+    # - "**/*.freezed.dart"
   errors:
     invalid_annotation_target: ignore
+

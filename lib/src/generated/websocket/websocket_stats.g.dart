@@ -6,22 +6,19 @@ part of '../../websocket/websocket_stats.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_WebsocketStatsModel _$$_WebsocketStatsModelFromJson(
-        Map<String, dynamic> json) =>
+_$_WebsocketStats _$$_WebsocketStatsFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_WebsocketStatsModel',
+      r'_$_WebsocketStats',
       json,
       ($checkedConvert) {
-        final val = _$_WebsocketStatsModel(
+        final val = _$_WebsocketStats(
           cpuAbsolute:
               $checkedConvert('cpu_absolute', (v) => (v as num).toDouble()),
           memoryBytes: $checkedConvert('memory_bytes', (v) => v as int),
           memoryLimitBytes:
               $checkedConvert('memory_limit_bytes', (v) => v as int),
-          network: $checkedConvert(
-              'network',
-              (v) => WebsocketNetworkStatsModel.fromJson(
-                  v as Map<String, dynamic>)),
+          network: $checkedConvert('network',
+              (v) => WebsocketNetworkStats.fromJson(v as Map<String, dynamic>)),
           state: $checkedConvert(
               'state', (v) => $enumDecode(_$ServerPowerStateEnumMap, v)),
         );
@@ -34,14 +31,13 @@ _$_WebsocketStatsModel _$$_WebsocketStatsModelFromJson(
       },
     );
 
-Map<String, dynamic> _$$_WebsocketStatsModelToJson(
-        _$_WebsocketStatsModel instance) =>
+Map<String, dynamic> _$$_WebsocketStatsToJson(_$_WebsocketStats instance) =>
     <String, dynamic>{
       'cpu_absolute': instance.cpuAbsolute,
       'memory_bytes': instance.memoryBytes,
       'memory_limit_bytes': instance.memoryLimitBytes,
       'network': instance.network.toJson(),
-      'state': _$ServerPowerStateEnumMap[instance.state]!,
+      'state': instance.state.toJson(),
     };
 
 const _$ServerPowerStateEnumMap = {
@@ -51,13 +47,13 @@ const _$ServerPowerStateEnumMap = {
   ServerPowerState.offline: 'offline',
 };
 
-_$_WebsocketNetworkStatsModel _$$_WebsocketNetworkStatsModelFromJson(
+_$_WebsocketNetworkStats _$$_WebsocketNetworkStatsFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_WebsocketNetworkStatsModel',
+      r'_$_WebsocketNetworkStats',
       json,
       ($checkedConvert) {
-        final val = _$_WebsocketNetworkStatsModel(
+        final val = _$_WebsocketNetworkStats(
           rxBytes: $checkedConvert('rx_bytes', (v) => v as int),
           txBytes: $checkedConvert('tx_bytes', (v) => v as int),
         );
@@ -66,8 +62,8 @@ _$_WebsocketNetworkStatsModel _$$_WebsocketNetworkStatsModelFromJson(
       fieldKeyMap: const {'rxBytes': 'rx_bytes', 'txBytes': 'tx_bytes'},
     );
 
-Map<String, dynamic> _$$_WebsocketNetworkStatsModelToJson(
-        _$_WebsocketNetworkStatsModel instance) =>
+Map<String, dynamic> _$$_WebsocketNetworkStatsToJson(
+        _$_WebsocketNetworkStats instance) =>
     <String, dynamic>{
       'rx_bytes': instance.rxBytes,
       'tx_bytes': instance.txBytes,

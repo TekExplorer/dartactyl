@@ -11,4 +11,11 @@ class Signal with _$Signal {
   factory Signal.fromJson(JsonMap json) => _$SignalFromJson(json);
 }
 
-enum ServerPowerAction { start, stop, restart, kill }
+enum ServerPowerAction {
+  start,
+  stop,
+  restart,
+  kill;
+
+  String toJson() => name;
+}

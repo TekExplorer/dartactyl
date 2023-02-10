@@ -14,36 +14,36 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-WebsocketRecievedModel _$WebsocketRecievedModelFromJson(
+WebsocketReceivedModel _$WebsocketReceivedModelFromJson(
     Map<String, dynamic> json) {
-  return _WebsocketRecievedModel.fromJson(json);
+  return _WebsocketReceivedModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$WebsocketRecievedModel {
-  WebsocketRecievedModelEvent get event => throw _privateConstructorUsedError;
+mixin _$WebsocketReceivedModel {
+  WebsocketReceivedModelEvent get event => throw _privateConstructorUsedError;
   List<String>? get args => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $WebsocketRecievedModelCopyWith<WebsocketRecievedModel> get copyWith =>
+  $WebsocketReceivedModelCopyWith<WebsocketReceivedModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $WebsocketRecievedModelCopyWith<$Res> {
-  factory $WebsocketRecievedModelCopyWith(WebsocketRecievedModel value,
-          $Res Function(WebsocketRecievedModel) then) =
-      _$WebsocketRecievedModelCopyWithImpl<$Res, WebsocketRecievedModel>;
+abstract class $WebsocketReceivedModelCopyWith<$Res> {
+  factory $WebsocketReceivedModelCopyWith(WebsocketReceivedModel value,
+          $Res Function(WebsocketReceivedModel) then) =
+      _$WebsocketReceivedModelCopyWithImpl<$Res, WebsocketReceivedModel>;
   @useResult
-  $Res call({WebsocketRecievedModelEvent event, List<String>? args});
+  $Res call({WebsocketReceivedModelEvent event, List<String>? args});
 }
 
 /// @nodoc
-class _$WebsocketRecievedModelCopyWithImpl<$Res,
-        $Val extends WebsocketRecievedModel>
-    implements $WebsocketRecievedModelCopyWith<$Res> {
-  _$WebsocketRecievedModelCopyWithImpl(this._value, this._then);
+class _$WebsocketReceivedModelCopyWithImpl<$Res,
+        $Val extends WebsocketReceivedModel>
+    implements $WebsocketReceivedModelCopyWith<$Res> {
+  _$WebsocketReceivedModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -60,7 +60,7 @@ class _$WebsocketRecievedModelCopyWithImpl<$Res,
       event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
-              as WebsocketRecievedModelEvent,
+              as WebsocketReceivedModelEvent,
       args: freezed == args
           ? _value.args
           : args // ignore: cast_nullable_to_non_nullable
@@ -70,23 +70,23 @@ class _$WebsocketRecievedModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_WebsocketRecievedModelCopyWith<$Res>
-    implements $WebsocketRecievedModelCopyWith<$Res> {
-  factory _$$_WebsocketRecievedModelCopyWith(_$_WebsocketRecievedModel value,
-          $Res Function(_$_WebsocketRecievedModel) then) =
-      __$$_WebsocketRecievedModelCopyWithImpl<$Res>;
+abstract class _$$_WebsocketReceivedModelCopyWith<$Res>
+    implements $WebsocketReceivedModelCopyWith<$Res> {
+  factory _$$_WebsocketReceivedModelCopyWith(_$_WebsocketReceivedModel value,
+          $Res Function(_$_WebsocketReceivedModel) then) =
+      __$$_WebsocketReceivedModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({WebsocketRecievedModelEvent event, List<String>? args});
+  $Res call({WebsocketReceivedModelEvent event, List<String>? args});
 }
 
 /// @nodoc
-class __$$_WebsocketRecievedModelCopyWithImpl<$Res>
-    extends _$WebsocketRecievedModelCopyWithImpl<$Res,
-        _$_WebsocketRecievedModel>
-    implements _$$_WebsocketRecievedModelCopyWith<$Res> {
-  __$$_WebsocketRecievedModelCopyWithImpl(_$_WebsocketRecievedModel _value,
-      $Res Function(_$_WebsocketRecievedModel) _then)
+class __$$_WebsocketReceivedModelCopyWithImpl<$Res>
+    extends _$WebsocketReceivedModelCopyWithImpl<$Res,
+        _$_WebsocketReceivedModel>
+    implements _$$_WebsocketReceivedModelCopyWith<$Res> {
+  __$$_WebsocketReceivedModelCopyWithImpl(_$_WebsocketReceivedModel _value,
+      $Res Function(_$_WebsocketReceivedModel) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,11 +95,11 @@ class __$$_WebsocketRecievedModelCopyWithImpl<$Res>
     Object? event = null,
     Object? args = freezed,
   }) {
-    return _then(_$_WebsocketRecievedModel(
+    return _then(_$_WebsocketReceivedModel(
       null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
-              as WebsocketRecievedModelEvent,
+              as WebsocketReceivedModelEvent,
       freezed == args
           ? _value._args
           : args // ignore: cast_nullable_to_non_nullable
@@ -110,16 +110,16 @@ class __$$_WebsocketRecievedModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WebsocketRecievedModel extends _WebsocketRecievedModel {
-  const _$_WebsocketRecievedModel(this.event, [final List<String>? args])
+class _$_WebsocketReceivedModel extends _WebsocketReceivedModel {
+  const _$_WebsocketReceivedModel(this.event, [final List<String>? args])
       : _args = args,
         super._();
 
-  factory _$_WebsocketRecievedModel.fromJson(Map<String, dynamic> json) =>
-      _$$_WebsocketRecievedModelFromJson(json);
+  factory _$_WebsocketReceivedModel.fromJson(Map<String, dynamic> json) =>
+      _$$_WebsocketReceivedModelFromJson(json);
 
   @override
-  final WebsocketRecievedModelEvent event;
+  final WebsocketReceivedModelEvent event;
   final List<String>? _args;
   @override
   List<String>? get args {
@@ -132,14 +132,14 @@ class _$_WebsocketRecievedModel extends _WebsocketRecievedModel {
 
   @override
   String toString() {
-    return 'WebsocketRecievedModel(event: $event, args: $args)';
+    return 'WebsocketReceivedModel(event: $event, args: $args)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WebsocketRecievedModel &&
+            other is _$_WebsocketReceivedModel &&
             (identical(other.event, event) || other.event == event) &&
             const DeepCollectionEquality().equals(other._args, _args));
   }
@@ -152,33 +152,33 @@ class _$_WebsocketRecievedModel extends _WebsocketRecievedModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WebsocketRecievedModelCopyWith<_$_WebsocketRecievedModel> get copyWith =>
-      __$$_WebsocketRecievedModelCopyWithImpl<_$_WebsocketRecievedModel>(
+  _$$_WebsocketReceivedModelCopyWith<_$_WebsocketReceivedModel> get copyWith =>
+      __$$_WebsocketReceivedModelCopyWithImpl<_$_WebsocketReceivedModel>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WebsocketRecievedModelToJson(
+    return _$$_WebsocketReceivedModelToJson(
       this,
     );
   }
 }
 
-abstract class _WebsocketRecievedModel extends WebsocketRecievedModel {
-  const factory _WebsocketRecievedModel(final WebsocketRecievedModelEvent event,
-      [final List<String>? args]) = _$_WebsocketRecievedModel;
-  const _WebsocketRecievedModel._() : super._();
+abstract class _WebsocketReceivedModel extends WebsocketReceivedModel {
+  const factory _WebsocketReceivedModel(final WebsocketReceivedModelEvent event,
+      [final List<String>? args]) = _$_WebsocketReceivedModel;
+  const _WebsocketReceivedModel._() : super._();
 
-  factory _WebsocketRecievedModel.fromJson(Map<String, dynamic> json) =
-      _$_WebsocketRecievedModel.fromJson;
+  factory _WebsocketReceivedModel.fromJson(Map<String, dynamic> json) =
+      _$_WebsocketReceivedModel.fromJson;
 
   @override
-  WebsocketRecievedModelEvent get event;
+  WebsocketReceivedModelEvent get event;
   @override
   List<String>? get args;
   @override
   @JsonKey(ignore: true)
-  _$$_WebsocketRecievedModelCopyWith<_$_WebsocketRecievedModel> get copyWith =>
+  _$$_WebsocketReceivedModelCopyWith<_$_WebsocketReceivedModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -190,7 +190,39 @@ WebsocketSendModel _$WebsocketSendModelFromJson(Map<String, dynamic> json) {
 mixin _$WebsocketSendModel {
   WebsocketSendModelEvent get event => throw _privateConstructorUsedError;
   List<String>? get args => throw _privateConstructorUsedError;
-
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(WebsocketSendModelEvent event, List<String>? args)
+        raw,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(WebsocketSendModelEvent event, List<String>? args)? raw,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(WebsocketSendModelEvent event, List<String>? args)? raw,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WebsocketSendModel value) raw,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_WebsocketSendModel value)? raw,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WebsocketSendModel value)? raw,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $WebsocketSendModelCopyWith<WebsocketSendModel> get copyWith =>
@@ -275,6 +307,7 @@ class __$$_WebsocketSendModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@internal
 class _$_WebsocketSendModel extends _WebsocketSendModel {
   const _$_WebsocketSendModel(this.event, [final List<String>? args])
       : _args = args,
@@ -297,7 +330,7 @@ class _$_WebsocketSendModel extends _WebsocketSendModel {
 
   @override
   String toString() {
-    return 'WebsocketSendModel(event: $event, args: $args)';
+    return 'WebsocketSendModel.raw(event: $event, args: $args)';
   }
 
   @override
@@ -320,6 +353,63 @@ class _$_WebsocketSendModel extends _WebsocketSendModel {
   _$$_WebsocketSendModelCopyWith<_$_WebsocketSendModel> get copyWith =>
       __$$_WebsocketSendModelCopyWithImpl<_$_WebsocketSendModel>(
           this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(WebsocketSendModelEvent event, List<String>? args)
+        raw,
+  }) {
+    return raw(event, args);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(WebsocketSendModelEvent event, List<String>? args)? raw,
+  }) {
+    return raw?.call(event, args);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(WebsocketSendModelEvent event, List<String>? args)? raw,
+    required TResult orElse(),
+  }) {
+    if (raw != null) {
+      return raw(event, args);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WebsocketSendModel value) raw,
+  }) {
+    return raw(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_WebsocketSendModel value)? raw,
+  }) {
+    return raw?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WebsocketSendModel value)? raw,
+    required TResult orElse(),
+  }) {
+    if (raw != null) {
+      return raw(this);
+    }
+    return orElse();
+  }
 
   @override
   Map<String, dynamic> toJson() {

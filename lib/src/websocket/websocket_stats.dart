@@ -4,29 +4,33 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part '../generated/websocket/websocket_stats.freezed.dart';
 part '../generated/websocket/websocket_stats.g.dart';
 
+// typedef WebsocketStatsModel = WebsocketStats;
+
 @freezed
-class WebsocketStatsModel with _$WebsocketStatsModel {
-  const WebsocketStatsModel._();
-  const factory WebsocketStatsModel({
+class WebsocketStats with _$WebsocketStats {
+  const factory WebsocketStats({
     required double cpuAbsolute,
     required int memoryBytes,
     required int memoryLimitBytes,
-    required WebsocketNetworkStatsModel network,
+    required WebsocketNetworkStats network,
     required ServerPowerState state,
-  }) = _WebsocketStatsModel;
+  }) = _WebsocketStats;
+  const WebsocketStats._();
 
-  factory WebsocketStatsModel.fromJson(Map<String, dynamic> json) =>
-      _$WebsocketStatsModelFromJson(json);
+  factory WebsocketStats.fromJson(Map<String, dynamic> json) =>
+      _$WebsocketStatsFromJson(json);
 }
 
+// typedef WebsocketNetworkStatsModel = WebsocketNetworkStats;
+
 @freezed
-class WebsocketNetworkStatsModel with _$WebsocketNetworkStatsModel {
-  const WebsocketNetworkStatsModel._();
-  const factory WebsocketNetworkStatsModel({
+class WebsocketNetworkStats with _$WebsocketNetworkStats {
+  const factory WebsocketNetworkStats({
     required int rxBytes,
     required int txBytes,
-  }) = _WebsocketNetworkStatsModel;
+  }) = _WebsocketNetworkStats;
+  const WebsocketNetworkStats._();
 
-  factory WebsocketNetworkStatsModel.fromJson(Map<String, dynamic> json) =>
-      _$WebsocketNetworkStatsModelFromJson(json);
+  factory WebsocketNetworkStats.fromJson(Map<String, dynamic> json) =>
+      _$WebsocketNetworkStatsFromJson(json);
 }

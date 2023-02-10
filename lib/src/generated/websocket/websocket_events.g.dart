@@ -6,15 +6,15 @@ part of '../../websocket/websocket_events.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_WebsocketRecievedModel _$$_WebsocketRecievedModelFromJson(
+_$_WebsocketReceivedModel _$$_WebsocketReceivedModelFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_WebsocketRecievedModel',
+      r'_$_WebsocketReceivedModel',
       json,
       ($checkedConvert) {
-        final val = _$_WebsocketRecievedModel(
+        final val = _$_WebsocketReceivedModel(
           $checkedConvert('event',
-              (v) => $enumDecode(_$WebsocketRecievedModelEventEnumMap, v)),
+              (v) => $enumDecode(_$WebsocketReceivedModelEventEnumMap, v)),
           $checkedConvert('args',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
         );
@@ -22,23 +22,23 @@ _$_WebsocketRecievedModel _$$_WebsocketRecievedModelFromJson(
       },
     );
 
-Map<String, dynamic> _$$_WebsocketRecievedModelToJson(
-        _$_WebsocketRecievedModel instance) =>
+Map<String, dynamic> _$$_WebsocketReceivedModelToJson(
+        _$_WebsocketReceivedModel instance) =>
     <String, dynamic>{
-      'event': _$WebsocketRecievedModelEventEnumMap[instance.event]!,
+      'event': _$WebsocketReceivedModelEventEnumMap[instance.event]!,
       'args': instance.args,
     };
 
-const _$WebsocketRecievedModelEventEnumMap = {
-  WebsocketRecievedModelEvent.authSuccess: 'auth success',
-  WebsocketRecievedModelEvent.tokenExpiring: 'token expiring',
-  WebsocketRecievedModelEvent.tokenExpired: 'token expired',
-  WebsocketRecievedModelEvent.status: 'status',
-  WebsocketRecievedModelEvent.consoleOutput: 'console output',
-  WebsocketRecievedModelEvent.installOutput: 'install output',
-  WebsocketRecievedModelEvent.stats: 'stats',
-  WebsocketRecievedModelEvent.jwtError: 'jwt error',
-  WebsocketRecievedModelEvent.daemonError: 'daemon error',
+const _$WebsocketReceivedModelEventEnumMap = {
+  WebsocketReceivedModelEvent.authSuccess: 'auth success',
+  WebsocketReceivedModelEvent.tokenExpiring: 'token expiring',
+  WebsocketReceivedModelEvent.tokenExpired: 'token expired',
+  WebsocketReceivedModelEvent.status: 'status',
+  WebsocketReceivedModelEvent.consoleOutput: 'console output',
+  WebsocketReceivedModelEvent.installOutput: 'install output',
+  WebsocketReceivedModelEvent.stats: 'stats',
+  WebsocketReceivedModelEvent.jwtError: 'jwt error',
+  WebsocketReceivedModelEvent.daemonError: 'daemon error',
 };
 
 _$_WebsocketSendModel _$$_WebsocketSendModelFromJson(

@@ -7,4 +7,4 @@ export 'models.dart';
 export 'src/clients/application.dart';
 export 'src/clients/client.dart' hide PteroClientVisibleDio;
 export 'src/clients/translation_client.dart';
-export 'src/websocket/server_websocket.dart';
+export 'src/websocket/websocket.dart';

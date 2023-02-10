@@ -1,16 +1,22 @@
 # CHANGELOG
 
+## Unreleased
+
+- Updated websocket models
+- Corrected spelling of "Recieved" to "Received"
+- Moved to using a Stream wrapper instead of relying on a Cubit for the websocket
+
 ## 1.6.10-dev.2
 
- - fix ServerSubuser two factor parameter
+- fix ServerSubuser two factor parameter
 
 ## 1.6.10-dev
 
- - Use VeryGoodVentures' lint rules
- - Rename `FractalResponseData` to `FractalData` (which implements `Fractal`)
-   - It is now a Freezed Class
- - Rename `FractalResponseList` to `FractalDataList` (which implements `FractalList`)
-   - It is now a Freezed Class
+- Use VeryGoodVentures' lint rules
+- Rename `FractalResponseData` to `FractalData` (which implements `Fractal`)
+  - It is now a Freezed Class
+- Rename `FractalResponseList` to `FractalDataList` (which implements `FractalList`)
+  - It is now a Freezed Class
 
 ## 1.6.9
 

@@ -32,5 +32,5 @@ class GenericApiException extends DeprecatedDioError {
 
   @override
   String toString() =>
-      'GenericApiException{statusCode: $statusCode, message: $message}';
+      'GenericApiException(statusCode: $statusCode, message: $message)';
 }

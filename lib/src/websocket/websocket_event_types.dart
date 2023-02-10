@@ -9,11 +9,11 @@ enum WebsocketSendModelEvent {
   @JsonValue('send command')
   sendCommand,
   @JsonValue('send stats')
-  sendStats,
+  sendStats;
 }
 
-// recieved event
-enum WebsocketRecievedModelEvent {
+// received event
+enum WebsocketReceivedModelEvent {
   @JsonValue('auth success')
   authSuccess,
   @JsonValue('token expiring')
@@ -30,5 +30,5 @@ enum WebsocketRecievedModelEvent {
   @JsonValue('jwt error')
   jwtError, // needs to authenticate
   @JsonValue('daemon error')
-  daemonError, // passed along error
+  daemonError; // passed along error
 }

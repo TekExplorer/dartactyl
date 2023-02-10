@@ -1,29 +1,49 @@
-import 'package:dartactyl/src/websocket/websocket_event_types.dart';
+import 'package:dartactyl/dartactyl.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '../generated/websocket/websocket_events.freezed.dart';
 part '../generated/websocket/websocket_events.g.dart';
 
 @freezed
-class WebsocketRecievedModel with _$WebsocketRecievedModel {
-  const factory WebsocketRecievedModel(
-    WebsocketRecievedModelEvent event, [
+class WebsocketReceivedModel with _$WebsocketReceivedModel {
+  const factory WebsocketReceivedModel(
+    WebsocketReceivedModelEvent event, [
     List<String>? args,
-  ]) = _WebsocketRecievedModel;
-  const WebsocketRecievedModel._();
+  ]) = _WebsocketReceivedModel;
+  const WebsocketReceivedModel._();
 
-  factory WebsocketRecievedModel.fromJson(Map<String, dynamic> json) =>
-      _$WebsocketRecievedModelFromJson(json);
+  factory WebsocketReceivedModel.fromJson(Map<String, dynamic> json) =>
+      _$WebsocketReceivedModelFromJson(json);
 }
 
 @freezed
 class WebsocketSendModel with _$WebsocketSendModel {
-  const factory WebsocketSendModel(
+  @internal
+  const factory WebsocketSendModel.raw(
     WebsocketSendModelEvent event, [
     List<String>? args,
   ]) = _WebsocketSendModel;
+
   const WebsocketSendModel._();
 
   factory WebsocketSendModel.fromJson(Map<String, dynamic> json) =>
       _$WebsocketSendModelFromJson(json);
+
+  factory WebsocketSendModel.sendLogs() =>
+      const WebsocketSendModel.raw(WebsocketSendModelEvent.sendLogs);
+
+  factory WebsocketSendModel.sendStats() =>
+      const WebsocketSendModel.raw(WebsocketSendModelEvent.sendStats);
+
+  factory WebsocketSendModel.sendCommand(String command) =>
+      WebsocketSendModel.raw(WebsocketSendModelEvent.sendCommand, [command]);
+
+  factory WebsocketSendModel.setPowerState(ServerPowerAction action) =>
+      WebsocketSendModel.raw(
+        WebsocketSendModelEvent.setState,
+        [action.toJson()],
+      );
+
+  factory WebsocketSendModel.sendAuth(String token) =>
+      WebsocketSendModel.raw(WebsocketSendModelEvent.auth, [token]);
 }

@@ -2,24 +2,17 @@ import 'dart:async';
 
 import 'package:dartactyl/dartactyl.dart';
 
-export 'websocket_cubit.dart';
-export 'websocket_event_types.dart';
-export 'websocket_events.dart';
-export 'websocket_state.dart';
-export 'websocket_stats.dart';
-
 /// A wrapper for the WebsocketCubit that makes it easier to use
 class ServerWebsocketHandler {
-  final ServerWebsocketCubit cubit;
-  const ServerWebsocketHandler.fromCubit(this.cubit);
-
   factory ServerWebsocketHandler({
     required PteroClient client,
     required String serverId,
   }) {
-    var cubit = ServerWebsocketCubit(client: client, serverId: serverId);
+    final cubit = ServerWebsocketCubit(client: client, serverId: serverId);
     return ServerWebsocketHandler.fromCubit(cubit);
   }
+  const ServerWebsocketHandler.fromCubit(this.cubit);
+  final ServerWebsocketCubit cubit;
 
   WebsocketListeners get listeners => cubit.listeners;
 
@@ -27,7 +20,7 @@ class ServerWebsocketHandler {
 
   Future<void> close() async => await cubit.close();
 
-  Future<void> init() => cubit.init();
+  Future<void> init() async => await cubit.init();
 
   void requestLogs() => cubit.requestLogs();
   void requestStats() => cubit.requestStats();
@@ -48,13 +41,15 @@ extension GetWebsocketFromServer on Server {
     required PteroClient client,
     bool autoInitialize = true,
   }) {
-    return ServerWebsocketHandler.fromCubit(_getWebsocketCubit(
-      client: client,
-      autoInitialize: autoInitialize,
-    ));
+    return ServerWebsocketHandler.fromCubit(
+      getWebsocketCubit(
+        client: client,
+        autoInitialize: autoInitialize,
+      ),
+    );
   }
 
-  ServerWebsocketCubit _getWebsocketCubit({
+  ServerWebsocketCubit getWebsocketCubit({
     required PteroClient client,
     bool autoInitialize = true,
   }) {

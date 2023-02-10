@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$WebsocketState {
+mixin _$OldWebsocketState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -24,9 +24,10 @@ mixin _$WebsocketState {
     required TResult Function() authenticated,
     required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function(WebsocketStatsModel stats) stats,
+    required TResult Function(WebsocketStats stats) stats,
     required TResult Function(ServerPowerState status) powerState,
     required TResult Function(String error) jwtError,
+    required TResult Function(String error) daemonError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,9 +38,10 @@ mixin _$WebsocketState {
     TResult? Function()? authenticated,
     TResult? Function(String output)? consoleOutput,
     TResult? Function(String output)? installOutput,
-    TResult? Function(WebsocketStatsModel stats)? stats,
+    TResult? Function(WebsocketStats stats)? stats,
     TResult? Function(ServerPowerState status)? powerState,
     TResult? Function(String error)? jwtError,
+    TResult? Function(String error)? daemonError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,9 +52,10 @@ mixin _$WebsocketState {
     TResult Function()? authenticated,
     TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function(WebsocketStatsModel stats)? stats,
+    TResult Function(WebsocketStats stats)? stats,
     TResult Function(ServerPowerState status)? powerState,
     TResult Function(String error)? jwtError,
+    TResult Function(String error)? daemonError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -66,7 +69,8 @@ mixin _$WebsocketState {
     required TResult Function(_WSInstallOutput value) installOutput,
     required TResult Function(_WSStats value) stats,
     required TResult Function(_WSPowerState value) powerState,
-    required TResult Function(_WSJWTError value) jwtError,
+    required TResult Function(_WSJwtError value) jwtError,
+    required TResult Function(_WSDaemonError value) daemonError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -79,7 +83,8 @@ mixin _$WebsocketState {
     TResult? Function(_WSInstallOutput value)? installOutput,
     TResult? Function(_WSStats value)? stats,
     TResult? Function(_WSPowerState value)? powerState,
-    TResult? Function(_WSJWTError value)? jwtError,
+    TResult? Function(_WSJwtError value)? jwtError,
+    TResult? Function(_WSDaemonError value)? daemonError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -92,23 +97,24 @@ mixin _$WebsocketState {
     TResult Function(_WSInstallOutput value)? installOutput,
     TResult Function(_WSStats value)? stats,
     TResult Function(_WSPowerState value)? powerState,
-    TResult Function(_WSJWTError value)? jwtError,
+    TResult Function(_WSJwtError value)? jwtError,
+    TResult Function(_WSDaemonError value)? daemonError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $WebsocketStateCopyWith<$Res> {
-  factory $WebsocketStateCopyWith(
-          WebsocketState value, $Res Function(WebsocketState) then) =
-      _$WebsocketStateCopyWithImpl<$Res, WebsocketState>;
+abstract class $OldWebsocketStateCopyWith<$Res> {
+  factory $OldWebsocketStateCopyWith(
+          OldWebsocketState value, $Res Function(OldWebsocketState) then) =
+      _$OldWebsocketStateCopyWithImpl<$Res, OldWebsocketState>;
 }
 
 /// @nodoc
-class _$WebsocketStateCopyWithImpl<$Res, $Val extends WebsocketState>
-    implements $WebsocketStateCopyWith<$Res> {
-  _$WebsocketStateCopyWithImpl(this._value, this._then);
+class _$OldWebsocketStateCopyWithImpl<$Res, $Val extends OldWebsocketState>
+    implements $OldWebsocketStateCopyWith<$Res> {
+  _$OldWebsocketStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -125,7 +131,7 @@ abstract class _$$_WSInitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_WSInitialCopyWithImpl<$Res>
-    extends _$WebsocketStateCopyWithImpl<$Res, _$_WSInitial>
+    extends _$OldWebsocketStateCopyWithImpl<$Res, _$_WSInitial>
     implements _$$_WSInitialCopyWith<$Res> {
   __$$_WSInitialCopyWithImpl(
       _$_WSInitial _value, $Res Function(_$_WSInitial) _then)
@@ -139,7 +145,7 @@ class _$_WSInitial implements _WSInitial {
 
   @override
   String toString() {
-    return 'WebsocketState.initial()';
+    return 'OldWebsocketState.initial()';
   }
 
   @override
@@ -160,9 +166,10 @@ class _$_WSInitial implements _WSInitial {
     required TResult Function() authenticated,
     required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function(WebsocketStatsModel stats) stats,
+    required TResult Function(WebsocketStats stats) stats,
     required TResult Function(ServerPowerState status) powerState,
     required TResult Function(String error) jwtError,
+    required TResult Function(String error) daemonError,
   }) {
     return initial();
   }
@@ -176,9 +183,10 @@ class _$_WSInitial implements _WSInitial {
     TResult? Function()? authenticated,
     TResult? Function(String output)? consoleOutput,
     TResult? Function(String output)? installOutput,
-    TResult? Function(WebsocketStatsModel stats)? stats,
+    TResult? Function(WebsocketStats stats)? stats,
     TResult? Function(ServerPowerState status)? powerState,
     TResult? Function(String error)? jwtError,
+    TResult? Function(String error)? daemonError,
   }) {
     return initial?.call();
   }
@@ -192,9 +200,10 @@ class _$_WSInitial implements _WSInitial {
     TResult Function()? authenticated,
     TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function(WebsocketStatsModel stats)? stats,
+    TResult Function(WebsocketStats stats)? stats,
     TResult Function(ServerPowerState status)? powerState,
     TResult Function(String error)? jwtError,
+    TResult Function(String error)? daemonError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -214,7 +223,8 @@ class _$_WSInitial implements _WSInitial {
     required TResult Function(_WSInstallOutput value) installOutput,
     required TResult Function(_WSStats value) stats,
     required TResult Function(_WSPowerState value) powerState,
-    required TResult Function(_WSJWTError value) jwtError,
+    required TResult Function(_WSJwtError value) jwtError,
+    required TResult Function(_WSDaemonError value) daemonError,
   }) {
     return initial(this);
   }
@@ -230,7 +240,8 @@ class _$_WSInitial implements _WSInitial {
     TResult? Function(_WSInstallOutput value)? installOutput,
     TResult? Function(_WSStats value)? stats,
     TResult? Function(_WSPowerState value)? powerState,
-    TResult? Function(_WSJWTError value)? jwtError,
+    TResult? Function(_WSJwtError value)? jwtError,
+    TResult? Function(_WSDaemonError value)? daemonError,
   }) {
     return initial?.call(this);
   }
@@ -246,7 +257,8 @@ class _$_WSInitial implements _WSInitial {
     TResult Function(_WSInstallOutput value)? installOutput,
     TResult Function(_WSStats value)? stats,
     TResult Function(_WSPowerState value)? powerState,
-    TResult Function(_WSJWTError value)? jwtError,
+    TResult Function(_WSJwtError value)? jwtError,
+    TResult Function(_WSDaemonError value)? daemonError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -256,7 +268,7 @@ class _$_WSInitial implements _WSInitial {
   }
 }
 
-abstract class _WSInitial implements WebsocketState {
+abstract class _WSInitial implements OldWebsocketState {
   const factory _WSInitial() = _$_WSInitial;
 }
 
@@ -271,7 +283,7 @@ abstract class _$$_WSAuthErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$_WSAuthErrorCopyWithImpl<$Res>
-    extends _$WebsocketStateCopyWithImpl<$Res, _$_WSAuthError>
+    extends _$OldWebsocketStateCopyWithImpl<$Res, _$_WSAuthError>
     implements _$$_WSAuthErrorCopyWith<$Res> {
   __$$_WSAuthErrorCopyWithImpl(
       _$_WSAuthError _value, $Res Function(_$_WSAuthError) _then)
@@ -301,7 +313,7 @@ class _$_WSAuthError implements _WSAuthError {
 
   @override
   String toString() {
-    return 'WebsocketState.authError(error: $error)';
+    return 'OldWebsocketState.authError(error: $error)';
   }
 
   @override
@@ -330,9 +342,10 @@ class _$_WSAuthError implements _WSAuthError {
     required TResult Function() authenticated,
     required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function(WebsocketStatsModel stats) stats,
+    required TResult Function(WebsocketStats stats) stats,
     required TResult Function(ServerPowerState status) powerState,
     required TResult Function(String error) jwtError,
+    required TResult Function(String error) daemonError,
   }) {
     return authError(error);
   }
@@ -346,9 +359,10 @@ class _$_WSAuthError implements _WSAuthError {
     TResult? Function()? authenticated,
     TResult? Function(String output)? consoleOutput,
     TResult? Function(String output)? installOutput,
-    TResult? Function(WebsocketStatsModel stats)? stats,
+    TResult? Function(WebsocketStats stats)? stats,
     TResult? Function(ServerPowerState status)? powerState,
     TResult? Function(String error)? jwtError,
+    TResult? Function(String error)? daemonError,
   }) {
     return authError?.call(error);
   }
@@ -362,9 +376,10 @@ class _$_WSAuthError implements _WSAuthError {
     TResult Function()? authenticated,
     TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function(WebsocketStatsModel stats)? stats,
+    TResult Function(WebsocketStats stats)? stats,
     TResult Function(ServerPowerState status)? powerState,
     TResult Function(String error)? jwtError,
+    TResult Function(String error)? daemonError,
     required TResult orElse(),
   }) {
     if (authError != null) {
@@ -384,7 +399,8 @@ class _$_WSAuthError implements _WSAuthError {
     required TResult Function(_WSInstallOutput value) installOutput,
     required TResult Function(_WSStats value) stats,
     required TResult Function(_WSPowerState value) powerState,
-    required TResult Function(_WSJWTError value) jwtError,
+    required TResult Function(_WSJwtError value) jwtError,
+    required TResult Function(_WSDaemonError value) daemonError,
   }) {
     return authError(this);
   }
@@ -400,7 +416,8 @@ class _$_WSAuthError implements _WSAuthError {
     TResult? Function(_WSInstallOutput value)? installOutput,
     TResult? Function(_WSStats value)? stats,
     TResult? Function(_WSPowerState value)? powerState,
-    TResult? Function(_WSJWTError value)? jwtError,
+    TResult? Function(_WSJwtError value)? jwtError,
+    TResult? Function(_WSDaemonError value)? daemonError,
   }) {
     return authError?.call(this);
   }
@@ -416,7 +433,8 @@ class _$_WSAuthError implements _WSAuthError {
     TResult Function(_WSInstallOutput value)? installOutput,
     TResult Function(_WSStats value)? stats,
     TResult Function(_WSPowerState value)? powerState,
-    TResult Function(_WSJWTError value)? jwtError,
+    TResult Function(_WSJwtError value)? jwtError,
+    TResult Function(_WSDaemonError value)? daemonError,
     required TResult orElse(),
   }) {
     if (authError != null) {
@@ -426,7 +444,7 @@ class _$_WSAuthError implements _WSAuthError {
   }
 }
 
-abstract class _WSAuthError implements WebsocketState {
+abstract class _WSAuthError implements OldWebsocketState {
   const factory _WSAuthError(final String error) = _$_WSAuthError;
 
   String get error;
@@ -444,7 +462,7 @@ abstract class _$$_WSAuthenticatingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_WSAuthenticatingCopyWithImpl<$Res>
-    extends _$WebsocketStateCopyWithImpl<$Res, _$_WSAuthenticating>
+    extends _$OldWebsocketStateCopyWithImpl<$Res, _$_WSAuthenticating>
     implements _$$_WSAuthenticatingCopyWith<$Res> {
   __$$_WSAuthenticatingCopyWithImpl(
       _$_WSAuthenticating _value, $Res Function(_$_WSAuthenticating) _then)
@@ -458,7 +476,7 @@ class _$_WSAuthenticating implements _WSAuthenticating {
 
   @override
   String toString() {
-    return 'WebsocketState.authenticating()';
+    return 'OldWebsocketState.authenticating()';
   }
 
   @override
@@ -479,9 +497,10 @@ class _$_WSAuthenticating implements _WSAuthenticating {
     required TResult Function() authenticated,
     required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function(WebsocketStatsModel stats) stats,
+    required TResult Function(WebsocketStats stats) stats,
     required TResult Function(ServerPowerState status) powerState,
     required TResult Function(String error) jwtError,
+    required TResult Function(String error) daemonError,
   }) {
     return authenticating();
   }
@@ -495,9 +514,10 @@ class _$_WSAuthenticating implements _WSAuthenticating {
     TResult? Function()? authenticated,
     TResult? Function(String output)? consoleOutput,
     TResult? Function(String output)? installOutput,
-    TResult? Function(WebsocketStatsModel stats)? stats,
+    TResult? Function(WebsocketStats stats)? stats,
     TResult? Function(ServerPowerState status)? powerState,
     TResult? Function(String error)? jwtError,
+    TResult? Function(String error)? daemonError,
   }) {
     return authenticating?.call();
   }
@@ -511,9 +531,10 @@ class _$_WSAuthenticating implements _WSAuthenticating {
     TResult Function()? authenticated,
     TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function(WebsocketStatsModel stats)? stats,
+    TResult Function(WebsocketStats stats)? stats,
     TResult Function(ServerPowerState status)? powerState,
     TResult Function(String error)? jwtError,
+    TResult Function(String error)? daemonError,
     required TResult orElse(),
   }) {
     if (authenticating != null) {
@@ -533,7 +554,8 @@ class _$_WSAuthenticating implements _WSAuthenticating {
     required TResult Function(_WSInstallOutput value) installOutput,
     required TResult Function(_WSStats value) stats,
     required TResult Function(_WSPowerState value) powerState,
-    required TResult Function(_WSJWTError value) jwtError,
+    required TResult Function(_WSJwtError value) jwtError,
+    required TResult Function(_WSDaemonError value) daemonError,
   }) {
     return authenticating(this);
   }
@@ -549,7 +571,8 @@ class _$_WSAuthenticating implements _WSAuthenticating {
     TResult? Function(_WSInstallOutput value)? installOutput,
     TResult? Function(_WSStats value)? stats,
     TResult? Function(_WSPowerState value)? powerState,
-    TResult? Function(_WSJWTError value)? jwtError,
+    TResult? Function(_WSJwtError value)? jwtError,
+    TResult? Function(_WSDaemonError value)? daemonError,
   }) {
     return authenticating?.call(this);
   }
@@ -565,7 +588,8 @@ class _$_WSAuthenticating implements _WSAuthenticating {
     TResult Function(_WSInstallOutput value)? installOutput,
     TResult Function(_WSStats value)? stats,
     TResult Function(_WSPowerState value)? powerState,
-    TResult Function(_WSJWTError value)? jwtError,
+    TResult Function(_WSJwtError value)? jwtError,
+    TResult Function(_WSDaemonError value)? daemonError,
     required TResult orElse(),
   }) {
     if (authenticating != null) {
@@ -575,7 +599,7 @@ class _$_WSAuthenticating implements _WSAuthenticating {
   }
 }
 
-abstract class _WSAuthenticating implements WebsocketState {
+abstract class _WSAuthenticating implements OldWebsocketState {
   const factory _WSAuthenticating() = _$_WSAuthenticating;
 }
 
@@ -588,7 +612,7 @@ abstract class _$$_WSAuthenticatedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_WSAuthenticatedCopyWithImpl<$Res>
-    extends _$WebsocketStateCopyWithImpl<$Res, _$_WSAuthenticated>
+    extends _$OldWebsocketStateCopyWithImpl<$Res, _$_WSAuthenticated>
     implements _$$_WSAuthenticatedCopyWith<$Res> {
   __$$_WSAuthenticatedCopyWithImpl(
       _$_WSAuthenticated _value, $Res Function(_$_WSAuthenticated) _then)
@@ -602,7 +626,7 @@ class _$_WSAuthenticated implements _WSAuthenticated {
 
   @override
   String toString() {
-    return 'WebsocketState.authenticated()';
+    return 'OldWebsocketState.authenticated()';
   }
 
   @override
@@ -623,9 +647,10 @@ class _$_WSAuthenticated implements _WSAuthenticated {
     required TResult Function() authenticated,
     required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function(WebsocketStatsModel stats) stats,
+    required TResult Function(WebsocketStats stats) stats,
     required TResult Function(ServerPowerState status) powerState,
     required TResult Function(String error) jwtError,
+    required TResult Function(String error) daemonError,
   }) {
     return authenticated();
   }
@@ -639,9 +664,10 @@ class _$_WSAuthenticated implements _WSAuthenticated {
     TResult? Function()? authenticated,
     TResult? Function(String output)? consoleOutput,
     TResult? Function(String output)? installOutput,
-    TResult? Function(WebsocketStatsModel stats)? stats,
+    TResult? Function(WebsocketStats stats)? stats,
     TResult? Function(ServerPowerState status)? powerState,
     TResult? Function(String error)? jwtError,
+    TResult? Function(String error)? daemonError,
   }) {
     return authenticated?.call();
   }
@@ -655,9 +681,10 @@ class _$_WSAuthenticated implements _WSAuthenticated {
     TResult Function()? authenticated,
     TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function(WebsocketStatsModel stats)? stats,
+    TResult Function(WebsocketStats stats)? stats,
     TResult Function(ServerPowerState status)? powerState,
     TResult Function(String error)? jwtError,
+    TResult Function(String error)? daemonError,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -677,7 +704,8 @@ class _$_WSAuthenticated implements _WSAuthenticated {
     required TResult Function(_WSInstallOutput value) installOutput,
     required TResult Function(_WSStats value) stats,
     required TResult Function(_WSPowerState value) powerState,
-    required TResult Function(_WSJWTError value) jwtError,
+    required TResult Function(_WSJwtError value) jwtError,
+    required TResult Function(_WSDaemonError value) daemonError,
   }) {
     return authenticated(this);
   }
@@ -693,7 +721,8 @@ class _$_WSAuthenticated implements _WSAuthenticated {
     TResult? Function(_WSInstallOutput value)? installOutput,
     TResult? Function(_WSStats value)? stats,
     TResult? Function(_WSPowerState value)? powerState,
-    TResult? Function(_WSJWTError value)? jwtError,
+    TResult? Function(_WSJwtError value)? jwtError,
+    TResult? Function(_WSDaemonError value)? daemonError,
   }) {
     return authenticated?.call(this);
   }
@@ -709,7 +738,8 @@ class _$_WSAuthenticated implements _WSAuthenticated {
     TResult Function(_WSInstallOutput value)? installOutput,
     TResult Function(_WSStats value)? stats,
     TResult Function(_WSPowerState value)? powerState,
-    TResult Function(_WSJWTError value)? jwtError,
+    TResult Function(_WSJwtError value)? jwtError,
+    TResult Function(_WSDaemonError value)? daemonError,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -719,7 +749,7 @@ class _$_WSAuthenticated implements _WSAuthenticated {
   }
 }
 
-abstract class _WSAuthenticated implements WebsocketState {
+abstract class _WSAuthenticated implements OldWebsocketState {
   const factory _WSAuthenticated() = _$_WSAuthenticated;
 }
 
@@ -734,7 +764,7 @@ abstract class _$$_WSConsoleOutputCopyWith<$Res> {
 
 /// @nodoc
 class __$$_WSConsoleOutputCopyWithImpl<$Res>
-    extends _$WebsocketStateCopyWithImpl<$Res, _$_WSConsoleOutput>
+    extends _$OldWebsocketStateCopyWithImpl<$Res, _$_WSConsoleOutput>
     implements _$$_WSConsoleOutputCopyWith<$Res> {
   __$$_WSConsoleOutputCopyWithImpl(
       _$_WSConsoleOutput _value, $Res Function(_$_WSConsoleOutput) _then)
@@ -764,7 +794,7 @@ class _$_WSConsoleOutput implements _WSConsoleOutput {
 
   @override
   String toString() {
-    return 'WebsocketState.consoleOutput(output: $output)';
+    return 'OldWebsocketState.consoleOutput(output: $output)';
   }
 
   @override
@@ -793,9 +823,10 @@ class _$_WSConsoleOutput implements _WSConsoleOutput {
     required TResult Function() authenticated,
     required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function(WebsocketStatsModel stats) stats,
+    required TResult Function(WebsocketStats stats) stats,
     required TResult Function(ServerPowerState status) powerState,
     required TResult Function(String error) jwtError,
+    required TResult Function(String error) daemonError,
   }) {
     return consoleOutput(output);
   }
@@ -809,9 +840,10 @@ class _$_WSConsoleOutput implements _WSConsoleOutput {
     TResult? Function()? authenticated,
     TResult? Function(String output)? consoleOutput,
     TResult? Function(String output)? installOutput,
-    TResult? Function(WebsocketStatsModel stats)? stats,
+    TResult? Function(WebsocketStats stats)? stats,
     TResult? Function(ServerPowerState status)? powerState,
     TResult? Function(String error)? jwtError,
+    TResult? Function(String error)? daemonError,
   }) {
     return consoleOutput?.call(output);
   }
@@ -825,9 +857,10 @@ class _$_WSConsoleOutput implements _WSConsoleOutput {
     TResult Function()? authenticated,
     TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function(WebsocketStatsModel stats)? stats,
+    TResult Function(WebsocketStats stats)? stats,
     TResult Function(ServerPowerState status)? powerState,
     TResult Function(String error)? jwtError,
+    TResult Function(String error)? daemonError,
     required TResult orElse(),
   }) {
     if (consoleOutput != null) {
@@ -847,7 +880,8 @@ class _$_WSConsoleOutput implements _WSConsoleOutput {
     required TResult Function(_WSInstallOutput value) installOutput,
     required TResult Function(_WSStats value) stats,
     required TResult Function(_WSPowerState value) powerState,
-    required TResult Function(_WSJWTError value) jwtError,
+    required TResult Function(_WSJwtError value) jwtError,
+    required TResult Function(_WSDaemonError value) daemonError,
   }) {
     return consoleOutput(this);
   }
@@ -863,7 +897,8 @@ class _$_WSConsoleOutput implements _WSConsoleOutput {
     TResult? Function(_WSInstallOutput value)? installOutput,
     TResult? Function(_WSStats value)? stats,
     TResult? Function(_WSPowerState value)? powerState,
-    TResult? Function(_WSJWTError value)? jwtError,
+    TResult? Function(_WSJwtError value)? jwtError,
+    TResult? Function(_WSDaemonError value)? daemonError,
   }) {
     return consoleOutput?.call(this);
   }
@@ -879,7 +914,8 @@ class _$_WSConsoleOutput implements _WSConsoleOutput {
     TResult Function(_WSInstallOutput value)? installOutput,
     TResult Function(_WSStats value)? stats,
     TResult Function(_WSPowerState value)? powerState,
-    TResult Function(_WSJWTError value)? jwtError,
+    TResult Function(_WSJwtError value)? jwtError,
+    TResult Function(_WSDaemonError value)? daemonError,
     required TResult orElse(),
   }) {
     if (consoleOutput != null) {
@@ -889,7 +925,7 @@ class _$_WSConsoleOutput implements _WSConsoleOutput {
   }
 }
 
-abstract class _WSConsoleOutput implements WebsocketState {
+abstract class _WSConsoleOutput implements OldWebsocketState {
   const factory _WSConsoleOutput(final String output) = _$_WSConsoleOutput;
 
   String get output;
@@ -909,7 +945,7 @@ abstract class _$$_WSInstallOutputCopyWith<$Res> {
 
 /// @nodoc
 class __$$_WSInstallOutputCopyWithImpl<$Res>
-    extends _$WebsocketStateCopyWithImpl<$Res, _$_WSInstallOutput>
+    extends _$OldWebsocketStateCopyWithImpl<$Res, _$_WSInstallOutput>
     implements _$$_WSInstallOutputCopyWith<$Res> {
   __$$_WSInstallOutputCopyWithImpl(
       _$_WSInstallOutput _value, $Res Function(_$_WSInstallOutput) _then)
@@ -939,7 +975,7 @@ class _$_WSInstallOutput implements _WSInstallOutput {
 
   @override
   String toString() {
-    return 'WebsocketState.installOutput(output: $output)';
+    return 'OldWebsocketState.installOutput(output: $output)';
   }
 
   @override
@@ -968,9 +1004,10 @@ class _$_WSInstallOutput implements _WSInstallOutput {
     required TResult Function() authenticated,
     required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function(WebsocketStatsModel stats) stats,
+    required TResult Function(WebsocketStats stats) stats,
     required TResult Function(ServerPowerState status) powerState,
     required TResult Function(String error) jwtError,
+    required TResult Function(String error) daemonError,
   }) {
     return installOutput(output);
   }
@@ -984,9 +1021,10 @@ class _$_WSInstallOutput implements _WSInstallOutput {
     TResult? Function()? authenticated,
     TResult? Function(String output)? consoleOutput,
     TResult? Function(String output)? installOutput,
-    TResult? Function(WebsocketStatsModel stats)? stats,
+    TResult? Function(WebsocketStats stats)? stats,
     TResult? Function(ServerPowerState status)? powerState,
     TResult? Function(String error)? jwtError,
+    TResult? Function(String error)? daemonError,
   }) {
     return installOutput?.call(output);
   }
@@ -1000,9 +1038,10 @@ class _$_WSInstallOutput implements _WSInstallOutput {
     TResult Function()? authenticated,
     TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function(WebsocketStatsModel stats)? stats,
+    TResult Function(WebsocketStats stats)? stats,
     TResult Function(ServerPowerState status)? powerState,
     TResult Function(String error)? jwtError,
+    TResult Function(String error)? daemonError,
     required TResult orElse(),
   }) {
     if (installOutput != null) {
@@ -1022,7 +1061,8 @@ class _$_WSInstallOutput implements _WSInstallOutput {
     required TResult Function(_WSInstallOutput value) installOutput,
     required TResult Function(_WSStats value) stats,
     required TResult Function(_WSPowerState value) powerState,
-    required TResult Function(_WSJWTError value) jwtError,
+    required TResult Function(_WSJwtError value) jwtError,
+    required TResult Function(_WSDaemonError value) daemonError,
   }) {
     return installOutput(this);
   }
@@ -1038,7 +1078,8 @@ class _$_WSInstallOutput implements _WSInstallOutput {
     TResult? Function(_WSInstallOutput value)? installOutput,
     TResult? Function(_WSStats value)? stats,
     TResult? Function(_WSPowerState value)? powerState,
-    TResult? Function(_WSJWTError value)? jwtError,
+    TResult? Function(_WSJwtError value)? jwtError,
+    TResult? Function(_WSDaemonError value)? daemonError,
   }) {
     return installOutput?.call(this);
   }
@@ -1054,7 +1095,8 @@ class _$_WSInstallOutput implements _WSInstallOutput {
     TResult Function(_WSInstallOutput value)? installOutput,
     TResult Function(_WSStats value)? stats,
     TResult Function(_WSPowerState value)? powerState,
-    TResult Function(_WSJWTError value)? jwtError,
+    TResult Function(_WSJwtError value)? jwtError,
+    TResult Function(_WSDaemonError value)? daemonError,
     required TResult orElse(),
   }) {
     if (installOutput != null) {
@@ -1064,7 +1106,7 @@ class _$_WSInstallOutput implements _WSInstallOutput {
   }
 }
 
-abstract class _WSInstallOutput implements WebsocketState {
+abstract class _WSInstallOutput implements OldWebsocketState {
   const factory _WSInstallOutput(final String output) = _$_WSInstallOutput;
 
   String get output;
@@ -1079,14 +1121,14 @@ abstract class _$$_WSStatsCopyWith<$Res> {
           _$_WSStats value, $Res Function(_$_WSStats) then) =
       __$$_WSStatsCopyWithImpl<$Res>;
   @useResult
-  $Res call({WebsocketStatsModel stats});
+  $Res call({WebsocketStats stats});
 
-  $WebsocketStatsModelCopyWith<$Res> get stats;
+  $WebsocketStatsCopyWith<$Res> get stats;
 }
 
 /// @nodoc
 class __$$_WSStatsCopyWithImpl<$Res>
-    extends _$WebsocketStateCopyWithImpl<$Res, _$_WSStats>
+    extends _$OldWebsocketStateCopyWithImpl<$Res, _$_WSStats>
     implements _$$_WSStatsCopyWith<$Res> {
   __$$_WSStatsCopyWithImpl(_$_WSStats _value, $Res Function(_$_WSStats) _then)
       : super(_value, _then);
@@ -1100,14 +1142,14 @@ class __$$_WSStatsCopyWithImpl<$Res>
       null == stats
           ? _value.stats
           : stats // ignore: cast_nullable_to_non_nullable
-              as WebsocketStatsModel,
+              as WebsocketStats,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $WebsocketStatsModelCopyWith<$Res> get stats {
-    return $WebsocketStatsModelCopyWith<$Res>(_value.stats, (value) {
+  $WebsocketStatsCopyWith<$Res> get stats {
+    return $WebsocketStatsCopyWith<$Res>(_value.stats, (value) {
       return _then(_value.copyWith(stats: value));
     });
   }
@@ -1119,11 +1161,11 @@ class _$_WSStats implements _WSStats {
   const _$_WSStats(this.stats);
 
   @override
-  final WebsocketStatsModel stats;
+  final WebsocketStats stats;
 
   @override
   String toString() {
-    return 'WebsocketState.stats(stats: $stats)';
+    return 'OldWebsocketState.stats(stats: $stats)';
   }
 
   @override
@@ -1152,9 +1194,10 @@ class _$_WSStats implements _WSStats {
     required TResult Function() authenticated,
     required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function(WebsocketStatsModel stats) stats,
+    required TResult Function(WebsocketStats stats) stats,
     required TResult Function(ServerPowerState status) powerState,
     required TResult Function(String error) jwtError,
+    required TResult Function(String error) daemonError,
   }) {
     return stats(this.stats);
   }
@@ -1168,9 +1211,10 @@ class _$_WSStats implements _WSStats {
     TResult? Function()? authenticated,
     TResult? Function(String output)? consoleOutput,
     TResult? Function(String output)? installOutput,
-    TResult? Function(WebsocketStatsModel stats)? stats,
+    TResult? Function(WebsocketStats stats)? stats,
     TResult? Function(ServerPowerState status)? powerState,
     TResult? Function(String error)? jwtError,
+    TResult? Function(String error)? daemonError,
   }) {
     return stats?.call(this.stats);
   }
@@ -1184,9 +1228,10 @@ class _$_WSStats implements _WSStats {
     TResult Function()? authenticated,
     TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function(WebsocketStatsModel stats)? stats,
+    TResult Function(WebsocketStats stats)? stats,
     TResult Function(ServerPowerState status)? powerState,
     TResult Function(String error)? jwtError,
+    TResult Function(String error)? daemonError,
     required TResult orElse(),
   }) {
     if (stats != null) {
@@ -1206,7 +1251,8 @@ class _$_WSStats implements _WSStats {
     required TResult Function(_WSInstallOutput value) installOutput,
     required TResult Function(_WSStats value) stats,
     required TResult Function(_WSPowerState value) powerState,
-    required TResult Function(_WSJWTError value) jwtError,
+    required TResult Function(_WSJwtError value) jwtError,
+    required TResult Function(_WSDaemonError value) daemonError,
   }) {
     return stats(this);
   }
@@ -1222,7 +1268,8 @@ class _$_WSStats implements _WSStats {
     TResult? Function(_WSInstallOutput value)? installOutput,
     TResult? Function(_WSStats value)? stats,
     TResult? Function(_WSPowerState value)? powerState,
-    TResult? Function(_WSJWTError value)? jwtError,
+    TResult? Function(_WSJwtError value)? jwtError,
+    TResult? Function(_WSDaemonError value)? daemonError,
   }) {
     return stats?.call(this);
   }
@@ -1238,7 +1285,8 @@ class _$_WSStats implements _WSStats {
     TResult Function(_WSInstallOutput value)? installOutput,
     TResult Function(_WSStats value)? stats,
     TResult Function(_WSPowerState value)? powerState,
-    TResult Function(_WSJWTError value)? jwtError,
+    TResult Function(_WSJwtError value)? jwtError,
+    TResult Function(_WSDaemonError value)? daemonError,
     required TResult orElse(),
   }) {
     if (stats != null) {
@@ -1248,10 +1296,10 @@ class _$_WSStats implements _WSStats {
   }
 }
 
-abstract class _WSStats implements WebsocketState {
-  const factory _WSStats(final WebsocketStatsModel stats) = _$_WSStats;
+abstract class _WSStats implements OldWebsocketState {
+  const factory _WSStats(final WebsocketStats stats) = _$_WSStats;
 
-  WebsocketStatsModel get stats;
+  WebsocketStats get stats;
   @JsonKey(ignore: true)
   _$$_WSStatsCopyWith<_$_WSStats> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1268,7 +1316,7 @@ abstract class _$$_WSPowerStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$_WSPowerStateCopyWithImpl<$Res>
-    extends _$WebsocketStateCopyWithImpl<$Res, _$_WSPowerState>
+    extends _$OldWebsocketStateCopyWithImpl<$Res, _$_WSPowerState>
     implements _$$_WSPowerStateCopyWith<$Res> {
   __$$_WSPowerStateCopyWithImpl(
       _$_WSPowerState _value, $Res Function(_$_WSPowerState) _then)
@@ -1298,7 +1346,7 @@ class _$_WSPowerState implements _WSPowerState {
 
   @override
   String toString() {
-    return 'WebsocketState.powerState(status: $status)';
+    return 'OldWebsocketState.powerState(status: $status)';
   }
 
   @override
@@ -1327,9 +1375,10 @@ class _$_WSPowerState implements _WSPowerState {
     required TResult Function() authenticated,
     required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function(WebsocketStatsModel stats) stats,
+    required TResult Function(WebsocketStats stats) stats,
     required TResult Function(ServerPowerState status) powerState,
     required TResult Function(String error) jwtError,
+    required TResult Function(String error) daemonError,
   }) {
     return powerState(status);
   }
@@ -1343,9 +1392,10 @@ class _$_WSPowerState implements _WSPowerState {
     TResult? Function()? authenticated,
     TResult? Function(String output)? consoleOutput,
     TResult? Function(String output)? installOutput,
-    TResult? Function(WebsocketStatsModel stats)? stats,
+    TResult? Function(WebsocketStats stats)? stats,
     TResult? Function(ServerPowerState status)? powerState,
     TResult? Function(String error)? jwtError,
+    TResult? Function(String error)? daemonError,
   }) {
     return powerState?.call(status);
   }
@@ -1359,9 +1409,10 @@ class _$_WSPowerState implements _WSPowerState {
     TResult Function()? authenticated,
     TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function(WebsocketStatsModel stats)? stats,
+    TResult Function(WebsocketStats stats)? stats,
     TResult Function(ServerPowerState status)? powerState,
     TResult Function(String error)? jwtError,
+    TResult Function(String error)? daemonError,
     required TResult orElse(),
   }) {
     if (powerState != null) {
@@ -1381,7 +1432,8 @@ class _$_WSPowerState implements _WSPowerState {
     required TResult Function(_WSInstallOutput value) installOutput,
     required TResult Function(_WSStats value) stats,
     required TResult Function(_WSPowerState value) powerState,
-    required TResult Function(_WSJWTError value) jwtError,
+    required TResult Function(_WSJwtError value) jwtError,
+    required TResult Function(_WSDaemonError value) daemonError,
   }) {
     return powerState(this);
   }
@@ -1397,7 +1449,8 @@ class _$_WSPowerState implements _WSPowerState {
     TResult? Function(_WSInstallOutput value)? installOutput,
     TResult? Function(_WSStats value)? stats,
     TResult? Function(_WSPowerState value)? powerState,
-    TResult? Function(_WSJWTError value)? jwtError,
+    TResult? Function(_WSJwtError value)? jwtError,
+    TResult? Function(_WSDaemonError value)? daemonError,
   }) {
     return powerState?.call(this);
   }
@@ -1413,7 +1466,8 @@ class _$_WSPowerState implements _WSPowerState {
     TResult Function(_WSInstallOutput value)? installOutput,
     TResult Function(_WSStats value)? stats,
     TResult Function(_WSPowerState value)? powerState,
-    TResult Function(_WSJWTError value)? jwtError,
+    TResult Function(_WSJwtError value)? jwtError,
+    TResult Function(_WSDaemonError value)? daemonError,
     required TResult orElse(),
   }) {
     if (powerState != null) {
@@ -1423,7 +1477,7 @@ class _$_WSPowerState implements _WSPowerState {
   }
 }
 
-abstract class _WSPowerState implements WebsocketState {
+abstract class _WSPowerState implements OldWebsocketState {
   const factory _WSPowerState(final ServerPowerState status) = _$_WSPowerState;
 
   ServerPowerState get status;
@@ -1433,20 +1487,20 @@ abstract class _WSPowerState implements WebsocketState {
 }
 
 /// @nodoc
-abstract class _$$_WSJWTErrorCopyWith<$Res> {
-  factory _$$_WSJWTErrorCopyWith(
-          _$_WSJWTError value, $Res Function(_$_WSJWTError) then) =
-      __$$_WSJWTErrorCopyWithImpl<$Res>;
+abstract class _$$_WSJwtErrorCopyWith<$Res> {
+  factory _$$_WSJwtErrorCopyWith(
+          _$_WSJwtError value, $Res Function(_$_WSJwtError) then) =
+      __$$_WSJwtErrorCopyWithImpl<$Res>;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$$_WSJWTErrorCopyWithImpl<$Res>
-    extends _$WebsocketStateCopyWithImpl<$Res, _$_WSJWTError>
-    implements _$$_WSJWTErrorCopyWith<$Res> {
-  __$$_WSJWTErrorCopyWithImpl(
-      _$_WSJWTError _value, $Res Function(_$_WSJWTError) _then)
+class __$$_WSJwtErrorCopyWithImpl<$Res>
+    extends _$OldWebsocketStateCopyWithImpl<$Res, _$_WSJwtError>
+    implements _$$_WSJwtErrorCopyWith<$Res> {
+  __$$_WSJwtErrorCopyWithImpl(
+      _$_WSJwtError _value, $Res Function(_$_WSJwtError) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1454,7 +1508,7 @@ class __$$_WSJWTErrorCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_$_WSJWTError(
+    return _then(_$_WSJwtError(
       null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -1465,22 +1519,22 @@ class __$$_WSJWTErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WSJWTError implements _WSJWTError {
-  const _$_WSJWTError(this.error);
+class _$_WSJwtError implements _WSJwtError {
+  const _$_WSJwtError(this.error);
 
   @override
   final String error;
 
   @override
   String toString() {
-    return 'WebsocketState.jwtError(error: $error)';
+    return 'OldWebsocketState.jwtError(error: $error)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WSJWTError &&
+            other is _$_WSJwtError &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -1490,8 +1544,8 @@ class _$_WSJWTError implements _WSJWTError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WSJWTErrorCopyWith<_$_WSJWTError> get copyWith =>
-      __$$_WSJWTErrorCopyWithImpl<_$_WSJWTError>(this, _$identity);
+  _$$_WSJwtErrorCopyWith<_$_WSJwtError> get copyWith =>
+      __$$_WSJwtErrorCopyWithImpl<_$_WSJwtError>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1502,9 +1556,10 @@ class _$_WSJWTError implements _WSJWTError {
     required TResult Function() authenticated,
     required TResult Function(String output) consoleOutput,
     required TResult Function(String output) installOutput,
-    required TResult Function(WebsocketStatsModel stats) stats,
+    required TResult Function(WebsocketStats stats) stats,
     required TResult Function(ServerPowerState status) powerState,
     required TResult Function(String error) jwtError,
+    required TResult Function(String error) daemonError,
   }) {
     return jwtError(error);
   }
@@ -1518,9 +1573,10 @@ class _$_WSJWTError implements _WSJWTError {
     TResult? Function()? authenticated,
     TResult? Function(String output)? consoleOutput,
     TResult? Function(String output)? installOutput,
-    TResult? Function(WebsocketStatsModel stats)? stats,
+    TResult? Function(WebsocketStats stats)? stats,
     TResult? Function(ServerPowerState status)? powerState,
     TResult? Function(String error)? jwtError,
+    TResult? Function(String error)? daemonError,
   }) {
     return jwtError?.call(error);
   }
@@ -1534,9 +1590,10 @@ class _$_WSJWTError implements _WSJWTError {
     TResult Function()? authenticated,
     TResult Function(String output)? consoleOutput,
     TResult Function(String output)? installOutput,
-    TResult Function(WebsocketStatsModel stats)? stats,
+    TResult Function(WebsocketStats stats)? stats,
     TResult Function(ServerPowerState status)? powerState,
     TResult Function(String error)? jwtError,
+    TResult Function(String error)? daemonError,
     required TResult orElse(),
   }) {
     if (jwtError != null) {
@@ -1556,7 +1613,8 @@ class _$_WSJWTError implements _WSJWTError {
     required TResult Function(_WSInstallOutput value) installOutput,
     required TResult Function(_WSStats value) stats,
     required TResult Function(_WSPowerState value) powerState,
-    required TResult Function(_WSJWTError value) jwtError,
+    required TResult Function(_WSJwtError value) jwtError,
+    required TResult Function(_WSDaemonError value) daemonError,
   }) {
     return jwtError(this);
   }
@@ -1572,7 +1630,8 @@ class _$_WSJWTError implements _WSJWTError {
     TResult? Function(_WSInstallOutput value)? installOutput,
     TResult? Function(_WSStats value)? stats,
     TResult? Function(_WSPowerState value)? powerState,
-    TResult? Function(_WSJWTError value)? jwtError,
+    TResult? Function(_WSJwtError value)? jwtError,
+    TResult? Function(_WSDaemonError value)? daemonError,
   }) {
     return jwtError?.call(this);
   }
@@ -1588,7 +1647,8 @@ class _$_WSJWTError implements _WSJWTError {
     TResult Function(_WSInstallOutput value)? installOutput,
     TResult Function(_WSStats value)? stats,
     TResult Function(_WSPowerState value)? powerState,
-    TResult Function(_WSJWTError value)? jwtError,
+    TResult Function(_WSJwtError value)? jwtError,
+    TResult Function(_WSDaemonError value)? daemonError,
     required TResult orElse(),
   }) {
     if (jwtError != null) {
@@ -1598,11 +1658,192 @@ class _$_WSJWTError implements _WSJWTError {
   }
 }
 
-abstract class _WSJWTError implements WebsocketState {
-  const factory _WSJWTError(final String error) = _$_WSJWTError;
+abstract class _WSJwtError implements OldWebsocketState {
+  const factory _WSJwtError(final String error) = _$_WSJwtError;
 
   String get error;
   @JsonKey(ignore: true)
-  _$$_WSJWTErrorCopyWith<_$_WSJWTError> get copyWith =>
+  _$$_WSJwtErrorCopyWith<_$_WSJwtError> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_WSDaemonErrorCopyWith<$Res> {
+  factory _$$_WSDaemonErrorCopyWith(
+          _$_WSDaemonError value, $Res Function(_$_WSDaemonError) then) =
+      __$$_WSDaemonErrorCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$_WSDaemonErrorCopyWithImpl<$Res>
+    extends _$OldWebsocketStateCopyWithImpl<$Res, _$_WSDaemonError>
+    implements _$$_WSDaemonErrorCopyWith<$Res> {
+  __$$_WSDaemonErrorCopyWithImpl(
+      _$_WSDaemonError _value, $Res Function(_$_WSDaemonError) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$_WSDaemonError(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_WSDaemonError implements _WSDaemonError {
+  const _$_WSDaemonError(this.error);
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'OldWebsocketState.daemonError(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_WSDaemonError &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_WSDaemonErrorCopyWith<_$_WSDaemonError> get copyWith =>
+      __$$_WSDaemonErrorCopyWithImpl<_$_WSDaemonError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String error) authError,
+    required TResult Function() authenticating,
+    required TResult Function() authenticated,
+    required TResult Function(String output) consoleOutput,
+    required TResult Function(String output) installOutput,
+    required TResult Function(WebsocketStats stats) stats,
+    required TResult Function(ServerPowerState status) powerState,
+    required TResult Function(String error) jwtError,
+    required TResult Function(String error) daemonError,
+  }) {
+    return daemonError(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String error)? authError,
+    TResult? Function()? authenticating,
+    TResult? Function()? authenticated,
+    TResult? Function(String output)? consoleOutput,
+    TResult? Function(String output)? installOutput,
+    TResult? Function(WebsocketStats stats)? stats,
+    TResult? Function(ServerPowerState status)? powerState,
+    TResult? Function(String error)? jwtError,
+    TResult? Function(String error)? daemonError,
+  }) {
+    return daemonError?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String error)? authError,
+    TResult Function()? authenticating,
+    TResult Function()? authenticated,
+    TResult Function(String output)? consoleOutput,
+    TResult Function(String output)? installOutput,
+    TResult Function(WebsocketStats stats)? stats,
+    TResult Function(ServerPowerState status)? powerState,
+    TResult Function(String error)? jwtError,
+    TResult Function(String error)? daemonError,
+    required TResult orElse(),
+  }) {
+    if (daemonError != null) {
+      return daemonError(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WSInitial value) initial,
+    required TResult Function(_WSAuthError value) authError,
+    required TResult Function(_WSAuthenticating value) authenticating,
+    required TResult Function(_WSAuthenticated value) authenticated,
+    required TResult Function(_WSConsoleOutput value) consoleOutput,
+    required TResult Function(_WSInstallOutput value) installOutput,
+    required TResult Function(_WSStats value) stats,
+    required TResult Function(_WSPowerState value) powerState,
+    required TResult Function(_WSJwtError value) jwtError,
+    required TResult Function(_WSDaemonError value) daemonError,
+  }) {
+    return daemonError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_WSInitial value)? initial,
+    TResult? Function(_WSAuthError value)? authError,
+    TResult? Function(_WSAuthenticating value)? authenticating,
+    TResult? Function(_WSAuthenticated value)? authenticated,
+    TResult? Function(_WSConsoleOutput value)? consoleOutput,
+    TResult? Function(_WSInstallOutput value)? installOutput,
+    TResult? Function(_WSStats value)? stats,
+    TResult? Function(_WSPowerState value)? powerState,
+    TResult? Function(_WSJwtError value)? jwtError,
+    TResult? Function(_WSDaemonError value)? daemonError,
+  }) {
+    return daemonError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WSInitial value)? initial,
+    TResult Function(_WSAuthError value)? authError,
+    TResult Function(_WSAuthenticating value)? authenticating,
+    TResult Function(_WSAuthenticated value)? authenticated,
+    TResult Function(_WSConsoleOutput value)? consoleOutput,
+    TResult Function(_WSInstallOutput value)? installOutput,
+    TResult Function(_WSStats value)? stats,
+    TResult Function(_WSPowerState value)? powerState,
+    TResult Function(_WSJwtError value)? jwtError,
+    TResult Function(_WSDaemonError value)? daemonError,
+    required TResult orElse(),
+  }) {
+    if (daemonError != null) {
+      return daemonError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WSDaemonError implements OldWebsocketState {
+  const factory _WSDaemonError(final String error) = _$_WSDaemonError;
+
+  String get error;
+  @JsonKey(ignore: true)
+  _$$_WSDaemonErrorCopyWith<_$_WSDaemonError> get copyWith =>
       throw _privateConstructorUsedError;
 }
