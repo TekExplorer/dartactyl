@@ -25,18 +25,16 @@ class _ServerEvent with _$_ServerEvent {
       _$_ServerEventFromJson(json);
 }
 
+@experimental
 class ServerWebsocket {
   ServerWebsocket(
     this.client, {
     required this.serverId,
   }) {
-    // go through setter
-    _isAuthenticated = Completer<void>();
     _connect();
   }
 
   // TODO: is this a good api?
-  @experimental
   static Future<ServerWebsocket> connect(
     PteroClient client, {
     required String serverId,
@@ -50,35 +48,29 @@ class ServerWebsocket {
   final String serverId;
 
   /* *** Streams *** */
-  @experimental
   final BehaviorSubject<String> _logsController = BehaviorSubject();
-  @experimental
+
   Stream<String> get logsStream => _logsController.stream;
 
-  @experimental
   final BehaviorSubject<WebsocketStats> _statsController = BehaviorSubject();
-  @experimental
+
   Stream<WebsocketStats> get statsStream => _statsController.stream;
 
-  @experimental
   final BehaviorSubject<ServerPowerState> _powerActionController =
       BehaviorSubject();
 
-  @experimental
   Stream<ServerPowerState> get powerStateStream =>
       _powerActionController.stream;
 
   // TODO: Custom object for extra data?
-  @experimental
   final BehaviorSubject<String> _errorController = BehaviorSubject();
-  @experimental
+
   Stream<String> get errorStream => _errorController.stream;
 
   // TODO: Consider carefully where its used and how it interacts with isAuthenticated
-  @experimental
   final BehaviorSubject<ConnectionState> _connectionStateController =
       BehaviorSubject();
-  @experimental
+
   Stream<ConnectionState> get connectionStateStream =>
       _connectionStateController.stream;
   /* *** ******* *** */
@@ -87,22 +79,7 @@ class ServerWebsocket {
   Future<void> get ready => _isAuthenticated.future;
 
   // Is there a case where this will never complete?
-  // gets set in the constructor so that it goes through the setter
-  late Completer<void> __isAuthenticated;
-
-  Completer<void> get _isAuthenticated => __isAuthenticated;
-
-  set _isAuthenticated(Completer<void> isAuthenticated) {
-    __isAuthenticated = isAuthenticated;
-    _isAuthenticated.future.then(
-      (value) {
-        _connectionStateController.add(ConnectionState.connected);
-      },
-    ).catchError((Object? error, StackTrace? stackTrace) {
-      _errorController.add('Websocket authentication error: $error');
-      _connectionStateController.add(ConnectionState.disconnected);
-    });
-  }
+  Completer<void> _isAuthenticated = Completer<void>();
 
   late final WebSocketChannel _websocket;
 
