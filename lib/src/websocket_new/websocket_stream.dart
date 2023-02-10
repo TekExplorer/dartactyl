@@ -37,18 +37,62 @@ class ServerWebsocket {
   final _streamController = StreamController<WebsocketState>.broadcast();
   Stream<WebsocketState> get stream => _streamController.stream;
 
-  @visibleForTesting
-  WebSocket? webSocket;
+  WebSocket? _webSocket;
 
   @visibleForTesting
-  Stream<WebsocketState>? get socketStateStream =>
-      webSocket?.transform<WebsocketState>(const WebsocketStreamTransformer());
+  WebSocket get webSocket {
+    if (_webSocket == null) throw StateError('Websocket is not connected');
+    return _webSocket!;
+  }
+
+  @visibleForTesting
+  set webSocket(WebSocket value) {
+    _webSocket = value;
+    // Make sure that we send all the events from the websocket to the
+    // user-facing stream whenever we set a new websocket.
+    _initializeSocketToControllerBridge();
+  }
+
+  /// Listens to the transformed websocket and forwards events to the controller
+  StreamSubscription<WebsocketState> _initializeSocketToControllerBridge() {
+    return socketStateStream.listen(
+      _streamController.add,
+      onError: _streamController.addError,
+      onDone: () {
+        _streamController.add(const WebsocketState.disconnected());
+        // set socket to null?
+        // or should null be an indication that we never ran `connect()`?
+        // webSocket = null;
+
+        // don't close because we may reconnect with another call to connect()
+        // _streamController.close();
+      },
+    );
+  }
+
+  /// Gets the authentication details from the server.
+  /// This is used to [authenticate] the websocket.
+  @visibleForTesting
+  Future<WebsocketDetails> getWebsocketDetails() =>
+      client.getServerWebsocket(serverId: serverId).then((value) => value.data);
+
+  /// A serialized version of the websocket's stream.
+  /// This contains all the events from the websocket as well as websocket
+  /// errors.
+  ///
+  /// You should use [stream] instead of this.
+  /// This is because [stream] includes other useful states such as
+  ///
+  /// See [WebsocketStreamTransformer] for more information.
+  @visibleForTesting
+  Stream<WebsocketDataFromRemote> get socketStateStream => webSocket
+      .transform<WebsocketDataFromRemote>(const WebsocketStreamTransformer());
 
   // bool get socketIsClosed => webSocket?.readyState == WebSocket.closed;
   bool get isClosed => _streamController.isClosed;
 
   Future<void> close() async {
-    await webSocket?.close(WebSocketStatus.normalClosure, 'Closed by user');
+    await webSocket.close(WebSocketStatus.normalClosure, 'Closed by user');
     await _streamController.close();
   }
 
@@ -63,23 +107,28 @@ class ServerWebsocket {
   /// Or you can use [autoAuthenticate] to do the automatic authentication for
   /// you.
   ///
-  ///
-  Future<void> connect({required bool autoAuthenticate}) async {
-    if (webSocket != null && webSocket!.readyState == WebSocket.open) {
+  /// Returns the [socketStateStream] which contains only the [WebsocketState]
+  /// events from the websocket.
+  Future<Stream<WebsocketDataFromRemote>> connect({
+    required bool autoAuthenticate,
+  }) async {
+    if (_webSocket != null && _webSocket!.readyState == WebSocket.open) {
       throw StateError('Websocket is already connected');
     }
 
-    final websocketDetails = await client
-        .getServerWebsocket(serverId: serverId)
-        .then((value) => value.data);
+    final websocketDetails = await getWebsocketDetails();
 
-    webSocket = await WebSocket.connect(websocketDetails.socket);
-
-    _initializeSocketToControllerBridge();
+    webSocket = await createWebsocket(websocketDetails);
 
     sendAuthEvent(websocketDetails);
 
     if (autoAuthenticate) this.autoAuthenticate();
+    return socketStateStream;
+  }
+
+  @visibleForTesting
+  Future<WebSocket> createWebsocket(WebsocketDetails websocketDetails) {
+    return WebSocket.connect(websocketDetails.socket);
   }
 
   StreamSubscription<WebsocketState>? _autoAuthenticatorSubscription;
@@ -112,23 +161,6 @@ class ServerWebsocket {
     });
   }
 
-  /// Listens to the transformed websocket and forwards events to the controller
-  StreamSubscription<WebsocketState> _initializeSocketToControllerBridge() {
-    return socketStateStream!.listen(
-      _streamController.add,
-      onError: _streamController.addError,
-      onDone: () {
-        _streamController.add(const WebsocketState.disconnected());
-        // set socket to null?
-        // or should null be an indication that we never ran `connect()`?
-        // webSocket = null;
-
-        // don't close because we may reconnect with another call to connect()
-        // _controller.close();
-      },
-    );
-  }
-
   /// A flag to prevent spamming the server with auth requests.
   ///
   /// Don't access this flag directly, listen for
@@ -143,9 +175,7 @@ class ServerWebsocket {
     log('Authenticating websocket', name: 'WebsocketCubit._authenticate');
     _streamController.add(const WebsocketState.authenticating());
     try {
-      final websocketDetails = await client
-          .getServerWebsocket(serverId: serverId)
-          .then((value) => value.data);
+      final websocketDetails = await getWebsocketDetails();
 
       sendAuthEvent(websocketDetails);
     } catch (error, stackTrace) {
@@ -167,25 +197,29 @@ class ServerWebsocket {
   // send event
 
   /// Sends an [event] to the remote server over the websocket.
+  // TODO: Throw errors directly instead of adding them to the stream?
   @visibleForTesting
   void sendEvent(WebsocketSendModel event) {
     log(jsonEncode(event.toJson()), name: 'Websocket Send');
     // _lastSentEvent = event;
-    if (webSocket == null) {
+    if (_webSocket == null) {
       _streamController.addError(
         StateError('Websocket is null'),
         StackTrace.current,
       );
       return;
-    } else if (webSocket!.readyState != WebSocket.open) {
+    }
+
+    if (webSocket.readyState != WebSocket.open) {
       _streamController.addError(
         StateError('Websocket is not open'),
         StackTrace.current,
       );
       return;
     }
+
     try {
-      webSocket!.add(jsonEncode(event.toJson()));
+      webSocket.add(jsonEncode(event.toJson()));
     } catch (error, stackTrace) {
       // i don't think this can ever happen, but just in case
       // perhaps when its closed or otherwise disconnected?

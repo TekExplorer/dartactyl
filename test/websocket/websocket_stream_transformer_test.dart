@@ -458,29 +458,29 @@ void main() {
           //
         ]);
 
-        final Stream<WebsocketState> outputStream = mockInputStream
+        final Stream<WebsocketDataFromRemote> outputStream = mockInputStream
             // cast to Object? to avoid type error
             .map<Object?>((event) => event)
             .transform(const WebsocketStreamTransformer());
 
-        final List<WebsocketState> expectedStates = [
-          const WebsocketState.authSuccess(),
-          const WebsocketState.tokenExpiring(),
-          const WebsocketState.tokenExpired(),
-          const WebsocketState.console('console output'),
-          const WebsocketState.install('install output'),
-          const WebsocketState.powerState(ServerPowerState.offline),
-          WebsocketState.stats(
+        final List<WebsocketDataFromRemote> expectedStates = [
+          const WebsocketDataFromRemote.authSuccess(),
+          const WebsocketDataFromRemote.tokenExpiring(),
+          const WebsocketDataFromRemote.tokenExpired(),
+          const WebsocketDataFromRemote.console('console output'),
+          const WebsocketDataFromRemote.install('install output'),
+          const WebsocketDataFromRemote.powerState(ServerPowerState.offline),
+          WebsocketDataFromRemote.stats(
             fakeWebsocketStats.copyWith(
               state: ServerPowerState.starting,
             ),
           ),
-          const WebsocketState.powerState(ServerPowerState.starting),
+          const WebsocketDataFromRemote.powerState(ServerPowerState.starting),
         ];
 
-        final List<WebsocketError> expectedErrors = [
-          const WebsocketError.jwtError('jwt error message'),
-          const WebsocketError.daemonError('daemon error message'),
+        final List<WebsocketErrorFromRemote> expectedErrors = [
+          const WebsocketErrorFromRemote.jwtError('jwt error message'),
+          const WebsocketErrorFromRemote.daemonError('daemon error message'),
         ];
 
         expect(

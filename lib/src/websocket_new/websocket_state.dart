@@ -3,42 +3,112 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '../generated/websocket_new/websocket_state.freezed.dart';
 
-// Shared mixin for all websocket related classes
+// Shared supertype for all websocket related classes
+@sealed
 @experimental
-mixin ServerWebsocketObject {}
+abstract class ServerWebsocketObject {
+  const ServerWebsocketObject();
+}
 // part 'websocket_state.freezed.dart';
 
 /// A type for websocket states that indicate that authentication is needed.
 @sealed
 @experimental
-abstract class WebsocketNeedsAuth with ServerWebsocketObject {}
+abstract class WebsocketNeedsAuth extends ServerWebsocketObject {
+  const WebsocketNeedsAuth();
+  const factory WebsocketNeedsAuth.tokenExpiring() = WebsocketTokenExpiring;
+  const factory WebsocketNeedsAuth.tokenExpired() = WebsocketTokenExpired;
+  const factory WebsocketNeedsAuth.jwtError(String error) = WebsocketJwtError;
+}
 
 /// A type for websocket states that came directly from the websocket.
 @sealed
 @experimental
-abstract class WebsocketFromRemote with ServerWebsocketObject {}
+abstract class WebsocketObjectFromRemote extends ServerWebsocketObject {
+  const WebsocketObjectFromRemote();
+  const factory WebsocketObjectFromRemote.authSuccess() =
+      WebsocketDataFromRemote.authSuccess;
+  const factory WebsocketObjectFromRemote.console(String output) =
+      WebsocketDataFromRemote.console;
+  const factory WebsocketObjectFromRemote.install(String output) =
+      WebsocketDataFromRemote.install;
+  const factory WebsocketObjectFromRemote.stats(WebsocketStats stats) =
+      WebsocketDataFromRemote.stats;
+  const factory WebsocketObjectFromRemote.powerState(ServerPowerState status) =
+      WebsocketDataFromRemote.powerState;
+  const factory WebsocketObjectFromRemote.tokenExpiring() =
+      WebsocketDataFromRemote.tokenExpiring;
+  const factory WebsocketObjectFromRemote.tokenExpired() =
+      WebsocketDataFromRemote.tokenExpired;
+
+  // errors
+  const factory WebsocketObjectFromRemote.jwtError(String error) =
+      WebsocketErrorFromRemote.jwtError;
+
+  const factory WebsocketObjectFromRemote.daemonError(String error) =
+      WebsocketErrorFromRemote.daemonError;
+
+  // const factory WebsocketObjectFromRemote.authError(Object error) = WebsocketAuthError;
+}
 
 /// A type for websocket data states that came directly from the websocket.
 @sealed
 @experimental
-abstract class WebsocketDataFromRemote extends WebsocketFromRemote {}
+abstract class WebsocketDataFromRemote extends WebsocketObjectFromRemote
+    implements WebsocketState {
+  const WebsocketDataFromRemote();
+  const factory WebsocketDataFromRemote.authSuccess() = WebsocketAuthSuccess;
+
+  const factory WebsocketDataFromRemote.console(String output) =
+      WebsocketConsoleData;
+
+  const factory WebsocketDataFromRemote.install(String output) =
+      WebsocketInstallData;
+
+  const factory WebsocketDataFromRemote.stats(WebsocketStats stats) =
+      WebsocketStatsData;
+
+  const factory WebsocketDataFromRemote.powerState(ServerPowerState status) =
+      WebsocketPowerStateData;
+
+  const factory WebsocketDataFromRemote.tokenExpiring() =
+      WebsocketTokenExpiring;
+
+  const factory WebsocketDataFromRemote.tokenExpired() = WebsocketTokenExpired;
+}
 
 /// A type for websocket error states that came directly from the websocket.
 @sealed
 @experimental
-abstract class WebsocketErrorFromRemote extends WebsocketFromRemote {}
+abstract class WebsocketErrorFromRemote extends WebsocketObjectFromRemote
+    implements WebsocketError {
+  const WebsocketErrorFromRemote();
+
+  const factory WebsocketErrorFromRemote.jwtError(String error) =
+      WebsocketJwtError;
+
+  const factory WebsocketErrorFromRemote.daemonError(String error) =
+      WebsocketDaemonError;
+  // const factory WebsocketErrorFromRemote.authError(Object error) = WebsocketAuthError;
+}
 
 /// A type that includes [WebsocketConsoleData] and [WebsocketInstallData].
 @sealed
 @experimental
 abstract class WebsocketOutput extends WebsocketDataFromRemote {
+  const WebsocketOutput();
+
+  const factory WebsocketOutput.install(String output) = WebsocketInstallData;
+
+  const factory WebsocketOutput.console(String output) = WebsocketConsoleData;
+
   String get output;
 }
 
 @sealed
 @experimental
 @freezed
-class WebsocketState with _$WebsocketState, ServerWebsocketObject {
+class WebsocketState with _$WebsocketState implements ServerWebsocketObject {
   const WebsocketState._();
   // const factory WebsocketState.initial() = WebsocketInitial;
 
@@ -83,8 +153,8 @@ class WebsocketState with _$WebsocketState, ServerWebsocketObject {
 @experimental
 @freezed
 class WebsocketError
-    with _$WebsocketError, ServerWebsocketObject
-    implements Exception {
+    with _$WebsocketError
+    implements Exception, ServerWebsocketObject {
   const WebsocketError._();
 
   /// Thrown when attempting to retrieve and send new authentication details

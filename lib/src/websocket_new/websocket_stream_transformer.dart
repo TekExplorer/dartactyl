@@ -6,16 +6,16 @@ import 'package:dartactyl/src/websocket_new/websocket_state.dart';
 import 'package:meta/meta.dart';
 
 class WebsocketStreamTransformer
-    extends StreamTransformerBase<Object?, WebsocketState> {
+    extends StreamTransformerBase<Object?, WebsocketDataFromRemote> {
   const WebsocketStreamTransformer();
 
   @override
-  Stream<WebsocketState> bind(Stream<Object?> stream) =>
+  Stream<WebsocketDataFromRemote> bind(Stream<Object?> stream) =>
       stream.transform(_transformer);
 
-  static StreamTransformer<Object?, WebsocketState> get _transformer {
+  static StreamTransformer<Object?, WebsocketDataFromRemote> get _transformer {
     return StreamTransformer.fromHandlers(
-      handleData: (Object? event, EventSink<WebsocketState> sink) {
+      handleData: (Object? event, EventSink<WebsocketDataFromRemote> sink) {
         try {
           final String string = dynamicToString(event);
 
@@ -24,7 +24,7 @@ class WebsocketStreamTransformer
           final WebsocketReceivedModel rawReceivedModel =
               jsonToReceivedModel(json);
 
-          final List<WebsocketState> websocketState =
+          final List<WebsocketDataFromRemote> websocketState =
               receivedToWebsocketState(rawReceivedModel);
 
           // ignore: cascade_invocations
@@ -116,7 +116,7 @@ class WebsocketStreamTransformer
   }
 
   @visibleForTesting
-  static List<WebsocketState> receivedToWebsocketState(
+  static List<WebsocketDataFromRemote> receivedToWebsocketState(
     WebsocketReceivedModel event,
   ) {
     final arg = event.args?.firstOrNull;
@@ -137,11 +137,14 @@ class WebsocketStreamTransformer
 
     switch (event.event) {
       case WebsocketReceivedModelEvent.authSuccess:
-        return const [WebsocketState.authSuccess()];
+        // return const [WebsocketState.authSuccess()];
+        return const [WebsocketAuthSuccess()];
       case WebsocketReceivedModelEvent.tokenExpiring:
-        return const [WebsocketState.tokenExpiring()];
+        // return const [WebsocketState.tokenExpiring()];
+        return const [WebsocketTokenExpiring()];
       case WebsocketReceivedModelEvent.tokenExpired:
-        return const [WebsocketState.tokenExpired()];
+        // return const [WebsocketState.tokenExpired()];
+        return const [WebsocketTokenExpired()];
       case WebsocketReceivedModelEvent.status:
         final pwrState = serverPowerStateFromJson(requireArg());
         if (pwrState == null) {
@@ -154,11 +157,14 @@ class WebsocketStreamTransformer
             StackTrace.current,
           );
         }
-        return [WebsocketState.powerState(pwrState)];
+        // return [WebsocketState.powerState(pwrState)];
+        return [WebsocketPowerStateData(pwrState)];
       case WebsocketReceivedModelEvent.consoleOutput:
-        return [WebsocketState.console(requireArg())];
+        // return [WebsocketState.console(requireArg())];
+        return [WebsocketConsoleData(requireArg())];
       case WebsocketReceivedModelEvent.installOutput:
-        return [WebsocketState.install(requireArg())];
+        // return [WebsocketState.install(requireArg())];
+        return [WebsocketInstallData(requireArg())];
       case WebsocketReceivedModelEvent.stats:
         // may throw a FormatException if the json is invalid
         final jsonArg = jsonDecode(requireArg());
@@ -174,9 +180,13 @@ class WebsocketStreamTransformer
         }
         final websocketStats = WebsocketStats.fromJson(jsonArg);
 
+        // return [
+        //   WebsocketState.stats(websocketStats),
+        //   WebsocketState.powerState(websocketStats.state),
+        // ];
         return [
-          WebsocketState.stats(websocketStats),
-          WebsocketState.powerState(websocketStats.state),
+          WebsocketStatsData(websocketStats),
+          WebsocketPowerStateData(websocketStats.state),
         ];
       case WebsocketReceivedModelEvent.jwtError:
         throw WebsocketError.jwtError(arg ?? 'Unknown jwt error');
