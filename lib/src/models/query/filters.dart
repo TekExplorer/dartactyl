@@ -83,10 +83,10 @@ mixin FilterEnumMixin on Enum {
 }
 
 abstract class Filters<E extends FilterEnumMixin> {
-  /// Returns a map which maps the possible filters (as an enum) to their values.
-  Map<E, String> get filters;
 
   const Filters();
+  /// Returns a map which maps the possible filters (as an enum) to their values.
+  Map<E, String> get filters;
 
   Map<String, String> toJson() {
     final map = <String, String>{};

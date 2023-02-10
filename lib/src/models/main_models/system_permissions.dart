@@ -6,9 +6,9 @@ part '../../generated/models/main_models/system_permissions.g.dart';
 
 @freezed
 class SystemPermissions with SerializableMixin, _$SystemPermissions {
-  const SystemPermissions._();
   const factory SystemPermissions({required Permissions permissions}) =
       _SystemPermissions;
+  const SystemPermissions._();
 
   factory SystemPermissions.fromJson(JsonMap json) =>
       _$SystemPermissionsFromJson(json);
@@ -16,7 +16,6 @@ class SystemPermissions with SerializableMixin, _$SystemPermissions {
 
 @freezed
 class Permissions with _$Permissions {
-  const Permissions._();
   const factory Permissions({
     required PermissionsModel<WebsocketPermissionKeys> websocket,
     required PermissionsModel<ControlPermissionKeys> control,
@@ -29,17 +28,18 @@ class Permissions with _$Permissions {
     required PermissionsModel<SchedulePermissionKeys> schedule,
     required PermissionsModel<SettingsPermissionKeys> settings,
   }) = _Permissions;
+  const Permissions._();
 
   factory Permissions.fromJson(JsonMap json) => _$PermissionsFromJson(json);
 }
 
 @freezed
 class PermissionsModel<T extends SerializableMixin> with _$PermissionsModel<T> {
-  const PermissionsModel._();
   const factory PermissionsModel({
     required String description,
     @PermissionKeysConverter() required T keys,
   }) = _PermissionsModel<T>;
+  const PermissionsModel._();
 
   factory PermissionsModel.fromJson(JsonMap json) =>
       _$PermissionsModelFromJson<T>(json);

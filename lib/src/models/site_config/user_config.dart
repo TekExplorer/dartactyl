@@ -6,7 +6,6 @@ part '../../generated/models/site_config/user_config.g.dart';
 
 @freezed
 class UserConfig with _$UserConfig {
-  const UserConfig._();
   const factory UserConfig({
     required final String uuid,
     required final String username,
@@ -20,6 +19,7 @@ class UserConfig with _$UserConfig {
     required final String nameFirst,
     required final String nameLast,
   }) = _UserConfig;
+  const UserConfig._();
 
   factory UserConfig.fromJson(JsonMap map) => _$UserConfigFromJson(map);
 }

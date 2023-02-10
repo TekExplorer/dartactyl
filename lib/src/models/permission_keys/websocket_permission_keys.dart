@@ -8,10 +8,10 @@ part '../../generated/models/permission_keys/websocket_permission_keys.g.dart';
 @With<SerializableMixin>()
 class WebsocketPermissionKeys
     with SerializableMixin, _$WebsocketPermissionKeys {
-  const WebsocketPermissionKeys._();
   const factory WebsocketPermissionKeys({
     required String connect,
   }) = _WebsocketPermissionKeys;
+  const WebsocketPermissionKeys._();
 
   factory WebsocketPermissionKeys.fromJson(JsonMap json) =>
       _$WebsocketPermissionKeysFromJson(json);

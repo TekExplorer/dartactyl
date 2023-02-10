@@ -11,7 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 class TransformErrorInterceptor extends Interceptor {
   // should be last to intercept
   @override
-  onError(DioError err, ErrorInterceptorHandler handler) {
+  void onError(DioError err, ErrorInterceptorHandler handler) {
     if (err is GenericApiException) {
       if (err is PteroApiException) {
         switch (err.statusCode) {

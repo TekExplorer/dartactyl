@@ -6,7 +6,6 @@ part '../../generated/models/application_models/nest.g.dart';
 
 @freezed
 class Nest with SerializableMixin, _$Nest {
-  const Nest._();
   const factory Nest({
     required int id,
     required String uuid,
@@ -16,5 +15,6 @@ class Nest with SerializableMixin, _$Nest {
     required DateTime createdAt,
     required DateTime updatedAt,
   }) = _Nest;
+  const Nest._();
   factory Nest.fromJson(JsonMap json) => _$NestFromJson(json);
 }

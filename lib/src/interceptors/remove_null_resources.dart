@@ -27,7 +27,7 @@ class RemoveNullResourcesInterceptor extends Interceptor {
           .map((key, value) => MapEntry(key, _removeNullResource(value)));
     }
     if (json is List) {
-      return json.map((e) => _removeNullResource(e)).toList();
+      return json.map(_removeNullResource).toList();
     }
     return json;
   }

@@ -6,7 +6,6 @@ part '../../generated/models/egg/egg_config.g.dart';
 
 @freezed
 class EggConfig with _$EggConfig {
-  const EggConfig._();
   const factory EggConfig({
     required JsonMap files,
     required EggStartupConfig startup,
@@ -14,6 +13,7 @@ class EggConfig with _$EggConfig {
     EggLogsConfig? logs,
     dynamic configExtends,
   }) = _EggConfig;
+  const EggConfig._();
 
   factory EggConfig.fromJson(JsonMap json) => _$EggConfigFromJson(json);
 }

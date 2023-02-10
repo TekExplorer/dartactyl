@@ -6,9 +6,9 @@ part '../../generated/models/request_models/send_server_command.g.dart';
 
 @freezed
 class SendServerCommand with _$SendServerCommand {
-  const SendServerCommand._();
   const factory SendServerCommand({required String command}) =
       _SendServerCommand;
+  const SendServerCommand._();
   factory SendServerCommand.fromJson(JsonMap json) =>
       _$SendServerCommandFromJson(json);
 }

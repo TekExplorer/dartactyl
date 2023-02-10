@@ -6,7 +6,6 @@ part '../../generated/models/main_models/shedule_task.g.dart';
 
 @freezed
 class ScheduleTask with SerializableMixin, _$ScheduleTask {
-  const ScheduleTask._();
   const factory ScheduleTask({
     required int id,
     required int sequenceId,
@@ -18,6 +17,7 @@ class ScheduleTask with SerializableMixin, _$ScheduleTask {
     required DateTime createdAt,
     required DateTime updatedAt,
   }) = _ScheduleTask;
+  const ScheduleTask._();
 
   factory ScheduleTask.fromJson(JsonMap json) => _$ScheduleTaskFromJson(json);
 }

@@ -8,31 +8,31 @@ part '../../generated/models/error_responses/ptero_error.g.dart';
 
 @freezed
 class PteroError with _$PteroError implements Exception {
-  const PteroError._();
   const factory PteroError({
     required PteroErrorCode code,
     required String status,
     required String detail,
     JsonMap? meta,
   }) = _PteroError;
-  String get message => detail;
 
   factory PteroError.fromJson(JsonMap json) => _$PteroErrorFromJson(json);
+  const PteroError._();
+  String get message => detail;
 }
 
 class PteroErrorCode {
   const PteroErrorCode(this.code);
-  final String code;
 
   // fromJson
   factory PteroErrorCode.fromJson(String code) {
-    var errorEnum = PteroErrorCodeEnum.fromJson(code);
+    final errorEnum = PteroErrorCodeEnum.fromJson(code);
     if (errorEnum == PteroErrorCodeEnum.UNKNOWN) {
       return PteroErrorCode(code);
     } else {
       return errorEnum;
     }
   }
+  final String code;
 
   String toJson() => code;
 

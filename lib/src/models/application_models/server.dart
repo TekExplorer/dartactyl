@@ -6,8 +6,6 @@ part '../../generated/models/application_models/server.g.dart';
 
 @freezed
 class ApplicationServer with _$ApplicationServer, SerializableMixin {
-  // https://github.com/pterodactyl/panel/blob/1.0-develop/app/Transformers/Api/Application/ServerTransformer.php
-  const ApplicationServer._();
   const factory ApplicationServer({
     required int id,
     required String externalId,
@@ -29,6 +27,8 @@ class ApplicationServer with _$ApplicationServer, SerializableMixin {
     required DateTime updatedAt,
     ApplicationServerRelationships? relationships,
   }) = _ApplicationServer;
+  // https://github.com/pterodactyl/panel/blob/1.0-develop/app/Transformers/Api/Application/ServerTransformer.php
+  const ApplicationServer._();
 
   factory ApplicationServer.fromJson(JsonMap json) =>
       _$ApplicationServerFromJson(json);
@@ -36,13 +36,13 @@ class ApplicationServer with _$ApplicationServer, SerializableMixin {
 
 @freezed
 class ApplicationServerContainer with _$ApplicationServerContainer {
-  const ApplicationServerContainer._();
   const factory ApplicationServerContainer({
     required String startupCommand,
     required String image,
     @Deprecated('Use status instead') required bool installed,
     required JsonMap environment,
   }) = _ApplicationServerContainer;
+  const ApplicationServerContainer._();
 
   factory ApplicationServerContainer.fromJson(JsonMap json) =>
       _$ApplicationServerContainerFromJson(json);
@@ -50,12 +50,12 @@ class ApplicationServerContainer with _$ApplicationServerContainer {
 
 @freezed
 class ApplicationServerRelationships with _$ApplicationServerRelationships {
-  // https://github.com/pterodactyl/panel/blob/1.0-develop/app/Transformers/Api/Application/ServerTransformer.php
-  const ApplicationServerRelationships._();
   const factory ApplicationServerRelationships(
     FractalData<ApplicationUser>? user,
     // todo: add all relationships
   ) = _ApplicationServerRelationships;
+  // https://github.com/pterodactyl/panel/blob/1.0-develop/app/Transformers/Api/Application/ServerTransformer.php
+  const ApplicationServerRelationships._();
 
   factory ApplicationServerRelationships.fromJson(JsonMap json) =>
       _$ApplicationServerRelationshipsFromJson(json);

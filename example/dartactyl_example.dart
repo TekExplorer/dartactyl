@@ -6,17 +6,17 @@ String apiKey = '<API-Key>';
 void main(List<String> args) async {
   print('Starting!');
 
-  PteroClient client = PteroClient.generate(url: panelUrl, key: apiKey);
+  final PteroClient client = PteroClient.generate(url: panelUrl, key: apiKey);
 
   print('Getting Data!');
 
   await client.listServers().then((response) {
-    Server server = response.data[0].attributes;
+    final Server server = response.data[0].attributes;
     print('${server.name} : ${server.description}');
   });
 
   await client.getAccountInfo().then((response) {
-    Account accountInfo = response.attributes;
+    final Account accountInfo = response.attributes;
     print('${accountInfo.username} : ${accountInfo.email}');
   });
 

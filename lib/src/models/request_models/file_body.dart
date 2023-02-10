@@ -6,24 +6,24 @@ part '../../generated/models/request_models/file_body.g.dart';
 
 @freezed
 class FileBody with _$FileBody {
-  const FileBody._();
   const factory FileBody({
     // ignore: invalid_annotation_target
     @JsonKey(name: 'root') required String rootDir,
     required String file,
   }) = _FileBody;
+  const FileBody._();
 
   factory FileBody.fromJson(JsonMap json) => _$FileBodyFromJson(json);
 }
 
 @freezed
 class FileBodyListFromTo with _$FileBodyListFromTo {
-  const FileBodyListFromTo._();
   const factory FileBodyListFromTo({
     // ignore: invalid_annotation_target
     @JsonKey(name: 'root') required String rootDir,
     required List<FromTo> files, // String or FromTo
   }) = _FileBodyListFromTo;
+  const FileBodyListFromTo._();
 
   factory FileBodyListFromTo.fromJson(JsonMap json) =>
       _$FileBodyListFromToFromJson(json);
@@ -31,12 +31,12 @@ class FileBodyListFromTo with _$FileBodyListFromTo {
 
 @freezed
 class FileBodyListString with _$FileBodyListString {
-  const FileBodyListString._();
   const factory FileBodyListString({
     // ignore: invalid_annotation_target
     @JsonKey(name: 'root') required String rootDir,
     required List<String> files, // String or FromTo
   }) = _FileBodyListString;
+  const FileBodyListString._();
 
   factory FileBodyListString.fromJson(JsonMap json) =>
       _$FileBodyListStringFromJson(json);
@@ -56,12 +56,12 @@ Name:
 
 @freezed
 class FolderBody with _$FolderBody {
-  const FolderBody._();
   const factory FolderBody({
     // ignore: invalid_annotation_target
     @JsonKey(name: 'root') required String rootDir,
     required String name,
   }) = _FolderBody;
+  const FolderBody._();
 
   factory FolderBody.fromJson(JsonMap json) => _$FolderBodyFromJson(json);
 }

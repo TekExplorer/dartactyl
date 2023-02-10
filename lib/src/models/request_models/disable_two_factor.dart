@@ -6,11 +6,11 @@ part '../../generated/models/request_models/disable_two_factor.g.dart';
 
 @freezed
 class DisableTwoFactor with _$DisableTwoFactor {
-  const DisableTwoFactor._();
   const factory DisableTwoFactor({
     required String email,
     required String password,
   }) = _DisableTwoFactor;
+  const DisableTwoFactor._();
 
   factory DisableTwoFactor.fromJson(JsonMap json) =>
       _$DisableTwoFactorFromJson(json);

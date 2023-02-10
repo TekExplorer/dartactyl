@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+// TODO: doesnt jsonSerializable already transform this to snake_case?
 enum AttributeObject {
   list, // lmao how did i forget this one
   // @JsonValue('null_resource') nullResource, // NO MORE IS IT AN ISSUE AS OF 1.4.10!

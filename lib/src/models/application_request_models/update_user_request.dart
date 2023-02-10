@@ -6,7 +6,6 @@ part '../../generated/models/application_request_models/update_user_request.g.da
 
 @freezed
 class UpdateUserRequest with _$UpdateUserRequest {
-  const UpdateUserRequest._();
   const factory UpdateUserRequest({
     required String email,
     required String username,
@@ -17,6 +16,7 @@ class UpdateUserRequest with _$UpdateUserRequest {
     required String language,
     required String password,
   }) = _UpdateUserRequest;
+  const UpdateUserRequest._();
 
   factory UpdateUserRequest.fromJson(JsonMap json) =>
       _$UpdateUserRequestFromJson(json);

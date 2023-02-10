@@ -12,9 +12,9 @@ part '../generated/clients/translation_client.g.dart';
 
 @RestApi()
 abstract class PteroTranslationsClient {
-  const PteroTranslationsClient._();
   factory PteroTranslationsClient(Dio dio, {String? baseUrl}) =
       _PteroTranslationsClient._;
+  const PteroTranslationsClient._();
 
   @GET('/locales/locale.json')
   Future<TranslationData> getTranslation({
@@ -273,8 +273,8 @@ abstract class KnownNamespaces {
 
 @freezed
 class TranslationData with _$TranslationData {
-  const TranslationData._();
   const factory TranslationData({required JsonMap en}) = _TranslationData;
+  const TranslationData._();
 
   factory TranslationData.fromJson(Map<String, dynamic> json) =>
       _$TranslationDataFromJson(json);

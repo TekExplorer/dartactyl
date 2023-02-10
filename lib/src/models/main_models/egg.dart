@@ -7,7 +7,6 @@ part '../../generated/models/main_models/egg.g.dart';
 // TODO: full egg vs server egg
 @freezed
 class Egg with SerializableMixin, _$Egg {
-  const Egg._();
   const factory Egg({
     // only uuid and name show up in the client api
     // int id,
@@ -26,5 +25,6 @@ class Egg with SerializableMixin, _$Egg {
     // required DateTime updatedAt,
     // Relationships? relationships,
   }) = _Egg;
+  const Egg._();
   factory Egg.fromJson(JsonMap json) => _$EggFromJson(json);
 }

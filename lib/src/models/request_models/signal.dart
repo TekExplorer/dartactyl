@@ -6,8 +6,8 @@ part '../../generated/models/request_models/signal.g.dart';
 
 @freezed
 class Signal with _$Signal {
-  const Signal._();
   const factory Signal({required ServerPowerAction signal}) = _Signal;
+  const Signal._();
   factory Signal.fromJson(JsonMap json) => _$SignalFromJson(json);
 }
 

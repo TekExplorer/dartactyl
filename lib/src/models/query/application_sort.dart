@@ -1,4 +1,4 @@
-import 'sort.dart';
+import 'package:dartactyl/src/models/query/sort.dart';
 
 class UsersSort extends Sort<UsersSort> {
   const UsersSort._(super.sort);

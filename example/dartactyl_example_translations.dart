@@ -6,7 +6,7 @@ String apiKey = '';
 void main(List<String> args) async {
   print('Starting!');
 
-  PteroClient client = PteroClient.generate(url: panelUrl, key: apiKey);
+  final PteroClient client = PteroClient.generate(url: panelUrl, key: apiKey);
 
   print('Getting Data!');
 

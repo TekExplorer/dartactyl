@@ -1,7 +1,7 @@
 abstract class Sort<T extends Sort<T>> {
-  final String? sort;
 
   const Sort([this.sort]);
+  final String? sort;
 
   String? toJson() => sort;
 

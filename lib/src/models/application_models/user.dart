@@ -7,7 +7,6 @@ part '../../generated/models/application_models/user.g.dart';
 // https://github.com/pterodactyl/panel/blob/1.0-develop/app/Transformers/Api/Application/UserTransformer.php
 @freezed
 class ApplicationUser with _$ApplicationUser, SerializableMixin {
-  const ApplicationUser._();
   const factory ApplicationUser({
     required String id,
     String? externalId,
@@ -24,6 +23,7 @@ class ApplicationUser with _$ApplicationUser, SerializableMixin {
     required DateTime updatedAt,
     required ApplicationUserRelationships relationships,
   }) = _ApplicationUser;
+  const ApplicationUser._();
 
   factory ApplicationUser.fromJson(JsonMap json) =>
       _$ApplicationUserFromJson(json);
@@ -31,10 +31,10 @@ class ApplicationUser with _$ApplicationUser, SerializableMixin {
 
 @freezed
 class ApplicationUserRelationships with _$ApplicationUserRelationships {
-  const ApplicationUserRelationships._();
   const factory ApplicationUserRelationships({
     required FractalListData<ApplicationServer> servers,
   }) = _ApplicationUserRelationships;
+  const ApplicationUserRelationships._();
 
   factory ApplicationUserRelationships.fromJson(JsonMap json) =>
       _$ApplicationUserRelationshipsFromJson(json);

@@ -6,7 +6,6 @@ part '../../generated/models/main_models/user.g.dart';
 
 @freezed
 class User with _$User, SerializableMixin {
-  const User._();
   const factory User({
     required String uuid,
     required String username,
@@ -16,6 +15,7 @@ class User with _$User, SerializableMixin {
     @JsonKey(name: '2fa_enabled') required bool twoFaEnabled,
     required DateTime createdAt,
   }) = _User;
+  const User._();
 
   factory User.fromJson(JsonMap json) => _$UserFromJson(json);
 }

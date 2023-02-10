@@ -6,7 +6,6 @@ part '../../generated/models/main_models/server_schedule.g.dart';
 
 @freezed
 class ServerSchedule with SerializableMixin, _$ServerSchedule {
-  const ServerSchedule._();
   const factory ServerSchedule({
     required int id,
     required String name,
@@ -19,6 +18,7 @@ class ServerSchedule with SerializableMixin, _$ServerSchedule {
     required DateTime createdAt,
     required DateTime updatedAt,
   }) = _ServerSchedule;
+  const ServerSchedule._();
   factory ServerSchedule.fromJson(JsonMap json) =>
       _$ServerScheduleFromJson(json);
 }

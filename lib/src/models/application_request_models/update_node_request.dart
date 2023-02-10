@@ -17,7 +17,6 @@ part '../../generated/models/application_request_models/update_node_request.g.da
 
 @freezed
 class UpdateNodeRequest with _$UpdateNodeRequest {
-  const UpdateNodeRequest._();
   const factory UpdateNodeRequest({
     required String name,
     required int locationId,
@@ -35,6 +34,7 @@ class UpdateNodeRequest with _$UpdateNodeRequest {
     required bool maintenanceMode,
     required String description,
   }) = _UpdateNodeRequest;
+  const UpdateNodeRequest._();
 
   factory UpdateNodeRequest.fromJson(JsonMap json) =>
       _$UpdateNodeRequestFromJson(json);

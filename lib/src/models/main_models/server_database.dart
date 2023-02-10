@@ -6,18 +6,17 @@ part '../../generated/models/main_models/server_database.g.dart';
 
 @freezed
 class Database with _$Database {
-  const Database._();
   const factory Database({
     required String address,
     required int port,
     // DatabasePasswordRelationships? relationships,
   }) = _Database;
+  const Database._();
   factory Database.fromJson(JsonMap json) => _$DatabaseFromJson(json);
 }
 
 @freezed
 class ServerDatabase with SerializableMixin, _$ServerDatabase {
-  const ServerDatabase._();
   const factory ServerDatabase({
     required int id,
     required String name,
@@ -29,6 +28,7 @@ class ServerDatabase with SerializableMixin, _$ServerDatabase {
     /// Prefer to use the [password] getter
     DatabasePasswordRelationships? relationships,
   }) = _ServerDatabase;
+  const ServerDatabase._();
   factory ServerDatabase.fromJson(JsonMap json) =>
       _$ServerDatabaseFromJson(json);
 

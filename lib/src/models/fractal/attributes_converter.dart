@@ -69,7 +69,7 @@ class AttributesConverter<T extends SerializableMixin>
 
       default:
         throw ArgumentError(
-          "Incompatible type used in FractalResponseData.fromJson: $T",
+          'Incompatible type used in FractalResponseData.fromJson: $T',
         );
     }
   }

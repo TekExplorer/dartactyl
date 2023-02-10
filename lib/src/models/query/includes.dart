@@ -1,7 +1,7 @@
 abstract class Includes {
-  final List<String> includes;
 
   const Includes([this.includes = const []]);
+  final List<String> includes;
 
   String toJson() => includes.join(',');
 }

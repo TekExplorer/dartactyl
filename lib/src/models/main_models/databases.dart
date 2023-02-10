@@ -6,7 +6,6 @@ part '../../generated/models/main_models/databases.g.dart';
 
 @freezed
 class Databases with SerializableMixin, _$Databases {
-  const Databases._();
   const factory Databases({
     required int id,
     required int server,
@@ -18,6 +17,7 @@ class Databases with SerializableMixin, _$Databases {
     required String createdAt,
     required String updatedAt,
   }) = _Databases;
+  const Databases._();
 
   factory Databases.fromJson(JsonMap json) => _$DatabasesFromJson(json);
 }

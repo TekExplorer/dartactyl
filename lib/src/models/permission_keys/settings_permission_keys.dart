@@ -6,11 +6,11 @@ part '../../generated/models/permission_keys/settings_permission_keys.g.dart';
 
 @freezed
 class SettingsPermissionKeys with SerializableMixin, _$SettingsPermissionKeys {
-  const SettingsPermissionKeys._();
   const factory SettingsPermissionKeys({
     required String rename,
     required String reinstall,
   }) = _SettingsPermissionKeys;
+  const SettingsPermissionKeys._();
 
   factory SettingsPermissionKeys.fromJson(JsonMap json) =>
       _$SettingsPermissionKeysFromJson(json);
