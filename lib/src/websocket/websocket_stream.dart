@@ -48,10 +48,9 @@ class ConsoleWebsocket {
     _websocket.stream.listen(
       _onData,
       // ignore: unnecessary_lambdas
-      onDone: () {
-        // _isConnected = Completer<void>();
-        _connect();
-      },
+      // onDone: () {
+      // TODO: no longer connected
+      // },
     );
 
     await _authenticate();
@@ -141,7 +140,7 @@ class ConsoleWebsocket {
         if (_isAuthenticated.isCompleted) _authenticate();
         break;
       case 'jwt error':
-        _isAuthenticated = Completer<void>();
+        // TODO: no longer connected
         log(
           'Warning: JWT validation error from wings',
           name: 'dartactyl websocket _onData',
@@ -152,7 +151,8 @@ class ConsoleWebsocket {
           _authenticate();
           // _connect();
         } else {
-          _isAuthenticated.completeError(arg ?? 'Unknown error');
+          // TODO: no longer connected. what now?
+          // _isAuthenticated.completeError(arg ?? 'Unknown error');
         }
         break;
 
