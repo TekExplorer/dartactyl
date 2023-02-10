@@ -16,7 +16,7 @@ class WebsocketReceivedModel with _$WebsocketReceivedModel {
       _$WebsocketReceivedModelFromJson(json);
 }
 
-@freezed
+@Freezed(when: FreezedWhenOptions.none, map: FreezedMapOptions.none)
 class WebsocketSendModel with _$WebsocketSendModel {
   @internal
   const factory WebsocketSendModel.raw(

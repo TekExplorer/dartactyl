@@ -190,39 +190,7 @@ WebsocketSendModel _$WebsocketSendModelFromJson(Map<String, dynamic> json) {
 mixin _$WebsocketSendModel {
   WebsocketSendModelEvent get event => throw _privateConstructorUsedError;
   List<String>? get args => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(WebsocketSendModelEvent event, List<String>? args)
-        raw,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(WebsocketSendModelEvent event, List<String>? args)? raw,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(WebsocketSendModelEvent event, List<String>? args)? raw,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WebsocketSendModel value) raw,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_WebsocketSendModel value)? raw,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WebsocketSendModel value)? raw,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $WebsocketSendModelCopyWith<WebsocketSendModel> get copyWith =>
@@ -353,63 +321,6 @@ class _$_WebsocketSendModel extends _WebsocketSendModel {
   _$$_WebsocketSendModelCopyWith<_$_WebsocketSendModel> get copyWith =>
       __$$_WebsocketSendModelCopyWithImpl<_$_WebsocketSendModel>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(WebsocketSendModelEvent event, List<String>? args)
-        raw,
-  }) {
-    return raw(event, args);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(WebsocketSendModelEvent event, List<String>? args)? raw,
-  }) {
-    return raw?.call(event, args);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(WebsocketSendModelEvent event, List<String>? args)? raw,
-    required TResult orElse(),
-  }) {
-    if (raw != null) {
-      return raw(event, args);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WebsocketSendModel value) raw,
-  }) {
-    return raw(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_WebsocketSendModel value)? raw,
-  }) {
-    return raw?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WebsocketSendModel value)? raw,
-    required TResult orElse(),
-  }) {
-    if (raw != null) {
-      return raw(this);
-    }
-    return orElse();
-  }
 
   @override
   Map<String, dynamic> toJson() {

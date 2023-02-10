@@ -11,15 +11,11 @@ _$_Stats _$$_StatsFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_Stats(
-          currentState: $checkedConvert(
-            'current_state',
-            (v) => $enumDecode(_$ServerPowerStateEnumMap, v),
-          ),
+          currentState: $checkedConvert('current_state',
+              (v) => $enumDecode(_$ServerPowerStateEnumMap, v)),
           isSuspended: $checkedConvert('is_suspended', (v) => v as bool),
-          resources: $checkedConvert(
-            'resources',
-            (v) => StatsResources.fromJson(v as Map<String, dynamic>),
-          ),
+          resources: $checkedConvert('resources',
+              (v) => StatsResources.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },

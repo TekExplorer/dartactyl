@@ -140,6 +140,7 @@ class __$$_WSInitialCopyWithImpl<$Res>
 
 /// @nodoc
 
+@Deprecated('Use new websocket system')
 class _$_WSInitial implements _WSInitial {
   const _$_WSInitial();
 
@@ -305,6 +306,7 @@ class __$$_WSAuthErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
+@Deprecated('Use new websocket system')
 class _$_WSAuthError implements _WSAuthError {
   const _$_WSAuthError(this.error);
 
@@ -471,6 +473,7 @@ class __$$_WSAuthenticatingCopyWithImpl<$Res>
 
 /// @nodoc
 
+@Deprecated('Use new websocket system')
 class _$_WSAuthenticating implements _WSAuthenticating {
   const _$_WSAuthenticating();
 
@@ -621,6 +624,7 @@ class __$$_WSAuthenticatedCopyWithImpl<$Res>
 
 /// @nodoc
 
+@Deprecated('Use new websocket system')
 class _$_WSAuthenticated implements _WSAuthenticated {
   const _$_WSAuthenticated();
 
@@ -786,6 +790,7 @@ class __$$_WSConsoleOutputCopyWithImpl<$Res>
 
 /// @nodoc
 
+@Deprecated('Use new websocket system')
 class _$_WSConsoleOutput implements _WSConsoleOutput {
   const _$_WSConsoleOutput(this.output);
 
@@ -967,6 +972,7 @@ class __$$_WSInstallOutputCopyWithImpl<$Res>
 
 /// @nodoc
 
+@Deprecated('Use new websocket system')
 class _$_WSInstallOutput implements _WSInstallOutput {
   const _$_WSInstallOutput(this.output);
 
@@ -1157,6 +1163,7 @@ class __$$_WSStatsCopyWithImpl<$Res>
 
 /// @nodoc
 
+@Deprecated('Use new websocket system')
 class _$_WSStats implements _WSStats {
   const _$_WSStats(this.stats);
 
@@ -1338,6 +1345,7 @@ class __$$_WSPowerStateCopyWithImpl<$Res>
 
 /// @nodoc
 
+@Deprecated('Use new websocket system')
 class _$_WSPowerState implements _WSPowerState {
   const _$_WSPowerState(this.status);
 
@@ -1519,6 +1527,7 @@ class __$$_WSJwtErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
+@Deprecated('Use new websocket system')
 class _$_WSJwtError implements _WSJwtError {
   const _$_WSJwtError(this.error);
 
@@ -1700,6 +1709,7 @@ class __$$_WSDaemonErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
+@Deprecated('Use new websocket system')
 class _$_WSDaemonError implements _WSDaemonError {
   const _$_WSDaemonError(this.error);
 

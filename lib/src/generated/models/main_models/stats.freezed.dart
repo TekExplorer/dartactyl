@@ -216,10 +216,11 @@ mixin _$StatsResources {
   double get cpuAbsolute => throw _privateConstructorUsedError;
   int get diskBytes => throw _privateConstructorUsedError;
   int get networkRxBytes => throw _privateConstructorUsedError;
-  int get networkTxBytes =>
-      throw _privateConstructorUsedError; // required int uptime, //todo: doesnt exist in v1.7 or earlier
+  int get networkTxBytes => throw _privateConstructorUsedError;
+
   /// the amount of time the server has been running
-  /// added in pterodactyl v1.8, where it garunteed to exist
+  /// added in pterodactyl v1.8, where it guaranteed to exist
+// required int uptime, //TODO: doesn't exist in v1.7 or earlier
   int? get uptime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -381,9 +382,10 @@ class _$_StatsResources extends _StatsResources {
   final int networkRxBytes;
   @override
   final int networkTxBytes;
-// required int uptime, //todo: doesnt exist in v1.7 or earlier
+
   /// the amount of time the server has been running
-  /// added in pterodactyl v1.8, where it garunteed to exist
+  /// added in pterodactyl v1.8, where it guaranteed to exist
+// required int uptime, //TODO: doesn't exist in v1.7 or earlier
   @override
   final int? uptime;
 
@@ -452,9 +454,11 @@ abstract class _StatsResources extends StatsResources {
   int get networkRxBytes;
   @override
   int get networkTxBytes;
-  @override // required int uptime, //todo: doesnt exist in v1.7 or earlier
+  @override
+
   /// the amount of time the server has been running
-  /// added in pterodactyl v1.8, where it garunteed to exist
+  /// added in pterodactyl v1.8, where it guaranteed to exist
+// required int uptime, //TODO: doesn't exist in v1.7 or earlier
   int? get uptime;
   @override
   @JsonKey(ignore: true)
