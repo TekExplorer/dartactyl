@@ -1,46 +1,48 @@
-import 'dart:developer';
+// TODO: Add example for websocket
 
-import 'package:dartactyl/dartactyl.dart';
+// import 'dart:developer';
 
-Future<ServerWebsocketHandler> getWebsocket() async {
-  final client = PteroClient.generate(
-    url: 'panel.yoursite.com',
-    key: '[api-key]',
-  );
+// import 'package:dartactyl/dartactyl.dart';
 
-  var fractalServers = await client.listServers();
-  final Server server = fractalServers.servers.first;
+// Future<ServerWebsocketHandler> getWebsocket() async {
+//   final client = PteroClient.generate(
+//     url: 'panel.yoursite.com',
+//     key: '[api-key]',
+//   );
 
-  client.getServerWebsocket(serverId: server.identifier);
+//   var fractalServers = await client.listServers();
+//   final Server server = fractalServers.servers.first;
 
-  return server.getWebsocket(client: client);
-}
+//   client.getServerWebsocket(serverId: server.identifier);
 
-void main(List<String> args) async {
-  ServerWebsocketHandler ws = await getWebsocket();
+//   return server.getWebsocket(client: client);
+// }
 
-  ws.listeners
-    ..registerConsoleListener((output) => log(output, name: 'Console'))
-    ..registerInstallListener((output) => log(output, name: 'Install'))
-    ..registerPowerStateListener((state) => log(state.name, name: 'PowerState'))
-    ..registerStatsListener((stats) => log(stats.toString(), name: 'Stats'));
+// void main(List<String> args) async {
+//   ServerWebsocketHandler ws = await getWebsocket();
 
-  ws.init();
-  bool a = false;
-  // watch for the authenticated event, and request stats and logs only once.
-  ws.cubit.stream.listen((event) {
-    // log('Websocket event: $event', name: 'WebsocketCubit');
-    if (a) return;
-    event.mapOrNull(
-      authenticated: (value) {
-        log('Authenticated', name: 'WebsocketCubit');
-        ws.requestStats();
-        ws.requestLogs();
-        a = true;
-      },
-      authenticating: (value) {
-        log('Authenticating', name: 'WebsocketCubit');
-      },
-    );
-  });
-}
+//   ws.listeners
+//     ..registerConsoleListener((output) => log(output, name: 'Console'))
+//     ..registerInstallListener((output) => log(output, name: 'Install'))
+//     ..registerPowerStateListener((state) => log(state.name, name: 'PowerState'))
+//     ..registerStatsListener((stats) => log(stats.toString(), name: 'Stats'));
+
+//   ws.init();
+//   bool a = false;
+//   // watch for the authenticated event, and request stats and logs only once.
+//   ws.cubit.stream.listen((event) {
+//     // log('Websocket event: $event', name: 'WebsocketCubit');
+//     if (a) return;
+//     event.mapOrNull(
+//       authenticated: (value) {
+//         log('Authenticated', name: 'WebsocketCubit');
+//         ws.requestStats();
+//         ws.requestLogs();
+//         a = true;
+//       },
+//       authenticating: (value) {
+//         log('Authenticating', name: 'WebsocketCubit');
+//       },
+//     );
+//   });
+// }

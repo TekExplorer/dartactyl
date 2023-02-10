@@ -1,4 +1,5 @@
 import 'package:dartactyl/dartactyl.dart';
+import 'package:dartactyl/websocket.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '../generated/websocket/websocket_events.freezed.dart';

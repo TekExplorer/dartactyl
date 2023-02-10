@@ -1,19 +1,14 @@
 // ignore_for_file:  no_leading_underscores_for_local_identifiers
-library websocket_stream;
 
 import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:dartactyl/dartactyl.dart' hide OldWebsocketState;
+import 'package:dartactyl/dartactyl.dart';
+import 'package:dartactyl/websocket.dart';
 import 'package:meta/meta.dart';
 import 'package:stream_transform/stream_transform.dart';
 import 'package:universal_io/io.dart';
-
-// ignore: always_use_package_imports
-import 'websocket_state.dart';
-// ignore: always_use_package_imports
-import 'websocket_stream_transformer.dart';
 
 // extension ServerGetWebsocketStream on Server {
 //   ServerWebsocketStream getWebsocketStream({required PteroClient client}) {

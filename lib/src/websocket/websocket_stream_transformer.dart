@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:dartactyl/dartactyl.dart' hide OldWebsocketState;
-import 'package:dartactyl/src/websocket_new/websocket_state.dart';
+import 'package:dartactyl/dartactyl.dart';
+import 'package:dartactyl/websocket.dart';
 import 'package:meta/meta.dart';
 
 class WebsocketStreamTransformer
