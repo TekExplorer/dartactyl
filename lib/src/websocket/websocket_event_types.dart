@@ -11,24 +11,3 @@ enum WebsocketSendModelEvent {
   @JsonValue('send stats')
   sendStats;
 }
-
-// received event
-enum WebsocketReceivedModelEvent {
-  @JsonValue('auth success')
-  authSuccess,
-  @JsonValue('token expiring')
-  tokenExpiring,
-  @JsonValue('token expired')
-  tokenExpired,
-  status,
-  @JsonValue('console output')
-  consoleOutput,
-  @JsonValue('install output')
-  installOutput,
-  stats,
-
-  @JsonValue('jwt error')
-  jwtError, // needs to authenticate
-  @JsonValue('daemon error')
-  daemonError; // passed along error
-}

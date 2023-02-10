@@ -5,261 +5,226 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartactyl/dartactyl.dart';
-import 'package:dartactyl/websocket.dart';
-import 'package:meta/meta.dart';
-import 'package:stream_transform/stream_transform.dart';
-import 'package:universal_io/io.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:rxdart/rxdart.dart';
+import 'package:web_socket_channel/web_socket_channel.dart';
 
-// extension ServerGetWebsocketStream on Server {
-//   ServerWebsocketStream getWebsocketStream({required PteroClient client}) {
-//     return ServerWebsocketStream(
-//       client: client,
-//       serverId: identifier,
-//     );
-//   }
-// }
+part '../generated/websocket/websocket_stream.freezed.dart';
+part '../generated/websocket/websocket_stream.g.dart';
 
-class ServerWebsocket {
-  ServerWebsocket({
-    required this.client,
-    required this.serverId,
-  });
+@freezed
+class _ServerEvent with _$_ServerEvent {
+  const factory _ServerEvent({
+    required String event,
+    required List<String>? args,
+  }) = __ServerEvent;
+  const _ServerEvent._();
 
+  factory _ServerEvent.fromJson(Map<String, dynamic> json) =>
+      _$_ServerEventFromJson(json);
+}
+
+class ConsoleWebsocket {
+  ConsoleWebsocket(this.client, this.serverId) {
+    _connect();
+  }
   final PteroClient client;
   final String serverId;
 
-  // Broadcast so that multiple listeners can listen to the same stream.
-  final _streamController = StreamController<WebsocketState>.broadcast();
-  Stream<WebsocketState> get stream => _streamController.stream;
+  // TODO: how to handle this?
+  final BehaviorSubject<String> _console = BehaviorSubject<String>();
 
-  WebSocket? _webSocket;
+  /// Completes when the websocket is connected and authenticated.
+  Future<void> get ready => _isAuthenticated.future;
+  Completer<void> _isAuthenticated = Completer<void>();
 
-  @visibleForTesting
-  WebSocket get webSocket {
-    if (_webSocket == null) throw StateError('Websocket is not connected');
-    return _webSocket!;
-  }
+  late final WebSocketChannel _websocket;
 
-  @visibleForTesting
-  set webSocket(WebSocket value) {
-    _webSocket = value;
-    // Make sure that we send all the events from the websocket to the
-    // user-facing stream whenever we set a new websocket.
-    _initializeSocketToControllerBridge();
-  }
+  Future<void> _connect() async {
+    final res = await client.getServerWebsocket(serverId: serverId);
+    _websocket = WebSocketChannel.connect(Uri.parse(res.data.socket));
+    await _websocket.ready;
 
-  /// Listens to the transformed websocket and forwards events to the controller
-  StreamSubscription<WebsocketState> _initializeSocketToControllerBridge() {
-    return socketStateStream.listen(
-      _streamController.add,
-      onError: _streamController.addError,
+    _websocket.stream.listen(
+      _onData,
+      // ignore: unnecessary_lambdas
       onDone: () {
-        _streamController.add(const WebsocketState.disconnected());
-        // set socket to null?
-        // or should null be an indication that we never ran `connect()`?
-        // webSocket = null;
-
-        // don't close because we may reconnect with another call to connect()
-        // _streamController.close();
+        // _isConnected = Completer<void>();
+        _connect();
       },
+    );
+
+    await _authenticate();
+    await _isAuthenticated.future;
+  }
+
+  Future<void> _send(String event, String? args) async {
+    await _isAuthenticated.future;
+
+    _websocket.sink.add(
+      jsonEncode({
+        'event': event,
+        'args': [args],
+      }),
     );
   }
 
-  /// Gets the authentication details from the server.
-  /// This is used to [authenticate] the websocket.
-  @visibleForTesting
-  Future<WebsocketDetails> getWebsocketDetails() =>
-      client.getServerWebsocket(serverId: serverId).then((value) => value.data);
-
-  /// A serialized version of the websocket's stream.
-  /// This contains all the events from the websocket as well as websocket
-  /// errors.
-  ///
-  /// You should use [stream] instead of this.
-  /// This is because [stream] includes other useful states such as
-  ///
-  /// See [WebsocketStreamTransformer] for more information.
-  @visibleForTesting
-  Stream<WebsocketDataFromRemote> get socketStateStream => webSocket
-      .transform<WebsocketDataFromRemote>(const WebsocketStreamTransformer());
-
-  // bool get socketIsClosed => webSocket?.readyState == WebSocket.closed;
-  bool get isClosed => _streamController.isClosed;
-
-  Future<void> close() async {
-    await webSocket.close(WebSocketStatus.normalClosure, 'Closed by user');
-    await _streamController.close();
-  }
-
-  /// Connect to the websocket and authenticate.
-  ///
-  /// If [autoAuthenticate] is true, then the websocket will listen for
-  /// [WebsocketNeedsAuth] states and re-authenticate automatically.
-  ///
-  /// If [autoAuthenticate] is false, then the end user will have to listen
-  /// for [WebsocketNeedsAuth] states and re-authenticate manually.
-  ///
-  /// Or you can use [autoAuthenticate] to do the automatic authentication for
-  /// you.
-  ///
-  /// Returns the [socketStateStream] which contains only the [WebsocketState]
-  /// events from the websocket.
-  Future<Stream<WebsocketDataFromRemote>> connect({
-    required bool autoAuthenticate,
-  }) async {
-    if (_webSocket != null && _webSocket!.readyState == WebSocket.open) {
-      throw StateError('Websocket is already connected');
+  Future<void> _authenticate() async {
+    if (_isAuthenticated.isCompleted) {
+      _isAuthenticated = Completer<void>();
     }
 
-    final websocketDetails = await getWebsocketDetails();
+    final socketDetails = await client.getServerWebsocket(serverId: serverId);
 
-    webSocket = await createWebsocket(websocketDetails);
-
-    sendAuthEvent(websocketDetails);
-
-    if (autoAuthenticate) this.autoAuthenticate();
-    return socketStateStream;
+    await _send('auth', socketDetails.data.token);
   }
 
-  @visibleForTesting
-  Future<WebSocket> createWebsocket(WebsocketDetails websocketDetails) {
-    return WebSocket.connect(websocketDetails.socket);
+  void requestStats() => _send('send stats', null);
+
+  void requestLogs() => _send('send logs', null);
+
+  void sendCommand(String command) => _send('send command', command);
+
+  void sendPowerAction(ServerPowerAction powerAction) {
+    _send('set state', powerAction.toJson());
   }
 
-  StreamSubscription<WebsocketState>? _autoAuthenticatorSubscription;
+  static const _reconnectErrors = [
+    'jwt: exp claim is invalid',
+    'jwt: created too far in past (denylist)',
+  ];
 
-  /// listen for front-end states that implement [WebsocketNeedsAuth] and
-  /// re-authenticate.
-  ///
-  /// This can be done by the end user, but this is a convenience method.
-  ///
-  /// Returns the subscription so that it can be cancelled if needed.
-  void autoAuthenticate() {
-    // cancel existing subscription if it exists, so that we don't have
-    // multiple unnecessary subscriptions.
-    if (_autoAuthenticatorSubscription != null) {
-      _autoAuthenticatorSubscription!.cancel();
-    }
-
-    _autoAuthenticatorSubscription = stream.listen((event) async {
-      // Since this relies on the underlying websocket, but we are listening
-      // to the frontend stream, we need to check if the websocket has closed.
-      //
-      // this is indicated by a frontend state of [WebsocketDisconnected]
-      // and stop trying to auto-authenticate if it has.
-      if (event is WebsocketDisconnected) {
-        await _autoAuthenticatorSubscription!.cancel();
-        _autoAuthenticatorSubscription = null;
-        return;
-      }
-      if (event is WebsocketNeedsAuth) await authenticate();
-    });
-  }
-
-  /// A flag to prevent spamming the server with auth requests.
-  ///
-  /// Don't access this flag directly, listen for
-  /// [WebsocketState.authenticating] instead.
-  bool _authenticating = false;
-
-  /// Authenticates the websocket with the server.
-  Future<void> authenticate() async {
-    // don't authenticate if we are already authenticating
-    if (_authenticating) return;
-    _authenticating = true;
-    log('Authenticating websocket', name: 'WebsocketCubit._authenticate');
-    _streamController.add(const WebsocketState.authenticating());
-    try {
-      final websocketDetails = await getWebsocketDetails();
-
-      sendAuthEvent(websocketDetails);
-    } catch (error, stackTrace) {
+  void _onData(Object? data) {
+    if (data is! String) {
+      // Wings is supposed to only ever send strings.
       log(
-        'Error authenticating websocket',
-        name: 'WebsocketCubit.authenticate',
-        error: error,
-        stackTrace: stackTrace,
+        'Warning: Received binary event!\n'
+        "Add a breakpoint in _onData, and inspect 'event'.",
+        name: 'dartactyl websocket _onData',
+        stackTrace: StackTrace.current,
       );
-      _streamController.addError(WebsocketError.authError(error), stackTrace);
-      // WebsocketState.authError(error.toString());
-    } finally {
-      // delay to prevent spamming the server with auth requests
-      await Future<void>.delayed(const Duration(seconds: 1));
-      _authenticating = false;
+      return;
     }
-  }
-
-  // send event
-
-  /// Sends an [event] to the remote server over the websocket.
-  // TODO: Throw errors directly instead of adding them to the stream?
-  @visibleForTesting
-  void sendEvent(WebsocketSendModel event) {
-    log(jsonEncode(event.toJson()), name: 'Websocket Send');
-    // _lastSentEvent = event;
-    if (_webSocket == null) {
-      _streamController.addError(
-        StateError('Websocket is null'),
-        StackTrace.current,
+    final dynamic json = jsonDecode(data);
+    if (json is! Map<String, dynamic>) {
+      // Wings is supposed to only ever send JSON objects.
+      log(
+        'Warning: Received non-JSON event!\n'
+        "Add a breakpoint in _onData, and inspect 'event'.",
+        name: 'dartactyl websocket _onData',
+        stackTrace: StackTrace.current,
       );
       return;
     }
 
-    if (webSocket.readyState != WebSocket.open) {
-      _streamController.addError(
-        StateError('Websocket is not open'),
-        StackTrace.current,
-      );
-      return;
-    }
+    final event = _ServerEvent.fromJson(json);
 
-    try {
-      webSocket.add(jsonEncode(event.toJson()));
-    } catch (error, stackTrace) {
-      // i don't think this can ever happen, but just in case
-      // perhaps when its closed or otherwise disconnected?
-      // except that we check for that above...
-      _streamController.addError(error, stackTrace);
+    final arg = event.args?.first;
+    switch (event.event) {
+      // Auth
+      case 'auth success':
+        if (_isAuthenticated.isCompleted) {
+          log(
+            'Warning: Received an authentication response, '
+            'but we were not waiting on one.',
+            name: 'dartactyl websocket _onData',
+            stackTrace: StackTrace.current,
+          );
+          return;
+        }
+        _isAuthenticated.complete();
+        break;
+      case 'token expiring':
+        if (_isAuthenticated.isCompleted) _authenticate();
+        break;
+      case 'token expired':
+        if (_isAuthenticated.isCompleted) _authenticate();
+        break;
+      case 'jwt error':
+        _isAuthenticated = Completer<void>();
+        log(
+          'Warning: JWT validation error from wings',
+          name: 'dartactyl websocket _onData',
+          error: arg,
+          stackTrace: StackTrace.current,
+        );
+        if (_reconnectErrors.contains(arg)) {
+          _authenticate();
+          // _connect();
+        } else {
+          _isAuthenticated.completeError(arg ?? 'Unknown error');
+        }
+        break;
+
+      // Daemon
+      case 'daemon message':
+        // TODO: Implement this
+
+        break;
+      case 'daemon error':
+        // TODO: Implement this
+
+        break;
+      // Install
+      case 'install output':
+        // TODO: Implement this
+
+        break;
+      case 'install started':
+        // TODO: Implement this
+
+        break;
+      case 'install completed':
+        // TODO: Implement this
+
+        break;
+      // Console
+      case 'console output':
+        // TODO: Implement this
+
+        break;
+      // Power
+      case 'status':
+        // TODO: Implement this
+
+        break;
+      // Stats
+      case 'stats':
+        // TODO: Implement this
+
+        break;
+      // Transfer
+      case 'transfer logs':
+        // TODO: Implement this
+
+        break;
+      case 'transfer status':
+        // TODO: Implement this
+        // enum TransferStatus
+        // starting
+        // success
+        if (arg == 'success' || arg == 'starting') {
+          break;
+        }
+        // failure
+
+        // pending
+        // processing
+        // cancelling
+        // cancelled
+        // failed
+        // completed
+        _connect();
+
+        break;
+      // Backup
+      case 'backup completed':
+        // TODO: Implement this
+
+        break;
+      case 'backup restore completed':
+        // TODO: Implement this
+        break;
     }
   }
-
-  /// Convenience method to send an auth event.
-  @visibleForTesting
-  void sendAuthEvent(WebsocketDetails websocketDetails) => sendEvent(
-        WebsocketSendModel.sendAuth(websocketDetails.token),
-      );
-}
-
-@experimental
-extension ServerWebsocketEventSenders on ServerWebsocket {
-  void requestLogs() => sendEvent(WebsocketSendModel.sendLogs());
-
-  void requestStats() => sendEvent(WebsocketSendModel.sendStats());
-
-  void sendConsoleCommand(String command) => sendEvent(
-        WebsocketSendModel.sendCommand(command),
-      );
-
-  void setPowerState(ServerPowerAction action) => sendEvent(
-        WebsocketSendModel.setPowerState(action),
-      );
-}
-
-@experimental
-extension ServerWebsocketStreams on ServerWebsocket {
-  @experimental
-  Stream<String> get consoleStream =>
-      stream.whereType<WebsocketConsoleData>().map((event) => event.output);
-
-  @experimental
-  Stream<String> get installStream =>
-      stream.whereType<WebsocketInstallData>().map((event) => event.output);
-
-  @experimental
-  Stream<WebsocketStats> get statsStream =>
-      stream.whereType<WebsocketStatsData>().map((state) => state.stats);
-
-  @experimental
-  Stream<ServerPowerState> get powerStateStream =>
-      stream.whereType<WebsocketPowerStateData>().map((state) => state.status);
 }

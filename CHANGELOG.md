@@ -2,8 +2,8 @@
 
 ## Unreleased
 
-- Updated websocket models
-- Corrected spelling of "Recieved" to "Received"
+- Nuked existing websocket implementation. Bye and tanks for all the 🐟🦈!
+
 - Moved to using a Stream wrapper instead of relying on a Cubit for the websocket
 
 ## 1.6.10-dev.2
