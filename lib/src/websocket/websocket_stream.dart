@@ -158,12 +158,14 @@ class ServerWebsocket {
     }
     _connectionStateController.add(ConnectionState.authenticating);
 
+    // If we get an error here, we want to complete the future with an error
     try {
-      // TODO: if this throws, do we forever fail to authenticate?
       final socketDetails = await client.getServerWebsocket(serverId: serverId);
 
+      // TODO: this awaits the completion of the future, but we might complete an error after. how does this work?
       await _send('auth', socketDetails.data.token);
     } catch (error, stackTrace) {
+      // complete with error early so we don't get stuck forever
       _isAuthenticated.completeError(error, stackTrace);
     }
   }
