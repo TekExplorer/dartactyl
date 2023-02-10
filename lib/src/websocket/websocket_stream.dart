@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartactyl/dartactyl.dart';
+import 'package:dartactyl/websocket.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
@@ -31,11 +32,23 @@ class ConsoleWebsocket {
   final PteroClient client;
   final String serverId;
 
-  // TODO: how to handle this?
-  final BehaviorSubject<String> _console = BehaviorSubject<String>();
+  // Streams
+  final BehaviorSubject<String> _logsController = BehaviorSubject();
+  Stream<String> get logsStream => _logsController.stream;
+
+  final BehaviorSubject<WebsocketStats> _statsController = BehaviorSubject();
+  Stream<WebsocketStats> get statsStream => _statsController.stream;
+
+  final BehaviorSubject<ServerPowerState> _powerActionController =
+      BehaviorSubject();
+  Stream<ServerPowerState> get powerStateStream =>
+      _powerActionController.stream;
+  //
 
   /// Completes when the websocket is connected and authenticated.
   Future<void> get ready => _isAuthenticated.future;
+
+  // Is there a case where this will never complete?
   Completer<void> _isAuthenticated = Completer<void>();
 
   late final WebSocketChannel _websocket;
@@ -47,7 +60,6 @@ class ConsoleWebsocket {
 
     _websocket.stream.listen(
       _onData,
-      // ignore: unnecessary_lambdas
       // onDone: () {
       // TODO: no longer connected
       // },
@@ -119,6 +131,16 @@ class ConsoleWebsocket {
     final event = _ServerEvent.fromJson(json);
 
     final arg = event.args?.first;
+    String requireArg() {
+      if (arg == null) {
+        // TODO: send to error stream?
+        throw StateError(
+          'Expected an argument for event ${event.event}, but none was provided.',
+        );
+      }
+      return arg;
+    }
+
     switch (event.event) {
       // Auth
       case 'auth success':
@@ -148,11 +170,10 @@ class ConsoleWebsocket {
           stackTrace: StackTrace.current,
         );
         if (_reconnectErrors.contains(arg)) {
-          _authenticate();
-          // _connect();
+          if (_isAuthenticated.isCompleted) _authenticate();
         } else {
-          // TODO: no longer connected. what now?
-          // _isAuthenticated.completeError(arg ?? 'Unknown error');
+          // TODO: no longer connected due to a validation error.
+          if (_isAuthenticated.isCompleted) _authenticate();
         }
         break;
 
@@ -168,6 +189,7 @@ class ConsoleWebsocket {
       // Install
       case 'install output':
         // TODO: Implement this
+        _logsController.add(requireArg());
 
         break;
       case 'install started':
@@ -181,16 +203,32 @@ class ConsoleWebsocket {
       // Console
       case 'console output':
         // TODO: Implement this
+        _logsController.add(requireArg());
 
         break;
       // Power
       case 'status':
-        // TODO: Implement this
+        final powerAction = ServerPowerState.maybeFromJson(requireArg());
+        if (powerAction == null) {
+          log(
+            'Warning: Received an invalid power action from wings',
+            name: 'dartactyl websocket _onData',
+            error: arg,
+            stackTrace: StackTrace.current,
+          );
+          return;
+        }
+        _powerActionController.add(powerAction);
 
         break;
-      // Stats
+      // Stats (includes Power)
       case 'stats':
-        // TODO: Implement this
+        // TODO: Handle errors
+        // decoding errors, cast errors.
+        final json = jsonDecode(requireArg()) as JsonMap;
+
+        final stats = WebsocketStats.fromJson(json);
+        _statsController.add(stats);
 
         break;
       // Transfer
