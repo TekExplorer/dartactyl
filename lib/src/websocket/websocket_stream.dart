@@ -2,7 +2,6 @@
 
 import 'dart:async';
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:dartactyl/dartactyl.dart';
 import 'package:dartactyl/websocket.dart';
@@ -27,19 +26,15 @@ class _ServerEvent with _$_ServerEvent {
 
 @experimental
 class ServerWebsocket {
-  ServerWebsocket(
-    this.client, {
-    required this.serverId,
-  }) {
+  ServerWebsocket._(this.client, this.serverId) {
     _connect();
   }
 
-  // TODO: is this a good api?
   static Future<ServerWebsocket> connect(
-    PteroClient client, {
-    required String serverId,
-  }) async {
-    final websocket = ServerWebsocket(client, serverId: serverId);
+    PteroClient client,
+    String serverId,
+  ) async {
+    final websocket = ServerWebsocket._(client, serverId);
     await websocket.ready;
     return websocket;
   }
@@ -47,46 +42,59 @@ class ServerWebsocket {
   final PteroClient client;
   final String serverId;
 
-  /* *** Streams *** */
-  final BehaviorSubject<String> _logsController = BehaviorSubject();
+  Future<void> requestStats() => _send('send stats', null);
+  Future<void> requestLogs() => _send('send logs', null);
+  Future<void> sendCommand(String command) => _send('send command', command);
+  Future<void> startServer() => _sendPowerAction(ServerPowerAction.start);
+  Future<void> restartServer() => _sendPowerAction(ServerPowerAction.restart);
+  Future<void> stopServer() => _sendPowerAction(ServerPowerAction.stop);
+  Future<void> killServer() => _sendPowerAction(ServerPowerAction.kill);
 
-  Stream<String> get logsStream => _logsController.stream;
+  Future<void> _sendPowerAction(ServerPowerAction powerAction) =>
+      _send('set state', powerAction.toJson());
 
-  final BehaviorSubject<WebsocketStats> _statsController = BehaviorSubject();
+  // TODO: consider if I want to include a raw stream of source events for logging/debugging or something
+  // Stream<String> get rawEvents => _rawEvents.stream;
+  // final _rawEvents = BehaviorSubject<String>();
 
-  Stream<WebsocketStats> get statsStream => _statsController.stream;
+  Stream<String> get errors => _errors.stream;
+  final _errors = BehaviorSubject<String>();
 
-  final BehaviorSubject<ServerPowerState> _powerActionController =
-      BehaviorSubject();
+  Stream<String> get daemonErrors => _daemonErrors.stream;
+  final _daemonErrors = BehaviorSubject<String>();
 
-  Stream<ServerPowerState> get powerStateStream =>
-      _powerActionController.stream;
+  Stream<String> get daemonMessages => _daemonMessages.stream;
+  final _daemonMessages = BehaviorSubject<String>();
 
-  // TODO: Custom object for extra data?
-  final BehaviorSubject<String> _errorController = BehaviorSubject();
+  Stream<String> get logs => _logs.stream;
+  final _logs = BehaviorSubject<String>();
 
-  Stream<String> get errorStream => _errorController.stream;
+  Stream<WebsocketStats> get stats => _stats.stream;
+  final _stats = BehaviorSubject<WebsocketStats>();
 
-  // TODO: Consider carefully where its used and how it interacts with isAuthenticated
-  final BehaviorSubject<ConnectionState> _connectionStateController =
-      BehaviorSubject();
+  Stream<ServerPowerState> get powerState => _powerState.stream;
+  final _powerState = BehaviorSubject<ServerPowerState>();
 
-  Stream<ConnectionState> get connectionStateStream =>
-      _connectionStateController.stream;
-  /* *** ******* *** */
+  Stream<ConnectionState> get connectionState => _connectionState.stream;
+  final _connectionState = BehaviorSubject<ConnectionState>();
 
-  /// Completes when the websocket is connected and authenticated.
+  Stream<TransferStatus> get transferStatus => _transferStatus.stream;
+  final _transferStatus = BehaviorSubject<TransferStatus>();
+
+  Stream<InstallStatus> get installStatus => _installStatus.stream;
+  final _installStatus = BehaviorSubject<InstallStatus>();
+
+  Stream<BackupStatus> get backupStatus => _backupStatus.stream;
+  final _backupStatus = BehaviorSubject<BackupStatus>();
+
+  late Completer<void> _isAuthenticated = Completer<void>();
+
   Future<void> get ready => _isAuthenticated.future;
-
-  // Is there a case where this will never complete?
-  Completer<void> _isAuthenticated = Completer<void>();
 
   late final WebSocketChannel _websocket;
 
   Future<void> _connect() async {
-    _connectionStateController.add(ConnectionState.connecting);
-    // if _connect() is called again to reconnect, do we need to reset the
-    // authentication state?
+    _connectionState.add(ConnectionState.connecting);
 
     final res = await client.getServerWebsocket(serverId: serverId);
     _websocket = WebSocketChannel.connect(Uri.parse(res.data.socket));
@@ -95,22 +103,11 @@ class ServerWebsocket {
     _websocket.stream.listen(
       _onData,
       onDone: () {
-        _connectionStateController.add(ConnectionState.disconnected);
-        log(
-          'Websocket closed',
-          name: 'dartactyl websocket closed',
-        );
+        _connectionState.add(ConnectionState.disconnected);
       },
       onError: (Object? error, StackTrace? stackTrace) {
-        log(
-          'Warning: Websocket error',
-          name: 'dartactyl websocket error',
-          error: error,
-          stackTrace: stackTrace,
-        );
-
-        _errorController.add('Websocket error: $error');
-        _connectionStateController.add(ConnectionState.disconnected);
+        _errors.add('Websocket error: $error');
+        _connectionState.add(ConnectionState.disconnected);
       },
     );
 
@@ -130,65 +127,39 @@ class ServerWebsocket {
   }
 
   Future<void> _authenticate() async {
-    if (_isAuthenticated.isCompleted) {
-      _isAuthenticated = Completer<void>();
-    }
-    _connectionStateController.add(ConnectionState.authenticating);
+    if (_isAuthenticated.isCompleted) _isAuthenticated = Completer<void>();
+    _connectionState.add(ConnectionState.authenticating);
 
-    // If we get an error here, we want to complete the future with an error
     try {
       final socketDetails = await client.getServerWebsocket(serverId: serverId);
-
-      // TODO: this awaits the completion of the future, but we might complete an error after. how does this work?
       await _send('auth', socketDetails.data.token);
     } catch (error, stackTrace) {
-      // complete with error early so we don't get stuck forever
       _isAuthenticated.completeError(error, stackTrace);
+      _errors.add('Websocket authentication error: $error');
+      _connectionState.add(ConnectionState.disconnected);
     }
   }
 
-  Future<void> requestStats() => _send('send stats', null);
-  Future<void> requestLogs() => _send('send logs', null);
-  Future<void> sendCommand(String command) => _send('send command', command);
-  Future<void> startServer() => _sendPowerAction(ServerPowerAction.start);
-  Future<void> restartServer() => _sendPowerAction(ServerPowerAction.restart);
-  Future<void> stopServer() => _sendPowerAction(ServerPowerAction.stop);
-  Future<void> killServer() => _sendPowerAction(ServerPowerAction.kill);
-
-  Future<void> _sendPowerAction(ServerPowerAction powerAction) =>
-      _send('set state', powerAction.toJson());
-
-  static const _reconnectErrors = [
-    'jwt: exp claim is invalid',
-    'jwt: created too far in past (denylist)',
-  ];
+  // static const _reconnectErrors = [
+  //   'jwt: exp claim is invalid',
+  //   'jwt: created too far in past (denylist)',
+  // ];
 
   void _onData(Object? data) {
     if (data is! String) {
-      // Wings is supposed to only ever send strings.
-      log(
-        'Warning: Received binary event!\n'
-        "Add a breakpoint in _onData, and inspect 'event'.",
-        name: 'dartactyl websocket _onData',
-        stackTrace: StackTrace.current,
-      );
-      _errorController.add('Received a binary event from Wings');
+      _errors.add('Received a binary event from Wings');
       return;
     }
+
     final dynamic json = jsonDecode(data);
     if (json is! Map<String, dynamic>) {
-      // Wings is supposed to only ever send JSON objects.
-      log(
-        'Warning: Received non-JSON event!\n'
-        "Add a breakpoint in _onData, and inspect 'event'.",
-        name: 'dartactyl websocket _onData',
-        stackTrace: StackTrace.current,
-      );
-      _errorController.add('Received a non-JSON event from Wings');
+      _errors.add('Received a non-JSON event from Wings');
       return;
     }
 
     final event = _ServerEvent.fromJson(json);
+
+    // _rawEvents.add(event);
 
     final arg = event.args?.first;
 
@@ -196,20 +167,14 @@ class ServerWebsocket {
       // Auth
       case 'auth success':
         if (_isAuthenticated.isCompleted) {
-          log(
-            'Warning: Received an authentication response, '
-            'but we were not waiting on one.',
-            name: 'dartactyl websocket _onData',
-            stackTrace: StackTrace.current,
-          );
-          _errorController.add(
+          _errors.add(
             'Received an authentication response,'
             ' but we were not waiting on one.',
           );
           return;
         }
         _isAuthenticated.complete();
-        // _connectionStateController.add(ConnectionState.connected);
+        _connectionState.add(ConnectionState.connected);
         break;
       case 'token expiring':
         if (_isAuthenticated.isCompleted) _authenticate();
@@ -218,134 +183,89 @@ class ServerWebsocket {
         if (_isAuthenticated.isCompleted) _authenticate();
         break;
       case 'jwt error':
-        _connectionStateController.add(ConnectionState.disconnected);
-        log(
-          'Warning: JWT validation error from Wings',
-          name: 'dartactyl websocket _onData',
-          error: arg,
-          stackTrace: StackTrace.current,
-        );
-        _errorController.add('JWT validation error from Wings: $arg');
-        if (_reconnectErrors.contains(arg)) {
-          if (_isAuthenticated.isCompleted) _authenticate();
-        } else {
-          // JWT validation error.
-          // 'There was an error validating the credentials provided for the
-          // websocket. Please refresh the page.'
+        _connectionState.add(ConnectionState.disconnected);
+        _errors.add(arg ?? 'Unknown JWT error');
 
-          // TODO: Dont check for isCompleted?
-          if (_isAuthenticated.isCompleted) _authenticate();
-        }
+        if (_isAuthenticated.isCompleted) _authenticate();
+
+        // if (_reconnectErrors.contains(arg)) {
+        //   if (_isAuthenticated.isCompleted) _authenticate();
+        // } else {
+        //   // JWT validation error.
+        //   // 'There was an error validating the credentials provided for the
+        //   // websocket. Please refresh the page.'
+
+        //   if (_isAuthenticated.isCompleted) _authenticate();
+        // }
         break;
 
       // Daemon
       case 'daemon message':
-        // TODO: Implement this (unknown)
+        if (arg == null) {
+          return;
+        }
+        _daemonMessages.add(arg);
 
         break;
       case 'daemon error':
-        // TODO: Implement this (unknown)
+        if (arg == null) {
+          return;
+        }
+        _daemonErrors.add(arg);
+        _errors.add(arg);
 
         break;
       // Install
       case 'install output':
         if (arg == null) {
-          log(
-            'Warning: Received an invalid install output from Wings',
-            name: 'dartactyl websocket _onData',
-            error: arg,
-            stackTrace: StackTrace.current,
-          );
-          // _errorController.add('Received null install output from Wings');
           return;
         }
-        _logsController.add(arg);
+        _logs.add(arg);
 
         break;
       case 'install started':
-        // TODO: Implement this (unknown)
+        _installStatus.add(InstallStatus.started);
 
         break;
       case 'install completed':
-        // TODO: Implement this (unknown)
+        _installStatus.add(InstallStatus.completed);
 
         break;
       // Console
       case 'console output':
         if (arg == null) {
-          log(
-            'Warning: Received an invalid console output from Wings',
-            name: 'dartactyl websocket _onData',
-            error: arg,
-            stackTrace: StackTrace.current,
-          );
-          // _errorController.add('Received null console output from Wings');
           return;
         }
-        _logsController.add(arg);
+        _logs.add(arg);
 
         break;
       // Power
       case 'status':
         if (arg == null) {
-          log(
-            'Warning: Received an invalid power status from Wings',
-            name: 'dartactyl websocket _onData',
-            error: arg,
-            stackTrace: StackTrace.current,
-          );
-          // _errorController.add('Received a null power state from Wings');
           return;
         }
         final powerState = ServerPowerState.maybeFromJson(arg);
         if (powerState == null) {
-          log(
-            'Warning: Received an invalid power action from Wings',
-            name: 'dartactyl websocket _onData',
-            error: arg,
-            stackTrace: StackTrace.current,
-          );
-          // _errorController.add('Received an invalid power state from Wings');
           return;
         }
-        _powerActionController.add(powerState);
+        _powerState.add(powerState);
 
         break;
       // Stats (includes Power)
       case 'stats':
         if (arg == null) {
-          log(
-            'Warning: Received an invalid stats from Wings',
-            name: 'dartactyl websocket _onData (stats) (arg)',
-            error: arg,
-            stackTrace: StackTrace.current,
-          );
-          // _errorController.add('Received null stats from Wings');
           return;
         }
 
         final json = jsonDecode(arg);
         if (json is! JsonMap) {
-          log(
-            'Warning: Received an invalid stats from Wings',
-            name: 'dartactyl websocket _onData (stats) (json)',
-            error: arg,
-            stackTrace: StackTrace.current,
-          );
-          // _errorController.add('Received invalid stats from Wings');
           return;
         }
         try {
           final stats = WebsocketStats.fromJson(json);
-          _statsController.add(stats);
-          _powerActionController.add(stats.powerState);
-        } catch (error, stackTrace) {
-          log(
-            'Warning: Received an invalid stats object from Wings',
-            name: 'dartactyl websocket _onData (stats) (final)',
-            error: error,
-            stackTrace: stackTrace,
-          );
+          _stats.add(stats);
+          _powerState.add(stats.powerState);
+        } catch (error) {
           // _errorController.add('Received invalid stats from Wings');
           return;
         }
@@ -353,39 +273,85 @@ class ServerWebsocket {
         break;
       // Transfer
       case 'transfer logs':
-        // TODO: Implement this (unknown)
+        if (arg == null) {
+          return;
+        }
+        _logs.add(arg);
 
         break;
       case 'transfer status':
-        // TODO: Implement this (unknown)
-        // enum TransferStatus
-        // starting
-        // success
-        if (arg == 'success' || arg == 'starting') {
+        if (arg == null) {
+          return;
+        }
+
+        final status = TransferStatus.values.firstWhereOrNull(
+          (e) => e.name.toLowerCase() == arg.toLowerCase(),
+        );
+
+        if (status == null) {
+          return;
+        }
+
+        _transferStatus.add(status);
+
+        if (status == TransferStatus.success ||
+            status == TransferStatus.starting) {
           break;
         }
-        // failure
 
-        // pending
-        // processing
-        // cancelling
-        // cancelled
-        // failed
-        // completed
-
-        _connectionStateController.add(ConnectionState.disconnected);
+        _connectionState.add(ConnectionState.disconnected);
         // TODO: we need to reconnect in order to get the new endpoint
+        // TODO: are we concerned about this possibly throwing?
         _connect();
 
         break;
       // Backup
       case 'backup completed':
-        // TODO: Implement this (unknown)
-
+        _backupStatus.add(BackupStatus.backupCompleted);
         break;
       case 'backup restore completed':
-        // TODO: Implement this (unknown)
+        _backupStatus.add(BackupStatus.backupRestoreCompleted);
         break;
     }
+  }
+}
+
+enum TransferStatus {
+  starting,
+  success,
+
+  failure,
+
+  pending,
+  processing,
+  failed,
+  completed,
+
+  cancelling,
+  cancelled;
+
+  const TransferStatus();
+}
+
+enum InstallStatus {
+  started,
+  completed;
+
+  bool get isInstalling => this == started;
+}
+
+enum BackupStatus {
+  backupRestoreCompleted,
+  backupCompleted,
+}
+
+extension<T> on List<T> {
+  T? firstWhereOrNull(bool Function(T) test) {
+    for (final element in this) {
+      if (test(element)) {
+        return element;
+      }
+    }
+    return null;
   }
 }
