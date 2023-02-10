@@ -30,6 +30,8 @@ class ServerWebsocket {
     this.client, {
     required this.serverId,
   }) {
+    // go through setter
+    _isAuthenticated = Completer<void>();
     _connect();
   }
 
@@ -85,7 +87,22 @@ class ServerWebsocket {
   Future<void> get ready => _isAuthenticated.future;
 
   // Is there a case where this will never complete?
-  Completer<void> _isAuthenticated = Completer<void>();
+  // gets set in the constructor so that it goes through the setter
+  late Completer<void> __isAuthenticated;
+
+  Completer<void> get _isAuthenticated => __isAuthenticated;
+
+  set _isAuthenticated(Completer<void> isAuthenticated) {
+    __isAuthenticated = isAuthenticated;
+    _isAuthenticated.future.then(
+      (value) {
+        _connectionStateController.add(ConnectionState.connected);
+      },
+    ).catchError((Object? error, StackTrace? stackTrace) {
+      _errorController.add('Websocket authentication error: $error');
+      _connectionStateController.add(ConnectionState.disconnected);
+    });
+  }
 
   late final WebSocketChannel _websocket;
 
@@ -122,7 +139,6 @@ class ServerWebsocket {
 
     await _authenticate();
     await _isAuthenticated.future;
-    _connectionStateController.add(ConnectionState.connected);
   }
 
   Future<void> _send(String event, String? args) async {
@@ -142,10 +158,14 @@ class ServerWebsocket {
     }
     _connectionStateController.add(ConnectionState.authenticating);
 
-    // TODO: if this throws, do we forever fail to authenticate?
-    final socketDetails = await client.getServerWebsocket(serverId: serverId);
+    try {
+      // TODO: if this throws, do we forever fail to authenticate?
+      final socketDetails = await client.getServerWebsocket(serverId: serverId);
 
-    await _send('auth', socketDetails.data.token);
+      await _send('auth', socketDetails.data.token);
+    } catch (error, stackTrace) {
+      _isAuthenticated.completeError(error, stackTrace);
+    }
   }
 
   Future<void> requestStats() => _send('send stats', null);
@@ -210,7 +230,7 @@ class ServerWebsocket {
           return;
         }
         _isAuthenticated.complete();
-        _connectionStateController.add(ConnectionState.connected);
+        // _connectionStateController.add(ConnectionState.connected);
         break;
       case 'token expiring':
         if (_isAuthenticated.isCompleted) _authenticate();
