@@ -6,12 +6,13 @@ part of '../../websocket/websocket_stream.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$__ServerEvent _$$__ServerEventFromJson(Map<String, dynamic> json) =>
+_$_InternalWebsocketEvent _$$_InternalWebsocketEventFromJson(
+        Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$__ServerEvent',
+      r'_$_InternalWebsocketEvent',
       json,
       ($checkedConvert) {
-        final val = _$__ServerEvent(
+        final val = _$_InternalWebsocketEvent(
           event: $checkedConvert('event', (v) => v as String),
           args: $checkedConvert('args',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
@@ -20,7 +21,8 @@ _$__ServerEvent _$$__ServerEventFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$__ServerEventToJson(_$__ServerEvent instance) =>
+Map<String, dynamic> _$$_InternalWebsocketEventToJson(
+        _$_InternalWebsocketEvent instance) =>
     <String, dynamic>{
       'event': instance.event,
       'args': instance.args,
