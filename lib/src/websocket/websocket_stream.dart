@@ -25,6 +25,11 @@ class _ServerEvent with _$_ServerEvent {
 }
 
 @experimental
+@experimental
+@experimental
+@experimental
+@experimental
+@experimental
 class ServerWebsocket {
   ServerWebsocket._(this.client, this.serverId) {
     _connect();
@@ -45,18 +50,20 @@ class ServerWebsocket {
   Future<void> requestStats() => _send('send stats', null);
   Future<void> requestLogs() => _send('send logs', null);
   Future<void> sendCommand(String command) => _send('send command', command);
-  Future<void> startServer() => _sendPowerAction(ServerPowerAction.start);
-  Future<void> restartServer() => _sendPowerAction(ServerPowerAction.restart);
-  Future<void> stopServer() => _sendPowerAction(ServerPowerAction.stop);
-  Future<void> killServer() => _sendPowerAction(ServerPowerAction.kill);
 
-  Future<void> _sendPowerAction(ServerPowerAction powerAction) =>
+  Future<void> startServer() => setPowerState(ServerPowerAction.start);
+  Future<void> restartServer() => setPowerState(ServerPowerAction.restart);
+  Future<void> stopServer() => setPowerState(ServerPowerAction.stop);
+  Future<void> killServer() => setPowerState(ServerPowerAction.kill);
+
+  Future<void> setPowerState(ServerPowerAction powerAction) =>
       _send('set state', powerAction.toJson());
 
   // TODO: consider if I want to include a raw stream of source events for logging/debugging or something
   // Stream<String> get rawEvents => _rawEvents.stream;
   // final _rawEvents = BehaviorSubject<String>();
 
+  // TODO: maybe use an object that is an Exception or Error which can contain more data for debugging?
   Stream<String> get errors => _errors.stream;
   final _errors = BehaviorSubject<String>();
 
@@ -91,13 +98,21 @@ class ServerWebsocket {
 
   Future<void> get ready => _isAuthenticated.future;
 
-  late final WebSocketChannel _websocket;
+  // TODO: work out a better solution for testing this
+  @visibleForTesting
+  WebSocketChannel? websocketOverride;
+
+  late WebSocketChannel _websocket;
 
   Future<void> _connect() async {
     _connectionState.add(ConnectionState.connecting);
 
     final res = await client.getServerWebsocket(serverId: serverId);
-    _websocket = WebSocketChannel.connect(Uri.parse(res.data.socket));
+    if (websocketOverride != null) {
+      _websocket = websocketOverride!;
+    } else {
+      _websocket = WebSocketChannel.connect(Uri.parse(res.data.socket));
+    }
     await _websocket.ready;
 
     _websocket.stream.listen(
@@ -105,7 +120,7 @@ class ServerWebsocket {
       onDone: () {
         _connectionState.add(ConnectionState.disconnected);
       },
-      onError: (Object? error, StackTrace? stackTrace) {
+      onError: (Object error, StackTrace stackTrace) {
         _errors.add('Websocket error: $error');
         _connectionState.add(ConnectionState.disconnected);
       },
@@ -302,8 +317,8 @@ class ServerWebsocket {
         _connectionState.add(ConnectionState.disconnected);
         // TODO: we need to reconnect in order to get the new endpoint
         // TODO: are we concerned about this possibly throwing?
+        // TODO: NEEDS TESTING BADLY
         _connect();
-
         break;
       // Backup
       case 'backup completed':
