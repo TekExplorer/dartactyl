@@ -1,48 +1,31 @@
 // TODO: Add example for websocket
 
-// import 'dart:developer';
+import 'dart:developer';
 
-// import 'package:dartactyl/dartactyl.dart';
+import 'package:dartactyl/dartactyl.dart';
+import 'package:dartactyl/websocket.dart';
 
-// Future<ServerWebsocketHandler> getWebsocket() async {
-//   final client = PteroClient.generate(
-//     url: 'panel.yoursite.com',
-//     key: '[api-key]',
-//   );
+Future<ServerWebsocket> getWebsocket() async {
+  final client = PteroClient.generate(
+    url: 'panel.yoursite.com',
+    apiKey: '[api-key]',
+  );
 
-//   var fractalServers = await client.listServers();
-//   final Server server = fractalServers.servers.first;
+  final fractalServers = await client.listServers();
+  final Server server = fractalServers.servers.first;
 
-//   client.getServerWebsocket(serverId: server.identifier);
+  await client.getServerWebsocket(serverId: server.identifier);
 
-//   return server.getWebsocket(client: client);
-// }
+  return ServerWebsocket.connect(client, serverId: server.identifier);
+}
 
-// void main(List<String> args) async {
-//   ServerWebsocketHandler ws = await getWebsocket();
+void main(List<String> args) async {
+  final ws = await getWebsocket();
 
-//   ws.listeners
-//     ..registerConsoleListener((output) => log(output, name: 'Console'))
-//     ..registerInstallListener((output) => log(output, name: 'Install'))
-//     ..registerPowerStateListener((state) => log(state.name, name: 'PowerState'))
-//     ..registerStatsListener((stats) => log(stats.toString(), name: 'Stats'));
+  ws.logs.listen((output) => log(output, name: 'Logs'));
+  ws.powerState.listen((state) => log(state.name, name: 'PowerState'));
+  ws.stats.listen((stats) => log(stats.toString(), name: 'Stats'));
 
-//   ws.init();
-//   bool a = false;
-//   // watch for the authenticated event, and request stats and logs only once.
-//   ws.cubit.stream.listen((event) {
-//     // log('Websocket event: $event', name: 'WebsocketCubit');
-//     if (a) return;
-//     event.mapOrNull(
-//       authenticated: (value) {
-//         log('Authenticated', name: 'WebsocketCubit');
-//         ws.requestStats();
-//         ws.requestLogs();
-//         a = true;
-//       },
-//       authenticating: (value) {
-//         log('Authenticating', name: 'WebsocketCubit');
-//       },
-//     );
-//   });
-// }
+  // async because it wont send until we are authenticated
+  await ws.sendCommand('start');
+}

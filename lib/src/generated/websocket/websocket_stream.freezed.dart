@@ -14,36 +14,38 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-InternalWebsocketEvent _$InternalWebsocketEventFromJson(
-    Map<String, dynamic> json) {
-  return _InternalWebsocketEvent.fromJson(json);
-}
-
 /// @nodoc
-mixin _$InternalWebsocketEvent {
-  String get event => throw _privateConstructorUsedError;
-  List<String>? get args => throw _privateConstructorUsedError;
+mixin _$ServerWebsocketError {
+  String get message => throw _privateConstructorUsedError;
+  Object? get error => throw _privateConstructorUsedError;
+  StackTrace get stackTrace => throw _privateConstructorUsedError;
+  @Deprecated('TEMPORARY')
+  @internal
+  String get debugFrom => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $InternalWebsocketEventCopyWith<InternalWebsocketEvent> get copyWith =>
+  $ServerWebsocketErrorCopyWith<ServerWebsocketError> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $InternalWebsocketEventCopyWith<$Res> {
-  factory $InternalWebsocketEventCopyWith(InternalWebsocketEvent value,
-          $Res Function(InternalWebsocketEvent) then) =
-      _$InternalWebsocketEventCopyWithImpl<$Res, InternalWebsocketEvent>;
+abstract class $ServerWebsocketErrorCopyWith<$Res> {
+  factory $ServerWebsocketErrorCopyWith(ServerWebsocketError value,
+          $Res Function(ServerWebsocketError) then) =
+      _$ServerWebsocketErrorCopyWithImpl<$Res, ServerWebsocketError>;
   @useResult
-  $Res call({String event, List<String>? args});
+  $Res call(
+      {String message,
+      Object? error,
+      StackTrace stackTrace,
+      @Deprecated('TEMPORARY') @internal String debugFrom});
 }
 
 /// @nodoc
-class _$InternalWebsocketEventCopyWithImpl<$Res,
-        $Val extends InternalWebsocketEvent>
-    implements $InternalWebsocketEventCopyWith<$Res> {
-  _$InternalWebsocketEventCopyWithImpl(this._value, this._then);
+class _$ServerWebsocketErrorCopyWithImpl<$Res,
+        $Val extends ServerWebsocketError>
+    implements $ServerWebsocketErrorCopyWith<$Res> {
+  _$ServerWebsocketErrorCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -53,133 +55,148 @@ class _$InternalWebsocketEventCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = null,
-    Object? args = freezed,
+    Object? message = null,
+    Object? error = freezed,
+    Object? stackTrace = null,
+    Object? debugFrom = null,
   }) {
     return _then(_value.copyWith(
-      event: null == event
-          ? _value.event
-          : event // ignore: cast_nullable_to_non_nullable
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
-      args: freezed == args
-          ? _value.args
-          : args // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+      error: freezed == error ? _value.error : error,
+      stackTrace: null == stackTrace
+          ? _value.stackTrace
+          : stackTrace // ignore: cast_nullable_to_non_nullable
+              as StackTrace,
+      debugFrom: null == debugFrom
+          ? _value.debugFrom
+          : debugFrom // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_InternalWebsocketEventCopyWith<$Res>
-    implements $InternalWebsocketEventCopyWith<$Res> {
-  factory _$$_InternalWebsocketEventCopyWith(_$_InternalWebsocketEvent value,
-          $Res Function(_$_InternalWebsocketEvent) then) =
-      __$$_InternalWebsocketEventCopyWithImpl<$Res>;
+abstract class _$$_ServerWebsocketErrorCopyWith<$Res>
+    implements $ServerWebsocketErrorCopyWith<$Res> {
+  factory _$$_ServerWebsocketErrorCopyWith(_$_ServerWebsocketError value,
+          $Res Function(_$_ServerWebsocketError) then) =
+      __$$_ServerWebsocketErrorCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String event, List<String>? args});
+  $Res call(
+      {String message,
+      Object? error,
+      StackTrace stackTrace,
+      @Deprecated('TEMPORARY') @internal String debugFrom});
 }
 
 /// @nodoc
-class __$$_InternalWebsocketEventCopyWithImpl<$Res>
-    extends _$InternalWebsocketEventCopyWithImpl<$Res,
-        _$_InternalWebsocketEvent>
-    implements _$$_InternalWebsocketEventCopyWith<$Res> {
-  __$$_InternalWebsocketEventCopyWithImpl(_$_InternalWebsocketEvent _value,
-      $Res Function(_$_InternalWebsocketEvent) _then)
+class __$$_ServerWebsocketErrorCopyWithImpl<$Res>
+    extends _$ServerWebsocketErrorCopyWithImpl<$Res, _$_ServerWebsocketError>
+    implements _$$_ServerWebsocketErrorCopyWith<$Res> {
+  __$$_ServerWebsocketErrorCopyWithImpl(_$_ServerWebsocketError _value,
+      $Res Function(_$_ServerWebsocketError) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = null,
-    Object? args = freezed,
+    Object? message = null,
+    Object? error = freezed,
+    Object? stackTrace = null,
+    Object? debugFrom = null,
   }) {
-    return _then(_$_InternalWebsocketEvent(
-      event: null == event
-          ? _value.event
-          : event // ignore: cast_nullable_to_non_nullable
+    return _then(_$_ServerWebsocketError(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
-      args: freezed == args
-          ? _value._args
-          : args // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+      error: freezed == error ? _value.error : error,
+      stackTrace: null == stackTrace
+          ? _value.stackTrace
+          : stackTrace // ignore: cast_nullable_to_non_nullable
+              as StackTrace,
+      debugFrom: null == debugFrom
+          ? _value.debugFrom
+          : debugFrom // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$_InternalWebsocketEvent extends _InternalWebsocketEvent {
-  const _$_InternalWebsocketEvent(
-      {required this.event, required final List<String>? args})
-      : _args = args,
-        super._();
 
-  factory _$_InternalWebsocketEvent.fromJson(Map<String, dynamic> json) =>
-      _$$_InternalWebsocketEventFromJson(json);
+class _$_ServerWebsocketError extends _ServerWebsocketError {
+  const _$_ServerWebsocketError(this.message,
+      {this.error,
+      required this.stackTrace,
+      @Deprecated('TEMPORARY') @internal required this.debugFrom})
+      : super._();
 
   @override
-  final String event;
-  final List<String>? _args;
+  final String message;
   @override
-  List<String>? get args {
-    final value = _args;
-    if (value == null) return null;
-    if (_args is EqualUnmodifiableListView) return _args;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  final Object? error;
+  @override
+  final StackTrace stackTrace;
+  @override
+  @Deprecated('TEMPORARY')
+  @internal
+  final String debugFrom;
 
   @override
   String toString() {
-    return 'InternalWebsocketEvent._internal(event: $event, args: $args)';
+    return 'ServerWebsocketError._internal(message: $message, error: $error, stackTrace: $stackTrace, debugFrom: $debugFrom)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InternalWebsocketEvent &&
-            (identical(other.event, event) || other.event == event) &&
-            const DeepCollectionEquality().equals(other._args, _args));
+            other is _$_ServerWebsocketError &&
+            (identical(other.message, message) || other.message == message) &&
+            const DeepCollectionEquality().equals(other.error, error) &&
+            (identical(other.stackTrace, stackTrace) ||
+                other.stackTrace == stackTrace) &&
+            (identical(other.debugFrom, debugFrom) ||
+                other.debugFrom == debugFrom));
   }
 
-  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, event, const DeepCollectionEquality().hash(_args));
+  int get hashCode => Object.hash(runtimeType, message,
+      const DeepCollectionEquality().hash(error), stackTrace, debugFrom);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InternalWebsocketEventCopyWith<_$_InternalWebsocketEvent> get copyWith =>
-      __$$_InternalWebsocketEventCopyWithImpl<_$_InternalWebsocketEvent>(
+  _$$_ServerWebsocketErrorCopyWith<_$_ServerWebsocketError> get copyWith =>
+      __$$_ServerWebsocketErrorCopyWithImpl<_$_ServerWebsocketError>(
           this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_InternalWebsocketEventToJson(
-      this,
-    );
-  }
 }
 
-abstract class _InternalWebsocketEvent extends InternalWebsocketEvent {
-  const factory _InternalWebsocketEvent(
-      {required final String event,
-      required final List<String>? args}) = _$_InternalWebsocketEvent;
-  const _InternalWebsocketEvent._() : super._();
-
-  factory _InternalWebsocketEvent.fromJson(Map<String, dynamic> json) =
-      _$_InternalWebsocketEvent.fromJson;
+abstract class _ServerWebsocketError extends ServerWebsocketError {
+  const factory _ServerWebsocketError(final String message,
+          {final Object? error,
+          required final StackTrace stackTrace,
+          @Deprecated('TEMPORARY') @internal required final String debugFrom}) =
+      _$_ServerWebsocketError;
+  const _ServerWebsocketError._() : super._();
 
   @override
-  String get event;
+  String get message;
   @override
-  List<String>? get args;
+  Object? get error;
+  @override
+  StackTrace get stackTrace;
+  @override
+  @Deprecated('TEMPORARY')
+  @internal
+  String get debugFrom;
   @override
   @JsonKey(ignore: true)
-  _$$_InternalWebsocketEventCopyWith<_$_InternalWebsocketEvent> get copyWith =>
+  _$$_ServerWebsocketErrorCopyWith<_$_ServerWebsocketError> get copyWith =>
       throw _privateConstructorUsedError;
 }

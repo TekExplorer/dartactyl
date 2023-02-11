@@ -6,6 +6,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartactyl/dartactyl.dart';
+import 'package:dartactyl/src/websocket/_internal.dart';
 import 'package:dartactyl/websocket.dart';
 import 'package:mocktailx/mocktailx.dart';
 import 'package:stream_channel/stream_channel.dart';
@@ -90,7 +91,8 @@ void main() {
           final arg = websocketEvent.args?.first;
           expect(arg, isA<String?>());
 
-          final _event = ServerWebsocketSendEvent.values.firstWhereOrNull(
+          final _event =
+              InternalServerWebsocketSendEvent.values.firstWhereOrNull(
             (e) => e.event == websocketEvent.event,
           );
 
@@ -98,7 +100,7 @@ void main() {
 
           switch (_event!) {
             // Critical in order to initialize the websocket
-            case ServerWebsocketSendEvent.auth:
+            case InternalServerWebsocketSendEvent.auth:
               expect(arg, isNotNull);
               expect(
                 arg,
@@ -107,7 +109,7 @@ void main() {
               );
               server.add(
                 InternalWebsocketEvent.fromEvent(
-                  event: ServerWebsocketReceiveEvent.authSuccess,
+                  event: InternalServerWebsocketReceiveEvent.authSuccess,
                   arg: null,
                 ).toEncodedJson(),
               );
@@ -133,9 +135,9 @@ void main() {
         ),
       );
 
-      final serverWebsocket = ServerWebsocket(
+      final serverWebsocket = ServerWebsocket.internal(
         mockClient,
-        mockServerId,
+        serverId: mockServerId,
       );
 
       serverWebsocket.errors.listen((error) {
@@ -168,7 +170,8 @@ void main() {
           final arg = websocketEvent.args?.first;
           expect(arg, isA<String?>());
 
-          final _event = ServerWebsocketSendEvent.values.firstWhereOrNull(
+          final _event =
+              InternalServerWebsocketSendEvent.values.firstWhereOrNull(
             (e) => e.event == websocketEvent.event,
           );
 
@@ -176,7 +179,7 @@ void main() {
 
           switch (_event!) {
             // Critical in order to initialize the websocket
-            case ServerWebsocketSendEvent.auth:
+            case InternalServerWebsocketSendEvent.auth:
               expect(arg, isNotNull);
               expect(
                 arg,
@@ -185,17 +188,17 @@ void main() {
               );
               server.add(
                 InternalWebsocketEvent.fromEvent(
-                  event: ServerWebsocketReceiveEvent.authSuccess,
+                  event: InternalServerWebsocketReceiveEvent.authSuccess,
                   arg: null,
                 ).toEncodedJson(),
               );
               break;
-            case ServerWebsocketSendEvent.sendLogs:
+            case InternalServerWebsocketSendEvent.sendLogs:
               expect(arg, isNull);
               for (final log in mockLogs) {
                 server.add(
                   InternalWebsocketEvent.fromEvent(
-                    event: ServerWebsocketReceiveEvent.consoleOutput,
+                    event: InternalServerWebsocketReceiveEvent.consoleOutput,
                     arg: log,
                   ).toEncodedJson(),
                 );
@@ -222,9 +225,9 @@ void main() {
         ),
       );
 
-      final serverWebsocket = ServerWebsocket(
+      final serverWebsocket = ServerWebsocket.internal(
         mockClient,
-        mockServerId,
+        serverId: mockServerId,
       );
 
       serverWebsocket.errors.listen((error) {

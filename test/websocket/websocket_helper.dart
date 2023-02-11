@@ -5,7 +5,7 @@ import 'dart:io';
 // ignore_for_file: cascade_invocations
 
 import 'package:dartactyl/models.dart';
-import 'package:dartactyl/websocket.dart';
+import 'package:dartactyl/src/websocket/_internal.dart';
 import 'package:test/test.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
