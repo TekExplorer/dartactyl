@@ -230,9 +230,9 @@ void main() {
         serverId: mockServerId,
       );
 
-      serverWebsocket.errors.listen((error) {
-        log('ServerWebsocket error: $error');
-      });
+      // serverWebsocket.errors.listen((error) {
+      //   log('ServerWebsocket error: $error');
+      // });
 
       expect(serverWebsocket, isA<ServerWebsocket>());
 
@@ -247,9 +247,19 @@ void main() {
       expect(requestFuture, completes);
       await requestFuture;
 
-      expect(
+      // ensure we get expected data
+      await expectLater(
         serverWebsocket.logs,
         emitsInOrder(mockLogs),
+      );
+      // NOW close the socket to ensure no errors emitted while retrieving logs
+
+      // TODO: is this right? Seems to be needed to avoid the below from timing out
+      await serverWebsocket.close();
+
+      expect(
+        serverWebsocket.errors,
+        neverEmits(anything),
       );
     });
   });

@@ -9,6 +9,7 @@ import 'package:dartactyl/src/websocket/_internal.dart';
 import 'package:dartactyl/websocket.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:universal_io/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 part '../generated/websocket/websocket_stream.freezed.dart';
@@ -96,7 +97,10 @@ class ServerWebsocket {
   Stream<ServerPowerState> get powerState => _powerState.stream;
   final _powerState = BehaviorSubject<ServerPowerState>();
 
-  Stream<ConnectionState> get connectionState => _connectionState.stream;
+  // Distinct because theres no reason to emit the same connection state twice
+  // TODO: is this the right way to keep it as a ValueStream?
+  Stream<ConnectionState> get connectionState =>
+      _connectionState.stream.distinct().shareValue();
   final _connectionState = BehaviorSubject<ConnectionState>();
 
   Stream<TransferStatus> get transferStatus => _transferStatus.stream;
@@ -471,6 +475,57 @@ class ServerWebsocket {
         break;
     }
   }
+
+  // TODO: Theoretically, closed should be the last value.
+  bool get isClosed => _connectionState.value == ConnectionState.closed;
+
+  @experimental
+  Future<void> close() async {
+    // So that stuff that only watch for disconnected get triggered too
+    _connectionState.add(ConnectionState.disconnected);
+    _connectionState.add(ConnectionState.closing);
+
+    await _websocket.sink.close(WebSocketStatus.normalClosure);
+    // TODO: This is necessary for listeners to close right?
+    // TODO: Tests that assert that no events were send need this right?
+    // close the streams
+
+    await _daemonMessages.sink.close();
+    await _daemonErrors.sink.close();
+    await _logs.sink.close();
+    await _powerState.sink.close();
+    await _stats.sink.close();
+    await _transferStatus.sink.close();
+    await _installStatus.sink.close();
+    await _backupStatus.sink.close();
+    await _errors.sink.close();
+    _connectionState.add(ConnectionState.closed);
+    await _connectionState.sink.close();
+    // TODO: If i dont complete it, don't people hang forever? Complete with error or data?
+    if (!_isAuthenticated.isCompleted) {
+      _isAuthenticated.completeError(
+        ServerWebsocketError._internal(
+          "Websocket closed before 'ready' completed",
+          stackTrace: StackTrace.current,
+          debugFrom: 'close()',
+        ),
+      );
+    }
+  }
+
+  // TODO: Are these worth adding?
+  // @experimental
+  // Future<void> disconnect() async {
+  //   _connectionState.add(ConnectionState.disconnected);
+  //   await _websocket.sink.close(WebSocketStatus.goingAway);
+  // }
+
+  // @experimental
+  // Future<void> reconnect() async {
+  //   _connectionState.add(ConnectionState.disconnected);
+  //   await _websocket.sink.close(WebSocketStatus.goingAway);
+  //   await _connect();
+  // }
 }
 
 enum TransferStatus {
@@ -487,7 +542,7 @@ enum TransferStatus {
   cancelling,
   cancelled;
 
-  // needs reconnect?
+  // TODO: indicate needs reconnect?
 }
 
 enum InstallStatus {
