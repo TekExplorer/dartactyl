@@ -45,7 +45,7 @@ class WebSocketAndUrl {
   final WebSocketChannel webSocket;
 }
 
-InternalWebsocketEvent expectAndReturnValidEvent(dynamic request) {
+WebsocketEvent expectAndReturnValidEvent(dynamic request) {
   final JsonMap requestJson;
   if (request is JsonMap) {
     requestJson = request;
@@ -53,7 +53,7 @@ InternalWebsocketEvent expectAndReturnValidEvent(dynamic request) {
     requestJson = expectAndReturnValidRequestJson(request);
   }
 
-  final websocketEvent = InternalWebsocketEvent.fromJson(requestJson);
+  final websocketEvent = WebsocketEvent.fromJson(requestJson);
   expect(websocketEvent.event, isNotEmpty);
   if (websocketEvent.args != null) {
     expect(

@@ -14,36 +14,34 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-InternalWebsocketEvent _$InternalWebsocketEventFromJson(
-    Map<String, dynamic> json) {
-  return _InternalWebsocketEvent.fromJson(json);
+WebsocketEvent _$WebsocketEventFromJson(Map<String, dynamic> json) {
+  return _WebsocketEvent.fromJson(json);
 }
 
 /// @nodoc
-mixin _$InternalWebsocketEvent {
+mixin _$WebsocketEvent {
   String get event => throw _privateConstructorUsedError;
   List<String>? get args => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $InternalWebsocketEventCopyWith<InternalWebsocketEvent> get copyWith =>
+  $WebsocketEventCopyWith<WebsocketEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $InternalWebsocketEventCopyWith<$Res> {
-  factory $InternalWebsocketEventCopyWith(InternalWebsocketEvent value,
-          $Res Function(InternalWebsocketEvent) then) =
-      _$InternalWebsocketEventCopyWithImpl<$Res, InternalWebsocketEvent>;
+abstract class $WebsocketEventCopyWith<$Res> {
+  factory $WebsocketEventCopyWith(
+          WebsocketEvent value, $Res Function(WebsocketEvent) then) =
+      _$WebsocketEventCopyWithImpl<$Res, WebsocketEvent>;
   @useResult
   $Res call({String event, List<String>? args});
 }
 
 /// @nodoc
-class _$InternalWebsocketEventCopyWithImpl<$Res,
-        $Val extends InternalWebsocketEvent>
-    implements $InternalWebsocketEventCopyWith<$Res> {
-  _$InternalWebsocketEventCopyWithImpl(this._value, this._then);
+class _$WebsocketEventCopyWithImpl<$Res, $Val extends WebsocketEvent>
+    implements $WebsocketEventCopyWith<$Res> {
+  _$WebsocketEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -70,23 +68,22 @@ class _$InternalWebsocketEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InternalWebsocketEventCopyWith<$Res>
-    implements $InternalWebsocketEventCopyWith<$Res> {
-  factory _$$_InternalWebsocketEventCopyWith(_$_InternalWebsocketEvent value,
-          $Res Function(_$_InternalWebsocketEvent) then) =
-      __$$_InternalWebsocketEventCopyWithImpl<$Res>;
+abstract class _$$_WebsocketEventCopyWith<$Res>
+    implements $WebsocketEventCopyWith<$Res> {
+  factory _$$_WebsocketEventCopyWith(
+          _$_WebsocketEvent value, $Res Function(_$_WebsocketEvent) then) =
+      __$$_WebsocketEventCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String event, List<String>? args});
 }
 
 /// @nodoc
-class __$$_InternalWebsocketEventCopyWithImpl<$Res>
-    extends _$InternalWebsocketEventCopyWithImpl<$Res,
-        _$_InternalWebsocketEvent>
-    implements _$$_InternalWebsocketEventCopyWith<$Res> {
-  __$$_InternalWebsocketEventCopyWithImpl(_$_InternalWebsocketEvent _value,
-      $Res Function(_$_InternalWebsocketEvent) _then)
+class __$$_WebsocketEventCopyWithImpl<$Res>
+    extends _$WebsocketEventCopyWithImpl<$Res, _$_WebsocketEvent>
+    implements _$$_WebsocketEventCopyWith<$Res> {
+  __$$_WebsocketEventCopyWithImpl(
+      _$_WebsocketEvent _value, $Res Function(_$_WebsocketEvent) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +92,7 @@ class __$$_InternalWebsocketEventCopyWithImpl<$Res>
     Object? event = null,
     Object? args = freezed,
   }) {
-    return _then(_$_InternalWebsocketEvent(
+    return _then(_$_WebsocketEvent(
       event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
@@ -110,14 +107,14 @@ class __$$_InternalWebsocketEventCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_InternalWebsocketEvent extends _InternalWebsocketEvent {
-  const _$_InternalWebsocketEvent(
+class _$_WebsocketEvent extends _WebsocketEvent {
+  const _$_WebsocketEvent(
       {required this.event, required final List<String>? args})
       : _args = args,
         super._();
 
-  factory _$_InternalWebsocketEvent.fromJson(Map<String, dynamic> json) =>
-      _$$_InternalWebsocketEventFromJson(json);
+  factory _$_WebsocketEvent.fromJson(Map<String, dynamic> json) =>
+      _$$_WebsocketEventFromJson(json);
 
   @override
   final String event;
@@ -133,14 +130,14 @@ class _$_InternalWebsocketEvent extends _InternalWebsocketEvent {
 
   @override
   String toString() {
-    return 'InternalWebsocketEvent._internal(event: $event, args: $args)';
+    return 'WebsocketEvent._internal(event: $event, args: $args)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InternalWebsocketEvent &&
+            other is _$_WebsocketEvent &&
             (identical(other.event, event) || other.event == event) &&
             const DeepCollectionEquality().equals(other._args, _args));
   }
@@ -153,26 +150,25 @@ class _$_InternalWebsocketEvent extends _InternalWebsocketEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InternalWebsocketEventCopyWith<_$_InternalWebsocketEvent> get copyWith =>
-      __$$_InternalWebsocketEventCopyWithImpl<_$_InternalWebsocketEvent>(
-          this, _$identity);
+  _$$_WebsocketEventCopyWith<_$_WebsocketEvent> get copyWith =>
+      __$$_WebsocketEventCopyWithImpl<_$_WebsocketEvent>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_InternalWebsocketEventToJson(
+    return _$$_WebsocketEventToJson(
       this,
     );
   }
 }
 
-abstract class _InternalWebsocketEvent extends InternalWebsocketEvent {
-  const factory _InternalWebsocketEvent(
+abstract class _WebsocketEvent extends WebsocketEvent {
+  const factory _WebsocketEvent(
       {required final String event,
-      required final List<String>? args}) = _$_InternalWebsocketEvent;
-  const _InternalWebsocketEvent._() : super._();
+      required final List<String>? args}) = _$_WebsocketEvent;
+  const _WebsocketEvent._() : super._();
 
-  factory _InternalWebsocketEvent.fromJson(Map<String, dynamic> json) =
-      _$_InternalWebsocketEvent.fromJson;
+  factory _WebsocketEvent.fromJson(Map<String, dynamic> json) =
+      _$_WebsocketEvent.fromJson;
 
   @override
   String get event;
@@ -180,6 +176,6 @@ abstract class _InternalWebsocketEvent extends InternalWebsocketEvent {
   List<String>? get args;
   @override
   @JsonKey(ignore: true)
-  _$$_InternalWebsocketEventCopyWith<_$_InternalWebsocketEvent> get copyWith =>
+  _$$_WebsocketEventCopyWith<_$_WebsocketEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }

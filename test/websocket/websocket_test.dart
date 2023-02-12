@@ -9,6 +9,7 @@ import 'package:dartactyl/dartactyl.dart';
 import 'package:dartactyl/src/websocket/_internal.dart';
 import 'package:dartactyl/websocket.dart';
 import 'package:mocktailx/mocktailx.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:stream_channel/stream_channel.dart';
 import 'package:test/test.dart';
 import 'package:universal_io/io.dart';
@@ -91,8 +92,7 @@ void main() {
           final arg = websocketEvent.args?.first;
           expect(arg, isA<String?>());
 
-          final _event =
-              InternalServerWebsocketSendEvent.values.firstWhereOrNull(
+          final _event = ServerWebsocketSendEvent.values.firstWhereOrNull(
             (e) => e.event == websocketEvent.event,
           );
 
@@ -100,7 +100,7 @@ void main() {
 
           switch (_event!) {
             // Critical in order to initialize the websocket
-            case InternalServerWebsocketSendEvent.auth:
+            case ServerWebsocketSendEvent.auth:
               expect(arg, isNotNull);
               expect(
                 arg,
@@ -108,8 +108,8 @@ void main() {
                 reason: 'Client sent wrong token. Did you change the mock?',
               );
               server.add(
-                InternalWebsocketEvent.fromEvent(
-                  event: InternalServerWebsocketReceiveEvent.authSuccess,
+                WebsocketEvent.fromEvent(
+                  event: ServerWebsocketReceiveEvent.authSuccess,
                   arg: null,
                 ).toEncodedJson(),
               );
@@ -170,8 +170,7 @@ void main() {
           final arg = websocketEvent.args?.first;
           expect(arg, isA<String?>());
 
-          final _event =
-              InternalServerWebsocketSendEvent.values.firstWhereOrNull(
+          final _event = ServerWebsocketSendEvent.values.firstWhereOrNull(
             (e) => e.event == websocketEvent.event,
           );
 
@@ -179,7 +178,7 @@ void main() {
 
           switch (_event!) {
             // Critical in order to initialize the websocket
-            case InternalServerWebsocketSendEvent.auth:
+            case ServerWebsocketSendEvent.auth:
               expect(arg, isNotNull);
               expect(
                 arg,
@@ -187,18 +186,18 @@ void main() {
                 reason: 'Client sent wrong token. Did you change the mock?',
               );
               server.add(
-                InternalWebsocketEvent.fromEvent(
-                  event: InternalServerWebsocketReceiveEvent.authSuccess,
+                WebsocketEvent.fromEvent(
+                  event: ServerWebsocketReceiveEvent.authSuccess,
                   arg: null,
                 ).toEncodedJson(),
               );
               break;
-            case InternalServerWebsocketSendEvent.sendLogs:
+            case ServerWebsocketSendEvent.sendLogs:
               expect(arg, isNull);
               for (final log in mockLogs) {
                 server.add(
-                  InternalWebsocketEvent.fromEvent(
-                    event: InternalServerWebsocketReceiveEvent.consoleOutput,
+                  WebsocketEvent.fromEvent(
+                    event: ServerWebsocketReceiveEvent.consoleOutput,
                     arg: log,
                   ).toEncodedJson(),
                 );

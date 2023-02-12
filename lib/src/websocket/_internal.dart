@@ -11,9 +11,9 @@ part '../generated/websocket/_internal.freezed.dart';
 part '../generated/websocket/_internal.g.dart';
 
 /// an interface to allow send and receive events to be typed for
-/// [InternalWebsocketEvent.fromEvent]
+/// [WebsocketEvent.fromEvent]
 @visibleForTesting
-abstract class InternalServerWebsocketRemoteEvent {
+abstract class ServerWebsocketRemoteEvent {
   String get event;
 }
 
@@ -24,8 +24,7 @@ abstract class InternalServerWebsocketRemoteEvent {
 ///
 /// Internal and testing use only.
 @visibleForTesting
-enum InternalServerWebsocketSendEvent
-    implements InternalServerWebsocketRemoteEvent {
+enum ServerWebsocketSendEvent implements ServerWebsocketRemoteEvent {
   auth('auth'),
   sendStats('send stats'),
   sendLogs('send logs'),
@@ -33,7 +32,7 @@ enum InternalServerWebsocketSendEvent
   setState('set state'),
   ;
 
-  const InternalServerWebsocketSendEvent(this.event);
+  const ServerWebsocketSendEvent(this.event);
   @override
   final String event;
 }
@@ -45,8 +44,7 @@ enum InternalServerWebsocketSendEvent
 ///
 /// Internal and testing use only.
 @visibleForTesting
-enum InternalServerWebsocketReceiveEvent
-    implements InternalServerWebsocketRemoteEvent {
+enum ServerWebsocketReceiveEvent implements ServerWebsocketRemoteEvent {
   authSuccess('auth success'),
   tokenExpiring('token expiring'),
   tokenExpired('token expired'),
@@ -71,7 +69,7 @@ enum InternalServerWebsocketReceiveEvent
   backupRestoreCompleted('backup restore completed'),
   ;
 
-  const InternalServerWebsocketReceiveEvent(this.event);
+  const ServerWebsocketReceiveEvent(this.event);
   @override
   final String event;
 }
@@ -86,27 +84,27 @@ enum InternalServerWebsocketReceiveEvent
   map: FreezedMapOptions.none,
 )
 @visibleForTesting
-class InternalWebsocketEvent with _$InternalWebsocketEvent {
-  const factory InternalWebsocketEvent._internal({
+class WebsocketEvent with _$WebsocketEvent {
+  const factory WebsocketEvent._internal({
     required String event,
     required List<String>? args,
-  }) = _InternalWebsocketEvent;
+  }) = _WebsocketEvent;
 
   @visibleForTesting
-  factory InternalWebsocketEvent.fromEvent({
-    required InternalServerWebsocketRemoteEvent event,
+  factory WebsocketEvent.fromEvent({
+    required ServerWebsocketRemoteEvent event,
     required String? arg,
   }) {
-    return InternalWebsocketEvent._internal(
+    return WebsocketEvent._internal(
       event: event.event,
       args: arg == null ? null : [arg],
     );
   }
-  const InternalWebsocketEvent._();
+  const WebsocketEvent._();
 
   @visibleForTesting
-  factory InternalWebsocketEvent.fromJson(Map<String, dynamic> json) =>
-      _$InternalWebsocketEventFromJson(json);
+  factory WebsocketEvent.fromJson(Map<String, dynamic> json) =>
+      _$WebsocketEventFromJson(json);
 
   String toEncodedJson() => jsonEncode(toJson());
 }

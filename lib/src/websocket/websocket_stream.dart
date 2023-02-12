@@ -15,13 +15,19 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 part '../generated/websocket/websocket_stream.freezed.dart';
 
 /// An error emitted by [ServerWebsocket.errors].
-@freezed
+@Freezed(when: FreezedWhenOptions.none, map: FreezedMapOptions.none)
 class ServerWebsocketError with _$ServerWebsocketError {
+  // const factory ServerWebsocketError._internalOld(
+  //   String message, {
+  //   Object? error,
+  //   required StackTrace stackTrace,
+  // }) = _ServerWebsocketErrorOld;
+
   const factory ServerWebsocketError._internal(
-    String message, {
-    Object? error,
-    required StackTrace stackTrace,
-    @Deprecated('TEMPORARY') @internal required String debugFrom,
+    Object error,
+    StackTrace stackTrace, {
+    // TODO: thinking about this
+    String? shortDescription,
   }) = _ServerWebsocketError;
   const ServerWebsocketError._();
 }
@@ -53,15 +59,15 @@ class ServerWebsocket {
   final String serverId;
 
   Future<void> requestStats() => _send(
-        InternalServerWebsocketSendEvent.sendStats,
+        ServerWebsocketSendEvent.sendStats,
         null,
       );
   Future<void> requestLogs() => _send(
-        InternalServerWebsocketSendEvent.sendLogs,
+        ServerWebsocketSendEvent.sendLogs,
         null,
       );
   Future<void> sendCommand(String command) => _send(
-        InternalServerWebsocketSendEvent.sendCommand,
+        ServerWebsocketSendEvent.sendCommand,
         command,
       );
 
@@ -71,7 +77,7 @@ class ServerWebsocket {
   Future<void> killServer() => setPowerState(ServerPowerAction.kill);
 
   Future<void> setPowerState(ServerPowerAction powerAction) => _send(
-        InternalServerWebsocketSendEvent.setState,
+        ServerWebsocketSendEvent.setState,
         powerAction.toJson(),
       );
 
@@ -129,20 +135,38 @@ class ServerWebsocket {
       log('Websocket connected (ready)', name: 'ServerWebsocket._connect');
 
       _websocket.stream.listen(
-        _onData,
+        (event) {
+          // throwing in _onData is very bad :(
+          try {
+            _onData(event);
+          } catch (error, stackTrace) {
+            // TODO: Not sure about what to ideally do here. may throw above.
+            log(
+              'Unexpected Error in _onData',
+              name: 'ServerWebsocket._connect',
+              error: error,
+              stackTrace: stackTrace,
+            );
+            _errors.raise(error, stackTrace);
+          }
+        },
         onDone: () {
           _connectionState.add(ConnectionState.disconnected);
         },
         onError: (Object? error, StackTrace stackTrace) {
-          _errors.add(
-            ServerWebsocketError._internal(
-              'Websocket error',
-              error: error,
-              stackTrace: stackTrace,
-              debugFrom:
-                  '_connect() => _websocket.stream.listen(...) => onError',
-            ),
-          );
+          if (error is ServerWebsocketError) {
+            // TODO: doesnt actually happen right now.
+            _errors.add(error);
+          } else {
+            _errors.add(
+              ServerWebsocketError._internal(
+                error!,
+                stackTrace,
+                // TODO: Likely uneeded here?
+                shortDescription: 'Unexpected websocket error',
+              ),
+            );
+          }
           _connectionState.add(ConnectionState.disconnected);
         },
       );
@@ -150,25 +174,24 @@ class ServerWebsocket {
       await _authenticate();
       await _isAuthenticated.future;
     } catch (error, stackTrace) {
-      _errors.add(
-        ServerWebsocketError._internal(
-          'Websocket error',
-          error: error,
-          stackTrace: stackTrace,
-          debugFrom: '_connect()',
-        ),
+      _errors.raise(
+        error,
+        stackTrace,
+        // TODO: Likely uneeded here?
+        shortDescription: 'Unexpected Websocket error',
       );
+
       _connectionState.add(ConnectionState.disconnected);
     }
   }
 
   Future<void> _send(
-    InternalServerWebsocketSendEvent event,
+    ServerWebsocketSendEvent event,
     String? arg, {
     bool force = false,
   }) async {
     if (!force) await _isAuthenticated.future;
-    final _event = InternalWebsocketEvent.fromEvent(
+    final _event = WebsocketEvent.fromEvent(
       event: event,
       arg: arg,
     );
@@ -190,7 +213,7 @@ class ServerWebsocket {
         name: 'ServerWebsocket._authenticate',
       );
       await _send(
-        InternalServerWebsocketSendEvent.auth,
+        ServerWebsocketSendEvent.auth,
         socketDetails.data.token,
         // lets actually send the data even if we're not authenticated yet
         // because we are authenticating right now
@@ -202,13 +225,10 @@ class ServerWebsocket {
       );
     } catch (error, stackTrace) {
       _isAuthenticated.completeError(error, stackTrace);
-      _errors.add(
-        ServerWebsocketError._internal(
-          'Error authenticating websocket',
-          error: error,
-          stackTrace: stackTrace,
-          debugFrom: '_authenticate()',
-        ),
+      _errors.raise(
+        error,
+        stackTrace,
+        shortDescription: 'Error authenticating websocket',
       );
       _connectionState.add(ConnectionState.disconnected);
     }
@@ -222,23 +242,18 @@ class ServerWebsocket {
   void _onData(Object? data) {
     log('Received data from Wings: "$data"', name: 'ServerWebsocket._onData');
     if (data is! String) {
-      _errors.add(
-        // 'Received a binary event from Wings',
-        ServerWebsocketError._internal(
-          'Received a binary event from Wings',
-          stackTrace: StackTrace.current,
-          debugFrom: '_onData() => if (data is! String)',
-        ),
+      _errors.raise(
+        'Received a binary event from Wings',
+        StackTrace.current,
+        // shortDescription: 'Received a binary event from Wings',
       );
       return;
     }
     if (data.isEmpty) {
-      _errors.add(
-        ServerWebsocketError._internal(
-          'Received an empty event from Wings',
-          stackTrace: StackTrace.current,
-          debugFrom: '_onData() => if (data.isEmpty)',
-        ),
+      _errors.raise(
+        'Received an empty event from Wings',
+        StackTrace.current,
+        //  shortDescription: 'Received an empty event from Wings',
       );
       return;
     }
@@ -246,40 +261,32 @@ class ServerWebsocket {
     try {
       json = jsonDecode(data);
     } catch (error, stackTrace) {
-      _errors.add(
-        // 'Received a non-JSON event from Wings',
-        ServerWebsocketError._internal(
-          'Received a non-JSON event from Wings',
-          error: error,
-          stackTrace: stackTrace,
-          debugFrom: '_onData() => jsonDecode(data)',
-        ),
+      _errors.raise(
+        error,
+        stackTrace,
+        // TODO: Likely uneeded here?
+        shortDescription: 'Received a non-JSON event from Wings',
       );
       return;
     }
     if (json is! Map<String, dynamic>) {
-      _errors.add(
-        // 'Received a non-JSON event from Wings',
-        ServerWebsocketError._internal(
-          'Received a non-JSON event from Wings',
-          stackTrace: StackTrace.current,
-          debugFrom: '_onData() => if (json is! Map<String, dynamic>)',
-        ),
+      _errors.raise(
+        'Received a non-JSON event from Wings',
+        StackTrace.current,
+        // shortDescription: 'Received a non-JSON event from Wings',
       );
       return;
     }
 
-    final InternalWebsocketEvent event;
+    final WebsocketEvent event;
     try {
-      event = InternalWebsocketEvent.fromJson(json);
+      event = WebsocketEvent.fromJson(json);
     } catch (error, stackTrace) {
-      _errors.add(
-        ServerWebsocketError._internal(
-          'Received an invalid event from Wings',
-          error: error,
-          stackTrace: stackTrace,
-          debugFrom: '_onData() => InternalWebsocketEvent.fromJson(json)',
-        ),
+      _errors.raise(
+        error,
+        stackTrace,
+        // TODO: Likely uneeded here? JsonSerializable "checked" is true
+        shortDescription: 'Received an invalid event from Wings',
       );
       return;
     }
@@ -288,56 +295,48 @@ class ServerWebsocket {
 
     final arg = event.args?.first;
 
-    final receiveEvent =
-        InternalServerWebsocketReceiveEvent.values.firstWhereOrNull(
+    final receiveEvent = ServerWebsocketReceiveEvent.values.firstWhereOrNull(
       (e) => e.event == event.event,
     );
 
     if (receiveEvent == null) {
-      _errors.add(
-        ServerWebsocketError._internal(
-          'Received an unknown event from Wings: ${event.event}',
-          stackTrace: StackTrace.current,
-          debugFrom: '_onData() => if (receiveEvent == null)',
-        ),
+      _errors.raise(
+        'Received an unknown event from Wings: ${event.event}',
+        StackTrace.current,
+        // shortDescription: 'Received an unknown event from Wings',
       );
       return;
     }
 
     switch (receiveEvent) {
       // Auth
-      case InternalServerWebsocketReceiveEvent.authSuccess:
+      case ServerWebsocketReceiveEvent.authSuccess:
         if (_isAuthenticated.isCompleted) {
-          _errors.add(
-            ServerWebsocketError._internal(
-              'Received an authentication response,'
-              ' but we were not waiting on one.',
-              stackTrace: StackTrace.current,
-              debugFrom: '_onData() => .authSuccess => '
-                  'if (_isAuthenticated.isCompleted)',
-            ),
+          _errors.raise(
+            'Received an authentication response,'
+            ' but we were not waiting on one.',
+            StackTrace.current,
+            // shortDescription: 'Received an authentication response,'
+            //     ' but we were not waiting on one.',
           );
           return;
         }
         _isAuthenticated.complete();
         _connectionState.add(ConnectionState.connected);
         break;
-      case InternalServerWebsocketReceiveEvent.tokenExpiring:
+      case ServerWebsocketReceiveEvent.tokenExpiring:
         if (_isAuthenticated.isCompleted) _authenticate();
         break;
-      case InternalServerWebsocketReceiveEvent.tokenExpired:
+      case ServerWebsocketReceiveEvent.tokenExpired:
         if (_isAuthenticated.isCompleted) _authenticate();
         break;
-      case InternalServerWebsocketReceiveEvent.jwtError:
+      case ServerWebsocketReceiveEvent.jwtError:
         _connectionState.add(ConnectionState.disconnected);
-        // _errors.add(arg ?? 'Unknown JWT error');
-        _errors.add(
-          ServerWebsocketError._internal(
-            'JWT validation error',
-            error: arg ?? 'Unknown JWT error',
-            stackTrace: StackTrace.current,
-            debugFrom: '_onData() => .jwtError',
-          ),
+        // _errors.arg ?? 'Unknown JWT error');
+        _errors.raise(
+          arg ?? 'Unknown JWT error',
+          StackTrace.current,
+          // shortDescription: 'JWT validation error',
         );
 
         if (_isAuthenticated.isCompleted) _authenticate();
@@ -354,46 +353,43 @@ class ServerWebsocket {
         break;
 
       // Daemon
-      case InternalServerWebsocketReceiveEvent.daemonMessage:
+      case ServerWebsocketReceiveEvent.daemonMessage:
         if (arg == null) {
           return;
         }
         _daemonMessages.add(arg);
 
         break;
-      case InternalServerWebsocketReceiveEvent.daemonError:
+      case ServerWebsocketReceiveEvent.daemonError:
         if (arg == null) {
           return;
         }
         _daemonErrors.add(arg);
-        _errors.add(
-          ServerWebsocketError._internal(
-            'Daemon error',
-            error: arg,
-            stackTrace: StackTrace.current,
-            debugFrom: '_onData() => .daemonError',
-          ),
+        _errors.raise(
+          arg,
+          StackTrace.current,
+          // shortDescription: 'Daemon error',
         );
 
         break;
       // Install
-      case InternalServerWebsocketReceiveEvent.installOutput:
+      case ServerWebsocketReceiveEvent.installOutput:
         if (arg == null) {
           return;
         }
         _logs.add(arg);
 
         break;
-      case InternalServerWebsocketReceiveEvent.installStarted:
+      case ServerWebsocketReceiveEvent.installStarted:
         _installStatus.add(InstallStatus.started);
 
         break;
-      case InternalServerWebsocketReceiveEvent.installCompleted:
+      case ServerWebsocketReceiveEvent.installCompleted:
         _installStatus.add(InstallStatus.completed);
 
         break;
       // Console
-      case InternalServerWebsocketReceiveEvent.consoleOutput:
+      case ServerWebsocketReceiveEvent.consoleOutput:
         if (arg == null) {
           return;
         }
@@ -401,7 +397,7 @@ class ServerWebsocket {
 
         break;
       // Power
-      case InternalServerWebsocketReceiveEvent.status:
+      case ServerWebsocketReceiveEvent.status:
         if (arg == null) {
           return;
         }
@@ -413,7 +409,7 @@ class ServerWebsocket {
 
         break;
       // Stats (includes Power)
-      case InternalServerWebsocketReceiveEvent.stats:
+      case ServerWebsocketReceiveEvent.stats:
         if (arg == null) {
           return;
         }
@@ -433,21 +429,19 @@ class ServerWebsocket {
 
         break;
       // Transfer
-      case InternalServerWebsocketReceiveEvent.transferLogs:
+      case ServerWebsocketReceiveEvent.transferLogs:
         if (arg == null) {
           return;
         }
         _logs.add(arg);
 
         break;
-      case InternalServerWebsocketReceiveEvent.transferStatus:
+      case ServerWebsocketReceiveEvent.transferStatus:
         if (arg == null) {
           return;
         }
 
-        final status = TransferStatus.values.firstWhereOrNull(
-          (e) => e.name.toLowerCase() == arg.toLowerCase(),
-        );
+        final status = TransferStatus.fromStringOrNull(arg);
 
         if (status == null) {
           return;
@@ -467,10 +461,10 @@ class ServerWebsocket {
         _connect();
         break;
       // Backup
-      case InternalServerWebsocketReceiveEvent.backupCompleted:
+      case ServerWebsocketReceiveEvent.backupCompleted:
         _backupStatus.add(BackupStatus.backupCompleted);
         break;
-      case InternalServerWebsocketReceiveEvent.backupRestoreCompleted:
+      case ServerWebsocketReceiveEvent.backupRestoreCompleted:
         _backupStatus.add(BackupStatus.backupRestoreCompleted);
         break;
     }
@@ -479,11 +473,11 @@ class ServerWebsocket {
   // TODO: Theoretically, closed should be the last value.
   bool get isClosed => _connectionState.value == ConnectionState.closed;
 
-  @experimental
   Future<void> close() async {
     // So that stuff that only watch for disconnected get triggered too
-    _connectionState.add(ConnectionState.disconnected);
-    _connectionState.add(ConnectionState.closing);
+    _connectionState
+      ..add(ConnectionState.disconnected)
+      ..add(ConnectionState.closing);
 
     await _websocket.sink.close(WebSocketStatus.normalClosure);
     // TODO: This is necessary for listeners to close right?
@@ -506,8 +500,7 @@ class ServerWebsocket {
       _isAuthenticated.completeError(
         ServerWebsocketError._internal(
           "Websocket closed before 'ready' completed",
-          stackTrace: StackTrace.current,
-          debugFrom: 'close()',
+          StackTrace.current,
         ),
       );
     }
@@ -542,6 +535,12 @@ enum TransferStatus {
   cancelling,
   cancelled;
 
+  static TransferStatus? fromStringOrNull(String value) {
+    return TransferStatus.values.firstWhereOrNull(
+      (e) => e.name.toLowerCase() == value.toLowerCase(),
+    );
+  }
+
   // TODO: indicate needs reconnect?
 }
 
@@ -568,5 +567,24 @@ extension<T> on List<T> {
       }
     }
     return null;
+  }
+}
+
+// TODO: private
+extension on BehaviorSubject<ServerWebsocketError> {
+  // TODO: do i want a varient for important errors vs ignorable errors?
+  void raise(
+    Object error,
+    StackTrace stackTrace, {
+    String? shortDescription,
+  }) {
+    // TODO
+    add(
+      ServerWebsocketError._internal(
+        error,
+        stackTrace,
+        shortDescription: shortDescription,
+      ),
+    );
   }
 }

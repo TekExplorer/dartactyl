@@ -16,12 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ServerWebsocketError {
-  String get message => throw _privateConstructorUsedError;
-  Object? get error => throw _privateConstructorUsedError;
-  StackTrace get stackTrace => throw _privateConstructorUsedError;
-  @Deprecated('TEMPORARY')
-  @internal
-  String get debugFrom => throw _privateConstructorUsedError;
+  Object get error => throw _privateConstructorUsedError;
+  StackTrace get stackTrace =>
+      throw _privateConstructorUsedError; // TODO: thinking about this
+// ignore: unused_element
+  String? get shortDescription => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ServerWebsocketErrorCopyWith<ServerWebsocketError> get copyWith =>
@@ -34,11 +33,7 @@ abstract class $ServerWebsocketErrorCopyWith<$Res> {
           $Res Function(ServerWebsocketError) then) =
       _$ServerWebsocketErrorCopyWithImpl<$Res, ServerWebsocketError>;
   @useResult
-  $Res call(
-      {String message,
-      Object? error,
-      StackTrace stackTrace,
-      @Deprecated('TEMPORARY') @internal String debugFrom});
+  $Res call({Object error, StackTrace stackTrace, String? shortDescription});
 }
 
 /// @nodoc
@@ -55,25 +50,20 @@ class _$ServerWebsocketErrorCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = null,
-    Object? error = freezed,
+    Object? error = null,
     Object? stackTrace = null,
-    Object? debugFrom = null,
+    Object? shortDescription = freezed,
   }) {
     return _then(_value.copyWith(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      error: freezed == error ? _value.error : error,
+      error: null == error ? _value.error : error,
       stackTrace: null == stackTrace
           ? _value.stackTrace
           : stackTrace // ignore: cast_nullable_to_non_nullable
               as StackTrace,
-      debugFrom: null == debugFrom
-          ? _value.debugFrom
-          : debugFrom // ignore: cast_nullable_to_non_nullable
-              as String,
+      shortDescription: freezed == shortDescription
+          ? _value.shortDescription
+          : shortDescription // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -86,11 +76,7 @@ abstract class _$$_ServerWebsocketErrorCopyWith<$Res>
       __$$_ServerWebsocketErrorCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String message,
-      Object? error,
-      StackTrace stackTrace,
-      @Deprecated('TEMPORARY') @internal String debugFrom});
+  $Res call({Object error, StackTrace stackTrace, String? shortDescription});
 }
 
 /// @nodoc
@@ -104,25 +90,20 @@ class __$$_ServerWebsocketErrorCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = null,
-    Object? error = freezed,
+    Object? error = null,
     Object? stackTrace = null,
-    Object? debugFrom = null,
+    Object? shortDescription = freezed,
   }) {
     return _then(_$_ServerWebsocketError(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      error: freezed == error ? _value.error : error,
-      stackTrace: null == stackTrace
+      null == error ? _value.error : error,
+      null == stackTrace
           ? _value.stackTrace
           : stackTrace // ignore: cast_nullable_to_non_nullable
               as StackTrace,
-      debugFrom: null == debugFrom
-          ? _value.debugFrom
-          : debugFrom // ignore: cast_nullable_to_non_nullable
-              as String,
+      shortDescription: freezed == shortDescription
+          ? _value.shortDescription
+          : shortDescription // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -130,26 +111,22 @@ class __$$_ServerWebsocketErrorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ServerWebsocketError extends _ServerWebsocketError {
-  const _$_ServerWebsocketError(this.message,
-      {this.error,
-      required this.stackTrace,
-      @Deprecated('TEMPORARY') @internal required this.debugFrom})
+  const _$_ServerWebsocketError(this.error, this.stackTrace,
+      {this.shortDescription})
       : super._();
 
   @override
-  final String message;
-  @override
-  final Object? error;
+  final Object error;
   @override
   final StackTrace stackTrace;
+// TODO: thinking about this
+// ignore: unused_element
   @override
-  @Deprecated('TEMPORARY')
-  @internal
-  final String debugFrom;
+  final String? shortDescription;
 
   @override
   String toString() {
-    return 'ServerWebsocketError._internal(message: $message, error: $error, stackTrace: $stackTrace, debugFrom: $debugFrom)';
+    return 'ServerWebsocketError._internal(error: $error, stackTrace: $stackTrace, shortDescription: $shortDescription)';
   }
 
   @override
@@ -157,17 +134,16 @@ class _$_ServerWebsocketError extends _ServerWebsocketError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ServerWebsocketError &&
-            (identical(other.message, message) || other.message == message) &&
             const DeepCollectionEquality().equals(other.error, error) &&
             (identical(other.stackTrace, stackTrace) ||
                 other.stackTrace == stackTrace) &&
-            (identical(other.debugFrom, debugFrom) ||
-                other.debugFrom == debugFrom));
+            (identical(other.shortDescription, shortDescription) ||
+                other.shortDescription == shortDescription));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message,
-      const DeepCollectionEquality().hash(error), stackTrace, debugFrom);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(error), stackTrace, shortDescription);
 
   @JsonKey(ignore: true)
   @override
@@ -178,23 +154,18 @@ class _$_ServerWebsocketError extends _ServerWebsocketError {
 }
 
 abstract class _ServerWebsocketError extends ServerWebsocketError {
-  const factory _ServerWebsocketError(final String message,
-          {final Object? error,
-          required final StackTrace stackTrace,
-          @Deprecated('TEMPORARY') @internal required final String debugFrom}) =
-      _$_ServerWebsocketError;
+  const factory _ServerWebsocketError(
+      final Object error, final StackTrace stackTrace,
+      {final String? shortDescription}) = _$_ServerWebsocketError;
   const _ServerWebsocketError._() : super._();
 
   @override
-  String get message;
-  @override
-  Object? get error;
+  Object get error;
   @override
   StackTrace get stackTrace;
-  @override
-  @Deprecated('TEMPORARY')
-  @internal
-  String get debugFrom;
+  @override // TODO: thinking about this
+// ignore: unused_element
+  String? get shortDescription;
   @override
   @JsonKey(ignore: true)
   _$$_ServerWebsocketErrorCopyWith<_$_ServerWebsocketError> get copyWith =>
