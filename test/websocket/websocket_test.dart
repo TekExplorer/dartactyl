@@ -8,6 +8,7 @@ import 'dart:developer';
 import 'package:dartactyl/dartactyl.dart';
 import 'package:dartactyl/src/websocket/_internal.dart';
 import 'package:dartactyl/websocket.dart';
+import 'package:dio/dio.dart';
 import 'package:mocktailx/mocktailx.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:stream_channel/stream_channel.dart';
@@ -26,35 +27,46 @@ void main() {
   // random data
   const mockToken = 'mockToken+ao88udjowaijpj';
   const mockServerId = 'mockServerId';
-  PteroData<WebsocketDetails> getMockWebsocketDetails(String url) {
+  PteroData<WebsocketDetails> getMockWebsocketDetails(
+    String url,
+    String token,
+  ) {
     return PteroData(
       data: WebsocketDetails(
-        token: mockToken,
+        token: token,
         socket: url,
       ),
     );
   }
 
-  void configureMockClient(String url) {
+  void configureMockClient(String url, String token) {
     when(
       () => mockClient.getServerWebsocket(serverId: any(named: 'serverId')),
-    ).thenAnswer((_) => Future.value(getMockWebsocketDetails(url)));
+    ).thenAnswer((_) => Future.value(getMockWebsocketDetails(url, token)));
+
+    when(
+      () => mockClient.baseUrl,
+    ).thenAnswer((_) => url);
   }
 
   // stub
 
   group('Verify mocks', () {
     test('MockPteroClient.getServerWebsocket', () {
-      final mockWebsocketDetails = getMockWebsocketDetails('mockUrl');
-      configureMockClient('mockUrl');
+      final mockWebsocketDetails = getMockWebsocketDetails(
+        'mockUrl',
+        mockToken,
+      );
+      configureMockClient('mockUrl', mockToken);
 
       expect(
         mockClient.getServerWebsocket(serverId: mockServerId),
         completion(mockWebsocketDetails),
       );
     });
-    test('createMockServer', () async {
-      final mockServer = await createMockServer((server) {
+    test('createAndHandleMockServer', () async {
+      // ignore: deprecated_member_use_from_same_package
+      final mockServer = await createAndHandleMockServer((server) {
         server.add('start');
         server.listen((request) {
           // when 'ping' is emitted from the client, respond with 'pong'
@@ -83,47 +95,10 @@ void main() {
   });
   group('ServerWebsocket', () {
     test('authentication', () async {
-      final mockServer = await createMockServer((server) {
-        log('Server started', name: 'Mock Server');
-        server.listen((request) {
-          final websocketEvent = expectAndReturnValidEvent(request);
-          expect(websocketEvent.event, isNotEmpty);
+      final url = await mockServer(verifyAuthToken: mockToken);
+      configureMockClient(url, mockToken);
 
-          final arg = websocketEvent.args?.first;
-          expect(arg, isA<String?>());
-
-          final _event = ServerWebsocketSendEvent.values.firstWhereOrNull(
-            (e) => e.event == websocketEvent.event,
-          );
-
-          expect(_event, isNotNull, reason: 'Unknown event sent by client');
-
-          switch (_event!) {
-            // Critical in order to initialize the websocket
-            case ServerWebsocketSendEvent.auth:
-              expect(arg, isNotNull);
-              expect(
-                arg,
-                mockToken,
-                reason: 'Client sent wrong token. Did you change the mock?',
-              );
-              server.add(
-                WebsocketEvent.fromEvent(
-                  event: ServerWebsocketReceiveEvent.authSuccess,
-                  arg: null,
-                ).toEncodedJson(),
-              );
-              break;
-            default:
-              fail('Client should not have sent "$_event" in this test');
-          }
-        });
-      });
-
-      final url = 'ws://localhost:${mockServer.port}';
-      configureMockClient(url);
-
-      expect(
+      await expectLater(
         mockClient.getServerWebsocket(serverId: mockServerId),
         completion(
           PteroData(
@@ -141,17 +116,87 @@ void main() {
       );
 
       serverWebsocket.errors.listen((error) {
-        log('ServerWebsocket error: $error');
+        log('ServerWebsocket error: (${error.message})');
+        fail('ServerWebsocket should not have any errors (${error.message})');
       });
 
       expect(serverWebsocket, isA<ServerWebsocket>());
 
       // expect that it authenticates
-      expect(
+      await expectLater(
         serverWebsocket.ready,
         completes,
         reason: 'ServerWebsocket should complete ready',
       );
+    });
+    group('connectionState', () {
+      test('ensure closed state', () async {
+        final url = await mockServer(
+          verifyAuthToken: mockToken,
+        );
+        configureMockClient(url, mockToken);
+
+        expect(
+          mockClient.getServerWebsocket(serverId: mockServerId),
+          completion(
+            PteroData(
+              data: WebsocketDetails(
+                token: mockToken,
+                socket: url,
+              ),
+            ),
+          ),
+        );
+
+        final serverWebsocket = ServerWebsocket.internal(
+          mockClient,
+          serverId: mockServerId,
+        );
+
+        serverWebsocket.errors.listen((error) {
+          log(error.message, name: 'ServerWebsocket Error');
+          fail('ServerWebsocket should not have any errors \n${error.message}');
+        });
+
+        serverWebsocket.connectionState.listen((state) {
+          log('$state', name: 'ServerWebsocket State');
+        });
+        expect(
+          serverWebsocket.connectionState,
+          emitsInOrder([
+            ConnectionState.connecting,
+            ConnectionState.authenticating,
+            ConnectionState.connected,
+            ConnectionState.disconnected,
+            ConnectionState.closing,
+            ConnectionState.closed,
+          ]),
+        );
+
+        // serverWebsocket.connectionState.listen((state) {
+        //   log('ServerWebsocket state: $state');
+        // });
+        // final connectionStateStream =
+        //     serverWebsocket.connectionState.shareReplay();
+
+        expect(
+          serverWebsocket.ready,
+          completes,
+          reason: 'ServerWebsocket should complete ready',
+        );
+
+        await serverWebsocket.ready;
+        // make sure it does its thing before we murder it
+        await expectLater(
+          serverWebsocket.connectionState,
+          emits(ConnectionState.connected),
+          reason: 'ServerWebsocket should have emitted a connected state',
+        );
+        await expectLater(
+          serverWebsocket.close(),
+          completes,
+        );
+      });
     });
 
     test('send logs', () async {
@@ -161,56 +206,12 @@ void main() {
         'mockLog3',
       ];
 
-      final mockServer = await createMockServer((server) {
-        log('Server started', name: 'Mock Server');
-        server.listen((request) {
-          final websocketEvent = expectAndReturnValidEvent(request);
-          expect(websocketEvent.event, isNotEmpty);
+      final url = await mockServer(
+        verifyAuthToken: mockToken,
+        mockLogs: mockLogs,
+      );
 
-          final arg = websocketEvent.args?.first;
-          expect(arg, isA<String?>());
-
-          final _event = ServerWebsocketSendEvent.values.firstWhereOrNull(
-            (e) => e.event == websocketEvent.event,
-          );
-
-          expect(_event, isNotNull, reason: 'Unknown event sent by client');
-
-          switch (_event!) {
-            // Critical in order to initialize the websocket
-            case ServerWebsocketSendEvent.auth:
-              expect(arg, isNotNull);
-              expect(
-                arg,
-                mockToken,
-                reason: 'Client sent wrong token. Did you change the mock?',
-              );
-              server.add(
-                WebsocketEvent.fromEvent(
-                  event: ServerWebsocketReceiveEvent.authSuccess,
-                  arg: null,
-                ).toEncodedJson(),
-              );
-              break;
-            case ServerWebsocketSendEvent.sendLogs:
-              expect(arg, isNull);
-              for (final log in mockLogs) {
-                server.add(
-                  WebsocketEvent.fromEvent(
-                    event: ServerWebsocketReceiveEvent.consoleOutput,
-                    arg: log,
-                  ).toEncodedJson(),
-                );
-              }
-              break;
-            default:
-              fail('Client should not have sent "$_event" in this test');
-          }
-        });
-      });
-
-      final url = 'ws://localhost:${mockServer.port}';
-      configureMockClient(url);
+      configureMockClient(url, mockToken);
 
       expect(
         mockClient.getServerWebsocket(serverId: mockServerId),
@@ -249,7 +250,7 @@ void main() {
       // ensure we get expected data
       await expectLater(
         serverWebsocket.logs,
-        emitsInOrder(mockLogs),
+        emitsInOrder(mockLogs.map(WebsocketLog.console)),
       );
       // NOW close the socket to ensure no errors emitted while retrieving logs
 

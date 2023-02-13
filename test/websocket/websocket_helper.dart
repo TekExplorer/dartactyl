@@ -30,12 +30,86 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 /// });
 /// ```
 
-Future<HttpServer> createMockServer(
+// long name to dissuade accidental usage beyond the dedicated "show off" test
+@Deprecated('Use mockServer instead')
+Future<HttpServer> createAndHandleMockServer(
   void Function(WebSocket server) handleServer,
 ) async {
   final server = await HttpServer.bind('localhost', 0);
   server.transform(WebSocketTransformer()).listen(handleServer);
   return server;
+}
+
+// TODO: rename when relevant
+
+/// Returns the url of a mock websocket server.
+Future<String> mockServer({
+  // if not provided, will accept any token
+  String? verifyAuthToken,
+  List<String>? mockLogs,
+}) async {
+  // ignore: deprecated_member_use_from_same_package
+  final mockServer = await createAndHandleMockServer((server) {
+    server.listen((request) {
+      final websocketEvent = expectAndReturnValidEvent(request);
+      expect(websocketEvent.event, isNotEmpty);
+
+      final arg = websocketEvent.args?.first;
+      expect(arg, isA<String?>());
+
+      final event = ServerWebsocketSendEvent.values.firstWhereOrNull(
+        (e) => e.event == websocketEvent.event,
+      );
+
+      expect(event, isNotNull, reason: 'Unknown event sent by client');
+
+      switch (event!) {
+        case ServerWebsocketSendEvent.auth:
+          expect(arg, isNotNull);
+          if (verifyAuthToken != null) {
+            expect(
+              arg,
+              verifyAuthToken,
+              reason: 'Client sent wrong token',
+            );
+          }
+          // if no mock token is provided, just accept any token
+          server.add(
+            WebsocketEvent.fromEvent(
+              event: ServerWebsocketReceiveEvent.authSuccess,
+              arg: null,
+            ).toEncodedJson(),
+          );
+          break;
+        case ServerWebsocketSendEvent.sendLogs:
+          expect(arg, isNull);
+          expect(
+            mockLogs,
+            isNotNull,
+            reason: 'Test did not provide mock logs, but client requested them',
+          );
+          for (final log in mockLogs!) {
+            server.add(
+              WebsocketEvent.fromEvent(
+                event: ServerWebsocketReceiveEvent.consoleOutput,
+                arg: log,
+              ).toEncodedJson(),
+            );
+          }
+          break;
+        case ServerWebsocketSendEvent.sendStats:
+          throw UnimplementedError("'send stats' request not implemented yet");
+        case ServerWebsocketSendEvent.sendCommand:
+          throw UnimplementedError(
+              "'send command' request not implemented yet");
+        case ServerWebsocketSendEvent.setState:
+          throw UnimplementedError("'set state' request not implemented yet");
+      }
+    });
+  });
+  final url = 'ws://localhost:${mockServer.port}';
+
+  return url;
 }
 
 class WebSocketAndUrl {

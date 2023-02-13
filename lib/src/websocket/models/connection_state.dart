@@ -1,7 +1,3 @@
-// TODO: Figure out how to handle the state of the websocket connection
-
-import 'package:meta/meta.dart';
-
 /// Base class for websocket state
 abstract class WebsocketState {
   const WebsocketState();
@@ -12,9 +8,9 @@ enum ConnectionState {
   authenticating,
   connected,
   disconnected,
-  @experimental
+  // @experimental
   closing,
-  @experimental
+  // @experimental
   closed,
   ;
 }

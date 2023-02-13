@@ -22,7 +22,7 @@ Future<ServerWebsocket> getWebsocket() async {
 void main(List<String> args) async {
   final ws = await getWebsocket();
 
-  ws.logs.listen((output) => log(output, name: 'Logs'));
+  ws.logs.listen((output) => log(output.message, name: 'Logs'));
   ws.powerState.listen((state) => log(state.name, name: 'PowerState'));
   ws.stats.listen((stats) => log(stats.toString(), name: 'Stats'));
 

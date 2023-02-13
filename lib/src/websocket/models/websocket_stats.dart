@@ -1,8 +1,8 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../generated/websocket/websocket_stats.freezed.dart';
-part '../generated/websocket/websocket_stats.g.dart';
+part '../../generated/websocket/models/websocket_stats.freezed.dart';
+part '../../generated/websocket/models/websocket_stats.g.dart';
 
 // typedef WebsocketStatsModel = WebsocketStats;
 

@@ -21,6 +21,7 @@ linter:
     # - camel_case_types
     public_member_api_docs: false
     omit_local_variable_types: false
+    require_trailing_commas: false
 
 
 # analyzer:
