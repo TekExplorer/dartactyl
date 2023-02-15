@@ -137,6 +137,7 @@ abstract class PteroClient {
   ///
   /// This can be null if you've set it in the Dio instance.
   @protected
+  @visibleForTesting
   String? get baseUrl;
 
   /// Alias of listVariables

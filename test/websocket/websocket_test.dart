@@ -41,10 +41,20 @@ void main() {
     );
   }
 
-  void configureMockClient(String url, String token) {
+  void configureMockClient(String url, [String token = 'default mock token']) {
     when(
       () => mockClient.getServerWebsocket(serverId: any(named: 'serverId')),
     ).thenAnswer((_) => Future.value(getMockWebsocketDetails(url, token)));
+
+    when(
+      () => mockClient.baseUrl,
+    ).thenAnswer((_) => url);
+  }
+
+  void configureMockClientWithError(String url, Object error) {
+    when(
+      () => mockClient.getServerWebsocket(serverId: any(named: 'serverId')),
+    ).thenAnswer((_) => Future.error(error));
 
     when(
       () => mockClient.baseUrl,
@@ -96,6 +106,64 @@ void main() {
     });
   });
   group('ServerWebsocket', () {
+    group('assert throws', () {
+      test('Api failure', () async {
+        final url = await mockServer();
+        configureMockClientWithError(url, Exception('mock error'));
+
+        await expectLater(
+          mockClient.getServerWebsocket(serverId: mockServerId),
+          throwsA(isA<Exception>()),
+        );
+
+        await expectLater(
+          () => ServerWebsocket.connect(
+            client: mockClient,
+            serverId: mockServerId,
+          ),
+          throwsA(isA<Exception>()),
+        );
+      });
+
+      test('Connection failure (missing server)', () async {
+        // final url = await mockServer();
+        const url = 'ws://localhost:1234';
+        configureMockClient(url);
+
+        await expectLater(
+          mockClient.getServerWebsocket(serverId: mockServerId),
+          completes,
+        );
+
+        // theres nothing there.
+        await expectLater(
+          () => ServerWebsocket.connect(
+            client: mockClient,
+            serverId: mockServerId,
+          ),
+          throwsA(isA<SocketException>()),
+        );
+      });
+      test('Connection failure (missing dns)', () async {
+        // final url = await mockServer();
+        const url = 'ws://never.never.never:1234';
+        configureMockClient(url);
+
+        await expectLater(
+          mockClient.getServerWebsocket(serverId: mockServerId),
+          completes,
+        );
+
+        await expectLater(
+          () => ServerWebsocket.connect(
+            client: mockClient,
+            serverId: mockServerId,
+          ),
+          throwsA(isA<SocketException>()),
+        );
+      });
+    });
+
     test('authentication', () async {
       final url = await mockServer(verifyAuthToken: mockToken);
       configureMockClient(url, mockToken);
