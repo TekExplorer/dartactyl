@@ -18,21 +18,31 @@ abstract class DartactylWebsocketException
 /// Exceptions emitted naturally by Wings
 ///
 /// There may be cases where these can be bugs in this library
-abstract class WingsException implements ServerWebsocketException {}
+abstract class WingsException implements ServerWebsocketException {
+  String get receivedMessage;
+}
 
 /// An unexpected error occurred
-class UnexpectedWebsocketException
-    implements DartactylWebsocketException, Error {
-  const UnexpectedWebsocketException._(this.error, this.stackTrace);
+class UnexpectedWebsocketException extends Error
+    implements DartactylWebsocketException {
+  UnexpectedWebsocketException._(this.error, [this._stackTrace]) : super();
 
   final Object error;
+  final StackTrace? _stackTrace;
   @override
-  final StackTrace stackTrace;
+  StackTrace? get stackTrace => _stackTrace ?? super.stackTrace;
 
   @override
   String get message => 'UnexpectedWebsocketException: $error';
 
   // TODO: toString()?
+  @override
+  String toString() {
+    if (_stackTrace == null) {
+      return 'UnexpectedWebsocketException: $error';
+    }
+    return 'UnexpectedWebsocketException: $error\n$_stackTrace';
+  }
 }
 
 class JWTError implements WingsException {
@@ -40,10 +50,11 @@ class JWTError implements WingsException {
       : receivedMessage = receivedMessage ?? 'Unknown JWT Error';
 
   // in the form of: 'jwt: something'
+  @override
   final String receivedMessage;
 
   @override
-  String toString() => 'JWTError: $receivedMessage';
+  String toString() => 'JWTError($receivedMessage))';
   // TODO: see if i want to return receivedMessage directly
   @override
   String get message => 'JWT Error: $receivedMessage';
@@ -52,10 +63,11 @@ class JWTError implements WingsException {
 class DaemonError implements WingsException {
   const DaemonError._(this.receivedMessage);
 
+  @override
   final String receivedMessage;
 
   @override
-  String toString() => 'DaemonError: $receivedMessage';
+  String toString() => 'DaemonError($receivedMessage))';
 
   @override
   String get message => 'Daemon Error: $receivedMessage';
@@ -96,7 +108,7 @@ class UnknownWingsEventException implements DartactylWebsocketException {
 /// Thrown when [ServerWebsocket] receives an event that doesn't match the
 /// expected event json.
 class UnexpectedWingsResponse implements DartactylWebsocketException {
-  const UnexpectedWingsResponse._(this.receivedData, this.message);
+  const UnexpectedWingsResponse._(this.receivedData, {required this.message});
   final Object? receivedData;
 
   @override
@@ -104,11 +116,10 @@ class UnexpectedWingsResponse implements DartactylWebsocketException {
 
   @override
   String toString() {
-    final prefix = 'UnexpectedWingsResponse: $message';
     if (receivedData == null) {
-      return prefix;
+      return 'UnexpectedWingsResponse($message)';
     }
-    return '$prefix\nReceived: $receivedData';
+    return 'UnexpectedWingsResponse($message, $receivedData)';
   }
 }
 

@@ -30,7 +30,7 @@ _$_ServerDatabase _$$_ServerDatabaseFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = _$_ServerDatabase(
-          id: $checkedConvert('id', (v) => v as int),
+          id: $checkedConvert('id', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
           host: $checkedConvert(
               'host', (v) => Database.fromJson(v as Map<String, dynamic>)),

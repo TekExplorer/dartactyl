@@ -1,4 +1,6 @@
 // ignore_for_file: unused_import, cascade_invocations, no_leading_underscores_for_local_identifiers, no_default_cases
+
+// Absolutely necessary for the test to work
 @TestOn('vm')
 
 import 'dart:async';
@@ -110,8 +112,8 @@ void main() {
         ),
       );
 
-      final serverWebsocket = ServerWebsocket.internal(
-        mockClient,
+      final serverWebsocket = ServerWebsocket(
+        client: mockClient,
         serverId: mockServerId,
       );
 
@@ -136,7 +138,7 @@ void main() {
         );
         configureMockClient(url, mockToken);
 
-        expect(
+        await expectLater(
           mockClient.getServerWebsocket(serverId: mockServerId),
           completion(
             PteroData(
@@ -148,8 +150,8 @@ void main() {
           ),
         );
 
-        final serverWebsocket = ServerWebsocket.internal(
-          mockClient,
+        final serverWebsocket = ServerWebsocket(
+          client: mockClient,
           serverId: mockServerId,
         );
 
@@ -161,7 +163,7 @@ void main() {
         serverWebsocket.connectionState.listen((state) {
           log('$state', name: 'ServerWebsocket State');
         });
-        expect(
+        final el = expectLater(
           serverWebsocket.connectionState,
           emitsInOrder([
             ConnectionState.connecting,
@@ -179,7 +181,7 @@ void main() {
         // final connectionStateStream =
         //     serverWebsocket.connectionState.shareReplay();
 
-        expect(
+        await expectLater(
           serverWebsocket.ready,
           completes,
           reason: 'ServerWebsocket should complete ready',
@@ -196,6 +198,7 @@ void main() {
           serverWebsocket.close(),
           completes,
         );
+        await el;
       });
     });
 
@@ -225,8 +228,8 @@ void main() {
         ),
       );
 
-      final serverWebsocket = ServerWebsocket.internal(
-        mockClient,
+      final serverWebsocket = ServerWebsocket(
+        client: mockClient,
         serverId: mockServerId,
       );
 

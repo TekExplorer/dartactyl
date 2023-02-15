@@ -8,9 +8,9 @@ enum ConnectionState {
   authenticating,
   connected,
   disconnected,
-  // @experimental
   closing,
-  // @experimental
   closed,
   ;
+
+  bool get isConnected => this == ConnectionState.connected;
 }

@@ -16,11 +16,16 @@ Future<ServerWebsocket> getWebsocket() async {
 
   await client.getServerWebsocket(serverId: server.identifier);
 
-  return ServerWebsocket.connect(client, serverId: server.identifier);
+  return ServerWebsocket(client: client, serverId: server.identifier);
 }
 
 void main(List<String> args) async {
   final ws = await getWebsocket();
+
+  await ws.ready;
+
+  await ws.requestLogs();
+  await ws.requestStats();
 
   ws.logs.listen((output) => log(output.message, name: 'Logs'));
   ws.powerState.listen((state) => log(state.name, name: 'PowerState'));
