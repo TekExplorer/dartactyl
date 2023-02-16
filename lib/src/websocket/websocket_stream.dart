@@ -44,11 +44,7 @@ class ServerWebsocket {
 
   static void Function(
     String message, {
-    DateTime? time,
-    int? sequenceNumber,
-    int level,
     String name,
-    Zone? zone,
     Object? error,
     StackTrace? stackTrace,
   }) log = dev.log;
