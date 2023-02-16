@@ -229,7 +229,6 @@ class _PteroApplication extends PteroApplication {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -409,7 +408,6 @@ class _PteroApplication extends PteroApplication {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override

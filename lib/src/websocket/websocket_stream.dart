@@ -2,7 +2,7 @@
 
 import 'dart:async';
 import 'dart:convert';
-import 'dart:developer';
+import 'dart:developer' as dev;
 
 import 'package:dartactyl/dartactyl.dart';
 import 'package:dartactyl/src/websocket/_internal.dart';
@@ -17,8 +17,6 @@ part 'websocket_errors.dart';
 
 @experimental
 class ServerWebsocket {
-  ServerWebsocket._noConnect({required this.client, required this.serverId});
-
   /// Start a connection to the server's websocket.
   ///
   /// The connection may not be authenticated yet, so you should await [ready]
@@ -39,6 +37,22 @@ class ServerWebsocket {
     }
   }
 
+  ServerWebsocket._noAutoConnect({
+    required this.client,
+    required this.serverId,
+  });
+
+  static void Function(
+    String message, {
+    DateTime? time,
+    int? sequenceNumber,
+    int level,
+    String name,
+    Zone? zone,
+    Object? error,
+    StackTrace? stackTrace,
+  }) log = dev.log;
+
   /// Connect to the websocket for a server and return the [ServerWebsocket]
   /// once it's authenticated.
   ///
@@ -47,7 +61,7 @@ class ServerWebsocket {
     required PteroClient client,
     required String serverId,
   }) async {
-    final serverWebsocket = ServerWebsocket._noConnect(
+    final serverWebsocket = ServerWebsocket._noAutoConnect(
       client: client,
       serverId: serverId,
     );

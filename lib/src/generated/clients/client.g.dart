@@ -45,7 +45,6 @@ class _DeprecatedPteroClient extends DeprecatedPteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
@@ -281,7 +280,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -312,7 +310,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -343,7 +340,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -482,7 +478,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -577,7 +572,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -752,7 +746,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -784,7 +777,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -882,7 +874,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -1045,7 +1036,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -1077,7 +1067,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -1111,7 +1100,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -1177,7 +1165,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -1209,7 +1196,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -1241,7 +1227,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -1273,7 +1258,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -1305,7 +1289,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -1502,7 +1485,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -1605,7 +1587,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -1935,7 +1916,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -2137,7 +2117,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -2170,7 +2149,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -2269,7 +2247,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -2299,7 +2276,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -2331,7 +2307,6 @@ class _PteroClient extends PteroClient {
           onReceiveProgress: onReceiveProgress,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

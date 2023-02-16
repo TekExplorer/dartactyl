@@ -6,16 +6,15 @@ library dartactyl;
 export 'package:dio/dio.dart' show CancelToken;
 
 export 'src/clients/client_site_config.dart';
-export 'src/extra/fractal_extentions.dart';
-export 'src/extra/fractal_list_extentions.dart';
 
 /// Extra
+export 'src/extra/fractal_extensions.dart';
+export 'src/extra/fractal_list_extensions.dart';
 export 'src/extra/typedefs.dart';
 export 'src/extra/utility.dart';
 
 /// Interceptors
 export 'src/interceptors/handle_errors.dart';
-export 'src/interceptors/if_auth_no_key.dart';
 export 'src/interceptors/remove_null_resources.dart';
 
 /// Application Models

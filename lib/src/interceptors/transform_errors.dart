@@ -45,7 +45,7 @@ class UnauthorizedException extends PteroApiException {
         errors: PteroErrors(errors: e.errors),
         rawData: e.rawData,
         rawDioError: e.rawDioError,
-      )..requestOptions = e.requestOptions;
+      );
 }
 
 class ForbiddenException extends PteroApiException {
@@ -60,7 +60,7 @@ class ForbiddenException extends PteroApiException {
         errors: PteroErrors(errors: e.errors),
         rawData: e.rawData,
         rawDioError: e.rawDioError,
-      )..requestOptions = e.requestOptions;
+      );
 }
 
 class NotFoundException extends PteroApiException {
@@ -74,7 +74,7 @@ class NotFoundException extends PteroApiException {
         errors: PteroErrors(errors: e.errors),
         rawData: e.rawData,
         rawDioError: e.rawDioError,
-      )..requestOptions = e.requestOptions;
+      );
 }
 
 class MethodNotAllowedException extends PteroApiException {
@@ -89,5 +89,5 @@ class MethodNotAllowedException extends PteroApiException {
         errors: PteroErrors(errors: e.errors),
         rawData: e.rawData,
         rawDioError: e.rawDioError,
-      )..requestOptions = e.requestOptions;
+      );
 }
