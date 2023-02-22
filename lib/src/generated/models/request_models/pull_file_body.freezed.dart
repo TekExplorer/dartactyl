@@ -23,8 +23,8 @@ mixin _$PullFileBody {
   Uri get url => throw _privateConstructorUsedError;
   String? get directory => throw _privateConstructorUsedError;
   String? get filename => throw _privateConstructorUsedError;
-  bool get useHeader => throw _privateConstructorUsedError;
-  bool get foreground => throw _privateConstructorUsedError;
+  bool? get useHeader => throw _privateConstructorUsedError;
+  bool? get foreground => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,8 +42,8 @@ abstract class $PullFileBodyCopyWith<$Res> {
       {Uri url,
       String? directory,
       String? filename,
-      bool useHeader,
-      bool foreground});
+      bool? useHeader,
+      bool? foreground});
 }
 
 /// @nodoc
@@ -62,8 +62,8 @@ class _$PullFileBodyCopyWithImpl<$Res, $Val extends PullFileBody>
     Object? url = null,
     Object? directory = freezed,
     Object? filename = freezed,
-    Object? useHeader = null,
-    Object? foreground = null,
+    Object? useHeader = freezed,
+    Object? foreground = freezed,
   }) {
     return _then(_value.copyWith(
       url: null == url
@@ -78,14 +78,14 @@ class _$PullFileBodyCopyWithImpl<$Res, $Val extends PullFileBody>
           ? _value.filename
           : filename // ignore: cast_nullable_to_non_nullable
               as String?,
-      useHeader: null == useHeader
+      useHeader: freezed == useHeader
           ? _value.useHeader
           : useHeader // ignore: cast_nullable_to_non_nullable
-              as bool,
-      foreground: null == foreground
+              as bool?,
+      foreground: freezed == foreground
           ? _value.foreground
           : foreground // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ) as $Val);
   }
 }
@@ -102,8 +102,8 @@ abstract class _$$_PullFileBodyCopyWith<$Res>
       {Uri url,
       String? directory,
       String? filename,
-      bool useHeader,
-      bool foreground});
+      bool? useHeader,
+      bool? foreground});
 }
 
 /// @nodoc
@@ -120,8 +120,8 @@ class __$$_PullFileBodyCopyWithImpl<$Res>
     Object? url = null,
     Object? directory = freezed,
     Object? filename = freezed,
-    Object? useHeader = null,
-    Object? foreground = null,
+    Object? useHeader = freezed,
+    Object? foreground = freezed,
   }) {
     return _then(_$_PullFileBody(
       url: null == url
@@ -136,14 +136,14 @@ class __$$_PullFileBodyCopyWithImpl<$Res>
           ? _value.filename
           : filename // ignore: cast_nullable_to_non_nullable
               as String?,
-      useHeader: null == useHeader
+      useHeader: freezed == useHeader
           ? _value.useHeader
           : useHeader // ignore: cast_nullable_to_non_nullable
-              as bool,
-      foreground: null == foreground
+              as bool?,
+      foreground: freezed == foreground
           ? _value.foreground
           : foreground // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 }
@@ -155,8 +155,8 @@ class _$_PullFileBody extends _PullFileBody {
       {required this.url,
       this.directory,
       this.filename,
-      required this.useHeader,
-      required this.foreground})
+      this.useHeader,
+      this.foreground})
       : super._();
 
   factory _$_PullFileBody.fromJson(Map<String, dynamic> json) =>
@@ -169,9 +169,9 @@ class _$_PullFileBody extends _PullFileBody {
   @override
   final String? filename;
   @override
-  final bool useHeader;
+  final bool? useHeader;
   @override
-  final bool foreground;
+  final bool? foreground;
 
   @override
   String toString() {
@@ -218,8 +218,8 @@ abstract class _PullFileBody extends PullFileBody {
       {required final Uri url,
       final String? directory,
       final String? filename,
-      required final bool useHeader,
-      required final bool foreground}) = _$_PullFileBody;
+      final bool? useHeader,
+      final bool? foreground}) = _$_PullFileBody;
   const _PullFileBody._() : super._();
 
   factory _PullFileBody.fromJson(Map<String, dynamic> json) =
@@ -232,9 +232,9 @@ abstract class _PullFileBody extends PullFileBody {
   @override
   String? get filename;
   @override
-  bool get useHeader;
+  bool? get useHeader;
   @override
-  bool get foreground;
+  bool? get foreground;
   @override
   @JsonKey(ignore: true)
   _$$_PullFileBodyCopyWith<_$_PullFileBody> get copyWith =>

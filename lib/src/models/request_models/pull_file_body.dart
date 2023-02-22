@@ -24,8 +24,8 @@ class PullFileBody with _$PullFileBody {
     required Uri url,
     String? directory,
     String? filename,
-    required bool useHeader,
-    required bool foreground,
+    bool? useHeader,
+    bool? foreground,
   }) = _PullFileBody;
   const PullFileBody._();
 
