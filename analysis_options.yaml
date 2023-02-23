@@ -22,6 +22,9 @@ linter:
     public_member_api_docs: false
     omit_local_variable_types: false
     require_trailing_commas: false
+    flutter_style_todos: false
+    # TODO: correct this instead
+    always_put_required_named_parameters_first: false
 
 
 # analyzer:
