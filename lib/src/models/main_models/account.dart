@@ -18,7 +18,4 @@ class Account with SerializableMixin, _$Account {
   const Account._();
 
   factory Account.fromJson(JsonMap json) => _$AccountFromJson(json);
-
-  @Deprecated('Use `isAdmin` instead')
-  bool get admin => isAdmin;
 }

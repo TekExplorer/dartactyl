@@ -1,10 +1,11 @@
 # CHANGELOG
 
-## Unreleased
+## 1.7.0
 
 - Nuked existing websocket implementation. Bye and tanks for all the 🐟🦈!
-
-- Moved to using a Stream wrapper instead of relying on a Cubit for the websocket
+  - Moved to using a `Stream` wrapper instead of relying on a Cubit for the websocket
+- Fixed a few models
+- Removed most deprecated parameters, types, and values
 
 ## 1.6.10-dev.2
 

@@ -22,6 +22,7 @@ mixin _$WebsocketLog {
     required TResult Function(String message) console,
     required TResult Function(String message) install,
     required TResult Function(String message) transfer,
+    required TResult Function(String message) daemon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,6 +30,7 @@ mixin _$WebsocketLog {
     TResult? Function(String message)? console,
     TResult? Function(String message)? install,
     TResult? Function(String message)? transfer,
+    TResult? Function(String message)? daemon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +38,7 @@ mixin _$WebsocketLog {
     TResult Function(String message)? console,
     TResult Function(String message)? install,
     TResult Function(String message)? transfer,
+    TResult Function(String message)? daemon,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +47,7 @@ mixin _$WebsocketLog {
     required TResult Function(ConsoleLog value) console,
     required TResult Function(InstallLog value) install,
     required TResult Function(TransferLog value) transfer,
+    required TResult Function(DaemonMessage value) daemon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +55,7 @@ mixin _$WebsocketLog {
     TResult? Function(ConsoleLog value)? console,
     TResult? Function(InstallLog value)? install,
     TResult? Function(TransferLog value)? transfer,
+    TResult? Function(DaemonMessage value)? daemon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +63,7 @@ mixin _$WebsocketLog {
     TResult Function(ConsoleLog value)? console,
     TResult Function(InstallLog value)? install,
     TResult Function(TransferLog value)? transfer,
+    TResult Function(DaemonMessage value)? daemon,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -169,6 +175,7 @@ class _$ConsoleLog implements ConsoleLog {
     required TResult Function(String message) console,
     required TResult Function(String message) install,
     required TResult Function(String message) transfer,
+    required TResult Function(String message) daemon,
   }) {
     return console(message);
   }
@@ -179,6 +186,7 @@ class _$ConsoleLog implements ConsoleLog {
     TResult? Function(String message)? console,
     TResult? Function(String message)? install,
     TResult? Function(String message)? transfer,
+    TResult? Function(String message)? daemon,
   }) {
     return console?.call(message);
   }
@@ -189,6 +197,7 @@ class _$ConsoleLog implements ConsoleLog {
     TResult Function(String message)? console,
     TResult Function(String message)? install,
     TResult Function(String message)? transfer,
+    TResult Function(String message)? daemon,
     required TResult orElse(),
   }) {
     if (console != null) {
@@ -203,6 +212,7 @@ class _$ConsoleLog implements ConsoleLog {
     required TResult Function(ConsoleLog value) console,
     required TResult Function(InstallLog value) install,
     required TResult Function(TransferLog value) transfer,
+    required TResult Function(DaemonMessage value) daemon,
   }) {
     return console(this);
   }
@@ -213,6 +223,7 @@ class _$ConsoleLog implements ConsoleLog {
     TResult? Function(ConsoleLog value)? console,
     TResult? Function(InstallLog value)? install,
     TResult? Function(TransferLog value)? transfer,
+    TResult? Function(DaemonMessage value)? daemon,
   }) {
     return console?.call(this);
   }
@@ -223,6 +234,7 @@ class _$ConsoleLog implements ConsoleLog {
     TResult Function(ConsoleLog value)? console,
     TResult Function(InstallLog value)? install,
     TResult Function(TransferLog value)? transfer,
+    TResult Function(DaemonMessage value)? daemon,
     required TResult orElse(),
   }) {
     if (console != null) {
@@ -312,6 +324,7 @@ class _$InstallLog implements InstallLog {
     required TResult Function(String message) console,
     required TResult Function(String message) install,
     required TResult Function(String message) transfer,
+    required TResult Function(String message) daemon,
   }) {
     return install(message);
   }
@@ -322,6 +335,7 @@ class _$InstallLog implements InstallLog {
     TResult? Function(String message)? console,
     TResult? Function(String message)? install,
     TResult? Function(String message)? transfer,
+    TResult? Function(String message)? daemon,
   }) {
     return install?.call(message);
   }
@@ -332,6 +346,7 @@ class _$InstallLog implements InstallLog {
     TResult Function(String message)? console,
     TResult Function(String message)? install,
     TResult Function(String message)? transfer,
+    TResult Function(String message)? daemon,
     required TResult orElse(),
   }) {
     if (install != null) {
@@ -346,6 +361,7 @@ class _$InstallLog implements InstallLog {
     required TResult Function(ConsoleLog value) console,
     required TResult Function(InstallLog value) install,
     required TResult Function(TransferLog value) transfer,
+    required TResult Function(DaemonMessage value) daemon,
   }) {
     return install(this);
   }
@@ -356,6 +372,7 @@ class _$InstallLog implements InstallLog {
     TResult? Function(ConsoleLog value)? console,
     TResult? Function(InstallLog value)? install,
     TResult? Function(TransferLog value)? transfer,
+    TResult? Function(DaemonMessage value)? daemon,
   }) {
     return install?.call(this);
   }
@@ -366,6 +383,7 @@ class _$InstallLog implements InstallLog {
     TResult Function(ConsoleLog value)? console,
     TResult Function(InstallLog value)? install,
     TResult Function(TransferLog value)? transfer,
+    TResult Function(DaemonMessage value)? daemon,
     required TResult orElse(),
   }) {
     if (install != null) {
@@ -455,6 +473,7 @@ class _$TransferLog implements TransferLog {
     required TResult Function(String message) console,
     required TResult Function(String message) install,
     required TResult Function(String message) transfer,
+    required TResult Function(String message) daemon,
   }) {
     return transfer(message);
   }
@@ -465,6 +484,7 @@ class _$TransferLog implements TransferLog {
     TResult? Function(String message)? console,
     TResult? Function(String message)? install,
     TResult? Function(String message)? transfer,
+    TResult? Function(String message)? daemon,
   }) {
     return transfer?.call(message);
   }
@@ -475,6 +495,7 @@ class _$TransferLog implements TransferLog {
     TResult Function(String message)? console,
     TResult Function(String message)? install,
     TResult Function(String message)? transfer,
+    TResult Function(String message)? daemon,
     required TResult orElse(),
   }) {
     if (transfer != null) {
@@ -489,6 +510,7 @@ class _$TransferLog implements TransferLog {
     required TResult Function(ConsoleLog value) console,
     required TResult Function(InstallLog value) install,
     required TResult Function(TransferLog value) transfer,
+    required TResult Function(DaemonMessage value) daemon,
   }) {
     return transfer(this);
   }
@@ -499,6 +521,7 @@ class _$TransferLog implements TransferLog {
     TResult? Function(ConsoleLog value)? console,
     TResult? Function(InstallLog value)? install,
     TResult? Function(TransferLog value)? transfer,
+    TResult? Function(DaemonMessage value)? daemon,
   }) {
     return transfer?.call(this);
   }
@@ -509,6 +532,7 @@ class _$TransferLog implements TransferLog {
     TResult Function(ConsoleLog value)? console,
     TResult Function(InstallLog value)? install,
     TResult Function(TransferLog value)? transfer,
+    TResult Function(DaemonMessage value)? daemon,
     required TResult orElse(),
   }) {
     if (transfer != null) {
@@ -526,5 +550,154 @@ abstract class TransferLog implements WebsocketLog {
   @override
   @JsonKey(ignore: true)
   _$$TransferLogCopyWith<_$TransferLog> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DaemonMessageCopyWith<$Res>
+    implements $WebsocketLogCopyWith<$Res> {
+  factory _$$DaemonMessageCopyWith(
+          _$DaemonMessage value, $Res Function(_$DaemonMessage) then) =
+      __$$DaemonMessageCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$DaemonMessageCopyWithImpl<$Res>
+    extends _$WebsocketLogCopyWithImpl<$Res, _$DaemonMessage>
+    implements _$$DaemonMessageCopyWith<$Res> {
+  __$$DaemonMessageCopyWithImpl(
+      _$DaemonMessage _value, $Res Function(_$DaemonMessage) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$DaemonMessage(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DaemonMessage implements DaemonMessage {
+  const _$DaemonMessage(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'WebsocketLog.daemon(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DaemonMessage &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DaemonMessageCopyWith<_$DaemonMessage> get copyWith =>
+      __$$DaemonMessageCopyWithImpl<_$DaemonMessage>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String message) console,
+    required TResult Function(String message) install,
+    required TResult Function(String message) transfer,
+    required TResult Function(String message) daemon,
+  }) {
+    return daemon(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String message)? console,
+    TResult? Function(String message)? install,
+    TResult? Function(String message)? transfer,
+    TResult? Function(String message)? daemon,
+  }) {
+    return daemon?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? console,
+    TResult Function(String message)? install,
+    TResult Function(String message)? transfer,
+    TResult Function(String message)? daemon,
+    required TResult orElse(),
+  }) {
+    if (daemon != null) {
+      return daemon(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ConsoleLog value) console,
+    required TResult Function(InstallLog value) install,
+    required TResult Function(TransferLog value) transfer,
+    required TResult Function(DaemonMessage value) daemon,
+  }) {
+    return daemon(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ConsoleLog value)? console,
+    TResult? Function(InstallLog value)? install,
+    TResult? Function(TransferLog value)? transfer,
+    TResult? Function(DaemonMessage value)? daemon,
+  }) {
+    return daemon?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ConsoleLog value)? console,
+    TResult Function(InstallLog value)? install,
+    TResult Function(TransferLog value)? transfer,
+    TResult Function(DaemonMessage value)? daemon,
+    required TResult orElse(),
+  }) {
+    if (daemon != null) {
+      return daemon(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DaemonMessage implements WebsocketLog {
+  const factory DaemonMessage(final String message) = _$DaemonMessage;
+
+  @override
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$DaemonMessageCopyWith<_$DaemonMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,3 +1,5 @@
+import 'package:meta/meta.dart';
+
 enum ServerFilterEnum with FilterEnumMixin {
   all('*'),
   uuid,
@@ -82,9 +84,10 @@ mixin FilterEnumMixin on Enum {
   String get filterBy => _filterBy ?? name;
 }
 
+@immutable
 abstract class Filters<E extends FilterEnumMixin> {
-
   const Filters();
+
   /// Returns a map which maps the possible filters (as an enum) to their values.
   Map<E, String> get filters;
 

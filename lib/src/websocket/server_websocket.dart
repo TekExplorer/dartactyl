@@ -101,14 +101,6 @@ class ServerWebsocket {
   ValueStream<ServerWebsocketException> get errors => _errors.stream;
   final _errors = BehaviorSubject<ServerWebsocketException>();
 
-  // TODO: can and should this be folded into _errors?
-  ValueStream<String> get daemonErrors => _daemonErrors.stream;
-  final _daemonErrors = BehaviorSubject<String>();
-
-  // TODO: can and should this be folded into _logs?
-  ValueStream<String> get daemonMessages => _daemonMessages.stream;
-  final _daemonMessages = BehaviorSubject<String>();
-
   // Need to be able to transform them based on the source of the log.
   // but there's no real reason to have separate streams for each source
   ValueStream<WebsocketLog> get logs => _logs.stream;
@@ -355,7 +347,8 @@ class ServerWebsocket {
               websocketEvent, 'Received a null daemon message from Wings');
         }
 
-        _daemonMessages.add(arg);
+        // _daemonMessages.add(arg);
+        _logs.add(WebsocketLog.daemon(arg));
 
         break;
       case ServerWebsocketReceiveEvent.daemonError:
@@ -364,7 +357,7 @@ class ServerWebsocket {
               websocketEvent, 'Received a null daemon error from Wings');
         }
 
-        _daemonErrors.add(arg);
+        // _daemonErrors.add(arg);
         _errors.raise(DaemonError._(arg));
 
         break;
@@ -513,8 +506,8 @@ class ServerWebsocket {
     await _installStatus.close();
     await _backupStatus.close();
     await _logs.close();
-    await _daemonMessages.close();
-    await _daemonErrors.close();
+    // await _daemonMessages.close();
+    // await _daemonErrors.close();
     await _errors.close();
     // let listeners know that the websocket is closed
     _connectionState.add(ConnectionState.closed);

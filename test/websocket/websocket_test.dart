@@ -1,8 +1,5 @@
 // ignore_for_file: unused_import, cascade_invocations, no_leading_underscores_for_local_identifiers, no_default_cases
 
-// Absolutely necessary for the test to work
-@TestOn('vm')
-
 import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
@@ -22,6 +19,8 @@ import 'websocket_helper.dart';
 
 class MockPteroClient extends Mock implements PteroClient {}
 
+// Absolutely necessary for the test to work
+@TestOn('vm')
 void main() {
   // create mock
   // getServerWebsocket

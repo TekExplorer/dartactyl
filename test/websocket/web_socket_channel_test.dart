@@ -1,13 +1,12 @@
 // ignore_for_file: cascade_invocations
 
-@TestOn('vm')
-
 import 'dart:io';
 
 import 'package:stream_channel/stream_channel.dart';
 import 'package:test/test.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
+@TestOn('vm')
 //! copied from web_socket_channel tests
 void main() {
   test('a client can communicate with a WebSocket server', () async {

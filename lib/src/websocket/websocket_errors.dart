@@ -1,6 +1,6 @@
 // ignore_for_file: invalid_use_of_visible_for_testing_member
 
-part of 'websocket_stream.dart';
+part of 'server_websocket.dart';
 
 // make it clear where it came from
 

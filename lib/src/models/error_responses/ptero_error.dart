@@ -20,6 +20,7 @@ class PteroError with _$PteroError implements Exception {
   String get message => detail;
 }
 
+@immutable
 class PteroErrorCode {
   const PteroErrorCode(this.code);
 

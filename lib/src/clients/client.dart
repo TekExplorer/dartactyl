@@ -90,11 +90,10 @@ abstract class PteroClient {
 
   /// Set up a Pterodactyl API Client in one go!
   /// [baseUrl] is the base URL of the Pterodactyl server.
-  /// [key] is the API key of the Pterodactyl account.
+  /// [apiKey] is the API key of the Pterodactyl account.
   /// leave [apiKey] blank if you'd rather use cookies with user/pass.
   factory PteroClient.generate({
     required String url,
-    @Deprecated('Use apiKey instead.') String? key,
     String? apiKey,
     Dio? dio,
     String userAgent = 'Dartactyl/v1',
@@ -104,9 +103,8 @@ abstract class PteroClient {
 
     if (apiKey != null) {
       dio.options.headers[HttpHeaders.authorizationHeader] = 'Bearer $apiKey';
-    } else if (key != null) {
-      dio.options.headers[HttpHeaders.authorizationHeader] = 'Bearer $key';
     }
+
     dio.options
       ..headers[HttpHeaders.userAgentHeader] = userAgent
       ..headers[HttpHeaders.acceptHeader] = 'application/json'
@@ -118,11 +116,6 @@ abstract class PteroClient {
     return PteroClient(dio);
   }
   const PteroClient._();
-
-  /// Interceptor that removes null resources from the response.
-  @Deprecated('Use RemoveNullResourcesInterceptor() instead.')
-  static final removeNullResourcesInterceptor =
-      RemoveNullResourcesInterceptor();
 
   /// A list of interceptors that are added
   ///  by default with [PteroClient.generate].
@@ -200,14 +193,6 @@ abstract class PteroClient {
   /// [filters]: filter the results. See [ServerFilters] for more info.
   /// You can filter the results using:
   ///
-  /// [filter]; filters by all (uuid, name, externalId, ip:port, :port, ip)
-  ///
-  /// [filterByUuid]; filters by uuid
-  ///
-  /// [filterByName]; filters by name
-  ///
-  /// [filterByExternalId]; filters by external id
-  ///
   /// !!! ONLY USE ONE FILTER !!!
   ///
   /// [page]; page number
@@ -228,19 +213,6 @@ abstract class PteroClient {
     @Query('include') ServerIncludes? include,
     // Filters
     @Queries() ServerFilters? filters,
-    @Deprecated('Use filters instead') @Query('filter[*]') String? filter,
-    @Deprecated('Use filters instead')
-    @Query('filter[uuid]')
-        String? filterByUuid,
-    @Deprecated('Use filters instead')
-    @Query('filter[name]')
-        String? filterByName,
-    @Deprecated('Use filters instead')
-    @Query('filter[external_id]')
-        String? filterByExternalId,
-    @Deprecated('Use filters instead')
-    @Query('filter[description]')
-        String? filterByDescription,
     // What servers to return by access type
     @Query('type') GetServersQueryType? type = GetServersQueryType.member,
     @CancelRequest() CancelToken? cancelToken,
@@ -319,9 +291,6 @@ abstract class PteroClient {
     @Query('per_page') int? perPage,
     // Filters
     @Queries() ActivityFilters? filters,
-    @Deprecated('Use filters instead')
-    @Query('filter[event]')
-        String? filterByEvent,
     // Sort
     @Query('sort') ActivityLogSort? sort,
     @CancelRequest() CancelToken? cancelToken,
@@ -425,9 +394,7 @@ abstract class PteroClient {
     @Query('per_page') int? perPage,
     // Filters
     @Queries() ActivityFilters? filters,
-    @Deprecated('Use filters instead')
-    @Query('filter[event]')
-        String? filterByEvent,
+
     // Sort
     @Query('sort') ActivityLogSort? sort,
     @CancelRequest() CancelToken? cancelToken,
@@ -529,16 +496,6 @@ abstract class PteroClient {
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
   });
-
-  ///
-  @Deprecated('Use getFileDownloadUrl instead')
-  Future<FractalData<SignedUrl>> Function({
-    required String serverId,
-    required String file,
-    CancelToken? cancelToken,
-    ProgressCallback? onSendProgress,
-    ProgressCallback? onReceiveProgress,
-  }) get downloadFile => getFileDownloadUrl;
 
   /// Download a [file] from the [Server]
   ///
@@ -895,16 +852,6 @@ abstract class PteroClient {
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
   });
-
-  ///
-  @Deprecated('Use getBackupDownloadUrl instead')
-  Future<FractalData<SignedUrl>> Function({
-    required String serverId,
-    required String backupId,
-    CancelToken? cancelToken,
-    ProgressCallback? onSendProgress,
-    ProgressCallback? onReceiveProgress,
-  }) get downloadBackup => getBackupDownloadUrl;
 
   /// Generate download url for a [Backup] from  the [Server]
   @GET('/api/client/servers/{serverId}/backups/{backupId}/download')
