@@ -6,7 +6,6 @@ part '../../generated/models/main_models/account.g.dart';
 
 @freezed
 class Account with SerializableMixin, _$Account {
-  const Account._();
   const factory Account({
     required int id,
     @JsonKey(name: 'admin') required bool isAdmin,
@@ -16,9 +15,7 @@ class Account with SerializableMixin, _$Account {
     required String lastName,
     required String language,
   }) = _Account;
+  const Account._();
 
   factory Account.fromJson(JsonMap json) => _$AccountFromJson(json);
-
-  @Deprecated('Use `isAdmin` instead')
-  bool get admin => isAdmin;
 }

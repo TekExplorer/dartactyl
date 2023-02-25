@@ -20,6 +20,12 @@ linter:
   rules:
     # - camel_case_types
     public_member_api_docs: false
+    omit_local_variable_types: false
+    require_trailing_commas: false
+    flutter_style_todos: false
+    # TODO: correct this instead
+    always_put_required_named_parameters_first: false
+
 
 # analyzer:
 #   exclude:
@@ -36,3 +42,4 @@ analyzer:
     - "**/*.freezed.dart"
   errors:
     invalid_annotation_target: ignore
+

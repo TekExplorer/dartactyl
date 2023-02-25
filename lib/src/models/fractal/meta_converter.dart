@@ -1,7 +1,6 @@
+import 'package:dartactyl/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-
-import '../../../models.dart';
 
 @protected
 class MetaConverter<M extends Meta> implements JsonConverter<M, JsonMap> {

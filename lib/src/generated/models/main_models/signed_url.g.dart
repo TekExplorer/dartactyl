@@ -11,7 +11,7 @@ _$_SignedUrl _$$_SignedUrlFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_SignedUrl(
-          url: $checkedConvert('url', (v) => v as String),
+          url: $checkedConvert('url', (v) => Uri.parse(v as String)),
         );
         return val;
       },
@@ -19,5 +19,5 @@ _$_SignedUrl _$$_SignedUrlFromJson(Map<String, dynamic> json) => $checkedCreate(
 
 Map<String, dynamic> _$$_SignedUrlToJson(_$_SignedUrl instance) =>
     <String, dynamic>{
-      'url': instance.url,
+      'url': instance.url.toString(),
     };

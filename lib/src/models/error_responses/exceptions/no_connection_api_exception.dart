@@ -15,7 +15,7 @@ class NoConnectionPteroApiException extends GenericApiException {
 
   @override
   String toString() =>
-      'NoConnectionPteroApiException{statusMessage: $statusMessage}';
+      'NoConnectionPteroApiException(statusMessage: $statusMessage)';
 }
 
 /// We reached the server, but we did not get any data
@@ -34,5 +34,5 @@ class NoDataPteroApiException extends GenericApiException {
       super.statusMessage.isEmpty ? 'No data returned' : super.statusMessage;
 
   @override
-  String toString() => 'NoDataPteroApiException{statusMessage: $statusMessage}';
+  String toString() => 'NoDataPteroApiException(statusMessage: $statusMessage)';
 }

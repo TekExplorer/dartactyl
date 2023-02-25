@@ -14,7 +14,6 @@ part '../../generated/models/auth/ptero_login_request.g.dart';
 @experimental
 @freezed
 class PteroLoginRequest with _$PteroLoginRequest {
-  const PteroLoginRequest._();
   const factory PteroLoginRequest({
     // ignore: invalid_annotation_target
     @JsonKey(name: 'user') required String username,
@@ -22,6 +21,7 @@ class PteroLoginRequest with _$PteroLoginRequest {
     // ignore: invalid_annotation_target
     @JsonKey(name: 'g-recaptcha-response') String? gRecaptchaResponse,
   }) = _PterodactylLoginRequest;
+  const PteroLoginRequest._();
 
   factory PteroLoginRequest.fromJson(JsonMap json) =>
       _$PteroLoginRequestFromJson(json);

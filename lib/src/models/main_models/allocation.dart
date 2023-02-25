@@ -6,7 +6,6 @@ part '../../generated/models/main_models/allocation.g.dart';
 
 @freezed
 class Allocation with SerializableMixin, _$Allocation {
-  const Allocation._();
   const factory Allocation({
     required int id,
     required String ip,
@@ -15,6 +14,7 @@ class Allocation with SerializableMixin, _$Allocation {
     String? notes,
     required bool isDefault,
   }) = _Allocation;
+  const Allocation._();
 
   factory Allocation.fromJson(JsonMap json) => _$AllocationFromJson(json);
 }

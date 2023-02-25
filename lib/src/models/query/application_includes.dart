@@ -1,12 +1,12 @@
-import 'includes.dart';
+import 'package:dartactyl/src/models/query/includes.dart';
 
 class ApplicationUsersIncludes extends Includes {
-  const ApplicationUsersIncludes._(super.includes);
   ApplicationUsersIncludes({
     required bool includeServers,
   }) : super([
           if (includeServers) 'servers',
         ]);
+  const ApplicationUsersIncludes._(super.includes);
 
   static const ApplicationUsersIncludes includeServers =
       ApplicationUsersIncludes._(['servers']);
@@ -51,6 +51,7 @@ class ApplicationServerIncludes extends Includes {
           if (includeDatabases) 'databases',
           if (includeTransfer) 'transfer',
         ]);
+  const ApplicationServerIncludes.all() : super(_all);
   static const _all = [
     'allocations',
     'user',
@@ -63,13 +64,11 @@ class ApplicationServerIncludes extends Includes {
     'databases',
     'transfer',
   ];
-  const ApplicationServerIncludes.all() : super(_all);
   static const ApplicationServerIncludes includeAll =
       ApplicationServerIncludes.all();
 }
 
 class NodeIncludes extends Includes {
-  const NodeIncludes._(super.includes);
   NodeIncludes({
     required bool includeAllocations,
     required bool includeLocation,
@@ -79,6 +78,7 @@ class NodeIncludes extends Includes {
           if (includeLocation) 'location',
           if (includeServers) 'servers',
         ]);
+  const NodeIncludes._(super.includes);
 
   static const NodeIncludes includeAllocations =
       NodeIncludes._(['allocations']);
@@ -95,7 +95,6 @@ class NodeIncludes extends Includes {
 }
 
 class AllocationIncludes extends Includes {
-  const AllocationIncludes._(super.includes);
   AllocationIncludes({
     required bool includeNode,
     required bool includeServer,
@@ -103,6 +102,7 @@ class AllocationIncludes extends Includes {
           if (includeNode) 'node',
           if (includeServer) 'server',
         ]);
+  const AllocationIncludes._(super.includes);
 
   static const AllocationIncludes includeNode = AllocationIncludes._(['node']);
   static const AllocationIncludes includeServer =

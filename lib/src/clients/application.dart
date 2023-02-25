@@ -1,18 +1,17 @@
+import 'package:dartactyl/models.dart';
 import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
 import 'package:retrofit/retrofit.dart';
-
-import '../../models.dart';
 
 part '../generated/clients/application.g.dart';
 
 /// Pterodactyl Application API Client
 @RestApi()
 abstract class PteroApplication {
+  factory PteroApplication(Dio dio, {String? baseUrl}) = _PteroApplication._;
   // https://github.com/pterodactyl/panel/blob/1.0-develop/routes/api-application.php
 
   const PteroApplication._();
-  factory PteroApplication(Dio dio, {String? baseUrl}) = _PteroApplication._;
 
   // Users
   @GET('/api/application/users')

@@ -26,7 +26,7 @@ _$_Stats _$$_StatsFromJson(Map<String, dynamic> json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$_StatsToJson(_$_Stats instance) => <String, dynamic>{
-      'current_state': _$ServerPowerStateEnumMap[instance.currentState]!,
+      'current_state': instance.currentState.toJson(),
       'is_suspended': instance.isSuspended,
       'resources': instance.resources.toJson(),
     };

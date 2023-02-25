@@ -6,7 +6,6 @@ part '../../generated/models/permission_keys/database_permission_keys.g.dart';
 
 @freezed
 class DatabasePermissionKeys with SerializableMixin, _$DatabasePermissionKeys {
-  const DatabasePermissionKeys._();
   const factory DatabasePermissionKeys({
     required String create,
     required String read,
@@ -14,6 +13,7 @@ class DatabasePermissionKeys with SerializableMixin, _$DatabasePermissionKeys {
     required String delete,
     required String viewPassword,
   }) = _DatabasePermissionKeys;
+  const DatabasePermissionKeys._();
 
   factory DatabasePermissionKeys.fromJson(JsonMap json) =>
       _$DatabasePermissionKeysFromJson(json);

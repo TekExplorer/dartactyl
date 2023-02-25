@@ -6,10 +6,10 @@ part '../../generated/models/main_models/relationships.g.dart';
 
 @freezed // on server_database
 class DatabasePasswordRelationships with _$DatabasePasswordRelationships {
-  const DatabasePasswordRelationships._();
   const factory DatabasePasswordRelationships({
     required FractalData<DatabasePassword> password,
   }) = _DatabasePasswordRelationships;
+  const DatabasePasswordRelationships._();
 
   factory DatabasePasswordRelationships.fromJson(JsonMap json) =>
       _$DatabasePasswordRelationshipsFromJson(json);
@@ -17,13 +17,13 @@ class DatabasePasswordRelationships with _$DatabasePasswordRelationships {
 
 @freezed // on server
 class ServerRelationships with _$ServerRelationships {
-  const ServerRelationships._();
   const factory ServerRelationships({
     required FractalListData<Allocation> allocations,
     FractalListData<EggVariable>? variables,
     FractalData<Egg>? egg,
     FractalListData<Subuser>? subusers,
   }) = _ServerRelationships;
+  const ServerRelationships._();
 
   factory ServerRelationships.fromJson(JsonMap json) =>
       _$ServerRelationshipsFromJson(json);
@@ -31,10 +31,10 @@ class ServerRelationships with _$ServerRelationships {
 
 @freezed // on server_schedule
 class ServerScheduleRelationships with _$ServerScheduleRelationships {
-  const ServerScheduleRelationships._();
   const factory ServerScheduleRelationships({
     required FractalListData<ScheduleTask> tasks,
   }) = _ServerScheduleRelationships;
+  const ServerScheduleRelationships._();
 
   factory ServerScheduleRelationships.fromJson(JsonMap json) =>
       _$ServerScheduleRelationshipsFromJson(json);
@@ -42,10 +42,10 @@ class ServerScheduleRelationships with _$ServerScheduleRelationships {
 
 @freezed
 class ActivityLogRelationships with _$ActivityLogRelationships {
-  const ActivityLogRelationships._();
   const factory ActivityLogRelationships({
     FractalData<User>? actor,
   }) = _ActivityLogRelationships;
+  const ActivityLogRelationships._();
 
   factory ActivityLogRelationships.fromJson(JsonMap json) =>
       _$ActivityLogRelationshipsFromJson(json);

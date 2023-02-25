@@ -6,12 +6,12 @@ part '../../generated/models/error_responses/ptero_error_meta.g.dart';
 //TODO: actually use somewhere
 @JsonSerializable()
 class PteroErrorMeta {
-  final String rule;
 
   const PteroErrorMeta({required this.rule});
 
   factory PteroErrorMeta.fromJson(JsonMap json) =>
       _$PteroErrorMetaFromJson(json);
+  final String rule;
 
   JsonMap toJson() => _$PteroErrorMetaToJson(this);
 }
@@ -20,14 +20,14 @@ class PteroErrorMeta {
 
 @JsonSerializable()
 class PteroErrorStringMeta extends PteroErrorMeta {
-  // ignore: invalid_annotation_target
-  @JsonKey(name: 'source_field')
-  final PteroErrorScheduleMetaRule? sourceField;
 
   const PteroErrorStringMeta({required super.rule, required this.sourceField});
 
   factory PteroErrorStringMeta.fromJson(JsonMap json) =>
       _$PteroErrorStringMetaFromJson(json);
+  // ignore: invalid_annotation_target
+  @JsonKey(name: 'source_field')
+  final PteroErrorScheduleMetaRule? sourceField;
 
   @override
   JsonMap toJson() => _$PteroErrorStringMetaToJson(this);
@@ -35,9 +35,6 @@ class PteroErrorStringMeta extends PteroErrorMeta {
 
 @JsonSerializable()
 class PteroErrorScheduleMeta extends PteroErrorMeta {
-  // ignore: invalid_annotation_target
-  @JsonKey(name: 'source_field')
-  final Cron sourceField;
 
   const PteroErrorScheduleMeta({
     required super.rule,
@@ -46,6 +43,9 @@ class PteroErrorScheduleMeta extends PteroErrorMeta {
 
   factory PteroErrorScheduleMeta.fromJson(JsonMap json) =>
       _$PteroErrorScheduleMetaFromJson(json);
+  // ignore: invalid_annotation_target
+  @JsonKey(name: 'source_field')
+  final Cron sourceField;
 
   @override
   JsonMap toJson() => _$PteroErrorScheduleMetaToJson(this);

@@ -6,7 +6,6 @@ part '../../generated/models/main_models/server.g.dart';
 
 @freezed
 class Server with SerializableMixin, _$Server {
-  const Server._();
   const factory Server({
     required bool serverOwner,
     required String identifier,
@@ -27,6 +26,7 @@ class Server with SerializableMixin, _$Server {
     required bool isTransferring,
     required ServerRelationships relationships,
   }) = _Server;
+  const Server._();
 
   factory Server.fromJson(JsonMap json) => _$ServerFromJson(json);
 }

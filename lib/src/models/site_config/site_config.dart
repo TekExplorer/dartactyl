@@ -6,24 +6,24 @@ part '../../generated/models/site_config/site_config.g.dart';
 
 @freezed
 class Recaptcha with _$Recaptcha {
-  const Recaptcha._();
   const factory Recaptcha({
     required bool enabled,
     String? siteKey,
   }) = _Recaptcha;
+  const Recaptcha._();
 
   factory Recaptcha.fromJson(JsonMap json) => _$RecaptchaFromJson(json);
 }
 
 @freezed
 class SiteConfig with _$SiteConfig {
-  const SiteConfig._();
   const factory SiteConfig({
     required String name,
     required String locale,
     required Recaptcha recaptcha,
     // required String analytics,
   }) = _SiteConfig;
+  const SiteConfig._();
 
   factory SiteConfig.fromJson(JsonMap json) => _$SiteConfigFromJson(json);
 }

@@ -6,7 +6,7 @@ part '../../generated/models/request_models/update_image.g.dart';
 
 @freezed
 class UpdateImage with _$UpdateImage {
-  const UpdateImage._();
   const factory UpdateImage({required String dockerImage}) = _UpdateImage;
+  const UpdateImage._();
   factory UpdateImage.fromJson(JsonMap json) => _$UpdateImageFromJson(json);
 }

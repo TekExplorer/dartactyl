@@ -6,8 +6,8 @@ part '../../generated/models/request_models/allocation_note.g.dart';
 
 @freezed
 class AllocationNote with _$AllocationNote {
-  const AllocationNote._();
   const factory AllocationNote({required String notes}) = _AllocationNote;
+  const AllocationNote._();
 
   factory AllocationNote.fromJson(JsonMap json) =>
       _$AllocationNoteFromJson(json);

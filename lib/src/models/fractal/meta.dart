@@ -1,6 +1,5 @@
+import 'package:dartactyl/dartactyl.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../../../dartactyl.dart';
 
 part '../../generated/models/fractal/meta.freezed.dart';
 part '../../generated/models/fractal/meta.g.dart';
@@ -14,10 +13,10 @@ abstract class Meta with SerializableMixin {}
 /// Shows on `listServers`
 @freezed
 class PaginatedMeta with _$PaginatedMeta implements Meta, PaginationMixin {
-  const PaginatedMeta._();
   @Implements<PaginationMixin>()
   const factory PaginatedMeta({required Pagination pagination}) =
       _PaginatedMeta;
+  const PaginatedMeta._();
   factory PaginatedMeta.fromJson(Map<String, dynamic> json) =>
       _$PaginatedMetaFromJson(json);
 }
@@ -27,12 +26,12 @@ class PaginatedMeta with _$PaginatedMeta implements Meta, PaginationMixin {
 class PaginatedBackupsMeta
     with _$PaginatedBackupsMeta
     implements Meta, PaginationMixin {
-  const PaginatedBackupsMeta._();
   @Implements<PaginationMixin>()
   const factory PaginatedBackupsMeta({
     required Pagination pagination,
     required int backupCount,
   }) = _PaginatedBackupsMeta;
+  const PaginatedBackupsMeta._();
 
   factory PaginatedBackupsMeta.fromJson(Map<String, dynamic> json) =>
       _$PaginatedBackupsMetaFromJson(json);
@@ -41,11 +40,11 @@ class PaginatedBackupsMeta
 /// shows on `getServerDetails`
 @freezed
 class ServerMeta with _$ServerMeta implements Meta {
-  const ServerMeta._();
   const factory ServerMeta({
     required bool isServerOwner,
     required List<String> userPermissions,
   }) = _ServerMeta;
+  const ServerMeta._();
   factory ServerMeta.fromJson(Map<String, dynamic> json) =>
       _$ServerMetaFromJson(json);
 }
@@ -53,12 +52,12 @@ class ServerMeta with _$ServerMeta implements Meta {
 /// Shows up on `listVariables`
 @freezed
 class StartupMeta with _$StartupMeta implements Meta {
-  const StartupMeta._();
   const factory StartupMeta({
     required String startupCommand,
     required String rawStartupCommand,
     required Map<String, String> dockerImages,
   }) = _StartupMeta;
+  const StartupMeta._();
   factory StartupMeta.fromJson(Map<String, dynamic> json) =>
       _$StartupMetaFromJson(json);
 }
@@ -66,8 +65,8 @@ class StartupMeta with _$StartupMeta implements Meta {
 /// Shows on `createApiKey`
 @freezed
 class ApiKeyMeta with _$ApiKeyMeta implements Meta {
-  const ApiKeyMeta._();
   const factory ApiKeyMeta({required String secretToken}) = _ApiKeyMeta;
+  const ApiKeyMeta._();
   factory ApiKeyMeta.fromJson(Map<String, dynamic> json) =>
       _$ApiKeyMetaFromJson(json);
 }
@@ -75,8 +74,8 @@ class ApiKeyMeta with _$ApiKeyMeta implements Meta {
 /// Shows on `application.createNode`
 @freezed
 class ResourceMeta with _$ResourceMeta implements Meta {
-  const ResourceMeta._();
   const factory ResourceMeta({required Uri resource}) = _ResourceMeta;
+  const ResourceMeta._();
   factory ResourceMeta.fromJson(Map<String, dynamic> json) =>
       _$ResourceMetaFromJson(json);
 }

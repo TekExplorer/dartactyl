@@ -6,11 +6,11 @@ part '../../generated/models/request_models/key_value.g.dart';
 
 @freezed
 class KeyValue with _$KeyValue {
-  const KeyValue._();
   const factory KeyValue({
     required String key,
     required String value,
   }) = _KeyValue;
+  const KeyValue._();
 
   factory KeyValue.fromJson(JsonMap json) => _$KeyValueFromJson(json);
 }

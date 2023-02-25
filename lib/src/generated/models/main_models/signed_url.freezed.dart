@@ -20,7 +20,7 @@ SignedUrl _$SignedUrlFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SignedUrl {
-  String get url => throw _privateConstructorUsedError;
+  Uri get url => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +33,7 @@ abstract class $SignedUrlCopyWith<$Res> {
   factory $SignedUrlCopyWith(SignedUrl value, $Res Function(SignedUrl) then) =
       _$SignedUrlCopyWithImpl<$Res, SignedUrl>;
   @useResult
-  $Res call({String url});
+  $Res call({Uri url});
 }
 
 /// @nodoc
@@ -55,7 +55,7 @@ class _$SignedUrlCopyWithImpl<$Res, $Val extends SignedUrl>
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Uri,
     ) as $Val);
   }
 }
@@ -67,7 +67,7 @@ abstract class _$$_SignedUrlCopyWith<$Res> implements $SignedUrlCopyWith<$Res> {
       __$$_SignedUrlCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String url});
+  $Res call({Uri url});
 }
 
 /// @nodoc
@@ -87,7 +87,7 @@ class __$$_SignedUrlCopyWithImpl<$Res>
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Uri,
     ));
   }
 }
@@ -101,7 +101,7 @@ class _$_SignedUrl extends _SignedUrl {
       _$$_SignedUrlFromJson(json);
 
   @override
-  final String url;
+  final Uri url;
 
   @override
   String toString() {
@@ -135,14 +135,14 @@ class _$_SignedUrl extends _SignedUrl {
 }
 
 abstract class _SignedUrl extends SignedUrl {
-  const factory _SignedUrl({required final String url}) = _$_SignedUrl;
+  const factory _SignedUrl({required final Uri url}) = _$_SignedUrl;
   const _SignedUrl._() : super._();
 
   factory _SignedUrl.fromJson(Map<String, dynamic> json) =
       _$_SignedUrl.fromJson;
 
   @override
-  String get url;
+  Uri get url;
   @override
   @JsonKey(ignore: true)
   _$$_SignedUrlCopyWith<_$_SignedUrl> get copyWith =>

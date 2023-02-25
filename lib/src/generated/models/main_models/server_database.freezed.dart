@@ -171,7 +171,7 @@ ServerDatabase _$ServerDatabaseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ServerDatabase {
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   Database get host => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
@@ -195,7 +195,7 @@ abstract class $ServerDatabaseCopyWith<$Res> {
       _$ServerDatabaseCopyWithImpl<$Res, ServerDatabase>;
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String name,
       Database host,
       String username,
@@ -232,7 +232,7 @@ class _$ServerDatabaseCopyWithImpl<$Res, $Val extends ServerDatabase>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -291,7 +291,7 @@ abstract class _$$_ServerDatabaseCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String name,
       Database host,
       String username,
@@ -328,7 +328,7 @@ class __$$_ServerDatabaseCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -374,7 +374,7 @@ class _$_ServerDatabase extends _ServerDatabase {
       _$$_ServerDatabaseFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
   final String name;
   @override
@@ -434,7 +434,7 @@ class _$_ServerDatabase extends _ServerDatabase {
 
 abstract class _ServerDatabase extends ServerDatabase {
   const factory _ServerDatabase(
-      {required final int id,
+      {required final String id,
       required final String name,
       required final Database host,
       required final String username,
@@ -447,7 +447,7 @@ abstract class _ServerDatabase extends ServerDatabase {
       _$_ServerDatabase.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
   String get name;
   @override

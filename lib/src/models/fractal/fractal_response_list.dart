@@ -4,12 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part '../../generated/models/fractal/fractal_response_list.freezed.dart';
 part '../../generated/models/fractal/fractal_response_list.g.dart';
 
-@Deprecated('Use FractalList instead')
-typedef FractalResponseList<T extends SerializableMixin> = FractalListData<T>;
-@Deprecated('Use FractalListMeta instead')
-typedef FractalResponseListMeta<T extends SerializableMixin, M extends Meta>
-    = FractalListMeta<T, M>;
-
 /// A mixin for FractalListData and FractalListMeta
 mixin FractalList<T extends SerializableMixin> {
   // AttributeObject get object;

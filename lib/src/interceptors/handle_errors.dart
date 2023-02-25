@@ -22,7 +22,7 @@ class HandleErrorInterceptor extends Interceptor {
             statusMessage: response.statusMessage,
             rawDioError: err,
             rawData: data,
-          )..requestOptions = err.requestOptions,
+          ),
         );
       }
       // print('we have a response but no valid data: $data');
@@ -32,7 +32,7 @@ class HandleErrorInterceptor extends Interceptor {
           statusMessage: response.statusMessage,
           rawDioError: err,
           rawData: err.response?.data,
-        )..requestOptions = err.requestOptions,
+        ),
       );
     }
     // we cant connect to the server

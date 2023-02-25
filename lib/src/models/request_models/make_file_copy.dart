@@ -6,10 +6,10 @@ part '../../generated/models/request_models/make_file_copy.g.dart';
 
 @freezed
 class MakeFileCopy with _$MakeFileCopy {
+  const factory MakeFileCopy({required String location}) = _MakeFileCopy;
   // String location;
   // MakeFileCopy({required this.location});
   const MakeFileCopy._();
-  const factory MakeFileCopy({required String location}) = _MakeFileCopy;
 
   factory MakeFileCopy.fromJson(JsonMap json) => _$MakeFileCopyFromJson(json);
   // JsonMap toJson() => _$MakeFileCopyToJson(this);

@@ -15,16 +15,16 @@ abstract class DeprecatedDioError implements DioError {
   @override
   dynamic error;
 
-  RequestOptions _requestOptions = defaultErrorRequestOptions;
+  final RequestOptions _requestOptions = defaultErrorRequestOptions;
 
   @Deprecated(deprecatedMessage)
   @override
   RequestOptions get requestOptions => _requestOptions;
 
-  @override
-  set requestOptions(RequestOptions value) {
-    _requestOptions = value;
-  }
+  // @override
+  // set requestOptions(RequestOptions value) {
+  //   _requestOptions = value;
+  // }
 
   @Deprecated(deprecatedMessage)
   @override
@@ -32,9 +32,22 @@ abstract class DeprecatedDioError implements DioError {
 
   @Deprecated(deprecatedMessage)
   @override
-  DioErrorType type = DioErrorType.other;
+  DioErrorType type = DioErrorType.unknown;
 
   @Deprecated(deprecatedMessage)
   @override
   StackTrace? stackTrace;
+
+  @Deprecated(deprecatedMessage)
+  @override
+  DioError copyWith({
+    RequestOptions? requestOptions,
+    Response? response,
+    DioErrorType? type,
+    Object? error,
+    StackTrace? stackTrace,
+    String? message,
+  }) {
+    throw UnimplementedError();
+  }
 }

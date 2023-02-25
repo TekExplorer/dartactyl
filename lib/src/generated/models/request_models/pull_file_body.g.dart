@@ -15,8 +15,8 @@ _$_PullFileBody _$$_PullFileBodyFromJson(Map<String, dynamic> json) =>
           url: $checkedConvert('url', (v) => Uri.parse(v as String)),
           directory: $checkedConvert('directory', (v) => v as String?),
           filename: $checkedConvert('filename', (v) => v as String?),
-          useHeader: $checkedConvert('use_header', (v) => v as bool),
-          foreground: $checkedConvert('foreground', (v) => v as bool),
+          useHeader: $checkedConvert('use_header', (v) => v as bool?),
+          foreground: $checkedConvert('foreground', (v) => v as bool?),
         );
         return val;
       },
