@@ -30,7 +30,6 @@ export 'src/models/egg/egg.dart';
 /// Exceptions
 export 'src/models/error_responses/exceptions/generic_api_exception.dart';
 export 'src/models/error_responses/exceptions/no_connection_api_exception.dart';
-export 'src/models/error_responses/exceptions/stupid_dio.dart';
 
 /// Error Response Models
 export 'src/models/error_responses/ptero_error.dart';

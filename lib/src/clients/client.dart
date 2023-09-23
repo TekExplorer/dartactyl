@@ -18,7 +18,7 @@ abstract class DeprecatedPteroClient {
   /// [baseUrl] is the base URL of the Pterodactyl server.
   ///
   // ignore: deprecated_member_use_from_same_package
-  /// It is recommended to use [PteroClient.old] instead.
+  /// It is recommended to use [PteroClient(...).old] instead.
   factory DeprecatedPteroClient(Dio dio, {String? baseUrl}) =
       _DeprecatedPteroClient._;
   const DeprecatedPteroClient._();

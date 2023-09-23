@@ -24,7 +24,7 @@ extension ParseSiteConfig on PteroClient {
 
   /// @throws ConfigNotFoundException
   Future<JsonMap> _parseScriptTagsForJson(SiteConfigOption searchFor) async {
-    final resp = await dio.get(url);
+    final resp = await dio.get<dynamic>(url);
 
     final html = resp.data;
 

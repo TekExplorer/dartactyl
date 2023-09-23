@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 class HandleErrorInterceptor extends Interceptor {
   // should be last to intercept
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) {
+  void onError(DioException err, ErrorInterceptorHandler handler) {
     final response = err.response;
 
     if (response != null) {
@@ -17,21 +17,25 @@ class HandleErrorInterceptor extends Interceptor {
         final errors = PteroErrors.fromJson(data);
 
         return handler.reject(
-          PteroApiException(
-            errors: errors,
-            statusMessage: response.statusMessage,
-            rawDioError: err,
-            rawData: data,
+          err.copyWith(
+            error: PteroApiException(
+              errors: errors,
+              statusMessage: response.statusMessage,
+              rawDioException: err,
+              rawData: data,
+            ),
           ),
         );
       }
       // print('we have a response but no valid data: $data');
       return handler.reject(
-        NoDataPteroApiException(
-          message: err.message,
-          statusMessage: response.statusMessage,
-          rawDioError: err,
-          rawData: err.response?.data,
+        err.copyWith(
+          error: NoDataPteroApiException(
+            message: err.message,
+            statusMessage: response.statusMessage,
+            rawDioException: err,
+            rawData: err.response?.data,
+          ),
         ),
       );
     }
@@ -40,7 +44,7 @@ class HandleErrorInterceptor extends Interceptor {
     return handler.next(err);
     // return handler.next(NoConnectionPteroApiException(
     //   message: err.message,
-    //   rawDioError: err,
+    //   rawDioException: err,
     // )..requestOptions = err.requestOptions);
   }
 }

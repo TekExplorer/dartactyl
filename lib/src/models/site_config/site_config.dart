@@ -21,7 +21,6 @@ class SiteConfig with _$SiteConfig {
     required String name,
     required String locale,
     required Recaptcha recaptcha,
-    // required String analytics,
   }) = _SiteConfig;
   const SiteConfig._();
 

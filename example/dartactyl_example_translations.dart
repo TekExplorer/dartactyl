@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:dartactyl/dartactyl.dart';
 
 String panelUrl = 'https://panel.example.com';

@@ -7,17 +7,17 @@ part '../../generated/models/site_config/user_config.g.dart';
 @freezed
 class UserConfig with _$UserConfig {
   const factory UserConfig({
-    required final String uuid,
-    required final String username,
-    required final String email,
-    required final String language,
-    required final bool rootAdmin,
-    required final bool useTotp,
-    required final bool gravatar,
-    required final String createdAt,
-    required final String updatedAt,
-    required final String nameFirst,
-    required final String nameLast,
+    required String uuid,
+    required String username,
+    required String email,
+    required String language,
+    required bool rootAdmin,
+    required bool useTotp,
+    required bool gravatar,
+    required String createdAt,
+    required String updatedAt,
+    required String nameFirst,
+    required String nameLast,
   }) = _UserConfig;
   const UserConfig._();
 

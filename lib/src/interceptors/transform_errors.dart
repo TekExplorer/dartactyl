@@ -11,18 +11,27 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 class TransformErrorInterceptor extends Interceptor {
   // should be last to intercept
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) {
-    if (err is GenericApiException) {
-      if (err is PteroApiException) {
-        switch (err.statusCode) {
+  void onError(DioException err, ErrorInterceptorHandler handler) {
+    final error = err.error;
+    if (error is GenericApiException) {
+      if (error is PteroApiException) {
+        switch (error.statusCode) {
           case 401:
-            return handler.next(UnauthorizedException.fromPApiE(err));
+            return handler.next(
+              err.copyWith(error: UnauthorizedException.fromPApiE(error)),
+            );
           case 403:
-            return handler.next(ForbiddenException.fromPApiE(err));
+            return handler.next(
+              err.copyWith(error: ForbiddenException.fromPApiE(error)),
+            );
           case 404:
-            return handler.next(NotFoundException.fromPApiE(err));
+            return handler.next(
+              err.copyWith(error: NotFoundException.fromPApiE(error)),
+            );
           case 405:
-            return handler.next(MethodNotAllowedException.fromPApiE(err));
+            return handler.next(
+              err.copyWith(error: MethodNotAllowedException.fromPApiE(error)),
+            );
           // default:
         }
 
@@ -37,14 +46,14 @@ class UnauthorizedException extends PteroApiException {
   UnauthorizedException({
     required super.errors,
     required super.rawData,
-    required super.rawDioError,
+    required super.rawDioException,
   });
 
   factory UnauthorizedException.fromPApiE(PteroApiException e) =>
       UnauthorizedException(
         errors: PteroErrors(errors: e.errors),
         rawData: e.rawData,
-        rawDioError: e.rawDioError,
+        rawDioException: e.rawDioException,
       );
 }
 
@@ -52,14 +61,14 @@ class ForbiddenException extends PteroApiException {
   ForbiddenException({
     required super.errors,
     required super.rawData,
-    required super.rawDioError,
+    required super.rawDioException,
   });
 
   factory ForbiddenException.fromPApiE(PteroApiException e) =>
       ForbiddenException(
         errors: PteroErrors(errors: e.errors),
         rawData: e.rawData,
-        rawDioError: e.rawDioError,
+        rawDioException: e.rawDioException,
       );
 }
 
@@ -67,13 +76,13 @@ class NotFoundException extends PteroApiException {
   NotFoundException({
     required super.errors,
     required super.rawData,
-    required super.rawDioError,
+    required super.rawDioException,
   });
 
   factory NotFoundException.fromPApiE(PteroApiException e) => NotFoundException(
         errors: PteroErrors(errors: e.errors),
         rawData: e.rawData,
-        rawDioError: e.rawDioError,
+        rawDioException: e.rawDioException,
       );
 }
 
@@ -81,13 +90,13 @@ class MethodNotAllowedException extends PteroApiException {
   MethodNotAllowedException({
     required super.errors,
     required super.rawData,
-    required super.rawDioError,
+    required super.rawDioException,
   });
 
   factory MethodNotAllowedException.fromPApiE(PteroApiException e) =>
       MethodNotAllowedException(
         errors: PteroErrors(errors: e.errors),
         rawData: e.rawData,
-        rawDioError: e.rawDioError,
+        rawDioException: e.rawDioException,
       );
 }

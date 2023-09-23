@@ -4,7 +4,7 @@ import 'package:dartactyl/src/models/error_responses/exceptions/generic_api_exce
 class NoConnectionPteroApiException extends GenericApiException {
   /// Simple class for when we cant connect to the server
   NoConnectionPteroApiException({
-    required super.rawDioError,
+    required super.rawDioException,
     super.message,
   });
 
@@ -22,7 +22,7 @@ class NoConnectionPteroApiException extends GenericApiException {
 class NoDataPteroApiException extends GenericApiException {
   /// Simple class for when we did not get any data from the server
   NoDataPteroApiException({
-    required super.rawDioError,
+    required super.rawDioException,
     super.statusCode,
     super.message,
     super.statusMessage,

@@ -4,17 +4,17 @@ part of 'generic_api_exception.dart';
 class PteroApiException extends GenericApiException {
   PteroApiException({
     required PteroErrors errors,
-    required super.rawDioError,
+    required super.rawDioException,
     super.rawData,
     super.statusCode,
     super.statusMessage,
   })  : _errors = errors,
-        super(message: rawDioError.message);
+        super(message: rawDioException.message);
   final PteroErrors _errors;
 
   /// The errors the panel gave us
   List<PteroError> get errors => _errors.errors;
-  @override
+
   PteroError get error => errors.first;
 
   /// The raw data from the server, but we know its a Map now
