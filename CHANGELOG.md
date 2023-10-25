@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 1.9.0
+
+- Require dart 3 to seal the following
+  - `Meta`
+  - `ServerWebsocketRemoteEvent`
+  - `WebsocketEvent`
+  - `ServerWebsocketEvent`
+  - `DartactylWebsocketException`
+  - `WingsException`
+  - `WebsocketLog`
+
 ## 1.8.0
 
 - Update to match newest Dio version
