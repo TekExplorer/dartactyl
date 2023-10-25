@@ -52,30 +52,19 @@ class PermissionKeysConverter<T extends SerializableMixin>
 
   @override
   T fromJson(JsonMap json) {
-    switch (T) {
-      case WebsocketPermissionKeys:
-        return WebsocketPermissionKeys.fromJson(json) as T;
-      case ControlPermissionKeys:
-        return ControlPermissionKeys.fromJson(json) as T;
-      case UserPermissionKeys:
-        return UserPermissionKeys.fromJson(json) as T;
-      case FilePermissionKeys:
-        return FilePermissionKeys.fromJson(json) as T;
-      case BackupPermissionKeys:
-        return BackupPermissionKeys.fromJson(json) as T;
-      case AllocationPermissionKeys:
-        return AllocationPermissionKeys.fromJson(json) as T;
-      case StartupPermissionKeys:
-        return StartupPermissionKeys.fromJson(json) as T;
-      case DatabasePermissionKeys:
-        return DatabasePermissionKeys.fromJson(json) as T;
-      case SchedulePermissionKeys:
-        return SchedulePermissionKeys.fromJson(json) as T;
-      case SettingsPermissionKeys:
-        return SettingsPermissionKeys.fromJson(json) as T;
-      default:
-        throw Exception('Unknown permission type $T in PermissionsModel');
-    }
+    return switch (T) {
+      WebsocketPermissionKeys => WebsocketPermissionKeys.fromJson(json) as T,
+      ControlPermissionKeys => ControlPermissionKeys.fromJson(json) as T,
+      UserPermissionKeys => UserPermissionKeys.fromJson(json) as T,
+      FilePermissionKeys => FilePermissionKeys.fromJson(json) as T,
+      BackupPermissionKeys => BackupPermissionKeys.fromJson(json) as T,
+      AllocationPermissionKeys => AllocationPermissionKeys.fromJson(json) as T,
+      StartupPermissionKeys => StartupPermissionKeys.fromJson(json) as T,
+      DatabasePermissionKeys => DatabasePermissionKeys.fromJson(json) as T,
+      SchedulePermissionKeys => SchedulePermissionKeys.fromJson(json) as T,
+      SettingsPermissionKeys => SettingsPermissionKeys.fromJson(json) as T,
+      _ => throw Exception('Unknown permission type $T in PermissionsModel'),
+    };
   }
 
   @override

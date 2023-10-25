@@ -80,7 +80,6 @@ Future<String> mockServer({
               arg: null,
             ).toEncodedJson(),
           );
-          break;
         case ServerWebsocketSendEvent.sendLogs:
           expect(arg, isNull);
           expect(
@@ -96,7 +95,6 @@ Future<String> mockServer({
               ).toEncodedJson(),
             );
           }
-          break;
         case ServerWebsocketSendEvent.sendStats:
           throw UnimplementedError("'send stats' request not implemented yet");
         case ServerWebsocketSendEvent.sendCommand:

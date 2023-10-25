@@ -4,7 +4,7 @@ part of 'server_websocket.dart';
 
 // make it clear where it came from
 
-abstract class ServerWebsocketException implements Exception {
+sealed class ServerWebsocketException implements Exception {
   // Generally speaking, this is what i would shove into a dialog or whatever
   String get message;
 }
@@ -12,13 +12,12 @@ abstract class ServerWebsocketException implements Exception {
 /// Exceptions in the [ServerWebsocket] class itself
 ///
 /// These are either bugs, or are indicators of modded Wings.
-abstract class DartactylWebsocketException
-    implements ServerWebsocketException {}
+sealed class DartactylWebsocketException implements ServerWebsocketException {}
 
 /// Exceptions emitted naturally by Wings
 ///
 /// There may be cases where these can be bugs in this library
-abstract class WingsException implements ServerWebsocketException {
+sealed class WingsException implements ServerWebsocketException {
   String get receivedMessage;
 }
 

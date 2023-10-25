@@ -53,7 +53,7 @@ abstract class $ActivityLogCopyWith<$Res> {
       bool isApi,
       String? description,
       @JsonKey(fromJson: activityLogPropertiesFromJson)
-          Map<String, dynamic> properties,
+      Map<String, dynamic> properties,
       bool hasAdditionalMetadata,
       DateTime timestamp,
       ActivityLogRelationships? relationships});
@@ -153,7 +153,7 @@ abstract class _$$_ActivityLogCopyWith<$Res>
       bool isApi,
       String? description,
       @JsonKey(fromJson: activityLogPropertiesFromJson)
-          Map<String, dynamic> properties,
+      Map<String, dynamic> properties,
       bool hasAdditionalMetadata,
       DateTime timestamp,
       ActivityLogRelationships? relationships});
@@ -234,7 +234,7 @@ class _$_ActivityLog extends _ActivityLog {
       required this.isApi,
       this.description,
       @JsonKey(fromJson: activityLogPropertiesFromJson)
-          required final Map<String, dynamic> properties,
+      required final Map<String, dynamic> properties,
       required this.hasAdditionalMetadata,
       required this.timestamp,
       this.relationships})
@@ -336,7 +336,7 @@ abstract class _ActivityLog extends ActivityLog {
       required final bool isApi,
       final String? description,
       @JsonKey(fromJson: activityLogPropertiesFromJson)
-          required final Map<String, dynamic> properties,
+      required final Map<String, dynamic> properties,
       required final bool hasAdditionalMetadata,
       required final DateTime timestamp,
       final ActivityLogRelationships? relationships}) = _$_ActivityLog;

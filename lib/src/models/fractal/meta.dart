@@ -8,7 +8,7 @@ mixin PaginationMixin on Meta {
   Pagination get pagination;
 }
 
-abstract class Meta with SerializableMixin {}
+sealed class Meta with SerializableMixin {}
 
 /// Shows on `listServers`
 @freezed

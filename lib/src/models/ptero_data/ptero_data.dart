@@ -21,15 +21,12 @@ class PteroDataConverter<T extends SerializableMixin>
 
   @override
   T fromJson(JsonMap json) {
-    switch (T) {
-      case WebsocketDetails:
-        return WebsocketDetails.fromJson(json) as T;
-      case TwoFactorImage:
-        return TwoFactorImage.fromJson(json) as T;
-      default:
-        throw Exception(
-            'Incompatible type used in PteroData.attributes.fromJson: $T',);
-    }
+    return switch (T) {
+      WebsocketDetails => WebsocketDetails.fromJson(json) as T,
+      TwoFactorImage => TwoFactorImage.fromJson(json) as T,
+      _ => throw Exception(
+          'Incompatible type used in PteroData.attributes.fromJson: $T'),
+    };
   }
 
   @override

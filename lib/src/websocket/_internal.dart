@@ -13,7 +13,7 @@ part '../generated/websocket/_internal.g.dart';
 /// an interface to allow send and receive events to be typed for
 /// [WebsocketEvent.fromEvent]
 @visibleForTesting
-abstract class ServerWebsocketRemoteEvent {
+sealed class ServerWebsocketRemoteEvent {
   String get event;
 }
 
@@ -84,7 +84,7 @@ enum ServerWebsocketReceiveEvent implements ServerWebsocketRemoteEvent {
   map: FreezedMapOptions.none,
 )
 @visibleForTesting
-class WebsocketEvent with _$WebsocketEvent {
+sealed class WebsocketEvent with _$WebsocketEvent {
   const factory WebsocketEvent._internal({
     required String event,
     required List<String>? args,

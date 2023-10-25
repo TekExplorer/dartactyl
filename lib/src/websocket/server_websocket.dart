@@ -7,7 +7,6 @@ import 'dart:developer' as dev;
 import 'package:dartactyl/dartactyl.dart';
 import 'package:dartactyl/src/websocket/_internal.dart';
 import 'package:dartactyl/websocket.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:universal_io/io.dart';
 import 'package:web_socket_channel/io.dart';
@@ -15,7 +14,7 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 
 part 'websocket_errors.dart';
 
-@experimental
+// TODO: Consider the possibility of custom wings mods outputing custom data. some way to map custom data?
 class ServerWebsocket {
   /// Start a connection to the server's websocket.
   ///
@@ -275,24 +274,7 @@ class ServerWebsocket {
     if (isClosed) return;
 
     log('Received data from Wings: "$data"', name: 'ServerWebsocket._onData');
-    if (data is! String) {
-      // its a List<int>
-      throw UnexpectedWingsResponse._(data,
-          message: 'Received a binary event from Wings');
-    }
-
-    // is this needed? let the jsonDecode deal with it?
-    if (data.isEmpty) {
-      throw UnexpectedWingsResponse._(data,
-          message: 'Received an empty event from Wings');
-    }
-
-    final dynamic json = jsonDecode(data);
-
-    if (json is! Map<String, dynamic>) {
-      throw UnexpectedWingsResponse._(data,
-          message: 'Received a non-JSON event from Wings');
-    }
+    final json = _onDataToJson(data);
 
     // TODO: handle a CheckedFromJsonException?
     final websocketEvent = WebsocketEvent.fromJson(json);
@@ -324,13 +306,10 @@ class ServerWebsocket {
 
         _isAuthenticated.complete();
         _connectionState.add(ConnectionState.connected);
-        break;
       case ServerWebsocketReceiveEvent.tokenExpiring:
         if (_isAuthenticated.isCompleted) await _authenticate();
-        break;
       case ServerWebsocketReceiveEvent.tokenExpired:
         if (_isAuthenticated.isCompleted) await _authenticate();
-        break;
       case ServerWebsocketReceiveEvent.jwtError:
         _connectionState.add(ConnectionState.disconnected);
         // _errors.arg ?? 'Unknown JWT error');
@@ -338,7 +317,6 @@ class ServerWebsocket {
         // raise but don't throw since we need to reauthenticate
         _errors.raise(JWTError._(arg ?? 'Unknown JWT error'));
         if (_isAuthenticated.isCompleted) await _authenticate();
-        break;
 
       // Daemon
       case ServerWebsocketReceiveEvent.daemonMessage:
@@ -350,7 +328,6 @@ class ServerWebsocket {
         // _daemonMessages.add(arg);
         _logs.add(WebsocketLog.daemon(arg));
 
-        break;
       case ServerWebsocketReceiveEvent.daemonError:
         if (arg == null) {
           throw UnknownWingsEventException._arg(
@@ -360,7 +337,6 @@ class ServerWebsocket {
         // _daemonErrors.add(arg);
         _errors.raise(DaemonError._(arg));
 
-        break;
       // Install
       case ServerWebsocketReceiveEvent.installOutput:
         if (arg == null) {
@@ -370,15 +346,12 @@ class ServerWebsocket {
 
         _logs.add(WebsocketLog.install(arg));
 
-        break;
       case ServerWebsocketReceiveEvent.installStarted:
         _installStatus.add(InstallStatus.started);
 
-        break;
       case ServerWebsocketReceiveEvent.installCompleted:
         _installStatus.add(InstallStatus.completed);
 
-        break;
       // Console
       case ServerWebsocketReceiveEvent.consoleOutput:
         if (arg == null) {
@@ -388,7 +361,6 @@ class ServerWebsocket {
 
         _logs.add(WebsocketLog.console(arg));
 
-        break;
       // Power
       case ServerWebsocketReceiveEvent.status:
         if (arg == null) {
@@ -404,7 +376,6 @@ class ServerWebsocket {
 
         _powerState.add(powerState);
 
-        break;
       // Stats (includes Power)
       case ServerWebsocketReceiveEvent.stats:
         if (arg == null) {
@@ -423,7 +394,6 @@ class ServerWebsocket {
         _stats.add(stats);
         _powerState.add(stats.powerState);
 
-        break;
       // Transfer
       case ServerWebsocketReceiveEvent.transferLogs:
         if (arg == null) {
@@ -433,7 +403,6 @@ class ServerWebsocket {
 
         _logs.add(WebsocketLog.transfer(arg));
 
-        break;
       case ServerWebsocketReceiveEvent.transferStatus:
         if (arg == null) {
           throw UnknownWingsEventException._arg(
@@ -463,15 +432,44 @@ class ServerWebsocket {
         // TODO: are we concerned about this possibly throwing?
         // TODO: NEEDS TESTING BADLY
         await _connect();
-        break;
       // Backup
       case ServerWebsocketReceiveEvent.backupCompleted:
         _backupStatus.add(BackupStatus.backupCompleted);
-        break;
       case ServerWebsocketReceiveEvent.backupRestoreCompleted:
         _backupStatus.add(BackupStatus.backupRestoreCompleted);
-        break;
     }
+  }
+
+  JsonMap _onDataToJson(Object? data) {
+    switch (data) {
+      case String():
+        // is this needed? let the jsonDecode deal with it?
+        if (data.isEmpty) {
+          throw UnexpectedWingsResponse._(data,
+              message: 'Received an empty event from Wings');
+        }
+      case null:
+        // its a List<int>
+        throw UnexpectedWingsResponse._(data,
+            message: 'Received a null(!?) event from Wings');
+
+      case List<int>():
+        // its a List<int>
+        throw UnexpectedWingsResponse._(data,
+            message: 'Received a binary event from Wings');
+      case _:
+        // its something weird, and very much impossible
+        throw UnexpectedWingsResponse._(data,
+            message: 'Received an impossible event from Wings!?');
+    }
+
+    final dynamic json = jsonDecode(data);
+
+    return switch (json) {
+      Map<String, dynamic>() => json,
+      _ => throw UnexpectedWingsResponse._(data,
+          message: 'Received a non-JSON event from Wings'),
+    };
   }
 
   // TODO: Is this reliable?

@@ -13,32 +13,21 @@ class TransformErrorInterceptor extends Interceptor {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
     final error = err.error;
-    if (error is GenericApiException) {
-      if (error is PteroApiException) {
-        switch (error.statusCode) {
-          case 401:
-            return handler.next(
-              err.copyWith(error: UnauthorizedException.fromPApiE(error)),
-            );
-          case 403:
-            return handler.next(
-              err.copyWith(error: ForbiddenException.fromPApiE(error)),
-            );
-          case 404:
-            return handler.next(
-              err.copyWith(error: NotFoundException.fromPApiE(error)),
-            );
-          case 405:
-            return handler.next(
-              err.copyWith(error: MethodNotAllowedException.fromPApiE(error)),
-            );
-          // default:
-        }
+    // if (error is GenericApiException) {
 
-        return handler.next(err);
-      }
-    }
-    return handler.next(err);
+    if (error! is PteroApiException) return handler.next(err);
+
+    error as PteroApiException;
+
+    void nextWithError(Object? e) => handler.next(err.copyWith(error: e));
+
+    return switch (error.statusCode) {
+      401 => nextWithError(UnauthorizedException.fromPApiE(error)),
+      403 => nextWithError(ForbiddenException.fromPApiE(error)),
+      404 => nextWithError(NotFoundException.fromPApiE(error)),
+      405 => nextWithError(MethodNotAllowedException.fromPApiE(error)),
+      _ => handler.next(err),
+    };
   }
 }
 
