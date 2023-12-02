@@ -6,12 +6,12 @@ part of '../../../models/main_models/shedule_task.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ScheduleTask _$$_ScheduleTaskFromJson(Map<String, dynamic> json) =>
+_$ScheduleTaskImpl _$$ScheduleTaskImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ScheduleTask',
+      r'_$ScheduleTaskImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ScheduleTask(
+        final val = _$ScheduleTaskImpl(
           id: $checkedConvert('id', (v) => v as int),
           sequenceId: $checkedConvert('sequence_id', (v) => v as int),
           action: $checkedConvert('action', (v) => v as String),
@@ -37,7 +37,7 @@ _$_ScheduleTask _$$_ScheduleTaskFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_ScheduleTaskToJson(_$_ScheduleTask instance) =>
+Map<String, dynamic> _$$ScheduleTaskImplToJson(_$ScheduleTaskImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'sequence_id': instance.sequenceId,

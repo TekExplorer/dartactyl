@@ -21,7 +21,7 @@ class GenericApiException implements Exception {
   final String? _statusMessage;
 
   /// The raw data that the server responded with
-  final dynamic rawData;
+  final Object? rawData;
 
   /// The original [DioException] that was thrown
   final DioException rawDioException;

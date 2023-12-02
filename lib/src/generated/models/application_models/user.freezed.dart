@@ -161,11 +161,11 @@ class _$ApplicationUserCopyWithImpl<$Res, $Val extends ApplicationUser>
 }
 
 /// @nodoc
-abstract class _$$_ApplicationUserCopyWith<$Res>
+abstract class _$$ApplicationUserImplCopyWith<$Res>
     implements $ApplicationUserCopyWith<$Res> {
-  factory _$$_ApplicationUserCopyWith(
-          _$_ApplicationUser value, $Res Function(_$_ApplicationUser) then) =
-      __$$_ApplicationUserCopyWithImpl<$Res>;
+  factory _$$ApplicationUserImplCopyWith(_$ApplicationUserImpl value,
+          $Res Function(_$ApplicationUserImpl) then) =
+      __$$ApplicationUserImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -188,11 +188,11 @@ abstract class _$$_ApplicationUserCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ApplicationUserCopyWithImpl<$Res>
-    extends _$ApplicationUserCopyWithImpl<$Res, _$_ApplicationUser>
-    implements _$$_ApplicationUserCopyWith<$Res> {
-  __$$_ApplicationUserCopyWithImpl(
-      _$_ApplicationUser _value, $Res Function(_$_ApplicationUser) _then)
+class __$$ApplicationUserImplCopyWithImpl<$Res>
+    extends _$ApplicationUserCopyWithImpl<$Res, _$ApplicationUserImpl>
+    implements _$$ApplicationUserImplCopyWith<$Res> {
+  __$$ApplicationUserImplCopyWithImpl(
+      _$ApplicationUserImpl _value, $Res Function(_$ApplicationUserImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -212,7 +212,7 @@ class __$$_ApplicationUserCopyWithImpl<$Res>
     Object? updatedAt = null,
     Object? relationships = null,
   }) {
-    return _then(_$_ApplicationUser(
+    return _then(_$ApplicationUserImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -271,8 +271,8 @@ class __$$_ApplicationUserCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApplicationUser extends _ApplicationUser {
-  const _$_ApplicationUser(
+class _$ApplicationUserImpl extends _ApplicationUser {
+  const _$ApplicationUserImpl(
       {required this.id,
       this.externalId,
       required this.uuid,
@@ -288,8 +288,8 @@ class _$_ApplicationUser extends _ApplicationUser {
       required this.relationships})
       : super._();
 
-  factory _$_ApplicationUser.fromJson(Map<String, dynamic> json) =>
-      _$$_ApplicationUserFromJson(json);
+  factory _$ApplicationUserImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ApplicationUserImplFromJson(json);
 
   @override
   final String id;
@@ -329,7 +329,7 @@ class _$_ApplicationUser extends _ApplicationUser {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApplicationUser &&
+            other is _$ApplicationUserImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.externalId, externalId) ||
                 other.externalId == externalId) &&
@@ -376,12 +376,13 @@ class _$_ApplicationUser extends _ApplicationUser {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApplicationUserCopyWith<_$_ApplicationUser> get copyWith =>
-      __$$_ApplicationUserCopyWithImpl<_$_ApplicationUser>(this, _$identity);
+  _$$ApplicationUserImplCopyWith<_$ApplicationUserImpl> get copyWith =>
+      __$$ApplicationUserImplCopyWithImpl<_$ApplicationUserImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApplicationUserToJson(
+    return _$$ApplicationUserImplToJson(
       this,
     );
   }
@@ -402,11 +403,11 @@ abstract class _ApplicationUser extends ApplicationUser {
           required final DateTime createdAt,
           required final DateTime updatedAt,
           required final ApplicationUserRelationships relationships}) =
-      _$_ApplicationUser;
+      _$ApplicationUserImpl;
   const _ApplicationUser._() : super._();
 
   factory _ApplicationUser.fromJson(Map<String, dynamic> json) =
-      _$_ApplicationUser.fromJson;
+      _$ApplicationUserImpl.fromJson;
 
   @override
   String get id;
@@ -437,7 +438,7 @@ abstract class _ApplicationUser extends ApplicationUser {
   ApplicationUserRelationships get relationships;
   @override
   @JsonKey(ignore: true)
-  _$$_ApplicationUserCopyWith<_$_ApplicationUser> get copyWith =>
+  _$$ApplicationUserImplCopyWith<_$ApplicationUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -505,12 +506,12 @@ class _$ApplicationUserRelationshipsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ApplicationUserRelationshipsCopyWith<$Res>
+abstract class _$$ApplicationUserRelationshipsImplCopyWith<$Res>
     implements $ApplicationUserRelationshipsCopyWith<$Res> {
-  factory _$$_ApplicationUserRelationshipsCopyWith(
-          _$_ApplicationUserRelationships value,
-          $Res Function(_$_ApplicationUserRelationships) then) =
-      __$$_ApplicationUserRelationshipsCopyWithImpl<$Res>;
+  factory _$$ApplicationUserRelationshipsImplCopyWith(
+          _$ApplicationUserRelationshipsImpl value,
+          $Res Function(_$ApplicationUserRelationshipsImpl) then) =
+      __$$ApplicationUserRelationshipsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({FractalListData<ApplicationServer> servers});
@@ -520,13 +521,13 @@ abstract class _$$_ApplicationUserRelationshipsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ApplicationUserRelationshipsCopyWithImpl<$Res>
+class __$$ApplicationUserRelationshipsImplCopyWithImpl<$Res>
     extends _$ApplicationUserRelationshipsCopyWithImpl<$Res,
-        _$_ApplicationUserRelationships>
-    implements _$$_ApplicationUserRelationshipsCopyWith<$Res> {
-  __$$_ApplicationUserRelationshipsCopyWithImpl(
-      _$_ApplicationUserRelationships _value,
-      $Res Function(_$_ApplicationUserRelationships) _then)
+        _$ApplicationUserRelationshipsImpl>
+    implements _$$ApplicationUserRelationshipsImplCopyWith<$Res> {
+  __$$ApplicationUserRelationshipsImplCopyWithImpl(
+      _$ApplicationUserRelationshipsImpl _value,
+      $Res Function(_$ApplicationUserRelationshipsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -534,7 +535,7 @@ class __$$_ApplicationUserRelationshipsCopyWithImpl<$Res>
   $Res call({
     Object? servers = null,
   }) {
-    return _then(_$_ApplicationUserRelationships(
+    return _then(_$ApplicationUserRelationshipsImpl(
       servers: null == servers
           ? _value.servers
           : servers // ignore: cast_nullable_to_non_nullable
@@ -545,11 +546,12 @@ class __$$_ApplicationUserRelationshipsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApplicationUserRelationships extends _ApplicationUserRelationships {
-  const _$_ApplicationUserRelationships({required this.servers}) : super._();
+class _$ApplicationUserRelationshipsImpl extends _ApplicationUserRelationships {
+  const _$ApplicationUserRelationshipsImpl({required this.servers}) : super._();
 
-  factory _$_ApplicationUserRelationships.fromJson(Map<String, dynamic> json) =>
-      _$$_ApplicationUserRelationshipsFromJson(json);
+  factory _$ApplicationUserRelationshipsImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ApplicationUserRelationshipsImplFromJson(json);
 
   @override
   final FractalListData<ApplicationServer> servers;
@@ -563,7 +565,7 @@ class _$_ApplicationUserRelationships extends _ApplicationUserRelationships {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApplicationUserRelationships &&
+            other is _$ApplicationUserRelationshipsImpl &&
             (identical(other.servers, servers) || other.servers == servers));
   }
 
@@ -574,13 +576,14 @@ class _$_ApplicationUserRelationships extends _ApplicationUserRelationships {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApplicationUserRelationshipsCopyWith<_$_ApplicationUserRelationships>
-      get copyWith => __$$_ApplicationUserRelationshipsCopyWithImpl<
-          _$_ApplicationUserRelationships>(this, _$identity);
+  _$$ApplicationUserRelationshipsImplCopyWith<
+          _$ApplicationUserRelationshipsImpl>
+      get copyWith => __$$ApplicationUserRelationshipsImplCopyWithImpl<
+          _$ApplicationUserRelationshipsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApplicationUserRelationshipsToJson(
+    return _$$ApplicationUserRelationshipsImplToJson(
       this,
     );
   }
@@ -590,16 +593,17 @@ abstract class _ApplicationUserRelationships
     extends ApplicationUserRelationships {
   const factory _ApplicationUserRelationships(
           {required final FractalListData<ApplicationServer> servers}) =
-      _$_ApplicationUserRelationships;
+      _$ApplicationUserRelationshipsImpl;
   const _ApplicationUserRelationships._() : super._();
 
   factory _ApplicationUserRelationships.fromJson(Map<String, dynamic> json) =
-      _$_ApplicationUserRelationships.fromJson;
+      _$ApplicationUserRelationshipsImpl.fromJson;
 
   @override
   FractalListData<ApplicationServer> get servers;
   @override
   @JsonKey(ignore: true)
-  _$$_ApplicationUserRelationshipsCopyWith<_$_ApplicationUserRelationships>
+  _$$ApplicationUserRelationshipsImplCopyWith<
+          _$ApplicationUserRelationshipsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

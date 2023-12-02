@@ -6,11 +6,11 @@ part of '../../../models/application_models/node.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Node _$$_NodeFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Node',
+_$NodeImpl _$$NodeImplFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$NodeImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Node(
+        final val = _$NodeImpl(
           id: $checkedConvert('id', (v) => v as int),
           uuid: $checkedConvert('uuid', (v) => v as String),
           public: $checkedConvert('public', (v) => v as bool),
@@ -59,7 +59,8 @@ _$_Node _$$_NodeFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_NodeToJson(_$_Node instance) => <String, dynamic>{
+Map<String, dynamic> _$$NodeImplToJson(_$NodeImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'uuid': instance.uuid,
       'public': instance.public,
@@ -83,12 +84,13 @@ Map<String, dynamic> _$$_NodeToJson(_$_Node instance) => <String, dynamic>{
       'relationships': instance.relationships?.toJson(),
     };
 
-_$_NodeRelationships _$$_NodeRelationshipsFromJson(Map<String, dynamic> json) =>
+_$NodeRelationshipsImpl _$$NodeRelationshipsImplFromJson(
+        Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_NodeRelationships',
+      r'_$NodeRelationshipsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_NodeRelationships(
+        final val = _$NodeRelationshipsImpl(
           allocation: $checkedConvert(
               'allocation',
               (v) => v == null
@@ -111,8 +113,8 @@ _$_NodeRelationships _$$_NodeRelationshipsFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_NodeRelationshipsToJson(
-        _$_NodeRelationships instance) =>
+Map<String, dynamic> _$$NodeRelationshipsImplToJson(
+        _$NodeRelationshipsImpl instance) =>
     <String, dynamic>{
       'allocation': instance.allocation?.toJson(),
       'location': instance.location?.toJson(),

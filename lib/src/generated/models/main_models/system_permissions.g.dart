@@ -6,12 +6,13 @@ part of '../../../models/main_models/system_permissions.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SystemPermissions _$$_SystemPermissionsFromJson(Map<String, dynamic> json) =>
+_$SystemPermissionsImpl _$$SystemPermissionsImplFromJson(
+        Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_SystemPermissions',
+      r'_$SystemPermissionsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_SystemPermissions(
+        final val = _$SystemPermissionsImpl(
           permissions: $checkedConvert('permissions',
               (v) => Permissions.fromJson(v as Map<String, dynamic>)),
         );
@@ -19,18 +20,18 @@ _$_SystemPermissions _$$_SystemPermissionsFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_SystemPermissionsToJson(
-        _$_SystemPermissions instance) =>
+Map<String, dynamic> _$$SystemPermissionsImplToJson(
+        _$SystemPermissionsImpl instance) =>
     <String, dynamic>{
       'permissions': instance.permissions.toJson(),
     };
 
-_$_Permissions _$$_PermissionsFromJson(Map<String, dynamic> json) =>
+_$PermissionsImpl _$$PermissionsImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_Permissions',
+      r'_$PermissionsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Permissions(
+        final val = _$PermissionsImpl(
           websocket: $checkedConvert(
               'websocket',
               (v) => PermissionsModel<WebsocketPermissionKeys>.fromJson(
@@ -76,7 +77,7 @@ _$_Permissions _$$_PermissionsFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_PermissionsToJson(_$_Permissions instance) =>
+Map<String, dynamic> _$$PermissionsImplToJson(_$PermissionsImpl instance) =>
     <String, dynamic>{
       'websocket': instance.websocket.toJson(),
       'control': instance.control.toJson(),
@@ -90,26 +91,26 @@ Map<String, dynamic> _$$_PermissionsToJson(_$_Permissions instance) =>
       'settings': instance.settings.toJson(),
     };
 
-_$_PermissionsModel<T>
-    _$$_PermissionsModelFromJson<T extends SerializableMixin>(
+_$PermissionsModelImpl<T>
+    _$$PermissionsModelImplFromJson<T extends Serializable>(
             Map<String, dynamic> json) =>
         $checkedCreate(
-          r'_$_PermissionsModel',
+          r'_$PermissionsModelImpl',
           json,
           ($checkedConvert) {
-            final val = _$_PermissionsModel<T>(
+            final val = _$PermissionsModelImpl<T>(
               description: $checkedConvert('description', (v) => v as String),
               keys: $checkedConvert(
                   'keys',
                   (v) => PermissionKeysConverter<T>()
-                      .fromJson(v as Map<String, dynamic>)),
+                      .fromJson(v as Map<String, Object?>)),
             );
             return val;
           },
         );
 
-Map<String, dynamic> _$$_PermissionsModelToJson<T extends SerializableMixin>(
-        _$_PermissionsModel<T> instance) =>
+Map<String, dynamic> _$$PermissionsModelImplToJson<T extends Serializable>(
+        _$PermissionsModelImpl<T> instance) =>
     <String, dynamic>{
       'description': instance.description,
       'keys': PermissionKeysConverter<T>().toJson(instance.keys),

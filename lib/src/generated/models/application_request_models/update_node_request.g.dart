@@ -6,12 +6,13 @@ part of '../../../models/application_request_models/update_node_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UpdateNodeRequest _$$_UpdateNodeRequestFromJson(Map<String, dynamic> json) =>
+_$UpdateNodeRequestImpl _$$UpdateNodeRequestImplFromJson(
+        Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_UpdateNodeRequest',
+      r'_$UpdateNodeRequestImpl',
       json,
       ($checkedConvert) {
-        final val = _$_UpdateNodeRequest(
+        final val = _$UpdateNodeRequestImpl(
           name: $checkedConvert('name', (v) => v as String),
           locationId: $checkedConvert('location_id', (v) => v as int),
           fqdn: $checkedConvert('fqdn', (v) => v as String),
@@ -44,8 +45,8 @@ _$_UpdateNodeRequest _$$_UpdateNodeRequestFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_UpdateNodeRequestToJson(
-        _$_UpdateNodeRequest instance) =>
+Map<String, dynamic> _$$UpdateNodeRequestImplToJson(
+        _$UpdateNodeRequestImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'location_id': instance.locationId,

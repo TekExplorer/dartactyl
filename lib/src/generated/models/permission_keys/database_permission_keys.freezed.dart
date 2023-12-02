@@ -93,11 +93,12 @@ class _$DatabasePermissionKeysCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DatabasePermissionKeysCopyWith<$Res>
+abstract class _$$DatabasePermissionKeysImplCopyWith<$Res>
     implements $DatabasePermissionKeysCopyWith<$Res> {
-  factory _$$_DatabasePermissionKeysCopyWith(_$_DatabasePermissionKeys value,
-          $Res Function(_$_DatabasePermissionKeys) then) =
-      __$$_DatabasePermissionKeysCopyWithImpl<$Res>;
+  factory _$$DatabasePermissionKeysImplCopyWith(
+          _$DatabasePermissionKeysImpl value,
+          $Res Function(_$DatabasePermissionKeysImpl) then) =
+      __$$DatabasePermissionKeysImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -109,12 +110,13 @@ abstract class _$$_DatabasePermissionKeysCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DatabasePermissionKeysCopyWithImpl<$Res>
+class __$$DatabasePermissionKeysImplCopyWithImpl<$Res>
     extends _$DatabasePermissionKeysCopyWithImpl<$Res,
-        _$_DatabasePermissionKeys>
-    implements _$$_DatabasePermissionKeysCopyWith<$Res> {
-  __$$_DatabasePermissionKeysCopyWithImpl(_$_DatabasePermissionKeys _value,
-      $Res Function(_$_DatabasePermissionKeys) _then)
+        _$DatabasePermissionKeysImpl>
+    implements _$$DatabasePermissionKeysImplCopyWith<$Res> {
+  __$$DatabasePermissionKeysImplCopyWithImpl(
+      _$DatabasePermissionKeysImpl _value,
+      $Res Function(_$DatabasePermissionKeysImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -126,7 +128,7 @@ class __$$_DatabasePermissionKeysCopyWithImpl<$Res>
     Object? delete = null,
     Object? viewPassword = null,
   }) {
-    return _then(_$_DatabasePermissionKeys(
+    return _then(_$DatabasePermissionKeysImpl(
       create: null == create
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
@@ -153,8 +155,8 @@ class __$$_DatabasePermissionKeysCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DatabasePermissionKeys extends _DatabasePermissionKeys {
-  const _$_DatabasePermissionKeys(
+class _$DatabasePermissionKeysImpl extends _DatabasePermissionKeys {
+  const _$DatabasePermissionKeysImpl(
       {required this.create,
       required this.read,
       required this.update,
@@ -162,8 +164,8 @@ class _$_DatabasePermissionKeys extends _DatabasePermissionKeys {
       required this.viewPassword})
       : super._();
 
-  factory _$_DatabasePermissionKeys.fromJson(Map<String, dynamic> json) =>
-      _$$_DatabasePermissionKeysFromJson(json);
+  factory _$DatabasePermissionKeysImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DatabasePermissionKeysImplFromJson(json);
 
   @override
   final String create;
@@ -185,7 +187,7 @@ class _$_DatabasePermissionKeys extends _DatabasePermissionKeys {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DatabasePermissionKeys &&
+            other is _$DatabasePermissionKeysImpl &&
             (identical(other.create, create) || other.create == create) &&
             (identical(other.read, read) || other.read == read) &&
             (identical(other.update, update) || other.update == update) &&
@@ -202,13 +204,13 @@ class _$_DatabasePermissionKeys extends _DatabasePermissionKeys {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DatabasePermissionKeysCopyWith<_$_DatabasePermissionKeys> get copyWith =>
-      __$$_DatabasePermissionKeysCopyWithImpl<_$_DatabasePermissionKeys>(
-          this, _$identity);
+  _$$DatabasePermissionKeysImplCopyWith<_$DatabasePermissionKeysImpl>
+      get copyWith => __$$DatabasePermissionKeysImplCopyWithImpl<
+          _$DatabasePermissionKeysImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DatabasePermissionKeysToJson(
+    return _$$DatabasePermissionKeysImplToJson(
       this,
     );
   }
@@ -220,11 +222,11 @@ abstract class _DatabasePermissionKeys extends DatabasePermissionKeys {
       required final String read,
       required final String update,
       required final String delete,
-      required final String viewPassword}) = _$_DatabasePermissionKeys;
+      required final String viewPassword}) = _$DatabasePermissionKeysImpl;
   const _DatabasePermissionKeys._() : super._();
 
   factory _DatabasePermissionKeys.fromJson(Map<String, dynamic> json) =
-      _$_DatabasePermissionKeys.fromJson;
+      _$DatabasePermissionKeysImpl.fromJson;
 
   @override
   String get create;
@@ -238,6 +240,6 @@ abstract class _DatabasePermissionKeys extends DatabasePermissionKeys {
   String get viewPassword;
   @override
   @JsonKey(ignore: true)
-  _$$_DatabasePermissionKeysCopyWith<_$_DatabasePermissionKeys> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$DatabasePermissionKeysImplCopyWith<_$DatabasePermissionKeysImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

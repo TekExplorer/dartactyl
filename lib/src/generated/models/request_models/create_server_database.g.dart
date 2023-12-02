@@ -6,13 +6,13 @@ part of '../../../models/request_models/create_server_database.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CreateServerDatabase _$$_CreateServerDatabaseFromJson(
+_$CreateServerDatabaseImpl _$$CreateServerDatabaseImplFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_CreateServerDatabase',
+      r'_$CreateServerDatabaseImpl',
       json,
       ($checkedConvert) {
-        final val = _$_CreateServerDatabase(
+        final val = _$CreateServerDatabaseImpl(
           database: $checkedConvert('database', (v) => v as String),
           remote: $checkedConvert('remote', (v) => v as String),
         );
@@ -20,8 +20,8 @@ _$_CreateServerDatabase _$$_CreateServerDatabaseFromJson(
       },
     );
 
-Map<String, dynamic> _$$_CreateServerDatabaseToJson(
-        _$_CreateServerDatabase instance) =>
+Map<String, dynamic> _$$CreateServerDatabaseImplToJson(
+        _$CreateServerDatabaseImpl instance) =>
     <String, dynamic>{
       'database': instance.database,
       'remote': instance.remote,

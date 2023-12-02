@@ -9,7 +9,7 @@ class HandleErrorInterceptor extends Interceptor {
     final response = err.response;
 
     if (response != null) {
-      final dynamic data = response.data;
+      final Object? data = response.data;
 
       if (data is JsonMap) {
         // we have an error!

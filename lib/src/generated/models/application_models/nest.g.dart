@@ -6,11 +6,11 @@ part of '../../../models/application_models/nest.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Nest _$$_NestFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Nest',
+_$NestImpl _$$NestImplFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$NestImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Nest(
+        final val = _$NestImpl(
           id: $checkedConvert('id', (v) => v as int),
           uuid: $checkedConvert('uuid', (v) => v as String),
           author: $checkedConvert('author', (v) => v as String),
@@ -26,7 +26,8 @@ _$_Nest _$$_NestFromJson(Map<String, dynamic> json) => $checkedCreate(
       fieldKeyMap: const {'createdAt': 'created_at', 'updatedAt': 'updated_at'},
     );
 
-Map<String, dynamic> _$$_NestToJson(_$_Nest instance) => <String, dynamic>{
+Map<String, dynamic> _$$NestImplToJson(_$NestImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'uuid': instance.uuid,
       'author': instance.author,

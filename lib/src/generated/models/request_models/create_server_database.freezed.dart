@@ -69,22 +69,22 @@ class _$CreateServerDatabaseCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_CreateServerDatabaseCopyWith<$Res>
+abstract class _$$CreateServerDatabaseImplCopyWith<$Res>
     implements $CreateServerDatabaseCopyWith<$Res> {
-  factory _$$_CreateServerDatabaseCopyWith(_$_CreateServerDatabase value,
-          $Res Function(_$_CreateServerDatabase) then) =
-      __$$_CreateServerDatabaseCopyWithImpl<$Res>;
+  factory _$$CreateServerDatabaseImplCopyWith(_$CreateServerDatabaseImpl value,
+          $Res Function(_$CreateServerDatabaseImpl) then) =
+      __$$CreateServerDatabaseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String database, String remote});
 }
 
 /// @nodoc
-class __$$_CreateServerDatabaseCopyWithImpl<$Res>
-    extends _$CreateServerDatabaseCopyWithImpl<$Res, _$_CreateServerDatabase>
-    implements _$$_CreateServerDatabaseCopyWith<$Res> {
-  __$$_CreateServerDatabaseCopyWithImpl(_$_CreateServerDatabase _value,
-      $Res Function(_$_CreateServerDatabase) _then)
+class __$$CreateServerDatabaseImplCopyWithImpl<$Res>
+    extends _$CreateServerDatabaseCopyWithImpl<$Res, _$CreateServerDatabaseImpl>
+    implements _$$CreateServerDatabaseImplCopyWith<$Res> {
+  __$$CreateServerDatabaseImplCopyWithImpl(_$CreateServerDatabaseImpl _value,
+      $Res Function(_$CreateServerDatabaseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +93,7 @@ class __$$_CreateServerDatabaseCopyWithImpl<$Res>
     Object? database = null,
     Object? remote = null,
   }) {
-    return _then(_$_CreateServerDatabase(
+    return _then(_$CreateServerDatabaseImpl(
       database: null == database
           ? _value.database
           : database // ignore: cast_nullable_to_non_nullable
@@ -108,12 +108,13 @@ class __$$_CreateServerDatabaseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CreateServerDatabase extends _CreateServerDatabase {
-  const _$_CreateServerDatabase({required this.database, required this.remote})
+class _$CreateServerDatabaseImpl extends _CreateServerDatabase {
+  const _$CreateServerDatabaseImpl(
+      {required this.database, required this.remote})
       : super._();
 
-  factory _$_CreateServerDatabase.fromJson(Map<String, dynamic> json) =>
-      _$$_CreateServerDatabaseFromJson(json);
+  factory _$CreateServerDatabaseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CreateServerDatabaseImplFromJson(json);
 
   @override
   final String database;
@@ -129,7 +130,7 @@ class _$_CreateServerDatabase extends _CreateServerDatabase {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CreateServerDatabase &&
+            other is _$CreateServerDatabaseImpl &&
             (identical(other.database, database) ||
                 other.database == database) &&
             (identical(other.remote, remote) || other.remote == remote));
@@ -142,13 +143,14 @@ class _$_CreateServerDatabase extends _CreateServerDatabase {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CreateServerDatabaseCopyWith<_$_CreateServerDatabase> get copyWith =>
-      __$$_CreateServerDatabaseCopyWithImpl<_$_CreateServerDatabase>(
-          this, _$identity);
+  _$$CreateServerDatabaseImplCopyWith<_$CreateServerDatabaseImpl>
+      get copyWith =>
+          __$$CreateServerDatabaseImplCopyWithImpl<_$CreateServerDatabaseImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CreateServerDatabaseToJson(
+    return _$$CreateServerDatabaseImplToJson(
       this,
     );
   }
@@ -157,11 +159,11 @@ class _$_CreateServerDatabase extends _CreateServerDatabase {
 abstract class _CreateServerDatabase extends CreateServerDatabase {
   const factory _CreateServerDatabase(
       {required final String database,
-      required final String remote}) = _$_CreateServerDatabase;
+      required final String remote}) = _$CreateServerDatabaseImpl;
   const _CreateServerDatabase._() : super._();
 
   factory _CreateServerDatabase.fromJson(Map<String, dynamic> json) =
-      _$_CreateServerDatabase.fromJson;
+      _$CreateServerDatabaseImpl.fromJson;
 
   @override
   String get database;
@@ -169,6 +171,6 @@ abstract class _CreateServerDatabase extends CreateServerDatabase {
   String get remote;
   @override
   @JsonKey(ignore: true)
-  _$$_CreateServerDatabaseCopyWith<_$_CreateServerDatabase> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$CreateServerDatabaseImplCopyWith<_$CreateServerDatabaseImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

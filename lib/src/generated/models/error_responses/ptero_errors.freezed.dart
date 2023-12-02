@@ -62,22 +62,22 @@ class _$PteroErrorsCopyWithImpl<$Res, $Val extends PteroErrors>
 }
 
 /// @nodoc
-abstract class _$$_PteroErrorsCopyWith<$Res>
+abstract class _$$PteroErrorsImplCopyWith<$Res>
     implements $PteroErrorsCopyWith<$Res> {
-  factory _$$_PteroErrorsCopyWith(
-          _$_PteroErrors value, $Res Function(_$_PteroErrors) then) =
-      __$$_PteroErrorsCopyWithImpl<$Res>;
+  factory _$$PteroErrorsImplCopyWith(
+          _$PteroErrorsImpl value, $Res Function(_$PteroErrorsImpl) then) =
+      __$$PteroErrorsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<PteroError> errors});
 }
 
 /// @nodoc
-class __$$_PteroErrorsCopyWithImpl<$Res>
-    extends _$PteroErrorsCopyWithImpl<$Res, _$_PteroErrors>
-    implements _$$_PteroErrorsCopyWith<$Res> {
-  __$$_PteroErrorsCopyWithImpl(
-      _$_PteroErrors _value, $Res Function(_$_PteroErrors) _then)
+class __$$PteroErrorsImplCopyWithImpl<$Res>
+    extends _$PteroErrorsCopyWithImpl<$Res, _$PteroErrorsImpl>
+    implements _$$PteroErrorsImplCopyWith<$Res> {
+  __$$PteroErrorsImplCopyWithImpl(
+      _$PteroErrorsImpl _value, $Res Function(_$PteroErrorsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_PteroErrorsCopyWithImpl<$Res>
   $Res call({
     Object? errors = null,
   }) {
-    return _then(_$_PteroErrors(
+    return _then(_$PteroErrorsImpl(
       errors: null == errors
           ? _value._errors
           : errors // ignore: cast_nullable_to_non_nullable
@@ -96,13 +96,13 @@ class __$$_PteroErrorsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PteroErrors extends _PteroErrors {
-  const _$_PteroErrors({required final List<PteroError> errors})
+class _$PteroErrorsImpl extends _PteroErrors {
+  const _$PteroErrorsImpl({required final List<PteroError> errors})
       : _errors = errors,
         super._();
 
-  factory _$_PteroErrors.fromJson(Map<String, dynamic> json) =>
-      _$$_PteroErrorsFromJson(json);
+  factory _$PteroErrorsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PteroErrorsImplFromJson(json);
 
   final List<PteroError> _errors;
   @override
@@ -121,7 +121,7 @@ class _$_PteroErrors extends _PteroErrors {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PteroErrors &&
+            other is _$PteroErrorsImpl &&
             const DeepCollectionEquality().equals(other._errors, _errors));
   }
 
@@ -133,12 +133,12 @@ class _$_PteroErrors extends _PteroErrors {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PteroErrorsCopyWith<_$_PteroErrors> get copyWith =>
-      __$$_PteroErrorsCopyWithImpl<_$_PteroErrors>(this, _$identity);
+  _$$PteroErrorsImplCopyWith<_$PteroErrorsImpl> get copyWith =>
+      __$$PteroErrorsImplCopyWithImpl<_$PteroErrorsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PteroErrorsToJson(
+    return _$$PteroErrorsImplToJson(
       this,
     );
   }
@@ -146,16 +146,16 @@ class _$_PteroErrors extends _PteroErrors {
 
 abstract class _PteroErrors extends PteroErrors {
   const factory _PteroErrors({required final List<PteroError> errors}) =
-      _$_PteroErrors;
+      _$PteroErrorsImpl;
   const _PteroErrors._() : super._();
 
   factory _PteroErrors.fromJson(Map<String, dynamic> json) =
-      _$_PteroErrors.fromJson;
+      _$PteroErrorsImpl.fromJson;
 
   @override
   List<PteroError> get errors;
   @override
   @JsonKey(ignore: true)
-  _$$_PteroErrorsCopyWith<_$_PteroErrors> get copyWith =>
+  _$$PteroErrorsImplCopyWith<_$PteroErrorsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

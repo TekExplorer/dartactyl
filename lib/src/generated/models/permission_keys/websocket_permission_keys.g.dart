@@ -6,21 +6,21 @@ part of '../../../models/permission_keys/websocket_permission_keys.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_WebsocketPermissionKeys _$$_WebsocketPermissionKeysFromJson(
+_$WebsocketPermissionKeysImpl _$$WebsocketPermissionKeysImplFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_WebsocketPermissionKeys',
+      r'_$WebsocketPermissionKeysImpl',
       json,
       ($checkedConvert) {
-        final val = _$_WebsocketPermissionKeys(
+        final val = _$WebsocketPermissionKeysImpl(
           connect: $checkedConvert('connect', (v) => v as String),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_WebsocketPermissionKeysToJson(
-        _$_WebsocketPermissionKeys instance) =>
+Map<String, dynamic> _$$WebsocketPermissionKeysImplToJson(
+        _$WebsocketPermissionKeysImpl instance) =>
     <String, dynamic>{
       'connect': instance.connect,
     };

@@ -11,7 +11,7 @@ class EggScript with _$EggScript {
     required String install,
     required String entry,
     required String container,
-    required dynamic scriptExtends,
+    required Object? scriptExtends,
   }) = _EggScript;
   const EggScript._();
   factory EggScript.fromJson(JsonMap json) => _$EggScriptFromJson(json);

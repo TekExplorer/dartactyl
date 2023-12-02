@@ -32,14 +32,14 @@ class AttributesConverter<T extends SerializableMixin>
         //
         Egg => Egg.fromJson(json) as T,
         EggVariable => EggVariable.fromJson(json) as T,
-        //
+        // Application
         ApplicationServer => ApplicationServer.fromJson(json) as T,
         ApplicationUser => ApplicationUser.fromJson(json) as T,
         Node => Node.fromJson(json) as T,
         Nest => Nest.fromJson(json) as T,
         Location => Location.fromJson(json) as T,
         _ => throw ArgumentError(
-            'Incompatible type used in FractalResponseData.fromJson=> $T',
+            'Incompatible type used in FractalResponseData.fromJson: $T',
           ),
       };
 

@@ -35,6 +35,9 @@ enum ServerStatus {
   installing,
   @JsonValue('install_failed')
   installFailed,
+  // apparently this is a valid value
+  @JsonValue('reinstall_failed')
+  reinstallFailed,
   suspended,
   @JsonValue('restoring_backup')
   restoringBackup,

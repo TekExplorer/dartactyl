@@ -6,12 +6,12 @@ part of '../../../models/egg/egg_logs_config.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EggLogsConfig _$$_EggLogsConfigFromJson(Map<String, dynamic> json) =>
+_$EggLogsConfigImpl _$$EggLogsConfigImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_EggLogsConfig',
+      r'_$EggLogsConfigImpl',
       json,
       ($checkedConvert) {
-        final val = _$_EggLogsConfig(
+        final val = _$EggLogsConfigImpl(
           custom: $checkedConvert('custom', (v) => v as bool),
           location: $checkedConvert('location', (v) => v as String?),
         );
@@ -19,7 +19,7 @@ _$_EggLogsConfig _$$_EggLogsConfigFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_EggLogsConfigToJson(_$_EggLogsConfig instance) =>
+Map<String, dynamic> _$$EggLogsConfigImplToJson(_$EggLogsConfigImpl instance) =>
     <String, dynamic>{
       'custom': instance.custom,
       'location': instance.location,

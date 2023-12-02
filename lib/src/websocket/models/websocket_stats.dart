@@ -17,7 +17,7 @@ class WebsocketStats with _$WebsocketStats {
   }) = _WebsocketStats;
   const WebsocketStats._();
 
-  factory WebsocketStats.fromJson(Map<String, dynamic> json) =>
+  factory WebsocketStats.fromJson(Map<String, Object?> json) =>
       _$WebsocketStatsFromJson(json);
 
   ServerPowerState get powerState => state;
@@ -33,6 +33,6 @@ class WebsocketNetworkStats with _$WebsocketNetworkStats {
   }) = _WebsocketNetworkStats;
   const WebsocketNetworkStats._();
 
-  factory WebsocketNetworkStats.fromJson(Map<String, dynamic> json) =>
+  factory WebsocketNetworkStats.fromJson(Map<String, Object?> json) =>
       _$WebsocketNetworkStatsFromJson(json);
 }

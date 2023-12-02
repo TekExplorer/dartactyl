@@ -6,19 +6,21 @@ part of '../../../models/main_models/database_password.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DatabasePassword _$$_DatabasePasswordFromJson(Map<String, dynamic> json) =>
+_$DatabasePasswordImpl _$$DatabasePasswordImplFromJson(
+        Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_DatabasePassword',
+      r'_$DatabasePasswordImpl',
       json,
       ($checkedConvert) {
-        final val = _$_DatabasePassword(
+        final val = _$DatabasePasswordImpl(
           password: $checkedConvert('password', (v) => v as String),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_DatabasePasswordToJson(_$_DatabasePassword instance) =>
+Map<String, dynamic> _$$DatabasePasswordImplToJson(
+        _$DatabasePasswordImpl instance) =>
     <String, dynamic>{
       'password': instance.password,
     };

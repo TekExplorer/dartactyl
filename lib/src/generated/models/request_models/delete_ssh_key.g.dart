@@ -6,19 +6,19 @@ part of '../../../models/request_models/delete_ssh_key.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DeleteSSHKey _$$_DeleteSSHKeyFromJson(Map<String, dynamic> json) =>
+_$DeleteSSHKeyImpl _$$DeleteSSHKeyImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_DeleteSSHKey',
+      r'_$DeleteSSHKeyImpl',
       json,
       ($checkedConvert) {
-        final val = _$_DeleteSSHKey(
+        final val = _$DeleteSSHKeyImpl(
           fingerprint: $checkedConvert('fingerprint', (v) => v as String),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_DeleteSSHKeyToJson(_$_DeleteSSHKey instance) =>
+Map<String, dynamic> _$$DeleteSSHKeyImplToJson(_$DeleteSSHKeyImpl instance) =>
     <String, dynamic>{
       'fingerprint': instance.fingerprint,
     };

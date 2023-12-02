@@ -117,9 +117,10 @@ class _$BackupCopyWithImpl<$Res, $Val extends Backup>
 }
 
 /// @nodoc
-abstract class _$$_BackupCopyWith<$Res> implements $BackupCopyWith<$Res> {
-  factory _$$_BackupCopyWith(_$_Backup value, $Res Function(_$_Backup) then) =
-      __$$_BackupCopyWithImpl<$Res>;
+abstract class _$$BackupImplCopyWith<$Res> implements $BackupCopyWith<$Res> {
+  factory _$$BackupImplCopyWith(
+          _$BackupImpl value, $Res Function(_$BackupImpl) then) =
+      __$$BackupImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -135,10 +136,11 @@ abstract class _$$_BackupCopyWith<$Res> implements $BackupCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_BackupCopyWithImpl<$Res>
-    extends _$BackupCopyWithImpl<$Res, _$_Backup>
-    implements _$$_BackupCopyWith<$Res> {
-  __$$_BackupCopyWithImpl(_$_Backup _value, $Res Function(_$_Backup) _then)
+class __$$BackupImplCopyWithImpl<$Res>
+    extends _$BackupCopyWithImpl<$Res, _$BackupImpl>
+    implements _$$BackupImplCopyWith<$Res> {
+  __$$BackupImplCopyWithImpl(
+      _$BackupImpl _value, $Res Function(_$BackupImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -154,7 +156,7 @@ class __$$_BackupCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? completedAt = freezed,
   }) {
-    return _then(_$_Backup(
+    return _then(_$BackupImpl(
       uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
@@ -197,8 +199,8 @@ class __$$_BackupCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Backup extends _Backup {
-  const _$_Backup(
+class _$BackupImpl extends _Backup {
+  const _$BackupImpl(
       {required this.uuid,
       required this.isSuccessful,
       required this.isLocked,
@@ -211,8 +213,8 @@ class _$_Backup extends _Backup {
       : _ignoredFiles = ignoredFiles,
         super._();
 
-  factory _$_Backup.fromJson(Map<String, dynamic> json) =>
-      _$$_BackupFromJson(json);
+  factory _$BackupImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BackupImplFromJson(json);
 
   @override
   final String uuid;
@@ -250,7 +252,7 @@ class _$_Backup extends _Backup {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Backup &&
+            other is _$BackupImpl &&
             (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.isSuccessful, isSuccessful) ||
                 other.isSuccessful == isSuccessful) &&
@@ -285,12 +287,12 @@ class _$_Backup extends _Backup {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BackupCopyWith<_$_Backup> get copyWith =>
-      __$$_BackupCopyWithImpl<_$_Backup>(this, _$identity);
+  _$$BackupImplCopyWith<_$BackupImpl> get copyWith =>
+      __$$BackupImplCopyWithImpl<_$BackupImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BackupToJson(
+    return _$$BackupImplToJson(
       this,
     );
   }
@@ -306,10 +308,10 @@ abstract class _Backup extends Backup {
       final String? checksum,
       required final int bytes,
       required final DateTime createdAt,
-      final DateTime? completedAt}) = _$_Backup;
+      final DateTime? completedAt}) = _$BackupImpl;
   const _Backup._() : super._();
 
-  factory _Backup.fromJson(Map<String, dynamic> json) = _$_Backup.fromJson;
+  factory _Backup.fromJson(Map<String, dynamic> json) = _$BackupImpl.fromJson;
 
   @override
   String get uuid;
@@ -331,6 +333,6 @@ abstract class _Backup extends Backup {
   DateTime? get completedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_BackupCopyWith<_$_Backup> get copyWith =>
+  _$$BackupImplCopyWith<_$BackupImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

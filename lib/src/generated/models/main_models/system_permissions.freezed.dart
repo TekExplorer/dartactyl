@@ -72,11 +72,11 @@ class _$SystemPermissionsCopyWithImpl<$Res, $Val extends SystemPermissions>
 }
 
 /// @nodoc
-abstract class _$$_SystemPermissionsCopyWith<$Res>
+abstract class _$$SystemPermissionsImplCopyWith<$Res>
     implements $SystemPermissionsCopyWith<$Res> {
-  factory _$$_SystemPermissionsCopyWith(_$_SystemPermissions value,
-          $Res Function(_$_SystemPermissions) then) =
-      __$$_SystemPermissionsCopyWithImpl<$Res>;
+  factory _$$SystemPermissionsImplCopyWith(_$SystemPermissionsImpl value,
+          $Res Function(_$SystemPermissionsImpl) then) =
+      __$$SystemPermissionsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Permissions permissions});
@@ -86,11 +86,11 @@ abstract class _$$_SystemPermissionsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SystemPermissionsCopyWithImpl<$Res>
-    extends _$SystemPermissionsCopyWithImpl<$Res, _$_SystemPermissions>
-    implements _$$_SystemPermissionsCopyWith<$Res> {
-  __$$_SystemPermissionsCopyWithImpl(
-      _$_SystemPermissions _value, $Res Function(_$_SystemPermissions) _then)
+class __$$SystemPermissionsImplCopyWithImpl<$Res>
+    extends _$SystemPermissionsCopyWithImpl<$Res, _$SystemPermissionsImpl>
+    implements _$$SystemPermissionsImplCopyWith<$Res> {
+  __$$SystemPermissionsImplCopyWithImpl(_$SystemPermissionsImpl _value,
+      $Res Function(_$SystemPermissionsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_SystemPermissionsCopyWithImpl<$Res>
   $Res call({
     Object? permissions = null,
   }) {
-    return _then(_$_SystemPermissions(
+    return _then(_$SystemPermissionsImpl(
       permissions: null == permissions
           ? _value.permissions
           : permissions // ignore: cast_nullable_to_non_nullable
@@ -109,11 +109,11 @@ class __$$_SystemPermissionsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SystemPermissions extends _SystemPermissions {
-  const _$_SystemPermissions({required this.permissions}) : super._();
+class _$SystemPermissionsImpl extends _SystemPermissions {
+  const _$SystemPermissionsImpl({required this.permissions}) : super._();
 
-  factory _$_SystemPermissions.fromJson(Map<String, dynamic> json) =>
-      _$$_SystemPermissionsFromJson(json);
+  factory _$SystemPermissionsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SystemPermissionsImplFromJson(json);
 
   @override
   final Permissions permissions;
@@ -127,7 +127,7 @@ class _$_SystemPermissions extends _SystemPermissions {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SystemPermissions &&
+            other is _$SystemPermissionsImpl &&
             (identical(other.permissions, permissions) ||
                 other.permissions == permissions));
   }
@@ -139,13 +139,13 @@ class _$_SystemPermissions extends _SystemPermissions {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SystemPermissionsCopyWith<_$_SystemPermissions> get copyWith =>
-      __$$_SystemPermissionsCopyWithImpl<_$_SystemPermissions>(
+  _$$SystemPermissionsImplCopyWith<_$SystemPermissionsImpl> get copyWith =>
+      __$$SystemPermissionsImplCopyWithImpl<_$SystemPermissionsImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SystemPermissionsToJson(
+    return _$$SystemPermissionsImplToJson(
       this,
     );
   }
@@ -153,17 +153,17 @@ class _$_SystemPermissions extends _SystemPermissions {
 
 abstract class _SystemPermissions extends SystemPermissions {
   const factory _SystemPermissions({required final Permissions permissions}) =
-      _$_SystemPermissions;
+      _$SystemPermissionsImpl;
   const _SystemPermissions._() : super._();
 
   factory _SystemPermissions.fromJson(Map<String, dynamic> json) =
-      _$_SystemPermissions.fromJson;
+      _$SystemPermissionsImpl.fromJson;
 
   @override
   Permissions get permissions;
   @override
   @JsonKey(ignore: true)
-  _$$_SystemPermissionsCopyWith<_$_SystemPermissions> get copyWith =>
+  _$$SystemPermissionsImplCopyWith<_$SystemPermissionsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -390,11 +390,11 @@ class _$PermissionsCopyWithImpl<$Res, $Val extends Permissions>
 }
 
 /// @nodoc
-abstract class _$$_PermissionsCopyWith<$Res>
+abstract class _$$PermissionsImplCopyWith<$Res>
     implements $PermissionsCopyWith<$Res> {
-  factory _$$_PermissionsCopyWith(
-          _$_Permissions value, $Res Function(_$_Permissions) then) =
-      __$$_PermissionsCopyWithImpl<$Res>;
+  factory _$$PermissionsImplCopyWith(
+          _$PermissionsImpl value, $Res Function(_$PermissionsImpl) then) =
+      __$$PermissionsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -432,11 +432,11 @@ abstract class _$$_PermissionsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PermissionsCopyWithImpl<$Res>
-    extends _$PermissionsCopyWithImpl<$Res, _$_Permissions>
-    implements _$$_PermissionsCopyWith<$Res> {
-  __$$_PermissionsCopyWithImpl(
-      _$_Permissions _value, $Res Function(_$_Permissions) _then)
+class __$$PermissionsImplCopyWithImpl<$Res>
+    extends _$PermissionsCopyWithImpl<$Res, _$PermissionsImpl>
+    implements _$$PermissionsImplCopyWith<$Res> {
+  __$$PermissionsImplCopyWithImpl(
+      _$PermissionsImpl _value, $Res Function(_$PermissionsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -453,7 +453,7 @@ class __$$_PermissionsCopyWithImpl<$Res>
     Object? schedule = null,
     Object? settings = null,
   }) {
-    return _then(_$_Permissions(
+    return _then(_$PermissionsImpl(
       websocket: null == websocket
           ? _value.websocket
           : websocket // ignore: cast_nullable_to_non_nullable
@@ -500,8 +500,8 @@ class __$$_PermissionsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Permissions extends _Permissions {
-  const _$_Permissions(
+class _$PermissionsImpl extends _Permissions {
+  const _$PermissionsImpl(
       {required this.websocket,
       required this.control,
       required this.user,
@@ -514,8 +514,8 @@ class _$_Permissions extends _Permissions {
       required this.settings})
       : super._();
 
-  factory _$_Permissions.fromJson(Map<String, dynamic> json) =>
-      _$$_PermissionsFromJson(json);
+  factory _$PermissionsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PermissionsImplFromJson(json);
 
   @override
   final PermissionsModel<WebsocketPermissionKeys> websocket;
@@ -547,7 +547,7 @@ class _$_Permissions extends _Permissions {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Permissions &&
+            other is _$PermissionsImpl &&
             (identical(other.websocket, websocket) ||
                 other.websocket == websocket) &&
             (identical(other.control, control) || other.control == control) &&
@@ -573,12 +573,12 @@ class _$_Permissions extends _Permissions {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PermissionsCopyWith<_$_Permissions> get copyWith =>
-      __$$_PermissionsCopyWithImpl<_$_Permissions>(this, _$identity);
+  _$$PermissionsImplCopyWith<_$PermissionsImpl> get copyWith =>
+      __$$PermissionsImplCopyWithImpl<_$PermissionsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PermissionsToJson(
+    return _$$PermissionsImplToJson(
       this,
     );
   }
@@ -596,11 +596,11 @@ abstract class _Permissions extends Permissions {
           required final PermissionsModel<DatabasePermissionKeys> database,
           required final PermissionsModel<SchedulePermissionKeys> schedule,
           required final PermissionsModel<SettingsPermissionKeys> settings}) =
-      _$_Permissions;
+      _$PermissionsImpl;
   const _Permissions._() : super._();
 
   factory _Permissions.fromJson(Map<String, dynamic> json) =
-      _$_Permissions.fromJson;
+      _$PermissionsImpl.fromJson;
 
   @override
   PermissionsModel<WebsocketPermissionKeys> get websocket;
@@ -624,17 +624,17 @@ abstract class _Permissions extends Permissions {
   PermissionsModel<SettingsPermissionKeys> get settings;
   @override
   @JsonKey(ignore: true)
-  _$$_PermissionsCopyWith<_$_Permissions> get copyWith =>
+  _$$PermissionsImplCopyWith<_$PermissionsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-PermissionsModel<T> _$PermissionsModelFromJson<T extends SerializableMixin>(
+PermissionsModel<T> _$PermissionsModelFromJson<T extends Serializable>(
     Map<String, dynamic> json) {
   return _PermissionsModel<T>.fromJson(json);
 }
 
 /// @nodoc
-mixin _$PermissionsModel<T extends SerializableMixin> {
+mixin _$PermissionsModel<T extends Serializable> {
   String get description => throw _privateConstructorUsedError;
   @PermissionKeysConverter()
   T get keys => throw _privateConstructorUsedError;
@@ -646,7 +646,7 @@ mixin _$PermissionsModel<T extends SerializableMixin> {
 }
 
 /// @nodoc
-abstract class $PermissionsModelCopyWith<T extends SerializableMixin, $Res> {
+abstract class $PermissionsModelCopyWith<T extends Serializable, $Res> {
   factory $PermissionsModelCopyWith(
           PermissionsModel<T> value, $Res Function(PermissionsModel<T>) then) =
       _$PermissionsModelCopyWithImpl<T, $Res, PermissionsModel<T>>;
@@ -655,7 +655,7 @@ abstract class $PermissionsModelCopyWith<T extends SerializableMixin, $Res> {
 }
 
 /// @nodoc
-class _$PermissionsModelCopyWithImpl<T extends SerializableMixin, $Res,
+class _$PermissionsModelCopyWithImpl<T extends Serializable, $Res,
         $Val extends PermissionsModel<T>>
     implements $PermissionsModelCopyWith<T, $Res> {
   _$PermissionsModelCopyWithImpl(this._value, this._then);
@@ -685,22 +685,22 @@ class _$PermissionsModelCopyWithImpl<T extends SerializableMixin, $Res,
 }
 
 /// @nodoc
-abstract class _$$_PermissionsModelCopyWith<T extends SerializableMixin, $Res>
+abstract class _$$PermissionsModelImplCopyWith<T extends Serializable, $Res>
     implements $PermissionsModelCopyWith<T, $Res> {
-  factory _$$_PermissionsModelCopyWith(_$_PermissionsModel<T> value,
-          $Res Function(_$_PermissionsModel<T>) then) =
-      __$$_PermissionsModelCopyWithImpl<T, $Res>;
+  factory _$$PermissionsModelImplCopyWith(_$PermissionsModelImpl<T> value,
+          $Res Function(_$PermissionsModelImpl<T>) then) =
+      __$$PermissionsModelImplCopyWithImpl<T, $Res>;
   @override
   @useResult
   $Res call({String description, @PermissionKeysConverter() T keys});
 }
 
 /// @nodoc
-class __$$_PermissionsModelCopyWithImpl<T extends SerializableMixin, $Res>
-    extends _$PermissionsModelCopyWithImpl<T, $Res, _$_PermissionsModel<T>>
-    implements _$$_PermissionsModelCopyWith<T, $Res> {
-  __$$_PermissionsModelCopyWithImpl(_$_PermissionsModel<T> _value,
-      $Res Function(_$_PermissionsModel<T>) _then)
+class __$$PermissionsModelImplCopyWithImpl<T extends Serializable, $Res>
+    extends _$PermissionsModelCopyWithImpl<T, $Res, _$PermissionsModelImpl<T>>
+    implements _$$PermissionsModelImplCopyWith<T, $Res> {
+  __$$PermissionsModelImplCopyWithImpl(_$PermissionsModelImpl<T> _value,
+      $Res Function(_$PermissionsModelImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -709,7 +709,7 @@ class __$$_PermissionsModelCopyWithImpl<T extends SerializableMixin, $Res>
     Object? description = null,
     Object? keys = null,
   }) {
-    return _then(_$_PermissionsModel<T>(
+    return _then(_$PermissionsModelImpl<T>(
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -724,15 +724,15 @@ class __$$_PermissionsModelCopyWithImpl<T extends SerializableMixin, $Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PermissionsModel<T extends SerializableMixin>
+class _$PermissionsModelImpl<T extends Serializable>
     extends _PermissionsModel<T> {
-  const _$_PermissionsModel(
+  const _$PermissionsModelImpl(
       {required this.description,
       @PermissionKeysConverter() required this.keys})
       : super._();
 
-  factory _$_PermissionsModel.fromJson(Map<String, dynamic> json) =>
-      _$$_PermissionsModelFromJson(json);
+  factory _$PermissionsModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PermissionsModelImplFromJson(json);
 
   @override
   final String description;
@@ -749,7 +749,7 @@ class _$_PermissionsModel<T extends SerializableMixin>
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PermissionsModel<T> &&
+            other is _$PermissionsModelImpl<T> &&
             (identical(other.description, description) ||
                 other.description == description) &&
             const DeepCollectionEquality().equals(other.keys, keys));
@@ -763,28 +763,28 @@ class _$_PermissionsModel<T extends SerializableMixin>
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PermissionsModelCopyWith<T, _$_PermissionsModel<T>> get copyWith =>
-      __$$_PermissionsModelCopyWithImpl<T, _$_PermissionsModel<T>>(
+  _$$PermissionsModelImplCopyWith<T, _$PermissionsModelImpl<T>> get copyWith =>
+      __$$PermissionsModelImplCopyWithImpl<T, _$PermissionsModelImpl<T>>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PermissionsModelToJson<T>(
+    return _$$PermissionsModelImplToJson<T>(
       this,
     );
   }
 }
 
-abstract class _PermissionsModel<T extends SerializableMixin>
+abstract class _PermissionsModel<T extends Serializable>
     extends PermissionsModel<T> {
   const factory _PermissionsModel(
           {required final String description,
           @PermissionKeysConverter() required final T keys}) =
-      _$_PermissionsModel<T>;
+      _$PermissionsModelImpl<T>;
   const _PermissionsModel._() : super._();
 
   factory _PermissionsModel.fromJson(Map<String, dynamic> json) =
-      _$_PermissionsModel<T>.fromJson;
+      _$PermissionsModelImpl<T>.fromJson;
 
   @override
   String get description;
@@ -793,6 +793,6 @@ abstract class _PermissionsModel<T extends SerializableMixin>
   T get keys;
   @override
   @JsonKey(ignore: true)
-  _$$_PermissionsModelCopyWith<T, _$_PermissionsModel<T>> get copyWith =>
+  _$$PermissionsModelImplCopyWith<T, _$PermissionsModelImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

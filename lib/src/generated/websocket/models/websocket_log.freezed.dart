@@ -107,22 +107,22 @@ class _$WebsocketLogCopyWithImpl<$Res, $Val extends WebsocketLog>
 }
 
 /// @nodoc
-abstract class _$$ConsoleLogCopyWith<$Res>
+abstract class _$$ConsoleLogImplCopyWith<$Res>
     implements $WebsocketLogCopyWith<$Res> {
-  factory _$$ConsoleLogCopyWith(
-          _$ConsoleLog value, $Res Function(_$ConsoleLog) then) =
-      __$$ConsoleLogCopyWithImpl<$Res>;
+  factory _$$ConsoleLogImplCopyWith(
+          _$ConsoleLogImpl value, $Res Function(_$ConsoleLogImpl) then) =
+      __$$ConsoleLogImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$ConsoleLogCopyWithImpl<$Res>
-    extends _$WebsocketLogCopyWithImpl<$Res, _$ConsoleLog>
-    implements _$$ConsoleLogCopyWith<$Res> {
-  __$$ConsoleLogCopyWithImpl(
-      _$ConsoleLog _value, $Res Function(_$ConsoleLog) _then)
+class __$$ConsoleLogImplCopyWithImpl<$Res>
+    extends _$WebsocketLogCopyWithImpl<$Res, _$ConsoleLogImpl>
+    implements _$$ConsoleLogImplCopyWith<$Res> {
+  __$$ConsoleLogImplCopyWithImpl(
+      _$ConsoleLogImpl _value, $Res Function(_$ConsoleLogImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -130,7 +130,7 @@ class __$$ConsoleLogCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$ConsoleLog(
+    return _then(_$ConsoleLogImpl(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -141,8 +141,8 @@ class __$$ConsoleLogCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ConsoleLog implements ConsoleLog {
-  const _$ConsoleLog(this.message);
+class _$ConsoleLogImpl implements ConsoleLog {
+  const _$ConsoleLogImpl(this.message);
 
   @override
   final String message;
@@ -153,10 +153,10 @@ class _$ConsoleLog implements ConsoleLog {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object? other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConsoleLog &&
+            other is _$ConsoleLogImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -166,8 +166,8 @@ class _$ConsoleLog implements ConsoleLog {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConsoleLogCopyWith<_$ConsoleLog> get copyWith =>
-      __$$ConsoleLogCopyWithImpl<_$ConsoleLog>(this, _$identity);
+  _$$ConsoleLogImplCopyWith<_$ConsoleLogImpl> get copyWith =>
+      __$$ConsoleLogImplCopyWithImpl<_$ConsoleLogImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -245,33 +245,33 @@ class _$ConsoleLog implements ConsoleLog {
 }
 
 abstract class ConsoleLog implements WebsocketLog {
-  const factory ConsoleLog(final String message) = _$ConsoleLog;
+  const factory ConsoleLog(final String message) = _$ConsoleLogImpl;
 
   @override
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$ConsoleLogCopyWith<_$ConsoleLog> get copyWith =>
+  _$$ConsoleLogImplCopyWith<_$ConsoleLogImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$InstallLogCopyWith<$Res>
+abstract class _$$InstallLogImplCopyWith<$Res>
     implements $WebsocketLogCopyWith<$Res> {
-  factory _$$InstallLogCopyWith(
-          _$InstallLog value, $Res Function(_$InstallLog) then) =
-      __$$InstallLogCopyWithImpl<$Res>;
+  factory _$$InstallLogImplCopyWith(
+          _$InstallLogImpl value, $Res Function(_$InstallLogImpl) then) =
+      __$$InstallLogImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$InstallLogCopyWithImpl<$Res>
-    extends _$WebsocketLogCopyWithImpl<$Res, _$InstallLog>
-    implements _$$InstallLogCopyWith<$Res> {
-  __$$InstallLogCopyWithImpl(
-      _$InstallLog _value, $Res Function(_$InstallLog) _then)
+class __$$InstallLogImplCopyWithImpl<$Res>
+    extends _$WebsocketLogCopyWithImpl<$Res, _$InstallLogImpl>
+    implements _$$InstallLogImplCopyWith<$Res> {
+  __$$InstallLogImplCopyWithImpl(
+      _$InstallLogImpl _value, $Res Function(_$InstallLogImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -279,7 +279,7 @@ class __$$InstallLogCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$InstallLog(
+    return _then(_$InstallLogImpl(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -290,8 +290,8 @@ class __$$InstallLogCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InstallLog implements InstallLog {
-  const _$InstallLog(this.message);
+class _$InstallLogImpl implements InstallLog {
+  const _$InstallLogImpl(this.message);
 
   @override
   final String message;
@@ -302,10 +302,10 @@ class _$InstallLog implements InstallLog {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object? other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InstallLog &&
+            other is _$InstallLogImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -315,8 +315,8 @@ class _$InstallLog implements InstallLog {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InstallLogCopyWith<_$InstallLog> get copyWith =>
-      __$$InstallLogCopyWithImpl<_$InstallLog>(this, _$identity);
+  _$$InstallLogImplCopyWith<_$InstallLogImpl> get copyWith =>
+      __$$InstallLogImplCopyWithImpl<_$InstallLogImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -394,33 +394,33 @@ class _$InstallLog implements InstallLog {
 }
 
 abstract class InstallLog implements WebsocketLog {
-  const factory InstallLog(final String message) = _$InstallLog;
+  const factory InstallLog(final String message) = _$InstallLogImpl;
 
   @override
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$InstallLogCopyWith<_$InstallLog> get copyWith =>
+  _$$InstallLogImplCopyWith<_$InstallLogImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TransferLogCopyWith<$Res>
+abstract class _$$TransferLogImplCopyWith<$Res>
     implements $WebsocketLogCopyWith<$Res> {
-  factory _$$TransferLogCopyWith(
-          _$TransferLog value, $Res Function(_$TransferLog) then) =
-      __$$TransferLogCopyWithImpl<$Res>;
+  factory _$$TransferLogImplCopyWith(
+          _$TransferLogImpl value, $Res Function(_$TransferLogImpl) then) =
+      __$$TransferLogImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$TransferLogCopyWithImpl<$Res>
-    extends _$WebsocketLogCopyWithImpl<$Res, _$TransferLog>
-    implements _$$TransferLogCopyWith<$Res> {
-  __$$TransferLogCopyWithImpl(
-      _$TransferLog _value, $Res Function(_$TransferLog) _then)
+class __$$TransferLogImplCopyWithImpl<$Res>
+    extends _$WebsocketLogCopyWithImpl<$Res, _$TransferLogImpl>
+    implements _$$TransferLogImplCopyWith<$Res> {
+  __$$TransferLogImplCopyWithImpl(
+      _$TransferLogImpl _value, $Res Function(_$TransferLogImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -428,7 +428,7 @@ class __$$TransferLogCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$TransferLog(
+    return _then(_$TransferLogImpl(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -439,8 +439,8 @@ class __$$TransferLogCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TransferLog implements TransferLog {
-  const _$TransferLog(this.message);
+class _$TransferLogImpl implements TransferLog {
+  const _$TransferLogImpl(this.message);
 
   @override
   final String message;
@@ -451,10 +451,10 @@ class _$TransferLog implements TransferLog {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object? other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TransferLog &&
+            other is _$TransferLogImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -464,8 +464,8 @@ class _$TransferLog implements TransferLog {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TransferLogCopyWith<_$TransferLog> get copyWith =>
-      __$$TransferLogCopyWithImpl<_$TransferLog>(this, _$identity);
+  _$$TransferLogImplCopyWith<_$TransferLogImpl> get copyWith =>
+      __$$TransferLogImplCopyWithImpl<_$TransferLogImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -543,33 +543,33 @@ class _$TransferLog implements TransferLog {
 }
 
 abstract class TransferLog implements WebsocketLog {
-  const factory TransferLog(final String message) = _$TransferLog;
+  const factory TransferLog(final String message) = _$TransferLogImpl;
 
   @override
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$TransferLogCopyWith<_$TransferLog> get copyWith =>
+  _$$TransferLogImplCopyWith<_$TransferLogImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DaemonMessageCopyWith<$Res>
+abstract class _$$DaemonMessageImplCopyWith<$Res>
     implements $WebsocketLogCopyWith<$Res> {
-  factory _$$DaemonMessageCopyWith(
-          _$DaemonMessage value, $Res Function(_$DaemonMessage) then) =
-      __$$DaemonMessageCopyWithImpl<$Res>;
+  factory _$$DaemonMessageImplCopyWith(
+          _$DaemonMessageImpl value, $Res Function(_$DaemonMessageImpl) then) =
+      __$$DaemonMessageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$DaemonMessageCopyWithImpl<$Res>
-    extends _$WebsocketLogCopyWithImpl<$Res, _$DaemonMessage>
-    implements _$$DaemonMessageCopyWith<$Res> {
-  __$$DaemonMessageCopyWithImpl(
-      _$DaemonMessage _value, $Res Function(_$DaemonMessage) _then)
+class __$$DaemonMessageImplCopyWithImpl<$Res>
+    extends _$WebsocketLogCopyWithImpl<$Res, _$DaemonMessageImpl>
+    implements _$$DaemonMessageImplCopyWith<$Res> {
+  __$$DaemonMessageImplCopyWithImpl(
+      _$DaemonMessageImpl _value, $Res Function(_$DaemonMessageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -577,7 +577,7 @@ class __$$DaemonMessageCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$DaemonMessage(
+    return _then(_$DaemonMessageImpl(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -588,8 +588,8 @@ class __$$DaemonMessageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DaemonMessage implements DaemonMessage {
-  const _$DaemonMessage(this.message);
+class _$DaemonMessageImpl implements DaemonMessage {
+  const _$DaemonMessageImpl(this.message);
 
   @override
   final String message;
@@ -600,10 +600,10 @@ class _$DaemonMessage implements DaemonMessage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object? other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DaemonMessage &&
+            other is _$DaemonMessageImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -613,8 +613,8 @@ class _$DaemonMessage implements DaemonMessage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DaemonMessageCopyWith<_$DaemonMessage> get copyWith =>
-      __$$DaemonMessageCopyWithImpl<_$DaemonMessage>(this, _$identity);
+  _$$DaemonMessageImplCopyWith<_$DaemonMessageImpl> get copyWith =>
+      __$$DaemonMessageImplCopyWithImpl<_$DaemonMessageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -692,12 +692,12 @@ class _$DaemonMessage implements DaemonMessage {
 }
 
 abstract class DaemonMessage implements WebsocketLog {
-  const factory DaemonMessage(final String message) = _$DaemonMessage;
+  const factory DaemonMessage(final String message) = _$DaemonMessageImpl;
 
   @override
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$DaemonMessageCopyWith<_$DaemonMessage> get copyWith =>
+  _$$DaemonMessageImplCopyWith<_$DaemonMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

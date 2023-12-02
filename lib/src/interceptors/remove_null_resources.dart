@@ -20,11 +20,13 @@ class RemoveNullResourcesInterceptor extends Interceptor {
   //   "object": "null_resource",
   //   "attributes": null
   // }
-  dynamic _removeNullResource(dynamic json) {
-    if (json is Map<String, dynamic>) {
-      if (json['object'] == 'null_resource') return null;
-      return json
-          .map((key, value) => MapEntry(key, _removeNullResource(value)));
+  Object? _removeNullResource(Object? json) {
+    if (json is Map<String, Object?>) {
+      if (json case {'object': 'null_resource'}) return null;
+
+      return json.map(
+        (key, value) => MapEntry(key, _removeNullResource(value)),
+      );
     }
     if (json is List) {
       return json.map(_removeNullResource).toList();

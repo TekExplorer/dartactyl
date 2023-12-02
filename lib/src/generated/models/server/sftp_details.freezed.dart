@@ -68,22 +68,22 @@ class _$SftpDetailsCopyWithImpl<$Res, $Val extends SftpDetails>
 }
 
 /// @nodoc
-abstract class _$$_SftpDetailsCopyWith<$Res>
+abstract class _$$SftpDetailsImplCopyWith<$Res>
     implements $SftpDetailsCopyWith<$Res> {
-  factory _$$_SftpDetailsCopyWith(
-          _$_SftpDetails value, $Res Function(_$_SftpDetails) then) =
-      __$$_SftpDetailsCopyWithImpl<$Res>;
+  factory _$$SftpDetailsImplCopyWith(
+          _$SftpDetailsImpl value, $Res Function(_$SftpDetailsImpl) then) =
+      __$$SftpDetailsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String ip, int port});
 }
 
 /// @nodoc
-class __$$_SftpDetailsCopyWithImpl<$Res>
-    extends _$SftpDetailsCopyWithImpl<$Res, _$_SftpDetails>
-    implements _$$_SftpDetailsCopyWith<$Res> {
-  __$$_SftpDetailsCopyWithImpl(
-      _$_SftpDetails _value, $Res Function(_$_SftpDetails) _then)
+class __$$SftpDetailsImplCopyWithImpl<$Res>
+    extends _$SftpDetailsCopyWithImpl<$Res, _$SftpDetailsImpl>
+    implements _$$SftpDetailsImplCopyWith<$Res> {
+  __$$SftpDetailsImplCopyWithImpl(
+      _$SftpDetailsImpl _value, $Res Function(_$SftpDetailsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_SftpDetailsCopyWithImpl<$Res>
     Object? ip = null,
     Object? port = null,
   }) {
-    return _then(_$_SftpDetails(
+    return _then(_$SftpDetailsImpl(
       ip: null == ip
           ? _value.ip
           : ip // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,11 @@ class __$$_SftpDetailsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SftpDetails extends _SftpDetails {
-  const _$_SftpDetails({required this.ip, required this.port}) : super._();
+class _$SftpDetailsImpl extends _SftpDetails {
+  const _$SftpDetailsImpl({required this.ip, required this.port}) : super._();
 
-  factory _$_SftpDetails.fromJson(Map<String, dynamic> json) =>
-      _$$_SftpDetailsFromJson(json);
+  factory _$SftpDetailsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SftpDetailsImplFromJson(json);
 
   @override
   final String ip;
@@ -127,7 +127,7 @@ class _$_SftpDetails extends _SftpDetails {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SftpDetails &&
+            other is _$SftpDetailsImpl &&
             (identical(other.ip, ip) || other.ip == ip) &&
             (identical(other.port, port) || other.port == port));
   }
@@ -139,12 +139,12 @@ class _$_SftpDetails extends _SftpDetails {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SftpDetailsCopyWith<_$_SftpDetails> get copyWith =>
-      __$$_SftpDetailsCopyWithImpl<_$_SftpDetails>(this, _$identity);
+  _$$SftpDetailsImplCopyWith<_$SftpDetailsImpl> get copyWith =>
+      __$$SftpDetailsImplCopyWithImpl<_$SftpDetailsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SftpDetailsToJson(
+    return _$$SftpDetailsImplToJson(
       this,
     );
   }
@@ -152,11 +152,11 @@ class _$_SftpDetails extends _SftpDetails {
 
 abstract class _SftpDetails extends SftpDetails {
   const factory _SftpDetails(
-      {required final String ip, required final int port}) = _$_SftpDetails;
+      {required final String ip, required final int port}) = _$SftpDetailsImpl;
   const _SftpDetails._() : super._();
 
   factory _SftpDetails.fromJson(Map<String, dynamic> json) =
-      _$_SftpDetails.fromJson;
+      _$SftpDetailsImpl.fromJson;
 
   @override
   String get ip;
@@ -164,6 +164,6 @@ abstract class _SftpDetails extends SftpDetails {
   int get port;
   @override
   @JsonKey(ignore: true)
-  _$$_SftpDetailsCopyWith<_$_SftpDetails> get copyWith =>
+  _$$SftpDetailsImplCopyWith<_$SftpDetailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

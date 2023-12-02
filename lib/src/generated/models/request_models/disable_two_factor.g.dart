@@ -6,12 +6,13 @@ part of '../../../models/request_models/disable_two_factor.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DisableTwoFactor _$$_DisableTwoFactorFromJson(Map<String, dynamic> json) =>
+_$DisableTwoFactorImpl _$$DisableTwoFactorImplFromJson(
+        Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_DisableTwoFactor',
+      r'_$DisableTwoFactorImpl',
       json,
       ($checkedConvert) {
-        final val = _$_DisableTwoFactor(
+        final val = _$DisableTwoFactorImpl(
           email: $checkedConvert('email', (v) => v as String),
           password: $checkedConvert('password', (v) => v as String),
         );
@@ -19,7 +20,8 @@ _$_DisableTwoFactor _$$_DisableTwoFactorFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_DisableTwoFactorToJson(_$_DisableTwoFactor instance) =>
+Map<String, dynamic> _$$DisableTwoFactorImplToJson(
+        _$DisableTwoFactorImpl instance) =>
     <String, dynamic>{
       'email': instance.email,
       'password': instance.password,

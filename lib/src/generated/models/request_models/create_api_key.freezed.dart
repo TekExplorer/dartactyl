@@ -68,22 +68,22 @@ class _$CreateApiKeyCopyWithImpl<$Res, $Val extends CreateApiKey>
 }
 
 /// @nodoc
-abstract class _$$_CreateApiKeyCopyWith<$Res>
+abstract class _$$CreateApiKeyImplCopyWith<$Res>
     implements $CreateApiKeyCopyWith<$Res> {
-  factory _$$_CreateApiKeyCopyWith(
-          _$_CreateApiKey value, $Res Function(_$_CreateApiKey) then) =
-      __$$_CreateApiKeyCopyWithImpl<$Res>;
+  factory _$$CreateApiKeyImplCopyWith(
+          _$CreateApiKeyImpl value, $Res Function(_$CreateApiKeyImpl) then) =
+      __$$CreateApiKeyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String description, List<String> allowedIps});
 }
 
 /// @nodoc
-class __$$_CreateApiKeyCopyWithImpl<$Res>
-    extends _$CreateApiKeyCopyWithImpl<$Res, _$_CreateApiKey>
-    implements _$$_CreateApiKeyCopyWith<$Res> {
-  __$$_CreateApiKeyCopyWithImpl(
-      _$_CreateApiKey _value, $Res Function(_$_CreateApiKey) _then)
+class __$$CreateApiKeyImplCopyWithImpl<$Res>
+    extends _$CreateApiKeyCopyWithImpl<$Res, _$CreateApiKeyImpl>
+    implements _$$CreateApiKeyImplCopyWith<$Res> {
+  __$$CreateApiKeyImplCopyWithImpl(
+      _$CreateApiKeyImpl _value, $Res Function(_$CreateApiKeyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_CreateApiKeyCopyWithImpl<$Res>
     Object? description = null,
     Object? allowedIps = null,
   }) {
-    return _then(_$_CreateApiKey(
+    return _then(_$CreateApiKeyImpl(
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -107,14 +107,14 @@ class __$$_CreateApiKeyCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CreateApiKey extends _CreateApiKey {
-  const _$_CreateApiKey(
+class _$CreateApiKeyImpl extends _CreateApiKey {
+  const _$CreateApiKeyImpl(
       {required this.description, required final List<String> allowedIps})
       : _allowedIps = allowedIps,
         super._();
 
-  factory _$_CreateApiKey.fromJson(Map<String, dynamic> json) =>
-      _$$_CreateApiKeyFromJson(json);
+  factory _$CreateApiKeyImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CreateApiKeyImplFromJson(json);
 
   @override
   final String description;
@@ -135,7 +135,7 @@ class _$_CreateApiKey extends _CreateApiKey {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CreateApiKey &&
+            other is _$CreateApiKeyImpl &&
             (identical(other.description, description) ||
                 other.description == description) &&
             const DeepCollectionEquality()
@@ -150,12 +150,12 @@ class _$_CreateApiKey extends _CreateApiKey {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CreateApiKeyCopyWith<_$_CreateApiKey> get copyWith =>
-      __$$_CreateApiKeyCopyWithImpl<_$_CreateApiKey>(this, _$identity);
+  _$$CreateApiKeyImplCopyWith<_$CreateApiKeyImpl> get copyWith =>
+      __$$CreateApiKeyImplCopyWithImpl<_$CreateApiKeyImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CreateApiKeyToJson(
+    return _$$CreateApiKeyImplToJson(
       this,
     );
   }
@@ -164,11 +164,11 @@ class _$_CreateApiKey extends _CreateApiKey {
 abstract class _CreateApiKey extends CreateApiKey {
   const factory _CreateApiKey(
       {required final String description,
-      required final List<String> allowedIps}) = _$_CreateApiKey;
+      required final List<String> allowedIps}) = _$CreateApiKeyImpl;
   const _CreateApiKey._() : super._();
 
   factory _CreateApiKey.fromJson(Map<String, dynamic> json) =
-      _$_CreateApiKey.fromJson;
+      _$CreateApiKeyImpl.fromJson;
 
   @override
   String get description;
@@ -176,6 +176,6 @@ abstract class _CreateApiKey extends CreateApiKey {
   List<String> get allowedIps;
   @override
   @JsonKey(ignore: true)
-  _$$_CreateApiKeyCopyWith<_$_CreateApiKey> get copyWith =>
+  _$$CreateApiKeyImplCopyWith<_$CreateApiKeyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

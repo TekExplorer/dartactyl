@@ -6,13 +6,13 @@ part of '../../../models/permission_keys/startup_permission_keys.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_StartupPermissionKeys _$$_StartupPermissionKeysFromJson(
+_$StartupPermissionKeysImpl _$$StartupPermissionKeysImplFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_StartupPermissionKeys',
+      r'_$StartupPermissionKeysImpl',
       json,
       ($checkedConvert) {
-        final val = _$_StartupPermissionKeys(
+        final val = _$StartupPermissionKeysImpl(
           read: $checkedConvert('read', (v) => v as String),
           update: $checkedConvert('update', (v) => v as String),
         );
@@ -20,8 +20,8 @@ _$_StartupPermissionKeys _$$_StartupPermissionKeysFromJson(
       },
     );
 
-Map<String, dynamic> _$$_StartupPermissionKeysToJson(
-        _$_StartupPermissionKeys instance) =>
+Map<String, dynamic> _$$StartupPermissionKeysImplToJson(
+        _$StartupPermissionKeysImpl instance) =>
     <String, dynamic>{
       'read': instance.read,
       'update': instance.update,

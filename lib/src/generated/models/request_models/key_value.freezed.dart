@@ -67,21 +67,22 @@ class _$KeyValueCopyWithImpl<$Res, $Val extends KeyValue>
 }
 
 /// @nodoc
-abstract class _$$_KeyValueCopyWith<$Res> implements $KeyValueCopyWith<$Res> {
-  factory _$$_KeyValueCopyWith(
-          _$_KeyValue value, $Res Function(_$_KeyValue) then) =
-      __$$_KeyValueCopyWithImpl<$Res>;
+abstract class _$$KeyValueImplCopyWith<$Res>
+    implements $KeyValueCopyWith<$Res> {
+  factory _$$KeyValueImplCopyWith(
+          _$KeyValueImpl value, $Res Function(_$KeyValueImpl) then) =
+      __$$KeyValueImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String key, String value});
 }
 
 /// @nodoc
-class __$$_KeyValueCopyWithImpl<$Res>
-    extends _$KeyValueCopyWithImpl<$Res, _$_KeyValue>
-    implements _$$_KeyValueCopyWith<$Res> {
-  __$$_KeyValueCopyWithImpl(
-      _$_KeyValue _value, $Res Function(_$_KeyValue) _then)
+class __$$KeyValueImplCopyWithImpl<$Res>
+    extends _$KeyValueCopyWithImpl<$Res, _$KeyValueImpl>
+    implements _$$KeyValueImplCopyWith<$Res> {
+  __$$KeyValueImplCopyWithImpl(
+      _$KeyValueImpl _value, $Res Function(_$KeyValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -90,7 +91,7 @@ class __$$_KeyValueCopyWithImpl<$Res>
     Object? key = null,
     Object? value = null,
   }) {
-    return _then(_$_KeyValue(
+    return _then(_$KeyValueImpl(
       key: null == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
@@ -105,11 +106,11 @@ class __$$_KeyValueCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_KeyValue extends _KeyValue {
-  const _$_KeyValue({required this.key, required this.value}) : super._();
+class _$KeyValueImpl extends _KeyValue {
+  const _$KeyValueImpl({required this.key, required this.value}) : super._();
 
-  factory _$_KeyValue.fromJson(Map<String, dynamic> json) =>
-      _$$_KeyValueFromJson(json);
+  factory _$KeyValueImpl.fromJson(Map<String, dynamic> json) =>
+      _$$KeyValueImplFromJson(json);
 
   @override
   final String key;
@@ -125,7 +126,7 @@ class _$_KeyValue extends _KeyValue {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_KeyValue &&
+            other is _$KeyValueImpl &&
             (identical(other.key, key) || other.key == key) &&
             (identical(other.value, value) || other.value == value));
   }
@@ -137,12 +138,12 @@ class _$_KeyValue extends _KeyValue {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_KeyValueCopyWith<_$_KeyValue> get copyWith =>
-      __$$_KeyValueCopyWithImpl<_$_KeyValue>(this, _$identity);
+  _$$KeyValueImplCopyWith<_$KeyValueImpl> get copyWith =>
+      __$$KeyValueImplCopyWithImpl<_$KeyValueImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_KeyValueToJson(
+    return _$$KeyValueImplToJson(
       this,
     );
   }
@@ -150,10 +151,12 @@ class _$_KeyValue extends _KeyValue {
 
 abstract class _KeyValue extends KeyValue {
   const factory _KeyValue(
-      {required final String key, required final String value}) = _$_KeyValue;
+      {required final String key,
+      required final String value}) = _$KeyValueImpl;
   const _KeyValue._() : super._();
 
-  factory _KeyValue.fromJson(Map<String, dynamic> json) = _$_KeyValue.fromJson;
+  factory _KeyValue.fromJson(Map<String, dynamic> json) =
+      _$KeyValueImpl.fromJson;
 
   @override
   String get key;
@@ -161,6 +164,6 @@ abstract class _KeyValue extends KeyValue {
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$_KeyValueCopyWith<_$_KeyValue> get copyWith =>
+  _$$KeyValueImplCopyWith<_$KeyValueImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

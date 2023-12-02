@@ -68,22 +68,22 @@ class _$WebsocketEventCopyWithImpl<$Res, $Val extends WebsocketEvent>
 }
 
 /// @nodoc
-abstract class _$$_WebsocketEventCopyWith<$Res>
+abstract class _$$WebsocketEventImplCopyWith<$Res>
     implements $WebsocketEventCopyWith<$Res> {
-  factory _$$_WebsocketEventCopyWith(
-          _$_WebsocketEvent value, $Res Function(_$_WebsocketEvent) then) =
-      __$$_WebsocketEventCopyWithImpl<$Res>;
+  factory _$$WebsocketEventImplCopyWith(_$WebsocketEventImpl value,
+          $Res Function(_$WebsocketEventImpl) then) =
+      __$$WebsocketEventImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String event, List<String>? args});
 }
 
 /// @nodoc
-class __$$_WebsocketEventCopyWithImpl<$Res>
-    extends _$WebsocketEventCopyWithImpl<$Res, _$_WebsocketEvent>
-    implements _$$_WebsocketEventCopyWith<$Res> {
-  __$$_WebsocketEventCopyWithImpl(
-      _$_WebsocketEvent _value, $Res Function(_$_WebsocketEvent) _then)
+class __$$WebsocketEventImplCopyWithImpl<$Res>
+    extends _$WebsocketEventCopyWithImpl<$Res, _$WebsocketEventImpl>
+    implements _$$WebsocketEventImplCopyWith<$Res> {
+  __$$WebsocketEventImplCopyWithImpl(
+      _$WebsocketEventImpl _value, $Res Function(_$WebsocketEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_WebsocketEventCopyWithImpl<$Res>
     Object? event = null,
     Object? args = freezed,
   }) {
-    return _then(_$_WebsocketEvent(
+    return _then(_$WebsocketEventImpl(
       event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
@@ -107,14 +107,14 @@ class __$$_WebsocketEventCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WebsocketEvent extends _WebsocketEvent {
-  const _$_WebsocketEvent(
+class _$WebsocketEventImpl extends _WebsocketEvent {
+  const _$WebsocketEventImpl(
       {required this.event, required final List<String>? args})
       : _args = args,
         super._();
 
-  factory _$_WebsocketEvent.fromJson(Map<String, dynamic> json) =>
-      _$$_WebsocketEventFromJson(json);
+  factory _$WebsocketEventImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WebsocketEventImplFromJson(json);
 
   @override
   final String event;
@@ -137,7 +137,7 @@ class _$_WebsocketEvent extends _WebsocketEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WebsocketEvent &&
+            other is _$WebsocketEventImpl &&
             (identical(other.event, event) || other.event == event) &&
             const DeepCollectionEquality().equals(other._args, _args));
   }
@@ -150,12 +150,13 @@ class _$_WebsocketEvent extends _WebsocketEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WebsocketEventCopyWith<_$_WebsocketEvent> get copyWith =>
-      __$$_WebsocketEventCopyWithImpl<_$_WebsocketEvent>(this, _$identity);
+  _$$WebsocketEventImplCopyWith<_$WebsocketEventImpl> get copyWith =>
+      __$$WebsocketEventImplCopyWithImpl<_$WebsocketEventImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WebsocketEventToJson(
+    return _$$WebsocketEventImplToJson(
       this,
     );
   }
@@ -164,11 +165,11 @@ class _$_WebsocketEvent extends _WebsocketEvent {
 abstract class _WebsocketEvent extends WebsocketEvent {
   const factory _WebsocketEvent(
       {required final String event,
-      required final List<String>? args}) = _$_WebsocketEvent;
+      required final List<String>? args}) = _$WebsocketEventImpl;
   const _WebsocketEvent._() : super._();
 
   factory _WebsocketEvent.fromJson(Map<String, dynamic> json) =
-      _$_WebsocketEvent.fromJson;
+      _$WebsocketEventImpl.fromJson;
 
   @override
   String get event;
@@ -176,6 +177,6 @@ abstract class _WebsocketEvent extends WebsocketEvent {
   List<String>? get args;
   @override
   @JsonKey(ignore: true)
-  _$$_WebsocketEventCopyWith<_$_WebsocketEvent> get copyWith =>
+  _$$WebsocketEventImplCopyWith<_$WebsocketEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

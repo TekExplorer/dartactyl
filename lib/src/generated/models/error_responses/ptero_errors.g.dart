@@ -6,12 +6,12 @@ part of '../../../models/error_responses/ptero_errors.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PteroErrors _$$_PteroErrorsFromJson(Map<String, dynamic> json) =>
+_$PteroErrorsImpl _$$PteroErrorsImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_PteroErrors',
+      r'_$PteroErrorsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_PteroErrors(
+        final val = _$PteroErrorsImpl(
           errors: $checkedConvert(
               'errors',
               (v) => (v as List<dynamic>)
@@ -22,7 +22,7 @@ _$_PteroErrors _$$_PteroErrorsFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_PteroErrorsToJson(_$_PteroErrors instance) =>
+Map<String, dynamic> _$$PteroErrorsImplToJson(_$PteroErrorsImpl instance) =>
     <String, dynamic>{
       'errors': instance.errors.map((e) => e.toJson()).toList(),
     };

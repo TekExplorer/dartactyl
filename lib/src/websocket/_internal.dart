@@ -103,7 +103,7 @@ sealed class WebsocketEvent with _$WebsocketEvent {
   const WebsocketEvent._();
 
   @visibleForTesting
-  factory WebsocketEvent.fromJson(Map<String, dynamic> json) =>
+  factory WebsocketEvent.fromJson(Map<String, Object?> json) =>
       _$WebsocketEventFromJson(json);
 
   String toEncodedJson() => jsonEncode(toJson());

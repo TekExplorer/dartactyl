@@ -100,11 +100,12 @@ class _$ApplicationAllocationCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ApplicationAllocationCopyWith<$Res>
+abstract class _$$ApplicationAllocationImplCopyWith<$Res>
     implements $ApplicationAllocationCopyWith<$Res> {
-  factory _$$_ApplicationAllocationCopyWith(_$_ApplicationAllocation value,
-          $Res Function(_$_ApplicationAllocation) then) =
-      __$$_ApplicationAllocationCopyWithImpl<$Res>;
+  factory _$$ApplicationAllocationImplCopyWith(
+          _$ApplicationAllocationImpl value,
+          $Res Function(_$ApplicationAllocationImpl) then) =
+      __$$ApplicationAllocationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -117,11 +118,12 @@ abstract class _$$_ApplicationAllocationCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ApplicationAllocationCopyWithImpl<$Res>
-    extends _$ApplicationAllocationCopyWithImpl<$Res, _$_ApplicationAllocation>
-    implements _$$_ApplicationAllocationCopyWith<$Res> {
-  __$$_ApplicationAllocationCopyWithImpl(_$_ApplicationAllocation _value,
-      $Res Function(_$_ApplicationAllocation) _then)
+class __$$ApplicationAllocationImplCopyWithImpl<$Res>
+    extends _$ApplicationAllocationCopyWithImpl<$Res,
+        _$ApplicationAllocationImpl>
+    implements _$$ApplicationAllocationImplCopyWith<$Res> {
+  __$$ApplicationAllocationImplCopyWithImpl(_$ApplicationAllocationImpl _value,
+      $Res Function(_$ApplicationAllocationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -134,7 +136,7 @@ class __$$_ApplicationAllocationCopyWithImpl<$Res>
     Object? notes = freezed,
     Object? assigned = null,
   }) {
-    return _then(_$_ApplicationAllocation(
+    return _then(_$ApplicationAllocationImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -165,8 +167,8 @@ class __$$_ApplicationAllocationCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApplicationAllocation extends _ApplicationAllocation {
-  const _$_ApplicationAllocation(
+class _$ApplicationAllocationImpl extends _ApplicationAllocation {
+  const _$ApplicationAllocationImpl(
       {required this.id,
       required this.ip,
       this.ipAlias,
@@ -175,8 +177,8 @@ class _$_ApplicationAllocation extends _ApplicationAllocation {
       required this.assigned})
       : super._();
 
-  factory _$_ApplicationAllocation.fromJson(Map<String, dynamic> json) =>
-      _$$_ApplicationAllocationFromJson(json);
+  factory _$ApplicationAllocationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ApplicationAllocationImplFromJson(json);
 
   @override
   final int id;
@@ -200,7 +202,7 @@ class _$_ApplicationAllocation extends _ApplicationAllocation {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApplicationAllocation &&
+            other is _$ApplicationAllocationImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.ip, ip) || other.ip == ip) &&
             (identical(other.ipAlias, ipAlias) || other.ipAlias == ipAlias) &&
@@ -218,13 +220,13 @@ class _$_ApplicationAllocation extends _ApplicationAllocation {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApplicationAllocationCopyWith<_$_ApplicationAllocation> get copyWith =>
-      __$$_ApplicationAllocationCopyWithImpl<_$_ApplicationAllocation>(
-          this, _$identity);
+  _$$ApplicationAllocationImplCopyWith<_$ApplicationAllocationImpl>
+      get copyWith => __$$ApplicationAllocationImplCopyWithImpl<
+          _$ApplicationAllocationImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApplicationAllocationToJson(
+    return _$$ApplicationAllocationImplToJson(
       this,
     );
   }
@@ -237,11 +239,11 @@ abstract class _ApplicationAllocation extends ApplicationAllocation {
       final String? ipAlias,
       required final int port,
       final String? notes,
-      required final bool assigned}) = _$_ApplicationAllocation;
+      required final bool assigned}) = _$ApplicationAllocationImpl;
   const _ApplicationAllocation._() : super._();
 
   factory _ApplicationAllocation.fromJson(Map<String, dynamic> json) =
-      _$_ApplicationAllocation.fromJson;
+      _$ApplicationAllocationImpl.fromJson;
 
   @override
   int get id;
@@ -257,6 +259,6 @@ abstract class _ApplicationAllocation extends ApplicationAllocation {
   bool get assigned;
   @override
   @JsonKey(ignore: true)
-  _$$_ApplicationAllocationCopyWith<_$_ApplicationAllocation> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ApplicationAllocationImplCopyWith<_$ApplicationAllocationImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

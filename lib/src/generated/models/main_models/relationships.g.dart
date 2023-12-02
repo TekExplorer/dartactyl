@@ -6,35 +6,35 @@ part of '../../../models/main_models/relationships.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DatabasePasswordRelationships _$$_DatabasePasswordRelationshipsFromJson(
-        Map<String, dynamic> json) =>
-    $checkedCreate(
-      r'_$_DatabasePasswordRelationships',
-      json,
-      ($checkedConvert) {
-        final val = _$_DatabasePasswordRelationships(
-          password: $checkedConvert(
-              'password',
-              (v) => FractalData<DatabasePassword>.fromJson(
-                  v as Map<String, dynamic>)),
+_$DatabasePasswordRelationshipsImpl
+    _$$DatabasePasswordRelationshipsImplFromJson(Map<String, dynamic> json) =>
+        $checkedCreate(
+          r'_$DatabasePasswordRelationshipsImpl',
+          json,
+          ($checkedConvert) {
+            final val = _$DatabasePasswordRelationshipsImpl(
+              password: $checkedConvert(
+                  'password',
+                  (v) => FractalData<DatabasePassword>.fromJson(
+                      v as Map<String, dynamic>)),
+            );
+            return val;
+          },
         );
-        return val;
-      },
-    );
 
-Map<String, dynamic> _$$_DatabasePasswordRelationshipsToJson(
-        _$_DatabasePasswordRelationships instance) =>
+Map<String, dynamic> _$$DatabasePasswordRelationshipsImplToJson(
+        _$DatabasePasswordRelationshipsImpl instance) =>
     <String, dynamic>{
       'password': instance.password.toJson(),
     };
 
-_$_ServerRelationships _$$_ServerRelationshipsFromJson(
+_$ServerRelationshipsImpl _$$ServerRelationshipsImplFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ServerRelationships',
+      r'_$ServerRelationshipsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ServerRelationships(
+        final val = _$ServerRelationshipsImpl(
           allocations: $checkedConvert(
               'allocations',
               (v) => FractalListData<Allocation>.fromJson(
@@ -61,8 +61,8 @@ _$_ServerRelationships _$$_ServerRelationshipsFromJson(
       },
     );
 
-Map<String, dynamic> _$$_ServerRelationshipsToJson(
-        _$_ServerRelationships instance) =>
+Map<String, dynamic> _$$ServerRelationshipsImplToJson(
+        _$ServerRelationshipsImpl instance) =>
     <String, dynamic>{
       'allocations': instance.allocations.toJson(),
       'variables': instance.variables?.toJson(),
@@ -70,13 +70,13 @@ Map<String, dynamic> _$$_ServerRelationshipsToJson(
       'subusers': instance.subusers?.toJson(),
     };
 
-_$_ServerScheduleRelationships _$$_ServerScheduleRelationshipsFromJson(
+_$ServerScheduleRelationshipsImpl _$$ServerScheduleRelationshipsImplFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ServerScheduleRelationships',
+      r'_$ServerScheduleRelationshipsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ServerScheduleRelationships(
+        final val = _$ServerScheduleRelationshipsImpl(
           tasks: $checkedConvert(
               'tasks',
               (v) => FractalListData<ScheduleTask>.fromJson(
@@ -86,19 +86,19 @@ _$_ServerScheduleRelationships _$$_ServerScheduleRelationshipsFromJson(
       },
     );
 
-Map<String, dynamic> _$$_ServerScheduleRelationshipsToJson(
-        _$_ServerScheduleRelationships instance) =>
+Map<String, dynamic> _$$ServerScheduleRelationshipsImplToJson(
+        _$ServerScheduleRelationshipsImpl instance) =>
     <String, dynamic>{
       'tasks': instance.tasks.toJson(),
     };
 
-_$_ActivityLogRelationships _$$_ActivityLogRelationshipsFromJson(
+_$ActivityLogRelationshipsImpl _$$ActivityLogRelationshipsImplFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ActivityLogRelationships',
+      r'_$ActivityLogRelationshipsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ActivityLogRelationships(
+        final val = _$ActivityLogRelationshipsImpl(
           actor: $checkedConvert(
               'actor',
               (v) => v == null
@@ -109,8 +109,8 @@ _$_ActivityLogRelationships _$$_ActivityLogRelationshipsFromJson(
       },
     );
 
-Map<String, dynamic> _$$_ActivityLogRelationshipsToJson(
-        _$_ActivityLogRelationships instance) =>
+Map<String, dynamic> _$$ActivityLogRelationshipsImplToJson(
+        _$ActivityLogRelationshipsImpl instance) =>
     <String, dynamic>{
       'actor': instance.actor?.toJson(),
     };

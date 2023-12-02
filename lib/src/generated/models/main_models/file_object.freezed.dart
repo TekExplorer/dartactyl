@@ -119,11 +119,11 @@ class _$FileObjectCopyWithImpl<$Res, $Val extends FileObject>
 }
 
 /// @nodoc
-abstract class _$$_FileObjectCopyWith<$Res>
+abstract class _$$FileObjectImplCopyWith<$Res>
     implements $FileObjectCopyWith<$Res> {
-  factory _$$_FileObjectCopyWith(
-          _$_FileObject value, $Res Function(_$_FileObject) then) =
-      __$$_FileObjectCopyWithImpl<$Res>;
+  factory _$$FileObjectImplCopyWith(
+          _$FileObjectImpl value, $Res Function(_$FileObjectImpl) then) =
+      __$$FileObjectImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -139,11 +139,11 @@ abstract class _$$_FileObjectCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FileObjectCopyWithImpl<$Res>
-    extends _$FileObjectCopyWithImpl<$Res, _$_FileObject>
-    implements _$$_FileObjectCopyWith<$Res> {
-  __$$_FileObjectCopyWithImpl(
-      _$_FileObject _value, $Res Function(_$_FileObject) _then)
+class __$$FileObjectImplCopyWithImpl<$Res>
+    extends _$FileObjectCopyWithImpl<$Res, _$FileObjectImpl>
+    implements _$$FileObjectImplCopyWith<$Res> {
+  __$$FileObjectImplCopyWithImpl(
+      _$FileObjectImpl _value, $Res Function(_$FileObjectImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -159,7 +159,7 @@ class __$$_FileObjectCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? modifiedAt = null,
   }) {
-    return _then(_$_FileObject(
+    return _then(_$FileObjectImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -202,8 +202,8 @@ class __$$_FileObjectCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FileObject extends _FileObject {
-  const _$_FileObject(
+class _$FileObjectImpl extends _FileObject {
+  const _$FileObjectImpl(
       {required this.name,
       required this.mode,
       required this.modeBits,
@@ -215,8 +215,8 @@ class _$_FileObject extends _FileObject {
       required this.modifiedAt})
       : super._();
 
-  factory _$_FileObject.fromJson(Map<String, dynamic> json) =>
-      _$$_FileObjectFromJson(json);
+  factory _$FileObjectImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FileObjectImplFromJson(json);
 
   @override
   final String name;
@@ -246,7 +246,7 @@ class _$_FileObject extends _FileObject {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FileObject &&
+            other is _$FileObjectImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.mode, mode) || other.mode == mode) &&
             (identical(other.modeBits, modeBits) ||
@@ -271,12 +271,12 @@ class _$_FileObject extends _FileObject {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FileObjectCopyWith<_$_FileObject> get copyWith =>
-      __$$_FileObjectCopyWithImpl<_$_FileObject>(this, _$identity);
+  _$$FileObjectImplCopyWith<_$FileObjectImpl> get copyWith =>
+      __$$FileObjectImplCopyWithImpl<_$FileObjectImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FileObjectToJson(
+    return _$$FileObjectImplToJson(
       this,
     );
   }
@@ -292,11 +292,11 @@ abstract class _FileObject extends FileObject {
       required final bool isSymlink,
       required final String mimetype,
       required final DateTime createdAt,
-      required final DateTime modifiedAt}) = _$_FileObject;
+      required final DateTime modifiedAt}) = _$FileObjectImpl;
   const _FileObject._() : super._();
 
   factory _FileObject.fromJson(Map<String, dynamic> json) =
-      _$_FileObject.fromJson;
+      _$FileObjectImpl.fromJson;
 
   @override
   String get name;
@@ -318,6 +318,6 @@ abstract class _FileObject extends FileObject {
   DateTime get modifiedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_FileObjectCopyWith<_$_FileObject> get copyWith =>
+  _$$FileObjectImplCopyWith<_$FileObjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

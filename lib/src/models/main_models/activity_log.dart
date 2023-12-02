@@ -16,7 +16,7 @@ class ActivityLog with _$ActivityLog, SerializableMixin {
     // if its [], set to {}
     // ignore: invalid_annotation_target
     @JsonKey(fromJson: activityLogPropertiesFromJson)
-        required JsonMap properties,
+    required JsonMap properties,
     required bool hasAdditionalMetadata,
     required DateTime timestamp,
     ActivityLogRelationships? relationships,
@@ -26,7 +26,7 @@ class ActivityLog with _$ActivityLog, SerializableMixin {
   factory ActivityLog.fromJson(JsonMap json) => _$ActivityLogFromJson(json);
 }
 
-JsonMap activityLogPropertiesFromJson(dynamic value) {
+JsonMap activityLogPropertiesFromJson(Object? value) {
   if (value is List) return {};
-  return value as JsonMap;
+  return (value as JsonMap?) ?? {};
 }

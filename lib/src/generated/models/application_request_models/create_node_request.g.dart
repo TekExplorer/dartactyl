@@ -6,12 +6,13 @@ part of '../../../models/application_request_models/create_node_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CreateNodeRequest _$$_CreateNodeRequestFromJson(Map<String, dynamic> json) =>
+_$CreateNodeRequestImpl _$$CreateNodeRequestImplFromJson(
+        Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_CreateNodeRequest',
+      r'_$CreateNodeRequestImpl',
       json,
       ($checkedConvert) {
-        final val = _$_CreateNodeRequest(
+        final val = _$CreateNodeRequestImpl(
           name: $checkedConvert('name', (v) => v as String),
           locationId: $checkedConvert('location_id', (v) => v as int),
           fqdn: $checkedConvert('fqdn', (v) => v as String),
@@ -38,8 +39,8 @@ _$_CreateNodeRequest _$$_CreateNodeRequestFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_CreateNodeRequestToJson(
-        _$_CreateNodeRequest instance) =>
+Map<String, dynamic> _$$CreateNodeRequestImplToJson(
+        _$CreateNodeRequestImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'location_id': instance.locationId,

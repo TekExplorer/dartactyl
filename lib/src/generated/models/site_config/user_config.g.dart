@@ -6,12 +6,12 @@ part of '../../../models/site_config/user_config.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UserConfig _$$_UserConfigFromJson(Map<String, dynamic> json) =>
+_$UserConfigImpl _$$UserConfigImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_UserConfig',
+      r'_$UserConfigImpl',
       json,
       ($checkedConvert) {
-        final val = _$_UserConfig(
+        final val = _$UserConfigImpl(
           uuid: $checkedConvert('uuid', (v) => v as String),
           username: $checkedConvert('username', (v) => v as String),
           email: $checkedConvert('email', (v) => v as String),
@@ -36,7 +36,7 @@ _$_UserConfig _$$_UserConfigFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_UserConfigToJson(_$_UserConfig instance) =>
+Map<String, dynamic> _$$UserConfigImplToJson(_$UserConfigImpl instance) =>
     <String, dynamic>{
       'uuid': instance.uuid,
       'username': instance.username,

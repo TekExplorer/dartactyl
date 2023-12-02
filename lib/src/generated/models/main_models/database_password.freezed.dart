@@ -62,22 +62,22 @@ class _$DatabasePasswordCopyWithImpl<$Res, $Val extends DatabasePassword>
 }
 
 /// @nodoc
-abstract class _$$_DatabasePasswordCopyWith<$Res>
+abstract class _$$DatabasePasswordImplCopyWith<$Res>
     implements $DatabasePasswordCopyWith<$Res> {
-  factory _$$_DatabasePasswordCopyWith(
-          _$_DatabasePassword value, $Res Function(_$_DatabasePassword) then) =
-      __$$_DatabasePasswordCopyWithImpl<$Res>;
+  factory _$$DatabasePasswordImplCopyWith(_$DatabasePasswordImpl value,
+          $Res Function(_$DatabasePasswordImpl) then) =
+      __$$DatabasePasswordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String password});
 }
 
 /// @nodoc
-class __$$_DatabasePasswordCopyWithImpl<$Res>
-    extends _$DatabasePasswordCopyWithImpl<$Res, _$_DatabasePassword>
-    implements _$$_DatabasePasswordCopyWith<$Res> {
-  __$$_DatabasePasswordCopyWithImpl(
-      _$_DatabasePassword _value, $Res Function(_$_DatabasePassword) _then)
+class __$$DatabasePasswordImplCopyWithImpl<$Res>
+    extends _$DatabasePasswordCopyWithImpl<$Res, _$DatabasePasswordImpl>
+    implements _$$DatabasePasswordImplCopyWith<$Res> {
+  __$$DatabasePasswordImplCopyWithImpl(_$DatabasePasswordImpl _value,
+      $Res Function(_$DatabasePasswordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_DatabasePasswordCopyWithImpl<$Res>
   $Res call({
     Object? password = null,
   }) {
-    return _then(_$_DatabasePassword(
+    return _then(_$DatabasePasswordImpl(
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -96,11 +96,11 @@ class __$$_DatabasePasswordCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DatabasePassword extends _DatabasePassword {
-  const _$_DatabasePassword({required this.password}) : super._();
+class _$DatabasePasswordImpl extends _DatabasePassword {
+  const _$DatabasePasswordImpl({required this.password}) : super._();
 
-  factory _$_DatabasePassword.fromJson(Map<String, dynamic> json) =>
-      _$$_DatabasePasswordFromJson(json);
+  factory _$DatabasePasswordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DatabasePasswordImplFromJson(json);
 
   @override
   final String password;
@@ -114,7 +114,7 @@ class _$_DatabasePassword extends _DatabasePassword {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DatabasePassword &&
+            other is _$DatabasePasswordImpl &&
             (identical(other.password, password) ||
                 other.password == password));
   }
@@ -126,12 +126,13 @@ class _$_DatabasePassword extends _DatabasePassword {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DatabasePasswordCopyWith<_$_DatabasePassword> get copyWith =>
-      __$$_DatabasePasswordCopyWithImpl<_$_DatabasePassword>(this, _$identity);
+  _$$DatabasePasswordImplCopyWith<_$DatabasePasswordImpl> get copyWith =>
+      __$$DatabasePasswordImplCopyWithImpl<_$DatabasePasswordImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DatabasePasswordToJson(
+    return _$$DatabasePasswordImplToJson(
       this,
     );
   }
@@ -139,16 +140,16 @@ class _$_DatabasePassword extends _DatabasePassword {
 
 abstract class _DatabasePassword extends DatabasePassword {
   const factory _DatabasePassword({required final String password}) =
-      _$_DatabasePassword;
+      _$DatabasePasswordImpl;
   const _DatabasePassword._() : super._();
 
   factory _DatabasePassword.fromJson(Map<String, dynamic> json) =
-      _$_DatabasePassword.fromJson;
+      _$DatabasePasswordImpl.fromJson;
 
   @override
   String get password;
   @override
   @JsonKey(ignore: true)
-  _$$_DatabasePasswordCopyWith<_$_DatabasePassword> get copyWith =>
+  _$$DatabasePasswordImplCopyWith<_$DatabasePasswordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

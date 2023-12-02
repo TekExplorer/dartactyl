@@ -106,11 +106,11 @@ class _$ServerSubuserCopyWithImpl<$Res, $Val extends ServerSubuser>
 }
 
 /// @nodoc
-abstract class _$$_ServerSubuserCopyWith<$Res>
+abstract class _$$ServerSubuserImplCopyWith<$Res>
     implements $ServerSubuserCopyWith<$Res> {
-  factory _$$_ServerSubuserCopyWith(
-          _$_ServerSubuser value, $Res Function(_$_ServerSubuser) then) =
-      __$$_ServerSubuserCopyWithImpl<$Res>;
+  factory _$$ServerSubuserImplCopyWith(
+          _$ServerSubuserImpl value, $Res Function(_$ServerSubuserImpl) then) =
+      __$$ServerSubuserImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -124,11 +124,11 @@ abstract class _$$_ServerSubuserCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ServerSubuserCopyWithImpl<$Res>
-    extends _$ServerSubuserCopyWithImpl<$Res, _$_ServerSubuser>
-    implements _$$_ServerSubuserCopyWith<$Res> {
-  __$$_ServerSubuserCopyWithImpl(
-      _$_ServerSubuser _value, $Res Function(_$_ServerSubuser) _then)
+class __$$ServerSubuserImplCopyWithImpl<$Res>
+    extends _$ServerSubuserCopyWithImpl<$Res, _$ServerSubuserImpl>
+    implements _$$ServerSubuserImplCopyWith<$Res> {
+  __$$ServerSubuserImplCopyWithImpl(
+      _$ServerSubuserImpl _value, $Res Function(_$ServerSubuserImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -142,7 +142,7 @@ class __$$_ServerSubuserCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? permissions = null,
   }) {
-    return _then(_$_ServerSubuser(
+    return _then(_$ServerSubuserImpl(
       uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
@@ -177,8 +177,8 @@ class __$$_ServerSubuserCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ServerSubuser extends _ServerSubuser {
-  const _$_ServerSubuser(
+class _$ServerSubuserImpl extends _ServerSubuser {
+  const _$ServerSubuserImpl(
       {required this.uuid,
       required this.username,
       required this.email,
@@ -189,8 +189,8 @@ class _$_ServerSubuser extends _ServerSubuser {
       : _permissions = permissions,
         super._();
 
-  factory _$_ServerSubuser.fromJson(Map<String, dynamic> json) =>
-      _$$_ServerSubuserFromJson(json);
+  factory _$ServerSubuserImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServerSubuserImplFromJson(json);
 
   @override
   final String uuid;
@@ -222,7 +222,7 @@ class _$_ServerSubuser extends _ServerSubuser {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ServerSubuser &&
+            other is _$ServerSubuserImpl &&
             (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.username, username) ||
                 other.username == username) &&
@@ -251,12 +251,12 @@ class _$_ServerSubuser extends _ServerSubuser {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ServerSubuserCopyWith<_$_ServerSubuser> get copyWith =>
-      __$$_ServerSubuserCopyWithImpl<_$_ServerSubuser>(this, _$identity);
+  _$$ServerSubuserImplCopyWith<_$ServerSubuserImpl> get copyWith =>
+      __$$ServerSubuserImplCopyWithImpl<_$ServerSubuserImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServerSubuserToJson(
+    return _$$ServerSubuserImplToJson(
       this,
     );
   }
@@ -270,11 +270,11 @@ abstract class _ServerSubuser extends ServerSubuser {
       required final String image,
       @JsonKey(name: '2fa_enabled') required final bool twoFaEnabled,
       required final DateTime createdAt,
-      required final List<String> permissions}) = _$_ServerSubuser;
+      required final List<String> permissions}) = _$ServerSubuserImpl;
   const _ServerSubuser._() : super._();
 
   factory _ServerSubuser.fromJson(Map<String, dynamic> json) =
-      _$_ServerSubuser.fromJson;
+      _$ServerSubuserImpl.fromJson;
 
   @override
   String get uuid;
@@ -293,6 +293,6 @@ abstract class _ServerSubuser extends ServerSubuser {
   List<String> get permissions;
   @override
   @JsonKey(ignore: true)
-  _$$_ServerSubuserCopyWith<_$_ServerSubuser> get copyWith =>
+  _$$ServerSubuserImplCopyWith<_$ServerSubuserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

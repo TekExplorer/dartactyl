@@ -66,20 +66,21 @@ class _$SubuserCopyWithImpl<$Res, $Val extends Subuser>
 }
 
 /// @nodoc
-abstract class _$$_SubuserCopyWith<$Res> implements $SubuserCopyWith<$Res> {
-  factory _$$_SubuserCopyWith(
-          _$_Subuser value, $Res Function(_$_Subuser) then) =
-      __$$_SubuserCopyWithImpl<$Res>;
+abstract class _$$SubuserImplCopyWith<$Res> implements $SubuserCopyWith<$Res> {
+  factory _$$SubuserImplCopyWith(
+          _$SubuserImpl value, $Res Function(_$SubuserImpl) then) =
+      __$$SubuserImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String email, List<String> permissions});
 }
 
 /// @nodoc
-class __$$_SubuserCopyWithImpl<$Res>
-    extends _$SubuserCopyWithImpl<$Res, _$_Subuser>
-    implements _$$_SubuserCopyWith<$Res> {
-  __$$_SubuserCopyWithImpl(_$_Subuser _value, $Res Function(_$_Subuser) _then)
+class __$$SubuserImplCopyWithImpl<$Res>
+    extends _$SubuserCopyWithImpl<$Res, _$SubuserImpl>
+    implements _$$SubuserImplCopyWith<$Res> {
+  __$$SubuserImplCopyWithImpl(
+      _$SubuserImpl _value, $Res Function(_$SubuserImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -88,7 +89,7 @@ class __$$_SubuserCopyWithImpl<$Res>
     Object? email = null,
     Object? permissions = null,
   }) {
-    return _then(_$_Subuser(
+    return _then(_$SubuserImpl(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -103,14 +104,14 @@ class __$$_SubuserCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Subuser extends _Subuser {
-  const _$_Subuser(
+class _$SubuserImpl extends _Subuser {
+  const _$SubuserImpl(
       {required this.email, required final List<String> permissions})
       : _permissions = permissions,
         super._();
 
-  factory _$_Subuser.fromJson(Map<String, dynamic> json) =>
-      _$$_SubuserFromJson(json);
+  factory _$SubuserImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SubuserImplFromJson(json);
 
   @override
   final String email;
@@ -131,7 +132,7 @@ class _$_Subuser extends _Subuser {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Subuser &&
+            other is _$SubuserImpl &&
             (identical(other.email, email) || other.email == email) &&
             const DeepCollectionEquality()
                 .equals(other._permissions, _permissions));
@@ -145,12 +146,12 @@ class _$_Subuser extends _Subuser {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SubuserCopyWith<_$_Subuser> get copyWith =>
-      __$$_SubuserCopyWithImpl<_$_Subuser>(this, _$identity);
+  _$$SubuserImplCopyWith<_$SubuserImpl> get copyWith =>
+      __$$SubuserImplCopyWithImpl<_$SubuserImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SubuserToJson(
+    return _$$SubuserImplToJson(
       this,
     );
   }
@@ -159,10 +160,10 @@ class _$_Subuser extends _Subuser {
 abstract class _Subuser extends Subuser {
   const factory _Subuser(
       {required final String email,
-      required final List<String> permissions}) = _$_Subuser;
+      required final List<String> permissions}) = _$SubuserImpl;
   const _Subuser._() : super._();
 
-  factory _Subuser.fromJson(Map<String, dynamic> json) = _$_Subuser.fromJson;
+  factory _Subuser.fromJson(Map<String, dynamic> json) = _$SubuserImpl.fromJson;
 
   @override
   String get email;
@@ -170,7 +171,7 @@ abstract class _Subuser extends Subuser {
   List<String> get permissions;
   @override
   @JsonKey(ignore: true)
-  _$$_SubuserCopyWith<_$_Subuser> get copyWith =>
+  _$$SubuserImplCopyWith<_$SubuserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -222,22 +223,22 @@ class _$SubuserPermissionsCopyWithImpl<$Res, $Val extends SubuserPermissions>
 }
 
 /// @nodoc
-abstract class _$$_SubuserPermissionsCopyWith<$Res>
+abstract class _$$SubuserPermissionsImplCopyWith<$Res>
     implements $SubuserPermissionsCopyWith<$Res> {
-  factory _$$_SubuserPermissionsCopyWith(_$_SubuserPermissions value,
-          $Res Function(_$_SubuserPermissions) then) =
-      __$$_SubuserPermissionsCopyWithImpl<$Res>;
+  factory _$$SubuserPermissionsImplCopyWith(_$SubuserPermissionsImpl value,
+          $Res Function(_$SubuserPermissionsImpl) then) =
+      __$$SubuserPermissionsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<String> permissions});
 }
 
 /// @nodoc
-class __$$_SubuserPermissionsCopyWithImpl<$Res>
-    extends _$SubuserPermissionsCopyWithImpl<$Res, _$_SubuserPermissions>
-    implements _$$_SubuserPermissionsCopyWith<$Res> {
-  __$$_SubuserPermissionsCopyWithImpl(
-      _$_SubuserPermissions _value, $Res Function(_$_SubuserPermissions) _then)
+class __$$SubuserPermissionsImplCopyWithImpl<$Res>
+    extends _$SubuserPermissionsCopyWithImpl<$Res, _$SubuserPermissionsImpl>
+    implements _$$SubuserPermissionsImplCopyWith<$Res> {
+  __$$SubuserPermissionsImplCopyWithImpl(_$SubuserPermissionsImpl _value,
+      $Res Function(_$SubuserPermissionsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -245,7 +246,7 @@ class __$$_SubuserPermissionsCopyWithImpl<$Res>
   $Res call({
     Object? permissions = null,
   }) {
-    return _then(_$_SubuserPermissions(
+    return _then(_$SubuserPermissionsImpl(
       permissions: null == permissions
           ? _value._permissions
           : permissions // ignore: cast_nullable_to_non_nullable
@@ -256,13 +257,13 @@ class __$$_SubuserPermissionsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SubuserPermissions extends _SubuserPermissions {
-  const _$_SubuserPermissions({required final List<String> permissions})
+class _$SubuserPermissionsImpl extends _SubuserPermissions {
+  const _$SubuserPermissionsImpl({required final List<String> permissions})
       : _permissions = permissions,
         super._();
 
-  factory _$_SubuserPermissions.fromJson(Map<String, dynamic> json) =>
-      _$$_SubuserPermissionsFromJson(json);
+  factory _$SubuserPermissionsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SubuserPermissionsImplFromJson(json);
 
   final List<String> _permissions;
   @override
@@ -281,7 +282,7 @@ class _$_SubuserPermissions extends _SubuserPermissions {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SubuserPermissions &&
+            other is _$SubuserPermissionsImpl &&
             const DeepCollectionEquality()
                 .equals(other._permissions, _permissions));
   }
@@ -294,13 +295,13 @@ class _$_SubuserPermissions extends _SubuserPermissions {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SubuserPermissionsCopyWith<_$_SubuserPermissions> get copyWith =>
-      __$$_SubuserPermissionsCopyWithImpl<_$_SubuserPermissions>(
+  _$$SubuserPermissionsImplCopyWith<_$SubuserPermissionsImpl> get copyWith =>
+      __$$SubuserPermissionsImplCopyWithImpl<_$SubuserPermissionsImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SubuserPermissionsToJson(
+    return _$$SubuserPermissionsImplToJson(
       this,
     );
   }
@@ -308,16 +309,16 @@ class _$_SubuserPermissions extends _SubuserPermissions {
 
 abstract class _SubuserPermissions extends SubuserPermissions {
   const factory _SubuserPermissions({required final List<String> permissions}) =
-      _$_SubuserPermissions;
+      _$SubuserPermissionsImpl;
   const _SubuserPermissions._() : super._();
 
   factory _SubuserPermissions.fromJson(Map<String, dynamic> json) =
-      _$_SubuserPermissions.fromJson;
+      _$SubuserPermissionsImpl.fromJson;
 
   @override
   List<String> get permissions;
   @override
   @JsonKey(ignore: true)
-  _$$_SubuserPermissionsCopyWith<_$_SubuserPermissions> get copyWith =>
+  _$$SubuserPermissionsImplCopyWith<_$SubuserPermissionsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -75,11 +75,11 @@ class _$UpdatePasswordCopyWithImpl<$Res, $Val extends UpdatePassword>
 }
 
 /// @nodoc
-abstract class _$$_UpdatePasswordCopyWith<$Res>
+abstract class _$$UpdatePasswordImplCopyWith<$Res>
     implements $UpdatePasswordCopyWith<$Res> {
-  factory _$$_UpdatePasswordCopyWith(
-          _$_UpdatePassword value, $Res Function(_$_UpdatePassword) then) =
-      __$$_UpdatePasswordCopyWithImpl<$Res>;
+  factory _$$UpdatePasswordImplCopyWith(_$UpdatePasswordImpl value,
+          $Res Function(_$UpdatePasswordImpl) then) =
+      __$$UpdatePasswordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -87,11 +87,11 @@ abstract class _$$_UpdatePasswordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UpdatePasswordCopyWithImpl<$Res>
-    extends _$UpdatePasswordCopyWithImpl<$Res, _$_UpdatePassword>
-    implements _$$_UpdatePasswordCopyWith<$Res> {
-  __$$_UpdatePasswordCopyWithImpl(
-      _$_UpdatePassword _value, $Res Function(_$_UpdatePassword) _then)
+class __$$UpdatePasswordImplCopyWithImpl<$Res>
+    extends _$UpdatePasswordCopyWithImpl<$Res, _$UpdatePasswordImpl>
+    implements _$$UpdatePasswordImplCopyWith<$Res> {
+  __$$UpdatePasswordImplCopyWithImpl(
+      _$UpdatePasswordImpl _value, $Res Function(_$UpdatePasswordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +101,7 @@ class __$$_UpdatePasswordCopyWithImpl<$Res>
     Object? password = null,
     Object? passwordConfirmation = null,
   }) {
-    return _then(_$_UpdatePassword(
+    return _then(_$UpdatePasswordImpl(
       currentPassword: null == currentPassword
           ? _value.currentPassword
           : currentPassword // ignore: cast_nullable_to_non_nullable
@@ -120,15 +120,15 @@ class __$$_UpdatePasswordCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UpdatePassword extends _UpdatePassword {
-  const _$_UpdatePassword(
+class _$UpdatePasswordImpl extends _UpdatePassword {
+  const _$UpdatePasswordImpl(
       {required this.currentPassword,
       required this.password,
       required this.passwordConfirmation})
       : super._();
 
-  factory _$_UpdatePassword.fromJson(Map<String, dynamic> json) =>
-      _$$_UpdatePasswordFromJson(json);
+  factory _$UpdatePasswordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UpdatePasswordImplFromJson(json);
 
   @override
   final String currentPassword;
@@ -146,7 +146,7 @@ class _$_UpdatePassword extends _UpdatePassword {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UpdatePassword &&
+            other is _$UpdatePasswordImpl &&
             (identical(other.currentPassword, currentPassword) ||
                 other.currentPassword == currentPassword) &&
             (identical(other.password, password) ||
@@ -163,12 +163,13 @@ class _$_UpdatePassword extends _UpdatePassword {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UpdatePasswordCopyWith<_$_UpdatePassword> get copyWith =>
-      __$$_UpdatePasswordCopyWithImpl<_$_UpdatePassword>(this, _$identity);
+  _$$UpdatePasswordImplCopyWith<_$UpdatePasswordImpl> get copyWith =>
+      __$$UpdatePasswordImplCopyWithImpl<_$UpdatePasswordImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UpdatePasswordToJson(
+    return _$$UpdatePasswordImplToJson(
       this,
     );
   }
@@ -178,11 +179,11 @@ abstract class _UpdatePassword extends UpdatePassword {
   const factory _UpdatePassword(
       {required final String currentPassword,
       required final String password,
-      required final String passwordConfirmation}) = _$_UpdatePassword;
+      required final String passwordConfirmation}) = _$UpdatePasswordImpl;
   const _UpdatePassword._() : super._();
 
   factory _UpdatePassword.fromJson(Map<String, dynamic> json) =
-      _$_UpdatePassword.fromJson;
+      _$UpdatePasswordImpl.fromJson;
 
   @override
   String get currentPassword;
@@ -192,6 +193,6 @@ abstract class _UpdatePassword extends UpdatePassword {
   String get passwordConfirmation;
   @override
   @JsonKey(ignore: true)
-  _$$_UpdatePasswordCopyWith<_$_UpdatePassword> get copyWith =>
+  _$$UpdatePasswordImplCopyWith<_$UpdatePasswordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

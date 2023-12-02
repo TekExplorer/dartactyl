@@ -6,11 +6,11 @@ part of '../../../models/request_models/signal.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Signal _$$_SignalFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Signal',
+_$SignalImpl _$$SignalImplFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$SignalImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Signal(
+        final val = _$SignalImpl(
           signal: $checkedConvert(
               'signal', (v) => $enumDecode(_$ServerPowerActionEnumMap, v)),
         );
@@ -18,7 +18,8 @@ _$_Signal _$$_SignalFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_SignalToJson(_$_Signal instance) => <String, dynamic>{
+Map<String, dynamic> _$$SignalImplToJson(_$SignalImpl instance) =>
+    <String, dynamic>{
       'signal': instance.signal.toJson(),
     };
 

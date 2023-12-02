@@ -6,12 +6,12 @@ part of '../../../models/request_models/create_backup_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CreateBackup _$$_CreateBackupFromJson(Map<String, dynamic> json) =>
+_$CreateBackupImpl _$$CreateBackupImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_CreateBackup',
+      r'_$CreateBackupImpl',
       json,
       ($checkedConvert) {
-        final val = _$_CreateBackup(
+        final val = _$CreateBackupImpl(
           name: $checkedConvert('name', (v) => v as String?),
           ignored: $checkedConvert('ignored', (v) => v as String?),
           isLocked: $checkedConvert('is_locked', (v) => v as bool),
@@ -21,7 +21,7 @@ _$_CreateBackup _$$_CreateBackupFromJson(Map<String, dynamic> json) =>
       fieldKeyMap: const {'isLocked': 'is_locked'},
     );
 
-Map<String, dynamic> _$$_CreateBackupToJson(_$_CreateBackup instance) =>
+Map<String, dynamic> _$$CreateBackupImplToJson(_$CreateBackupImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'ignored': instance.ignored,

@@ -6,11 +6,12 @@ part of '../../../models/main_models/databases.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Databases _$$_DatabasesFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Databases',
+_$DatabasesImpl _$$DatabasesImplFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      r'_$DatabasesImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Databases(
+        final val = _$DatabasesImpl(
           id: $checkedConvert('id', (v) => v as int),
           server: $checkedConvert('server', (v) => v as int),
           host: $checkedConvert('host', (v) => v as int),
@@ -30,7 +31,7 @@ _$_Databases _$$_DatabasesFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_DatabasesToJson(_$_Databases instance) =>
+Map<String, dynamic> _$$DatabasesImplToJson(_$DatabasesImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'server': instance.server,

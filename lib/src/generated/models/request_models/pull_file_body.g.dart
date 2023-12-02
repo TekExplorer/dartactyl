@@ -6,12 +6,12 @@ part of '../../../models/request_models/pull_file_body.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PullFileBody _$$_PullFileBodyFromJson(Map<String, dynamic> json) =>
+_$PullFileBodyImpl _$$PullFileBodyImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_PullFileBody',
+      r'_$PullFileBodyImpl',
       json,
       ($checkedConvert) {
-        final val = _$_PullFileBody(
+        final val = _$PullFileBodyImpl(
           url: $checkedConvert('url', (v) => Uri.parse(v as String)),
           directory: $checkedConvert('directory', (v) => v as String?),
           filename: $checkedConvert('filename', (v) => v as String?),
@@ -23,7 +23,7 @@ _$_PullFileBody _$$_PullFileBodyFromJson(Map<String, dynamic> json) =>
       fieldKeyMap: const {'useHeader': 'use_header'},
     );
 
-Map<String, dynamic> _$$_PullFileBodyToJson(_$_PullFileBody instance) =>
+Map<String, dynamic> _$$PullFileBodyImplToJson(_$PullFileBodyImpl instance) =>
     <String, dynamic>{
       'url': instance.url.toString(),
       'directory': instance.directory,

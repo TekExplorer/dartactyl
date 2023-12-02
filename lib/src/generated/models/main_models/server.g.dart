@@ -6,11 +6,11 @@ part of '../../../models/main_models/server.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Server _$$_ServerFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Server',
+_$ServerImpl _$$ServerImplFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$ServerImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Server(
+        final val = _$ServerImpl(
           serverOwner: $checkedConvert('server_owner', (v) => v as bool),
           identifier: $checkedConvert('identifier', (v) => v as String),
           internalId: $checkedConvert('internal_id', (v) => v as int),
@@ -54,7 +54,8 @@ _$_Server _$$_ServerFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_ServerToJson(_$_Server instance) => <String, dynamic>{
+Map<String, dynamic> _$$ServerImplToJson(_$ServerImpl instance) =>
+    <String, dynamic>{
       'server_owner': instance.serverOwner,
       'identifier': instance.identifier,
       'internal_id': instance.internalId,
@@ -78,6 +79,7 @@ Map<String, dynamic> _$$_ServerToJson(_$_Server instance) => <String, dynamic>{
 const _$ServerStatusEnumMap = {
   ServerStatus.installing: 'installing',
   ServerStatus.installFailed: 'install_failed',
+  ServerStatus.reinstallFailed: 'reinstall_failed',
   ServerStatus.suspended: 'suspended',
   ServerStatus.restoringBackup: 'restoring_backup',
   ServerStatus.transferring: 'transferring',

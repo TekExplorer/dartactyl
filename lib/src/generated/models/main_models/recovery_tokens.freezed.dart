@@ -62,22 +62,22 @@ class _$RecoveryTokensCopyWithImpl<$Res, $Val extends RecoveryTokens>
 }
 
 /// @nodoc
-abstract class _$$_RecoveryTokensCopyWith<$Res>
+abstract class _$$RecoveryTokensImplCopyWith<$Res>
     implements $RecoveryTokensCopyWith<$Res> {
-  factory _$$_RecoveryTokensCopyWith(
-          _$_RecoveryTokens value, $Res Function(_$_RecoveryTokens) then) =
-      __$$_RecoveryTokensCopyWithImpl<$Res>;
+  factory _$$RecoveryTokensImplCopyWith(_$RecoveryTokensImpl value,
+          $Res Function(_$RecoveryTokensImpl) then) =
+      __$$RecoveryTokensImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<String> tokens});
 }
 
 /// @nodoc
-class __$$_RecoveryTokensCopyWithImpl<$Res>
-    extends _$RecoveryTokensCopyWithImpl<$Res, _$_RecoveryTokens>
-    implements _$$_RecoveryTokensCopyWith<$Res> {
-  __$$_RecoveryTokensCopyWithImpl(
-      _$_RecoveryTokens _value, $Res Function(_$_RecoveryTokens) _then)
+class __$$RecoveryTokensImplCopyWithImpl<$Res>
+    extends _$RecoveryTokensCopyWithImpl<$Res, _$RecoveryTokensImpl>
+    implements _$$RecoveryTokensImplCopyWith<$Res> {
+  __$$RecoveryTokensImplCopyWithImpl(
+      _$RecoveryTokensImpl _value, $Res Function(_$RecoveryTokensImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_RecoveryTokensCopyWithImpl<$Res>
   $Res call({
     Object? tokens = null,
   }) {
-    return _then(_$_RecoveryTokens(
+    return _then(_$RecoveryTokensImpl(
       tokens: null == tokens
           ? _value._tokens
           : tokens // ignore: cast_nullable_to_non_nullable
@@ -96,13 +96,13 @@ class __$$_RecoveryTokensCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RecoveryTokens extends _RecoveryTokens {
-  const _$_RecoveryTokens({required final List<String> tokens})
+class _$RecoveryTokensImpl extends _RecoveryTokens {
+  const _$RecoveryTokensImpl({required final List<String> tokens})
       : _tokens = tokens,
         super._();
 
-  factory _$_RecoveryTokens.fromJson(Map<String, dynamic> json) =>
-      _$$_RecoveryTokensFromJson(json);
+  factory _$RecoveryTokensImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RecoveryTokensImplFromJson(json);
 
   final List<String> _tokens;
   @override
@@ -121,7 +121,7 @@ class _$_RecoveryTokens extends _RecoveryTokens {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RecoveryTokens &&
+            other is _$RecoveryTokensImpl &&
             const DeepCollectionEquality().equals(other._tokens, _tokens));
   }
 
@@ -133,12 +133,13 @@ class _$_RecoveryTokens extends _RecoveryTokens {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RecoveryTokensCopyWith<_$_RecoveryTokens> get copyWith =>
-      __$$_RecoveryTokensCopyWithImpl<_$_RecoveryTokens>(this, _$identity);
+  _$$RecoveryTokensImplCopyWith<_$RecoveryTokensImpl> get copyWith =>
+      __$$RecoveryTokensImplCopyWithImpl<_$RecoveryTokensImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RecoveryTokensToJson(
+    return _$$RecoveryTokensImplToJson(
       this,
     );
   }
@@ -146,16 +147,16 @@ class _$_RecoveryTokens extends _RecoveryTokens {
 
 abstract class _RecoveryTokens extends RecoveryTokens {
   const factory _RecoveryTokens({required final List<String> tokens}) =
-      _$_RecoveryTokens;
+      _$RecoveryTokensImpl;
   const _RecoveryTokens._() : super._();
 
   factory _RecoveryTokens.fromJson(Map<String, dynamic> json) =
-      _$_RecoveryTokens.fromJson;
+      _$RecoveryTokensImpl.fromJson;
 
   @override
   List<String> get tokens;
   @override
   @JsonKey(ignore: true)
-  _$$_RecoveryTokensCopyWith<_$_RecoveryTokens> get copyWith =>
+  _$$RecoveryTokensImplCopyWith<_$RecoveryTokensImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

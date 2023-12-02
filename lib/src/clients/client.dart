@@ -535,7 +535,7 @@ abstract class PteroClient {
   ///
   /// [file]; url encoded path to the desired file
   @POST('/api/client/servers/{serverId}/files/write')
-  @Headers(<String, dynamic>{'Content-Type': 'text/plain'})
+  @Headers(<String, Object?>{'Content-Type': 'text/plain'})
   Future<void> writeFile(
     @Body() String rawContents, {
     @Path() required String serverId,

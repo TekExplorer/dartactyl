@@ -6,12 +6,12 @@ part of '../../../models/server/server_limits.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ServerLimits _$$_ServerLimitsFromJson(Map<String, dynamic> json) =>
+_$ServerLimitsImpl _$$ServerLimitsImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ServerLimits',
+      r'_$ServerLimitsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ServerLimits(
+        final val = _$ServerLimitsImpl(
           memory: $checkedConvert('memory', (v) => v as int),
           swap: $checkedConvert('swap', (v) => v as int),
           disk: $checkedConvert('disk', (v) => v as int),
@@ -23,7 +23,7 @@ _$_ServerLimits _$$_ServerLimitsFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_ServerLimitsToJson(_$_ServerLimits instance) =>
+Map<String, dynamic> _$$ServerLimitsImplToJson(_$ServerLimitsImpl instance) =>
     <String, dynamic>{
       'memory': instance.memory,
       'swap': instance.swap,

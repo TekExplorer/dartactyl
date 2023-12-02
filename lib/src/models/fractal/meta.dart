@@ -17,7 +17,7 @@ class PaginatedMeta with _$PaginatedMeta implements Meta, PaginationMixin {
   const factory PaginatedMeta({required Pagination pagination}) =
       _PaginatedMeta;
   const PaginatedMeta._();
-  factory PaginatedMeta.fromJson(Map<String, dynamic> json) =>
+  factory PaginatedMeta.fromJson(Map<String, Object?> json) =>
       _$PaginatedMetaFromJson(json);
 }
 
@@ -33,7 +33,7 @@ class PaginatedBackupsMeta
   }) = _PaginatedBackupsMeta;
   const PaginatedBackupsMeta._();
 
-  factory PaginatedBackupsMeta.fromJson(Map<String, dynamic> json) =>
+  factory PaginatedBackupsMeta.fromJson(Map<String, Object?> json) =>
       _$PaginatedBackupsMetaFromJson(json);
 }
 
@@ -45,7 +45,7 @@ class ServerMeta with _$ServerMeta implements Meta {
     required List<String> userPermissions,
   }) = _ServerMeta;
   const ServerMeta._();
-  factory ServerMeta.fromJson(Map<String, dynamic> json) =>
+  factory ServerMeta.fromJson(Map<String, Object?> json) =>
       _$ServerMetaFromJson(json);
 }
 
@@ -58,7 +58,7 @@ class StartupMeta with _$StartupMeta implements Meta {
     required Map<String, String> dockerImages,
   }) = _StartupMeta;
   const StartupMeta._();
-  factory StartupMeta.fromJson(Map<String, dynamic> json) =>
+  factory StartupMeta.fromJson(Map<String, Object?> json) =>
       _$StartupMetaFromJson(json);
 }
 
@@ -67,7 +67,7 @@ class StartupMeta with _$StartupMeta implements Meta {
 class ApiKeyMeta with _$ApiKeyMeta implements Meta {
   const factory ApiKeyMeta({required String secretToken}) = _ApiKeyMeta;
   const ApiKeyMeta._();
-  factory ApiKeyMeta.fromJson(Map<String, dynamic> json) =>
+  factory ApiKeyMeta.fromJson(Map<String, Object?> json) =>
       _$ApiKeyMetaFromJson(json);
 }
 
@@ -76,6 +76,6 @@ class ApiKeyMeta with _$ApiKeyMeta implements Meta {
 class ResourceMeta with _$ResourceMeta implements Meta {
   const factory ResourceMeta({required Uri resource}) = _ResourceMeta;
   const ResourceMeta._();
-  factory ResourceMeta.fromJson(Map<String, dynamic> json) =>
+  factory ResourceMeta.fromJson(Map<String, Object?> json) =>
       _$ResourceMetaFromJson(json);
 }

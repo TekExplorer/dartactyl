@@ -98,11 +98,11 @@ class _$FilePermissionKeysCopyWithImpl<$Res, $Val extends FilePermissionKeys>
 }
 
 /// @nodoc
-abstract class _$$_FilePermissionKeysCopyWith<$Res>
+abstract class _$$FilePermissionKeysImplCopyWith<$Res>
     implements $FilePermissionKeysCopyWith<$Res> {
-  factory _$$_FilePermissionKeysCopyWith(_$_FilePermissionKeys value,
-          $Res Function(_$_FilePermissionKeys) then) =
-      __$$_FilePermissionKeysCopyWithImpl<$Res>;
+  factory _$$FilePermissionKeysImplCopyWith(_$FilePermissionKeysImpl value,
+          $Res Function(_$FilePermissionKeysImpl) then) =
+      __$$FilePermissionKeysImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -115,11 +115,11 @@ abstract class _$$_FilePermissionKeysCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FilePermissionKeysCopyWithImpl<$Res>
-    extends _$FilePermissionKeysCopyWithImpl<$Res, _$_FilePermissionKeys>
-    implements _$$_FilePermissionKeysCopyWith<$Res> {
-  __$$_FilePermissionKeysCopyWithImpl(
-      _$_FilePermissionKeys _value, $Res Function(_$_FilePermissionKeys) _then)
+class __$$FilePermissionKeysImplCopyWithImpl<$Res>
+    extends _$FilePermissionKeysCopyWithImpl<$Res, _$FilePermissionKeysImpl>
+    implements _$$FilePermissionKeysImplCopyWith<$Res> {
+  __$$FilePermissionKeysImplCopyWithImpl(_$FilePermissionKeysImpl _value,
+      $Res Function(_$FilePermissionKeysImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -132,7 +132,7 @@ class __$$_FilePermissionKeysCopyWithImpl<$Res>
     Object? archive = null,
     Object? sftp = null,
   }) {
-    return _then(_$_FilePermissionKeys(
+    return _then(_$FilePermissionKeysImpl(
       create: null == create
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
@@ -163,8 +163,8 @@ class __$$_FilePermissionKeysCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FilePermissionKeys extends _FilePermissionKeys {
-  const _$_FilePermissionKeys(
+class _$FilePermissionKeysImpl extends _FilePermissionKeys {
+  const _$FilePermissionKeysImpl(
       {required this.create,
       required this.read,
       required this.update,
@@ -173,8 +173,8 @@ class _$_FilePermissionKeys extends _FilePermissionKeys {
       required this.sftp})
       : super._();
 
-  factory _$_FilePermissionKeys.fromJson(Map<String, dynamic> json) =>
-      _$$_FilePermissionKeysFromJson(json);
+  factory _$FilePermissionKeysImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FilePermissionKeysImplFromJson(json);
 
   @override
   final String create;
@@ -198,7 +198,7 @@ class _$_FilePermissionKeys extends _FilePermissionKeys {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FilePermissionKeys &&
+            other is _$FilePermissionKeysImpl &&
             (identical(other.create, create) || other.create == create) &&
             (identical(other.read, read) || other.read == read) &&
             (identical(other.update, update) || other.update == update) &&
@@ -215,13 +215,13 @@ class _$_FilePermissionKeys extends _FilePermissionKeys {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FilePermissionKeysCopyWith<_$_FilePermissionKeys> get copyWith =>
-      __$$_FilePermissionKeysCopyWithImpl<_$_FilePermissionKeys>(
+  _$$FilePermissionKeysImplCopyWith<_$FilePermissionKeysImpl> get copyWith =>
+      __$$FilePermissionKeysImplCopyWithImpl<_$FilePermissionKeysImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FilePermissionKeysToJson(
+    return _$$FilePermissionKeysImplToJson(
       this,
     );
   }
@@ -234,11 +234,11 @@ abstract class _FilePermissionKeys extends FilePermissionKeys {
       required final String update,
       required final String delete,
       required final String archive,
-      required final String sftp}) = _$_FilePermissionKeys;
+      required final String sftp}) = _$FilePermissionKeysImpl;
   const _FilePermissionKeys._() : super._();
 
   factory _FilePermissionKeys.fromJson(Map<String, dynamic> json) =
-      _$_FilePermissionKeys.fromJson;
+      _$FilePermissionKeysImpl.fromJson;
 
   @override
   String get create;
@@ -254,6 +254,6 @@ abstract class _FilePermissionKeys extends FilePermissionKeys {
   String get sftp;
   @override
   @JsonKey(ignore: true)
-  _$$_FilePermissionKeysCopyWith<_$_FilePermissionKeys> get copyWith =>
+  _$$FilePermissionKeysImplCopyWith<_$FilePermissionKeysImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

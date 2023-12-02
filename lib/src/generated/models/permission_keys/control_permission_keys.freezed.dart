@@ -64,22 +64,24 @@ class _$ControlPermissionKeysCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ControlPermissionKeysCopyWith<$Res>
+abstract class _$$ControlPermissionKeysImplCopyWith<$Res>
     implements $ControlPermissionKeysCopyWith<$Res> {
-  factory _$$_ControlPermissionKeysCopyWith(_$_ControlPermissionKeys value,
-          $Res Function(_$_ControlPermissionKeys) then) =
-      __$$_ControlPermissionKeysCopyWithImpl<$Res>;
+  factory _$$ControlPermissionKeysImplCopyWith(
+          _$ControlPermissionKeysImpl value,
+          $Res Function(_$ControlPermissionKeysImpl) then) =
+      __$$ControlPermissionKeysImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String connect});
 }
 
 /// @nodoc
-class __$$_ControlPermissionKeysCopyWithImpl<$Res>
-    extends _$ControlPermissionKeysCopyWithImpl<$Res, _$_ControlPermissionKeys>
-    implements _$$_ControlPermissionKeysCopyWith<$Res> {
-  __$$_ControlPermissionKeysCopyWithImpl(_$_ControlPermissionKeys _value,
-      $Res Function(_$_ControlPermissionKeys) _then)
+class __$$ControlPermissionKeysImplCopyWithImpl<$Res>
+    extends _$ControlPermissionKeysCopyWithImpl<$Res,
+        _$ControlPermissionKeysImpl>
+    implements _$$ControlPermissionKeysImplCopyWith<$Res> {
+  __$$ControlPermissionKeysImplCopyWithImpl(_$ControlPermissionKeysImpl _value,
+      $Res Function(_$ControlPermissionKeysImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +89,7 @@ class __$$_ControlPermissionKeysCopyWithImpl<$Res>
   $Res call({
     Object? connect = null,
   }) {
-    return _then(_$_ControlPermissionKeys(
+    return _then(_$ControlPermissionKeysImpl(
       connect: null == connect
           ? _value.connect
           : connect // ignore: cast_nullable_to_non_nullable
@@ -98,11 +100,11 @@ class __$$_ControlPermissionKeysCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ControlPermissionKeys extends _ControlPermissionKeys {
-  const _$_ControlPermissionKeys({required this.connect}) : super._();
+class _$ControlPermissionKeysImpl extends _ControlPermissionKeys {
+  const _$ControlPermissionKeysImpl({required this.connect}) : super._();
 
-  factory _$_ControlPermissionKeys.fromJson(Map<String, dynamic> json) =>
-      _$$_ControlPermissionKeysFromJson(json);
+  factory _$ControlPermissionKeysImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ControlPermissionKeysImplFromJson(json);
 
   @override
   final String connect;
@@ -116,7 +118,7 @@ class _$_ControlPermissionKeys extends _ControlPermissionKeys {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ControlPermissionKeys &&
+            other is _$ControlPermissionKeysImpl &&
             (identical(other.connect, connect) || other.connect == connect));
   }
 
@@ -127,13 +129,13 @@ class _$_ControlPermissionKeys extends _ControlPermissionKeys {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ControlPermissionKeysCopyWith<_$_ControlPermissionKeys> get copyWith =>
-      __$$_ControlPermissionKeysCopyWithImpl<_$_ControlPermissionKeys>(
-          this, _$identity);
+  _$$ControlPermissionKeysImplCopyWith<_$ControlPermissionKeysImpl>
+      get copyWith => __$$ControlPermissionKeysImplCopyWithImpl<
+          _$ControlPermissionKeysImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ControlPermissionKeysToJson(
+    return _$$ControlPermissionKeysImplToJson(
       this,
     );
   }
@@ -141,16 +143,16 @@ class _$_ControlPermissionKeys extends _ControlPermissionKeys {
 
 abstract class _ControlPermissionKeys extends ControlPermissionKeys {
   const factory _ControlPermissionKeys({required final String connect}) =
-      _$_ControlPermissionKeys;
+      _$ControlPermissionKeysImpl;
   const _ControlPermissionKeys._() : super._();
 
   factory _ControlPermissionKeys.fromJson(Map<String, dynamic> json) =
-      _$_ControlPermissionKeys.fromJson;
+      _$ControlPermissionKeysImpl.fromJson;
 
   @override
   String get connect;
   @override
   @JsonKey(ignore: true)
-  _$$_ControlPermissionKeysCopyWith<_$_ControlPermissionKeys> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ControlPermissionKeysImplCopyWith<_$ControlPermissionKeysImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

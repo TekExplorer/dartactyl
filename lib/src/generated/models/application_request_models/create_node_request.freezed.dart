@@ -133,11 +133,11 @@ class _$CreateNodeRequestCopyWithImpl<$Res, $Val extends CreateNodeRequest>
 }
 
 /// @nodoc
-abstract class _$$_CreateNodeRequestCopyWith<$Res>
+abstract class _$$CreateNodeRequestImplCopyWith<$Res>
     implements $CreateNodeRequestCopyWith<$Res> {
-  factory _$$_CreateNodeRequestCopyWith(_$_CreateNodeRequest value,
-          $Res Function(_$_CreateNodeRequest) then) =
-      __$$_CreateNodeRequestCopyWithImpl<$Res>;
+  factory _$$CreateNodeRequestImplCopyWith(_$CreateNodeRequestImpl value,
+          $Res Function(_$CreateNodeRequestImpl) then) =
+      __$$CreateNodeRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -155,11 +155,11 @@ abstract class _$$_CreateNodeRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CreateNodeRequestCopyWithImpl<$Res>
-    extends _$CreateNodeRequestCopyWithImpl<$Res, _$_CreateNodeRequest>
-    implements _$$_CreateNodeRequestCopyWith<$Res> {
-  __$$_CreateNodeRequestCopyWithImpl(
-      _$_CreateNodeRequest _value, $Res Function(_$_CreateNodeRequest) _then)
+class __$$CreateNodeRequestImplCopyWithImpl<$Res>
+    extends _$CreateNodeRequestCopyWithImpl<$Res, _$CreateNodeRequestImpl>
+    implements _$$CreateNodeRequestImplCopyWith<$Res> {
+  __$$CreateNodeRequestImplCopyWithImpl(_$CreateNodeRequestImpl _value,
+      $Res Function(_$CreateNodeRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -177,7 +177,7 @@ class __$$_CreateNodeRequestCopyWithImpl<$Res>
     Object? daemonSftp = null,
     Object? daemonListen = null,
   }) {
-    return _then(_$_CreateNodeRequest(
+    return _then(_$CreateNodeRequestImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -228,8 +228,8 @@ class __$$_CreateNodeRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CreateNodeRequest extends _CreateNodeRequest {
-  const _$_CreateNodeRequest(
+class _$CreateNodeRequestImpl extends _CreateNodeRequest {
+  const _$CreateNodeRequestImpl(
       {required this.name,
       required this.locationId,
       required this.fqdn,
@@ -243,8 +243,8 @@ class _$_CreateNodeRequest extends _CreateNodeRequest {
       required this.daemonListen})
       : super._();
 
-  factory _$_CreateNodeRequest.fromJson(Map<String, dynamic> json) =>
-      _$$_CreateNodeRequestFromJson(json);
+  factory _$CreateNodeRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CreateNodeRequestImplFromJson(json);
 
   @override
   final String name;
@@ -278,7 +278,7 @@ class _$_CreateNodeRequest extends _CreateNodeRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CreateNodeRequest &&
+            other is _$CreateNodeRequestImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.locationId, locationId) ||
                 other.locationId == locationId) &&
@@ -317,13 +317,13 @@ class _$_CreateNodeRequest extends _CreateNodeRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CreateNodeRequestCopyWith<_$_CreateNodeRequest> get copyWith =>
-      __$$_CreateNodeRequestCopyWithImpl<_$_CreateNodeRequest>(
+  _$$CreateNodeRequestImplCopyWith<_$CreateNodeRequestImpl> get copyWith =>
+      __$$CreateNodeRequestImplCopyWithImpl<_$CreateNodeRequestImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CreateNodeRequestToJson(
+    return _$$CreateNodeRequestImplToJson(
       this,
     );
   }
@@ -341,11 +341,11 @@ abstract class _CreateNodeRequest extends CreateNodeRequest {
       required final int diskOverallocate,
       required final int uploadSize,
       required final int daemonSftp,
-      required final int daemonListen}) = _$_CreateNodeRequest;
+      required final int daemonListen}) = _$CreateNodeRequestImpl;
   const _CreateNodeRequest._() : super._();
 
   factory _CreateNodeRequest.fromJson(Map<String, dynamic> json) =
-      _$_CreateNodeRequest.fromJson;
+      _$CreateNodeRequestImpl.fromJson;
 
   @override
   String get name;
@@ -371,6 +371,6 @@ abstract class _CreateNodeRequest extends CreateNodeRequest {
   int get daemonListen;
   @override
   @JsonKey(ignore: true)
-  _$$_CreateNodeRequestCopyWith<_$_CreateNodeRequest> get copyWith =>
+  _$$CreateNodeRequestImplCopyWith<_$CreateNodeRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

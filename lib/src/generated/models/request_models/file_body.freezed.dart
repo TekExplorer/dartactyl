@@ -69,21 +69,22 @@ class _$FileBodyCopyWithImpl<$Res, $Val extends FileBody>
 }
 
 /// @nodoc
-abstract class _$$_FileBodyCopyWith<$Res> implements $FileBodyCopyWith<$Res> {
-  factory _$$_FileBodyCopyWith(
-          _$_FileBody value, $Res Function(_$_FileBody) then) =
-      __$$_FileBodyCopyWithImpl<$Res>;
+abstract class _$$FileBodyImplCopyWith<$Res>
+    implements $FileBodyCopyWith<$Res> {
+  factory _$$FileBodyImplCopyWith(
+          _$FileBodyImpl value, $Res Function(_$FileBodyImpl) then) =
+      __$$FileBodyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: 'root') String rootDir, String file});
 }
 
 /// @nodoc
-class __$$_FileBodyCopyWithImpl<$Res>
-    extends _$FileBodyCopyWithImpl<$Res, _$_FileBody>
-    implements _$$_FileBodyCopyWith<$Res> {
-  __$$_FileBodyCopyWithImpl(
-      _$_FileBody _value, $Res Function(_$_FileBody) _then)
+class __$$FileBodyImplCopyWithImpl<$Res>
+    extends _$FileBodyCopyWithImpl<$Res, _$FileBodyImpl>
+    implements _$$FileBodyImplCopyWith<$Res> {
+  __$$FileBodyImplCopyWithImpl(
+      _$FileBodyImpl _value, $Res Function(_$FileBodyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +93,7 @@ class __$$_FileBodyCopyWithImpl<$Res>
     Object? rootDir = null,
     Object? file = null,
   }) {
-    return _then(_$_FileBody(
+    return _then(_$FileBodyImpl(
       rootDir: null == rootDir
           ? _value.rootDir
           : rootDir // ignore: cast_nullable_to_non_nullable
@@ -107,13 +108,13 @@ class __$$_FileBodyCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FileBody extends _FileBody {
-  const _$_FileBody(
+class _$FileBodyImpl extends _FileBody {
+  const _$FileBodyImpl(
       {@JsonKey(name: 'root') required this.rootDir, required this.file})
       : super._();
 
-  factory _$_FileBody.fromJson(Map<String, dynamic> json) =>
-      _$$_FileBodyFromJson(json);
+  factory _$FileBodyImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FileBodyImplFromJson(json);
 
 // ignore: invalid_annotation_target
   @override
@@ -131,7 +132,7 @@ class _$_FileBody extends _FileBody {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FileBody &&
+            other is _$FileBodyImpl &&
             (identical(other.rootDir, rootDir) || other.rootDir == rootDir) &&
             (identical(other.file, file) || other.file == file));
   }
@@ -143,12 +144,12 @@ class _$_FileBody extends _FileBody {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FileBodyCopyWith<_$_FileBody> get copyWith =>
-      __$$_FileBodyCopyWithImpl<_$_FileBody>(this, _$identity);
+  _$$FileBodyImplCopyWith<_$FileBodyImpl> get copyWith =>
+      __$$FileBodyImplCopyWithImpl<_$FileBodyImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FileBodyToJson(
+    return _$$FileBodyImplToJson(
       this,
     );
   }
@@ -157,10 +158,11 @@ class _$_FileBody extends _FileBody {
 abstract class _FileBody extends FileBody {
   const factory _FileBody(
       {@JsonKey(name: 'root') required final String rootDir,
-      required final String file}) = _$_FileBody;
+      required final String file}) = _$FileBodyImpl;
   const _FileBody._() : super._();
 
-  factory _FileBody.fromJson(Map<String, dynamic> json) = _$_FileBody.fromJson;
+  factory _FileBody.fromJson(Map<String, dynamic> json) =
+      _$FileBodyImpl.fromJson;
 
   @override // ignore: invalid_annotation_target
   @JsonKey(name: 'root')
@@ -169,7 +171,7 @@ abstract class _FileBody extends FileBody {
   String get file;
   @override
   @JsonKey(ignore: true)
-  _$$_FileBodyCopyWith<_$_FileBody> get copyWith =>
+  _$$FileBodyImplCopyWith<_$FileBodyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -229,22 +231,22 @@ class _$FileBodyListFromToCopyWithImpl<$Res, $Val extends FileBodyListFromTo>
 }
 
 /// @nodoc
-abstract class _$$_FileBodyListFromToCopyWith<$Res>
+abstract class _$$FileBodyListFromToImplCopyWith<$Res>
     implements $FileBodyListFromToCopyWith<$Res> {
-  factory _$$_FileBodyListFromToCopyWith(_$_FileBodyListFromTo value,
-          $Res Function(_$_FileBodyListFromTo) then) =
-      __$$_FileBodyListFromToCopyWithImpl<$Res>;
+  factory _$$FileBodyListFromToImplCopyWith(_$FileBodyListFromToImpl value,
+          $Res Function(_$FileBodyListFromToImpl) then) =
+      __$$FileBodyListFromToImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: 'root') String rootDir, List<FromTo> files});
 }
 
 /// @nodoc
-class __$$_FileBodyListFromToCopyWithImpl<$Res>
-    extends _$FileBodyListFromToCopyWithImpl<$Res, _$_FileBodyListFromTo>
-    implements _$$_FileBodyListFromToCopyWith<$Res> {
-  __$$_FileBodyListFromToCopyWithImpl(
-      _$_FileBodyListFromTo _value, $Res Function(_$_FileBodyListFromTo) _then)
+class __$$FileBodyListFromToImplCopyWithImpl<$Res>
+    extends _$FileBodyListFromToCopyWithImpl<$Res, _$FileBodyListFromToImpl>
+    implements _$$FileBodyListFromToImplCopyWith<$Res> {
+  __$$FileBodyListFromToImplCopyWithImpl(_$FileBodyListFromToImpl _value,
+      $Res Function(_$FileBodyListFromToImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -253,7 +255,7 @@ class __$$_FileBodyListFromToCopyWithImpl<$Res>
     Object? rootDir = null,
     Object? files = null,
   }) {
-    return _then(_$_FileBodyListFromTo(
+    return _then(_$FileBodyListFromToImpl(
       rootDir: null == rootDir
           ? _value.rootDir
           : rootDir // ignore: cast_nullable_to_non_nullable
@@ -268,15 +270,15 @@ class __$$_FileBodyListFromToCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FileBodyListFromTo extends _FileBodyListFromTo {
-  const _$_FileBodyListFromTo(
+class _$FileBodyListFromToImpl extends _FileBodyListFromTo {
+  const _$FileBodyListFromToImpl(
       {@JsonKey(name: 'root') required this.rootDir,
       required final List<FromTo> files})
       : _files = files,
         super._();
 
-  factory _$_FileBodyListFromTo.fromJson(Map<String, dynamic> json) =>
-      _$$_FileBodyListFromToFromJson(json);
+  factory _$FileBodyListFromToImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FileBodyListFromToImplFromJson(json);
 
 // ignore: invalid_annotation_target
   @override
@@ -299,7 +301,7 @@ class _$_FileBodyListFromTo extends _FileBodyListFromTo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FileBodyListFromTo &&
+            other is _$FileBodyListFromToImpl &&
             (identical(other.rootDir, rootDir) || other.rootDir == rootDir) &&
             const DeepCollectionEquality().equals(other._files, _files));
   }
@@ -312,13 +314,13 @@ class _$_FileBodyListFromTo extends _FileBodyListFromTo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FileBodyListFromToCopyWith<_$_FileBodyListFromTo> get copyWith =>
-      __$$_FileBodyListFromToCopyWithImpl<_$_FileBodyListFromTo>(
+  _$$FileBodyListFromToImplCopyWith<_$FileBodyListFromToImpl> get copyWith =>
+      __$$FileBodyListFromToImplCopyWithImpl<_$FileBodyListFromToImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FileBodyListFromToToJson(
+    return _$$FileBodyListFromToImplToJson(
       this,
     );
   }
@@ -327,11 +329,11 @@ class _$_FileBodyListFromTo extends _FileBodyListFromTo {
 abstract class _FileBodyListFromTo extends FileBodyListFromTo {
   const factory _FileBodyListFromTo(
       {@JsonKey(name: 'root') required final String rootDir,
-      required final List<FromTo> files}) = _$_FileBodyListFromTo;
+      required final List<FromTo> files}) = _$FileBodyListFromToImpl;
   const _FileBodyListFromTo._() : super._();
 
   factory _FileBodyListFromTo.fromJson(Map<String, dynamic> json) =
-      _$_FileBodyListFromTo.fromJson;
+      _$FileBodyListFromToImpl.fromJson;
 
   @override // ignore: invalid_annotation_target
   @JsonKey(name: 'root')
@@ -340,7 +342,7 @@ abstract class _FileBodyListFromTo extends FileBodyListFromTo {
   List<FromTo> get files;
   @override
   @JsonKey(ignore: true)
-  _$$_FileBodyListFromToCopyWith<_$_FileBodyListFromTo> get copyWith =>
+  _$$FileBodyListFromToImplCopyWith<_$FileBodyListFromToImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -400,22 +402,22 @@ class _$FileBodyListStringCopyWithImpl<$Res, $Val extends FileBodyListString>
 }
 
 /// @nodoc
-abstract class _$$_FileBodyListStringCopyWith<$Res>
+abstract class _$$FileBodyListStringImplCopyWith<$Res>
     implements $FileBodyListStringCopyWith<$Res> {
-  factory _$$_FileBodyListStringCopyWith(_$_FileBodyListString value,
-          $Res Function(_$_FileBodyListString) then) =
-      __$$_FileBodyListStringCopyWithImpl<$Res>;
+  factory _$$FileBodyListStringImplCopyWith(_$FileBodyListStringImpl value,
+          $Res Function(_$FileBodyListStringImpl) then) =
+      __$$FileBodyListStringImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: 'root') String rootDir, List<String> files});
 }
 
 /// @nodoc
-class __$$_FileBodyListStringCopyWithImpl<$Res>
-    extends _$FileBodyListStringCopyWithImpl<$Res, _$_FileBodyListString>
-    implements _$$_FileBodyListStringCopyWith<$Res> {
-  __$$_FileBodyListStringCopyWithImpl(
-      _$_FileBodyListString _value, $Res Function(_$_FileBodyListString) _then)
+class __$$FileBodyListStringImplCopyWithImpl<$Res>
+    extends _$FileBodyListStringCopyWithImpl<$Res, _$FileBodyListStringImpl>
+    implements _$$FileBodyListStringImplCopyWith<$Res> {
+  __$$FileBodyListStringImplCopyWithImpl(_$FileBodyListStringImpl _value,
+      $Res Function(_$FileBodyListStringImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -424,7 +426,7 @@ class __$$_FileBodyListStringCopyWithImpl<$Res>
     Object? rootDir = null,
     Object? files = null,
   }) {
-    return _then(_$_FileBodyListString(
+    return _then(_$FileBodyListStringImpl(
       rootDir: null == rootDir
           ? _value.rootDir
           : rootDir // ignore: cast_nullable_to_non_nullable
@@ -439,15 +441,15 @@ class __$$_FileBodyListStringCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FileBodyListString extends _FileBodyListString {
-  const _$_FileBodyListString(
+class _$FileBodyListStringImpl extends _FileBodyListString {
+  const _$FileBodyListStringImpl(
       {@JsonKey(name: 'root') required this.rootDir,
       required final List<String> files})
       : _files = files,
         super._();
 
-  factory _$_FileBodyListString.fromJson(Map<String, dynamic> json) =>
-      _$$_FileBodyListStringFromJson(json);
+  factory _$FileBodyListStringImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FileBodyListStringImplFromJson(json);
 
 // ignore: invalid_annotation_target
   @override
@@ -470,7 +472,7 @@ class _$_FileBodyListString extends _FileBodyListString {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FileBodyListString &&
+            other is _$FileBodyListStringImpl &&
             (identical(other.rootDir, rootDir) || other.rootDir == rootDir) &&
             const DeepCollectionEquality().equals(other._files, _files));
   }
@@ -483,13 +485,13 @@ class _$_FileBodyListString extends _FileBodyListString {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FileBodyListStringCopyWith<_$_FileBodyListString> get copyWith =>
-      __$$_FileBodyListStringCopyWithImpl<_$_FileBodyListString>(
+  _$$FileBodyListStringImplCopyWith<_$FileBodyListStringImpl> get copyWith =>
+      __$$FileBodyListStringImplCopyWithImpl<_$FileBodyListStringImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FileBodyListStringToJson(
+    return _$$FileBodyListStringImplToJson(
       this,
     );
   }
@@ -498,11 +500,11 @@ class _$_FileBodyListString extends _FileBodyListString {
 abstract class _FileBodyListString extends FileBodyListString {
   const factory _FileBodyListString(
       {@JsonKey(name: 'root') required final String rootDir,
-      required final List<String> files}) = _$_FileBodyListString;
+      required final List<String> files}) = _$FileBodyListStringImpl;
   const _FileBodyListString._() : super._();
 
   factory _FileBodyListString.fromJson(Map<String, dynamic> json) =
-      _$_FileBodyListString.fromJson;
+      _$FileBodyListStringImpl.fromJson;
 
   @override // ignore: invalid_annotation_target
   @JsonKey(name: 'root')
@@ -511,7 +513,7 @@ abstract class _FileBodyListString extends FileBodyListString {
   List<String> get files;
   @override
   @JsonKey(ignore: true)
-  _$$_FileBodyListStringCopyWith<_$_FileBodyListString> get copyWith =>
+  _$$FileBodyListStringImplCopyWith<_$FileBodyListStringImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -571,22 +573,22 @@ class _$FolderBodyCopyWithImpl<$Res, $Val extends FolderBody>
 }
 
 /// @nodoc
-abstract class _$$_FolderBodyCopyWith<$Res>
+abstract class _$$FolderBodyImplCopyWith<$Res>
     implements $FolderBodyCopyWith<$Res> {
-  factory _$$_FolderBodyCopyWith(
-          _$_FolderBody value, $Res Function(_$_FolderBody) then) =
-      __$$_FolderBodyCopyWithImpl<$Res>;
+  factory _$$FolderBodyImplCopyWith(
+          _$FolderBodyImpl value, $Res Function(_$FolderBodyImpl) then) =
+      __$$FolderBodyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: 'root') String rootDir, String name});
 }
 
 /// @nodoc
-class __$$_FolderBodyCopyWithImpl<$Res>
-    extends _$FolderBodyCopyWithImpl<$Res, _$_FolderBody>
-    implements _$$_FolderBodyCopyWith<$Res> {
-  __$$_FolderBodyCopyWithImpl(
-      _$_FolderBody _value, $Res Function(_$_FolderBody) _then)
+class __$$FolderBodyImplCopyWithImpl<$Res>
+    extends _$FolderBodyCopyWithImpl<$Res, _$FolderBodyImpl>
+    implements _$$FolderBodyImplCopyWith<$Res> {
+  __$$FolderBodyImplCopyWithImpl(
+      _$FolderBodyImpl _value, $Res Function(_$FolderBodyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -595,7 +597,7 @@ class __$$_FolderBodyCopyWithImpl<$Res>
     Object? rootDir = null,
     Object? name = null,
   }) {
-    return _then(_$_FolderBody(
+    return _then(_$FolderBodyImpl(
       rootDir: null == rootDir
           ? _value.rootDir
           : rootDir // ignore: cast_nullable_to_non_nullable
@@ -610,13 +612,13 @@ class __$$_FolderBodyCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FolderBody extends _FolderBody {
-  const _$_FolderBody(
+class _$FolderBodyImpl extends _FolderBody {
+  const _$FolderBodyImpl(
       {@JsonKey(name: 'root') required this.rootDir, required this.name})
       : super._();
 
-  factory _$_FolderBody.fromJson(Map<String, dynamic> json) =>
-      _$$_FolderBodyFromJson(json);
+  factory _$FolderBodyImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FolderBodyImplFromJson(json);
 
 // ignore: invalid_annotation_target
   @override
@@ -634,7 +636,7 @@ class _$_FolderBody extends _FolderBody {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FolderBody &&
+            other is _$FolderBodyImpl &&
             (identical(other.rootDir, rootDir) || other.rootDir == rootDir) &&
             (identical(other.name, name) || other.name == name));
   }
@@ -646,12 +648,12 @@ class _$_FolderBody extends _FolderBody {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FolderBodyCopyWith<_$_FolderBody> get copyWith =>
-      __$$_FolderBodyCopyWithImpl<_$_FolderBody>(this, _$identity);
+  _$$FolderBodyImplCopyWith<_$FolderBodyImpl> get copyWith =>
+      __$$FolderBodyImplCopyWithImpl<_$FolderBodyImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FolderBodyToJson(
+    return _$$FolderBodyImplToJson(
       this,
     );
   }
@@ -660,11 +662,11 @@ class _$_FolderBody extends _FolderBody {
 abstract class _FolderBody extends FolderBody {
   const factory _FolderBody(
       {@JsonKey(name: 'root') required final String rootDir,
-      required final String name}) = _$_FolderBody;
+      required final String name}) = _$FolderBodyImpl;
   const _FolderBody._() : super._();
 
   factory _FolderBody.fromJson(Map<String, dynamic> json) =
-      _$_FolderBody.fromJson;
+      _$FolderBodyImpl.fromJson;
 
   @override // ignore: invalid_annotation_target
   @JsonKey(name: 'root')
@@ -673,6 +675,6 @@ abstract class _FolderBody extends FolderBody {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$_FolderBodyCopyWith<_$_FolderBody> get copyWith =>
+  _$$FolderBodyImplCopyWith<_$FolderBodyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

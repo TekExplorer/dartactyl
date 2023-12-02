@@ -92,22 +92,22 @@ class _$ServerLimitsCopyWithImpl<$Res, $Val extends ServerLimits>
 }
 
 /// @nodoc
-abstract class _$$_ServerLimitsCopyWith<$Res>
+abstract class _$$ServerLimitsImplCopyWith<$Res>
     implements $ServerLimitsCopyWith<$Res> {
-  factory _$$_ServerLimitsCopyWith(
-          _$_ServerLimits value, $Res Function(_$_ServerLimits) then) =
-      __$$_ServerLimitsCopyWithImpl<$Res>;
+  factory _$$ServerLimitsImplCopyWith(
+          _$ServerLimitsImpl value, $Res Function(_$ServerLimitsImpl) then) =
+      __$$ServerLimitsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int memory, int swap, int disk, int io, int cpu, String? threads});
 }
 
 /// @nodoc
-class __$$_ServerLimitsCopyWithImpl<$Res>
-    extends _$ServerLimitsCopyWithImpl<$Res, _$_ServerLimits>
-    implements _$$_ServerLimitsCopyWith<$Res> {
-  __$$_ServerLimitsCopyWithImpl(
-      _$_ServerLimits _value, $Res Function(_$_ServerLimits) _then)
+class __$$ServerLimitsImplCopyWithImpl<$Res>
+    extends _$ServerLimitsCopyWithImpl<$Res, _$ServerLimitsImpl>
+    implements _$$ServerLimitsImplCopyWith<$Res> {
+  __$$ServerLimitsImplCopyWithImpl(
+      _$ServerLimitsImpl _value, $Res Function(_$ServerLimitsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -120,7 +120,7 @@ class __$$_ServerLimitsCopyWithImpl<$Res>
     Object? cpu = null,
     Object? threads = freezed,
   }) {
-    return _then(_$_ServerLimits(
+    return _then(_$ServerLimitsImpl(
       memory: null == memory
           ? _value.memory
           : memory // ignore: cast_nullable_to_non_nullable
@@ -151,8 +151,8 @@ class __$$_ServerLimitsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ServerLimits extends _ServerLimits {
-  const _$_ServerLimits(
+class _$ServerLimitsImpl extends _ServerLimits {
+  const _$ServerLimitsImpl(
       {required this.memory,
       required this.swap,
       required this.disk,
@@ -161,8 +161,8 @@ class _$_ServerLimits extends _ServerLimits {
       this.threads})
       : super._();
 
-  factory _$_ServerLimits.fromJson(Map<String, dynamic> json) =>
-      _$$_ServerLimitsFromJson(json);
+  factory _$ServerLimitsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServerLimitsImplFromJson(json);
 
   @override
   final int memory;
@@ -186,7 +186,7 @@ class _$_ServerLimits extends _ServerLimits {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ServerLimits &&
+            other is _$ServerLimitsImpl &&
             (identical(other.memory, memory) || other.memory == memory) &&
             (identical(other.swap, swap) || other.swap == swap) &&
             (identical(other.disk, disk) || other.disk == disk) &&
@@ -203,12 +203,12 @@ class _$_ServerLimits extends _ServerLimits {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ServerLimitsCopyWith<_$_ServerLimits> get copyWith =>
-      __$$_ServerLimitsCopyWithImpl<_$_ServerLimits>(this, _$identity);
+  _$$ServerLimitsImplCopyWith<_$ServerLimitsImpl> get copyWith =>
+      __$$ServerLimitsImplCopyWithImpl<_$ServerLimitsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServerLimitsToJson(
+    return _$$ServerLimitsImplToJson(
       this,
     );
   }
@@ -221,11 +221,11 @@ abstract class _ServerLimits extends ServerLimits {
       required final int disk,
       required final int io,
       required final int cpu,
-      final String? threads}) = _$_ServerLimits;
+      final String? threads}) = _$ServerLimitsImpl;
   const _ServerLimits._() : super._();
 
   factory _ServerLimits.fromJson(Map<String, dynamic> json) =
-      _$_ServerLimits.fromJson;
+      _$ServerLimitsImpl.fromJson;
 
   @override
   int get memory;
@@ -241,6 +241,6 @@ abstract class _ServerLimits extends ServerLimits {
   String? get threads;
   @override
   @JsonKey(ignore: true)
-  _$$_ServerLimitsCopyWith<_$_ServerLimits> get copyWith =>
+  _$$ServerLimitsImplCopyWith<_$ServerLimitsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

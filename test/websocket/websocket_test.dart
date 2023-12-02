@@ -35,7 +35,7 @@ void main() {
     return PteroData(
       data: WebsocketDetails(
         token: token,
-        socket: url,
+        socket: Uri.parse(url),
       ),
     );
   }
@@ -108,11 +108,12 @@ void main() {
     group('assert throws', () {
       test('Api failure', () async {
         final url = await mockServer();
-        configureMockClientWithError(url, Exception('mock error'));
+        final exception = Exception('mock error');
+        configureMockClientWithError(url, exception);
 
         await expectLater(
           mockClient.getServerWebsocket(serverId: mockServerId),
-          throwsA(isA<Exception>()),
+          throwsA(exception),
         );
 
         await expectLater(
@@ -120,7 +121,7 @@ void main() {
             client: mockClient,
             serverId: mockServerId,
           ),
-          throwsA(isA<Exception>()),
+          throwsA(exception),
         );
       });
 
@@ -173,7 +174,7 @@ void main() {
           PteroData(
             data: WebsocketDetails(
               token: mockToken,
-              socket: url,
+              socket: Uri.parse(url),
             ),
           ),
         ),
@@ -197,12 +198,15 @@ void main() {
         completes,
         reason: 'ServerWebsocket should complete ready',
       );
+
+      // TODO: make this a teardown
+      // await serverWebsocket.close();
+      // await serverWebsocket.errors.drain<void>();
     });
     group('connectionState', () {
       test('ensure closed state', () async {
-        final url = await mockServer(
-          verifyAuthToken: mockToken,
-        );
+        final url = await mockServer(verifyAuthToken: mockToken);
+
         configureMockClient(url, mockToken);
 
         await expectLater(
@@ -211,7 +215,7 @@ void main() {
             PteroData(
               data: WebsocketDetails(
                 token: mockToken,
-                socket: url,
+                socket: Uri.parse(url),
               ),
             ),
           ),
@@ -289,7 +293,7 @@ void main() {
           PteroData(
             data: WebsocketDetails(
               token: mockToken,
-              socket: url,
+              socket: Uri.parse(url),
             ),
           ),
         ),

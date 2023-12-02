@@ -6,12 +6,12 @@ part of '../../../models/request_models/restore_backup.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RestoreBackup _$$_RestoreBackupFromJson(Map<String, dynamic> json) =>
+_$RestoreBackupImpl _$$RestoreBackupImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_RestoreBackup',
+      r'_$RestoreBackupImpl',
       json,
       ($checkedConvert) {
-        final val = _$_RestoreBackup(
+        final val = _$RestoreBackupImpl(
           deleteExistingFiles: $checkedConvert('truncate', (v) => v as bool?),
         );
         return val;
@@ -19,7 +19,7 @@ _$_RestoreBackup _$$_RestoreBackupFromJson(Map<String, dynamic> json) =>
       fieldKeyMap: const {'deleteExistingFiles': 'truncate'},
     );
 
-Map<String, dynamic> _$$_RestoreBackupToJson(_$_RestoreBackup instance) =>
+Map<String, dynamic> _$$RestoreBackupImplToJson(_$RestoreBackupImpl instance) =>
     <String, dynamic>{
       'truncate': instance.deleteExistingFiles,
     };

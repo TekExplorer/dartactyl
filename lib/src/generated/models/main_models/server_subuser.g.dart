@@ -6,12 +6,12 @@ part of '../../../models/main_models/server_subuser.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ServerSubuser _$$_ServerSubuserFromJson(Map<String, dynamic> json) =>
+_$ServerSubuserImpl _$$ServerSubuserImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ServerSubuser',
+      r'_$ServerSubuserImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ServerSubuser(
+        final val = _$ServerSubuserImpl(
           uuid: $checkedConvert('uuid', (v) => v as String),
           username: $checkedConvert('username', (v) => v as String),
           email: $checkedConvert('email', (v) => v as String),
@@ -30,7 +30,7 @@ _$_ServerSubuser _$$_ServerSubuserFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_ServerSubuserToJson(_$_ServerSubuser instance) =>
+Map<String, dynamic> _$$ServerSubuserImplToJson(_$ServerSubuserImpl instance) =>
     <String, dynamic>{
       'uuid': instance.uuid,
       'username': instance.username,

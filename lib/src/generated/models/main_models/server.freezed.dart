@@ -217,9 +217,10 @@ class _$ServerCopyWithImpl<$Res, $Val extends Server>
 }
 
 /// @nodoc
-abstract class _$$_ServerCopyWith<$Res> implements $ServerCopyWith<$Res> {
-  factory _$$_ServerCopyWith(_$_Server value, $Res Function(_$_Server) then) =
-      __$$_ServerCopyWithImpl<$Res>;
+abstract class _$$ServerImplCopyWith<$Res> implements $ServerCopyWith<$Res> {
+  factory _$$ServerImplCopyWith(
+          _$ServerImpl value, $Res Function(_$ServerImpl) then) =
+      __$$ServerImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -253,10 +254,11 @@ abstract class _$$_ServerCopyWith<$Res> implements $ServerCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ServerCopyWithImpl<$Res>
-    extends _$ServerCopyWithImpl<$Res, _$_Server>
-    implements _$$_ServerCopyWith<$Res> {
-  __$$_ServerCopyWithImpl(_$_Server _value, $Res Function(_$_Server) _then)
+class __$$ServerImplCopyWithImpl<$Res>
+    extends _$ServerCopyWithImpl<$Res, _$ServerImpl>
+    implements _$$ServerImplCopyWith<$Res> {
+  __$$ServerImplCopyWithImpl(
+      _$ServerImpl _value, $Res Function(_$ServerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -281,7 +283,7 @@ class __$$_ServerCopyWithImpl<$Res>
     Object? isTransferring = null,
     Object? relationships = null,
   }) {
-    return _then(_$_Server(
+    return _then(_$ServerImpl(
       serverOwner: null == serverOwner
           ? _value.serverOwner
           : serverOwner // ignore: cast_nullable_to_non_nullable
@@ -360,8 +362,8 @@ class __$$_ServerCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Server extends _Server {
-  const _$_Server(
+class _$ServerImpl extends _Server {
+  const _$ServerImpl(
       {required this.serverOwner,
       required this.identifier,
       required this.internalId,
@@ -383,8 +385,8 @@ class _$_Server extends _Server {
       : _eggFeatures = eggFeatures,
         super._();
 
-  factory _$_Server.fromJson(Map<String, dynamic> json) =>
-      _$$_ServerFromJson(json);
+  factory _$ServerImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServerImplFromJson(json);
 
   @override
   final bool serverOwner;
@@ -439,7 +441,7 @@ class _$_Server extends _Server {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Server &&
+            other is _$ServerImpl &&
             (identical(other.serverOwner, serverOwner) ||
                 other.serverOwner == serverOwner) &&
             (identical(other.identifier, identifier) ||
@@ -499,12 +501,12 @@ class _$_Server extends _Server {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ServerCopyWith<_$_Server> get copyWith =>
-      __$$_ServerCopyWithImpl<_$_Server>(this, _$identity);
+  _$$ServerImplCopyWith<_$ServerImpl> get copyWith =>
+      __$$ServerImplCopyWithImpl<_$ServerImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServerToJson(
+    return _$$ServerImplToJson(
       this,
     );
   }
@@ -529,10 +531,10 @@ abstract class _Server extends Server {
       required final bool isSuspended,
       required final bool isInstalling,
       required final bool isTransferring,
-      required final ServerRelationships relationships}) = _$_Server;
+      required final ServerRelationships relationships}) = _$ServerImpl;
   const _Server._() : super._();
 
-  factory _Server.fromJson(Map<String, dynamic> json) = _$_Server.fromJson;
+  factory _Server.fromJson(Map<String, dynamic> json) = _$ServerImpl.fromJson;
 
   @override
   bool get serverOwner;
@@ -572,6 +574,6 @@ abstract class _Server extends Server {
   ServerRelationships get relationships;
   @override
   @JsonKey(ignore: true)
-  _$$_ServerCopyWith<_$_Server> get copyWith =>
+  _$$ServerImplCopyWith<_$ServerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

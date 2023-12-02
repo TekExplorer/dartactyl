@@ -85,9 +85,10 @@ class _$StatsCopyWithImpl<$Res, $Val extends Stats>
 }
 
 /// @nodoc
-abstract class _$$_StatsCopyWith<$Res> implements $StatsCopyWith<$Res> {
-  factory _$$_StatsCopyWith(_$_Stats value, $Res Function(_$_Stats) then) =
-      __$$_StatsCopyWithImpl<$Res>;
+abstract class _$$StatsImplCopyWith<$Res> implements $StatsCopyWith<$Res> {
+  factory _$$StatsImplCopyWith(
+          _$StatsImpl value, $Res Function(_$StatsImpl) then) =
+      __$$StatsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -100,9 +101,11 @@ abstract class _$$_StatsCopyWith<$Res> implements $StatsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_StatsCopyWithImpl<$Res> extends _$StatsCopyWithImpl<$Res, _$_Stats>
-    implements _$$_StatsCopyWith<$Res> {
-  __$$_StatsCopyWithImpl(_$_Stats _value, $Res Function(_$_Stats) _then)
+class __$$StatsImplCopyWithImpl<$Res>
+    extends _$StatsCopyWithImpl<$Res, _$StatsImpl>
+    implements _$$StatsImplCopyWith<$Res> {
+  __$$StatsImplCopyWithImpl(
+      _$StatsImpl _value, $Res Function(_$StatsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +115,7 @@ class __$$_StatsCopyWithImpl<$Res> extends _$StatsCopyWithImpl<$Res, _$_Stats>
     Object? isSuspended = null,
     Object? resources = null,
   }) {
-    return _then(_$_Stats(
+    return _then(_$StatsImpl(
       currentState: null == currentState
           ? _value.currentState
           : currentState // ignore: cast_nullable_to_non_nullable
@@ -131,15 +134,15 @@ class __$$_StatsCopyWithImpl<$Res> extends _$StatsCopyWithImpl<$Res, _$_Stats>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Stats extends _Stats {
-  const _$_Stats(
+class _$StatsImpl extends _Stats {
+  const _$StatsImpl(
       {required this.currentState,
       required this.isSuspended,
       required this.resources})
       : super._();
 
-  factory _$_Stats.fromJson(Map<String, dynamic> json) =>
-      _$$_StatsFromJson(json);
+  factory _$StatsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$StatsImplFromJson(json);
 
   @override
   final ServerPowerState currentState;
@@ -157,7 +160,7 @@ class _$_Stats extends _Stats {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Stats &&
+            other is _$StatsImpl &&
             (identical(other.currentState, currentState) ||
                 other.currentState == currentState) &&
             (identical(other.isSuspended, isSuspended) ||
@@ -174,12 +177,12 @@ class _$_Stats extends _Stats {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StatsCopyWith<_$_Stats> get copyWith =>
-      __$$_StatsCopyWithImpl<_$_Stats>(this, _$identity);
+  _$$StatsImplCopyWith<_$StatsImpl> get copyWith =>
+      __$$StatsImplCopyWithImpl<_$StatsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StatsToJson(
+    return _$$StatsImplToJson(
       this,
     );
   }
@@ -189,10 +192,10 @@ abstract class _Stats extends Stats {
   const factory _Stats(
       {required final ServerPowerState currentState,
       required final bool isSuspended,
-      required final StatsResources resources}) = _$_Stats;
+      required final StatsResources resources}) = _$StatsImpl;
   const _Stats._() : super._();
 
-  factory _Stats.fromJson(Map<String, dynamic> json) = _$_Stats.fromJson;
+  factory _Stats.fromJson(Map<String, dynamic> json) = _$StatsImpl.fromJson;
 
   @override
   ServerPowerState get currentState;
@@ -202,7 +205,7 @@ abstract class _Stats extends Stats {
   StatsResources get resources;
   @override
   @JsonKey(ignore: true)
-  _$$_StatsCopyWith<_$_Stats> get copyWith =>
+  _$$StatsImplCopyWith<_$StatsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -294,11 +297,11 @@ class _$StatsResourcesCopyWithImpl<$Res, $Val extends StatsResources>
 }
 
 /// @nodoc
-abstract class _$$_StatsResourcesCopyWith<$Res>
+abstract class _$$StatsResourcesImplCopyWith<$Res>
     implements $StatsResourcesCopyWith<$Res> {
-  factory _$$_StatsResourcesCopyWith(
-          _$_StatsResources value, $Res Function(_$_StatsResources) then) =
-      __$$_StatsResourcesCopyWithImpl<$Res>;
+  factory _$$StatsResourcesImplCopyWith(_$StatsResourcesImpl value,
+          $Res Function(_$StatsResourcesImpl) then) =
+      __$$StatsResourcesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -311,11 +314,11 @@ abstract class _$$_StatsResourcesCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_StatsResourcesCopyWithImpl<$Res>
-    extends _$StatsResourcesCopyWithImpl<$Res, _$_StatsResources>
-    implements _$$_StatsResourcesCopyWith<$Res> {
-  __$$_StatsResourcesCopyWithImpl(
-      _$_StatsResources _value, $Res Function(_$_StatsResources) _then)
+class __$$StatsResourcesImplCopyWithImpl<$Res>
+    extends _$StatsResourcesCopyWithImpl<$Res, _$StatsResourcesImpl>
+    implements _$$StatsResourcesImplCopyWith<$Res> {
+  __$$StatsResourcesImplCopyWithImpl(
+      _$StatsResourcesImpl _value, $Res Function(_$StatsResourcesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -328,7 +331,7 @@ class __$$_StatsResourcesCopyWithImpl<$Res>
     Object? networkTxBytes = null,
     Object? uptime = freezed,
   }) {
-    return _then(_$_StatsResources(
+    return _then(_$StatsResourcesImpl(
       memoryBytes: null == memoryBytes
           ? _value.memoryBytes
           : memoryBytes // ignore: cast_nullable_to_non_nullable
@@ -359,8 +362,8 @@ class __$$_StatsResourcesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_StatsResources extends _StatsResources {
-  const _$_StatsResources(
+class _$StatsResourcesImpl extends _StatsResources {
+  const _$StatsResourcesImpl(
       {required this.memoryBytes,
       required this.cpuAbsolute,
       required this.diskBytes,
@@ -369,8 +372,8 @@ class _$_StatsResources extends _StatsResources {
       this.uptime})
       : super._();
 
-  factory _$_StatsResources.fromJson(Map<String, dynamic> json) =>
-      _$$_StatsResourcesFromJson(json);
+  factory _$StatsResourcesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$StatsResourcesImplFromJson(json);
 
   @override
   final int memoryBytes;
@@ -398,7 +401,7 @@ class _$_StatsResources extends _StatsResources {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StatsResources &&
+            other is _$StatsResourcesImpl &&
             (identical(other.memoryBytes, memoryBytes) ||
                 other.memoryBytes == memoryBytes) &&
             (identical(other.cpuAbsolute, cpuAbsolute) ||
@@ -420,12 +423,13 @@ class _$_StatsResources extends _StatsResources {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StatsResourcesCopyWith<_$_StatsResources> get copyWith =>
-      __$$_StatsResourcesCopyWithImpl<_$_StatsResources>(this, _$identity);
+  _$$StatsResourcesImplCopyWith<_$StatsResourcesImpl> get copyWith =>
+      __$$StatsResourcesImplCopyWithImpl<_$StatsResourcesImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StatsResourcesToJson(
+    return _$$StatsResourcesImplToJson(
       this,
     );
   }
@@ -438,11 +442,11 @@ abstract class _StatsResources extends StatsResources {
       required final int diskBytes,
       required final int networkRxBytes,
       required final int networkTxBytes,
-      final int? uptime}) = _$_StatsResources;
+      final int? uptime}) = _$StatsResourcesImpl;
   const _StatsResources._() : super._();
 
   factory _StatsResources.fromJson(Map<String, dynamic> json) =
-      _$_StatsResources.fromJson;
+      _$StatsResourcesImpl.fromJson;
 
   @override
   int get memoryBytes;
@@ -462,6 +466,6 @@ abstract class _StatsResources extends StatsResources {
   int? get uptime;
   @override
   @JsonKey(ignore: true)
-  _$$_StatsResourcesCopyWith<_$_StatsResources> get copyWith =>
+  _$$StatsResourcesImplCopyWith<_$StatsResourcesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

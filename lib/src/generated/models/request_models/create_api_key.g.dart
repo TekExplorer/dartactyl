@@ -6,12 +6,12 @@ part of '../../../models/request_models/create_api_key.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CreateApiKey _$$_CreateApiKeyFromJson(Map<String, dynamic> json) =>
+_$CreateApiKeyImpl _$$CreateApiKeyImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_CreateApiKey',
+      r'_$CreateApiKeyImpl',
       json,
       ($checkedConvert) {
-        final val = _$_CreateApiKey(
+        final val = _$CreateApiKeyImpl(
           description: $checkedConvert('description', (v) => v as String),
           allowedIps: $checkedConvert('allowed_ips',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
@@ -21,7 +21,7 @@ _$_CreateApiKey _$$_CreateApiKeyFromJson(Map<String, dynamic> json) =>
       fieldKeyMap: const {'allowedIps': 'allowed_ips'},
     );
 
-Map<String, dynamic> _$$_CreateApiKeyToJson(_$_CreateApiKey instance) =>
+Map<String, dynamic> _$$CreateApiKeyImplToJson(_$CreateApiKeyImpl instance) =>
     <String, dynamic>{
       'description': instance.description,
       'allowed_ips': instance.allowedIps,

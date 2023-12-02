@@ -6,11 +6,11 @@ part of '../../../models/main_models/backup.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Backup _$$_BackupFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Backup',
+_$BackupImpl _$$BackupImplFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$BackupImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Backup(
+        final val = _$BackupImpl(
           uuid: $checkedConvert('uuid', (v) => v as String),
           isSuccessful: $checkedConvert('is_successful', (v) => v as bool),
           isLocked: $checkedConvert('is_locked', (v) => v as bool),
@@ -35,7 +35,8 @@ _$_Backup _$$_BackupFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_BackupToJson(_$_Backup instance) => <String, dynamic>{
+Map<String, dynamic> _$$BackupImplToJson(_$BackupImpl instance) =>
+    <String, dynamic>{
       'uuid': instance.uuid,
       'is_successful': instance.isSuccessful,
       'is_locked': instance.isLocked,

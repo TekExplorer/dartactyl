@@ -72,11 +72,11 @@ class _$PaginatedMetaCopyWithImpl<$Res, $Val extends PaginatedMeta>
 }
 
 /// @nodoc
-abstract class _$$_PaginatedMetaCopyWith<$Res>
+abstract class _$$PaginatedMetaImplCopyWith<$Res>
     implements $PaginatedMetaCopyWith<$Res> {
-  factory _$$_PaginatedMetaCopyWith(
-          _$_PaginatedMeta value, $Res Function(_$_PaginatedMeta) then) =
-      __$$_PaginatedMetaCopyWithImpl<$Res>;
+  factory _$$PaginatedMetaImplCopyWith(
+          _$PaginatedMetaImpl value, $Res Function(_$PaginatedMetaImpl) then) =
+      __$$PaginatedMetaImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Pagination pagination});
@@ -86,11 +86,11 @@ abstract class _$$_PaginatedMetaCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PaginatedMetaCopyWithImpl<$Res>
-    extends _$PaginatedMetaCopyWithImpl<$Res, _$_PaginatedMeta>
-    implements _$$_PaginatedMetaCopyWith<$Res> {
-  __$$_PaginatedMetaCopyWithImpl(
-      _$_PaginatedMeta _value, $Res Function(_$_PaginatedMeta) _then)
+class __$$PaginatedMetaImplCopyWithImpl<$Res>
+    extends _$PaginatedMetaCopyWithImpl<$Res, _$PaginatedMetaImpl>
+    implements _$$PaginatedMetaImplCopyWith<$Res> {
+  __$$PaginatedMetaImplCopyWithImpl(
+      _$PaginatedMetaImpl _value, $Res Function(_$PaginatedMetaImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_PaginatedMetaCopyWithImpl<$Res>
   $Res call({
     Object? pagination = null,
   }) {
-    return _then(_$_PaginatedMeta(
+    return _then(_$PaginatedMetaImpl(
       pagination: null == pagination
           ? _value.pagination
           : pagination // ignore: cast_nullable_to_non_nullable
@@ -109,11 +109,11 @@ class __$$_PaginatedMetaCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PaginatedMeta extends _PaginatedMeta {
-  const _$_PaginatedMeta({required this.pagination}) : super._();
+class _$PaginatedMetaImpl extends _PaginatedMeta {
+  const _$PaginatedMetaImpl({required this.pagination}) : super._();
 
-  factory _$_PaginatedMeta.fromJson(Map<String, dynamic> json) =>
-      _$$_PaginatedMetaFromJson(json);
+  factory _$PaginatedMetaImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PaginatedMetaImplFromJson(json);
 
   @override
   final Pagination pagination;
@@ -127,7 +127,7 @@ class _$_PaginatedMeta extends _PaginatedMeta {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PaginatedMeta &&
+            other is _$PaginatedMetaImpl &&
             (identical(other.pagination, pagination) ||
                 other.pagination == pagination));
   }
@@ -139,12 +139,12 @@ class _$_PaginatedMeta extends _PaginatedMeta {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PaginatedMetaCopyWith<_$_PaginatedMeta> get copyWith =>
-      __$$_PaginatedMetaCopyWithImpl<_$_PaginatedMeta>(this, _$identity);
+  _$$PaginatedMetaImplCopyWith<_$PaginatedMetaImpl> get copyWith =>
+      __$$PaginatedMetaImplCopyWithImpl<_$PaginatedMetaImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PaginatedMetaToJson(
+    return _$$PaginatedMetaImplToJson(
       this,
     );
   }
@@ -152,17 +152,17 @@ class _$_PaginatedMeta extends _PaginatedMeta {
 
 abstract class _PaginatedMeta extends PaginatedMeta implements PaginationMixin {
   const factory _PaginatedMeta({required final Pagination pagination}) =
-      _$_PaginatedMeta;
+      _$PaginatedMetaImpl;
   const _PaginatedMeta._() : super._();
 
   factory _PaginatedMeta.fromJson(Map<String, dynamic> json) =
-      _$_PaginatedMeta.fromJson;
+      _$PaginatedMetaImpl.fromJson;
 
   @override
   Pagination get pagination;
   @override
   @JsonKey(ignore: true)
-  _$$_PaginatedMetaCopyWith<_$_PaginatedMeta> get copyWith =>
+  _$$PaginatedMetaImplCopyWith<_$PaginatedMetaImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -231,11 +231,11 @@ class _$PaginatedBackupsMetaCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_PaginatedBackupsMetaCopyWith<$Res>
+abstract class _$$PaginatedBackupsMetaImplCopyWith<$Res>
     implements $PaginatedBackupsMetaCopyWith<$Res> {
-  factory _$$_PaginatedBackupsMetaCopyWith(_$_PaginatedBackupsMeta value,
-          $Res Function(_$_PaginatedBackupsMeta) then) =
-      __$$_PaginatedBackupsMetaCopyWithImpl<$Res>;
+  factory _$$PaginatedBackupsMetaImplCopyWith(_$PaginatedBackupsMetaImpl value,
+          $Res Function(_$PaginatedBackupsMetaImpl) then) =
+      __$$PaginatedBackupsMetaImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Pagination pagination, int backupCount});
@@ -245,11 +245,11 @@ abstract class _$$_PaginatedBackupsMetaCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PaginatedBackupsMetaCopyWithImpl<$Res>
-    extends _$PaginatedBackupsMetaCopyWithImpl<$Res, _$_PaginatedBackupsMeta>
-    implements _$$_PaginatedBackupsMetaCopyWith<$Res> {
-  __$$_PaginatedBackupsMetaCopyWithImpl(_$_PaginatedBackupsMeta _value,
-      $Res Function(_$_PaginatedBackupsMeta) _then)
+class __$$PaginatedBackupsMetaImplCopyWithImpl<$Res>
+    extends _$PaginatedBackupsMetaCopyWithImpl<$Res, _$PaginatedBackupsMetaImpl>
+    implements _$$PaginatedBackupsMetaImplCopyWith<$Res> {
+  __$$PaginatedBackupsMetaImplCopyWithImpl(_$PaginatedBackupsMetaImpl _value,
+      $Res Function(_$PaginatedBackupsMetaImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -258,7 +258,7 @@ class __$$_PaginatedBackupsMetaCopyWithImpl<$Res>
     Object? pagination = null,
     Object? backupCount = null,
   }) {
-    return _then(_$_PaginatedBackupsMeta(
+    return _then(_$PaginatedBackupsMetaImpl(
       pagination: null == pagination
           ? _value.pagination
           : pagination // ignore: cast_nullable_to_non_nullable
@@ -273,13 +273,13 @@ class __$$_PaginatedBackupsMetaCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PaginatedBackupsMeta extends _PaginatedBackupsMeta {
-  const _$_PaginatedBackupsMeta(
+class _$PaginatedBackupsMetaImpl extends _PaginatedBackupsMeta {
+  const _$PaginatedBackupsMetaImpl(
       {required this.pagination, required this.backupCount})
       : super._();
 
-  factory _$_PaginatedBackupsMeta.fromJson(Map<String, dynamic> json) =>
-      _$$_PaginatedBackupsMetaFromJson(json);
+  factory _$PaginatedBackupsMetaImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PaginatedBackupsMetaImplFromJson(json);
 
   @override
   final Pagination pagination;
@@ -295,7 +295,7 @@ class _$_PaginatedBackupsMeta extends _PaginatedBackupsMeta {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PaginatedBackupsMeta &&
+            other is _$PaginatedBackupsMetaImpl &&
             (identical(other.pagination, pagination) ||
                 other.pagination == pagination) &&
             (identical(other.backupCount, backupCount) ||
@@ -309,13 +309,14 @@ class _$_PaginatedBackupsMeta extends _PaginatedBackupsMeta {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PaginatedBackupsMetaCopyWith<_$_PaginatedBackupsMeta> get copyWith =>
-      __$$_PaginatedBackupsMetaCopyWithImpl<_$_PaginatedBackupsMeta>(
-          this, _$identity);
+  _$$PaginatedBackupsMetaImplCopyWith<_$PaginatedBackupsMetaImpl>
+      get copyWith =>
+          __$$PaginatedBackupsMetaImplCopyWithImpl<_$PaginatedBackupsMetaImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PaginatedBackupsMetaToJson(
+    return _$$PaginatedBackupsMetaImplToJson(
       this,
     );
   }
@@ -325,11 +326,11 @@ abstract class _PaginatedBackupsMeta extends PaginatedBackupsMeta
     implements PaginationMixin {
   const factory _PaginatedBackupsMeta(
       {required final Pagination pagination,
-      required final int backupCount}) = _$_PaginatedBackupsMeta;
+      required final int backupCount}) = _$PaginatedBackupsMetaImpl;
   const _PaginatedBackupsMeta._() : super._();
 
   factory _PaginatedBackupsMeta.fromJson(Map<String, dynamic> json) =
-      _$_PaginatedBackupsMeta.fromJson;
+      _$PaginatedBackupsMetaImpl.fromJson;
 
   @override
   Pagination get pagination;
@@ -337,8 +338,8 @@ abstract class _PaginatedBackupsMeta extends PaginatedBackupsMeta
   int get backupCount;
   @override
   @JsonKey(ignore: true)
-  _$$_PaginatedBackupsMetaCopyWith<_$_PaginatedBackupsMeta> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$PaginatedBackupsMetaImplCopyWith<_$PaginatedBackupsMetaImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 ServerMeta _$ServerMetaFromJson(Map<String, dynamic> json) {
@@ -395,22 +396,22 @@ class _$ServerMetaCopyWithImpl<$Res, $Val extends ServerMeta>
 }
 
 /// @nodoc
-abstract class _$$_ServerMetaCopyWith<$Res>
+abstract class _$$ServerMetaImplCopyWith<$Res>
     implements $ServerMetaCopyWith<$Res> {
-  factory _$$_ServerMetaCopyWith(
-          _$_ServerMeta value, $Res Function(_$_ServerMeta) then) =
-      __$$_ServerMetaCopyWithImpl<$Res>;
+  factory _$$ServerMetaImplCopyWith(
+          _$ServerMetaImpl value, $Res Function(_$ServerMetaImpl) then) =
+      __$$ServerMetaImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isServerOwner, List<String> userPermissions});
 }
 
 /// @nodoc
-class __$$_ServerMetaCopyWithImpl<$Res>
-    extends _$ServerMetaCopyWithImpl<$Res, _$_ServerMeta>
-    implements _$$_ServerMetaCopyWith<$Res> {
-  __$$_ServerMetaCopyWithImpl(
-      _$_ServerMeta _value, $Res Function(_$_ServerMeta) _then)
+class __$$ServerMetaImplCopyWithImpl<$Res>
+    extends _$ServerMetaCopyWithImpl<$Res, _$ServerMetaImpl>
+    implements _$$ServerMetaImplCopyWith<$Res> {
+  __$$ServerMetaImplCopyWithImpl(
+      _$ServerMetaImpl _value, $Res Function(_$ServerMetaImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -419,7 +420,7 @@ class __$$_ServerMetaCopyWithImpl<$Res>
     Object? isServerOwner = null,
     Object? userPermissions = null,
   }) {
-    return _then(_$_ServerMeta(
+    return _then(_$ServerMetaImpl(
       isServerOwner: null == isServerOwner
           ? _value.isServerOwner
           : isServerOwner // ignore: cast_nullable_to_non_nullable
@@ -434,15 +435,15 @@ class __$$_ServerMetaCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ServerMeta extends _ServerMeta {
-  const _$_ServerMeta(
+class _$ServerMetaImpl extends _ServerMeta {
+  const _$ServerMetaImpl(
       {required this.isServerOwner,
       required final List<String> userPermissions})
       : _userPermissions = userPermissions,
         super._();
 
-  factory _$_ServerMeta.fromJson(Map<String, dynamic> json) =>
-      _$$_ServerMetaFromJson(json);
+  factory _$ServerMetaImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServerMetaImplFromJson(json);
 
   @override
   final bool isServerOwner;
@@ -463,7 +464,7 @@ class _$_ServerMeta extends _ServerMeta {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ServerMeta &&
+            other is _$ServerMetaImpl &&
             (identical(other.isServerOwner, isServerOwner) ||
                 other.isServerOwner == isServerOwner) &&
             const DeepCollectionEquality()
@@ -478,12 +479,12 @@ class _$_ServerMeta extends _ServerMeta {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ServerMetaCopyWith<_$_ServerMeta> get copyWith =>
-      __$$_ServerMetaCopyWithImpl<_$_ServerMeta>(this, _$identity);
+  _$$ServerMetaImplCopyWith<_$ServerMetaImpl> get copyWith =>
+      __$$ServerMetaImplCopyWithImpl<_$ServerMetaImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServerMetaToJson(
+    return _$$ServerMetaImplToJson(
       this,
     );
   }
@@ -492,11 +493,11 @@ class _$_ServerMeta extends _ServerMeta {
 abstract class _ServerMeta extends ServerMeta {
   const factory _ServerMeta(
       {required final bool isServerOwner,
-      required final List<String> userPermissions}) = _$_ServerMeta;
+      required final List<String> userPermissions}) = _$ServerMetaImpl;
   const _ServerMeta._() : super._();
 
   factory _ServerMeta.fromJson(Map<String, dynamic> json) =
-      _$_ServerMeta.fromJson;
+      _$ServerMetaImpl.fromJson;
 
   @override
   bool get isServerOwner;
@@ -504,7 +505,7 @@ abstract class _ServerMeta extends ServerMeta {
   List<String> get userPermissions;
   @override
   @JsonKey(ignore: true)
-  _$$_ServerMetaCopyWith<_$_ServerMeta> get copyWith =>
+  _$$ServerMetaImplCopyWith<_$ServerMetaImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -571,11 +572,11 @@ class _$StartupMetaCopyWithImpl<$Res, $Val extends StartupMeta>
 }
 
 /// @nodoc
-abstract class _$$_StartupMetaCopyWith<$Res>
+abstract class _$$StartupMetaImplCopyWith<$Res>
     implements $StartupMetaCopyWith<$Res> {
-  factory _$$_StartupMetaCopyWith(
-          _$_StartupMeta value, $Res Function(_$_StartupMeta) then) =
-      __$$_StartupMetaCopyWithImpl<$Res>;
+  factory _$$StartupMetaImplCopyWith(
+          _$StartupMetaImpl value, $Res Function(_$StartupMetaImpl) then) =
+      __$$StartupMetaImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -585,11 +586,11 @@ abstract class _$$_StartupMetaCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_StartupMetaCopyWithImpl<$Res>
-    extends _$StartupMetaCopyWithImpl<$Res, _$_StartupMeta>
-    implements _$$_StartupMetaCopyWith<$Res> {
-  __$$_StartupMetaCopyWithImpl(
-      _$_StartupMeta _value, $Res Function(_$_StartupMeta) _then)
+class __$$StartupMetaImplCopyWithImpl<$Res>
+    extends _$StartupMetaCopyWithImpl<$Res, _$StartupMetaImpl>
+    implements _$$StartupMetaImplCopyWith<$Res> {
+  __$$StartupMetaImplCopyWithImpl(
+      _$StartupMetaImpl _value, $Res Function(_$StartupMetaImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -599,7 +600,7 @@ class __$$_StartupMetaCopyWithImpl<$Res>
     Object? rawStartupCommand = null,
     Object? dockerImages = null,
   }) {
-    return _then(_$_StartupMeta(
+    return _then(_$StartupMetaImpl(
       startupCommand: null == startupCommand
           ? _value.startupCommand
           : startupCommand // ignore: cast_nullable_to_non_nullable
@@ -618,16 +619,16 @@ class __$$_StartupMetaCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_StartupMeta extends _StartupMeta {
-  const _$_StartupMeta(
+class _$StartupMetaImpl extends _StartupMeta {
+  const _$StartupMetaImpl(
       {required this.startupCommand,
       required this.rawStartupCommand,
       required final Map<String, String> dockerImages})
       : _dockerImages = dockerImages,
         super._();
 
-  factory _$_StartupMeta.fromJson(Map<String, dynamic> json) =>
-      _$$_StartupMetaFromJson(json);
+  factory _$StartupMetaImpl.fromJson(Map<String, dynamic> json) =>
+      _$$StartupMetaImplFromJson(json);
 
   @override
   final String startupCommand;
@@ -650,7 +651,7 @@ class _$_StartupMeta extends _StartupMeta {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StartupMeta &&
+            other is _$StartupMetaImpl &&
             (identical(other.startupCommand, startupCommand) ||
                 other.startupCommand == startupCommand) &&
             (identical(other.rawStartupCommand, rawStartupCommand) ||
@@ -667,12 +668,12 @@ class _$_StartupMeta extends _StartupMeta {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StartupMetaCopyWith<_$_StartupMeta> get copyWith =>
-      __$$_StartupMetaCopyWithImpl<_$_StartupMeta>(this, _$identity);
+  _$$StartupMetaImplCopyWith<_$StartupMetaImpl> get copyWith =>
+      __$$StartupMetaImplCopyWithImpl<_$StartupMetaImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StartupMetaToJson(
+    return _$$StartupMetaImplToJson(
       this,
     );
   }
@@ -682,11 +683,11 @@ abstract class _StartupMeta extends StartupMeta {
   const factory _StartupMeta(
       {required final String startupCommand,
       required final String rawStartupCommand,
-      required final Map<String, String> dockerImages}) = _$_StartupMeta;
+      required final Map<String, String> dockerImages}) = _$StartupMetaImpl;
   const _StartupMeta._() : super._();
 
   factory _StartupMeta.fromJson(Map<String, dynamic> json) =
-      _$_StartupMeta.fromJson;
+      _$StartupMetaImpl.fromJson;
 
   @override
   String get startupCommand;
@@ -696,7 +697,7 @@ abstract class _StartupMeta extends StartupMeta {
   Map<String, String> get dockerImages;
   @override
   @JsonKey(ignore: true)
-  _$$_StartupMetaCopyWith<_$_StartupMeta> get copyWith =>
+  _$$StartupMetaImplCopyWith<_$StartupMetaImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -748,22 +749,22 @@ class _$ApiKeyMetaCopyWithImpl<$Res, $Val extends ApiKeyMeta>
 }
 
 /// @nodoc
-abstract class _$$_ApiKeyMetaCopyWith<$Res>
+abstract class _$$ApiKeyMetaImplCopyWith<$Res>
     implements $ApiKeyMetaCopyWith<$Res> {
-  factory _$$_ApiKeyMetaCopyWith(
-          _$_ApiKeyMeta value, $Res Function(_$_ApiKeyMeta) then) =
-      __$$_ApiKeyMetaCopyWithImpl<$Res>;
+  factory _$$ApiKeyMetaImplCopyWith(
+          _$ApiKeyMetaImpl value, $Res Function(_$ApiKeyMetaImpl) then) =
+      __$$ApiKeyMetaImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String secretToken});
 }
 
 /// @nodoc
-class __$$_ApiKeyMetaCopyWithImpl<$Res>
-    extends _$ApiKeyMetaCopyWithImpl<$Res, _$_ApiKeyMeta>
-    implements _$$_ApiKeyMetaCopyWith<$Res> {
-  __$$_ApiKeyMetaCopyWithImpl(
-      _$_ApiKeyMeta _value, $Res Function(_$_ApiKeyMeta) _then)
+class __$$ApiKeyMetaImplCopyWithImpl<$Res>
+    extends _$ApiKeyMetaCopyWithImpl<$Res, _$ApiKeyMetaImpl>
+    implements _$$ApiKeyMetaImplCopyWith<$Res> {
+  __$$ApiKeyMetaImplCopyWithImpl(
+      _$ApiKeyMetaImpl _value, $Res Function(_$ApiKeyMetaImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -771,7 +772,7 @@ class __$$_ApiKeyMetaCopyWithImpl<$Res>
   $Res call({
     Object? secretToken = null,
   }) {
-    return _then(_$_ApiKeyMeta(
+    return _then(_$ApiKeyMetaImpl(
       secretToken: null == secretToken
           ? _value.secretToken
           : secretToken // ignore: cast_nullable_to_non_nullable
@@ -782,11 +783,11 @@ class __$$_ApiKeyMetaCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApiKeyMeta extends _ApiKeyMeta {
-  const _$_ApiKeyMeta({required this.secretToken}) : super._();
+class _$ApiKeyMetaImpl extends _ApiKeyMeta {
+  const _$ApiKeyMetaImpl({required this.secretToken}) : super._();
 
-  factory _$_ApiKeyMeta.fromJson(Map<String, dynamic> json) =>
-      _$$_ApiKeyMetaFromJson(json);
+  factory _$ApiKeyMetaImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ApiKeyMetaImplFromJson(json);
 
   @override
   final String secretToken;
@@ -800,7 +801,7 @@ class _$_ApiKeyMeta extends _ApiKeyMeta {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApiKeyMeta &&
+            other is _$ApiKeyMetaImpl &&
             (identical(other.secretToken, secretToken) ||
                 other.secretToken == secretToken));
   }
@@ -812,12 +813,12 @@ class _$_ApiKeyMeta extends _ApiKeyMeta {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApiKeyMetaCopyWith<_$_ApiKeyMeta> get copyWith =>
-      __$$_ApiKeyMetaCopyWithImpl<_$_ApiKeyMeta>(this, _$identity);
+  _$$ApiKeyMetaImplCopyWith<_$ApiKeyMetaImpl> get copyWith =>
+      __$$ApiKeyMetaImplCopyWithImpl<_$ApiKeyMetaImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApiKeyMetaToJson(
+    return _$$ApiKeyMetaImplToJson(
       this,
     );
   }
@@ -825,17 +826,17 @@ class _$_ApiKeyMeta extends _ApiKeyMeta {
 
 abstract class _ApiKeyMeta extends ApiKeyMeta {
   const factory _ApiKeyMeta({required final String secretToken}) =
-      _$_ApiKeyMeta;
+      _$ApiKeyMetaImpl;
   const _ApiKeyMeta._() : super._();
 
   factory _ApiKeyMeta.fromJson(Map<String, dynamic> json) =
-      _$_ApiKeyMeta.fromJson;
+      _$ApiKeyMetaImpl.fromJson;
 
   @override
   String get secretToken;
   @override
   @JsonKey(ignore: true)
-  _$$_ApiKeyMetaCopyWith<_$_ApiKeyMeta> get copyWith =>
+  _$$ApiKeyMetaImplCopyWith<_$ApiKeyMetaImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -887,22 +888,22 @@ class _$ResourceMetaCopyWithImpl<$Res, $Val extends ResourceMeta>
 }
 
 /// @nodoc
-abstract class _$$_ResourceMetaCopyWith<$Res>
+abstract class _$$ResourceMetaImplCopyWith<$Res>
     implements $ResourceMetaCopyWith<$Res> {
-  factory _$$_ResourceMetaCopyWith(
-          _$_ResourceMeta value, $Res Function(_$_ResourceMeta) then) =
-      __$$_ResourceMetaCopyWithImpl<$Res>;
+  factory _$$ResourceMetaImplCopyWith(
+          _$ResourceMetaImpl value, $Res Function(_$ResourceMetaImpl) then) =
+      __$$ResourceMetaImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Uri resource});
 }
 
 /// @nodoc
-class __$$_ResourceMetaCopyWithImpl<$Res>
-    extends _$ResourceMetaCopyWithImpl<$Res, _$_ResourceMeta>
-    implements _$$_ResourceMetaCopyWith<$Res> {
-  __$$_ResourceMetaCopyWithImpl(
-      _$_ResourceMeta _value, $Res Function(_$_ResourceMeta) _then)
+class __$$ResourceMetaImplCopyWithImpl<$Res>
+    extends _$ResourceMetaCopyWithImpl<$Res, _$ResourceMetaImpl>
+    implements _$$ResourceMetaImplCopyWith<$Res> {
+  __$$ResourceMetaImplCopyWithImpl(
+      _$ResourceMetaImpl _value, $Res Function(_$ResourceMetaImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -910,7 +911,7 @@ class __$$_ResourceMetaCopyWithImpl<$Res>
   $Res call({
     Object? resource = null,
   }) {
-    return _then(_$_ResourceMeta(
+    return _then(_$ResourceMetaImpl(
       resource: null == resource
           ? _value.resource
           : resource // ignore: cast_nullable_to_non_nullable
@@ -921,11 +922,11 @@ class __$$_ResourceMetaCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ResourceMeta extends _ResourceMeta {
-  const _$_ResourceMeta({required this.resource}) : super._();
+class _$ResourceMetaImpl extends _ResourceMeta {
+  const _$ResourceMetaImpl({required this.resource}) : super._();
 
-  factory _$_ResourceMeta.fromJson(Map<String, dynamic> json) =>
-      _$$_ResourceMetaFromJson(json);
+  factory _$ResourceMetaImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ResourceMetaImplFromJson(json);
 
   @override
   final Uri resource;
@@ -939,7 +940,7 @@ class _$_ResourceMeta extends _ResourceMeta {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ResourceMeta &&
+            other is _$ResourceMetaImpl &&
             (identical(other.resource, resource) ||
                 other.resource == resource));
   }
@@ -951,28 +952,29 @@ class _$_ResourceMeta extends _ResourceMeta {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ResourceMetaCopyWith<_$_ResourceMeta> get copyWith =>
-      __$$_ResourceMetaCopyWithImpl<_$_ResourceMeta>(this, _$identity);
+  _$$ResourceMetaImplCopyWith<_$ResourceMetaImpl> get copyWith =>
+      __$$ResourceMetaImplCopyWithImpl<_$ResourceMetaImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ResourceMetaToJson(
+    return _$$ResourceMetaImplToJson(
       this,
     );
   }
 }
 
 abstract class _ResourceMeta extends ResourceMeta {
-  const factory _ResourceMeta({required final Uri resource}) = _$_ResourceMeta;
+  const factory _ResourceMeta({required final Uri resource}) =
+      _$ResourceMetaImpl;
   const _ResourceMeta._() : super._();
 
   factory _ResourceMeta.fromJson(Map<String, dynamic> json) =
-      _$_ResourceMeta.fromJson;
+      _$ResourceMetaImpl.fromJson;
 
   @override
   Uri get resource;
   @override
   @JsonKey(ignore: true)
-  _$$_ResourceMetaCopyWith<_$_ResourceMeta> get copyWith =>
+  _$$ResourceMetaImplCopyWith<_$ResourceMetaImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

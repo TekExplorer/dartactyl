@@ -6,11 +6,11 @@ part of '../../../models/main_models/stats.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Stats _$$_StatsFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Stats',
+_$StatsImpl _$$StatsImplFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$StatsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Stats(
+        final val = _$StatsImpl(
           currentState: $checkedConvert('current_state',
               (v) => $enumDecode(_$ServerPowerStateEnumMap, v)),
           isSuspended: $checkedConvert('is_suspended', (v) => v as bool),
@@ -25,7 +25,8 @@ _$_Stats _$$_StatsFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_StatsToJson(_$_Stats instance) => <String, dynamic>{
+Map<String, dynamic> _$$StatsImplToJson(_$StatsImpl instance) =>
+    <String, dynamic>{
       'current_state': instance.currentState.toJson(),
       'is_suspended': instance.isSuspended,
       'resources': instance.resources.toJson(),
@@ -38,12 +39,12 @@ const _$ServerPowerStateEnumMap = {
   ServerPowerState.offline: 'offline',
 };
 
-_$_StatsResources _$$_StatsResourcesFromJson(Map<String, dynamic> json) =>
+_$StatsResourcesImpl _$$StatsResourcesImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_StatsResources',
+      r'_$StatsResourcesImpl',
       json,
       ($checkedConvert) {
-        final val = _$_StatsResources(
+        final val = _$StatsResourcesImpl(
           memoryBytes: $checkedConvert('memory_bytes', (v) => v as int),
           cpuAbsolute:
               $checkedConvert('cpu_absolute', (v) => (v as num).toDouble()),
@@ -63,7 +64,8 @@ _$_StatsResources _$$_StatsResourcesFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_StatsResourcesToJson(_$_StatsResources instance) =>
+Map<String, dynamic> _$$StatsResourcesImplToJson(
+        _$StatsResourcesImpl instance) =>
     <String, dynamic>{
       'memory_bytes': instance.memoryBytes,
       'cpu_absolute': instance.cpuAbsolute,

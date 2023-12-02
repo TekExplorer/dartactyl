@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 1.10.0
+
+- Update dependencies
+- Replaced instances of `dynamic` with `Object?`
+- Added `reinstallFailed` to `ServerStatus`
+- Have `WebsocketDetails` use a `Uri`
+- Improve the translation client
+- ServerWebsocket has some changes
+  - You can now optionally not auto-connect to it
+  - Calling any action or awaiting `ready` will connect it
+  - `disconnect()` will disconnect without closing, allowing reuse
+  - `close()` will fully close and dispose the class entirely
+
 ## 1.9.0
 
 - Require dart 3 to seal the following

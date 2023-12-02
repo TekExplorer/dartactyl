@@ -68,22 +68,22 @@ class _$DisableTwoFactorCopyWithImpl<$Res, $Val extends DisableTwoFactor>
 }
 
 /// @nodoc
-abstract class _$$_DisableTwoFactorCopyWith<$Res>
+abstract class _$$DisableTwoFactorImplCopyWith<$Res>
     implements $DisableTwoFactorCopyWith<$Res> {
-  factory _$$_DisableTwoFactorCopyWith(
-          _$_DisableTwoFactor value, $Res Function(_$_DisableTwoFactor) then) =
-      __$$_DisableTwoFactorCopyWithImpl<$Res>;
+  factory _$$DisableTwoFactorImplCopyWith(_$DisableTwoFactorImpl value,
+          $Res Function(_$DisableTwoFactorImpl) then) =
+      __$$DisableTwoFactorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class __$$_DisableTwoFactorCopyWithImpl<$Res>
-    extends _$DisableTwoFactorCopyWithImpl<$Res, _$_DisableTwoFactor>
-    implements _$$_DisableTwoFactorCopyWith<$Res> {
-  __$$_DisableTwoFactorCopyWithImpl(
-      _$_DisableTwoFactor _value, $Res Function(_$_DisableTwoFactor) _then)
+class __$$DisableTwoFactorImplCopyWithImpl<$Res>
+    extends _$DisableTwoFactorCopyWithImpl<$Res, _$DisableTwoFactorImpl>
+    implements _$$DisableTwoFactorImplCopyWith<$Res> {
+  __$$DisableTwoFactorImplCopyWithImpl(_$DisableTwoFactorImpl _value,
+      $Res Function(_$DisableTwoFactorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_DisableTwoFactorCopyWithImpl<$Res>
     Object? email = null,
     Object? password = null,
   }) {
-    return _then(_$_DisableTwoFactor(
+    return _then(_$DisableTwoFactorImpl(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -107,12 +107,12 @@ class __$$_DisableTwoFactorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DisableTwoFactor extends _DisableTwoFactor {
-  const _$_DisableTwoFactor({required this.email, required this.password})
+class _$DisableTwoFactorImpl extends _DisableTwoFactor {
+  const _$DisableTwoFactorImpl({required this.email, required this.password})
       : super._();
 
-  factory _$_DisableTwoFactor.fromJson(Map<String, dynamic> json) =>
-      _$$_DisableTwoFactorFromJson(json);
+  factory _$DisableTwoFactorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DisableTwoFactorImplFromJson(json);
 
   @override
   final String email;
@@ -128,7 +128,7 @@ class _$_DisableTwoFactor extends _DisableTwoFactor {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DisableTwoFactor &&
+            other is _$DisableTwoFactorImpl &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password));
@@ -141,12 +141,13 @@ class _$_DisableTwoFactor extends _DisableTwoFactor {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DisableTwoFactorCopyWith<_$_DisableTwoFactor> get copyWith =>
-      __$$_DisableTwoFactorCopyWithImpl<_$_DisableTwoFactor>(this, _$identity);
+  _$$DisableTwoFactorImplCopyWith<_$DisableTwoFactorImpl> get copyWith =>
+      __$$DisableTwoFactorImplCopyWithImpl<_$DisableTwoFactorImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DisableTwoFactorToJson(
+    return _$$DisableTwoFactorImplToJson(
       this,
     );
   }
@@ -155,11 +156,11 @@ class _$_DisableTwoFactor extends _DisableTwoFactor {
 abstract class _DisableTwoFactor extends DisableTwoFactor {
   const factory _DisableTwoFactor(
       {required final String email,
-      required final String password}) = _$_DisableTwoFactor;
+      required final String password}) = _$DisableTwoFactorImpl;
   const _DisableTwoFactor._() : super._();
 
   factory _DisableTwoFactor.fromJson(Map<String, dynamic> json) =
-      _$_DisableTwoFactor.fromJson;
+      _$DisableTwoFactorImpl.fromJson;
 
   @override
   String get email;
@@ -167,6 +168,6 @@ abstract class _DisableTwoFactor extends DisableTwoFactor {
   String get password;
   @override
   @JsonKey(ignore: true)
-  _$$_DisableTwoFactorCopyWith<_$_DisableTwoFactor> get copyWith =>
+  _$$DisableTwoFactorImplCopyWith<_$DisableTwoFactorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

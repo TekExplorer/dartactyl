@@ -67,21 +67,22 @@ class _$RecaptchaCopyWithImpl<$Res, $Val extends Recaptcha>
 }
 
 /// @nodoc
-abstract class _$$_RecaptchaCopyWith<$Res> implements $RecaptchaCopyWith<$Res> {
-  factory _$$_RecaptchaCopyWith(
-          _$_Recaptcha value, $Res Function(_$_Recaptcha) then) =
-      __$$_RecaptchaCopyWithImpl<$Res>;
+abstract class _$$RecaptchaImplCopyWith<$Res>
+    implements $RecaptchaCopyWith<$Res> {
+  factory _$$RecaptchaImplCopyWith(
+          _$RecaptchaImpl value, $Res Function(_$RecaptchaImpl) then) =
+      __$$RecaptchaImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool enabled, String? siteKey});
 }
 
 /// @nodoc
-class __$$_RecaptchaCopyWithImpl<$Res>
-    extends _$RecaptchaCopyWithImpl<$Res, _$_Recaptcha>
-    implements _$$_RecaptchaCopyWith<$Res> {
-  __$$_RecaptchaCopyWithImpl(
-      _$_Recaptcha _value, $Res Function(_$_Recaptcha) _then)
+class __$$RecaptchaImplCopyWithImpl<$Res>
+    extends _$RecaptchaCopyWithImpl<$Res, _$RecaptchaImpl>
+    implements _$$RecaptchaImplCopyWith<$Res> {
+  __$$RecaptchaImplCopyWithImpl(
+      _$RecaptchaImpl _value, $Res Function(_$RecaptchaImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -90,7 +91,7 @@ class __$$_RecaptchaCopyWithImpl<$Res>
     Object? enabled = null,
     Object? siteKey = freezed,
   }) {
-    return _then(_$_Recaptcha(
+    return _then(_$RecaptchaImpl(
       enabled: null == enabled
           ? _value.enabled
           : enabled // ignore: cast_nullable_to_non_nullable
@@ -105,11 +106,11 @@ class __$$_RecaptchaCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Recaptcha extends _Recaptcha {
-  const _$_Recaptcha({required this.enabled, this.siteKey}) : super._();
+class _$RecaptchaImpl extends _Recaptcha {
+  const _$RecaptchaImpl({required this.enabled, this.siteKey}) : super._();
 
-  factory _$_Recaptcha.fromJson(Map<String, dynamic> json) =>
-      _$$_RecaptchaFromJson(json);
+  factory _$RecaptchaImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RecaptchaImplFromJson(json);
 
   @override
   final bool enabled;
@@ -125,7 +126,7 @@ class _$_Recaptcha extends _Recaptcha {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Recaptcha &&
+            other is _$RecaptchaImpl &&
             (identical(other.enabled, enabled) || other.enabled == enabled) &&
             (identical(other.siteKey, siteKey) || other.siteKey == siteKey));
   }
@@ -137,12 +138,12 @@ class _$_Recaptcha extends _Recaptcha {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RecaptchaCopyWith<_$_Recaptcha> get copyWith =>
-      __$$_RecaptchaCopyWithImpl<_$_Recaptcha>(this, _$identity);
+  _$$RecaptchaImplCopyWith<_$RecaptchaImpl> get copyWith =>
+      __$$RecaptchaImplCopyWithImpl<_$RecaptchaImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RecaptchaToJson(
+    return _$$RecaptchaImplToJson(
       this,
     );
   }
@@ -150,11 +151,11 @@ class _$_Recaptcha extends _Recaptcha {
 
 abstract class _Recaptcha extends Recaptcha {
   const factory _Recaptcha(
-      {required final bool enabled, final String? siteKey}) = _$_Recaptcha;
+      {required final bool enabled, final String? siteKey}) = _$RecaptchaImpl;
   const _Recaptcha._() : super._();
 
   factory _Recaptcha.fromJson(Map<String, dynamic> json) =
-      _$_Recaptcha.fromJson;
+      _$RecaptchaImpl.fromJson;
 
   @override
   bool get enabled;
@@ -162,7 +163,7 @@ abstract class _Recaptcha extends Recaptcha {
   String? get siteKey;
   @override
   @JsonKey(ignore: true)
-  _$$_RecaptchaCopyWith<_$_Recaptcha> get copyWith =>
+  _$$RecaptchaImplCopyWith<_$RecaptchaImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -236,11 +237,11 @@ class _$SiteConfigCopyWithImpl<$Res, $Val extends SiteConfig>
 }
 
 /// @nodoc
-abstract class _$$_SiteConfigCopyWith<$Res>
+abstract class _$$SiteConfigImplCopyWith<$Res>
     implements $SiteConfigCopyWith<$Res> {
-  factory _$$_SiteConfigCopyWith(
-          _$_SiteConfig value, $Res Function(_$_SiteConfig) then) =
-      __$$_SiteConfigCopyWithImpl<$Res>;
+  factory _$$SiteConfigImplCopyWith(
+          _$SiteConfigImpl value, $Res Function(_$SiteConfigImpl) then) =
+      __$$SiteConfigImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String locale, Recaptcha recaptcha});
@@ -250,11 +251,11 @@ abstract class _$$_SiteConfigCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SiteConfigCopyWithImpl<$Res>
-    extends _$SiteConfigCopyWithImpl<$Res, _$_SiteConfig>
-    implements _$$_SiteConfigCopyWith<$Res> {
-  __$$_SiteConfigCopyWithImpl(
-      _$_SiteConfig _value, $Res Function(_$_SiteConfig) _then)
+class __$$SiteConfigImplCopyWithImpl<$Res>
+    extends _$SiteConfigCopyWithImpl<$Res, _$SiteConfigImpl>
+    implements _$$SiteConfigImplCopyWith<$Res> {
+  __$$SiteConfigImplCopyWithImpl(
+      _$SiteConfigImpl _value, $Res Function(_$SiteConfigImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -264,7 +265,7 @@ class __$$_SiteConfigCopyWithImpl<$Res>
     Object? locale = null,
     Object? recaptcha = null,
   }) {
-    return _then(_$_SiteConfig(
+    return _then(_$SiteConfigImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -283,13 +284,13 @@ class __$$_SiteConfigCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SiteConfig extends _SiteConfig {
-  const _$_SiteConfig(
+class _$SiteConfigImpl extends _SiteConfig {
+  const _$SiteConfigImpl(
       {required this.name, required this.locale, required this.recaptcha})
       : super._();
 
-  factory _$_SiteConfig.fromJson(Map<String, dynamic> json) =>
-      _$$_SiteConfigFromJson(json);
+  factory _$SiteConfigImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SiteConfigImplFromJson(json);
 
   @override
   final String name;
@@ -307,7 +308,7 @@ class _$_SiteConfig extends _SiteConfig {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SiteConfig &&
+            other is _$SiteConfigImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.locale, locale) || other.locale == locale) &&
             (identical(other.recaptcha, recaptcha) ||
@@ -321,12 +322,12 @@ class _$_SiteConfig extends _SiteConfig {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SiteConfigCopyWith<_$_SiteConfig> get copyWith =>
-      __$$_SiteConfigCopyWithImpl<_$_SiteConfig>(this, _$identity);
+  _$$SiteConfigImplCopyWith<_$SiteConfigImpl> get copyWith =>
+      __$$SiteConfigImplCopyWithImpl<_$SiteConfigImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SiteConfigToJson(
+    return _$$SiteConfigImplToJson(
       this,
     );
   }
@@ -336,11 +337,11 @@ abstract class _SiteConfig extends SiteConfig {
   const factory _SiteConfig(
       {required final String name,
       required final String locale,
-      required final Recaptcha recaptcha}) = _$_SiteConfig;
+      required final Recaptcha recaptcha}) = _$SiteConfigImpl;
   const _SiteConfig._() : super._();
 
   factory _SiteConfig.fromJson(Map<String, dynamic> json) =
-      _$_SiteConfig.fromJson;
+      _$SiteConfigImpl.fromJson;
 
   @override
   String get name;
@@ -350,6 +351,6 @@ abstract class _SiteConfig extends SiteConfig {
   Recaptcha get recaptcha;
   @override
   @JsonKey(ignore: true)
-  _$$_SiteConfigCopyWith<_$_SiteConfig> get copyWith =>
+  _$$SiteConfigImplCopyWith<_$SiteConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -62,22 +62,22 @@ class _$MakeFileCopyCopyWithImpl<$Res, $Val extends MakeFileCopy>
 }
 
 /// @nodoc
-abstract class _$$_MakeFileCopyCopyWith<$Res>
+abstract class _$$MakeFileCopyImplCopyWith<$Res>
     implements $MakeFileCopyCopyWith<$Res> {
-  factory _$$_MakeFileCopyCopyWith(
-          _$_MakeFileCopy value, $Res Function(_$_MakeFileCopy) then) =
-      __$$_MakeFileCopyCopyWithImpl<$Res>;
+  factory _$$MakeFileCopyImplCopyWith(
+          _$MakeFileCopyImpl value, $Res Function(_$MakeFileCopyImpl) then) =
+      __$$MakeFileCopyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String location});
 }
 
 /// @nodoc
-class __$$_MakeFileCopyCopyWithImpl<$Res>
-    extends _$MakeFileCopyCopyWithImpl<$Res, _$_MakeFileCopy>
-    implements _$$_MakeFileCopyCopyWith<$Res> {
-  __$$_MakeFileCopyCopyWithImpl(
-      _$_MakeFileCopy _value, $Res Function(_$_MakeFileCopy) _then)
+class __$$MakeFileCopyImplCopyWithImpl<$Res>
+    extends _$MakeFileCopyCopyWithImpl<$Res, _$MakeFileCopyImpl>
+    implements _$$MakeFileCopyImplCopyWith<$Res> {
+  __$$MakeFileCopyImplCopyWithImpl(
+      _$MakeFileCopyImpl _value, $Res Function(_$MakeFileCopyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_MakeFileCopyCopyWithImpl<$Res>
   $Res call({
     Object? location = null,
   }) {
-    return _then(_$_MakeFileCopy(
+    return _then(_$MakeFileCopyImpl(
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -96,11 +96,11 @@ class __$$_MakeFileCopyCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MakeFileCopy extends _MakeFileCopy {
-  const _$_MakeFileCopy({required this.location}) : super._();
+class _$MakeFileCopyImpl extends _MakeFileCopy {
+  const _$MakeFileCopyImpl({required this.location}) : super._();
 
-  factory _$_MakeFileCopy.fromJson(Map<String, dynamic> json) =>
-      _$$_MakeFileCopyFromJson(json);
+  factory _$MakeFileCopyImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MakeFileCopyImplFromJson(json);
 
   @override
   final String location;
@@ -114,7 +114,7 @@ class _$_MakeFileCopy extends _MakeFileCopy {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MakeFileCopy &&
+            other is _$MakeFileCopyImpl &&
             (identical(other.location, location) ||
                 other.location == location));
   }
@@ -126,12 +126,12 @@ class _$_MakeFileCopy extends _MakeFileCopy {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MakeFileCopyCopyWith<_$_MakeFileCopy> get copyWith =>
-      __$$_MakeFileCopyCopyWithImpl<_$_MakeFileCopy>(this, _$identity);
+  _$$MakeFileCopyImplCopyWith<_$MakeFileCopyImpl> get copyWith =>
+      __$$MakeFileCopyImplCopyWithImpl<_$MakeFileCopyImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MakeFileCopyToJson(
+    return _$$MakeFileCopyImplToJson(
       this,
     );
   }
@@ -139,16 +139,16 @@ class _$_MakeFileCopy extends _MakeFileCopy {
 
 abstract class _MakeFileCopy extends MakeFileCopy {
   const factory _MakeFileCopy({required final String location}) =
-      _$_MakeFileCopy;
+      _$MakeFileCopyImpl;
   const _MakeFileCopy._() : super._();
 
   factory _MakeFileCopy.fromJson(Map<String, dynamic> json) =
-      _$_MakeFileCopy.fromJson;
+      _$MakeFileCopyImpl.fromJson;
 
   @override
   String get location;
   @override
   @JsonKey(ignore: true)
-  _$$_MakeFileCopyCopyWith<_$_MakeFileCopy> get copyWith =>
+  _$$MakeFileCopyImplCopyWith<_$MakeFileCopyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

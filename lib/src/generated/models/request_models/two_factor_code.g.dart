@@ -6,19 +6,19 @@ part of '../../../models/request_models/two_factor_code.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TwoFactorCode _$$_TwoFactorCodeFromJson(Map<String, dynamic> json) =>
+_$TwoFactorCodeImpl _$$TwoFactorCodeImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_TwoFactorCode',
+      r'_$TwoFactorCodeImpl',
       json,
       ($checkedConvert) {
-        final val = _$_TwoFactorCode(
+        final val = _$TwoFactorCodeImpl(
           code: $checkedConvert('code', (v) => v as int),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_TwoFactorCodeToJson(_$_TwoFactorCode instance) =>
+Map<String, dynamic> _$$TwoFactorCodeImplToJson(_$TwoFactorCodeImpl instance) =>
     <String, dynamic>{
       'code': instance.code,
     };

@@ -62,22 +62,22 @@ class _$TwoFactorCodeCopyWithImpl<$Res, $Val extends TwoFactorCode>
 }
 
 /// @nodoc
-abstract class _$$_TwoFactorCodeCopyWith<$Res>
+abstract class _$$TwoFactorCodeImplCopyWith<$Res>
     implements $TwoFactorCodeCopyWith<$Res> {
-  factory _$$_TwoFactorCodeCopyWith(
-          _$_TwoFactorCode value, $Res Function(_$_TwoFactorCode) then) =
-      __$$_TwoFactorCodeCopyWithImpl<$Res>;
+  factory _$$TwoFactorCodeImplCopyWith(
+          _$TwoFactorCodeImpl value, $Res Function(_$TwoFactorCodeImpl) then) =
+      __$$TwoFactorCodeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int code});
 }
 
 /// @nodoc
-class __$$_TwoFactorCodeCopyWithImpl<$Res>
-    extends _$TwoFactorCodeCopyWithImpl<$Res, _$_TwoFactorCode>
-    implements _$$_TwoFactorCodeCopyWith<$Res> {
-  __$$_TwoFactorCodeCopyWithImpl(
-      _$_TwoFactorCode _value, $Res Function(_$_TwoFactorCode) _then)
+class __$$TwoFactorCodeImplCopyWithImpl<$Res>
+    extends _$TwoFactorCodeCopyWithImpl<$Res, _$TwoFactorCodeImpl>
+    implements _$$TwoFactorCodeImplCopyWith<$Res> {
+  __$$TwoFactorCodeImplCopyWithImpl(
+      _$TwoFactorCodeImpl _value, $Res Function(_$TwoFactorCodeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_TwoFactorCodeCopyWithImpl<$Res>
   $Res call({
     Object? code = null,
   }) {
-    return _then(_$_TwoFactorCode(
+    return _then(_$TwoFactorCodeImpl(
       code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -96,11 +96,11 @@ class __$$_TwoFactorCodeCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TwoFactorCode extends _TwoFactorCode {
-  const _$_TwoFactorCode({required this.code}) : super._();
+class _$TwoFactorCodeImpl extends _TwoFactorCode {
+  const _$TwoFactorCodeImpl({required this.code}) : super._();
 
-  factory _$_TwoFactorCode.fromJson(Map<String, dynamic> json) =>
-      _$$_TwoFactorCodeFromJson(json);
+  factory _$TwoFactorCodeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TwoFactorCodeImplFromJson(json);
 
   @override
   final int code;
@@ -114,7 +114,7 @@ class _$_TwoFactorCode extends _TwoFactorCode {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TwoFactorCode &&
+            other is _$TwoFactorCodeImpl &&
             (identical(other.code, code) || other.code == code));
   }
 
@@ -125,28 +125,28 @@ class _$_TwoFactorCode extends _TwoFactorCode {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TwoFactorCodeCopyWith<_$_TwoFactorCode> get copyWith =>
-      __$$_TwoFactorCodeCopyWithImpl<_$_TwoFactorCode>(this, _$identity);
+  _$$TwoFactorCodeImplCopyWith<_$TwoFactorCodeImpl> get copyWith =>
+      __$$TwoFactorCodeImplCopyWithImpl<_$TwoFactorCodeImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TwoFactorCodeToJson(
+    return _$$TwoFactorCodeImplToJson(
       this,
     );
   }
 }
 
 abstract class _TwoFactorCode extends TwoFactorCode {
-  const factory _TwoFactorCode({required final int code}) = _$_TwoFactorCode;
+  const factory _TwoFactorCode({required final int code}) = _$TwoFactorCodeImpl;
   const _TwoFactorCode._() : super._();
 
   factory _TwoFactorCode.fromJson(Map<String, dynamic> json) =
-      _$_TwoFactorCode.fromJson;
+      _$TwoFactorCodeImpl.fromJson;
 
   @override
   int get code;
   @override
   @JsonKey(ignore: true)
-  _$$_TwoFactorCodeCopyWith<_$_TwoFactorCode> get copyWith =>
+  _$$TwoFactorCodeImplCopyWith<_$TwoFactorCodeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

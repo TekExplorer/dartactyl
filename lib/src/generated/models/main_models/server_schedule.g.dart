@@ -6,12 +6,12 @@ part of '../../../models/main_models/server_schedule.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ServerSchedule _$$_ServerScheduleFromJson(Map<String, dynamic> json) =>
+_$ServerScheduleImpl _$$ServerScheduleImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ServerSchedule',
+      r'_$ServerScheduleImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ServerSchedule(
+        final val = _$ServerScheduleImpl(
           id: $checkedConvert('id', (v) => v as int),
           name: $checkedConvert('name', (v) => v as String),
           cron: $checkedConvert(
@@ -41,7 +41,8 @@ _$_ServerSchedule _$$_ServerScheduleFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_ServerScheduleToJson(_$_ServerSchedule instance) =>
+Map<String, dynamic> _$$ServerScheduleImplToJson(
+        _$ServerScheduleImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

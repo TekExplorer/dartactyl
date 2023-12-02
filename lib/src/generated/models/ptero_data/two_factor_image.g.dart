@@ -6,12 +6,12 @@ part of '../../../models/ptero_data/two_factor_image.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TwoFactorImage _$$_TwoFactorImageFromJson(Map<String, dynamic> json) =>
+_$TwoFactorImageImpl _$$TwoFactorImageImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_TwoFactorImage',
+      r'_$TwoFactorImageImpl',
       json,
       ($checkedConvert) {
-        final val = _$_TwoFactorImage(
+        final val = _$TwoFactorImageImpl(
           imageUrlData: $checkedConvert('image_url_data', (v) => v as String),
           secret: $checkedConvert('secret', (v) => v as String),
         );
@@ -20,7 +20,8 @@ _$_TwoFactorImage _$$_TwoFactorImageFromJson(Map<String, dynamic> json) =>
       fieldKeyMap: const {'imageUrlData': 'image_url_data'},
     );
 
-Map<String, dynamic> _$$_TwoFactorImageToJson(_$_TwoFactorImage instance) =>
+Map<String, dynamic> _$$TwoFactorImageImplToJson(
+        _$TwoFactorImageImpl instance) =>
     <String, dynamic>{
       'image_url_data': instance.imageUrlData,
       'secret': instance.secret,

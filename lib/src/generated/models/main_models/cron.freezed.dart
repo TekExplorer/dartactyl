@@ -96,9 +96,10 @@ class _$CronCopyWithImpl<$Res, $Val extends Cron>
 }
 
 /// @nodoc
-abstract class _$$_CronCopyWith<$Res> implements $CronCopyWith<$Res> {
-  factory _$$_CronCopyWith(_$_Cron value, $Res Function(_$_Cron) then) =
-      __$$_CronCopyWithImpl<$Res>;
+abstract class _$$CronImplCopyWith<$Res> implements $CronCopyWith<$Res> {
+  factory _$$CronImplCopyWith(
+          _$CronImpl value, $Res Function(_$CronImpl) then) =
+      __$$CronImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -111,9 +112,10 @@ abstract class _$$_CronCopyWith<$Res> implements $CronCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_CronCopyWithImpl<$Res> extends _$CronCopyWithImpl<$Res, _$_Cron>
-    implements _$$_CronCopyWith<$Res> {
-  __$$_CronCopyWithImpl(_$_Cron _value, $Res Function(_$_Cron) _then)
+class __$$CronImplCopyWithImpl<$Res>
+    extends _$CronCopyWithImpl<$Res, _$CronImpl>
+    implements _$$CronImplCopyWith<$Res> {
+  __$$CronImplCopyWithImpl(_$CronImpl _value, $Res Function(_$CronImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -126,7 +128,7 @@ class __$$_CronCopyWithImpl<$Res> extends _$CronCopyWithImpl<$Res, _$_Cron>
     Object? dayOfMonth = null,
     Object? month = null,
   }) {
-    return _then(_$_Cron(
+    return _then(_$CronImpl(
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -157,8 +159,8 @@ class __$$_CronCopyWithImpl<$Res> extends _$CronCopyWithImpl<$Res, _$_Cron>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Cron extends _Cron {
-  const _$_Cron(
+class _$CronImpl extends _Cron {
+  const _$CronImpl(
       {this.name,
       required this.minute,
       required this.hour,
@@ -167,7 +169,8 @@ class _$_Cron extends _Cron {
       required this.month})
       : super._();
 
-  factory _$_Cron.fromJson(Map<String, dynamic> json) => _$$_CronFromJson(json);
+  factory _$CronImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CronImplFromJson(json);
 
   @override
   final String? name;
@@ -192,7 +195,7 @@ class _$_Cron extends _Cron {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Cron &&
+            other is _$CronImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.minute, minute) || other.minute == minute) &&
             (identical(other.hour, hour) || other.hour == hour) &&
@@ -211,12 +214,12 @@ class _$_Cron extends _Cron {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CronCopyWith<_$_Cron> get copyWith =>
-      __$$_CronCopyWithImpl<_$_Cron>(this, _$identity);
+  _$$CronImplCopyWith<_$CronImpl> get copyWith =>
+      __$$CronImplCopyWithImpl<_$CronImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CronToJson(
+    return _$$CronImplToJson(
       this,
     );
   }
@@ -229,10 +232,10 @@ abstract class _Cron extends Cron {
       required final String hour,
       required final String dayOfWeek,
       required final String dayOfMonth,
-      required final String month}) = _$_Cron;
+      required final String month}) = _$CronImpl;
   const _Cron._() : super._();
 
-  factory _Cron.fromJson(Map<String, dynamic> json) = _$_Cron.fromJson;
+  factory _Cron.fromJson(Map<String, dynamic> json) = _$CronImpl.fromJson;
 
   @override
   String? get name;
@@ -248,5 +251,6 @@ abstract class _Cron extends Cron {
   String get month;
   @override
   @JsonKey(ignore: true)
-  _$$_CronCopyWith<_$_Cron> get copyWith => throw _privateConstructorUsedError;
+  _$$CronImplCopyWith<_$CronImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

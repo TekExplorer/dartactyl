@@ -117,7 +117,7 @@ class WebSocketAndUrl {
   final WebSocketChannel webSocket;
 }
 
-WebsocketEvent expectAndReturnValidEvent(dynamic request) {
+WebsocketEvent expectAndReturnValidEvent(Object? request) {
   final JsonMap requestJson;
   if (request is JsonMap) {
     requestJson = request;
@@ -138,7 +138,7 @@ WebsocketEvent expectAndReturnValidEvent(dynamic request) {
   return websocketEvent;
 }
 
-JsonMap expectAndReturnValidRequestJson(dynamic request) {
+JsonMap expectAndReturnValidRequestJson(Object? request) {
   log('Server got "$request"', name: 'Mock Server');
   expect(
     request,

@@ -62,22 +62,22 @@ class _$SendServerCommandCopyWithImpl<$Res, $Val extends SendServerCommand>
 }
 
 /// @nodoc
-abstract class _$$_SendServerCommandCopyWith<$Res>
+abstract class _$$SendServerCommandImplCopyWith<$Res>
     implements $SendServerCommandCopyWith<$Res> {
-  factory _$$_SendServerCommandCopyWith(_$_SendServerCommand value,
-          $Res Function(_$_SendServerCommand) then) =
-      __$$_SendServerCommandCopyWithImpl<$Res>;
+  factory _$$SendServerCommandImplCopyWith(_$SendServerCommandImpl value,
+          $Res Function(_$SendServerCommandImpl) then) =
+      __$$SendServerCommandImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String command});
 }
 
 /// @nodoc
-class __$$_SendServerCommandCopyWithImpl<$Res>
-    extends _$SendServerCommandCopyWithImpl<$Res, _$_SendServerCommand>
-    implements _$$_SendServerCommandCopyWith<$Res> {
-  __$$_SendServerCommandCopyWithImpl(
-      _$_SendServerCommand _value, $Res Function(_$_SendServerCommand) _then)
+class __$$SendServerCommandImplCopyWithImpl<$Res>
+    extends _$SendServerCommandCopyWithImpl<$Res, _$SendServerCommandImpl>
+    implements _$$SendServerCommandImplCopyWith<$Res> {
+  __$$SendServerCommandImplCopyWithImpl(_$SendServerCommandImpl _value,
+      $Res Function(_$SendServerCommandImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_SendServerCommandCopyWithImpl<$Res>
   $Res call({
     Object? command = null,
   }) {
-    return _then(_$_SendServerCommand(
+    return _then(_$SendServerCommandImpl(
       command: null == command
           ? _value.command
           : command // ignore: cast_nullable_to_non_nullable
@@ -96,11 +96,11 @@ class __$$_SendServerCommandCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SendServerCommand extends _SendServerCommand {
-  const _$_SendServerCommand({required this.command}) : super._();
+class _$SendServerCommandImpl extends _SendServerCommand {
+  const _$SendServerCommandImpl({required this.command}) : super._();
 
-  factory _$_SendServerCommand.fromJson(Map<String, dynamic> json) =>
-      _$$_SendServerCommandFromJson(json);
+  factory _$SendServerCommandImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SendServerCommandImplFromJson(json);
 
   @override
   final String command;
@@ -114,7 +114,7 @@ class _$_SendServerCommand extends _SendServerCommand {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SendServerCommand &&
+            other is _$SendServerCommandImpl &&
             (identical(other.command, command) || other.command == command));
   }
 
@@ -125,13 +125,13 @@ class _$_SendServerCommand extends _SendServerCommand {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SendServerCommandCopyWith<_$_SendServerCommand> get copyWith =>
-      __$$_SendServerCommandCopyWithImpl<_$_SendServerCommand>(
+  _$$SendServerCommandImplCopyWith<_$SendServerCommandImpl> get copyWith =>
+      __$$SendServerCommandImplCopyWithImpl<_$SendServerCommandImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SendServerCommandToJson(
+    return _$$SendServerCommandImplToJson(
       this,
     );
   }
@@ -139,16 +139,16 @@ class _$_SendServerCommand extends _SendServerCommand {
 
 abstract class _SendServerCommand extends SendServerCommand {
   const factory _SendServerCommand({required final String command}) =
-      _$_SendServerCommand;
+      _$SendServerCommandImpl;
   const _SendServerCommand._() : super._();
 
   factory _SendServerCommand.fromJson(Map<String, dynamic> json) =
-      _$_SendServerCommand.fromJson;
+      _$SendServerCommandImpl.fromJson;
 
   @override
   String get command;
   @override
   @JsonKey(ignore: true)
-  _$$_SendServerCommandCopyWith<_$_SendServerCommand> get copyWith =>
+  _$$SendServerCommandImplCopyWith<_$SendServerCommandImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

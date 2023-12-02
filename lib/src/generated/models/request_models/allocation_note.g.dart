@@ -6,19 +6,20 @@ part of '../../../models/request_models/allocation_note.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AllocationNote _$$_AllocationNoteFromJson(Map<String, dynamic> json) =>
+_$AllocationNoteImpl _$$AllocationNoteImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_AllocationNote',
+      r'_$AllocationNoteImpl',
       json,
       ($checkedConvert) {
-        final val = _$_AllocationNote(
+        final val = _$AllocationNoteImpl(
           notes: $checkedConvert('notes', (v) => v as String),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_AllocationNoteToJson(_$_AllocationNote instance) =>
+Map<String, dynamic> _$$AllocationNoteImplToJson(
+        _$AllocationNoteImpl instance) =>
     <String, dynamic>{
       'notes': instance.notes,
     };

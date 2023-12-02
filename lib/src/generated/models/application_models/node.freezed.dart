@@ -215,9 +215,10 @@ class _$NodeCopyWithImpl<$Res, $Val extends Node>
 }
 
 /// @nodoc
-abstract class _$$_NodeCopyWith<$Res> implements $NodeCopyWith<$Res> {
-  factory _$$_NodeCopyWith(_$_Node value, $Res Function(_$_Node) then) =
-      __$$_NodeCopyWithImpl<$Res>;
+abstract class _$$NodeImplCopyWith<$Res> implements $NodeCopyWith<$Res> {
+  factory _$$NodeImplCopyWith(
+          _$NodeImpl value, $Res Function(_$NodeImpl) then) =
+      __$$NodeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -248,9 +249,10 @@ abstract class _$$_NodeCopyWith<$Res> implements $NodeCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_NodeCopyWithImpl<$Res> extends _$NodeCopyWithImpl<$Res, _$_Node>
-    implements _$$_NodeCopyWith<$Res> {
-  __$$_NodeCopyWithImpl(_$_Node _value, $Res Function(_$_Node) _then)
+class __$$NodeImplCopyWithImpl<$Res>
+    extends _$NodeCopyWithImpl<$Res, _$NodeImpl>
+    implements _$$NodeImplCopyWith<$Res> {
+  __$$NodeImplCopyWithImpl(_$NodeImpl _value, $Res Function(_$NodeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -278,7 +280,7 @@ class __$$_NodeCopyWithImpl<$Res> extends _$NodeCopyWithImpl<$Res, _$_Node>
     Object? updatedAt = null,
     Object? relationships = freezed,
   }) {
-    return _then(_$_Node(
+    return _then(_$NodeImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -369,8 +371,8 @@ class __$$_NodeCopyWithImpl<$Res> extends _$NodeCopyWithImpl<$Res, _$_Node>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Node extends _Node {
-  const _$_Node(
+class _$NodeImpl extends _Node {
+  const _$NodeImpl(
       {required this.id,
       required this.uuid,
       required this.public,
@@ -394,7 +396,8 @@ class _$_Node extends _Node {
       this.relationships})
       : super._();
 
-  factory _$_Node.fromJson(Map<String, dynamic> json) => _$$_NodeFromJson(json);
+  factory _$NodeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NodeImplFromJson(json);
 
   @override
   final int id;
@@ -448,7 +451,7 @@ class _$_Node extends _Node {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Node &&
+            other is _$NodeImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.public, public) || other.public == public) &&
@@ -515,12 +518,12 @@ class _$_Node extends _Node {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NodeCopyWith<_$_Node> get copyWith =>
-      __$$_NodeCopyWithImpl<_$_Node>(this, _$identity);
+  _$$NodeImplCopyWith<_$NodeImpl> get copyWith =>
+      __$$NodeImplCopyWithImpl<_$NodeImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NodeToJson(
+    return _$$NodeImplToJson(
       this,
     );
   }
@@ -548,10 +551,10 @@ abstract class _Node extends Node {
       required final String daemonBase,
       required final DateTime createdAt,
       required final DateTime updatedAt,
-      final NodeRelationships? relationships}) = _$_Node;
+      final NodeRelationships? relationships}) = _$NodeImpl;
   const _Node._() : super._();
 
-  factory _Node.fromJson(Map<String, dynamic> json) = _$_Node.fromJson;
+  factory _Node.fromJson(Map<String, dynamic> json) = _$NodeImpl.fromJson;
 
   @override
   int get id;
@@ -597,7 +600,8 @@ abstract class _Node extends Node {
   NodeRelationships? get relationships;
   @override
   @JsonKey(ignore: true)
-  _$$_NodeCopyWith<_$_Node> get copyWith => throw _privateConstructorUsedError;
+  _$$NodeImplCopyWith<_$NodeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 NodeRelationships _$NodeRelationshipsFromJson(Map<String, dynamic> json) {
@@ -707,11 +711,11 @@ class _$NodeRelationshipsCopyWithImpl<$Res, $Val extends NodeRelationships>
 }
 
 /// @nodoc
-abstract class _$$_NodeRelationshipsCopyWith<$Res>
+abstract class _$$NodeRelationshipsImplCopyWith<$Res>
     implements $NodeRelationshipsCopyWith<$Res> {
-  factory _$$_NodeRelationshipsCopyWith(_$_NodeRelationships value,
-          $Res Function(_$_NodeRelationships) then) =
-      __$$_NodeRelationshipsCopyWithImpl<$Res>;
+  factory _$$NodeRelationshipsImplCopyWith(_$NodeRelationshipsImpl value,
+          $Res Function(_$NodeRelationshipsImpl) then) =
+      __$$NodeRelationshipsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -728,11 +732,11 @@ abstract class _$$_NodeRelationshipsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_NodeRelationshipsCopyWithImpl<$Res>
-    extends _$NodeRelationshipsCopyWithImpl<$Res, _$_NodeRelationships>
-    implements _$$_NodeRelationshipsCopyWith<$Res> {
-  __$$_NodeRelationshipsCopyWithImpl(
-      _$_NodeRelationships _value, $Res Function(_$_NodeRelationships) _then)
+class __$$NodeRelationshipsImplCopyWithImpl<$Res>
+    extends _$NodeRelationshipsCopyWithImpl<$Res, _$NodeRelationshipsImpl>
+    implements _$$NodeRelationshipsImplCopyWith<$Res> {
+  __$$NodeRelationshipsImplCopyWithImpl(_$NodeRelationshipsImpl _value,
+      $Res Function(_$NodeRelationshipsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -742,7 +746,7 @@ class __$$_NodeRelationshipsCopyWithImpl<$Res>
     Object? location = freezed,
     Object? servers = freezed,
   }) {
-    return _then(_$_NodeRelationships(
+    return _then(_$NodeRelationshipsImpl(
       allocation: freezed == allocation
           ? _value.allocation
           : allocation // ignore: cast_nullable_to_non_nullable
@@ -761,12 +765,12 @@ class __$$_NodeRelationshipsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_NodeRelationships extends _NodeRelationships {
-  const _$_NodeRelationships({this.allocation, this.location, this.servers})
+class _$NodeRelationshipsImpl extends _NodeRelationships {
+  const _$NodeRelationshipsImpl({this.allocation, this.location, this.servers})
       : super._();
 
-  factory _$_NodeRelationships.fromJson(Map<String, dynamic> json) =>
-      _$$_NodeRelationshipsFromJson(json);
+  factory _$NodeRelationshipsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NodeRelationshipsImplFromJson(json);
 
   @override
   final FractalData<ApplicationAllocation>? allocation;
@@ -784,7 +788,7 @@ class _$_NodeRelationships extends _NodeRelationships {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NodeRelationships &&
+            other is _$NodeRelationshipsImpl &&
             (identical(other.allocation, allocation) ||
                 other.allocation == allocation) &&
             (identical(other.location, location) ||
@@ -799,13 +803,13 @@ class _$_NodeRelationships extends _NodeRelationships {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NodeRelationshipsCopyWith<_$_NodeRelationships> get copyWith =>
-      __$$_NodeRelationshipsCopyWithImpl<_$_NodeRelationships>(
+  _$$NodeRelationshipsImplCopyWith<_$NodeRelationshipsImpl> get copyWith =>
+      __$$NodeRelationshipsImplCopyWithImpl<_$NodeRelationshipsImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NodeRelationshipsToJson(
+    return _$$NodeRelationshipsImplToJson(
       this,
     );
   }
@@ -816,11 +820,11 @@ abstract class _NodeRelationships extends NodeRelationships {
           {final FractalData<ApplicationAllocation>? allocation,
           final FractalData<Location>? location,
           final FractalListData<ApplicationServer>? servers}) =
-      _$_NodeRelationships;
+      _$NodeRelationshipsImpl;
   const _NodeRelationships._() : super._();
 
   factory _NodeRelationships.fromJson(Map<String, dynamic> json) =
-      _$_NodeRelationships.fromJson;
+      _$NodeRelationshipsImpl.fromJson;
 
   @override
   FractalData<ApplicationAllocation>? get allocation;
@@ -830,6 +834,6 @@ abstract class _NodeRelationships extends NodeRelationships {
   FractalListData<ApplicationServer>? get servers;
   @override
   @JsonKey(ignore: true)
-  _$$_NodeRelationshipsCopyWith<_$_NodeRelationships> get copyWith =>
+  _$$NodeRelationshipsImplCopyWith<_$NodeRelationshipsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -112,11 +112,11 @@ class _$RequestScheduleCopyWithImpl<$Res, $Val extends RequestSchedule>
 }
 
 /// @nodoc
-abstract class _$$_RequestScheduleCopyWith<$Res>
+abstract class _$$RequestScheduleImplCopyWith<$Res>
     implements $RequestScheduleCopyWith<$Res> {
-  factory _$$_RequestScheduleCopyWith(
-          _$_RequestSchedule value, $Res Function(_$_RequestSchedule) then) =
-      __$$_RequestScheduleCopyWithImpl<$Res>;
+  factory _$$RequestScheduleImplCopyWith(_$RequestScheduleImpl value,
+          $Res Function(_$RequestScheduleImpl) then) =
+      __$$RequestScheduleImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -131,11 +131,11 @@ abstract class _$$_RequestScheduleCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_RequestScheduleCopyWithImpl<$Res>
-    extends _$RequestScheduleCopyWithImpl<$Res, _$_RequestSchedule>
-    implements _$$_RequestScheduleCopyWith<$Res> {
-  __$$_RequestScheduleCopyWithImpl(
-      _$_RequestSchedule _value, $Res Function(_$_RequestSchedule) _then)
+class __$$RequestScheduleImplCopyWithImpl<$Res>
+    extends _$RequestScheduleCopyWithImpl<$Res, _$RequestScheduleImpl>
+    implements _$$RequestScheduleImplCopyWith<$Res> {
+  __$$RequestScheduleImplCopyWithImpl(
+      _$RequestScheduleImpl _value, $Res Function(_$RequestScheduleImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -150,7 +150,7 @@ class __$$_RequestScheduleCopyWithImpl<$Res>
     Object? dayOfMonth = null,
     Object? month = null,
   }) {
-    return _then(_$_RequestSchedule(
+    return _then(_$RequestScheduleImpl(
       onlyWhenOnline: null == onlyWhenOnline
           ? _value.onlyWhenOnline
           : onlyWhenOnline // ignore: cast_nullable_to_non_nullable
@@ -189,8 +189,8 @@ class __$$_RequestScheduleCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RequestSchedule extends _RequestSchedule {
-  const _$_RequestSchedule(
+class _$RequestScheduleImpl extends _RequestSchedule {
+  const _$RequestScheduleImpl(
       {required this.onlyWhenOnline,
       required this.name,
       required this.isActive,
@@ -201,8 +201,8 @@ class _$_RequestSchedule extends _RequestSchedule {
       required this.month})
       : super._();
 
-  factory _$_RequestSchedule.fromJson(Map<String, dynamic> json) =>
-      _$$_RequestScheduleFromJson(json);
+  factory _$RequestScheduleImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RequestScheduleImplFromJson(json);
 
   @override
   final bool onlyWhenOnline;
@@ -230,7 +230,7 @@ class _$_RequestSchedule extends _RequestSchedule {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RequestSchedule &&
+            other is _$RequestScheduleImpl &&
             (identical(other.onlyWhenOnline, onlyWhenOnline) ||
                 other.onlyWhenOnline == onlyWhenOnline) &&
             (identical(other.name, name) || other.name == name) &&
@@ -253,12 +253,13 @@ class _$_RequestSchedule extends _RequestSchedule {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RequestScheduleCopyWith<_$_RequestSchedule> get copyWith =>
-      __$$_RequestScheduleCopyWithImpl<_$_RequestSchedule>(this, _$identity);
+  _$$RequestScheduleImplCopyWith<_$RequestScheduleImpl> get copyWith =>
+      __$$RequestScheduleImplCopyWithImpl<_$RequestScheduleImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RequestScheduleToJson(
+    return _$$RequestScheduleImplToJson(
       this,
     );
   }
@@ -273,11 +274,11 @@ abstract class _RequestSchedule extends RequestSchedule {
       required final String hour,
       required final String dayOfWeek,
       required final String dayOfMonth,
-      required final String month}) = _$_RequestSchedule;
+      required final String month}) = _$RequestScheduleImpl;
   const _RequestSchedule._() : super._();
 
   factory _RequestSchedule.fromJson(Map<String, dynamic> json) =
-      _$_RequestSchedule.fromJson;
+      _$RequestScheduleImpl.fromJson;
 
   @override
   bool get onlyWhenOnline;
@@ -297,6 +298,6 @@ abstract class _RequestSchedule extends RequestSchedule {
   String get month;
   @override
   @JsonKey(ignore: true)
-  _$$_RequestScheduleCopyWith<_$_RequestSchedule> get copyWith =>
+  _$$RequestScheduleImplCopyWith<_$RequestScheduleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

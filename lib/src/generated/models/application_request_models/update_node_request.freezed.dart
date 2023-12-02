@@ -155,11 +155,11 @@ class _$UpdateNodeRequestCopyWithImpl<$Res, $Val extends UpdateNodeRequest>
 }
 
 /// @nodoc
-abstract class _$$_UpdateNodeRequestCopyWith<$Res>
+abstract class _$$UpdateNodeRequestImplCopyWith<$Res>
     implements $UpdateNodeRequestCopyWith<$Res> {
-  factory _$$_UpdateNodeRequestCopyWith(_$_UpdateNodeRequest value,
-          $Res Function(_$_UpdateNodeRequest) then) =
-      __$$_UpdateNodeRequestCopyWithImpl<$Res>;
+  factory _$$UpdateNodeRequestImplCopyWith(_$UpdateNodeRequestImpl value,
+          $Res Function(_$UpdateNodeRequestImpl) then) =
+      __$$UpdateNodeRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -180,11 +180,11 @@ abstract class _$$_UpdateNodeRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UpdateNodeRequestCopyWithImpl<$Res>
-    extends _$UpdateNodeRequestCopyWithImpl<$Res, _$_UpdateNodeRequest>
-    implements _$$_UpdateNodeRequestCopyWith<$Res> {
-  __$$_UpdateNodeRequestCopyWithImpl(
-      _$_UpdateNodeRequest _value, $Res Function(_$_UpdateNodeRequest) _then)
+class __$$UpdateNodeRequestImplCopyWithImpl<$Res>
+    extends _$UpdateNodeRequestCopyWithImpl<$Res, _$UpdateNodeRequestImpl>
+    implements _$$UpdateNodeRequestImplCopyWith<$Res> {
+  __$$UpdateNodeRequestImplCopyWithImpl(_$UpdateNodeRequestImpl _value,
+      $Res Function(_$UpdateNodeRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -205,7 +205,7 @@ class __$$_UpdateNodeRequestCopyWithImpl<$Res>
     Object? maintenanceMode = null,
     Object? description = null,
   }) {
-    return _then(_$_UpdateNodeRequest(
+    return _then(_$UpdateNodeRequestImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -268,8 +268,8 @@ class __$$_UpdateNodeRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UpdateNodeRequest extends _UpdateNodeRequest {
-  const _$_UpdateNodeRequest(
+class _$UpdateNodeRequestImpl extends _UpdateNodeRequest {
+  const _$UpdateNodeRequestImpl(
       {required this.name,
       required this.locationId,
       required this.fqdn,
@@ -286,8 +286,8 @@ class _$_UpdateNodeRequest extends _UpdateNodeRequest {
       required this.description})
       : super._();
 
-  factory _$_UpdateNodeRequest.fromJson(Map<String, dynamic> json) =>
-      _$$_UpdateNodeRequestFromJson(json);
+  factory _$UpdateNodeRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UpdateNodeRequestImplFromJson(json);
 
   @override
   final String name;
@@ -328,7 +328,7 @@ class _$_UpdateNodeRequest extends _UpdateNodeRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UpdateNodeRequest &&
+            other is _$UpdateNodeRequestImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.locationId, locationId) ||
                 other.locationId == locationId) &&
@@ -376,13 +376,13 @@ class _$_UpdateNodeRequest extends _UpdateNodeRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UpdateNodeRequestCopyWith<_$_UpdateNodeRequest> get copyWith =>
-      __$$_UpdateNodeRequestCopyWithImpl<_$_UpdateNodeRequest>(
+  _$$UpdateNodeRequestImplCopyWith<_$UpdateNodeRequestImpl> get copyWith =>
+      __$$UpdateNodeRequestImplCopyWithImpl<_$UpdateNodeRequestImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UpdateNodeRequestToJson(
+    return _$$UpdateNodeRequestImplToJson(
       this,
     );
   }
@@ -403,11 +403,11 @@ abstract class _UpdateNodeRequest extends UpdateNodeRequest {
       required final int daemonListen,
       required final bool behindProxy,
       required final bool maintenanceMode,
-      required final String description}) = _$_UpdateNodeRequest;
+      required final String description}) = _$UpdateNodeRequestImpl;
   const _UpdateNodeRequest._() : super._();
 
   factory _UpdateNodeRequest.fromJson(Map<String, dynamic> json) =
-      _$_UpdateNodeRequest.fromJson;
+      _$UpdateNodeRequestImpl.fromJson;
 
   @override
   String get name;
@@ -439,6 +439,6 @@ abstract class _UpdateNodeRequest extends UpdateNodeRequest {
   String get description;
   @override
   @JsonKey(ignore: true)
-  _$$_UpdateNodeRequestCopyWith<_$_UpdateNodeRequest> get copyWith =>
+  _$$UpdateNodeRequestImplCopyWith<_$UpdateNodeRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

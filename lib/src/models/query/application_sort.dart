@@ -22,3 +22,18 @@ class NodesSort extends Sort<NodesSort> {
   @override
   NodesSort get negative => NodesSort._(negativeString);
 }
+
+// class ServersSort extends Sort<ServersSort> {
+//   const ServersSort._(super.sort);
+
+//   static const ServersSort sortById = ServersSort._('id');
+//   static const ServersSort sortByUuid = ServersSort._('uuid');
+//   static const ServersSort sortByUuidShort = ServersSort._('uuidShort');
+//   static const ServersSort sortByName = ServersSort._('name');
+//   static const ServersSort sortByOwnerId = ServersSort._('owner_id');
+//   static const ServersSort sortByNodeId = ServersSort._('node_id');
+//   static const ServersSort sortByStatus = ServersSort._('status');
+
+//   @override
+//   ServersSort get negative => ServersSort._(negativeString);
+// }

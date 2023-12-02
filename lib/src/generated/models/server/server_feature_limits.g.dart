@@ -6,13 +6,13 @@ part of '../../../models/server/server_feature_limits.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ServerFeatureLimits _$$_ServerFeatureLimitsFromJson(
+_$ServerFeatureLimitsImpl _$$ServerFeatureLimitsImplFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ServerFeatureLimits',
+      r'_$ServerFeatureLimitsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ServerFeatureLimits(
+        final val = _$ServerFeatureLimitsImpl(
           allocations: $checkedConvert('allocations', (v) => v as int),
           databases: $checkedConvert('databases', (v) => v as int?),
           backups: $checkedConvert('backups', (v) => v as int?),
@@ -21,8 +21,8 @@ _$_ServerFeatureLimits _$$_ServerFeatureLimitsFromJson(
       },
     );
 
-Map<String, dynamic> _$$_ServerFeatureLimitsToJson(
-        _$_ServerFeatureLimits instance) =>
+Map<String, dynamic> _$$ServerFeatureLimitsImplToJson(
+        _$ServerFeatureLimitsImpl instance) =>
     <String, dynamic>{
       'allocations': instance.allocations,
       'databases': instance.databases,

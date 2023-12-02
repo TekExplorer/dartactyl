@@ -6,12 +6,12 @@ part of '../../../websocket/models/websocket_stats.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_WebsocketStats _$$_WebsocketStatsFromJson(Map<String, dynamic> json) =>
+_$WebsocketStatsImpl _$$WebsocketStatsImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_WebsocketStats',
+      r'_$WebsocketStatsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_WebsocketStats(
+        final val = _$WebsocketStatsImpl(
           cpuAbsolute:
               $checkedConvert('cpu_absolute', (v) => (v as num).toDouble()),
           memoryBytes: $checkedConvert('memory_bytes', (v) => v as int),
@@ -31,7 +31,8 @@ _$_WebsocketStats _$$_WebsocketStatsFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_WebsocketStatsToJson(_$_WebsocketStats instance) =>
+Map<String, dynamic> _$$WebsocketStatsImplToJson(
+        _$WebsocketStatsImpl instance) =>
     <String, dynamic>{
       'cpu_absolute': instance.cpuAbsolute,
       'memory_bytes': instance.memoryBytes,
@@ -47,13 +48,13 @@ const _$ServerPowerStateEnumMap = {
   ServerPowerState.offline: 'offline',
 };
 
-_$_WebsocketNetworkStats _$$_WebsocketNetworkStatsFromJson(
+_$WebsocketNetworkStatsImpl _$$WebsocketNetworkStatsImplFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_WebsocketNetworkStats',
+      r'_$WebsocketNetworkStatsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_WebsocketNetworkStats(
+        final val = _$WebsocketNetworkStatsImpl(
           rxBytes: $checkedConvert('rx_bytes', (v) => v as int),
           txBytes: $checkedConvert('tx_bytes', (v) => v as int),
         );
@@ -62,8 +63,8 @@ _$_WebsocketNetworkStats _$$_WebsocketNetworkStatsFromJson(
       fieldKeyMap: const {'rxBytes': 'rx_bytes', 'txBytes': 'tx_bytes'},
     );
 
-Map<String, dynamic> _$$_WebsocketNetworkStatsToJson(
-        _$_WebsocketNetworkStats instance) =>
+Map<String, dynamic> _$$WebsocketNetworkStatsImplToJson(
+        _$WebsocketNetworkStatsImpl instance) =>
     <String, dynamic>{
       'rx_bytes': instance.rxBytes,
       'tx_bytes': instance.txBytes,

@@ -6,12 +6,12 @@ part of '../../../models/main_models/allocation.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Allocation _$$_AllocationFromJson(Map<String, dynamic> json) =>
+_$AllocationImpl _$$AllocationImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_Allocation',
+      r'_$AllocationImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Allocation(
+        final val = _$AllocationImpl(
           id: $checkedConvert('id', (v) => v as int),
           ip: $checkedConvert('ip', (v) => v as String),
           ipAlias: $checkedConvert('ip_alias', (v) => v as String?),
@@ -24,7 +24,7 @@ _$_Allocation _$$_AllocationFromJson(Map<String, dynamic> json) =>
       fieldKeyMap: const {'ipAlias': 'ip_alias', 'isDefault': 'is_default'},
     );
 
-Map<String, dynamic> _$$_AllocationToJson(_$_Allocation instance) =>
+Map<String, dynamic> _$$AllocationImplToJson(_$AllocationImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'ip': instance.ip,

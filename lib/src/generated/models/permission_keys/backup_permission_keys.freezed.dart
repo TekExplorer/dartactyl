@@ -81,22 +81,22 @@ class _$BackupPermissionKeysCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_BackupPermissionKeysCopyWith<$Res>
+abstract class _$$BackupPermissionKeysImplCopyWith<$Res>
     implements $BackupPermissionKeysCopyWith<$Res> {
-  factory _$$_BackupPermissionKeysCopyWith(_$_BackupPermissionKeys value,
-          $Res Function(_$_BackupPermissionKeys) then) =
-      __$$_BackupPermissionKeysCopyWithImpl<$Res>;
+  factory _$$BackupPermissionKeysImplCopyWith(_$BackupPermissionKeysImpl value,
+          $Res Function(_$BackupPermissionKeysImpl) then) =
+      __$$BackupPermissionKeysImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String read, String create, String update, String delete});
 }
 
 /// @nodoc
-class __$$_BackupPermissionKeysCopyWithImpl<$Res>
-    extends _$BackupPermissionKeysCopyWithImpl<$Res, _$_BackupPermissionKeys>
-    implements _$$_BackupPermissionKeysCopyWith<$Res> {
-  __$$_BackupPermissionKeysCopyWithImpl(_$_BackupPermissionKeys _value,
-      $Res Function(_$_BackupPermissionKeys) _then)
+class __$$BackupPermissionKeysImplCopyWithImpl<$Res>
+    extends _$BackupPermissionKeysCopyWithImpl<$Res, _$BackupPermissionKeysImpl>
+    implements _$$BackupPermissionKeysImplCopyWith<$Res> {
+  __$$BackupPermissionKeysImplCopyWithImpl(_$BackupPermissionKeysImpl _value,
+      $Res Function(_$BackupPermissionKeysImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -107,7 +107,7 @@ class __$$_BackupPermissionKeysCopyWithImpl<$Res>
     Object? update = null,
     Object? delete = null,
   }) {
-    return _then(_$_BackupPermissionKeys(
+    return _then(_$BackupPermissionKeysImpl(
       read: null == read
           ? _value.read
           : read // ignore: cast_nullable_to_non_nullable
@@ -130,16 +130,16 @@ class __$$_BackupPermissionKeysCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BackupPermissionKeys extends _BackupPermissionKeys {
-  const _$_BackupPermissionKeys(
+class _$BackupPermissionKeysImpl extends _BackupPermissionKeys {
+  const _$BackupPermissionKeysImpl(
       {required this.read,
       required this.create,
       required this.update,
       required this.delete})
       : super._();
 
-  factory _$_BackupPermissionKeys.fromJson(Map<String, dynamic> json) =>
-      _$$_BackupPermissionKeysFromJson(json);
+  factory _$BackupPermissionKeysImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BackupPermissionKeysImplFromJson(json);
 
   @override
   final String read;
@@ -159,7 +159,7 @@ class _$_BackupPermissionKeys extends _BackupPermissionKeys {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BackupPermissionKeys &&
+            other is _$BackupPermissionKeysImpl &&
             (identical(other.read, read) || other.read == read) &&
             (identical(other.create, create) || other.create == create) &&
             (identical(other.update, update) || other.update == update) &&
@@ -173,13 +173,14 @@ class _$_BackupPermissionKeys extends _BackupPermissionKeys {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BackupPermissionKeysCopyWith<_$_BackupPermissionKeys> get copyWith =>
-      __$$_BackupPermissionKeysCopyWithImpl<_$_BackupPermissionKeys>(
-          this, _$identity);
+  _$$BackupPermissionKeysImplCopyWith<_$BackupPermissionKeysImpl>
+      get copyWith =>
+          __$$BackupPermissionKeysImplCopyWithImpl<_$BackupPermissionKeysImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BackupPermissionKeysToJson(
+    return _$$BackupPermissionKeysImplToJson(
       this,
     );
   }
@@ -190,11 +191,11 @@ abstract class _BackupPermissionKeys extends BackupPermissionKeys {
       {required final String read,
       required final String create,
       required final String update,
-      required final String delete}) = _$_BackupPermissionKeys;
+      required final String delete}) = _$BackupPermissionKeysImpl;
   const _BackupPermissionKeys._() : super._();
 
   factory _BackupPermissionKeys.fromJson(Map<String, dynamic> json) =
-      _$_BackupPermissionKeys.fromJson;
+      _$BackupPermissionKeysImpl.fromJson;
 
   @override
   String get read;
@@ -206,6 +207,6 @@ abstract class _BackupPermissionKeys extends BackupPermissionKeys {
   String get delete;
   @override
   @JsonKey(ignore: true)
-  _$$_BackupPermissionKeysCopyWith<_$_BackupPermissionKeys> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$BackupPermissionKeysImplCopyWith<_$BackupPermissionKeysImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -98,11 +98,11 @@ class _$UpdateUserRequestCopyWithImpl<$Res, $Val extends UpdateUserRequest>
 }
 
 /// @nodoc
-abstract class _$$_UpdateUserRequestCopyWith<$Res>
+abstract class _$$UpdateUserRequestImplCopyWith<$Res>
     implements $UpdateUserRequestCopyWith<$Res> {
-  factory _$$_UpdateUserRequestCopyWith(_$_UpdateUserRequest value,
-          $Res Function(_$_UpdateUserRequest) then) =
-      __$$_UpdateUserRequestCopyWithImpl<$Res>;
+  factory _$$UpdateUserRequestImplCopyWith(_$UpdateUserRequestImpl value,
+          $Res Function(_$UpdateUserRequestImpl) then) =
+      __$$UpdateUserRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -115,11 +115,11 @@ abstract class _$$_UpdateUserRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UpdateUserRequestCopyWithImpl<$Res>
-    extends _$UpdateUserRequestCopyWithImpl<$Res, _$_UpdateUserRequest>
-    implements _$$_UpdateUserRequestCopyWith<$Res> {
-  __$$_UpdateUserRequestCopyWithImpl(
-      _$_UpdateUserRequest _value, $Res Function(_$_UpdateUserRequest) _then)
+class __$$UpdateUserRequestImplCopyWithImpl<$Res>
+    extends _$UpdateUserRequestCopyWithImpl<$Res, _$UpdateUserRequestImpl>
+    implements _$$UpdateUserRequestImplCopyWith<$Res> {
+  __$$UpdateUserRequestImplCopyWithImpl(_$UpdateUserRequestImpl _value,
+      $Res Function(_$UpdateUserRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -132,7 +132,7 @@ class __$$_UpdateUserRequestCopyWithImpl<$Res>
     Object? language = null,
     Object? password = null,
   }) {
-    return _then(_$_UpdateUserRequest(
+    return _then(_$UpdateUserRequestImpl(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -163,8 +163,8 @@ class __$$_UpdateUserRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UpdateUserRequest extends _UpdateUserRequest {
-  const _$_UpdateUserRequest(
+class _$UpdateUserRequestImpl extends _UpdateUserRequest {
+  const _$UpdateUserRequestImpl(
       {required this.email,
       required this.username,
       required this.firstName,
@@ -173,8 +173,8 @@ class _$_UpdateUserRequest extends _UpdateUserRequest {
       required this.password})
       : super._();
 
-  factory _$_UpdateUserRequest.fromJson(Map<String, dynamic> json) =>
-      _$$_UpdateUserRequestFromJson(json);
+  factory _$UpdateUserRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UpdateUserRequestImplFromJson(json);
 
   @override
   final String email;
@@ -199,7 +199,7 @@ class _$_UpdateUserRequest extends _UpdateUserRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UpdateUserRequest &&
+            other is _$UpdateUserRequestImpl &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.username, username) ||
                 other.username == username) &&
@@ -221,13 +221,13 @@ class _$_UpdateUserRequest extends _UpdateUserRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UpdateUserRequestCopyWith<_$_UpdateUserRequest> get copyWith =>
-      __$$_UpdateUserRequestCopyWithImpl<_$_UpdateUserRequest>(
+  _$$UpdateUserRequestImplCopyWith<_$UpdateUserRequestImpl> get copyWith =>
+      __$$UpdateUserRequestImplCopyWithImpl<_$UpdateUserRequestImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UpdateUserRequestToJson(
+    return _$$UpdateUserRequestImplToJson(
       this,
     );
   }
@@ -240,11 +240,11 @@ abstract class _UpdateUserRequest extends UpdateUserRequest {
       required final String firstName,
       required final String lastName,
       required final String language,
-      required final String password}) = _$_UpdateUserRequest;
+      required final String password}) = _$UpdateUserRequestImpl;
   const _UpdateUserRequest._() : super._();
 
   factory _UpdateUserRequest.fromJson(Map<String, dynamic> json) =
-      _$_UpdateUserRequest.fromJson;
+      _$UpdateUserRequestImpl.fromJson;
 
   @override
   String get email;
@@ -260,6 +260,6 @@ abstract class _UpdateUserRequest extends UpdateUserRequest {
   String get password;
   @override
   @JsonKey(ignore: true)
-  _$$_UpdateUserRequestCopyWith<_$_UpdateUserRequest> get copyWith =>
+  _$$UpdateUserRequestImplCopyWith<_$UpdateUserRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

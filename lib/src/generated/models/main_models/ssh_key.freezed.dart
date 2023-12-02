@@ -79,9 +79,10 @@ class _$SshKeyCopyWithImpl<$Res, $Val extends SshKey>
 }
 
 /// @nodoc
-abstract class _$$_SshKeyCopyWith<$Res> implements $SshKeyCopyWith<$Res> {
-  factory _$$_SshKeyCopyWith(_$_SshKey value, $Res Function(_$_SshKey) then) =
-      __$$_SshKeyCopyWithImpl<$Res>;
+abstract class _$$SshKeyImplCopyWith<$Res> implements $SshKeyCopyWith<$Res> {
+  factory _$$SshKeyImplCopyWith(
+          _$SshKeyImpl value, $Res Function(_$SshKeyImpl) then) =
+      __$$SshKeyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -89,10 +90,11 @@ abstract class _$$_SshKeyCopyWith<$Res> implements $SshKeyCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SshKeyCopyWithImpl<$Res>
-    extends _$SshKeyCopyWithImpl<$Res, _$_SshKey>
-    implements _$$_SshKeyCopyWith<$Res> {
-  __$$_SshKeyCopyWithImpl(_$_SshKey _value, $Res Function(_$_SshKey) _then)
+class __$$SshKeyImplCopyWithImpl<$Res>
+    extends _$SshKeyCopyWithImpl<$Res, _$SshKeyImpl>
+    implements _$$SshKeyImplCopyWith<$Res> {
+  __$$SshKeyImplCopyWithImpl(
+      _$SshKeyImpl _value, $Res Function(_$SshKeyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -103,7 +105,7 @@ class __$$_SshKeyCopyWithImpl<$Res>
     Object? publicKey = null,
     Object? createdAt = null,
   }) {
-    return _then(_$_SshKey(
+    return _then(_$SshKeyImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -126,16 +128,16 @@ class __$$_SshKeyCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SshKey extends _SshKey {
-  const _$_SshKey(
+class _$SshKeyImpl extends _SshKey {
+  const _$SshKeyImpl(
       {required this.name,
       required this.fingerprint,
       required this.publicKey,
       required this.createdAt})
       : super._();
 
-  factory _$_SshKey.fromJson(Map<String, dynamic> json) =>
-      _$$_SshKeyFromJson(json);
+  factory _$SshKeyImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SshKeyImplFromJson(json);
 
   @override
   final String name;
@@ -155,7 +157,7 @@ class _$_SshKey extends _SshKey {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SshKey &&
+            other is _$SshKeyImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.fingerprint, fingerprint) ||
                 other.fingerprint == fingerprint) &&
@@ -173,12 +175,12 @@ class _$_SshKey extends _SshKey {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SshKeyCopyWith<_$_SshKey> get copyWith =>
-      __$$_SshKeyCopyWithImpl<_$_SshKey>(this, _$identity);
+  _$$SshKeyImplCopyWith<_$SshKeyImpl> get copyWith =>
+      __$$SshKeyImplCopyWithImpl<_$SshKeyImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SshKeyToJson(
+    return _$$SshKeyImplToJson(
       this,
     );
   }
@@ -189,10 +191,10 @@ abstract class _SshKey extends SshKey {
       {required final String name,
       required final String fingerprint,
       required final String publicKey,
-      required final DateTime createdAt}) = _$_SshKey;
+      required final DateTime createdAt}) = _$SshKeyImpl;
   const _SshKey._() : super._();
 
-  factory _SshKey.fromJson(Map<String, dynamic> json) = _$_SshKey.fromJson;
+  factory _SshKey.fromJson(Map<String, dynamic> json) = _$SshKeyImpl.fromJson;
 
   @override
   String get name;
@@ -204,6 +206,6 @@ abstract class _SshKey extends SshKey {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_SshKeyCopyWith<_$_SshKey> get copyWith =>
+  _$$SshKeyImplCopyWith<_$SshKeyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

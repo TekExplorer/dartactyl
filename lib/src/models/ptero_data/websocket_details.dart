@@ -8,7 +8,7 @@ part '../../generated/models/ptero_data/websocket_details.g.dart';
 class WebsocketDetails with _$WebsocketDetails, SerializableMixin {
   factory WebsocketDetails({
     required String token,
-    required String socket,
+    required Uri socket,
   }) = _WebsocketDetails;
 
   factory WebsocketDetails.fromJson(JsonMap json) =>

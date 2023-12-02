@@ -67,21 +67,22 @@ class _$DatabaseCopyWithImpl<$Res, $Val extends Database>
 }
 
 /// @nodoc
-abstract class _$$_DatabaseCopyWith<$Res> implements $DatabaseCopyWith<$Res> {
-  factory _$$_DatabaseCopyWith(
-          _$_Database value, $Res Function(_$_Database) then) =
-      __$$_DatabaseCopyWithImpl<$Res>;
+abstract class _$$DatabaseImplCopyWith<$Res>
+    implements $DatabaseCopyWith<$Res> {
+  factory _$$DatabaseImplCopyWith(
+          _$DatabaseImpl value, $Res Function(_$DatabaseImpl) then) =
+      __$$DatabaseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String address, int port});
 }
 
 /// @nodoc
-class __$$_DatabaseCopyWithImpl<$Res>
-    extends _$DatabaseCopyWithImpl<$Res, _$_Database>
-    implements _$$_DatabaseCopyWith<$Res> {
-  __$$_DatabaseCopyWithImpl(
-      _$_Database _value, $Res Function(_$_Database) _then)
+class __$$DatabaseImplCopyWithImpl<$Res>
+    extends _$DatabaseCopyWithImpl<$Res, _$DatabaseImpl>
+    implements _$$DatabaseImplCopyWith<$Res> {
+  __$$DatabaseImplCopyWithImpl(
+      _$DatabaseImpl _value, $Res Function(_$DatabaseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -90,7 +91,7 @@ class __$$_DatabaseCopyWithImpl<$Res>
     Object? address = null,
     Object? port = null,
   }) {
-    return _then(_$_Database(
+    return _then(_$DatabaseImpl(
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -105,11 +106,11 @@ class __$$_DatabaseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Database extends _Database {
-  const _$_Database({required this.address, required this.port}) : super._();
+class _$DatabaseImpl extends _Database {
+  const _$DatabaseImpl({required this.address, required this.port}) : super._();
 
-  factory _$_Database.fromJson(Map<String, dynamic> json) =>
-      _$$_DatabaseFromJson(json);
+  factory _$DatabaseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DatabaseImplFromJson(json);
 
   @override
   final String address;
@@ -125,7 +126,7 @@ class _$_Database extends _Database {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Database &&
+            other is _$DatabaseImpl &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.port, port) || other.port == port));
   }
@@ -137,12 +138,12 @@ class _$_Database extends _Database {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DatabaseCopyWith<_$_Database> get copyWith =>
-      __$$_DatabaseCopyWithImpl<_$_Database>(this, _$identity);
+  _$$DatabaseImplCopyWith<_$DatabaseImpl> get copyWith =>
+      __$$DatabaseImplCopyWithImpl<_$DatabaseImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DatabaseToJson(
+    return _$$DatabaseImplToJson(
       this,
     );
   }
@@ -150,10 +151,12 @@ class _$_Database extends _Database {
 
 abstract class _Database extends Database {
   const factory _Database(
-      {required final String address, required final int port}) = _$_Database;
+      {required final String address,
+      required final int port}) = _$DatabaseImpl;
   const _Database._() : super._();
 
-  factory _Database.fromJson(Map<String, dynamic> json) = _$_Database.fromJson;
+  factory _Database.fromJson(Map<String, dynamic> json) =
+      _$DatabaseImpl.fromJson;
 
   @override
   String get address;
@@ -161,7 +164,7 @@ abstract class _Database extends Database {
   int get port;
   @override
   @JsonKey(ignore: true)
-  _$$_DatabaseCopyWith<_$_Database> get copyWith =>
+  _$$DatabaseImplCopyWith<_$DatabaseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -283,11 +286,11 @@ class _$ServerDatabaseCopyWithImpl<$Res, $Val extends ServerDatabase>
 }
 
 /// @nodoc
-abstract class _$$_ServerDatabaseCopyWith<$Res>
+abstract class _$$ServerDatabaseImplCopyWith<$Res>
     implements $ServerDatabaseCopyWith<$Res> {
-  factory _$$_ServerDatabaseCopyWith(
-          _$_ServerDatabase value, $Res Function(_$_ServerDatabase) then) =
-      __$$_ServerDatabaseCopyWithImpl<$Res>;
+  factory _$$ServerDatabaseImplCopyWith(_$ServerDatabaseImpl value,
+          $Res Function(_$ServerDatabaseImpl) then) =
+      __$$ServerDatabaseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -306,11 +309,11 @@ abstract class _$$_ServerDatabaseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ServerDatabaseCopyWithImpl<$Res>
-    extends _$ServerDatabaseCopyWithImpl<$Res, _$_ServerDatabase>
-    implements _$$_ServerDatabaseCopyWith<$Res> {
-  __$$_ServerDatabaseCopyWithImpl(
-      _$_ServerDatabase _value, $Res Function(_$_ServerDatabase) _then)
+class __$$ServerDatabaseImplCopyWithImpl<$Res>
+    extends _$ServerDatabaseCopyWithImpl<$Res, _$ServerDatabaseImpl>
+    implements _$$ServerDatabaseImplCopyWith<$Res> {
+  __$$ServerDatabaseImplCopyWithImpl(
+      _$ServerDatabaseImpl _value, $Res Function(_$ServerDatabaseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -324,7 +327,7 @@ class __$$_ServerDatabaseCopyWithImpl<$Res>
     Object? maxConnections = null,
     Object? relationships = freezed,
   }) {
-    return _then(_$_ServerDatabase(
+    return _then(_$ServerDatabaseImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -359,8 +362,8 @@ class __$$_ServerDatabaseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ServerDatabase extends _ServerDatabase {
-  const _$_ServerDatabase(
+class _$ServerDatabaseImpl extends _ServerDatabase {
+  const _$ServerDatabaseImpl(
       {required this.id,
       required this.name,
       required this.host,
@@ -370,8 +373,8 @@ class _$_ServerDatabase extends _ServerDatabase {
       this.relationships})
       : super._();
 
-  factory _$_ServerDatabase.fromJson(Map<String, dynamic> json) =>
-      _$$_ServerDatabaseFromJson(json);
+  factory _$ServerDatabaseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServerDatabaseImplFromJson(json);
 
   @override
   final String id;
@@ -399,7 +402,7 @@ class _$_ServerDatabase extends _ServerDatabase {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ServerDatabase &&
+            other is _$ServerDatabaseImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.host, host) || other.host == host) &&
@@ -421,12 +424,13 @@ class _$_ServerDatabase extends _ServerDatabase {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ServerDatabaseCopyWith<_$_ServerDatabase> get copyWith =>
-      __$$_ServerDatabaseCopyWithImpl<_$_ServerDatabase>(this, _$identity);
+  _$$ServerDatabaseImplCopyWith<_$ServerDatabaseImpl> get copyWith =>
+      __$$ServerDatabaseImplCopyWithImpl<_$ServerDatabaseImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServerDatabaseToJson(
+    return _$$ServerDatabaseImplToJson(
       this,
     );
   }
@@ -434,17 +438,18 @@ class _$_ServerDatabase extends _ServerDatabase {
 
 abstract class _ServerDatabase extends ServerDatabase {
   const factory _ServerDatabase(
-      {required final String id,
-      required final String name,
-      required final Database host,
-      required final String username,
-      required final String connectionsFrom,
-      required final int maxConnections,
-      final DatabasePasswordRelationships? relationships}) = _$_ServerDatabase;
+          {required final String id,
+          required final String name,
+          required final Database host,
+          required final String username,
+          required final String connectionsFrom,
+          required final int maxConnections,
+          final DatabasePasswordRelationships? relationships}) =
+      _$ServerDatabaseImpl;
   const _ServerDatabase._() : super._();
 
   factory _ServerDatabase.fromJson(Map<String, dynamic> json) =
-      _$_ServerDatabase.fromJson;
+      _$ServerDatabaseImpl.fromJson;
 
   @override
   String get id;
@@ -464,6 +469,6 @@ abstract class _ServerDatabase extends ServerDatabase {
   DatabasePasswordRelationships? get relationships;
   @override
   @JsonKey(ignore: true)
-  _$$_ServerDatabaseCopyWith<_$_ServerDatabase> get copyWith =>
+  _$$ServerDatabaseImplCopyWith<_$ServerDatabaseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

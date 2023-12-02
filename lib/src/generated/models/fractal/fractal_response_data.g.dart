@@ -6,26 +6,26 @@ part of '../../../models/fractal/fractal_response_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_FractalData<T> _$$_FractalDataFromJson<T extends SerializableMixin>(
+_$FractalDataImpl<T> _$$FractalDataImplFromJson<T extends Serializable>(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_FractalData',
+      r'_$FractalDataImpl',
       json,
       ($checkedConvert) {
-        final val = _$_FractalData<T>(
+        final val = _$FractalDataImpl<T>(
           object: $checkedConvert(
               'object', (v) => $enumDecode(_$AttributeObjectEnumMap, v)),
           attributes: $checkedConvert(
               'attributes',
               (v) =>
-                  AttributesConverter<T>().fromJson(v as Map<String, dynamic>)),
+                  AttributesConverter<T>().fromJson(v as Map<String, Object?>)),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_FractalDataToJson<T extends SerializableMixin>(
-        _$_FractalData<T> instance) =>
+Map<String, dynamic> _$$FractalDataImplToJson<T extends Serializable>(
+        _$FractalDataImpl<T> instance) =>
     <String, dynamic>{
       'object': _$AttributeObjectEnumMap[instance.object]!,
       'attributes': AttributesConverter<T>().toJson(instance.attributes),
@@ -59,30 +59,29 @@ const _$AttributeObjectEnumMap = {
   AttributeObject.activityLog: 'activity_log',
 };
 
-_$_FractalDataMeta<T, M> _$$_FractalDataMetaFromJson<
-        T extends SerializableMixin,
-        M extends Meta>(Map<String, dynamic> json) =>
+_$FractalDataMetaImpl<T, M> _$$FractalDataMetaImplFromJson<
+        T extends Serializable, M extends Meta>(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_FractalDataMeta',
+      r'_$FractalDataMetaImpl',
       json,
       ($checkedConvert) {
-        final val = _$_FractalDataMeta<T, M>(
+        final val = _$FractalDataMetaImpl<T, M>(
           object: $checkedConvert(
               'object', (v) => $enumDecode(_$AttributeObjectEnumMap, v)),
           attributes: $checkedConvert(
               'attributes',
               (v) =>
-                  AttributesConverter<T>().fromJson(v as Map<String, dynamic>)),
+                  AttributesConverter<T>().fromJson(v as Map<String, Object?>)),
           meta: $checkedConvert('meta',
-              (v) => MetaConverter<M>().fromJson(v as Map<String, dynamic>)),
+              (v) => MetaConverter<M>().fromJson(v as Map<String, Object?>)),
         );
         return val;
       },
     );
 
 Map<String, dynamic>
-    _$$_FractalDataMetaToJson<T extends SerializableMixin, M extends Meta>(
-            _$_FractalDataMeta<T, M> instance) =>
+    _$$FractalDataMetaImplToJson<T extends Serializable, M extends Meta>(
+            _$FractalDataMetaImpl<T, M> instance) =>
         <String, dynamic>{
           'object': _$AttributeObjectEnumMap[instance.object]!,
           'attributes': AttributesConverter<T>().toJson(instance.attributes),

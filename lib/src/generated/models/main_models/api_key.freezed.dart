@@ -89,9 +89,10 @@ class _$ApiKeyCopyWithImpl<$Res, $Val extends ApiKey>
 }
 
 /// @nodoc
-abstract class _$$_ApiKeyCopyWith<$Res> implements $ApiKeyCopyWith<$Res> {
-  factory _$$_ApiKeyCopyWith(_$_ApiKey value, $Res Function(_$_ApiKey) then) =
-      __$$_ApiKeyCopyWithImpl<$Res>;
+abstract class _$$ApiKeyImplCopyWith<$Res> implements $ApiKeyCopyWith<$Res> {
+  factory _$$ApiKeyImplCopyWith(
+          _$ApiKeyImpl value, $Res Function(_$ApiKeyImpl) then) =
+      __$$ApiKeyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -103,10 +104,11 @@ abstract class _$$_ApiKeyCopyWith<$Res> implements $ApiKeyCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ApiKeyCopyWithImpl<$Res>
-    extends _$ApiKeyCopyWithImpl<$Res, _$_ApiKey>
-    implements _$$_ApiKeyCopyWith<$Res> {
-  __$$_ApiKeyCopyWithImpl(_$_ApiKey _value, $Res Function(_$_ApiKey) _then)
+class __$$ApiKeyImplCopyWithImpl<$Res>
+    extends _$ApiKeyCopyWithImpl<$Res, _$ApiKeyImpl>
+    implements _$$ApiKeyImplCopyWith<$Res> {
+  __$$ApiKeyImplCopyWithImpl(
+      _$ApiKeyImpl _value, $Res Function(_$ApiKeyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +120,7 @@ class __$$_ApiKeyCopyWithImpl<$Res>
     Object? lastUsedAt = freezed,
     Object? createdAt = null,
   }) {
-    return _then(_$_ApiKey(
+    return _then(_$ApiKeyImpl(
       identifier: null == identifier
           ? _value.identifier
           : identifier // ignore: cast_nullable_to_non_nullable
@@ -145,8 +147,8 @@ class __$$_ApiKeyCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApiKey extends _ApiKey {
-  const _$_ApiKey(
+class _$ApiKeyImpl extends _ApiKey {
+  const _$ApiKeyImpl(
       {required this.identifier,
       this.description,
       final List<String>? allowedIps,
@@ -155,8 +157,8 @@ class _$_ApiKey extends _ApiKey {
       : _allowedIps = allowedIps,
         super._();
 
-  factory _$_ApiKey.fromJson(Map<String, dynamic> json) =>
-      _$$_ApiKeyFromJson(json);
+  factory _$ApiKeyImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ApiKeyImplFromJson(json);
 
   @override
   final String identifier;
@@ -186,7 +188,7 @@ class _$_ApiKey extends _ApiKey {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApiKey &&
+            other is _$ApiKeyImpl &&
             (identical(other.identifier, identifier) ||
                 other.identifier == identifier) &&
             (identical(other.description, description) ||
@@ -207,12 +209,12 @@ class _$_ApiKey extends _ApiKey {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApiKeyCopyWith<_$_ApiKey> get copyWith =>
-      __$$_ApiKeyCopyWithImpl<_$_ApiKey>(this, _$identity);
+  _$$ApiKeyImplCopyWith<_$ApiKeyImpl> get copyWith =>
+      __$$ApiKeyImplCopyWithImpl<_$ApiKeyImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApiKeyToJson(
+    return _$$ApiKeyImplToJson(
       this,
     );
   }
@@ -224,10 +226,10 @@ abstract class _ApiKey extends ApiKey {
       final String? description,
       final List<String>? allowedIps,
       final DateTime? lastUsedAt,
-      required final DateTime createdAt}) = _$_ApiKey;
+      required final DateTime createdAt}) = _$ApiKeyImpl;
   const _ApiKey._() : super._();
 
-  factory _ApiKey.fromJson(Map<String, dynamic> json) = _$_ApiKey.fromJson;
+  factory _ApiKey.fromJson(Map<String, dynamic> json) = _$ApiKeyImpl.fromJson;
 
   @override
   String get identifier;
@@ -241,6 +243,6 @@ abstract class _ApiKey extends ApiKey {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_ApiKeyCopyWith<_$_ApiKey> get copyWith =>
+  _$$ApiKeyImplCopyWith<_$ApiKeyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
