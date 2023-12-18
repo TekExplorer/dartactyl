@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../models/main_models/shedule_task.dart';
+part of '../../../models/main_models/schedule_task.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

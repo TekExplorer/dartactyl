@@ -5,9 +5,7 @@ part '../../generated/models/permission_keys/websocket_permission_keys.freezed.d
 part '../../generated/models/permission_keys/websocket_permission_keys.g.dart';
 
 @freezed
-@With<SerializableMixin>()
-class WebsocketPermissionKeys
-    with SerializableMixin, _$WebsocketPermissionKeys {
+class WebsocketPermissionKeys with _$WebsocketPermissionKeys {
   const factory WebsocketPermissionKeys({
     required String connect,
   }) = _WebsocketPermissionKeys;
@@ -15,6 +13,4 @@ class WebsocketPermissionKeys
 
   factory WebsocketPermissionKeys.fromJson(JsonMap json) =>
       _$WebsocketPermissionKeysFromJson(json);
-
-  // => _$WebsocketPermissionKeysToJson(this);
 }

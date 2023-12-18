@@ -117,7 +117,7 @@ abstract class PteroApplication {
   // });
 
   @POST('/api/application/nodes')
-  Future<FractalDataMeta<Node, ResourceMeta>> createNode({
+  Future<FractalMeta<Node, ResourceMeta>> createNode({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -127,7 +127,7 @@ abstract class PteroApplication {
 
   //TODO: check that the response is in fact a [Node]
   @PATCH('/api/application/nodes/{id}')
-  Future<FractalDataMeta<Node, ResourceMeta>> updateNode({
+  Future<FractalMeta<Node, ResourceMeta>> updateNode({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,

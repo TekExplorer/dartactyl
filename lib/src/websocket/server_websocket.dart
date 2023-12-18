@@ -115,7 +115,8 @@ class ServerWebsocket {
   // TODO: is this the right way to keep it as a ValueStream?
   ValueStream<ConnectionState> get connectionState =>
       _connectionState.stream.distinct().shareValue();
-  final _connectionState = BehaviorSubject<ConnectionState>();
+  final _connectionState =
+      BehaviorSubject<ConnectionState>.seeded(ConnectionState.disconnected);
 
   ValueStream<TransferStatus> get transferStatus => _transferStatus.stream;
   final _transferStatus = BehaviorSubject<TransferStatus>();
@@ -149,7 +150,7 @@ class ServerWebsocket {
 
   // Future<void> get ready => _isAuthenticated.future;
   Future<void> get ready async {
-    final bool isConnecting = connectionState.valueOrNull?.isConnecting ?? true;
+    final bool isConnecting = connectionState.value.isConnecting;
 
     if (isDisconnected && !isConnecting) await _connect();
 
@@ -164,10 +165,12 @@ class ServerWebsocket {
     try {
       if (!isDisconnected) await disconnect();
 
-      final res = await client.getServerWebsocket(serverId: serverId);
+      final res = await client
+          .getServerWebsocket(serverId: serverId)
+          .then((value) => value.data);
 
       _websocket = IOWebSocketChannel.connect(
-        res.data.socket,
+        res.socket,
         // absolutely necessary to avoid requiring users to edit wings configs
         headers: {'Origin': client.url},
       );
@@ -255,8 +258,7 @@ class ServerWebsocket {
   ///
   /// [wsDetailsOverride] is only used in [_connect] to avoid making an extra
   /// request to the API.
-  Future<void> _authenticate(
-      [PteroData<WebsocketDetails>? wsDetailsOverride]) async {
+  Future<void> _authenticate([WebsocketDetails? wsDetailsOverride]) async {
     // if (isClosed) return;
 
     log('Authenticating websocket', name: 'ServerWebsocket._authenticate');
@@ -265,15 +267,17 @@ class ServerWebsocket {
 
     try {
       log('Getting websocket details', name: 'ServerWebsocket._authenticate');
-      final PteroData<WebsocketDetails> socketDetails = wsDetailsOverride ??
-          await client.getServerWebsocket(serverId: serverId);
+      final WebsocketDetails socketDetails = wsDetailsOverride ??
+          await client
+              .getServerWebsocket(serverId: serverId)
+              .then((value) => value.data);
       log(
         'Got websocket details, sending...',
         name: 'ServerWebsocket._authenticate',
       );
       await _send(
         ServerWebsocketSendEvent.auth,
-        socketDetails.data.token,
+        socketDetails.token,
         // lets actually send the data even if we're not authenticated yet
         // because we are authenticating right now
         force: true,
@@ -312,10 +316,8 @@ class ServerWebsocket {
     // _rawEvents.add(event);
 
     final arg = websocketEvent.args?.first;
-
-    final receiveEvent = ServerWebsocketReceiveEvent.values.firstWhereOrNull(
-      (e) => e.event == websocketEvent.event,
-    );
+    final receiveEvent =
+        ServerWebsocketReceiveEvent.fromEventOrNull(websocketEvent.event);
 
     if (receiveEvent == null) {
       throw UnknownWingsEventException._(websocketEvent);
@@ -513,13 +515,12 @@ class ServerWebsocket {
   }
 
   bool get isClosed =>
-      _connectionState.valueOrNull == ConnectionState.closed ||
-      _connectionState.valueOrNull == ConnectionState.closing;
+      _connectionState.isClosed || connectionState.value.isClosed;
 
   bool get isDisconnected =>
       isClosed ||
+      connectionState.value.isDisconnected ||
       _sub == null ||
-      _connectionState.value.isDisconnected ||
       // if not completed, it means we aren't connected.
       // do i need the others?
       !_isAuthenticated.isCompleted;
@@ -564,7 +565,8 @@ class ServerWebsocket {
     await _sub?.cancel();
     _sub = null;
 
-    // TODO: If i don't complete it, don't people hang forever? Complete with error or data?
+    // TODO: If i don't complete it, don't people hang forever?
+    //  Complete with error or data?
     if (!_isAuthenticated.isCompleted) {
       _isAuthenticated.completeError(
         UnexpectedWebsocketException._(
@@ -618,9 +620,8 @@ enum TransferStatus {
   cancelled;
 
   static TransferStatus? fromStringOrNull(String value) {
-    return TransferStatus.values.firstWhereOrNull(
-      (e) => e.name.toLowerCase() == value.toLowerCase(),
-    );
+    // byName throws
+    return TransferStatus.values.asNameMap()[value.toLowerCase()];
   }
 
   // TODO: indicate needs reconnect?
@@ -641,14 +642,14 @@ enum BackupStatus {
   bool get isBackupCompleted => this == backupCompleted;
 }
 
-extension<T> on List<T> {
-  T? firstWhereOrNull(bool Function(T) test) {
-    for (final element in this) {
-      if (test(element)) return element;
-    }
-    return null;
-  }
-}
+// extension<T> on List<T> {
+//   T? firstWhereOrNull(bool Function(T) test) {
+//     for (final element in this) {
+//       if (test(element)) return element;
+//     }
+//     return null;
+//   }
+// }
 
 extension on BehaviorSubject<ServerWebsocketException> {
   /// Adds an [error] to the stream.

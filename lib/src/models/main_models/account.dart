@@ -5,7 +5,7 @@ part '../../generated/models/main_models/account.freezed.dart';
 part '../../generated/models/main_models/account.g.dart';
 
 @freezed
-class Account with SerializableMixin, _$Account {
+class Account with _$Account {
   const factory Account({
     required int id,
     @JsonKey(name: 'admin') required bool isAdmin,

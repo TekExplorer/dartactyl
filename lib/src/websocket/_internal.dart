@@ -4,6 +4,7 @@
 
 import 'dart:convert';
 
+import 'package:collection/collection.dart';
 import 'package:dartactyl/websocket.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -72,6 +73,10 @@ enum ServerWebsocketReceiveEvent implements ServerWebsocketRemoteEvent {
   const ServerWebsocketReceiveEvent(this.event);
   @override
   final String event;
+
+  static ServerWebsocketReceiveEvent? fromEventOrNull(String event) {
+    return values.firstWhereOrNull((e) => e.event == event);
+  }
 }
 
 /// The object which represents an event sent to or from the websocket.

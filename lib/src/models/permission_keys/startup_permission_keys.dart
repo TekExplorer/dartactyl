@@ -5,7 +5,7 @@ part '../../generated/models/permission_keys/startup_permission_keys.freezed.dar
 part '../../generated/models/permission_keys/startup_permission_keys.g.dart';
 
 @freezed
-class StartupPermissionKeys with SerializableMixin, _$StartupPermissionKeys {
+class StartupPermissionKeys with _$StartupPermissionKeys {
   const factory StartupPermissionKeys({
     required String read,
     required String update,

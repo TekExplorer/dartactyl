@@ -5,8 +5,9 @@ part '../../generated/models/main_models/activity_log.freezed.dart';
 part '../../generated/models/main_models/activity_log.g.dart';
 
 @freezed
-class ActivityLog with _$ActivityLog, SerializableMixin {
-  /// [hasAdditionalMetadata] is set to true if [properties] contains a key that isn't `useragent` or `ip`.
+class ActivityLog with _$ActivityLog {
+  /// [hasAdditionalMetadata] is set to true if [properties] contains a key
+  ///  that isn't `useragent` or `ip`.
   const factory ActivityLog({
     String? batch,
     required String event,
@@ -15,7 +16,7 @@ class ActivityLog with _$ActivityLog, SerializableMixin {
     String? description,
     // if its [], set to {}
     // ignore: invalid_annotation_target
-    @JsonKey(fromJson: activityLogPropertiesFromJson)
+    @JsonKey(fromJson: _activityLogPropertiesFromJson)
     required JsonMap properties,
     required bool hasAdditionalMetadata,
     required DateTime timestamp,
@@ -26,7 +27,8 @@ class ActivityLog with _$ActivityLog, SerializableMixin {
   factory ActivityLog.fromJson(JsonMap json) => _$ActivityLogFromJson(json);
 }
 
-JsonMap activityLogPropertiesFromJson(Object? value) {
-  if (value is List) return {};
-  return (value as JsonMap?) ?? {};
+JsonMap _activityLogPropertiesFromJson(Object? value) {
+  // empty = [] which is not a map
+  if (value is! JsonMap?) return {};
+  return value ?? {};
 }

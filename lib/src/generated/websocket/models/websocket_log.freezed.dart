@@ -153,7 +153,7 @@ class _$ConsoleLogImpl implements ConsoleLog {
   }
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ConsoleLogImpl &&
@@ -302,7 +302,7 @@ class _$InstallLogImpl implements InstallLog {
   }
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InstallLogImpl &&
@@ -451,7 +451,7 @@ class _$TransferLogImpl implements TransferLog {
   }
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TransferLogImpl &&
@@ -600,7 +600,7 @@ class _$DaemonMessageImpl implements DaemonMessage {
   }
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DaemonMessageImpl &&

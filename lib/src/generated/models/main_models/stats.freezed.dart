@@ -223,8 +223,9 @@ mixin _$StatsResources {
 
   /// the amount of time the server has been running
   /// added in pterodactyl v1.8, where it guaranteed to exist
-// required int uptime, //TODO: doesn't exist in v1.7 or earlier
-  int? get uptime => throw _privateConstructorUsedError;
+  /// will be -1 if on a version (v1.7 and below) that does not have it
+  @JsonKey(defaultValue: -1)
+  int get uptime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -244,7 +245,7 @@ abstract class $StatsResourcesCopyWith<$Res> {
       int diskBytes,
       int networkRxBytes,
       int networkTxBytes,
-      int? uptime});
+      @JsonKey(defaultValue: -1) int uptime});
 }
 
 /// @nodoc
@@ -265,7 +266,7 @@ class _$StatsResourcesCopyWithImpl<$Res, $Val extends StatsResources>
     Object? diskBytes = null,
     Object? networkRxBytes = null,
     Object? networkTxBytes = null,
-    Object? uptime = freezed,
+    Object? uptime = null,
   }) {
     return _then(_value.copyWith(
       memoryBytes: null == memoryBytes
@@ -288,10 +289,10 @@ class _$StatsResourcesCopyWithImpl<$Res, $Val extends StatsResources>
           ? _value.networkTxBytes
           : networkTxBytes // ignore: cast_nullable_to_non_nullable
               as int,
-      uptime: freezed == uptime
+      uptime: null == uptime
           ? _value.uptime
           : uptime // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ) as $Val);
   }
 }
@@ -310,7 +311,7 @@ abstract class _$$StatsResourcesImplCopyWith<$Res>
       int diskBytes,
       int networkRxBytes,
       int networkTxBytes,
-      int? uptime});
+      @JsonKey(defaultValue: -1) int uptime});
 }
 
 /// @nodoc
@@ -329,7 +330,7 @@ class __$$StatsResourcesImplCopyWithImpl<$Res>
     Object? diskBytes = null,
     Object? networkRxBytes = null,
     Object? networkTxBytes = null,
-    Object? uptime = freezed,
+    Object? uptime = null,
   }) {
     return _then(_$StatsResourcesImpl(
       memoryBytes: null == memoryBytes
@@ -352,10 +353,10 @@ class __$$StatsResourcesImplCopyWithImpl<$Res>
           ? _value.networkTxBytes
           : networkTxBytes // ignore: cast_nullable_to_non_nullable
               as int,
-      uptime: freezed == uptime
+      uptime: null == uptime
           ? _value.uptime
           : uptime // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ));
   }
 }
@@ -369,7 +370,7 @@ class _$StatsResourcesImpl extends _StatsResources {
       required this.diskBytes,
       required this.networkRxBytes,
       required this.networkTxBytes,
-      this.uptime})
+      @JsonKey(defaultValue: -1) required this.uptime})
       : super._();
 
   factory _$StatsResourcesImpl.fromJson(Map<String, dynamic> json) =>
@@ -388,9 +389,10 @@ class _$StatsResourcesImpl extends _StatsResources {
 
   /// the amount of time the server has been running
   /// added in pterodactyl v1.8, where it guaranteed to exist
-// required int uptime, //TODO: doesn't exist in v1.7 or earlier
+  /// will be -1 if on a version (v1.7 and below) that does not have it
   @override
-  final int? uptime;
+  @JsonKey(defaultValue: -1)
+  final int uptime;
 
   @override
   String toString() {
@@ -437,12 +439,13 @@ class _$StatsResourcesImpl extends _StatsResources {
 
 abstract class _StatsResources extends StatsResources {
   const factory _StatsResources(
-      {required final int memoryBytes,
-      required final double cpuAbsolute,
-      required final int diskBytes,
-      required final int networkRxBytes,
-      required final int networkTxBytes,
-      final int? uptime}) = _$StatsResourcesImpl;
+          {required final int memoryBytes,
+          required final double cpuAbsolute,
+          required final int diskBytes,
+          required final int networkRxBytes,
+          required final int networkTxBytes,
+          @JsonKey(defaultValue: -1) required final int uptime}) =
+      _$StatsResourcesImpl;
   const _StatsResources._() : super._();
 
   factory _StatsResources.fromJson(Map<String, dynamic> json) =
@@ -462,8 +465,9 @@ abstract class _StatsResources extends StatsResources {
 
   /// the amount of time the server has been running
   /// added in pterodactyl v1.8, where it guaranteed to exist
-// required int uptime, //TODO: doesn't exist in v1.7 or earlier
-  int? get uptime;
+  /// will be -1 if on a version (v1.7 and below) that does not have it
+  @JsonKey(defaultValue: -1)
+  int get uptime;
   @override
   @JsonKey(ignore: true)
   _$$StatsResourcesImplCopyWith<_$StatsResourcesImpl> get copyWith =>

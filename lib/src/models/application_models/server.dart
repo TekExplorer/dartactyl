@@ -5,7 +5,7 @@ part '../../generated/models/application_models/server.freezed.dart';
 part '../../generated/models/application_models/server.g.dart';
 
 @freezed
-class ApplicationServer with _$ApplicationServer, SerializableMixin {
+class ApplicationServer with _$ApplicationServer {
   const factory ApplicationServer({
     required int id,
     required String externalId,

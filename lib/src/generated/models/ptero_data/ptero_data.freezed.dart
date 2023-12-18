@@ -14,34 +14,34 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-PteroData<T> _$PteroDataFromJson<T extends Serializable>(
-    Map<String, dynamic> json) {
-  return _PteroData<T>.fromJson(json);
+PteroData<T> _$PteroDataFromJson<T extends Object>(
+    Map<String, dynamic> json, T Function(Object?) fromJsonT) {
+  return _PteroData<T>.fromJson(json, fromJsonT);
 }
 
 /// @nodoc
-mixin _$PteroData<T extends Serializable> {
-  @PteroDataConverter()
+mixin _$PteroData<T extends Object> {
   T get data => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson(Object? Function(T) toJsonT) =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PteroDataCopyWith<T, PteroData<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PteroDataCopyWith<T extends Serializable, $Res> {
+abstract class $PteroDataCopyWith<T extends Object, $Res> {
   factory $PteroDataCopyWith(
           PteroData<T> value, $Res Function(PteroData<T>) then) =
       _$PteroDataCopyWithImpl<T, $Res, PteroData<T>>;
   @useResult
-  $Res call({@PteroDataConverter() T data});
+  $Res call({T data});
 }
 
 /// @nodoc
-class _$PteroDataCopyWithImpl<T extends Serializable, $Res,
-    $Val extends PteroData<T>> implements $PteroDataCopyWith<T, $Res> {
+class _$PteroDataCopyWithImpl<T extends Object, $Res, $Val extends PteroData<T>>
+    implements $PteroDataCopyWith<T, $Res> {
   _$PteroDataCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -64,18 +64,18 @@ class _$PteroDataCopyWithImpl<T extends Serializable, $Res,
 }
 
 /// @nodoc
-abstract class _$$PteroDataImplCopyWith<T extends Serializable, $Res>
+abstract class _$$PteroDataImplCopyWith<T extends Object, $Res>
     implements $PteroDataCopyWith<T, $Res> {
   factory _$$PteroDataImplCopyWith(
           _$PteroDataImpl<T> value, $Res Function(_$PteroDataImpl<T>) then) =
       __$$PteroDataImplCopyWithImpl<T, $Res>;
   @override
   @useResult
-  $Res call({@PteroDataConverter() T data});
+  $Res call({T data});
 }
 
 /// @nodoc
-class __$$PteroDataImplCopyWithImpl<T extends Serializable, $Res>
+class __$$PteroDataImplCopyWithImpl<T extends Object, $Res>
     extends _$PteroDataCopyWithImpl<T, $Res, _$PteroDataImpl<T>>
     implements _$$PteroDataImplCopyWith<T, $Res> {
   __$$PteroDataImplCopyWithImpl(
@@ -97,15 +97,15 @@ class __$$PteroDataImplCopyWithImpl<T extends Serializable, $Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$PteroDataImpl<T extends Serializable> extends _PteroData<T> {
-  const _$PteroDataImpl({@PteroDataConverter() required this.data}) : super._();
+@JsonSerializable(genericArgumentFactories: true)
+class _$PteroDataImpl<T extends Object> extends _PteroData<T> {
+  const _$PteroDataImpl({required this.data}) : super._();
 
-  factory _$PteroDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PteroDataImplFromJson(json);
+  factory _$PteroDataImpl.fromJson(
+          Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
+      _$$PteroDataImplFromJson(json, fromJsonT);
 
   @override
-  @PteroDataConverter()
   final T data;
 
   @override
@@ -133,23 +133,20 @@ class _$PteroDataImpl<T extends Serializable> extends _PteroData<T> {
       __$$PteroDataImplCopyWithImpl<T, _$PteroDataImpl<T>>(this, _$identity);
 
   @override
-  Map<String, dynamic> toJson() {
-    return _$$PteroDataImplToJson<T>(
-      this,
-    );
+  Map<String, dynamic> toJson(Object? Function(T) toJsonT) {
+    return _$$PteroDataImplToJson<T>(this, toJsonT);
   }
 }
 
-abstract class _PteroData<T extends Serializable> extends PteroData<T> {
-  const factory _PteroData({@PteroDataConverter() required final T data}) =
-      _$PteroDataImpl<T>;
+abstract class _PteroData<T extends Object> extends PteroData<T> {
+  const factory _PteroData({required final T data}) = _$PteroDataImpl<T>;
   const _PteroData._() : super._();
 
-  factory _PteroData.fromJson(Map<String, dynamic> json) =
+  factory _PteroData.fromJson(
+          Map<String, dynamic> json, T Function(Object?) fromJsonT) =
       _$PteroDataImpl<T>.fromJson;
 
   @override
-  @PteroDataConverter()
   T get data;
   @override
   @JsonKey(ignore: true)

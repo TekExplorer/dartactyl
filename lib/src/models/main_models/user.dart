@@ -5,7 +5,7 @@ part '../../generated/models/main_models/user.freezed.dart';
 part '../../generated/models/main_models/user.g.dart';
 
 @freezed
-class User with _$User, SerializableMixin {
+class User with _$User {
   const factory User({
     required String uuid,
     required String username,

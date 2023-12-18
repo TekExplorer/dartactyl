@@ -5,7 +5,7 @@ part '../../generated/models/permission_keys/settings_permission_keys.freezed.da
 part '../../generated/models/permission_keys/settings_permission_keys.g.dart';
 
 @freezed
-class SettingsPermissionKeys with SerializableMixin, _$SettingsPermissionKeys {
+class SettingsPermissionKeys with _$SettingsPermissionKeys {
   const factory SettingsPermissionKeys({
     required String rename,
     required String reinstall,

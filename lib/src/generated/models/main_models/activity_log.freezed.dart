@@ -27,7 +27,7 @@ mixin _$ActivityLog {
   String? get description =>
       throw _privateConstructorUsedError; // if its [], set to {}
 // ignore: invalid_annotation_target
-  @JsonKey(fromJson: activityLogPropertiesFromJson)
+  @JsonKey(fromJson: _activityLogPropertiesFromJson)
   Map<String, Object?> get properties => throw _privateConstructorUsedError;
   bool get hasAdditionalMetadata => throw _privateConstructorUsedError;
   DateTime get timestamp => throw _privateConstructorUsedError;
@@ -52,7 +52,7 @@ abstract class $ActivityLogCopyWith<$Res> {
       String? ip,
       bool isApi,
       String? description,
-      @JsonKey(fromJson: activityLogPropertiesFromJson)
+      @JsonKey(fromJson: _activityLogPropertiesFromJson)
       Map<String, Object?> properties,
       bool hasAdditionalMetadata,
       DateTime timestamp,
@@ -152,7 +152,7 @@ abstract class _$$ActivityLogImplCopyWith<$Res>
       String? ip,
       bool isApi,
       String? description,
-      @JsonKey(fromJson: activityLogPropertiesFromJson)
+      @JsonKey(fromJson: _activityLogPropertiesFromJson)
       Map<String, Object?> properties,
       bool hasAdditionalMetadata,
       DateTime timestamp,
@@ -233,7 +233,7 @@ class _$ActivityLogImpl extends _ActivityLog {
       this.ip,
       required this.isApi,
       this.description,
-      @JsonKey(fromJson: activityLogPropertiesFromJson)
+      @JsonKey(fromJson: _activityLogPropertiesFromJson)
       required final Map<String, Object?> properties,
       required this.hasAdditionalMetadata,
       required this.timestamp,
@@ -260,7 +260,7 @@ class _$ActivityLogImpl extends _ActivityLog {
 // if its [], set to {}
 // ignore: invalid_annotation_target
   @override
-  @JsonKey(fromJson: activityLogPropertiesFromJson)
+  @JsonKey(fromJson: _activityLogPropertiesFromJson)
   Map<String, Object?> get properties {
     if (_properties is EqualUnmodifiableMapView) return _properties;
     // ignore: implicit_dynamic_type
@@ -335,7 +335,7 @@ abstract class _ActivityLog extends ActivityLog {
       final String? ip,
       required final bool isApi,
       final String? description,
-      @JsonKey(fromJson: activityLogPropertiesFromJson)
+      @JsonKey(fromJson: _activityLogPropertiesFromJson)
       required final Map<String, Object?> properties,
       required final bool hasAdditionalMetadata,
       required final DateTime timestamp,
@@ -357,7 +357,7 @@ abstract class _ActivityLog extends ActivityLog {
   String? get description;
   @override // if its [], set to {}
 // ignore: invalid_annotation_target
-  @JsonKey(fromJson: activityLogPropertiesFromJson)
+  @JsonKey(fromJson: _activityLogPropertiesFromJson)
   Map<String, Object?> get properties;
   @override
   bool get hasAdditionalMetadata;

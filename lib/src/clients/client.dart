@@ -156,14 +156,13 @@ abstract class PteroClient {
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
-  }) async =>
-      (await getStartup(
+  }) =>
+      getStartup(
         serverId: serverId,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
-      ))
-          .dockerImages;
+      ).then((result) => result.meta.dockerImages);
 
   // /// Login to Pterodactyl using username and password.
   // ///
@@ -310,7 +309,7 @@ abstract class PteroClient {
   /// Create a new [ApiKey] on your account.
   /// This is the only time you will ever get the full key.
   @POST('/api/client/account/api-keys')
-  Future<FractalDataMeta<ApiKey, ApiKeyMeta>> createApiKey(
+  Future<FractalMeta<ApiKey, ApiKeyMeta>> createApiKey(
     @Body() CreateApiKey data, {
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
@@ -358,7 +357,7 @@ abstract class PteroClient {
   ///
   /// Available [Includes]; 'egg', 'subusers'
   @GET('/api/client/servers/{serverId}')
-  Future<FractalDataMeta<Server, ServerMeta>> getServerDetails({
+  Future<FractalMeta<Server, ServerMeta>> getServerDetails({
     @Path() required String serverId,
     @Query('include') ServerIncludes? include,
     @CancelRequest() CancelToken? cancelToken,

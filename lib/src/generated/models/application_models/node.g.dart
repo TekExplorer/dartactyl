@@ -96,18 +96,25 @@ _$NodeRelationshipsImpl _$$NodeRelationshipsImplFromJson(
               (v) => v == null
                   ? null
                   : FractalData<ApplicationAllocation>.fromJson(
-                      v as Map<String, dynamic>)),
+                      v as Map<String, dynamic>,
+                      (value) => ApplicationAllocation.fromJson(
+                          value as Map<String, dynamic>))),
           location: $checkedConvert(
               'location',
               (v) => v == null
                   ? null
-                  : FractalData<Location>.fromJson(v as Map<String, dynamic>)),
+                  : FractalData<Location>.fromJson(
+                      v as Map<String, dynamic>,
+                      (value) =>
+                          Location.fromJson(value as Map<String, dynamic>))),
           servers: $checkedConvert(
               'servers',
               (v) => v == null
                   ? null
                   : FractalListData<ApplicationServer>.fromJson(
-                      v as Map<String, dynamic>)),
+                      v as Map<String, dynamic>,
+                      (value) => ApplicationServer.fromJson(
+                          value as Map<String, dynamic>))),
         );
         return val;
       },
@@ -116,7 +123,13 @@ _$NodeRelationshipsImpl _$$NodeRelationshipsImplFromJson(
 Map<String, dynamic> _$$NodeRelationshipsImplToJson(
         _$NodeRelationshipsImpl instance) =>
     <String, dynamic>{
-      'allocation': instance.allocation?.toJson(),
-      'location': instance.location?.toJson(),
-      'servers': instance.servers?.toJson(),
+      'allocation': instance.allocation?.toJson(
+        (value) => value.toJson(),
+      ),
+      'location': instance.location?.toJson(
+        (value) => value.toJson(),
+      ),
+      'servers': instance.servers?.toJson(
+        (value) => value.toJson(),
+      ),
     };

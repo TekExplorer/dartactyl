@@ -8,10 +8,9 @@ export 'package:dio/dio.dart' show CancelToken;
 export 'src/clients/client_site_config.dart';
 
 /// Extra
-export 'src/extra/fractal_extensions.dart';
 export 'src/extra/fractal_list_extensions.dart';
+export 'src/extra/json_map.dart';
 export 'src/extra/typedefs.dart';
-export 'src/extra/utility.dart';
 
 /// Interceptors
 export 'src/interceptors/handle_errors.dart';
@@ -20,9 +19,6 @@ export 'src/interceptors/remove_null_resources.dart';
 /// Application Models
 export 'src/models/application_models/application_models.dart';
 export 'src/models/application_request_models/application_request_models.dart';
-
-///
-export 'src/models/base/serializable.dart';
 
 /// Egg Models
 export 'src/models/egg/egg.dart';

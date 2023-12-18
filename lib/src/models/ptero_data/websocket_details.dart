@@ -5,7 +5,7 @@ part '../../generated/models/ptero_data/websocket_details.freezed.dart';
 part '../../generated/models/ptero_data/websocket_details.g.dart';
 
 @freezed
-class WebsocketDetails with _$WebsocketDetails, SerializableMixin {
+class WebsocketDetails with _$WebsocketDetails {
   factory WebsocketDetails({
     required String token,
     required Uri socket,

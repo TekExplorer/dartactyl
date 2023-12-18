@@ -5,7 +5,7 @@ part '../../generated/models/main_models/server_schedule.freezed.dart';
 part '../../generated/models/main_models/server_schedule.g.dart';
 
 @freezed
-class ServerSchedule with SerializableMixin, _$ServerSchedule {
+class ServerSchedule with _$ServerSchedule {
   const factory ServerSchedule({
     required int id,
     required String name,

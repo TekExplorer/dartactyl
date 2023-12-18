@@ -6,7 +6,7 @@ part '../../generated/models/main_models/egg.g.dart';
 
 // TODO: full egg vs server egg
 @freezed
-class Egg with SerializableMixin, _$Egg {
+class Egg with _$Egg {
   const factory Egg({
     // only uuid and name show up in the client api
     // int id,

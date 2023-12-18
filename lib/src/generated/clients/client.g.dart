@@ -136,8 +136,11 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value =
-        FractalListMeta<Server, PaginatedMeta>.fromJson(_result.data!);
+    final value = FractalListMeta<Server, PaginatedMeta>.fromJson(
+      _result.data!,
+      (json) => Server.fromJson(json as Map<String, dynamic>),
+      (json) => PaginatedMeta.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -172,7 +175,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<SystemPermissions>.fromJson(_result.data!);
+    final value = FractalData<SystemPermissions>.fromJson(
+      _result.data!,
+      (json) => SystemPermissions.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -207,7 +213,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<Account>.fromJson(_result.data!);
+    final value = FractalData<Account>.fromJson(
+      _result.data!,
+      (json) => Account.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -242,7 +251,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<TwoFactorImage>.fromJson(_result.data!);
+    final value = FractalData<TwoFactorImage>.fromJson(
+      _result.data!,
+      (json) => TwoFactorImage.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -278,7 +290,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<RecoveryTokens>.fromJson(_result.data!);
+    final value = FractalData<RecoveryTokens>.fromJson(
+      _result.data!,
+      (json) => RecoveryTokens.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -423,8 +438,11 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value =
-        FractalListMeta<ActivityLog, PaginatedMeta>.fromJson(_result.data!);
+    final value = FractalListMeta<ActivityLog, PaginatedMeta>.fromJson(
+      _result.data!,
+      (json) => ActivityLog.fromJson(json as Map<String, dynamic>),
+      (json) => PaginatedMeta.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -459,12 +477,15 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalListData<ApiKey>.fromJson(_result.data!);
+    final value = FractalListData<ApiKey>.fromJson(
+      _result.data!,
+      (json) => ApiKey.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
   @override
-  Future<FractalDataMeta<ApiKey, ApiKeyMeta>> createApiKey(
+  Future<FractalMeta<ApiKey, ApiKeyMeta>> createApiKey(
     CreateApiKey data, {
     CancelToken? cancelToken,
     void Function(int, int)? onSendProgress,
@@ -476,7 +497,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final _data = data;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalDataMeta<ApiKey, ApiKeyMeta>>(Options(
+        _setStreamType<FractalMeta<ApiKey, ApiKeyMeta>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -495,7 +516,11 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalDataMeta<ApiKey, ApiKeyMeta>.fromJson(_result.data!);
+    final value = FractalMeta<ApiKey, ApiKeyMeta>.fromJson(
+      _result.data!,
+      (json) => ApiKey.fromJson(json as Map<String, dynamic>),
+      (json) => ApiKeyMeta.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -563,7 +588,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalListData<SshKey>.fromJson(_result.data!);
+    final value = FractalListData<SshKey>.fromJson(
+      _result.data!,
+      (json) => SshKey.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -599,7 +627,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<SshKey>.fromJson(_result.data!);
+    final value = FractalData<SshKey>.fromJson(
+      _result.data!,
+      (json) => SshKey.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -637,7 +668,7 @@ class _PteroClient extends PteroClient {
   }
 
   @override
-  Future<FractalDataMeta<Server, ServerMeta>> getServerDetails({
+  Future<FractalMeta<Server, ServerMeta>> getServerDetails({
     required String serverId,
     ServerIncludes? include,
     CancelToken? cancelToken,
@@ -650,7 +681,7 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalDataMeta<Server, ServerMeta>>(Options(
+        _setStreamType<FractalMeta<Server, ServerMeta>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -669,7 +700,11 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalDataMeta<Server, ServerMeta>.fromJson(_result.data!);
+    final value = FractalMeta<Server, ServerMeta>.fromJson(
+      _result.data!,
+      (json) => Server.fromJson(json as Map<String, dynamic>),
+      (json) => ServerMeta.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -705,7 +740,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = PteroData<WebsocketDetails>.fromJson(_result.data!);
+    final value = PteroData<WebsocketDetails>.fromJson(
+      _result.data!,
+      (json) => WebsocketDetails.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -741,7 +779,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<Stats>.fromJson(_result.data!);
+    final value = FractalData<Stats>.fromJson(
+      _result.data!,
+      (json) => Stats.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -788,8 +829,11 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value =
-        FractalListMeta<ActivityLog, PaginatedMeta>.fromJson(_result.data!);
+    final value = FractalListMeta<ActivityLog, PaginatedMeta>.fromJson(
+      _result.data!,
+      (json) => ActivityLog.fromJson(json as Map<String, dynamic>),
+      (json) => PaginatedMeta.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -894,7 +938,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalListData<ServerDatabase>.fromJson(_result.data!);
+    final value = FractalListData<ServerDatabase>.fromJson(
+      _result.data!,
+      (json) => ServerDatabase.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -931,7 +978,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<ServerDatabase>.fromJson(_result.data!);
+    final value = FractalData<ServerDatabase>.fromJson(
+      _result.data!,
+      (json) => ServerDatabase.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1002,7 +1052,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<ServerDatabase>.fromJson(_result.data!);
+    final value = FractalData<ServerDatabase>.fromJson(
+      _result.data!,
+      (json) => ServerDatabase.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1039,7 +1092,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalListData<FileObject>.fromJson(_result.data!);
+    final value = FractalListData<FileObject>.fromJson(
+      _result.data!,
+      (json) => FileObject.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1112,7 +1168,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<SignedUrl>.fromJson(_result.data!);
+    final value = FractalData<SignedUrl>.fromJson(
+      _result.data!,
+      (json) => SignedUrl.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1254,7 +1313,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<FileObject>.fromJson(_result.data!);
+    final value = FractalData<FileObject>.fromJson(
+      _result.data!,
+      (json) => FileObject.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1460,7 +1522,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<SignedUrl>.fromJson(_result.data!);
+    final value = FractalData<SignedUrl>.fromJson(
+      _result.data!,
+      (json) => SignedUrl.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1496,7 +1561,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalListData<ServerSchedule>.fromJson(_result.data!);
+    final value = FractalListData<ServerSchedule>.fromJson(
+      _result.data!,
+      (json) => ServerSchedule.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1533,7 +1601,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<ServerSchedule>.fromJson(_result.data!);
+    final value = FractalData<ServerSchedule>.fromJson(
+      _result.data!,
+      (json) => ServerSchedule.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1570,7 +1641,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<ServerSchedule>.fromJson(_result.data!);
+    final value = FractalData<ServerSchedule>.fromJson(
+      _result.data!,
+      (json) => ServerSchedule.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1608,7 +1682,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<ServerSchedule>.fromJson(_result.data!);
+    final value = FractalData<ServerSchedule>.fromJson(
+      _result.data!,
+      (json) => ServerSchedule.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1680,7 +1757,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<ScheduleTask>.fromJson(_result.data!);
+    final value = FractalData<ScheduleTask>.fromJson(
+      _result.data!,
+      (json) => ScheduleTask.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1719,7 +1799,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<ScheduleTask>.fromJson(_result.data!);
+    final value = FractalData<ScheduleTask>.fromJson(
+      _result.data!,
+      (json) => ScheduleTask.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1790,7 +1873,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalListData<Allocation>.fromJson(_result.data!);
+    final value = FractalListData<Allocation>.fromJson(
+      _result.data!,
+      (json) => Allocation.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1826,7 +1912,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<Allocation>.fromJson(_result.data!);
+    final value = FractalData<Allocation>.fromJson(
+      _result.data!,
+      (json) => Allocation.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1864,7 +1953,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<Allocation>.fromJson(_result.data!);
+    final value = FractalData<Allocation>.fromJson(
+      _result.data!,
+      (json) => Allocation.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1901,7 +1993,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<Allocation>.fromJson(_result.data!);
+    final value = FractalData<Allocation>.fromJson(
+      _result.data!,
+      (json) => Allocation.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1938,7 +2033,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<Allocation>.fromJson(_result.data!);
+    final value = FractalData<Allocation>.fromJson(
+      _result.data!,
+      (json) => Allocation.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1974,7 +2072,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalListData<ServerSubuser>.fromJson(_result.data!);
+    final value = FractalListData<ServerSubuser>.fromJson(
+      _result.data!,
+      (json) => ServerSubuser.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -1990,8 +2091,7 @@ class _PteroClient extends PteroClient {
     final queryParameters = <String, dynamic>{};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(subuserData.toJson());
+    final _data = subuserData;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<FractalData<ServerSubuser>>(Options(
       method: 'POST',
@@ -2012,7 +2112,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<ServerSubuser>.fromJson(_result.data!);
+    final value = FractalData<ServerSubuser>.fromJson(
+      _result.data!,
+      (json) => ServerSubuser.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -2049,7 +2152,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<ServerSubuser>.fromJson(_result.data!);
+    final value = FractalData<ServerSubuser>.fromJson(
+      _result.data!,
+      (json) => ServerSubuser.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -2087,7 +2193,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<ServerSubuser>.fromJson(_result.data!);
+    final value = FractalData<ServerSubuser>.fromJson(
+      _result.data!,
+      (json) => ServerSubuser.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -2162,8 +2271,11 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value =
-        FractalListMeta<Backup, PaginatedBackupsMeta>.fromJson(_result.data!);
+    final value = FractalListMeta<Backup, PaginatedBackupsMeta>.fromJson(
+      _result.data!,
+      (json) => Backup.fromJson(json as Map<String, dynamic>),
+      (json) => PaginatedBackupsMeta.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -2200,7 +2312,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<Backup>.fromJson(_result.data!);
+    final value = FractalData<Backup>.fromJson(
+      _result.data!,
+      (json) => Backup.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -2237,7 +2352,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<Backup>.fromJson(_result.data!);
+    final value = FractalData<Backup>.fromJson(
+      _result.data!,
+      (json) => Backup.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -2274,7 +2392,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<Backup>.fromJson(_result.data!);
+    final value = FractalData<Backup>.fromJson(
+      _result.data!,
+      (json) => Backup.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -2311,7 +2432,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<SignedUrl>.fromJson(_result.data!);
+    final value = FractalData<SignedUrl>.fromJson(
+      _result.data!,
+      (json) => SignedUrl.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -2416,8 +2540,11 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value =
-        FractalListMeta<EggVariable, StartupMeta>.fromJson(_result.data!);
+    final value = FractalListMeta<EggVariable, StartupMeta>.fromJson(
+      _result.data!,
+      (json) => EggVariable.fromJson(json as Map<String, dynamic>),
+      (json) => StartupMeta.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -2454,7 +2581,10 @@ class _PteroClient extends PteroClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<EggVariable>.fromJson(_result.data!);
+    final value = FractalData<EggVariable>.fromJson(
+      _result.data!,
+      (json) => EggVariable.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 

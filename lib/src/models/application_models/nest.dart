@@ -5,7 +5,7 @@ part '../../generated/models/application_models/nest.freezed.dart';
 part '../../generated/models/application_models/nest.g.dart';
 
 @freezed
-class Nest with SerializableMixin, _$Nest {
+class Nest with _$Nest {
   const factory Nest({
     required int id,
     required String uuid,

@@ -15,7 +15,7 @@ void main(List<String> args) async {
   print('Getting Data!');
 
   await client.listServers().then((response) {
-    final Server server = response.data[0].attributes;
+    final Server server = response.items[0];
     print('${server.name} : ${server.description}');
   });
 

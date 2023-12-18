@@ -5,7 +5,7 @@ part '../../generated/models/main_models/backup.freezed.dart';
 part '../../generated/models/main_models/backup.g.dart';
 
 @freezed
-class Backup with SerializableMixin, _$Backup {
+class Backup with _$Backup {
   const factory Backup({
     required String uuid,
     required bool isSuccessful,

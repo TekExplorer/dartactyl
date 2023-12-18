@@ -12,6 +12,11 @@
   - Calling any action or awaiting `ready` will connect it
   - `disconnect()` will disconnect without closing, allowing reuse
   - `close()` will fully close and dispose the class entirely
+- Remove deprecated `Actor`
+- Remove `SerializableMixin` in favor of `genericArgumentFactories`
+- Deprecate typedefs
+- \[BREAKING\] Remove a bunch of extensions. use `.attributes`/`.data` instead, or define your own extensions
+- Make `StatsResources.uptime` non-nullable and default to -1
 
 ## 1.9.0
 

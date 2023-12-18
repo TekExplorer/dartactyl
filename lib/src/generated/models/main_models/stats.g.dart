@@ -51,7 +51,7 @@ _$StatsResourcesImpl _$$StatsResourcesImplFromJson(Map<String, dynamic> json) =>
           diskBytes: $checkedConvert('disk_bytes', (v) => v as int),
           networkRxBytes: $checkedConvert('network_rx_bytes', (v) => v as int),
           networkTxBytes: $checkedConvert('network_tx_bytes', (v) => v as int),
-          uptime: $checkedConvert('uptime', (v) => v as int?),
+          uptime: $checkedConvert('uptime', (v) => v as int? ?? -1),
         );
         return val;
       },

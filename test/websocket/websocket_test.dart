@@ -1,5 +1,9 @@
 // ignore_for_file: unused_import, cascade_invocations, no_leading_underscores_for_local_identifiers, no_default_cases
 
+// Absolutely necessary for the test to work
+@TestOn('vm')
+library;
+
 import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
@@ -11,6 +15,7 @@ import 'package:dio/dio.dart';
 import 'package:mocktailx/mocktailx.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:stream_channel/stream_channel.dart';
+import 'package:test/test.dart' as t;
 import 'package:test/test.dart';
 import 'package:universal_io/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
@@ -19,8 +24,6 @@ import 'websocket_helper.dart';
 
 class MockPteroClient extends Mock implements PteroClient {}
 
-// Absolutely necessary for the test to work
-@TestOn('vm')
 void main() {
   // create mock
   // getServerWebsocket

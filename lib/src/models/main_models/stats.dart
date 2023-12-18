@@ -22,7 +22,7 @@ enum ServerPowerState {
 }
 
 @freezed
-class Stats with SerializableMixin, _$Stats {
+class Stats with _$Stats {
   const factory Stats({
     required ServerPowerState currentState,
     required bool isSuspended,
@@ -44,13 +44,13 @@ class StatsResources with _$StatsResources {
 
     /// the amount of time the server has been running
     /// added in pterodactyl v1.8, where it guaranteed to exist
-    // required int uptime, //TODO: doesn't exist in v1.7 or earlier
-    int? uptime, //todo: always exists in v1.8 or later
+    /// will be -1 if on a version (v1.7 and below) that does not have it
+    @JsonKey(defaultValue: -1) required int uptime,
   }) = _StatsResources;
   const StatsResources._();
 
   factory StatsResources.fromJson(JsonMap json) =>
       _$StatsResourcesFromJson(json);
 
-  // DateTime get uptimeAsDateTime => DateTime.fromMillisecondsSinceEpoch(uptime!);
+//DateTime get uptimeAsDateTime => DateTime.fromMillisecondsSinceEpoch(uptime!);
 }

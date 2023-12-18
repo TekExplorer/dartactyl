@@ -18,7 +18,7 @@ _$ActivityLogImpl _$$ActivityLogImplFromJson(Map<String, dynamic> json) =>
           isApi: $checkedConvert('is_api', (v) => v as bool),
           description: $checkedConvert('description', (v) => v as String?),
           properties: $checkedConvert(
-              'properties', (v) => activityLogPropertiesFromJson(v)),
+              'properties', (v) => _activityLogPropertiesFromJson(v)),
           hasAdditionalMetadata:
               $checkedConvert('has_additional_metadata', (v) => v as bool),
           timestamp:

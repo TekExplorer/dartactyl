@@ -628,34 +628,34 @@ abstract class _Permissions extends Permissions {
       throw _privateConstructorUsedError;
 }
 
-PermissionsModel<T> _$PermissionsModelFromJson<T extends Serializable>(
-    Map<String, dynamic> json) {
-  return _PermissionsModel<T>.fromJson(json);
+PermissionsModel<T> _$PermissionsModelFromJson<T extends Object>(
+    Map<String, dynamic> json, T Function(Object?) fromJsonT) {
+  return _PermissionsModel<T>.fromJson(json, fromJsonT);
 }
 
 /// @nodoc
-mixin _$PermissionsModel<T extends Serializable> {
+mixin _$PermissionsModel<T extends Object> {
   String get description => throw _privateConstructorUsedError;
-  @PermissionKeysConverter()
   T get keys => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson(Object? Function(T) toJsonT) =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PermissionsModelCopyWith<T, PermissionsModel<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PermissionsModelCopyWith<T extends Serializable, $Res> {
+abstract class $PermissionsModelCopyWith<T extends Object, $Res> {
   factory $PermissionsModelCopyWith(
           PermissionsModel<T> value, $Res Function(PermissionsModel<T>) then) =
       _$PermissionsModelCopyWithImpl<T, $Res, PermissionsModel<T>>;
   @useResult
-  $Res call({String description, @PermissionKeysConverter() T keys});
+  $Res call({String description, T keys});
 }
 
 /// @nodoc
-class _$PermissionsModelCopyWithImpl<T extends Serializable, $Res,
+class _$PermissionsModelCopyWithImpl<T extends Object, $Res,
         $Val extends PermissionsModel<T>>
     implements $PermissionsModelCopyWith<T, $Res> {
   _$PermissionsModelCopyWithImpl(this._value, this._then);
@@ -685,18 +685,18 @@ class _$PermissionsModelCopyWithImpl<T extends Serializable, $Res,
 }
 
 /// @nodoc
-abstract class _$$PermissionsModelImplCopyWith<T extends Serializable, $Res>
+abstract class _$$PermissionsModelImplCopyWith<T extends Object, $Res>
     implements $PermissionsModelCopyWith<T, $Res> {
   factory _$$PermissionsModelImplCopyWith(_$PermissionsModelImpl<T> value,
           $Res Function(_$PermissionsModelImpl<T>) then) =
       __$$PermissionsModelImplCopyWithImpl<T, $Res>;
   @override
   @useResult
-  $Res call({String description, @PermissionKeysConverter() T keys});
+  $Res call({String description, T keys});
 }
 
 /// @nodoc
-class __$$PermissionsModelImplCopyWithImpl<T extends Serializable, $Res>
+class __$$PermissionsModelImplCopyWithImpl<T extends Object, $Res>
     extends _$PermissionsModelCopyWithImpl<T, $Res, _$PermissionsModelImpl<T>>
     implements _$$PermissionsModelImplCopyWith<T, $Res> {
   __$$PermissionsModelImplCopyWithImpl(_$PermissionsModelImpl<T> _value,
@@ -723,21 +723,18 @@ class __$$PermissionsModelImplCopyWithImpl<T extends Serializable, $Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$PermissionsModelImpl<T extends Serializable>
-    extends _PermissionsModel<T> {
-  const _$PermissionsModelImpl(
-      {required this.description,
-      @PermissionKeysConverter() required this.keys})
+@JsonSerializable(genericArgumentFactories: true)
+class _$PermissionsModelImpl<T extends Object> extends _PermissionsModel<T> {
+  const _$PermissionsModelImpl({required this.description, required this.keys})
       : super._();
 
-  factory _$PermissionsModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PermissionsModelImplFromJson(json);
+  factory _$PermissionsModelImpl.fromJson(
+          Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
+      _$$PermissionsModelImplFromJson(json, fromJsonT);
 
   @override
   final String description;
   @override
-  @PermissionKeysConverter()
   final T keys;
 
   @override
@@ -768,28 +765,24 @@ class _$PermissionsModelImpl<T extends Serializable>
           this, _$identity);
 
   @override
-  Map<String, dynamic> toJson() {
-    return _$$PermissionsModelImplToJson<T>(
-      this,
-    );
+  Map<String, dynamic> toJson(Object? Function(T) toJsonT) {
+    return _$$PermissionsModelImplToJson<T>(this, toJsonT);
   }
 }
 
-abstract class _PermissionsModel<T extends Serializable>
-    extends PermissionsModel<T> {
+abstract class _PermissionsModel<T extends Object> extends PermissionsModel<T> {
   const factory _PermissionsModel(
-          {required final String description,
-          @PermissionKeysConverter() required final T keys}) =
-      _$PermissionsModelImpl<T>;
+      {required final String description,
+      required final T keys}) = _$PermissionsModelImpl<T>;
   const _PermissionsModel._() : super._();
 
-  factory _PermissionsModel.fromJson(Map<String, dynamic> json) =
+  factory _PermissionsModel.fromJson(
+          Map<String, dynamic> json, T Function(Object?) fromJsonT) =
       _$PermissionsModelImpl<T>.fromJson;
 
   @override
   String get description;
   @override
-  @PermissionKeysConverter()
   T get keys;
   @override
   @JsonKey(ignore: true)

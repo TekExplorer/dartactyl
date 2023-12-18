@@ -129,7 +129,9 @@ _$ApplicationServerRelationshipsImpl
                   (v) => v == null
                       ? null
                       : FractalData<ApplicationUser>.fromJson(
-                          v as Map<String, dynamic>)),
+                          v as Map<String, dynamic>,
+                          (value) => ApplicationUser.fromJson(
+                              value as Map<String, dynamic>))),
             );
             return val;
           },
@@ -138,5 +140,7 @@ _$ApplicationServerRelationshipsImpl
 Map<String, dynamic> _$$ApplicationServerRelationshipsImplToJson(
         _$ApplicationServerRelationshipsImpl instance) =>
     <String, dynamic>{
-      'user': instance.user?.toJson(),
+      'user': instance.user?.toJson(
+        (value) => value.toJson(),
+      ),
     };

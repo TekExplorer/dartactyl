@@ -13,8 +13,8 @@ enum ConnectionState {
       this == ConnectionState.connecting ||
       this == ConnectionState.authenticating;
 
-  bool get isDisconnected =>
-      this == ConnectionState.disconnected ||
-      this == ConnectionState.closing ||
-      this == ConnectionState.closed;
+  bool get isDisconnected => this == ConnectionState.disconnected || isClosed;
+
+  bool get isClosed =>
+      this == ConnectionState.closing || this == ConnectionState.closed;
 }

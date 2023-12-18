@@ -21,8 +21,6 @@ Rename _$RenameFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Rename {
   String get name => throw _privateConstructorUsedError;
-
-  /// Not including this will remove your server [description] entirely (1.11.1)
   String? get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -107,15 +105,14 @@ class __$$RenameImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$RenameImpl extends _Rename {
-  const _$RenameImpl({required this.name, this.description}) : super._();
+  const _$RenameImpl({required this.name, required this.description})
+      : super._();
 
   factory _$RenameImpl.fromJson(Map<String, dynamic> json) =>
       _$$RenameImplFromJson(json);
 
   @override
   final String name;
-
-  /// Not including this will remove your server [description] entirely (1.11.1)
   @override
   final String? description;
 
@@ -154,7 +151,8 @@ class _$RenameImpl extends _Rename {
 
 abstract class _Rename extends Rename {
   const factory _Rename(
-      {required final String name, final String? description}) = _$RenameImpl;
+      {required final String name,
+      required final String? description}) = _$RenameImpl;
   const _Rename._() : super._();
 
   factory _Rename.fromJson(Map<String, dynamic> json) = _$RenameImpl.fromJson;
@@ -162,8 +160,6 @@ abstract class _Rename extends Rename {
   @override
   String get name;
   @override
-
-  /// Not including this will remove your server [description] entirely (1.11.1)
   String? get description;
   @override
   @JsonKey(ignore: true)

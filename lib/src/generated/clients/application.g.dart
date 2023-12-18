@@ -68,8 +68,11 @@ class _PteroApplication extends PteroApplication {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value =
-        FractalListMeta<ApplicationUser, PaginatedMeta>.fromJson(_result.data!);
+    final value = FractalListMeta<ApplicationUser, PaginatedMeta>.fromJson(
+      _result.data!,
+      (json) => ApplicationUser.fromJson(json as Map<String, dynamic>),
+      (json) => PaginatedMeta.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -106,7 +109,10 @@ class _PteroApplication extends PteroApplication {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<ApplicationUser>.fromJson(_result.data!);
+    final value = FractalData<ApplicationUser>.fromJson(
+      _result.data!,
+      (json) => ApplicationUser.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -143,7 +149,10 @@ class _PteroApplication extends PteroApplication {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<ApplicationUser>.fromJson(_result.data!);
+    final value = FractalData<ApplicationUser>.fromJson(
+      _result.data!,
+      (json) => ApplicationUser.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -179,7 +188,10 @@ class _PteroApplication extends PteroApplication {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<ApplicationUser>.fromJson(_result.data!);
+    final value = FractalData<ApplicationUser>.fromJson(
+      _result.data!,
+      (json) => ApplicationUser.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -216,7 +228,10 @@ class _PteroApplication extends PteroApplication {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<ApplicationUser>.fromJson(_result.data!);
+    final value = FractalData<ApplicationUser>.fromJson(
+      _result.data!,
+      (json) => ApplicationUser.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -303,7 +318,11 @@ class _PteroApplication extends PteroApplication {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalListMeta<Node, PaginatedMeta>.fromJson(_result.data!);
+    final value = FractalListMeta<Node, PaginatedMeta>.fromJson(
+      _result.data!,
+      (json) => Node.fromJson(json as Map<String, dynamic>),
+      (json) => PaginatedMeta.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -340,12 +359,15 @@ class _PteroApplication extends PteroApplication {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalData<Node>.fromJson(_result.data!);
+    final value = FractalData<Node>.fromJson(
+      _result.data!,
+      (json) => Node.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
   @override
-  Future<FractalDataMeta<Node, ResourceMeta>> createNode({
+  Future<FractalMeta<Node, ResourceMeta>> createNode({
     CancelToken? cancelToken,
     void Function(int, int)? onSendProgress,
     void Function(int, int)? onReceiveProgress,
@@ -357,7 +379,7 @@ class _PteroApplication extends PteroApplication {
     final _headers = <String, dynamic>{};
     final _data = request;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalDataMeta<Node, ResourceMeta>>(Options(
+        _setStreamType<FractalMeta<Node, ResourceMeta>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -376,12 +398,16 @@ class _PteroApplication extends PteroApplication {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalDataMeta<Node, ResourceMeta>.fromJson(_result.data!);
+    final value = FractalMeta<Node, ResourceMeta>.fromJson(
+      _result.data!,
+      (json) => Node.fromJson(json as Map<String, dynamic>),
+      (json) => ResourceMeta.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
   @override
-  Future<FractalDataMeta<Node, ResourceMeta>> updateNode({
+  Future<FractalMeta<Node, ResourceMeta>> updateNode({
     CancelToken? cancelToken,
     void Function(int, int)? onSendProgress,
     void Function(int, int)? onReceiveProgress,
@@ -394,7 +420,7 @@ class _PteroApplication extends PteroApplication {
     final _headers = <String, dynamic>{};
     final _data = request;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalDataMeta<Node, ResourceMeta>>(Options(
+        _setStreamType<FractalMeta<Node, ResourceMeta>>(Options(
       method: 'PATCH',
       headers: _headers,
       extra: _extra,
@@ -413,7 +439,11 @@ class _PteroApplication extends PteroApplication {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = FractalDataMeta<Node, ResourceMeta>.fromJson(_result.data!);
+    final value = FractalMeta<Node, ResourceMeta>.fromJson(
+      _result.data!,
+      (json) => Node.fromJson(json as Map<String, dynamic>),
+      (json) => ResourceMeta.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -501,7 +531,10 @@ class _PteroApplication extends PteroApplication {
                 ))));
     final value =
         FractalListMeta<ApplicationAllocation, PaginatedMeta>.fromJson(
-            _result.data!);
+      _result.data!,
+      (json) => ApplicationAllocation.fromJson(json as Map<String, dynamic>),
+      (json) => PaginatedMeta.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 

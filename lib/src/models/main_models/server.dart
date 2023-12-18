@@ -5,7 +5,7 @@ part '../../generated/models/main_models/server.freezed.dart';
 part '../../generated/models/main_models/server.g.dart';
 
 @freezed
-class Server with SerializableMixin, _$Server {
+class Server with _$Server {
   const factory Server({
     required bool serverOwner,
     required String identifier,
