@@ -1,4 +1,5 @@
 import 'package:dartactyl/models.dart';
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '../../generated/models/main_models/backup.freezed.dart';
@@ -11,7 +12,7 @@ class Backup with _$Backup {
     required bool isSuccessful,
     required bool isLocked,
     required String name,
-    List<String>? ignoredFiles,
+    IList<String>? ignoredFiles,
     String? checksum,
     required int bytes,
     required DateTime createdAt,

@@ -1,3 +1,4 @@
+import 'package:dartactyl/dartactyl.dart';
 import 'package:dio/dio.dart';
 
 /// Remove any instance of null_resource, which looks like this:
@@ -21,7 +22,7 @@ class RemoveNullResourcesInterceptor extends Interceptor {
   //   "attributes": null
   // }
   Object? _removeNullResource(Object? json) {
-    if (json is Map<String, Object?>) {
+    if (json is JsonMap) {
       if (json case {'object': 'null_resource'}) return null;
 
       return json.map(

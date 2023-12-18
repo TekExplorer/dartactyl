@@ -22,7 +22,7 @@ ApiKey _$ApiKeyFromJson(Map<String, dynamic> json) {
 mixin _$ApiKey {
   String get identifier => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<String>? get allowedIps => throw _privateConstructorUsedError;
+  IList<String>? get allowedIps => throw _privateConstructorUsedError;
   DateTime? get lastUsedAt => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -39,7 +39,7 @@ abstract class $ApiKeyCopyWith<$Res> {
   $Res call(
       {String identifier,
       String? description,
-      List<String>? allowedIps,
+      IList<String>? allowedIps,
       DateTime? lastUsedAt,
       DateTime createdAt});
 }
@@ -75,7 +75,7 @@ class _$ApiKeyCopyWithImpl<$Res, $Val extends ApiKey>
       allowedIps: freezed == allowedIps
           ? _value.allowedIps
           : allowedIps // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as IList<String>?,
       lastUsedAt: freezed == lastUsedAt
           ? _value.lastUsedAt
           : lastUsedAt // ignore: cast_nullable_to_non_nullable
@@ -98,7 +98,7 @@ abstract class _$$ApiKeyImplCopyWith<$Res> implements $ApiKeyCopyWith<$Res> {
   $Res call(
       {String identifier,
       String? description,
-      List<String>? allowedIps,
+      IList<String>? allowedIps,
       DateTime? lastUsedAt,
       DateTime createdAt});
 }
@@ -130,9 +130,9 @@ class __$$ApiKeyImplCopyWithImpl<$Res>
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
       allowedIps: freezed == allowedIps
-          ? _value._allowedIps
+          ? _value.allowedIps
           : allowedIps // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as IList<String>?,
       lastUsedAt: freezed == lastUsedAt
           ? _value.lastUsedAt
           : lastUsedAt // ignore: cast_nullable_to_non_nullable
@@ -151,11 +151,10 @@ class _$ApiKeyImpl extends _ApiKey {
   const _$ApiKeyImpl(
       {required this.identifier,
       this.description,
-      final List<String>? allowedIps,
+      this.allowedIps,
       this.lastUsedAt,
       required this.createdAt})
-      : _allowedIps = allowedIps,
-        super._();
+      : super._();
 
   factory _$ApiKeyImpl.fromJson(Map<String, dynamic> json) =>
       _$$ApiKeyImplFromJson(json);
@@ -164,16 +163,8 @@ class _$ApiKeyImpl extends _ApiKey {
   final String identifier;
   @override
   final String? description;
-  final List<String>? _allowedIps;
   @override
-  List<String>? get allowedIps {
-    final value = _allowedIps;
-    if (value == null) return null;
-    if (_allowedIps is EqualUnmodifiableListView) return _allowedIps;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
+  final IList<String>? allowedIps;
   @override
   final DateTime? lastUsedAt;
   @override
@@ -194,7 +185,7 @@ class _$ApiKeyImpl extends _ApiKey {
             (identical(other.description, description) ||
                 other.description == description) &&
             const DeepCollectionEquality()
-                .equals(other._allowedIps, _allowedIps) &&
+                .equals(other.allowedIps, allowedIps) &&
             (identical(other.lastUsedAt, lastUsedAt) ||
                 other.lastUsedAt == lastUsedAt) &&
             (identical(other.createdAt, createdAt) ||
@@ -204,7 +195,7 @@ class _$ApiKeyImpl extends _ApiKey {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, identifier, description,
-      const DeepCollectionEquality().hash(_allowedIps), lastUsedAt, createdAt);
+      const DeepCollectionEquality().hash(allowedIps), lastUsedAt, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -224,7 +215,7 @@ abstract class _ApiKey extends ApiKey {
   const factory _ApiKey(
       {required final String identifier,
       final String? description,
-      final List<String>? allowedIps,
+      final IList<String>? allowedIps,
       final DateTime? lastUsedAt,
       required final DateTime createdAt}) = _$ApiKeyImpl;
   const _ApiKey._() : super._();
@@ -236,7 +227,7 @@ abstract class _ApiKey extends ApiKey {
   @override
   String? get description;
   @override
-  List<String>? get allowedIps;
+  IList<String>? get allowedIps;
   @override
   DateTime? get lastUsedAt;
   @override

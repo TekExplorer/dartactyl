@@ -1,4 +1,5 @@
 import 'package:dartactyl/models.dart';
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '../../generated/models/main_models/server.freezed.dart';
@@ -18,7 +19,7 @@ class Server with _$Server {
     required ServerLimits limits,
     required String invocation,
     required String dockerImage,
-    @Default([]) List<String> eggFeatures,
+    @Default(IListConst([])) IList<String> eggFeatures,
     required ServerFeatureLimits featureLimits,
     ServerStatus? status,
     required bool isSuspended,

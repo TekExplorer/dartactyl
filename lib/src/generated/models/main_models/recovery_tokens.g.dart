@@ -13,7 +13,7 @@ _$RecoveryTokensImpl _$$RecoveryTokensImplFromJson(Map<String, dynamic> json) =>
       ($checkedConvert) {
         final val = _$RecoveryTokensImpl(
           tokens: $checkedConvert('tokens',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+              (v) => IList<String>.fromJson(v, (value) => value as String)),
         );
         return val;
       },
@@ -22,5 +22,7 @@ _$RecoveryTokensImpl _$$RecoveryTokensImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$RecoveryTokensImplToJson(
         _$RecoveryTokensImpl instance) =>
     <String, dynamic>{
-      'tokens': instance.tokens,
+      'tokens': instance.tokens.toJson(
+        (value) => value,
+      ),
     };

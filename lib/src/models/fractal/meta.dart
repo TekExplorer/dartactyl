@@ -1,4 +1,5 @@
 import 'package:dartactyl/dartactyl.dart';
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '../../generated/models/fractal/meta.freezed.dart';
@@ -17,8 +18,7 @@ class PaginatedMeta with _$PaginatedMeta implements Meta, PaginationMixin {
   const factory PaginatedMeta({required Pagination pagination}) =
       _PaginatedMeta;
   const PaginatedMeta._();
-  factory PaginatedMeta.fromJson(Map<String, Object?> json) =>
-      _$PaginatedMetaFromJson(json);
+  factory PaginatedMeta.fromJson(JsonMap json) => _$PaginatedMetaFromJson(json);
 }
 
 /// Shows on `listBackups`
@@ -33,7 +33,7 @@ class PaginatedBackupsMeta
   }) = _PaginatedBackupsMeta;
   const PaginatedBackupsMeta._();
 
-  factory PaginatedBackupsMeta.fromJson(Map<String, Object?> json) =>
+  factory PaginatedBackupsMeta.fromJson(JsonMap json) =>
       _$PaginatedBackupsMetaFromJson(json);
 }
 
@@ -42,11 +42,10 @@ class PaginatedBackupsMeta
 class ServerMeta with _$ServerMeta implements Meta {
   const factory ServerMeta({
     required bool isServerOwner,
-    required List<String> userPermissions,
+    required IList<String> userPermissions,
   }) = _ServerMeta;
   const ServerMeta._();
-  factory ServerMeta.fromJson(Map<String, Object?> json) =>
-      _$ServerMetaFromJson(json);
+  factory ServerMeta.fromJson(JsonMap json) => _$ServerMetaFromJson(json);
 }
 
 /// Shows up on `listVariables`
@@ -55,11 +54,10 @@ class StartupMeta with _$StartupMeta implements Meta {
   const factory StartupMeta({
     required String startupCommand,
     required String rawStartupCommand,
-    required Map<String, String> dockerImages,
+    required IMap<String, String> dockerImages,
   }) = _StartupMeta;
   const StartupMeta._();
-  factory StartupMeta.fromJson(Map<String, Object?> json) =>
-      _$StartupMetaFromJson(json);
+  factory StartupMeta.fromJson(JsonMap json) => _$StartupMetaFromJson(json);
 }
 
 /// Shows on `createApiKey`
@@ -67,8 +65,7 @@ class StartupMeta with _$StartupMeta implements Meta {
 class ApiKeyMeta with _$ApiKeyMeta implements Meta {
   const factory ApiKeyMeta({required String secretToken}) = _ApiKeyMeta;
   const ApiKeyMeta._();
-  factory ApiKeyMeta.fromJson(Map<String, Object?> json) =>
-      _$ApiKeyMetaFromJson(json);
+  factory ApiKeyMeta.fromJson(JsonMap json) => _$ApiKeyMetaFromJson(json);
 }
 
 /// Shows on `application.createNode`
@@ -76,6 +73,5 @@ class ApiKeyMeta with _$ApiKeyMeta implements Meta {
 class ResourceMeta with _$ResourceMeta implements Meta {
   const factory ResourceMeta({required Uri resource}) = _ResourceMeta;
   const ResourceMeta._();
-  factory ResourceMeta.fromJson(Map<String, Object?> json) =>
-      _$ResourceMetaFromJson(json);
+  factory ResourceMeta.fromJson(JsonMap json) => _$ResourceMetaFromJson(json);
 }

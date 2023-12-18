@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:dartactyl/dartactyl.dart';
 import 'package:dio/dio.dart' hide Headers;
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -151,7 +152,7 @@ abstract class PteroClient {
   ///
   /// This is equivalent to calling [getStartup] and
   ///  then accessing the `dockerImages` property.
-  Future<Map<String, String>> listDockerImages({
+  Future<IMap<String, String>> listDockerImages({
     required String serverId,
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,

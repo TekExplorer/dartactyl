@@ -31,7 +31,7 @@ mixin _$Server {
   ServerLimits get limits => throw _privateConstructorUsedError;
   String get invocation => throw _privateConstructorUsedError;
   String get dockerImage => throw _privateConstructorUsedError;
-  List<String> get eggFeatures => throw _privateConstructorUsedError;
+  IList<String> get eggFeatures => throw _privateConstructorUsedError;
   ServerFeatureLimits get featureLimits => throw _privateConstructorUsedError;
   ServerStatus? get status => throw _privateConstructorUsedError;
   bool get isSuspended => throw _privateConstructorUsedError;
@@ -61,7 +61,7 @@ abstract class $ServerCopyWith<$Res> {
       ServerLimits limits,
       String invocation,
       String dockerImage,
-      List<String> eggFeatures,
+      IList<String> eggFeatures,
       ServerFeatureLimits featureLimits,
       ServerStatus? status,
       bool isSuspended,
@@ -155,7 +155,7 @@ class _$ServerCopyWithImpl<$Res, $Val extends Server>
       eggFeatures: null == eggFeatures
           ? _value.eggFeatures
           : eggFeatures // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as IList<String>,
       featureLimits: null == featureLimits
           ? _value.featureLimits
           : featureLimits // ignore: cast_nullable_to_non_nullable
@@ -235,7 +235,7 @@ abstract class _$$ServerImplCopyWith<$Res> implements $ServerCopyWith<$Res> {
       ServerLimits limits,
       String invocation,
       String dockerImage,
-      List<String> eggFeatures,
+      IList<String> eggFeatures,
       ServerFeatureLimits featureLimits,
       ServerStatus? status,
       bool isSuspended,
@@ -329,9 +329,9 @@ class __$$ServerImplCopyWithImpl<$Res>
           : dockerImage // ignore: cast_nullable_to_non_nullable
               as String,
       eggFeatures: null == eggFeatures
-          ? _value._eggFeatures
+          ? _value.eggFeatures
           : eggFeatures // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as IList<String>,
       featureLimits: null == featureLimits
           ? _value.featureLimits
           : featureLimits // ignore: cast_nullable_to_non_nullable
@@ -375,15 +375,14 @@ class _$ServerImpl extends _Server {
       required this.limits,
       required this.invocation,
       required this.dockerImage,
-      final List<String> eggFeatures = const [],
+      this.eggFeatures = const IListConst([]),
       required this.featureLimits,
       this.status,
       required this.isSuspended,
       required this.isInstalling,
       required this.isTransferring,
       required this.relationships})
-      : _eggFeatures = eggFeatures,
-        super._();
+      : super._();
 
   factory _$ServerImpl.fromJson(Map<String, dynamic> json) =>
       _$$ServerImplFromJson(json);
@@ -410,15 +409,9 @@ class _$ServerImpl extends _Server {
   final String invocation;
   @override
   final String dockerImage;
-  final List<String> _eggFeatures;
   @override
   @JsonKey()
-  List<String> get eggFeatures {
-    if (_eggFeatures is EqualUnmodifiableListView) return _eggFeatures;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_eggFeatures);
-  }
-
+  final IList<String> eggFeatures;
   @override
   final ServerFeatureLimits featureLimits;
   @override
@@ -461,7 +454,7 @@ class _$ServerImpl extends _Server {
             (identical(other.dockerImage, dockerImage) ||
                 other.dockerImage == dockerImage) &&
             const DeepCollectionEquality()
-                .equals(other._eggFeatures, _eggFeatures) &&
+                .equals(other.eggFeatures, eggFeatures) &&
             (identical(other.featureLimits, featureLimits) ||
                 other.featureLimits == featureLimits) &&
             (identical(other.status, status) || other.status == status) &&
@@ -490,7 +483,7 @@ class _$ServerImpl extends _Server {
       limits,
       invocation,
       dockerImage,
-      const DeepCollectionEquality().hash(_eggFeatures),
+      const DeepCollectionEquality().hash(eggFeatures),
       featureLimits,
       status,
       isSuspended,
@@ -525,7 +518,7 @@ abstract class _Server extends Server {
       required final ServerLimits limits,
       required final String invocation,
       required final String dockerImage,
-      final List<String> eggFeatures,
+      final IList<String> eggFeatures,
       required final ServerFeatureLimits featureLimits,
       final ServerStatus? status,
       required final bool isSuspended,
@@ -559,7 +552,7 @@ abstract class _Server extends Server {
   @override
   String get dockerImage;
   @override
-  List<String> get eggFeatures;
+  IList<String> get eggFeatures;
   @override
   ServerFeatureLimits get featureLimits;
   @override

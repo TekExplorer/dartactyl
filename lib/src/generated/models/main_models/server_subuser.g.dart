@@ -20,7 +20,7 @@ _$ServerSubuserImpl _$$ServerSubuserImplFromJson(Map<String, dynamic> json) =>
           createdAt:
               $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
           permissions: $checkedConvert('permissions',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+              (v) => IList<String>.fromJson(v, (value) => value as String)),
         );
         return val;
       },
@@ -38,5 +38,7 @@ Map<String, dynamic> _$$ServerSubuserImplToJson(_$ServerSubuserImpl instance) =>
       'image': instance.image,
       '2fa_enabled': instance.twoFaEnabled,
       'created_at': instance.createdAt.toIso8601String(),
-      'permissions': instance.permissions,
+      'permissions': instance.permissions.toJson(
+        (value) => value,
+      ),
     };

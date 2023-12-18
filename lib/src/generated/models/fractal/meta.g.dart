@@ -55,7 +55,7 @@ _$ServerMetaImpl _$$ServerMetaImplFromJson(Map<String, dynamic> json) =>
         final val = _$ServerMetaImpl(
           isServerOwner: $checkedConvert('is_server_owner', (v) => v as bool),
           userPermissions: $checkedConvert('user_permissions',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+              (v) => IList<String>.fromJson(v, (value) => value as String)),
         );
         return val;
       },
@@ -68,7 +68,9 @@ _$ServerMetaImpl _$$ServerMetaImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$ServerMetaImplToJson(_$ServerMetaImpl instance) =>
     <String, dynamic>{
       'is_server_owner': instance.isServerOwner,
-      'user_permissions': instance.userPermissions,
+      'user_permissions': instance.userPermissions.toJson(
+        (value) => value,
+      ),
     };
 
 _$StartupMetaImpl _$$StartupMetaImplFromJson(Map<String, dynamic> json) =>
@@ -82,7 +84,9 @@ _$StartupMetaImpl _$$StartupMetaImplFromJson(Map<String, dynamic> json) =>
           rawStartupCommand:
               $checkedConvert('raw_startup_command', (v) => v as String),
           dockerImages: $checkedConvert(
-              'docker_images', (v) => Map<String, String>.from(v as Map)),
+              'docker_images',
+              (v) => IMap<String, String>.fromJson(v as Map<String, dynamic>,
+                  (value) => value as String, (value) => value as String)),
         );
         return val;
       },
@@ -97,7 +101,10 @@ Map<String, dynamic> _$$StartupMetaImplToJson(_$StartupMetaImpl instance) =>
     <String, dynamic>{
       'startup_command': instance.startupCommand,
       'raw_startup_command': instance.rawStartupCommand,
-      'docker_images': instance.dockerImages,
+      'docker_images': instance.dockerImages.toJson(
+        (value) => value,
+        (value) => value,
+      ),
     };
 
 _$ApiKeyMetaImpl _$$ApiKeyMetaImplFromJson(Map<String, dynamic> json) =>

@@ -26,9 +26,9 @@ _$ServerImpl _$$ServerImplFromJson(Map<String, dynamic> json) => $checkedCreate(
           dockerImage: $checkedConvert('docker_image', (v) => v as String),
           eggFeatures: $checkedConvert(
               'egg_features',
-              (v) =>
-                  (v as List<dynamic>?)?.map((e) => e as String).toList() ??
-                  const []),
+              (v) => v == null
+                  ? const IListConst([])
+                  : IList<String>.fromJson(v, (value) => value as String)),
           featureLimits: $checkedConvert('feature_limits',
               (v) => ServerFeatureLimits.fromJson(v as Map<String, dynamic>)),
           status: $checkedConvert(
@@ -67,7 +67,9 @@ Map<String, dynamic> _$$ServerImplToJson(_$ServerImpl instance) =>
       'limits': instance.limits.toJson(),
       'invocation': instance.invocation,
       'docker_image': instance.dockerImage,
-      'egg_features': instance.eggFeatures,
+      'egg_features': instance.eggFeatures.toJson(
+        (value) => value,
+      ),
       'feature_limits': instance.featureLimits.toJson(),
       'status': _$ServerStatusEnumMap[instance.status],
       'is_suspended': instance.isSuspended,

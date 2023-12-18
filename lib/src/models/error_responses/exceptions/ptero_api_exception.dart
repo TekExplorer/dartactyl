@@ -13,7 +13,7 @@ class PteroApiException extends GenericApiException {
   final PteroErrors _errors;
 
   /// The errors the panel gave us
-  List<PteroError> get errors => _errors.errors;
+  IList<PteroError> get errors => _errors.errors;
 
   PteroError get error => errors.first;
 
@@ -26,5 +26,5 @@ class PteroApiException extends GenericApiException {
 
   @override
   String toString() =>
-      'PteroApiException{statusCode: $statusCode, message: $message, errors: $errors}';
+      'PteroApiException(statusCode: $statusCode, message: $message, errors: $errors)';
 }

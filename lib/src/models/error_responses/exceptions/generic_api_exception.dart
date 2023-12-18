@@ -1,5 +1,6 @@
 import 'package:dartactyl/models.dart';
 import 'package:dio/dio.dart';
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 
 part 'ptero_api_exception.dart';
 

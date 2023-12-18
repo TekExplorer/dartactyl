@@ -20,7 +20,7 @@ RecoveryTokens _$RecoveryTokensFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RecoveryTokens {
-  List<String> get tokens => throw _privateConstructorUsedError;
+  IList<String> get tokens => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $RecoveryTokensCopyWith<$Res> {
           RecoveryTokens value, $Res Function(RecoveryTokens) then) =
       _$RecoveryTokensCopyWithImpl<$Res, RecoveryTokens>;
   @useResult
-  $Res call({List<String> tokens});
+  $Res call({IList<String> tokens});
 }
 
 /// @nodoc
@@ -56,7 +56,7 @@ class _$RecoveryTokensCopyWithImpl<$Res, $Val extends RecoveryTokens>
       tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as IList<String>,
     ) as $Val);
   }
 }
@@ -69,7 +69,7 @@ abstract class _$$RecoveryTokensImplCopyWith<$Res>
       __$$RecoveryTokensImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<String> tokens});
+  $Res call({IList<String> tokens});
 }
 
 /// @nodoc
@@ -87,9 +87,9 @@ class __$$RecoveryTokensImplCopyWithImpl<$Res>
   }) {
     return _then(_$RecoveryTokensImpl(
       tokens: null == tokens
-          ? _value._tokens
+          ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as IList<String>,
     ));
   }
 }
@@ -97,20 +97,13 @@ class __$$RecoveryTokensImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$RecoveryTokensImpl extends _RecoveryTokens {
-  const _$RecoveryTokensImpl({required final List<String> tokens})
-      : _tokens = tokens,
-        super._();
+  const _$RecoveryTokensImpl({required this.tokens}) : super._();
 
   factory _$RecoveryTokensImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecoveryTokensImplFromJson(json);
 
-  final List<String> _tokens;
   @override
-  List<String> get tokens {
-    if (_tokens is EqualUnmodifiableListView) return _tokens;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_tokens);
-  }
+  final IList<String> tokens;
 
   @override
   String toString() {
@@ -122,13 +115,13 @@ class _$RecoveryTokensImpl extends _RecoveryTokens {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RecoveryTokensImpl &&
-            const DeepCollectionEquality().equals(other._tokens, _tokens));
+            const DeepCollectionEquality().equals(other.tokens, tokens));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_tokens));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(tokens));
 
   @JsonKey(ignore: true)
   @override
@@ -146,7 +139,7 @@ class _$RecoveryTokensImpl extends _RecoveryTokens {
 }
 
 abstract class _RecoveryTokens extends RecoveryTokens {
-  const factory _RecoveryTokens({required final List<String> tokens}) =
+  const factory _RecoveryTokens({required final IList<String> tokens}) =
       _$RecoveryTokensImpl;
   const _RecoveryTokens._() : super._();
 
@@ -154,7 +147,7 @@ abstract class _RecoveryTokens extends RecoveryTokens {
       _$RecoveryTokensImpl.fromJson;
 
   @override
-  List<String> get tokens;
+  IList<String> get tokens;
   @override
   @JsonKey(ignore: true)
   _$$RecoveryTokensImplCopyWith<_$RecoveryTokensImpl> get copyWith =>

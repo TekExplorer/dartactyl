@@ -14,9 +14,10 @@ _$PteroErrorsImpl _$$PteroErrorsImplFromJson(Map<String, dynamic> json) =>
         final val = _$PteroErrorsImpl(
           errors: $checkedConvert(
               'errors',
-              (v) => (v as List<dynamic>)
-                  .map((e) => PteroError.fromJson(e as Map<String, dynamic>))
-                  .toList()),
+              (v) => IList<PteroError>.fromJson(
+                  v,
+                  (value) =>
+                      PteroError.fromJson(value as Map<String, dynamic>))),
         );
         return val;
       },
@@ -24,5 +25,7 @@ _$PteroErrorsImpl _$$PteroErrorsImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$PteroErrorsImplToJson(_$PteroErrorsImpl instance) =>
     <String, dynamic>{
-      'errors': instance.errors.map((e) => e.toJson()).toList(),
+      'errors': instance.errors.toJson(
+        (value) => value.toJson(),
+      ),
     };

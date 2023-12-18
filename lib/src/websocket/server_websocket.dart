@@ -506,7 +506,7 @@ class ServerWebsocket {
     final Object? json = jsonDecode(data);
 
     return switch (json) {
-      final Map<String, Object?> json => json,
+      final JsonMap json => json,
       _ => throw UnexpectedWingsResponse._(
           data,
           message: 'Received a non-JSON event from Wings',

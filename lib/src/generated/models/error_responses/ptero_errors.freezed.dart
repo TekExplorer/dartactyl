@@ -20,7 +20,7 @@ PteroErrors _$PteroErrorsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PteroErrors {
-  List<PteroError> get errors => throw _privateConstructorUsedError;
+  IList<PteroError> get errors => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $PteroErrorsCopyWith<$Res> {
           PteroErrors value, $Res Function(PteroErrors) then) =
       _$PteroErrorsCopyWithImpl<$Res, PteroErrors>;
   @useResult
-  $Res call({List<PteroError> errors});
+  $Res call({IList<PteroError> errors});
 }
 
 /// @nodoc
@@ -56,7 +56,7 @@ class _$PteroErrorsCopyWithImpl<$Res, $Val extends PteroErrors>
       errors: null == errors
           ? _value.errors
           : errors // ignore: cast_nullable_to_non_nullable
-              as List<PteroError>,
+              as IList<PteroError>,
     ) as $Val);
   }
 }
@@ -69,7 +69,7 @@ abstract class _$$PteroErrorsImplCopyWith<$Res>
       __$$PteroErrorsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<PteroError> errors});
+  $Res call({IList<PteroError> errors});
 }
 
 /// @nodoc
@@ -87,9 +87,9 @@ class __$$PteroErrorsImplCopyWithImpl<$Res>
   }) {
     return _then(_$PteroErrorsImpl(
       errors: null == errors
-          ? _value._errors
+          ? _value.errors
           : errors // ignore: cast_nullable_to_non_nullable
-              as List<PteroError>,
+              as IList<PteroError>,
     ));
   }
 }
@@ -97,20 +97,13 @@ class __$$PteroErrorsImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$PteroErrorsImpl extends _PteroErrors {
-  const _$PteroErrorsImpl({required final List<PteroError> errors})
-      : _errors = errors,
-        super._();
+  const _$PteroErrorsImpl({required this.errors}) : super._();
 
   factory _$PteroErrorsImpl.fromJson(Map<String, dynamic> json) =>
       _$$PteroErrorsImplFromJson(json);
 
-  final List<PteroError> _errors;
   @override
-  List<PteroError> get errors {
-    if (_errors is EqualUnmodifiableListView) return _errors;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_errors);
-  }
+  final IList<PteroError> errors;
 
   @override
   String toString() {
@@ -122,13 +115,13 @@ class _$PteroErrorsImpl extends _PteroErrors {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PteroErrorsImpl &&
-            const DeepCollectionEquality().equals(other._errors, _errors));
+            const DeepCollectionEquality().equals(other.errors, errors));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_errors));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(errors));
 
   @JsonKey(ignore: true)
   @override
@@ -145,7 +138,7 @@ class _$PteroErrorsImpl extends _PteroErrors {
 }
 
 abstract class _PteroErrors extends PteroErrors {
-  const factory _PteroErrors({required final List<PteroError> errors}) =
+  const factory _PteroErrors({required final IList<PteroError> errors}) =
       _$PteroErrorsImpl;
   const _PteroErrors._() : super._();
 
@@ -153,7 +146,7 @@ abstract class _PteroErrors extends PteroErrors {
       _$PteroErrorsImpl.fromJson;
 
   @override
-  List<PteroError> get errors;
+  IList<PteroError> get errors;
   @override
   @JsonKey(ignore: true)
   _$$PteroErrorsImplCopyWith<_$PteroErrorsImpl> get copyWith =>

@@ -5,6 +5,7 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
+import 'package:dartactyl/dartactyl.dart';
 import 'package:dartactyl/websocket.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -108,7 +109,7 @@ sealed class WebsocketEvent with _$WebsocketEvent {
   const WebsocketEvent._();
 
   @visibleForTesting
-  factory WebsocketEvent.fromJson(Map<String, Object?> json) =>
+  factory WebsocketEvent.fromJson(JsonMap json) =>
       _$WebsocketEventFromJson(json);
 
   String toEncodedJson() => jsonEncode(toJson());

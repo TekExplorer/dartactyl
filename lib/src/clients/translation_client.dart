@@ -276,8 +276,7 @@ enum KnownNamespace {
 
 class TranslationData {
   const TranslationData(this.all);
-  const factory TranslationData.fromJson(Map<String, Object?> json) =
-      TranslationData;
+  const factory TranslationData.fromJson(JsonMap json) = TranslationData;
 
   final JsonMap all;
 

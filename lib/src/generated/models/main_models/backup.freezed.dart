@@ -24,7 +24,7 @@ mixin _$Backup {
   bool get isSuccessful => throw _privateConstructorUsedError;
   bool get isLocked => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  List<String>? get ignoredFiles => throw _privateConstructorUsedError;
+  IList<String>? get ignoredFiles => throw _privateConstructorUsedError;
   String? get checksum => throw _privateConstructorUsedError;
   int get bytes => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -45,7 +45,7 @@ abstract class $BackupCopyWith<$Res> {
       bool isSuccessful,
       bool isLocked,
       String name,
-      List<String>? ignoredFiles,
+      IList<String>? ignoredFiles,
       String? checksum,
       int bytes,
       DateTime createdAt,
@@ -95,7 +95,7 @@ class _$BackupCopyWithImpl<$Res, $Val extends Backup>
       ignoredFiles: freezed == ignoredFiles
           ? _value.ignoredFiles
           : ignoredFiles // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as IList<String>?,
       checksum: freezed == checksum
           ? _value.checksum
           : checksum // ignore: cast_nullable_to_non_nullable
@@ -128,7 +128,7 @@ abstract class _$$BackupImplCopyWith<$Res> implements $BackupCopyWith<$Res> {
       bool isSuccessful,
       bool isLocked,
       String name,
-      List<String>? ignoredFiles,
+      IList<String>? ignoredFiles,
       String? checksum,
       int bytes,
       DateTime createdAt,
@@ -174,9 +174,9 @@ class __$$BackupImplCopyWithImpl<$Res>
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       ignoredFiles: freezed == ignoredFiles
-          ? _value._ignoredFiles
+          ? _value.ignoredFiles
           : ignoredFiles // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as IList<String>?,
       checksum: freezed == checksum
           ? _value.checksum
           : checksum // ignore: cast_nullable_to_non_nullable
@@ -205,13 +205,12 @@ class _$BackupImpl extends _Backup {
       required this.isSuccessful,
       required this.isLocked,
       required this.name,
-      final List<String>? ignoredFiles,
+      this.ignoredFiles,
       this.checksum,
       required this.bytes,
       required this.createdAt,
       this.completedAt})
-      : _ignoredFiles = ignoredFiles,
-        super._();
+      : super._();
 
   factory _$BackupImpl.fromJson(Map<String, dynamic> json) =>
       _$$BackupImplFromJson(json);
@@ -224,16 +223,8 @@ class _$BackupImpl extends _Backup {
   final bool isLocked;
   @override
   final String name;
-  final List<String>? _ignoredFiles;
   @override
-  List<String>? get ignoredFiles {
-    final value = _ignoredFiles;
-    if (value == null) return null;
-    if (_ignoredFiles is EqualUnmodifiableListView) return _ignoredFiles;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
+  final IList<String>? ignoredFiles;
   @override
   final String? checksum;
   @override
@@ -260,7 +251,7 @@ class _$BackupImpl extends _Backup {
                 other.isLocked == isLocked) &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality()
-                .equals(other._ignoredFiles, _ignoredFiles) &&
+                .equals(other.ignoredFiles, ignoredFiles) &&
             (identical(other.checksum, checksum) ||
                 other.checksum == checksum) &&
             (identical(other.bytes, bytes) || other.bytes == bytes) &&
@@ -278,7 +269,7 @@ class _$BackupImpl extends _Backup {
       isSuccessful,
       isLocked,
       name,
-      const DeepCollectionEquality().hash(_ignoredFiles),
+      const DeepCollectionEquality().hash(ignoredFiles),
       checksum,
       bytes,
       createdAt,
@@ -304,7 +295,7 @@ abstract class _Backup extends Backup {
       required final bool isSuccessful,
       required final bool isLocked,
       required final String name,
-      final List<String>? ignoredFiles,
+      final IList<String>? ignoredFiles,
       final String? checksum,
       required final int bytes,
       required final DateTime createdAt,
@@ -322,7 +313,7 @@ abstract class _Backup extends Backup {
   @override
   String get name;
   @override
-  List<String>? get ignoredFiles;
+  IList<String>? get ignoredFiles;
   @override
   String? get checksum;
   @override

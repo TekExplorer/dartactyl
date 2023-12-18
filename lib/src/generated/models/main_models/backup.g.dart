@@ -15,8 +15,11 @@ _$BackupImpl _$$BackupImplFromJson(Map<String, dynamic> json) => $checkedCreate(
           isSuccessful: $checkedConvert('is_successful', (v) => v as bool),
           isLocked: $checkedConvert('is_locked', (v) => v as bool),
           name: $checkedConvert('name', (v) => v as String),
-          ignoredFiles: $checkedConvert('ignored_files',
-              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          ignoredFiles: $checkedConvert(
+              'ignored_files',
+              (v) => v == null
+                  ? null
+                  : IList<String>.fromJson(v, (value) => value as String)),
           checksum: $checkedConvert('checksum', (v) => v as String?),
           bytes: $checkedConvert('bytes', (v) => v as int),
           createdAt:
@@ -41,7 +44,9 @@ Map<String, dynamic> _$$BackupImplToJson(_$BackupImpl instance) =>
       'is_successful': instance.isSuccessful,
       'is_locked': instance.isLocked,
       'name': instance.name,
-      'ignored_files': instance.ignoredFiles,
+      'ignored_files': instance.ignoredFiles?.toJson(
+        (value) => value,
+      ),
       'checksum': instance.checksum,
       'bytes': instance.bytes,
       'created_at': instance.createdAt.toIso8601String(),

@@ -349,7 +349,7 @@ ServerMeta _$ServerMetaFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ServerMeta {
   bool get isServerOwner => throw _privateConstructorUsedError;
-  List<String> get userPermissions => throw _privateConstructorUsedError;
+  IList<String> get userPermissions => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -363,7 +363,7 @@ abstract class $ServerMetaCopyWith<$Res> {
           ServerMeta value, $Res Function(ServerMeta) then) =
       _$ServerMetaCopyWithImpl<$Res, ServerMeta>;
   @useResult
-  $Res call({bool isServerOwner, List<String> userPermissions});
+  $Res call({bool isServerOwner, IList<String> userPermissions});
 }
 
 /// @nodoc
@@ -390,7 +390,7 @@ class _$ServerMetaCopyWithImpl<$Res, $Val extends ServerMeta>
       userPermissions: null == userPermissions
           ? _value.userPermissions
           : userPermissions // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as IList<String>,
     ) as $Val);
   }
 }
@@ -403,7 +403,7 @@ abstract class _$$ServerMetaImplCopyWith<$Res>
       __$$ServerMetaImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isServerOwner, List<String> userPermissions});
+  $Res call({bool isServerOwner, IList<String> userPermissions});
 }
 
 /// @nodoc
@@ -426,9 +426,9 @@ class __$$ServerMetaImplCopyWithImpl<$Res>
           : isServerOwner // ignore: cast_nullable_to_non_nullable
               as bool,
       userPermissions: null == userPermissions
-          ? _value._userPermissions
+          ? _value.userPermissions
           : userPermissions // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as IList<String>,
     ));
   }
 }
@@ -437,23 +437,16 @@ class __$$ServerMetaImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ServerMetaImpl extends _ServerMeta {
   const _$ServerMetaImpl(
-      {required this.isServerOwner,
-      required final List<String> userPermissions})
-      : _userPermissions = userPermissions,
-        super._();
+      {required this.isServerOwner, required this.userPermissions})
+      : super._();
 
   factory _$ServerMetaImpl.fromJson(Map<String, dynamic> json) =>
       _$$ServerMetaImplFromJson(json);
 
   @override
   final bool isServerOwner;
-  final List<String> _userPermissions;
   @override
-  List<String> get userPermissions {
-    if (_userPermissions is EqualUnmodifiableListView) return _userPermissions;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_userPermissions);
-  }
+  final IList<String> userPermissions;
 
   @override
   String toString() {
@@ -468,13 +461,13 @@ class _$ServerMetaImpl extends _ServerMeta {
             (identical(other.isServerOwner, isServerOwner) ||
                 other.isServerOwner == isServerOwner) &&
             const DeepCollectionEquality()
-                .equals(other._userPermissions, _userPermissions));
+                .equals(other.userPermissions, userPermissions));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, isServerOwner,
-      const DeepCollectionEquality().hash(_userPermissions));
+      const DeepCollectionEquality().hash(userPermissions));
 
   @JsonKey(ignore: true)
   @override
@@ -493,7 +486,7 @@ class _$ServerMetaImpl extends _ServerMeta {
 abstract class _ServerMeta extends ServerMeta {
   const factory _ServerMeta(
       {required final bool isServerOwner,
-      required final List<String> userPermissions}) = _$ServerMetaImpl;
+      required final IList<String> userPermissions}) = _$ServerMetaImpl;
   const _ServerMeta._() : super._();
 
   factory _ServerMeta.fromJson(Map<String, dynamic> json) =
@@ -502,7 +495,7 @@ abstract class _ServerMeta extends ServerMeta {
   @override
   bool get isServerOwner;
   @override
-  List<String> get userPermissions;
+  IList<String> get userPermissions;
   @override
   @JsonKey(ignore: true)
   _$$ServerMetaImplCopyWith<_$ServerMetaImpl> get copyWith =>
@@ -517,7 +510,7 @@ StartupMeta _$StartupMetaFromJson(Map<String, dynamic> json) {
 mixin _$StartupMeta {
   String get startupCommand => throw _privateConstructorUsedError;
   String get rawStartupCommand => throw _privateConstructorUsedError;
-  Map<String, String> get dockerImages => throw _privateConstructorUsedError;
+  IMap<String, String> get dockerImages => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -534,7 +527,7 @@ abstract class $StartupMetaCopyWith<$Res> {
   $Res call(
       {String startupCommand,
       String rawStartupCommand,
-      Map<String, String> dockerImages});
+      IMap<String, String> dockerImages});
 }
 
 /// @nodoc
@@ -566,7 +559,7 @@ class _$StartupMetaCopyWithImpl<$Res, $Val extends StartupMeta>
       dockerImages: null == dockerImages
           ? _value.dockerImages
           : dockerImages // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as IMap<String, String>,
     ) as $Val);
   }
 }
@@ -582,7 +575,7 @@ abstract class _$$StartupMetaImplCopyWith<$Res>
   $Res call(
       {String startupCommand,
       String rawStartupCommand,
-      Map<String, String> dockerImages});
+      IMap<String, String> dockerImages});
 }
 
 /// @nodoc
@@ -610,9 +603,9 @@ class __$$StartupMetaImplCopyWithImpl<$Res>
           : rawStartupCommand // ignore: cast_nullable_to_non_nullable
               as String,
       dockerImages: null == dockerImages
-          ? _value._dockerImages
+          ? _value.dockerImages
           : dockerImages // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as IMap<String, String>,
     ));
   }
 }
@@ -623,9 +616,8 @@ class _$StartupMetaImpl extends _StartupMeta {
   const _$StartupMetaImpl(
       {required this.startupCommand,
       required this.rawStartupCommand,
-      required final Map<String, String> dockerImages})
-      : _dockerImages = dockerImages,
-        super._();
+      required this.dockerImages})
+      : super._();
 
   factory _$StartupMetaImpl.fromJson(Map<String, dynamic> json) =>
       _$$StartupMetaImplFromJson(json);
@@ -634,13 +626,8 @@ class _$StartupMetaImpl extends _StartupMeta {
   final String startupCommand;
   @override
   final String rawStartupCommand;
-  final Map<String, String> _dockerImages;
   @override
-  Map<String, String> get dockerImages {
-    if (_dockerImages is EqualUnmodifiableMapView) return _dockerImages;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_dockerImages);
-  }
+  final IMap<String, String> dockerImages;
 
   @override
   String toString() {
@@ -656,14 +643,14 @@ class _$StartupMetaImpl extends _StartupMeta {
                 other.startupCommand == startupCommand) &&
             (identical(other.rawStartupCommand, rawStartupCommand) ||
                 other.rawStartupCommand == rawStartupCommand) &&
-            const DeepCollectionEquality()
-                .equals(other._dockerImages, _dockerImages));
+            (identical(other.dockerImages, dockerImages) ||
+                other.dockerImages == dockerImages));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, startupCommand,
-      rawStartupCommand, const DeepCollectionEquality().hash(_dockerImages));
+  int get hashCode =>
+      Object.hash(runtimeType, startupCommand, rawStartupCommand, dockerImages);
 
   @JsonKey(ignore: true)
   @override
@@ -683,7 +670,7 @@ abstract class _StartupMeta extends StartupMeta {
   const factory _StartupMeta(
       {required final String startupCommand,
       required final String rawStartupCommand,
-      required final Map<String, String> dockerImages}) = _$StartupMetaImpl;
+      required final IMap<String, String> dockerImages}) = _$StartupMetaImpl;
   const _StartupMeta._() : super._();
 
   factory _StartupMeta.fromJson(Map<String, dynamic> json) =
@@ -694,7 +681,7 @@ abstract class _StartupMeta extends StartupMeta {
   @override
   String get rawStartupCommand;
   @override
-  Map<String, String> get dockerImages;
+  IMap<String, String> get dockerImages;
   @override
   @JsonKey(ignore: true)
   _$$StartupMetaImplCopyWith<_$StartupMetaImpl> get copyWith =>

@@ -27,7 +27,7 @@ mixin _$ServerSubuser {
   @JsonKey(name: '2fa_enabled')
   bool get twoFaEnabled => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
-  List<String> get permissions => throw _privateConstructorUsedError;
+  IList<String> get permissions => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +48,7 @@ abstract class $ServerSubuserCopyWith<$Res> {
       String image,
       @JsonKey(name: '2fa_enabled') bool twoFaEnabled,
       DateTime createdAt,
-      List<String> permissions});
+      IList<String> permissions});
 }
 
 /// @nodoc
@@ -100,7 +100,7 @@ class _$ServerSubuserCopyWithImpl<$Res, $Val extends ServerSubuser>
       permissions: null == permissions
           ? _value.permissions
           : permissions // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as IList<String>,
     ) as $Val);
   }
 }
@@ -120,7 +120,7 @@ abstract class _$$ServerSubuserImplCopyWith<$Res>
       String image,
       @JsonKey(name: '2fa_enabled') bool twoFaEnabled,
       DateTime createdAt,
-      List<String> permissions});
+      IList<String> permissions});
 }
 
 /// @nodoc
@@ -168,9 +168,9 @@ class __$$ServerSubuserImplCopyWithImpl<$Res>
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
       permissions: null == permissions
-          ? _value._permissions
+          ? _value.permissions
           : permissions // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as IList<String>,
     ));
   }
 }
@@ -185,9 +185,8 @@ class _$ServerSubuserImpl extends _ServerSubuser {
       required this.image,
       @JsonKey(name: '2fa_enabled') required this.twoFaEnabled,
       required this.createdAt,
-      required final List<String> permissions})
-      : _permissions = permissions,
-        super._();
+      required this.permissions})
+      : super._();
 
   factory _$ServerSubuserImpl.fromJson(Map<String, dynamic> json) =>
       _$$ServerSubuserImplFromJson(json);
@@ -205,13 +204,8 @@ class _$ServerSubuserImpl extends _ServerSubuser {
   final bool twoFaEnabled;
   @override
   final DateTime createdAt;
-  final List<String> _permissions;
   @override
-  List<String> get permissions {
-    if (_permissions is EqualUnmodifiableListView) return _permissions;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_permissions);
-  }
+  final IList<String> permissions;
 
   @override
   String toString() {
@@ -233,7 +227,7 @@ class _$ServerSubuserImpl extends _ServerSubuser {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             const DeepCollectionEquality()
-                .equals(other._permissions, _permissions));
+                .equals(other.permissions, permissions));
   }
 
   @JsonKey(ignore: true)
@@ -246,7 +240,7 @@ class _$ServerSubuserImpl extends _ServerSubuser {
       image,
       twoFaEnabled,
       createdAt,
-      const DeepCollectionEquality().hash(_permissions));
+      const DeepCollectionEquality().hash(permissions));
 
   @JsonKey(ignore: true)
   @override
@@ -270,7 +264,7 @@ abstract class _ServerSubuser extends ServerSubuser {
       required final String image,
       @JsonKey(name: '2fa_enabled') required final bool twoFaEnabled,
       required final DateTime createdAt,
-      required final List<String> permissions}) = _$ServerSubuserImpl;
+      required final IList<String> permissions}) = _$ServerSubuserImpl;
   const _ServerSubuser._() : super._();
 
   factory _ServerSubuser.fromJson(Map<String, dynamic> json) =
@@ -290,7 +284,7 @@ abstract class _ServerSubuser extends ServerSubuser {
   @override
   DateTime get createdAt;
   @override
-  List<String> get permissions;
+  IList<String> get permissions;
   @override
   @JsonKey(ignore: true)
   _$$ServerSubuserImplCopyWith<_$ServerSubuserImpl> get copyWith =>
