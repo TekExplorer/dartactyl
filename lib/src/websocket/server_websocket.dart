@@ -150,7 +150,7 @@ class ServerWebsocket {
 
   // Future<void> get ready => _isAuthenticated.future;
   Future<void> get ready async {
-    final bool isConnecting = connectionState.value.isConnecting;
+    final bool isConnecting = _connectionState.value.isConnecting;
 
     if (isDisconnected && !isConnecting) await _connect();
 
@@ -515,11 +515,11 @@ class ServerWebsocket {
   }
 
   bool get isClosed =>
-      _connectionState.isClosed || connectionState.value.isClosed;
+      _connectionState.isClosed || _connectionState.value.isClosed;
 
   bool get isDisconnected =>
       isClosed ||
-      connectionState.value.isDisconnected ||
+      _connectionState.value.isDisconnected ||
       _sub == null ||
       // if not completed, it means we aren't connected.
       // do i need the others?

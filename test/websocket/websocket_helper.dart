@@ -145,6 +145,8 @@ JsonMap expectAndReturnValidRequestJson(Object? request) {
     isA<String>(),
     reason: 'Expected request to be a string, but got "$request"',
   );
+
+  request!;
   request as String;
 
   final parsedRequest = jsonDecode(request);
