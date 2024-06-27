@@ -23,7 +23,7 @@ mixin _$FileObject {
   String get name => throw _privateConstructorUsedError;
   String get mode => throw _privateConstructorUsedError;
   String get modeBits => throw _privateConstructorUsedError;
-  int get size => throw _privateConstructorUsedError;
+  Bytes get size => throw _privateConstructorUsedError;
   bool get isFile => throw _privateConstructorUsedError;
   bool get isSymlink => throw _privateConstructorUsedError;
   String get mimetype => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $FileObjectCopyWith<$Res> {
       {String name,
       String mode,
       String modeBits,
-      int size,
+      Bytes size,
       bool isFile,
       bool isSymlink,
       String mimetype,
@@ -93,7 +93,7 @@ class _$FileObjectCopyWithImpl<$Res, $Val extends FileObject>
       size: null == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Bytes,
       isFile: null == isFile
           ? _value.isFile
           : isFile // ignore: cast_nullable_to_non_nullable
@@ -130,7 +130,7 @@ abstract class _$$FileObjectImplCopyWith<$Res>
       {String name,
       String mode,
       String modeBits,
-      int size,
+      Bytes size,
       bool isFile,
       bool isSymlink,
       String mimetype,
@@ -175,7 +175,7 @@ class __$$FileObjectImplCopyWithImpl<$Res>
       size: null == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Bytes,
       isFile: null == isFile
           ? _value.isFile
           : isFile // ignore: cast_nullable_to_non_nullable
@@ -225,7 +225,7 @@ class _$FileObjectImpl extends _FileObject {
   @override
   final String modeBits;
   @override
-  final int size;
+  final Bytes size;
   @override
   final bool isFile;
   @override
@@ -287,7 +287,7 @@ abstract class _FileObject extends FileObject {
       {required final String name,
       required final String mode,
       required final String modeBits,
-      required final int size,
+      required final Bytes size,
       required final bool isFile,
       required final bool isSymlink,
       required final String mimetype,
@@ -305,7 +305,7 @@ abstract class _FileObject extends FileObject {
   @override
   String get modeBits;
   @override
-  int get size;
+  Bytes get size;
   @override
   bool get isFile;
   @override

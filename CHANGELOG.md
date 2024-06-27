@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.11.1
+
+- FileObject.size is now a Bytes
+
 ## 1.11.0
 
 - Increased the minimum SDK version to 3.3.0

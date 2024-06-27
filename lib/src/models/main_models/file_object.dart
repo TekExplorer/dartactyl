@@ -28,7 +28,7 @@ class FileObject with _$FileObject {
     required String name,
     required String mode,
     required String modeBits,
-    required int size,
+    required Bytes size,
     required bool isFile,
     required bool isSymlink,
     required String mimetype,
