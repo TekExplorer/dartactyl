@@ -30,46 +30,44 @@ void main() {
   const mockToken = 'mockToken+ao88udjowaijpj';
   const mockServerId = 'mockServerId';
   PteroData<WebsocketDetails> getMockWebsocketDetails(
-    String url,
+    Uri url,
     String token,
   ) {
     return PteroData(
       data: WebsocketDetails(
         token: token,
-        socket: Uri.parse(url),
+        socket: url,
       ),
     );
   }
 
-  void configureMockClient(String url, [String token = 'default mock token']) {
+  void configureMockClient(Uri url, [String token = 'default mock token']) {
     when(
       () => mockClient.getServerWebsocket(serverId: any(named: 'serverId')),
     ).thenAnswer((_) => Future.value(getMockWebsocketDetails(url, token)));
 
     when(
       () => mockClient.baseUrl,
-    ).thenAnswer((_) => url);
+    ).thenAnswer((_) => url.toString());
   }
 
-  void configureMockClientWithError(String url, Object error) {
+  void configureMockClientWithError(Uri url, Object error) {
     when(
       () => mockClient.getServerWebsocket(serverId: any(named: 'serverId')),
     ).thenAnswer((_) => Future.error(error));
 
     when(
       () => mockClient.baseUrl,
-    ).thenAnswer((_) => url);
+    ).thenAnswer((_) => url.toString());
   }
 
   // stub
 
   group('Verify mocks', () {
     test('MockPteroClient.getServerWebsocket', () {
-      final mockWebsocketDetails = getMockWebsocketDetails(
-        'mockUrl',
-        mockToken,
-      );
-      configureMockClient('mockUrl', mockToken);
+      final mockUrl = Uri.https('mockUrl');
+      final mockWebsocketDetails = getMockWebsocketDetails(mockUrl, mockToken);
+      configureMockClient(mockUrl, mockToken);
 
       expect(
         mockClient.getServerWebsocket(serverId: mockServerId),
@@ -128,7 +126,7 @@ void main() {
 
       test('Connection failure (missing server)', () async {
         // final url = await mockServer();
-        const url = 'ws://localhost:1234';
+        final url = Uri.parse('ws://localhost:1234');
         configureMockClient(url);
 
         await expectLater(
@@ -142,12 +140,12 @@ void main() {
             client: mockClient,
             serverId: mockServerId,
           ),
-          throwsA(isA<SocketException>()),
+          throwsA(isA<WebSocketChannelException>()),
         );
       });
       test('Connection failure (missing dns)', () async {
         // final url = await mockServer();
-        const url = 'ws://never.never.never:1234';
+        final url = Uri.parse('ws://never.never.never:1234');
         configureMockClient(url);
 
         await expectLater(
@@ -160,7 +158,7 @@ void main() {
             client: mockClient,
             serverId: mockServerId,
           ),
-          throwsA(isA<SocketException>()),
+          throwsA(isA<WebSocketChannelException>()),
         );
       });
     });
@@ -175,7 +173,7 @@ void main() {
           PteroData(
             data: WebsocketDetails(
               token: mockToken,
-              socket: Uri.parse(url),
+              socket: url,
             ),
           ),
         ),
@@ -216,7 +214,7 @@ void main() {
             PteroData(
               data: WebsocketDetails(
                 token: mockToken,
-                socket: Uri.parse(url),
+                socket: url,
               ),
             ),
           ),
@@ -242,7 +240,6 @@ void main() {
             ConnectionState.authenticating,
             ConnectionState.connected,
             ConnectionState.disconnected,
-            ConnectionState.closing,
             ConnectionState.closed,
           ]),
         );
@@ -259,13 +256,13 @@ void main() {
           reason: 'ServerWebsocket should complete ready',
         );
 
-        await serverWebsocket.ready;
         // make sure it does its thing before we murder it
         await expectLater(
           serverWebsocket.connectionState,
           emits(ConnectionState.connected),
           reason: 'ServerWebsocket should have emitted a connected state',
         );
+
         await expectLater(
           serverWebsocket.close(),
           completes,
@@ -294,7 +291,7 @@ void main() {
           PteroData(
             data: WebsocketDetails(
               token: mockToken,
-              socket: Uri.parse(url),
+              socket: url,
             ),
           ),
         ),

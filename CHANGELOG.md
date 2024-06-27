@@ -1,9 +1,10 @@
 # CHANGELOG
 
-## 1.10.1
+## 1.11.0
 
 - Increased the minimum SDK version to 3.3.0
 - Added the Bytes extension type, so that it can be easily targeted by extensions
+- Removed ConnectionState.closing and WebSocketClosedError
 
 ## 1.10.0
 

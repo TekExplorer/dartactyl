@@ -44,17 +44,6 @@ class UnexpectedWebsocketException extends Error
   }
 }
 
-class WebsocketClosedError extends Error
-    implements DartactylWebsocketException {
-  WebsocketClosedError([this.message = 'Websocket is closed']);
-
-  @override
-  final String message;
-
-  @override
-  String toString() => 'WebsocketClosedException: $message';
-}
-
 class WebsocketDisconnectedException extends DartactylWebsocketException {
   WebsocketDisconnectedException([this.message = 'Websocket is disconnected']);
 

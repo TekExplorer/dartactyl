@@ -179,7 +179,7 @@ class ServerWebsocket {
       await _websocket.ready;
       log('Websocket connected (ready)', name: 'ServerWebsocket._connect');
 
-      if (_sub != null) await _sub!.cancel();
+      if (_sub case final sub?) await sub.cancel();
 
       _sub = _websocket.stream.listen(
         (event) {
@@ -535,11 +535,19 @@ class ServerWebsocket {
       );
       return;
     }
-    // reset `ready` to always throw due to being closed
-    if (_isAuthenticated.isCompleted) __isAuthenticated = Completer();
-    _isAuthenticated.completeError(WebsocketClosedError());
 
-    await _disconnect(shouldClose: true);
+    try {
+      await _disconnect();
+      _connectionState.add(ConnectionState.closed);
+      await _closeSubjects();
+    } catch (e, s) {
+      log(
+        'close() threw',
+        name: 'WebsocketClose',
+        error: e,
+        stackTrace: s,
+      );
+    }
   }
 
   /// Disconnect but don't close user-facing streams
@@ -554,28 +562,26 @@ class ServerWebsocket {
     return _disconnect();
   }
 
-  Future<void> _disconnect({bool shouldClose = false}) async {
-    // So that stuff that only watch for disconnected get triggered too
-    _connectionState.add(ConnectionState.disconnected);
-    if (shouldClose) _connectionState.add(ConnectionState.closing);
-
-    await _websocket.sink.close(WebSocketStatus.normalClosure);
+  Future<void> _disconnect() async {
     // TODO: see if this is right.
     // Close the websocket listener subscription before closing the streams
     await _sub?.cancel();
     _sub = null;
 
+    // So that stuff that only watch for disconnected get triggered too
+    _connectionState.add(ConnectionState.disconnected);
+
+    await _websocket.sink.close(WebSocketStatus.normalClosure);
     // TODO: If i don't complete it, don't people hang forever?
     //  Complete with error or data?
     if (!_isAuthenticated.isCompleted) {
       _isAuthenticated.completeError(
         UnexpectedWebsocketException._(
-          "Websocket disconnected before 'ready' completed",
+          'Websocket disconnected',
           StackTrace.current,
         ),
       );
     }
-    if (shouldClose) await _closeSubjects();
 
     // else {
     //   // make sure future calls to ready fail,
@@ -599,8 +605,6 @@ class ServerWebsocket {
     // await _daemonMessages.close();
     // await _daemonErrors.close();
     await _errors.close();
-    // let listeners know that the websocket is closed
-    _connectionState.add(ConnectionState.closed);
     await _connectionState.close();
   }
 }

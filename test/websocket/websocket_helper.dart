@@ -35,16 +35,17 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 Future<HttpServer> createAndHandleMockServer(
   void Function(WebSocket server) handleServer,
 ) async {
-  final server = await HttpServer.bind('localhost', 0);
+  final server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.transform(WebSocketTransformer()).listen(handleServer);
+  addTearDown(server.close);
   return server;
 }
 
 // TODO: rename when relevant
 
 /// Returns the url of a mock websocket server.
-Future<String> mockServer({
-  // if not provided, will accept any token
+Future<Uri> mockServer({
+  /// if not provided, will accept any token
   String? verifyAuthToken,
   List<String>? mockLogs,
 }) async {
@@ -105,9 +106,12 @@ Future<String> mockServer({
       }
     });
   });
-  final url = 'ws://localhost:${mockServer.port}';
 
-  return url;
+  return Uri(
+    scheme: 'ws',
+    host: mockServer.address.address,
+    port: mockServer.port,
+  );
 }
 
 class WebSocketAndUrl {
