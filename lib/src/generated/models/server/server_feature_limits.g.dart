@@ -13,9 +13,10 @@ _$ServerFeatureLimitsImpl _$$ServerFeatureLimitsImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$ServerFeatureLimitsImpl(
-          allocations: $checkedConvert('allocations', (v) => v as int),
-          databases: $checkedConvert('databases', (v) => v as int?),
-          backups: $checkedConvert('backups', (v) => v as int?),
+          allocations:
+              $checkedConvert('allocations', (v) => (v as num).toInt()),
+          databases: $checkedConvert('databases', (v) => (v as num?)?.toInt()),
+          backups: $checkedConvert('backups', (v) => (v as num?)?.toInt()),
         );
         return val;
       },

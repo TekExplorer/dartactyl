@@ -12,7 +12,7 @@ _$AccountImpl _$$AccountImplFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = _$AccountImpl(
-          id: $checkedConvert('id', (v) => v as int),
+          id: $checkedConvert('id', (v) => (v as num).toInt()),
           isAdmin: $checkedConvert('admin', (v) => v as bool),
           username: $checkedConvert('username', (v) => v as String),
           email: $checkedConvert('email', (v) => v as String),

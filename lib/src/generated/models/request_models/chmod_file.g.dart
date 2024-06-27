@@ -36,7 +36,7 @@ _$ChmodFileImpl _$$ChmodFileImplFromJson(Map<String, dynamic> json) =>
       ($checkedConvert) {
         final val = _$ChmodFileImpl(
           file: $checkedConvert('file', (v) => v as String),
-          mode: $checkedConvert('mode', (v) => v as int),
+          mode: $checkedConvert('mode', (v) => (v as num).toInt()),
         );
         return val;
       },

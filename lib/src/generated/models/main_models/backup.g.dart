@@ -21,7 +21,7 @@ _$BackupImpl _$$BackupImplFromJson(Map<String, dynamic> json) => $checkedCreate(
                   ? null
                   : IList<String>.fromJson(v, (value) => value as String)),
           checksum: $checkedConvert('checksum', (v) => v as String?),
-          bytes: $checkedConvert('bytes', (v) => v as int),
+          bytes: $checkedConvert('bytes', (v) => v as Bytes),
           createdAt:
               $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
           completedAt: $checkedConvert('completed_at',

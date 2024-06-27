@@ -12,7 +12,7 @@ part of '../../../models/request_models/file_body.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 FileBody _$FileBodyFromJson(Map<String, dynamic> json) {
   return _FileBody.fromJson(json);
@@ -129,7 +129,7 @@ class _$FileBodyImpl extends _FileBody {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FileBodyImpl &&
@@ -298,7 +298,7 @@ class _$FileBodyListFromToImpl extends _FileBodyListFromTo {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FileBodyListFromToImpl &&
@@ -469,7 +469,7 @@ class _$FileBodyListStringImpl extends _FileBodyListString {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FileBodyListStringImpl &&
@@ -633,7 +633,7 @@ class _$FolderBodyImpl extends _FolderBody {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FolderBodyImpl &&

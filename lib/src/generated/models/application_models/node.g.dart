@@ -11,26 +11,27 @@ _$NodeImpl _$$NodeImplFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$NodeImpl(
-          id: $checkedConvert('id', (v) => v as int),
+          id: $checkedConvert('id', (v) => (v as num).toInt()),
           uuid: $checkedConvert('uuid', (v) => v as String),
           public: $checkedConvert('public', (v) => v as bool),
           name: $checkedConvert('name', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String),
-          locationId: $checkedConvert('location_id', (v) => v as int),
+          locationId: $checkedConvert('location_id', (v) => (v as num).toInt()),
           fqdn: $checkedConvert('fqdn', (v) => v as String),
           scheme: $checkedConvert('scheme', (v) => v as String),
           behindProxy: $checkedConvert('behind_proxy', (v) => v as bool),
           maintenanceMode:
               $checkedConvert('maintenance_mode', (v) => v as bool),
-          memory: $checkedConvert('memory', (v) => v as int),
+          memory: $checkedConvert('memory', (v) => (v as num).toInt()),
           memoryOverallocate:
-              $checkedConvert('memory_overallocate', (v) => v as int),
-          disk: $checkedConvert('disk', (v) => v as int),
+              $checkedConvert('memory_overallocate', (v) => (v as num).toInt()),
+          disk: $checkedConvert('disk', (v) => (v as num).toInt()),
           diskOverallocate:
-              $checkedConvert('disk_overallocate', (v) => v as int),
-          uploadSize: $checkedConvert('upload_size', (v) => v as int),
-          daemonListen: $checkedConvert('daemon_listen', (v) => v as int),
-          daemonSftp: $checkedConvert('daemon_sftp', (v) => v as int),
+              $checkedConvert('disk_overallocate', (v) => (v as num).toInt()),
+          uploadSize: $checkedConvert('upload_size', (v) => (v as num).toInt()),
+          daemonListen:
+              $checkedConvert('daemon_listen', (v) => (v as num).toInt()),
+          daemonSftp: $checkedConvert('daemon_sftp', (v) => (v as num).toInt()),
           daemonBase: $checkedConvert('daemon_base', (v) => v as String),
           createdAt:
               $checkedConvert('created_at', (v) => DateTime.parse(v as String)),

@@ -32,6 +32,9 @@ export 'src/models/error_responses/ptero_error.dart';
 export 'src/models/error_responses/ptero_error_meta.dart';
 export 'src/models/error_responses/ptero_errors.dart';
 
+/// Extension types
+export 'src/models/extension_types.dart';
+
 /// Fractal Models
 export 'src/models/fractal/fractal.dart';
 

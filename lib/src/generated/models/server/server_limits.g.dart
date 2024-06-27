@@ -12,11 +12,11 @@ _$ServerLimitsImpl _$$ServerLimitsImplFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = _$ServerLimitsImpl(
-          memory: $checkedConvert('memory', (v) => v as int),
-          swap: $checkedConvert('swap', (v) => v as int),
-          disk: $checkedConvert('disk', (v) => v as int),
-          io: $checkedConvert('io', (v) => v as int),
-          cpu: $checkedConvert('cpu', (v) => v as int),
+          memory: $checkedConvert('memory', (v) => (v as num).toInt()),
+          swap: $checkedConvert('swap', (v) => (v as num).toInt()),
+          disk: $checkedConvert('disk', (v) => (v as num).toInt()),
+          io: $checkedConvert('io', (v) => (v as num).toInt()),
+          cpu: $checkedConvert('cpu', (v) => (v as num).toInt()),
           threads: $checkedConvert('threads', (v) => v as String?),
         );
         return val;

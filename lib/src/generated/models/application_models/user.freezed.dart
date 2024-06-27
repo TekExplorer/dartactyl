@@ -12,7 +12,7 @@ part of '../../../models/application_models/user.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ApplicationUser _$ApplicationUserFromJson(Map<String, dynamic> json) {
   return _ApplicationUser.fromJson(json);
@@ -326,7 +326,7 @@ class _$ApplicationUserImpl extends _ApplicationUser {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ApplicationUserImpl &&
@@ -562,7 +562,7 @@ class _$ApplicationUserRelationshipsImpl extends _ApplicationUserRelationships {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ApplicationUserRelationshipsImpl &&

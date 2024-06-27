@@ -11,7 +11,7 @@ _$NestImpl _$$NestImplFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$NestImpl(
-          id: $checkedConvert('id', (v) => v as int),
+          id: $checkedConvert('id', (v) => (v as num).toInt()),
           uuid: $checkedConvert('uuid', (v) => v as String),
           author: $checkedConvert('author', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),

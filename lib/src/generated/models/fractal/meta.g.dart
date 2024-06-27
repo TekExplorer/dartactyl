@@ -33,7 +33,8 @@ _$PaginatedBackupsMetaImpl _$$PaginatedBackupsMetaImplFromJson(
         final val = _$PaginatedBackupsMetaImpl(
           pagination: $checkedConvert('pagination',
               (v) => Pagination.fromJson(v as Map<String, dynamic>)),
-          backupCount: $checkedConvert('backup_count', (v) => v as int),
+          backupCount:
+              $checkedConvert('backup_count', (v) => (v as num).toInt()),
         );
         return val;
       },

@@ -12,11 +12,11 @@ _$ScheduleTaskImpl _$$ScheduleTaskImplFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = _$ScheduleTaskImpl(
-          id: $checkedConvert('id', (v) => v as int),
-          sequenceId: $checkedConvert('sequence_id', (v) => v as int),
+          id: $checkedConvert('id', (v) => (v as num).toInt()),
+          sequenceId: $checkedConvert('sequence_id', (v) => (v as num).toInt()),
           action: $checkedConvert('action', (v) => v as String),
           payload: $checkedConvert('payload', (v) => v as String),
-          timeOffset: $checkedConvert('time_offset', (v) => v as int),
+          timeOffset: $checkedConvert('time_offset', (v) => (v as num).toInt()),
           isQueued: $checkedConvert('is_queued', (v) => v as bool),
           continueOnFailure:
               $checkedConvert('continue_on_failure', (v) => v as bool?),

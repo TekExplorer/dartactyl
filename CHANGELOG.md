@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.10.1
+
+- Increased the minimum SDK version to 3.3.0
+- Added the Bytes extension type, so that it can be easily targeted by extensions
+
 ## 1.10.0
 
 - Update dependencies

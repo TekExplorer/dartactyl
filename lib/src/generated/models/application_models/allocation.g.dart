@@ -13,10 +13,10 @@ _$ApplicationAllocationImpl _$$ApplicationAllocationImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$ApplicationAllocationImpl(
-          id: $checkedConvert('id', (v) => v as int),
+          id: $checkedConvert('id', (v) => (v as num).toInt()),
           ip: $checkedConvert('ip', (v) => v as String),
           ipAlias: $checkedConvert('ip_alias', (v) => v as String?),
-          port: $checkedConvert('port', (v) => v as int),
+          port: $checkedConvert('port', (v) => (v as num).toInt()),
           notes: $checkedConvert('notes', (v) => v as String?),
           assigned: $checkedConvert('assigned', (v) => v as bool),
         );

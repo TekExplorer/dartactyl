@@ -12,10 +12,10 @@ _$AllocationImpl _$$AllocationImplFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = _$AllocationImpl(
-          id: $checkedConvert('id', (v) => v as int),
+          id: $checkedConvert('id', (v) => (v as num).toInt()),
           ip: $checkedConvert('ip', (v) => v as String),
           ipAlias: $checkedConvert('ip_alias', (v) => v as String?),
-          port: $checkedConvert('port', (v) => v as int),
+          port: $checkedConvert('port', (v) => (v as num).toInt()),
           notes: $checkedConvert('notes', (v) => v as String?),
           isDefault: $checkedConvert('is_default', (v) => v as bool),
         );

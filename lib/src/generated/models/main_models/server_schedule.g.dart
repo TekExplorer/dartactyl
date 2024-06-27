@@ -12,7 +12,7 @@ _$ServerScheduleImpl _$$ServerScheduleImplFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = _$ServerScheduleImpl(
-          id: $checkedConvert('id', (v) => v as int),
+          id: $checkedConvert('id', (v) => (v as num).toInt()),
           name: $checkedConvert('name', (v) => v as String),
           cron: $checkedConvert(
               'cron', (v) => Cron.fromJson(v as Map<String, dynamic>)),

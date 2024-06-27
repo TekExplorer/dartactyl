@@ -12,7 +12,7 @@ _$TwoFactorCodeImpl _$$TwoFactorCodeImplFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = _$TwoFactorCodeImpl(
-          code: $checkedConvert('code', (v) => v as int),
+          code: $checkedConvert('code', (v) => (v as num).toInt()),
         );
         return val;
       },

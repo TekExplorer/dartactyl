@@ -12,7 +12,7 @@ part of '../../../models/main_models/backup.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Backup _$BackupFromJson(Map<String, dynamic> json) {
   return _Backup.fromJson(json);
@@ -26,7 +26,7 @@ mixin _$Backup {
   String get name => throw _privateConstructorUsedError;
   IList<String>? get ignoredFiles => throw _privateConstructorUsedError;
   String? get checksum => throw _privateConstructorUsedError;
-  int get bytes => throw _privateConstructorUsedError;
+  Bytes get bytes => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime? get completedAt => throw _privateConstructorUsedError;
 
@@ -47,7 +47,7 @@ abstract class $BackupCopyWith<$Res> {
       String name,
       IList<String>? ignoredFiles,
       String? checksum,
-      int bytes,
+      Bytes bytes,
       DateTime createdAt,
       DateTime? completedAt});
 }
@@ -103,7 +103,7 @@ class _$BackupCopyWithImpl<$Res, $Val extends Backup>
       bytes: null == bytes
           ? _value.bytes
           : bytes // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Bytes,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -130,7 +130,7 @@ abstract class _$$BackupImplCopyWith<$Res> implements $BackupCopyWith<$Res> {
       String name,
       IList<String>? ignoredFiles,
       String? checksum,
-      int bytes,
+      Bytes bytes,
       DateTime createdAt,
       DateTime? completedAt});
 }
@@ -184,7 +184,7 @@ class __$$BackupImplCopyWithImpl<$Res>
       bytes: null == bytes
           ? _value.bytes
           : bytes // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Bytes,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -228,7 +228,7 @@ class _$BackupImpl extends _Backup {
   @override
   final String? checksum;
   @override
-  final int bytes;
+  final Bytes bytes;
   @override
   final DateTime createdAt;
   @override
@@ -240,7 +240,7 @@ class _$BackupImpl extends _Backup {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BackupImpl &&
@@ -297,7 +297,7 @@ abstract class _Backup extends Backup {
       required final String name,
       final IList<String>? ignoredFiles,
       final String? checksum,
-      required final int bytes,
+      required final Bytes bytes,
       required final DateTime createdAt,
       final DateTime? completedAt}) = _$BackupImpl;
   const _Backup._() : super._();
@@ -317,7 +317,7 @@ abstract class _Backup extends Backup {
   @override
   String? get checksum;
   @override
-  int get bytes;
+  Bytes get bytes;
   @override
   DateTime get createdAt;
   @override

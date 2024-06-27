@@ -36,11 +36,11 @@ class Stats with _$Stats {
 @freezed
 class StatsResources with _$StatsResources {
   const factory StatsResources({
-    required int memoryBytes,
+    required Bytes memoryBytes,
     required double cpuAbsolute,
-    required int diskBytes,
-    required int networkRxBytes,
-    required int networkTxBytes,
+    required Bytes diskBytes,
+    required Bytes networkRxBytes,
+    required Bytes networkTxBytes,
 
     /// the amount of time the server has been running
     /// added in pterodactyl v1.8, where it guaranteed to exist

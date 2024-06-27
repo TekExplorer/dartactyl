@@ -118,7 +118,7 @@ class UnknownWingsEventException implements DartactylWebsocketException {
     if (_argsReason == null) {
       return 'Unknown Wings event: "$event"';
     }
-    if (_argsReason!.isEmpty) {
+    if (_argsReason.isEmpty) {
       return 'Unknown args for Wings event "$event": $args';
     }
     return 'Unknown Wings event for "$event": $args\n$_argsReason';

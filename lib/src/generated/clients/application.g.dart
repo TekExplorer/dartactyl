@@ -33,7 +33,7 @@ class _PteroApplication extends PteroApplication {
     String? filterUsername,
     String? filterExternalId,
   }) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'include': include?.toJson(),
       r'sort': sort?.toJson(),
@@ -47,7 +47,7 @@ class _PteroApplication extends PteroApplication {
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<FractalListMeta<ApplicationUser, PaginatedMeta>>(Options(
       method: 'GET',
@@ -84,11 +84,11 @@ class _PteroApplication extends PteroApplication {
     required int id,
     ApplicationUsersIncludes? include,
   }) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'include': include?.toJson()};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<FractalData<ApplicationUser>>(Options(
       method: 'GET',
@@ -124,11 +124,11 @@ class _PteroApplication extends PteroApplication {
     required String externalId,
     ApplicationUsersIncludes? include,
   }) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'include': include?.toJson()};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<FractalData<ApplicationUser>>(Options(
       method: 'GET',
@@ -163,7 +163,7 @@ class _PteroApplication extends PteroApplication {
     void Function(int, int)? onReceiveProgress,
     required CreateUserRequest request,
   }) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
@@ -203,7 +203,7 @@ class _PteroApplication extends PteroApplication {
     required int id,
     required UpdateUserRequest request,
   }) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
@@ -242,11 +242,11 @@ class _PteroApplication extends PteroApplication {
     void Function(int, int)? onReceiveProgress,
     required int id,
   }) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     await _dio.fetch<void>(_setStreamType<void>(Options(
       method: 'DELETE',
       headers: _headers,
@@ -283,7 +283,7 @@ class _PteroApplication extends PteroApplication {
     String? filterByFqdn,
     String? filterByDaemonTokenId,
   }) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'include': include?.toJson(),
       r'sort': sort?.toJson(),
@@ -297,7 +297,7 @@ class _PteroApplication extends PteroApplication {
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<FractalListMeta<Node, PaginatedMeta>>(Options(
       method: 'GET',
@@ -334,11 +334,11 @@ class _PteroApplication extends PteroApplication {
     required int id,
     NodeIncludes? include,
   }) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'include': include?.toJson()};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<FractalData<Node>>(Options(
       method: 'GET',
@@ -373,7 +373,7 @@ class _PteroApplication extends PteroApplication {
     void Function(int, int)? onReceiveProgress,
     required CreateNodeRequest request,
   }) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
@@ -414,7 +414,7 @@ class _PteroApplication extends PteroApplication {
     required int id,
     required UpdateNodeRequest request,
   }) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
@@ -454,11 +454,11 @@ class _PteroApplication extends PteroApplication {
     void Function(int, int)? onReceiveProgress,
     required int id,
   }) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     await _dio.fetch<void>(_setStreamType<void>(Options(
       method: 'DELETE',
       headers: _headers,
@@ -495,7 +495,7 @@ class _PteroApplication extends PteroApplication {
     int? filterByPort,
     String? filterByServerId,
   }) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'include': include?.toJson(),
       r'page': page,
@@ -507,7 +507,7 @@ class _PteroApplication extends PteroApplication {
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<FractalListMeta<ApplicationAllocation, PaginatedMeta>>(
             Options(

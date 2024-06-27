@@ -13,7 +13,7 @@ _$DatabaseImpl _$$DatabaseImplFromJson(Map<String, dynamic> json) =>
       ($checkedConvert) {
         final val = _$DatabaseImpl(
           address: $checkedConvert('address', (v) => v as String),
-          port: $checkedConvert('port', (v) => v as int),
+          port: $checkedConvert('port', (v) => (v as num).toInt()),
         );
         return val;
       },
@@ -38,7 +38,8 @@ _$ServerDatabaseImpl _$$ServerDatabaseImplFromJson(Map<String, dynamic> json) =>
           username: $checkedConvert('username', (v) => v as String),
           connectionsFrom:
               $checkedConvert('connections_from', (v) => v as String),
-          maxConnections: $checkedConvert('max_connections', (v) => v as int),
+          maxConnections:
+              $checkedConvert('max_connections', (v) => (v as num).toInt()),
           relationships: $checkedConvert(
               'relationships',
               (v) => v == null

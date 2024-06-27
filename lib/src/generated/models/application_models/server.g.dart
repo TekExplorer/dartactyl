@@ -13,7 +13,7 @@ _$ApplicationServerImpl _$$ApplicationServerImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$ApplicationServerImpl(
-          id: $checkedConvert('id', (v) => v as int),
+          id: $checkedConvert('id', (v) => (v as num).toInt()),
           externalId: $checkedConvert('external_id', (v) => v as String),
           uuid: $checkedConvert('uuid', (v) => v as String),
           identifier: $checkedConvert('identifier', (v) => v as String),
@@ -26,11 +26,11 @@ _$ApplicationServerImpl _$$ApplicationServerImplFromJson(
               (v) => ServerLimits.fromJson(v as Map<String, dynamic>)),
           featureLimits: $checkedConvert('feature_limits',
               (v) => ServerFeatureLimits.fromJson(v as Map<String, dynamic>)),
-          user: $checkedConvert('user', (v) => v as int),
-          node: $checkedConvert('node', (v) => v as int),
-          allocation: $checkedConvert('allocation', (v) => v as int),
-          nest: $checkedConvert('nest', (v) => v as int),
-          egg: $checkedConvert('egg', (v) => v as int),
+          user: $checkedConvert('user', (v) => (v as num).toInt()),
+          node: $checkedConvert('node', (v) => (v as num).toInt()),
+          allocation: $checkedConvert('allocation', (v) => (v as num).toInt()),
+          nest: $checkedConvert('nest', (v) => (v as num).toInt()),
+          egg: $checkedConvert('egg', (v) => (v as num).toInt()),
           container: $checkedConvert(
               'container',
               (v) => ApplicationServerContainer.fromJson(

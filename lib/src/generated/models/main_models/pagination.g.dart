@@ -30,11 +30,12 @@ _$PaginationImpl _$$PaginationImplFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = _$PaginationImpl(
-          total: $checkedConvert('total', (v) => v as int),
-          count: $checkedConvert('count', (v) => v as int),
-          perPage: $checkedConvert('per_page', (v) => v as int),
-          currentPage: $checkedConvert('current_page', (v) => v as int),
-          totalPages: $checkedConvert('total_pages', (v) => v as int),
+          total: $checkedConvert('total', (v) => (v as num).toInt()),
+          count: $checkedConvert('count', (v) => (v as num).toInt()),
+          perPage: $checkedConvert('per_page', (v) => (v as num).toInt()),
+          currentPage:
+              $checkedConvert('current_page', (v) => (v as num).toInt()),
+          totalPages: $checkedConvert('total_pages', (v) => (v as num).toInt()),
           links: $checkedConvert(
               'links', (v) => Links.fromJson(v as Map<String, dynamic>)),
         );

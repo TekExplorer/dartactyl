@@ -14,7 +14,7 @@ class Backup with _$Backup {
     required String name,
     IList<String>? ignoredFiles,
     String? checksum,
-    required int bytes,
+    required Bytes bytes,
     required DateTime createdAt,
     DateTime? completedAt,
   }) = _Backup;

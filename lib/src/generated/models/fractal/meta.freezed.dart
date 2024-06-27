@@ -12,7 +12,7 @@ part of '../../../models/fractal/meta.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 PaginatedMeta _$PaginatedMetaFromJson(Map<String, dynamic> json) {
   return _PaginatedMeta.fromJson(json);
@@ -124,7 +124,7 @@ class _$PaginatedMetaImpl extends _PaginatedMeta {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaginatedMetaImpl &&
@@ -292,7 +292,7 @@ class _$PaginatedBackupsMetaImpl extends _PaginatedBackupsMeta {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaginatedBackupsMetaImpl &&
@@ -454,7 +454,7 @@ class _$ServerMetaImpl extends _ServerMeta {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ServerMetaImpl &&
@@ -635,7 +635,7 @@ class _$StartupMetaImpl extends _StartupMeta {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StartupMetaImpl &&
@@ -785,7 +785,7 @@ class _$ApiKeyMetaImpl extends _ApiKeyMeta {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ApiKeyMetaImpl &&
@@ -924,7 +924,7 @@ class _$ResourceMetaImpl extends _ResourceMeta {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResourceMetaImpl &&

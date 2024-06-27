@@ -13,7 +13,7 @@ _$SftpDetailsImpl _$$SftpDetailsImplFromJson(Map<String, dynamic> json) =>
       ($checkedConvert) {
         final val = _$SftpDetailsImpl(
           ip: $checkedConvert('ip', (v) => v as String),
-          port: $checkedConvert('port', (v) => v as int),
+          port: $checkedConvert('port', (v) => (v as num).toInt()),
         );
         return val;
       },

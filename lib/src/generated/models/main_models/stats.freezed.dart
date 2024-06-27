@@ -12,7 +12,7 @@ part of '../../../models/main_models/stats.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Stats _$StatsFromJson(Map<String, dynamic> json) {
   return _Stats.fromJson(json);
@@ -157,7 +157,7 @@ class _$StatsImpl extends _Stats {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StatsImpl &&
@@ -215,11 +215,11 @@ StatsResources _$StatsResourcesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$StatsResources {
-  int get memoryBytes => throw _privateConstructorUsedError;
+  Bytes get memoryBytes => throw _privateConstructorUsedError;
   double get cpuAbsolute => throw _privateConstructorUsedError;
-  int get diskBytes => throw _privateConstructorUsedError;
-  int get networkRxBytes => throw _privateConstructorUsedError;
-  int get networkTxBytes => throw _privateConstructorUsedError;
+  Bytes get diskBytes => throw _privateConstructorUsedError;
+  Bytes get networkRxBytes => throw _privateConstructorUsedError;
+  Bytes get networkTxBytes => throw _privateConstructorUsedError;
 
   /// the amount of time the server has been running
   /// added in pterodactyl v1.8, where it guaranteed to exist
@@ -240,11 +240,11 @@ abstract class $StatsResourcesCopyWith<$Res> {
       _$StatsResourcesCopyWithImpl<$Res, StatsResources>;
   @useResult
   $Res call(
-      {int memoryBytes,
+      {Bytes memoryBytes,
       double cpuAbsolute,
-      int diskBytes,
-      int networkRxBytes,
-      int networkTxBytes,
+      Bytes diskBytes,
+      Bytes networkRxBytes,
+      Bytes networkTxBytes,
       @JsonKey(defaultValue: -1) int uptime});
 }
 
@@ -272,7 +272,7 @@ class _$StatsResourcesCopyWithImpl<$Res, $Val extends StatsResources>
       memoryBytes: null == memoryBytes
           ? _value.memoryBytes
           : memoryBytes // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Bytes,
       cpuAbsolute: null == cpuAbsolute
           ? _value.cpuAbsolute
           : cpuAbsolute // ignore: cast_nullable_to_non_nullable
@@ -280,15 +280,15 @@ class _$StatsResourcesCopyWithImpl<$Res, $Val extends StatsResources>
       diskBytes: null == diskBytes
           ? _value.diskBytes
           : diskBytes // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Bytes,
       networkRxBytes: null == networkRxBytes
           ? _value.networkRxBytes
           : networkRxBytes // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Bytes,
       networkTxBytes: null == networkTxBytes
           ? _value.networkTxBytes
           : networkTxBytes // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Bytes,
       uptime: null == uptime
           ? _value.uptime
           : uptime // ignore: cast_nullable_to_non_nullable
@@ -306,11 +306,11 @@ abstract class _$$StatsResourcesImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int memoryBytes,
+      {Bytes memoryBytes,
       double cpuAbsolute,
-      int diskBytes,
-      int networkRxBytes,
-      int networkTxBytes,
+      Bytes diskBytes,
+      Bytes networkRxBytes,
+      Bytes networkTxBytes,
       @JsonKey(defaultValue: -1) int uptime});
 }
 
@@ -336,7 +336,7 @@ class __$$StatsResourcesImplCopyWithImpl<$Res>
       memoryBytes: null == memoryBytes
           ? _value.memoryBytes
           : memoryBytes // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Bytes,
       cpuAbsolute: null == cpuAbsolute
           ? _value.cpuAbsolute
           : cpuAbsolute // ignore: cast_nullable_to_non_nullable
@@ -344,15 +344,15 @@ class __$$StatsResourcesImplCopyWithImpl<$Res>
       diskBytes: null == diskBytes
           ? _value.diskBytes
           : diskBytes // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Bytes,
       networkRxBytes: null == networkRxBytes
           ? _value.networkRxBytes
           : networkRxBytes // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Bytes,
       networkTxBytes: null == networkTxBytes
           ? _value.networkTxBytes
           : networkTxBytes // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Bytes,
       uptime: null == uptime
           ? _value.uptime
           : uptime // ignore: cast_nullable_to_non_nullable
@@ -377,15 +377,15 @@ class _$StatsResourcesImpl extends _StatsResources {
       _$$StatsResourcesImplFromJson(json);
 
   @override
-  final int memoryBytes;
+  final Bytes memoryBytes;
   @override
   final double cpuAbsolute;
   @override
-  final int diskBytes;
+  final Bytes diskBytes;
   @override
-  final int networkRxBytes;
+  final Bytes networkRxBytes;
   @override
-  final int networkTxBytes;
+  final Bytes networkTxBytes;
 
   /// the amount of time the server has been running
   /// added in pterodactyl v1.8, where it guaranteed to exist
@@ -400,7 +400,7 @@ class _$StatsResourcesImpl extends _StatsResources {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StatsResourcesImpl &&
@@ -439,11 +439,11 @@ class _$StatsResourcesImpl extends _StatsResources {
 
 abstract class _StatsResources extends StatsResources {
   const factory _StatsResources(
-          {required final int memoryBytes,
+          {required final Bytes memoryBytes,
           required final double cpuAbsolute,
-          required final int diskBytes,
-          required final int networkRxBytes,
-          required final int networkTxBytes,
+          required final Bytes diskBytes,
+          required final Bytes networkRxBytes,
+          required final Bytes networkTxBytes,
           @JsonKey(defaultValue: -1) required final int uptime}) =
       _$StatsResourcesImpl;
   const _StatsResources._() : super._();
@@ -452,15 +452,15 @@ abstract class _StatsResources extends StatsResources {
       _$StatsResourcesImpl.fromJson;
 
   @override
-  int get memoryBytes;
+  Bytes get memoryBytes;
   @override
   double get cpuAbsolute;
   @override
-  int get diskBytes;
+  Bytes get diskBytes;
   @override
-  int get networkRxBytes;
+  Bytes get networkRxBytes;
   @override
-  int get networkTxBytes;
+  Bytes get networkTxBytes;
   @override
 
   /// the amount of time the server has been running

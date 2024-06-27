@@ -14,7 +14,7 @@ _$TaskImpl _$$TaskImplFromJson(Map<String, dynamic> json) => $checkedCreate(
           action:
               $checkedConvert('action', (v) => $enumDecode(_$ActionEnumMap, v)),
           payload: $checkedConvert('payload', (v) => v as String),
-          timeOffset: $checkedConvert('time_offset', (v) => v as int),
+          timeOffset: $checkedConvert('time_offset', (v) => (v as num).toInt()),
         );
         return val;
       },

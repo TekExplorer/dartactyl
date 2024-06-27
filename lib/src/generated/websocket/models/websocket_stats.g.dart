@@ -14,9 +14,9 @@ _$WebsocketStatsImpl _$$WebsocketStatsImplFromJson(Map<String, dynamic> json) =>
         final val = _$WebsocketStatsImpl(
           cpuAbsolute:
               $checkedConvert('cpu_absolute', (v) => (v as num).toDouble()),
-          memoryBytes: $checkedConvert('memory_bytes', (v) => v as int),
+          memoryBytes: $checkedConvert('memory_bytes', (v) => v as Bytes),
           memoryLimitBytes:
-              $checkedConvert('memory_limit_bytes', (v) => v as int),
+              $checkedConvert('memory_limit_bytes', (v) => v as Bytes),
           network: $checkedConvert('network',
               (v) => WebsocketNetworkStats.fromJson(v as Map<String, dynamic>)),
           state: $checkedConvert(
@@ -55,8 +55,8 @@ _$WebsocketNetworkStatsImpl _$$WebsocketNetworkStatsImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$WebsocketNetworkStatsImpl(
-          rxBytes: $checkedConvert('rx_bytes', (v) => v as int),
-          txBytes: $checkedConvert('tx_bytes', (v) => v as int),
+          rxBytes: $checkedConvert('rx_bytes', (v) => v as Bytes),
+          txBytes: $checkedConvert('tx_bytes', (v) => v as Bytes),
         );
         return val;
       },

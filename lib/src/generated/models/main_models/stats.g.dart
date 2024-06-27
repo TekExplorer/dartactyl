@@ -45,13 +45,15 @@ _$StatsResourcesImpl _$$StatsResourcesImplFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = _$StatsResourcesImpl(
-          memoryBytes: $checkedConvert('memory_bytes', (v) => v as int),
+          memoryBytes: $checkedConvert('memory_bytes', (v) => v as Bytes),
           cpuAbsolute:
               $checkedConvert('cpu_absolute', (v) => (v as num).toDouble()),
-          diskBytes: $checkedConvert('disk_bytes', (v) => v as int),
-          networkRxBytes: $checkedConvert('network_rx_bytes', (v) => v as int),
-          networkTxBytes: $checkedConvert('network_tx_bytes', (v) => v as int),
-          uptime: $checkedConvert('uptime', (v) => v as int? ?? -1),
+          diskBytes: $checkedConvert('disk_bytes', (v) => v as Bytes),
+          networkRxBytes:
+              $checkedConvert('network_rx_bytes', (v) => v as Bytes),
+          networkTxBytes:
+              $checkedConvert('network_tx_bytes', (v) => v as Bytes),
+          uptime: $checkedConvert('uptime', (v) => (v as num?)?.toInt() ?? -1),
         );
         return val;
       },
