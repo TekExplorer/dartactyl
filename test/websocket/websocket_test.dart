@@ -5,7 +5,6 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartactyl/dartactyl.dart';
-import 'package:dartactyl/src/websocket/_internal.dart';
 import 'package:dartactyl/websocket.dart';
 import 'package:dio/dio.dart';
 import 'package:mocktailx/mocktailx.dart';

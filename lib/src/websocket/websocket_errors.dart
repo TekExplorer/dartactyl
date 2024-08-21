@@ -2,6 +2,8 @@
 
 part of 'server_websocket.dart';
 
+class ServerWebsocketClosedException implements Exception {}
+
 // make it clear where it came from
 
 sealed class ServerWebsocketException implements Exception {
@@ -9,7 +11,7 @@ sealed class ServerWebsocketException implements Exception {
   String get message;
 }
 
-/// Exceptions in the [ServerWebsocket] class itself
+/// Exceptions in the [_ServerWebsocketImpl] class itself
 ///
 /// These are either bugs, or are indicators of modded Wings.
 sealed class DartactylWebsocketException implements ServerWebsocketException {}
@@ -24,7 +26,7 @@ sealed class WingsException implements ServerWebsocketException {
 /// An unexpected error occurred
 class UnexpectedWebsocketException extends Error
     implements DartactylWebsocketException {
-  UnexpectedWebsocketException._(this.error, [this._stackTrace]) : super();
+  UnexpectedWebsocketException(this.error, [this._stackTrace]) : super();
 
   final Object error;
   final StackTrace? _stackTrace;
@@ -55,7 +57,7 @@ class WebsocketDisconnectedException extends DartactylWebsocketException {
 }
 
 class JWTError implements WingsException {
-  const JWTError._(String? receivedMessage)
+  const JWTError(String? receivedMessage)
       : receivedMessage = receivedMessage ?? 'Unknown JWT Error';
 
   // in the form of: 'jwt: something'
@@ -70,7 +72,7 @@ class JWTError implements WingsException {
 }
 
 class DaemonError implements WingsException {
-  const DaemonError._(this.receivedMessage);
+  const DaemonError(this.receivedMessage);
 
   @override
   final String receivedMessage;
@@ -85,8 +87,7 @@ class DaemonError implements WingsException {
 // TODO: does this need to be suffixed with "Exception"?
 class UnknownWingsEventException implements DartactylWebsocketException {
   // const UnknownWingsEventException(this.event, this.args);
-  const UnknownWingsEventException._(this._websocketEvent) : _argsReason = null;
-  const UnknownWingsEventException._arg(
+  const UnknownWingsEventException(
     this._websocketEvent, [
     this._argsReason = '',
   ]);
@@ -114,24 +115,6 @@ class UnknownWingsEventException implements DartactylWebsocketException {
   }
 }
 
-/// Thrown when [ServerWebsocket] receives an event that doesn't match the
-/// expected event json.
-class UnexpectedWingsResponse implements DartactylWebsocketException {
-  const UnexpectedWingsResponse._(this.receivedData, {required this.message});
-  final Object? receivedData;
-
-  @override
-  final String message;
-
-  @override
-  String toString() {
-    if (receivedData == null) {
-      return 'UnexpectedWingsResponse($message)';
-    }
-    return 'UnexpectedWingsResponse($message, $receivedData)';
-  }
-}
-
 //TODO: maybe just ignore it?
 /// Thrown when get an auth success event was emitted when we were already
 /// supposedly authenticated.
@@ -139,7 +122,7 @@ class UnexpectedWingsResponse implements DartactylWebsocketException {
 /// This is almost certainly a bug in this library,
 ///  as we should have only ever sent one request to authenticate.
 class UnexpectedAuthenticationException implements DartactylWebsocketException {
-  const UnexpectedAuthenticationException._(this.message);
+  const UnexpectedAuthenticationException(this.message);
   @override
   final String message;
 

@@ -6,10 +6,9 @@ class ApplicationUsersIncludes extends Includes {
   }) : super([
           if (includeServers) 'servers',
         ]);
-  const ApplicationUsersIncludes._(super.includes);
+  const ApplicationUsersIncludes.raw(super.includes);
 
-  static const ApplicationUsersIncludes includeServers =
-      ApplicationUsersIncludes._(['servers']);
+  static const includeServers = ApplicationUsersIncludes.raw(['servers']);
 }
 
 /*
@@ -27,7 +26,6 @@ class ApplicationUsersIncludes extends Includes {
     ];
 */
 class ApplicationServerIncludes extends Includes {
-  // const ApplicationServerIncludes._(super.includes);
   ApplicationServerIncludes({
     bool includeAllocations = false,
     bool includeUser = false,
@@ -51,7 +49,7 @@ class ApplicationServerIncludes extends Includes {
           if (includeDatabases) 'databases',
           if (includeTransfer) 'transfer',
         ]);
-  const ApplicationServerIncludes.all() : super(_all);
+  const ApplicationServerIncludes.raw(super.includes);
   static const _all = [
     'allocations',
     'user',
@@ -64,8 +62,7 @@ class ApplicationServerIncludes extends Includes {
     'databases',
     'transfer',
   ];
-  static const ApplicationServerIncludes includeAll =
-      ApplicationServerIncludes.all();
+  static const includeAll = ApplicationServerIncludes.raw(_all);
 }
 
 class NodeIncludes extends Includes {
@@ -78,20 +75,18 @@ class NodeIncludes extends Includes {
           if (includeLocation) 'location',
           if (includeServers) 'servers',
         ]);
-  const NodeIncludes._(super.includes);
 
-  static const NodeIncludes includeAllocations =
-      NodeIncludes._(['allocations']);
-  static const NodeIncludes includeServers = NodeIncludes._(['servers']);
-  static const NodeIncludes includeLocation = NodeIncludes._(['location']);
+  const NodeIncludes.raw(super.includes);
 
-  static const NodeIncludes includeAll = NodeIncludes._(
-    [
-      'allocations',
-      'location',
-      'servers',
-    ],
-  );
+  static const includeAllocations = NodeIncludes.raw(['allocations']);
+  static const includeServers = NodeIncludes.raw(['servers']);
+  static const includeLocation = NodeIncludes.raw(['location']);
+
+  static const includeAll = NodeIncludes.raw([
+    'allocations',
+    'location',
+    'servers',
+  ]);
 }
 
 class AllocationIncludes extends Includes {
@@ -102,12 +97,11 @@ class AllocationIncludes extends Includes {
           if (includeNode) 'node',
           if (includeServer) 'server',
         ]);
-  const AllocationIncludes._(super.includes);
 
-  static const AllocationIncludes includeNode = AllocationIncludes._(['node']);
-  static const AllocationIncludes includeServer =
-      AllocationIncludes._(['server']);
+  const AllocationIncludes.raw(super.includes);
 
-  static const AllocationIncludes includeAll =
-      AllocationIncludes._(['node', 'server']);
+  static const includeNode = AllocationIncludes.raw(['node']);
+  static const includeServer = AllocationIncludes.raw(['server']);
+
+  static const includeAll = AllocationIncludes.raw(['node', 'server']);
 }

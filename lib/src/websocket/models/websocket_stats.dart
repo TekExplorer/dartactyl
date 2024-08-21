@@ -23,8 +23,6 @@ class WebsocketStats with _$WebsocketStats {
   ServerPowerState get powerState => state;
 }
 
-// typedef WebsocketNetworkStatsModel = WebsocketNetworkStats;
-
 @freezed
 class WebsocketNetworkStats with _$WebsocketNetworkStats {
   const factory WebsocketNetworkStats({

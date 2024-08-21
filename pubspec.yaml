@@ -5,7 +5,7 @@ version: 1.11.1
 # homepage: https://www.example.com
 environment:
   sdk: '>=3.3.0 <4.0.0'
- 
+
 dependencies:
   collection: ^1.18.0
   dio: ^5.0.0
@@ -17,11 +17,11 @@ dependencies:
   retrofit: ^4.0.1
   rxdart: ^0.27.7
   universal_io: ^2.0.4
-  web_socket_channel: ^3.0.0
+  web_socket: ^0.1.6
 
 dev_dependencies:
   analyzer: ^6.0.0
-  build_runner: '>=2.4.7 <4.0.0' 
+  build_runner: '>=2.4.7 <4.0.0'
   freezed: ^2.4.5
   json_serializable: '>=6.7.0'
   lints: ^4.0.0

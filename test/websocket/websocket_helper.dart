@@ -5,7 +5,7 @@ import 'dart:io';
 // ignore_for_file: cascade_invocations
 
 import 'package:dartactyl/models.dart';
-import 'package:dartactyl/src/websocket/_internal.dart';
+import 'package:dartactyl/src/websocket/websocket_event.dart';
 import 'package:test/test.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
@@ -58,14 +58,12 @@ Future<Uri> mockServer({
       final arg = websocketEvent.args?.first;
       expect(arg, isA<String?>());
 
-      final event = ServerWebsocketSendEvent.values.firstWhereOrNull(
-        (e) => e.event == websocketEvent.event,
-      );
+      final event = websocketEvent.event;
 
       expect(event, isNotNull, reason: 'Unknown event sent by client');
 
-      switch (event!) {
-        case ServerWebsocketSendEvent.auth:
+      switch (event) {
+        case 'auth':
           expect(arg, isNotNull);
           if (verifyAuthToken != null) {
             expect(
@@ -75,13 +73,8 @@ Future<Uri> mockServer({
             );
           }
           // if no mock token is provided, just accept any token
-          server.add(
-            WebsocketEvent.fromEvent(
-              event: ServerWebsocketReceiveEvent.authSuccess,
-              arg: null,
-            ).toEncodedJson(),
-          );
-        case ServerWebsocketSendEvent.sendLogs:
+          server.add(const WebsocketEvent('auth success').toJsonString());
+        case 'send logs':
           expect(arg, isNull);
           expect(
             mockLogs,
@@ -89,19 +82,14 @@ Future<Uri> mockServer({
             reason: 'Test did not provide mock logs, but client requested them',
           );
           for (final log in mockLogs!) {
-            server.add(
-              WebsocketEvent.fromEvent(
-                event: ServerWebsocketReceiveEvent.consoleOutput,
-                arg: log,
-              ).toEncodedJson(),
-            );
+            server.add(WebsocketEvent('console output', [log]).toJsonString());
           }
-        case ServerWebsocketSendEvent.sendStats:
+        case 'send stats':
           throw UnimplementedError("'send stats' request not implemented yet");
-        case ServerWebsocketSendEvent.sendCommand:
+        case 'send command':
           throw UnimplementedError(
               "'send command' request not implemented yet");
-        case ServerWebsocketSendEvent.setState:
+        case 'set state':
           throw UnimplementedError("'set state' request not implemented yet");
       }
     });
@@ -129,7 +117,7 @@ WebsocketEvent expectAndReturnValidEvent(Object? request) {
     requestJson = expectAndReturnValidRequestJson(request);
   }
 
-  final websocketEvent = WebsocketEvent.fromJson(requestJson);
+  final websocketEvent = WebsocketEvent.fromJson(requestJson)!;
   expect(websocketEvent.event, isNotEmpty);
   if (websocketEvent.args != null) {
     expect(

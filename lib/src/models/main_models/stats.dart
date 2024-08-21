@@ -10,13 +10,9 @@ enum ServerPowerState {
   stopping,
   offline;
 
-  static ServerPowerState? maybeFromJson(String json) => switch (json) {
-        'running' => ServerPowerState.running,
-        'starting' => ServerPowerState.starting,
-        'stopping' => ServerPowerState.stopping,
-        'offline' => ServerPowerState.offline,
-        _ => null,
-      };
+  static ServerPowerState? fromStringOrNull(String json) {
+    return values.asNameMap()[json];
+  }
 
   String toJson() => name;
 }

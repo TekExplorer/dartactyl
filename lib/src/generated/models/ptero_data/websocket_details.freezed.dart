@@ -108,7 +108,7 @@ class __$$WebsocketDetailsImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$WebsocketDetailsImpl implements _WebsocketDetails {
-  _$WebsocketDetailsImpl({required this.token, required this.socket});
+  const _$WebsocketDetailsImpl({required this.token, required this.socket});
 
   factory _$WebsocketDetailsImpl.fromJson(Map<String, dynamic> json) =>
       _$$WebsocketDetailsImplFromJson(json);
@@ -152,7 +152,7 @@ class _$WebsocketDetailsImpl implements _WebsocketDetails {
 }
 
 abstract class _WebsocketDetails implements WebsocketDetails {
-  factory _WebsocketDetails(
+  const factory _WebsocketDetails(
       {required final String token,
       required final Uri socket}) = _$WebsocketDetailsImpl;
 

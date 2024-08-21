@@ -6,11 +6,11 @@ part '../../generated/models/ptero_data/two_factor_image.g.dart';
 
 @freezed
 class TwoFactorImage with _$TwoFactorImage {
-  factory TwoFactorImage({
+  const factory TwoFactorImage({
     required String imageUrlData,
     required String secret, // needs checking
   }) = _TwoFactorImage;
-  TwoFactorImage._();
+  const TwoFactorImage._();
 
   factory TwoFactorImage.fromJson(JsonMap json) =>
       _$TwoFactorImageFromJson(json);

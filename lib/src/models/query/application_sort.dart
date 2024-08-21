@@ -1,39 +1,38 @@
 import 'package:dartactyl/src/models/query/sort.dart';
 
 class UsersSort extends Sort<UsersSort> {
-  const UsersSort._(super.sort);
+  const UsersSort.raw(super.sort);
 
-  static const UsersSort sortById = UsersSort._('id');
-
-  static const UsersSort sortByUuid = UsersSort._('uuid');
+  static const sortById = UsersSort.raw('id');
+  static const sortByUuid = UsersSort.raw('uuid');
 
   @override
-  UsersSort get negative => UsersSort._(negativeString);
+  UsersSort get negative => UsersSort.raw(negativeString);
 }
 
 class NodesSort extends Sort<NodesSort> {
-  const NodesSort._(super.sort);
+  const NodesSort.raw(super.sort);
 
-  static const NodesSort sortById = NodesSort._('id');
-  static const NodesSort sortByUuid = NodesSort._('uuid');
-  static const NodesSort sortByMemory = NodesSort._('memory');
-  static const NodesSort sortByDisk = NodesSort._('disk');
+  static const sortById = NodesSort.raw('id');
+  static const sortByUuid = NodesSort.raw('uuid');
+  static const sortByMemory = NodesSort.raw('memory');
+  static const sortByDisk = NodesSort.raw('disk');
 
   @override
-  NodesSort get negative => NodesSort._(negativeString);
+  NodesSort get negative => NodesSort.raw(negativeString);
 }
 
 // class ServersSort extends Sort<ServersSort> {
-//   const ServersSort._(super.sort);
+//   const ServersSort.raw(super.sort);
 
-//   static const ServersSort sortById = ServersSort._('id');
-//   static const ServersSort sortByUuid = ServersSort._('uuid');
-//   static const ServersSort sortByUuidShort = ServersSort._('uuidShort');
-//   static const ServersSort sortByName = ServersSort._('name');
-//   static const ServersSort sortByOwnerId = ServersSort._('owner_id');
-//   static const ServersSort sortByNodeId = ServersSort._('node_id');
-//   static const ServersSort sortByStatus = ServersSort._('status');
+//   static const sortById = ServersSort.raw('id');
+//   static const sortByUuid = ServersSort.raw('uuid');
+//   static const sortByUuidShort = ServersSort.raw('uuidShort');
+//   static const sortByName = ServersSort.raw('name');
+//   static const sortByOwnerId = ServersSort.raw('owner_id');
+//   static const sortByNodeId = ServersSort.raw('node_id');
+//   static const sortByStatus = ServersSort.raw('status');
 
 //   @override
-//   ServersSort get negative => ServersSort._(negativeString);
+//   ServersSort get negative => ServersSort.raw(negativeString);
 // }

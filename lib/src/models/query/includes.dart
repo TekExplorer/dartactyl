@@ -19,10 +19,9 @@ class ServerIncludes extends Includes {
 
   const ServerIncludes._(super.includes);
 
-  static const ServerIncludes includeEgg = ServerIncludes._(['egg']);
-  static const ServerIncludes includeSubusers = ServerIncludes._(['subusers']);
-  static const ServerIncludes includesAll =
-      ServerIncludes._(['egg', 'subusers']);
+  static const includeEgg = ServerIncludes._(['egg']);
+  static const includeSubusers = ServerIncludes._(['subusers']);
+  static const includesAll = ServerIncludes._(['egg', 'subusers']);
 }
 
 class ActivityLogsIncludes extends Includes {
@@ -34,8 +33,7 @@ class ActivityLogsIncludes extends Includes {
 
   const ActivityLogsIncludes._(super.includes);
 
-  static const ActivityLogsIncludes includeActor =
-      ActivityLogsIncludes._(['actor']);
+  static const includeActor = ActivityLogsIncludes._(['actor']);
 }
 
 class ScheduleIncludes extends Includes {
@@ -47,7 +45,7 @@ class ScheduleIncludes extends Includes {
 
   const ScheduleIncludes._(super.includes);
 
-  static const ScheduleIncludes includeTasks = ScheduleIncludes._(['tasks']);
+  static const includeTasks = ScheduleIncludes._(['tasks']);
 }
 
 class ServerDatabasesIncludes extends Includes {
@@ -59,6 +57,5 @@ class ServerDatabasesIncludes extends Includes {
 
   const ServerDatabasesIncludes._(super.includes);
 
-  static const ServerDatabasesIncludes includePassword =
-      ServerDatabasesIncludes._(['password']);
+  static const includePassword = ServerDatabasesIncludes._(['password']);
 }

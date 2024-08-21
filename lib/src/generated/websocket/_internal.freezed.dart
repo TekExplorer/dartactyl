@@ -108,8 +108,7 @@ class __$$WebsocketEventImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$WebsocketEventImpl extends _WebsocketEvent {
-  const _$WebsocketEventImpl(
-      {required this.event, required final List<String>? args})
+  const _$WebsocketEventImpl(required this.event, [final List<String>? args])
       : _args = args,
         super._();
 
@@ -163,9 +162,8 @@ class _$WebsocketEventImpl extends _WebsocketEvent {
 }
 
 abstract class _WebsocketEvent extends WebsocketEvent {
-  const factory _WebsocketEvent(
-      {required final String event,
-      required final List<String>? args}) = _$WebsocketEventImpl;
+  const factory _WebsocketEvent(final String event,
+      [final List<String>? args]) = _$WebsocketEventImpl;
   const _WebsocketEvent._() : super._();
 
   factory _WebsocketEvent.fromJson(Map<String, dynamic> json) =

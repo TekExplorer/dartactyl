@@ -4,23 +4,24 @@ abstract class Sort<T extends Sort<T>> {
 
   String? toJson() => sort;
 
-  String? get negativeString {
-    if (sort == null) return null;
-    if (sort!.startsWith('-')) return sort!.substring(1);
-    return '-$sort';
-  }
+  String? get negativeString => switch (sort) {
+        null => null,
+        final sort when sort.startsWith('-') => sort.substring(1),
+        final sort => '-$sort',
+      };
 
   T get negative;
+  T operator -() => negative;
 
   @override
   String toString() => '$runtimeType(sort: $sort)';
 }
 
 class ActivityLogSort extends Sort<ActivityLogSort> {
-  const ActivityLogSort._(super.sort);
+  const ActivityLogSort.raw(super.sort);
 
-  static const ActivityLogSort sortByTimestamp = ActivityLogSort._('timestamp');
+  static const sortByTimestamp = ActivityLogSort.raw('timestamp');
 
   @override
-  ActivityLogSort get negative => ActivityLogSort._(negativeString);
+  ActivityLogSort get negative => ActivityLogSort.raw(negativeString);
 }

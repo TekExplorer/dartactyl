@@ -108,7 +108,7 @@ class __$$TwoFactorImageImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$TwoFactorImageImpl extends _TwoFactorImage {
-  _$TwoFactorImageImpl({required this.imageUrlData, required this.secret})
+  const _$TwoFactorImageImpl({required this.imageUrlData, required this.secret})
       : super._();
 
   factory _$TwoFactorImageImpl.fromJson(Map<String, dynamic> json) =>
@@ -154,7 +154,7 @@ class _$TwoFactorImageImpl extends _TwoFactorImage {
 }
 
 abstract class _TwoFactorImage extends TwoFactorImage {
-  factory _TwoFactorImage(
+  const factory _TwoFactorImage(
       {required final String imageUrlData,
       required final String secret}) = _$TwoFactorImageImpl;
   _TwoFactorImage._() : super._();

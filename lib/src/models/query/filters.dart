@@ -1,18 +1,7 @@
+import 'package:collection/collection.dart';
 import 'package:meta/meta.dart';
 
-enum ServerFilterEnum with FilterEnumMixin {
-  all('*'),
-  uuid,
-  name,
-  externalId('external_id'),
-  description;
-
-  @override
-  final String? _filterBy;
-  const ServerFilterEnum([this._filterBy]);
-}
-
-class ServerFilters extends Filters<ServerFilterEnum> {
+class ServerFilters extends Filters {
   /// [all] Search all values
   ///
   /// [uuid] Search by UUID
@@ -51,20 +40,16 @@ class ServerFilters extends Filters<ServerFilterEnum> {
       );
 
   @override
-  Map<ServerFilterEnum, String> get filters => {
-        if (all != null) ServerFilterEnum.all: all!,
-        if (uuid != null) ServerFilterEnum.uuid: uuid!,
-        if (name != null) ServerFilterEnum.name: name!,
-        if (externalId != null) ServerFilterEnum.externalId: externalId!,
-        if (description != null) ServerFilterEnum.description: description!,
+  Map<String, String> get filters => {
+        if (all != null) '*': all!,
+        if (uuid != null) 'uuid': uuid!,
+        if (name != null) 'name': name!,
+        if (externalId != null) 'external_id': externalId!,
+        if (description != null) 'description': description!,
       };
 }
 
-enum ActivityFilterEnum with FilterEnumMixin {
-  event;
-}
-
-class ActivityFilters extends Filters<ActivityFilterEnum> {
+class ActivityFilters extends Filters {
   /// [event] Search by event
   const ActivityFilters({this.event});
   final String? event;
@@ -73,44 +58,33 @@ class ActivityFilters extends Filters<ActivityFilterEnum> {
       ActivityFilters(event: event ?? this.event);
 
   @override
-  Map<ActivityFilterEnum, String> get filters => {
-        if (event != null) ActivityFilterEnum.event: event!,
+  Map<String, String> get filters => {
+        if (event != null) 'event': event!,
       };
 }
 
-//
-mixin FilterEnumMixin on Enum {
-  String? get _filterBy => null;
-  String get filterBy => _filterBy ?? name;
-}
-
 @immutable
-abstract class Filters<E extends FilterEnumMixin> {
+abstract class Filters {
   const Filters();
 
-  /// Returns a map which maps the possible filters (as an enum) to their values.
-  Map<E, String> get filters;
+  /// Returns a map which maps the possible filters to their values.
+  Map<String, String> get filters;
 
-  Map<String, String> toJson() {
-    final map = <String, String>{};
-    for (final filter in filters.entries) {
-      map.addAll({
-        'filter[${filter.key.filterBy}]': filter.value,
-      });
-    }
-    return map;
-  }
+  Map<String, String> toJson() => {
+        for (final filter in filters.entries)
+          'filter[${filter.key}]': filter.value,
+      };
 
   @override
-  String toString() => 'Filters{filters: $filters}';
+  String toString() => 'Filters(filters: $filters)';
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is Filters &&
           runtimeType == other.runtimeType &&
-          filters == other.filters;
+          const DeepCollectionEquality().equals(filters, other.filters);
 
   @override
-  int get hashCode => filters.hashCode;
+  int get hashCode => const DeepCollectionEquality().hash(filters);
 }

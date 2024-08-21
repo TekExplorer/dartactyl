@@ -10,7 +10,6 @@ export 'src/clients/client_site_config.dart';
 /// Extra
 export 'src/extra/fractal_list_extensions.dart';
 export 'src/extra/json_map.dart';
-export 'src/extra/typedefs.dart';
 
 /// Interceptors
 export 'src/interceptors/handle_errors.dart';
