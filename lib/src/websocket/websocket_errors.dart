@@ -2,61 +2,17 @@
 
 part of 'server_websocket.dart';
 
-class ServerWebsocketClosedException implements Exception {}
-
-// make it clear where it came from
-
-sealed class ServerWebsocketException implements Exception {
-  // Generally speaking, this is what i would shove into a dialog or whatever
-  String get message;
-}
-
-/// Exceptions in the [_ServerWebsocketImpl] class itself
-///
-/// These are either bugs, or are indicators of modded Wings.
-sealed class DartactylWebsocketException implements ServerWebsocketException {}
+// class ServerWebsocketClosedException implements Exception {}
 
 /// Exceptions emitted naturally by Wings
 ///
 /// There may be cases where these can be bugs in this library
-sealed class WingsException implements ServerWebsocketException {
+sealed class WingsException implements Exception, WebsocketMessage {
   String get receivedMessage;
+  String get message;
 }
 
-/// An unexpected error occurred
-class UnexpectedWebsocketException extends Error
-    implements DartactylWebsocketException {
-  UnexpectedWebsocketException(this.error, [this._stackTrace]) : super();
-
-  final Object error;
-  final StackTrace? _stackTrace;
-  @override
-  StackTrace? get stackTrace => _stackTrace ?? super.stackTrace;
-
-  @override
-  String get message => 'UnexpectedWebsocketException: $error';
-
-  // TODO: toString()?
-  @override
-  String toString() {
-    if (_stackTrace == null) {
-      return 'UnexpectedWebsocketException: $error';
-    }
-    return 'UnexpectedWebsocketException: $error\n$_stackTrace';
-  }
-}
-
-class WebsocketDisconnectedException extends DartactylWebsocketException {
-  WebsocketDisconnectedException([this.message = 'Websocket is disconnected']);
-
-  @override
-  final String message;
-
-  @override
-  String toString() => 'WebsocketDisconnectedException: $message';
-}
-
-class JWTError implements WingsException {
+final class JWTError implements WingsException {
   const JWTError(String? receivedMessage)
       : receivedMessage = receivedMessage ?? 'Unknown JWT Error';
 
@@ -66,12 +22,11 @@ class JWTError implements WingsException {
 
   @override
   String toString() => 'JWTError($receivedMessage))';
-  // TODO: see if i want to return receivedMessage directly
   @override
-  String get message => 'JWT Error: $receivedMessage';
+  String get message => receivedMessage;
 }
 
-class DaemonError implements WingsException {
+final class DaemonError implements WingsException {
   const DaemonError(this.receivedMessage);
 
   @override
@@ -81,51 +36,5 @@ class DaemonError implements WingsException {
   String toString() => 'DaemonError($receivedMessage))';
 
   @override
-  String get message => 'Daemon Error: $receivedMessage';
-}
-
-// TODO: does this need to be suffixed with "Exception"?
-class UnknownWingsEventException implements DartactylWebsocketException {
-  // const UnknownWingsEventException(this.event, this.args);
-  const UnknownWingsEventException(
-    this._websocketEvent, [
-    this._argsReason = '',
-  ]);
-
-  final String? _argsReason;
-
-  final WebsocketEvent _websocketEvent;
-  String get event => _websocketEvent.event;
-  List<String>? get args => _websocketEvent.args;
-
-  @override
-  String toString() {
-    return 'UnknownWingsEventException($_websocketEvent, $_argsReason)';
-  }
-
-  @override
-  String get message {
-    if (_argsReason == null) {
-      return 'Unknown Wings event: "$event"';
-    }
-    if (_argsReason.isEmpty) {
-      return 'Unknown args for Wings event "$event": $args';
-    }
-    return 'Unknown Wings event for "$event": $args\n$_argsReason';
-  }
-}
-
-//TODO: maybe just ignore it?
-/// Thrown when get an auth success event was emitted when we were already
-/// supposedly authenticated.
-///
-/// This is almost certainly a bug in this library,
-///  as we should have only ever sent one request to authenticate.
-class UnexpectedAuthenticationException implements DartactylWebsocketException {
-  const UnexpectedAuthenticationException(this.message);
-  @override
-  final String message;
-
-  @override
-  String toString() => 'UnexpectedAuthenticationException: $message';
+  String get message => receivedMessage;
 }

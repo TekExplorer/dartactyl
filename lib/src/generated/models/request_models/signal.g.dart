@@ -20,7 +20,7 @@ _$SignalImpl _$$SignalImplFromJson(Map<String, dynamic> json) => $checkedCreate(
 
 Map<String, dynamic> _$$SignalImplToJson(_$SignalImpl instance) =>
     <String, dynamic>{
-      'signal': instance.signal.toJson(),
+      'signal': _$ServerPowerActionEnumMap[instance.signal]!,
     };
 
 const _$ServerPowerActionEnumMap = {

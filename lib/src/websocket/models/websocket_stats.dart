@@ -1,13 +1,7 @@
-import 'package:dartactyl/models.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part '../../generated/websocket/models/websocket_stats.freezed.dart';
-part '../../generated/websocket/models/websocket_stats.g.dart';
-
-// typedef WebsocketStatsModel = WebsocketStats;
+part of '../server_websocket.dart';
 
 @freezed
-class WebsocketStats with _$WebsocketStats {
+class WebsocketStats with _$WebsocketStats implements WebsocketMessage {
   const factory WebsocketStats({
     required double cpuAbsolute,
     required Bytes memoryBytes,

@@ -1,25 +1,27 @@
+part of '../server_websocket.dart';
+
+// enum ConnectionChangingState {
+//   connecting,
+//   authenticating;
+
+//   bool get isConnecting => this == connecting;
+//   bool get isAuthenticating => this == authenticating;
+// }
+
 // TODO: consider making these normal classes for extensibility
 //  maybe let the enums implement an interface that also has a string value?
 enum ConnectionState {
-  connecting,
-  authenticating,
   connected,
   disconnected,
   closed,
   ;
 
-  bool get isConnected => this == ConnectionState.connected;
-
-  bool get isConnecting =>
-      this == ConnectionState.connecting ||
-      this == ConnectionState.authenticating;
-
-  bool get isDisconnected => this == ConnectionState.disconnected || isClosed;
-
-  bool get isClosed => this == ConnectionState.closed;
+  bool get isConnected => this == connected;
+  bool get isDisconnected => this == disconnected || isClosed;
+  bool get isClosed => this == closed;
 }
 
-enum TransferStatus {
+enum TransferStatus implements WebsocketMessage {
   starting,
   success,
 
@@ -33,7 +35,7 @@ enum TransferStatus {
   cancelling,
   cancelled;
 
-  static TransferStatus? fromStringOrNull(String value) {
+  static TransferStatus? maybeParse(String value) {
     // byName throws
     return TransferStatus.values.asNameMap()[value.toLowerCase()];
   }
@@ -42,14 +44,14 @@ enum TransferStatus {
       this != TransferStatus.success && this != TransferStatus.starting;
 }
 
-enum InstallStatus {
+enum InstallStatus implements WebsocketMessage {
   started,
   completed;
 
   bool get isInstalling => this == started;
 }
 
-enum BackupStatus {
+enum BackupStatus implements WebsocketMessage {
   backupRestoreCompleted,
   backupCompleted;
 

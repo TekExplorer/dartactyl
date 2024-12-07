@@ -13,7 +13,8 @@ import 'package:stream_channel/stream_channel.dart';
 import 'package:test/test.dart' as t;
 import 'package:test/test.dart';
 import 'package:universal_io/io.dart';
-import 'package:web_socket_channel/web_socket_channel.dart';
+
+// import 'package:web_socket_channel/web_socket_channel.dart';
 
 import 'websocket_helper.dart';
 
@@ -26,7 +27,7 @@ void main() {
   // getServerWebsocket
   final mockClient = MockPteroClient();
   // random data
-  const mockToken = 'mockToken+ao88udjowaijpj';
+  const mockToken = 'mockToken';
   const mockServerId = 'mockServerId';
   PteroData<WebsocketDetails> getMockWebsocketDetails(
     Uri url,
@@ -75,7 +76,7 @@ void main() {
     });
     test('createAndHandleMockServer', () async {
       // ignore: deprecated_member_use_from_same_package
-      final mockServer = await createAndHandleMockServer((server) {
+      final mockServer = await createMockServer((server) {
         server.add('start');
         server.listen((request) {
           // when 'ping' is emitted from the client, respond with 'pong'
@@ -87,19 +88,14 @@ void main() {
 
       expect(mockServer, isA<HttpServer>());
 
-      final websocket = WebSocketChannel.connect(
-        Uri.parse('ws://localhost:${mockServer.port}'),
+      final websocket = await WebSocket.connect(
+        Uri.parse('ws://localhost:${mockServer.port}').toString(),
       );
 
-      // ensure ready
-      expect(websocket.ready, completes);
-
-      await websocket.ready;
-
       // send 'ping' to the server
-      websocket.sink.add('ping');
+      websocket.add('ping');
       // expect the server to respond with 'pong'
-      expect(websocket.stream, emitsInOrder(['start', 'pong', emitsDone]));
+      expect(websocket, emitsInOrder(['start', 'pong', emitsDone]));
     });
   });
   group('ServerWebsocket', () {
@@ -139,7 +135,7 @@ void main() {
             client: mockClient,
             serverId: mockServerId,
           ),
-          throwsA(isA<WebSocketChannelException>()),
+          throwsA(isA<SocketException>()),
         );
       });
       test('Connection failure (missing dns)', () async {
@@ -157,7 +153,7 @@ void main() {
             client: mockClient,
             serverId: mockServerId,
           ),
-          throwsA(isA<WebSocketChannelException>()),
+          throwsA(isA<SocketException>()),
         );
       });
     });
@@ -235,8 +231,6 @@ void main() {
         final el = expectLater(
           serverWebsocket.connectionState,
           emitsInOrder([
-            ConnectionState.connecting,
-            ConnectionState.authenticating,
             ConnectionState.connected,
             ConnectionState.disconnected,
             ConnectionState.closed,
@@ -321,7 +315,7 @@ void main() {
       // ensure we get expected data
       await expectLater(
         serverWebsocket.logs,
-        emitsInOrder(mockLogs.map(WebsocketLog.console)),
+        emitsInOrder(mockLogs.map(LogMessage.console)),
       );
       // NOW close the socket to ensure no errors emitted while retrieving logs
 

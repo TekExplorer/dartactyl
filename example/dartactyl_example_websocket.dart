@@ -28,7 +28,7 @@ void main(List<String> args) async {
   await ws.requestStats();
 
   ws.logs.listen((output) => log(output.message, name: 'Logs'));
-  ws.powerState.listen((state) => log(state.name, name: 'PowerState'));
+  ws.powerStates.listen((state) => log(state.name, name: 'PowerState'));
   ws.stats.listen((stats) => log(stats.toString(), name: 'Stats'));
 
   // async because it wont send until we are authenticated

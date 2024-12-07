@@ -157,7 +157,7 @@ abstract class _TwoFactorImage extends TwoFactorImage {
   const factory _TwoFactorImage(
       {required final String imageUrlData,
       required final String secret}) = _$TwoFactorImageImpl;
-  _TwoFactorImage._() : super._();
+  const _TwoFactorImage._() : super._();
 
   factory _TwoFactorImage.fromJson(Map<String, dynamic> json) =
       _$TwoFactorImageImpl.fromJson;

@@ -10,8 +10,8 @@ enum ServerPowerState {
   stopping,
   offline;
 
-  static ServerPowerState? fromStringOrNull(String json) {
-    return values.asNameMap()[json];
+  static ServerPowerState? maybeParse(String value) {
+    return values.asNameMap()[value.toLowerCase()];
   }
 
   String toJson() => name;
