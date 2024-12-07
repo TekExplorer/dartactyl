@@ -1,4 +1,4 @@
-import 'package:dartactyl/websocket.dart';
+import 'package:dartactyl/websocket_v2.dart';
 import 'package:test/test.dart';
 
 import 'websocket_helper.dart';

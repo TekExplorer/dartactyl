@@ -5,7 +5,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartactyl/dartactyl.dart';
-import 'package:dartactyl/websocket.dart';
+import 'package:dartactyl/websocket_v2.dart';
 import 'package:dio/dio.dart';
 import 'package:mocktailx/mocktailx.dart';
 import 'package:rxdart/rxdart.dart';

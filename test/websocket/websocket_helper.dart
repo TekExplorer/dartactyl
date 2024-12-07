@@ -7,7 +7,7 @@ import 'dart:io';
 
 import 'package:dartactyl/models.dart';
 import 'package:dartactyl/src/websocket/server_websocket.dart';
-import 'package:dartactyl/websocket.dart';
+import 'package:dartactyl/websocket_v2.dart';
 import 'package:meta/meta.dart';
 import 'package:rxdart/transformers.dart';
 import 'package:test/test.dart';

@@ -3,7 +3,7 @@
 import 'dart:developer';
 
 import 'package:dartactyl/dartactyl.dart';
-import 'package:dartactyl/websocket.dart';
+import 'package:dartactyl/websocket_v2.dart';
 
 Future<ServerWebsocket> getWebsocket() async {
   final client = PteroClient.generate(
