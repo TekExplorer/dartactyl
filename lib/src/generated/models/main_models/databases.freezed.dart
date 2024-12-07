@@ -12,7 +12,7 @@ part of '../../../models/main_models/databases.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Databases _$DatabasesFromJson(Map<String, dynamic> json) {
   return _Databases.fromJson(json);
@@ -118,10 +118,11 @@ class _$DatabasesCopyWithImpl<$Res, $Val extends Databases>
 }
 
 /// @nodoc
-abstract class _$$_DatabasesCopyWith<$Res> implements $DatabasesCopyWith<$Res> {
-  factory _$$_DatabasesCopyWith(
-          _$_Databases value, $Res Function(_$_Databases) then) =
-      __$$_DatabasesCopyWithImpl<$Res>;
+abstract class _$$DatabasesImplCopyWith<$Res>
+    implements $DatabasesCopyWith<$Res> {
+  factory _$$DatabasesImplCopyWith(
+          _$DatabasesImpl value, $Res Function(_$DatabasesImpl) then) =
+      __$$DatabasesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -137,11 +138,11 @@ abstract class _$$_DatabasesCopyWith<$Res> implements $DatabasesCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DatabasesCopyWithImpl<$Res>
-    extends _$DatabasesCopyWithImpl<$Res, _$_Databases>
-    implements _$$_DatabasesCopyWith<$Res> {
-  __$$_DatabasesCopyWithImpl(
-      _$_Databases _value, $Res Function(_$_Databases) _then)
+class __$$DatabasesImplCopyWithImpl<$Res>
+    extends _$DatabasesCopyWithImpl<$Res, _$DatabasesImpl>
+    implements _$$DatabasesImplCopyWith<$Res> {
+  __$$DatabasesImplCopyWithImpl(
+      _$DatabasesImpl _value, $Res Function(_$DatabasesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -157,7 +158,7 @@ class __$$_DatabasesCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_$_Databases(
+    return _then(_$DatabasesImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -200,8 +201,8 @@ class __$$_DatabasesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Databases extends _Databases {
-  const _$_Databases(
+class _$DatabasesImpl extends _Databases {
+  const _$DatabasesImpl(
       {required this.id,
       required this.server,
       required this.host,
@@ -213,8 +214,8 @@ class _$_Databases extends _Databases {
       required this.updatedAt})
       : super._();
 
-  factory _$_Databases.fromJson(Map<String, dynamic> json) =>
-      _$$_DatabasesFromJson(json);
+  factory _$DatabasesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DatabasesImplFromJson(json);
 
   @override
   final int id;
@@ -241,10 +242,10 @@ class _$_Databases extends _Databases {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Databases &&
+            other is _$DatabasesImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.server, server) || other.server == server) &&
             (identical(other.host, host) || other.host == host) &&
@@ -269,12 +270,12 @@ class _$_Databases extends _Databases {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DatabasesCopyWith<_$_Databases> get copyWith =>
-      __$$_DatabasesCopyWithImpl<_$_Databases>(this, _$identity);
+  _$$DatabasesImplCopyWith<_$DatabasesImpl> get copyWith =>
+      __$$DatabasesImplCopyWithImpl<_$DatabasesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DatabasesToJson(
+    return _$$DatabasesImplToJson(
       this,
     );
   }
@@ -290,11 +291,11 @@ abstract class _Databases extends Databases {
       required final String remote,
       required final int maxConnections,
       required final String createdAt,
-      required final String updatedAt}) = _$_Databases;
+      required final String updatedAt}) = _$DatabasesImpl;
   const _Databases._() : super._();
 
   factory _Databases.fromJson(Map<String, dynamic> json) =
-      _$_Databases.fromJson;
+      _$DatabasesImpl.fromJson;
 
   @override
   int get id;
@@ -316,6 +317,6 @@ abstract class _Databases extends Databases {
   String get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_DatabasesCopyWith<_$_Databases> get copyWith =>
+  _$$DatabasesImplCopyWith<_$DatabasesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

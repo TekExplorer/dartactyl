@@ -12,7 +12,7 @@ part of '../../../models/main_models/activity_log.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ActivityLog _$ActivityLogFromJson(Map<String, dynamic> json) {
   return _ActivityLog.fromJson(json);
@@ -27,8 +27,8 @@ mixin _$ActivityLog {
   String? get description =>
       throw _privateConstructorUsedError; // if its [], set to {}
 // ignore: invalid_annotation_target
-  @JsonKey(fromJson: activityLogPropertiesFromJson)
-  Map<String, dynamic> get properties => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _activityLogPropertiesFromJson)
+  Map<String, Object?> get properties => throw _privateConstructorUsedError;
   bool get hasAdditionalMetadata => throw _privateConstructorUsedError;
   DateTime get timestamp => throw _privateConstructorUsedError;
   ActivityLogRelationships? get relationships =>
@@ -52,8 +52,8 @@ abstract class $ActivityLogCopyWith<$Res> {
       String? ip,
       bool isApi,
       String? description,
-      @JsonKey(fromJson: activityLogPropertiesFromJson)
-          Map<String, dynamic> properties,
+      @JsonKey(fromJson: _activityLogPropertiesFromJson)
+      Map<String, Object?> properties,
       bool hasAdditionalMetadata,
       DateTime timestamp,
       ActivityLogRelationships? relationships});
@@ -108,7 +108,7 @@ class _$ActivityLogCopyWithImpl<$Res, $Val extends ActivityLog>
       properties: null == properties
           ? _value.properties
           : properties // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, Object?>,
       hasAdditionalMetadata: null == hasAdditionalMetadata
           ? _value.hasAdditionalMetadata
           : hasAdditionalMetadata // ignore: cast_nullable_to_non_nullable
@@ -139,11 +139,11 @@ class _$ActivityLogCopyWithImpl<$Res, $Val extends ActivityLog>
 }
 
 /// @nodoc
-abstract class _$$_ActivityLogCopyWith<$Res>
+abstract class _$$ActivityLogImplCopyWith<$Res>
     implements $ActivityLogCopyWith<$Res> {
-  factory _$$_ActivityLogCopyWith(
-          _$_ActivityLog value, $Res Function(_$_ActivityLog) then) =
-      __$$_ActivityLogCopyWithImpl<$Res>;
+  factory _$$ActivityLogImplCopyWith(
+          _$ActivityLogImpl value, $Res Function(_$ActivityLogImpl) then) =
+      __$$ActivityLogImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -152,8 +152,8 @@ abstract class _$$_ActivityLogCopyWith<$Res>
       String? ip,
       bool isApi,
       String? description,
-      @JsonKey(fromJson: activityLogPropertiesFromJson)
-          Map<String, dynamic> properties,
+      @JsonKey(fromJson: _activityLogPropertiesFromJson)
+      Map<String, Object?> properties,
       bool hasAdditionalMetadata,
       DateTime timestamp,
       ActivityLogRelationships? relationships});
@@ -163,11 +163,11 @@ abstract class _$$_ActivityLogCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ActivityLogCopyWithImpl<$Res>
-    extends _$ActivityLogCopyWithImpl<$Res, _$_ActivityLog>
-    implements _$$_ActivityLogCopyWith<$Res> {
-  __$$_ActivityLogCopyWithImpl(
-      _$_ActivityLog _value, $Res Function(_$_ActivityLog) _then)
+class __$$ActivityLogImplCopyWithImpl<$Res>
+    extends _$ActivityLogCopyWithImpl<$Res, _$ActivityLogImpl>
+    implements _$$ActivityLogImplCopyWith<$Res> {
+  __$$ActivityLogImplCopyWithImpl(
+      _$ActivityLogImpl _value, $Res Function(_$ActivityLogImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -183,7 +183,7 @@ class __$$_ActivityLogCopyWithImpl<$Res>
     Object? timestamp = null,
     Object? relationships = freezed,
   }) {
-    return _then(_$_ActivityLog(
+    return _then(_$ActivityLogImpl(
       batch: freezed == batch
           ? _value.batch
           : batch // ignore: cast_nullable_to_non_nullable
@@ -207,7 +207,7 @@ class __$$_ActivityLogCopyWithImpl<$Res>
       properties: null == properties
           ? _value._properties
           : properties // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, Object?>,
       hasAdditionalMetadata: null == hasAdditionalMetadata
           ? _value.hasAdditionalMetadata
           : hasAdditionalMetadata // ignore: cast_nullable_to_non_nullable
@@ -226,23 +226,23 @@ class __$$_ActivityLogCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ActivityLog extends _ActivityLog {
-  const _$_ActivityLog(
+class _$ActivityLogImpl extends _ActivityLog {
+  const _$ActivityLogImpl(
       {this.batch,
       required this.event,
       this.ip,
       required this.isApi,
       this.description,
-      @JsonKey(fromJson: activityLogPropertiesFromJson)
-          required final Map<String, dynamic> properties,
+      @JsonKey(fromJson: _activityLogPropertiesFromJson)
+      required final Map<String, Object?> properties,
       required this.hasAdditionalMetadata,
       required this.timestamp,
       this.relationships})
       : _properties = properties,
         super._();
 
-  factory _$_ActivityLog.fromJson(Map<String, dynamic> json) =>
-      _$$_ActivityLogFromJson(json);
+  factory _$ActivityLogImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActivityLogImplFromJson(json);
 
   @override
   final String? batch;
@@ -256,12 +256,12 @@ class _$_ActivityLog extends _ActivityLog {
   final String? description;
 // if its [], set to {}
 // ignore: invalid_annotation_target
-  final Map<String, dynamic> _properties;
+  final Map<String, Object?> _properties;
 // if its [], set to {}
 // ignore: invalid_annotation_target
   @override
-  @JsonKey(fromJson: activityLogPropertiesFromJson)
-  Map<String, dynamic> get properties {
+  @JsonKey(fromJson: _activityLogPropertiesFromJson)
+  Map<String, Object?> get properties {
     if (_properties is EqualUnmodifiableMapView) return _properties;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_properties);
@@ -280,10 +280,10 @@ class _$_ActivityLog extends _ActivityLog {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActivityLog &&
+            other is _$ActivityLogImpl &&
             (identical(other.batch, batch) || other.batch == batch) &&
             (identical(other.event, event) || other.event == event) &&
             (identical(other.ip, ip) || other.ip == ip) &&
@@ -317,12 +317,12 @@ class _$_ActivityLog extends _ActivityLog {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ActivityLogCopyWith<_$_ActivityLog> get copyWith =>
-      __$$_ActivityLogCopyWithImpl<_$_ActivityLog>(this, _$identity);
+  _$$ActivityLogImplCopyWith<_$ActivityLogImpl> get copyWith =>
+      __$$ActivityLogImplCopyWithImpl<_$ActivityLogImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ActivityLogToJson(
+    return _$$ActivityLogImplToJson(
       this,
     );
   }
@@ -335,15 +335,15 @@ abstract class _ActivityLog extends ActivityLog {
       final String? ip,
       required final bool isApi,
       final String? description,
-      @JsonKey(fromJson: activityLogPropertiesFromJson)
-          required final Map<String, dynamic> properties,
+      @JsonKey(fromJson: _activityLogPropertiesFromJson)
+      required final Map<String, Object?> properties,
       required final bool hasAdditionalMetadata,
       required final DateTime timestamp,
-      final ActivityLogRelationships? relationships}) = _$_ActivityLog;
+      final ActivityLogRelationships? relationships}) = _$ActivityLogImpl;
   const _ActivityLog._() : super._();
 
   factory _ActivityLog.fromJson(Map<String, dynamic> json) =
-      _$_ActivityLog.fromJson;
+      _$ActivityLogImpl.fromJson;
 
   @override
   String? get batch;
@@ -357,8 +357,8 @@ abstract class _ActivityLog extends ActivityLog {
   String? get description;
   @override // if its [], set to {}
 // ignore: invalid_annotation_target
-  @JsonKey(fromJson: activityLogPropertiesFromJson)
-  Map<String, dynamic> get properties;
+  @JsonKey(fromJson: _activityLogPropertiesFromJson)
+  Map<String, Object?> get properties;
   @override
   bool get hasAdditionalMetadata;
   @override
@@ -367,6 +367,6 @@ abstract class _ActivityLog extends ActivityLog {
   ActivityLogRelationships? get relationships;
   @override
   @JsonKey(ignore: true)
-  _$$_ActivityLogCopyWith<_$_ActivityLog> get copyWith =>
+  _$$ActivityLogImplCopyWith<_$ActivityLogImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

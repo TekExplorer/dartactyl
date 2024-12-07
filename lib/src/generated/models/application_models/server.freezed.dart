@@ -12,7 +12,7 @@ part of '../../../models/application_models/server.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ApplicationServer _$ApplicationServerFromJson(Map<String, dynamic> json) {
   return _ApplicationServer.fromJson(json);
@@ -234,11 +234,11 @@ class _$ApplicationServerCopyWithImpl<$Res, $Val extends ApplicationServer>
 }
 
 /// @nodoc
-abstract class _$$_ApplicationServerCopyWith<$Res>
+abstract class _$$ApplicationServerImplCopyWith<$Res>
     implements $ApplicationServerCopyWith<$Res> {
-  factory _$$_ApplicationServerCopyWith(_$_ApplicationServer value,
-          $Res Function(_$_ApplicationServer) then) =
-      __$$_ApplicationServerCopyWithImpl<$Res>;
+  factory _$$ApplicationServerImplCopyWith(_$ApplicationServerImpl value,
+          $Res Function(_$ApplicationServerImpl) then) =
+      __$$ApplicationServerImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -273,11 +273,11 @@ abstract class _$$_ApplicationServerCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ApplicationServerCopyWithImpl<$Res>
-    extends _$ApplicationServerCopyWithImpl<$Res, _$_ApplicationServer>
-    implements _$$_ApplicationServerCopyWith<$Res> {
-  __$$_ApplicationServerCopyWithImpl(
-      _$_ApplicationServer _value, $Res Function(_$_ApplicationServer) _then)
+class __$$ApplicationServerImplCopyWithImpl<$Res>
+    extends _$ApplicationServerCopyWithImpl<$Res, _$ApplicationServerImpl>
+    implements _$$ApplicationServerImplCopyWith<$Res> {
+  __$$ApplicationServerImplCopyWithImpl(_$ApplicationServerImpl _value,
+      $Res Function(_$ApplicationServerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -303,7 +303,7 @@ class __$$_ApplicationServerCopyWithImpl<$Res>
     Object? updatedAt = null,
     Object? relationships = freezed,
   }) {
-    return _then(_$_ApplicationServer(
+    return _then(_$ApplicationServerImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -386,8 +386,8 @@ class __$$_ApplicationServerCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApplicationServer extends _ApplicationServer {
-  const _$_ApplicationServer(
+class _$ApplicationServerImpl extends _ApplicationServer {
+  const _$ApplicationServerImpl(
       {required this.id,
       required this.externalId,
       required this.uuid,
@@ -409,8 +409,8 @@ class _$_ApplicationServer extends _ApplicationServer {
       this.relationships})
       : super._();
 
-  factory _$_ApplicationServer.fromJson(Map<String, dynamic> json) =>
-      _$$_ApplicationServerFromJson(json);
+  factory _$ApplicationServerImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ApplicationServerImplFromJson(json);
 
   @override
   final int id;
@@ -458,10 +458,10 @@ class _$_ApplicationServer extends _ApplicationServer {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApplicationServer &&
+            other is _$ApplicationServerImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.externalId, externalId) ||
                 other.externalId == externalId) &&
@@ -521,13 +521,13 @@ class _$_ApplicationServer extends _ApplicationServer {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApplicationServerCopyWith<_$_ApplicationServer> get copyWith =>
-      __$$_ApplicationServerCopyWithImpl<_$_ApplicationServer>(
+  _$$ApplicationServerImplCopyWith<_$ApplicationServerImpl> get copyWith =>
+      __$$ApplicationServerImplCopyWithImpl<_$ApplicationServerImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApplicationServerToJson(
+    return _$$ApplicationServerImplToJson(
       this,
     );
   }
@@ -554,11 +554,11 @@ abstract class _ApplicationServer extends ApplicationServer {
           required final DateTime createdAt,
           required final DateTime updatedAt,
           final ApplicationServerRelationships? relationships}) =
-      _$_ApplicationServer;
+      _$ApplicationServerImpl;
   const _ApplicationServer._() : super._();
 
   factory _ApplicationServer.fromJson(Map<String, dynamic> json) =
-      _$_ApplicationServer.fromJson;
+      _$ApplicationServerImpl.fromJson;
 
   @override
   int get id;
@@ -601,7 +601,7 @@ abstract class _ApplicationServer extends ApplicationServer {
   ApplicationServerRelationships? get relationships;
   @override
   @JsonKey(ignore: true)
-  _$$_ApplicationServerCopyWith<_$_ApplicationServer> get copyWith =>
+  _$$ApplicationServerImplCopyWith<_$ApplicationServerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -616,7 +616,7 @@ mixin _$ApplicationServerContainer {
   String get image => throw _privateConstructorUsedError;
   @Deprecated('Use status instead')
   bool get installed => throw _privateConstructorUsedError;
-  Map<String, dynamic> get environment => throw _privateConstructorUsedError;
+  Map<String, Object?> get environment => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -635,7 +635,7 @@ abstract class $ApplicationServerContainerCopyWith<$Res> {
       {String startupCommand,
       String image,
       @Deprecated('Use status instead') bool installed,
-      Map<String, dynamic> environment});
+      Map<String, Object?> environment});
 }
 
 /// @nodoc
@@ -673,35 +673,35 @@ class _$ApplicationServerContainerCopyWithImpl<$Res,
       environment: null == environment
           ? _value.environment
           : environment // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, Object?>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_ApplicationServerContainerCopyWith<$Res>
+abstract class _$$ApplicationServerContainerImplCopyWith<$Res>
     implements $ApplicationServerContainerCopyWith<$Res> {
-  factory _$$_ApplicationServerContainerCopyWith(
-          _$_ApplicationServerContainer value,
-          $Res Function(_$_ApplicationServerContainer) then) =
-      __$$_ApplicationServerContainerCopyWithImpl<$Res>;
+  factory _$$ApplicationServerContainerImplCopyWith(
+          _$ApplicationServerContainerImpl value,
+          $Res Function(_$ApplicationServerContainerImpl) then) =
+      __$$ApplicationServerContainerImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {String startupCommand,
       String image,
       @Deprecated('Use status instead') bool installed,
-      Map<String, dynamic> environment});
+      Map<String, Object?> environment});
 }
 
 /// @nodoc
-class __$$_ApplicationServerContainerCopyWithImpl<$Res>
+class __$$ApplicationServerContainerImplCopyWithImpl<$Res>
     extends _$ApplicationServerContainerCopyWithImpl<$Res,
-        _$_ApplicationServerContainer>
-    implements _$$_ApplicationServerContainerCopyWith<$Res> {
-  __$$_ApplicationServerContainerCopyWithImpl(
-      _$_ApplicationServerContainer _value,
-      $Res Function(_$_ApplicationServerContainer) _then)
+        _$ApplicationServerContainerImpl>
+    implements _$$ApplicationServerContainerImplCopyWith<$Res> {
+  __$$ApplicationServerContainerImplCopyWithImpl(
+      _$ApplicationServerContainerImpl _value,
+      $Res Function(_$ApplicationServerContainerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -712,7 +712,7 @@ class __$$_ApplicationServerContainerCopyWithImpl<$Res>
     Object? installed = null,
     Object? environment = null,
   }) {
-    return _then(_$_ApplicationServerContainer(
+    return _then(_$ApplicationServerContainerImpl(
       startupCommand: null == startupCommand
           ? _value.startupCommand
           : startupCommand // ignore: cast_nullable_to_non_nullable
@@ -728,24 +728,25 @@ class __$$_ApplicationServerContainerCopyWithImpl<$Res>
       environment: null == environment
           ? _value._environment
           : environment // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, Object?>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApplicationServerContainer extends _ApplicationServerContainer {
-  const _$_ApplicationServerContainer(
+class _$ApplicationServerContainerImpl extends _ApplicationServerContainer {
+  const _$ApplicationServerContainerImpl(
       {required this.startupCommand,
       required this.image,
       @Deprecated('Use status instead') required this.installed,
-      required final Map<String, dynamic> environment})
+      required final Map<String, Object?> environment})
       : _environment = environment,
         super._();
 
-  factory _$_ApplicationServerContainer.fromJson(Map<String, dynamic> json) =>
-      _$$_ApplicationServerContainerFromJson(json);
+  factory _$ApplicationServerContainerImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ApplicationServerContainerImplFromJson(json);
 
   @override
   final String startupCommand;
@@ -754,9 +755,9 @@ class _$_ApplicationServerContainer extends _ApplicationServerContainer {
   @override
   @Deprecated('Use status instead')
   final bool installed;
-  final Map<String, dynamic> _environment;
+  final Map<String, Object?> _environment;
   @override
-  Map<String, dynamic> get environment {
+  Map<String, Object?> get environment {
     if (_environment is EqualUnmodifiableMapView) return _environment;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_environment);
@@ -768,10 +769,10 @@ class _$_ApplicationServerContainer extends _ApplicationServerContainer {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApplicationServerContainer &&
+            other is _$ApplicationServerContainerImpl &&
             (identical(other.startupCommand, startupCommand) ||
                 other.startupCommand == startupCommand) &&
             (identical(other.image, image) || other.image == image) &&
@@ -789,13 +790,13 @@ class _$_ApplicationServerContainer extends _ApplicationServerContainer {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApplicationServerContainerCopyWith<_$_ApplicationServerContainer>
-      get copyWith => __$$_ApplicationServerContainerCopyWithImpl<
-          _$_ApplicationServerContainer>(this, _$identity);
+  _$$ApplicationServerContainerImplCopyWith<_$ApplicationServerContainerImpl>
+      get copyWith => __$$ApplicationServerContainerImplCopyWithImpl<
+          _$ApplicationServerContainerImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApplicationServerContainerToJson(
+    return _$$ApplicationServerContainerImplToJson(
       this,
     );
   }
@@ -806,12 +807,12 @@ abstract class _ApplicationServerContainer extends ApplicationServerContainer {
           {required final String startupCommand,
           required final String image,
           @Deprecated('Use status instead') required final bool installed,
-          required final Map<String, dynamic> environment}) =
-      _$_ApplicationServerContainer;
+          required final Map<String, Object?> environment}) =
+      _$ApplicationServerContainerImpl;
   const _ApplicationServerContainer._() : super._();
 
   factory _ApplicationServerContainer.fromJson(Map<String, dynamic> json) =
-      _$_ApplicationServerContainer.fromJson;
+      _$ApplicationServerContainerImpl.fromJson;
 
   @override
   String get startupCommand;
@@ -821,10 +822,10 @@ abstract class _ApplicationServerContainer extends ApplicationServerContainer {
   @Deprecated('Use status instead')
   bool get installed;
   @override
-  Map<String, dynamic> get environment;
+  Map<String, Object?> get environment;
   @override
   @JsonKey(ignore: true)
-  _$$_ApplicationServerContainerCopyWith<_$_ApplicationServerContainer>
+  _$$ApplicationServerContainerImplCopyWith<_$ApplicationServerContainerImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -894,12 +895,12 @@ class _$ApplicationServerRelationshipsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ApplicationServerRelationshipsCopyWith<$Res>
+abstract class _$$ApplicationServerRelationshipsImplCopyWith<$Res>
     implements $ApplicationServerRelationshipsCopyWith<$Res> {
-  factory _$$_ApplicationServerRelationshipsCopyWith(
-          _$_ApplicationServerRelationships value,
-          $Res Function(_$_ApplicationServerRelationships) then) =
-      __$$_ApplicationServerRelationshipsCopyWithImpl<$Res>;
+  factory _$$ApplicationServerRelationshipsImplCopyWith(
+          _$ApplicationServerRelationshipsImpl value,
+          $Res Function(_$ApplicationServerRelationshipsImpl) then) =
+      __$$ApplicationServerRelationshipsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({FractalData<ApplicationUser>? user});
@@ -909,13 +910,13 @@ abstract class _$$_ApplicationServerRelationshipsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ApplicationServerRelationshipsCopyWithImpl<$Res>
+class __$$ApplicationServerRelationshipsImplCopyWithImpl<$Res>
     extends _$ApplicationServerRelationshipsCopyWithImpl<$Res,
-        _$_ApplicationServerRelationships>
-    implements _$$_ApplicationServerRelationshipsCopyWith<$Res> {
-  __$$_ApplicationServerRelationshipsCopyWithImpl(
-      _$_ApplicationServerRelationships _value,
-      $Res Function(_$_ApplicationServerRelationships) _then)
+        _$ApplicationServerRelationshipsImpl>
+    implements _$$ApplicationServerRelationshipsImplCopyWith<$Res> {
+  __$$ApplicationServerRelationshipsImplCopyWithImpl(
+      _$ApplicationServerRelationshipsImpl _value,
+      $Res Function(_$ApplicationServerRelationshipsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -923,7 +924,7 @@ class __$$_ApplicationServerRelationshipsCopyWithImpl<$Res>
   $Res call({
     Object? user = freezed,
   }) {
-    return _then(_$_ApplicationServerRelationships(
+    return _then(_$ApplicationServerRelationshipsImpl(
       freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -934,13 +935,13 @@ class __$$_ApplicationServerRelationshipsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApplicationServerRelationships
+class _$ApplicationServerRelationshipsImpl
     extends _ApplicationServerRelationships {
-  const _$_ApplicationServerRelationships(this.user) : super._();
+  const _$ApplicationServerRelationshipsImpl(this.user) : super._();
 
-  factory _$_ApplicationServerRelationships.fromJson(
+  factory _$ApplicationServerRelationshipsImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$_ApplicationServerRelationshipsFromJson(json);
+      _$$ApplicationServerRelationshipsImplFromJson(json);
 
   @override
   final FractalData<ApplicationUser>? user;
@@ -951,10 +952,10 @@ class _$_ApplicationServerRelationships
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApplicationServerRelationships &&
+            other is _$ApplicationServerRelationshipsImpl &&
             (identical(other.user, user) || other.user == user));
   }
 
@@ -965,13 +966,14 @@ class _$_ApplicationServerRelationships
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApplicationServerRelationshipsCopyWith<_$_ApplicationServerRelationships>
-      get copyWith => __$$_ApplicationServerRelationshipsCopyWithImpl<
-          _$_ApplicationServerRelationships>(this, _$identity);
+  _$$ApplicationServerRelationshipsImplCopyWith<
+          _$ApplicationServerRelationshipsImpl>
+      get copyWith => __$$ApplicationServerRelationshipsImplCopyWithImpl<
+          _$ApplicationServerRelationshipsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApplicationServerRelationshipsToJson(
+    return _$$ApplicationServerRelationshipsImplToJson(
       this,
     );
   }
@@ -981,16 +983,17 @@ abstract class _ApplicationServerRelationships
     extends ApplicationServerRelationships {
   const factory _ApplicationServerRelationships(
           final FractalData<ApplicationUser>? user) =
-      _$_ApplicationServerRelationships;
+      _$ApplicationServerRelationshipsImpl;
   const _ApplicationServerRelationships._() : super._();
 
   factory _ApplicationServerRelationships.fromJson(Map<String, dynamic> json) =
-      _$_ApplicationServerRelationships.fromJson;
+      _$ApplicationServerRelationshipsImpl.fromJson;
 
   @override
   FractalData<ApplicationUser>? get user;
   @override
   @JsonKey(ignore: true)
-  _$$_ApplicationServerRelationshipsCopyWith<_$_ApplicationServerRelationships>
+  _$$ApplicationServerRelationshipsImplCopyWith<
+          _$ApplicationServerRelationshipsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -6,20 +6,23 @@ part of '../../../models/main_models/recovery_tokens.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RecoveryTokens _$$_RecoveryTokensFromJson(Map<String, dynamic> json) =>
+_$RecoveryTokensImpl _$$RecoveryTokensImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_RecoveryTokens',
+      r'_$RecoveryTokensImpl',
       json,
       ($checkedConvert) {
-        final val = _$_RecoveryTokens(
+        final val = _$RecoveryTokensImpl(
           tokens: $checkedConvert('tokens',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+              (v) => IList<String>.fromJson(v, (value) => value as String)),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_RecoveryTokensToJson(_$_RecoveryTokens instance) =>
+Map<String, dynamic> _$$RecoveryTokensImplToJson(
+        _$RecoveryTokensImpl instance) =>
     <String, dynamic>{
-      'tokens': instance.tokens,
+      'tokens': instance.tokens.toJson(
+        (value) => value,
+      ),
     };

@@ -12,7 +12,7 @@ part of '../../../models/permission_keys/user_permission_keys.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 UserPermissionKeys _$UserPermissionKeysFromJson(Map<String, dynamic> json) {
   return _UserPermissionKeys.fromJson(json);
@@ -80,22 +80,22 @@ class _$UserPermissionKeysCopyWithImpl<$Res, $Val extends UserPermissionKeys>
 }
 
 /// @nodoc
-abstract class _$$_UserPermissionKeysCopyWith<$Res>
+abstract class _$$UserPermissionKeysImplCopyWith<$Res>
     implements $UserPermissionKeysCopyWith<$Res> {
-  factory _$$_UserPermissionKeysCopyWith(_$_UserPermissionKeys value,
-          $Res Function(_$_UserPermissionKeys) then) =
-      __$$_UserPermissionKeysCopyWithImpl<$Res>;
+  factory _$$UserPermissionKeysImplCopyWith(_$UserPermissionKeysImpl value,
+          $Res Function(_$UserPermissionKeysImpl) then) =
+      __$$UserPermissionKeysImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String create, String read, String update, String delete});
 }
 
 /// @nodoc
-class __$$_UserPermissionKeysCopyWithImpl<$Res>
-    extends _$UserPermissionKeysCopyWithImpl<$Res, _$_UserPermissionKeys>
-    implements _$$_UserPermissionKeysCopyWith<$Res> {
-  __$$_UserPermissionKeysCopyWithImpl(
-      _$_UserPermissionKeys _value, $Res Function(_$_UserPermissionKeys) _then)
+class __$$UserPermissionKeysImplCopyWithImpl<$Res>
+    extends _$UserPermissionKeysCopyWithImpl<$Res, _$UserPermissionKeysImpl>
+    implements _$$UserPermissionKeysImplCopyWith<$Res> {
+  __$$UserPermissionKeysImplCopyWithImpl(_$UserPermissionKeysImpl _value,
+      $Res Function(_$UserPermissionKeysImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -106,7 +106,7 @@ class __$$_UserPermissionKeysCopyWithImpl<$Res>
     Object? update = null,
     Object? delete = null,
   }) {
-    return _then(_$_UserPermissionKeys(
+    return _then(_$UserPermissionKeysImpl(
       create: null == create
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
@@ -129,16 +129,16 @@ class __$$_UserPermissionKeysCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserPermissionKeys extends _UserPermissionKeys {
-  const _$_UserPermissionKeys(
+class _$UserPermissionKeysImpl extends _UserPermissionKeys {
+  const _$UserPermissionKeysImpl(
       {required this.create,
       required this.read,
       required this.update,
       required this.delete})
       : super._();
 
-  factory _$_UserPermissionKeys.fromJson(Map<String, dynamic> json) =>
-      _$$_UserPermissionKeysFromJson(json);
+  factory _$UserPermissionKeysImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserPermissionKeysImplFromJson(json);
 
   @override
   final String create;
@@ -155,10 +155,10 @@ class _$_UserPermissionKeys extends _UserPermissionKeys {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserPermissionKeys &&
+            other is _$UserPermissionKeysImpl &&
             (identical(other.create, create) || other.create == create) &&
             (identical(other.read, read) || other.read == read) &&
             (identical(other.update, update) || other.update == update) &&
@@ -172,13 +172,13 @@ class _$_UserPermissionKeys extends _UserPermissionKeys {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserPermissionKeysCopyWith<_$_UserPermissionKeys> get copyWith =>
-      __$$_UserPermissionKeysCopyWithImpl<_$_UserPermissionKeys>(
+  _$$UserPermissionKeysImplCopyWith<_$UserPermissionKeysImpl> get copyWith =>
+      __$$UserPermissionKeysImplCopyWithImpl<_$UserPermissionKeysImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserPermissionKeysToJson(
+    return _$$UserPermissionKeysImplToJson(
       this,
     );
   }
@@ -189,11 +189,11 @@ abstract class _UserPermissionKeys extends UserPermissionKeys {
       {required final String create,
       required final String read,
       required final String update,
-      required final String delete}) = _$_UserPermissionKeys;
+      required final String delete}) = _$UserPermissionKeysImpl;
   const _UserPermissionKeys._() : super._();
 
   factory _UserPermissionKeys.fromJson(Map<String, dynamic> json) =
-      _$_UserPermissionKeys.fromJson;
+      _$UserPermissionKeysImpl.fromJson;
 
   @override
   String get create;
@@ -205,6 +205,6 @@ abstract class _UserPermissionKeys extends UserPermissionKeys {
   String get delete;
   @override
   @JsonKey(ignore: true)
-  _$$_UserPermissionKeysCopyWith<_$_UserPermissionKeys> get copyWith =>
+  _$$UserPermissionKeysImplCopyWith<_$UserPermissionKeysImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

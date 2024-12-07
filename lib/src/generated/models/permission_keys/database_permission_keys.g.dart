@@ -6,13 +6,13 @@ part of '../../../models/permission_keys/database_permission_keys.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DatabasePermissionKeys _$$_DatabasePermissionKeysFromJson(
+_$DatabasePermissionKeysImpl _$$DatabasePermissionKeysImplFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_DatabasePermissionKeys',
+      r'_$DatabasePermissionKeysImpl',
       json,
       ($checkedConvert) {
-        final val = _$_DatabasePermissionKeys(
+        final val = _$DatabasePermissionKeysImpl(
           create: $checkedConvert('create', (v) => v as String),
           read: $checkedConvert('read', (v) => v as String),
           update: $checkedConvert('update', (v) => v as String),
@@ -24,8 +24,8 @@ _$_DatabasePermissionKeys _$$_DatabasePermissionKeysFromJson(
       fieldKeyMap: const {'viewPassword': 'view_password'},
     );
 
-Map<String, dynamic> _$$_DatabasePermissionKeysToJson(
-        _$_DatabasePermissionKeys instance) =>
+Map<String, dynamic> _$$DatabasePermissionKeysImplToJson(
+        _$DatabasePermissionKeysImpl instance) =>
     <String, dynamic>{
       'create': instance.create,
       'read': instance.read,

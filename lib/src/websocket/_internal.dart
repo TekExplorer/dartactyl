@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:collection/collection.dart';
+import 'package:dartactyl/dartactyl.dart';
 import 'package:dartactyl/websocket.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -13,7 +15,7 @@ part '../generated/websocket/_internal.g.dart';
 /// an interface to allow send and receive events to be typed for
 /// [WebsocketEvent.fromEvent]
 @visibleForTesting
-abstract class ServerWebsocketRemoteEvent {
+sealed class ServerWebsocketRemoteEvent {
   String get event;
 }
 
@@ -72,6 +74,10 @@ enum ServerWebsocketReceiveEvent implements ServerWebsocketRemoteEvent {
   const ServerWebsocketReceiveEvent(this.event);
   @override
   final String event;
+
+  static ServerWebsocketReceiveEvent? fromEventOrNull(String event) {
+    return values.firstWhereOrNull((e) => e.event == event);
+  }
 }
 
 /// The object which represents an event sent to or from the websocket.
@@ -84,7 +90,7 @@ enum ServerWebsocketReceiveEvent implements ServerWebsocketRemoteEvent {
   map: FreezedMapOptions.none,
 )
 @visibleForTesting
-class WebsocketEvent with _$WebsocketEvent {
+sealed class WebsocketEvent with _$WebsocketEvent {
   const factory WebsocketEvent._internal({
     required String event,
     required List<String>? args,
@@ -103,7 +109,7 @@ class WebsocketEvent with _$WebsocketEvent {
   const WebsocketEvent._();
 
   @visibleForTesting
-  factory WebsocketEvent.fromJson(Map<String, dynamic> json) =>
+  factory WebsocketEvent.fromJson(JsonMap json) =>
       _$WebsocketEventFromJson(json);
 
   String toEncodedJson() => jsonEncode(toJson());

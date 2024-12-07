@@ -6,12 +6,13 @@ part of '../../../models/application_models/user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApplicationUser _$$_ApplicationUserFromJson(Map<String, dynamic> json) =>
+_$ApplicationUserImpl _$$ApplicationUserImplFromJson(
+        Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ApplicationUser',
+      r'_$ApplicationUserImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ApplicationUser(
+        final val = _$ApplicationUserImpl(
           id: $checkedConvert('id', (v) => v as String),
           externalId: $checkedConvert('external_id', (v) => v as String?),
           uuid: $checkedConvert('uuid', (v) => v as String),
@@ -44,7 +45,8 @@ _$_ApplicationUser _$$_ApplicationUserFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_ApplicationUserToJson(_$_ApplicationUser instance) =>
+Map<String, dynamic> _$$ApplicationUserImplToJson(
+        _$ApplicationUserImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'external_id': instance.externalId,
@@ -61,24 +63,28 @@ Map<String, dynamic> _$$_ApplicationUserToJson(_$_ApplicationUser instance) =>
       'relationships': instance.relationships.toJson(),
     };
 
-_$_ApplicationUserRelationships _$$_ApplicationUserRelationshipsFromJson(
+_$ApplicationUserRelationshipsImpl _$$ApplicationUserRelationshipsImplFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ApplicationUserRelationships',
+      r'_$ApplicationUserRelationshipsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ApplicationUserRelationships(
+        final val = _$ApplicationUserRelationshipsImpl(
           servers: $checkedConvert(
               'servers',
               (v) => FractalListData<ApplicationServer>.fromJson(
-                  v as Map<String, dynamic>)),
+                  v as Map<String, dynamic>,
+                  (value) => ApplicationServer.fromJson(
+                      value as Map<String, dynamic>))),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_ApplicationUserRelationshipsToJson(
-        _$_ApplicationUserRelationships instance) =>
+Map<String, dynamic> _$$ApplicationUserRelationshipsImplToJson(
+        _$ApplicationUserRelationshipsImpl instance) =>
     <String, dynamic>{
-      'servers': instance.servers.toJson(),
+      'servers': instance.servers.toJson(
+        (value) => value.toJson(),
+      ),
     };

@@ -6,12 +6,12 @@ part of '../../../models/main_models/server_subuser.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ServerSubuser _$$_ServerSubuserFromJson(Map<String, dynamic> json) =>
+_$ServerSubuserImpl _$$ServerSubuserImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ServerSubuser',
+      r'_$ServerSubuserImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ServerSubuser(
+        final val = _$ServerSubuserImpl(
           uuid: $checkedConvert('uuid', (v) => v as String),
           username: $checkedConvert('username', (v) => v as String),
           email: $checkedConvert('email', (v) => v as String),
@@ -20,7 +20,7 @@ _$_ServerSubuser _$$_ServerSubuserFromJson(Map<String, dynamic> json) =>
           createdAt:
               $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
           permissions: $checkedConvert('permissions',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+              (v) => IList<String>.fromJson(v, (value) => value as String)),
         );
         return val;
       },
@@ -30,7 +30,7 @@ _$_ServerSubuser _$$_ServerSubuserFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_ServerSubuserToJson(_$_ServerSubuser instance) =>
+Map<String, dynamic> _$$ServerSubuserImplToJson(_$ServerSubuserImpl instance) =>
     <String, dynamic>{
       'uuid': instance.uuid,
       'username': instance.username,
@@ -38,5 +38,7 @@ Map<String, dynamic> _$$_ServerSubuserToJson(_$_ServerSubuser instance) =>
       'image': instance.image,
       '2fa_enabled': instance.twoFaEnabled,
       'created_at': instance.createdAt.toIso8601String(),
-      'permissions': instance.permissions,
+      'permissions': instance.permissions.toJson(
+        (value) => value,
+      ),
     };

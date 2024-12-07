@@ -6,12 +6,12 @@ part of '../../../models/request_models/update_email.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UpdateEmail _$$_UpdateEmailFromJson(Map<String, dynamic> json) =>
+_$UpdateEmailImpl _$$UpdateEmailImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_UpdateEmail',
+      r'_$UpdateEmailImpl',
       json,
       ($checkedConvert) {
-        final val = _$_UpdateEmail(
+        final val = _$UpdateEmailImpl(
           email: $checkedConvert('email', (v) => v as String),
           password: $checkedConvert('password', (v) => v as String),
         );
@@ -19,7 +19,7 @@ _$_UpdateEmail _$$_UpdateEmailFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_UpdateEmailToJson(_$_UpdateEmail instance) =>
+Map<String, dynamic> _$$UpdateEmailImplToJson(_$UpdateEmailImpl instance) =>
     <String, dynamic>{
       'email': instance.email,
       'password': instance.password,

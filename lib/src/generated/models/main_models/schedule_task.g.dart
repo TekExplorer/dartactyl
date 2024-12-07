@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../models/main_models/shedule_task.dart';
+part of '../../../models/main_models/schedule_task.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ScheduleTask _$$_ScheduleTaskFromJson(Map<String, dynamic> json) =>
+_$ScheduleTaskImpl _$$ScheduleTaskImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ScheduleTask',
+      r'_$ScheduleTaskImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ScheduleTask(
-          id: $checkedConvert('id', (v) => v as int),
-          sequenceId: $checkedConvert('sequence_id', (v) => v as int),
+        final val = _$ScheduleTaskImpl(
+          id: $checkedConvert('id', (v) => (v as num).toInt()),
+          sequenceId: $checkedConvert('sequence_id', (v) => (v as num).toInt()),
           action: $checkedConvert('action', (v) => v as String),
           payload: $checkedConvert('payload', (v) => v as String),
-          timeOffset: $checkedConvert('time_offset', (v) => v as int),
+          timeOffset: $checkedConvert('time_offset', (v) => (v as num).toInt()),
           isQueued: $checkedConvert('is_queued', (v) => v as bool),
           continueOnFailure:
               $checkedConvert('continue_on_failure', (v) => v as bool?),
@@ -37,7 +37,7 @@ _$_ScheduleTask _$$_ScheduleTaskFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_ScheduleTaskToJson(_$_ScheduleTask instance) =>
+Map<String, dynamic> _$$ScheduleTaskImplToJson(_$ScheduleTaskImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'sequence_id': instance.sequenceId,

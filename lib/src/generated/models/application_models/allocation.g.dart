@@ -6,17 +6,17 @@ part of '../../../models/application_models/allocation.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApplicationAllocation _$$_ApplicationAllocationFromJson(
+_$ApplicationAllocationImpl _$$ApplicationAllocationImplFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ApplicationAllocation',
+      r'_$ApplicationAllocationImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ApplicationAllocation(
-          id: $checkedConvert('id', (v) => v as int),
+        final val = _$ApplicationAllocationImpl(
+          id: $checkedConvert('id', (v) => (v as num).toInt()),
           ip: $checkedConvert('ip', (v) => v as String),
           ipAlias: $checkedConvert('ip_alias', (v) => v as String?),
-          port: $checkedConvert('port', (v) => v as int),
+          port: $checkedConvert('port', (v) => (v as num).toInt()),
           notes: $checkedConvert('notes', (v) => v as String?),
           assigned: $checkedConvert('assigned', (v) => v as bool),
         );
@@ -25,8 +25,8 @@ _$_ApplicationAllocation _$$_ApplicationAllocationFromJson(
       fieldKeyMap: const {'ipAlias': 'ip_alias'},
     );
 
-Map<String, dynamic> _$$_ApplicationAllocationToJson(
-        _$_ApplicationAllocation instance) =>
+Map<String, dynamic> _$$ApplicationAllocationImplToJson(
+        _$ApplicationAllocationImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'ip': instance.ip,

@@ -6,25 +6,27 @@ part of '../../../models/application_request_models/update_node_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UpdateNodeRequest _$$_UpdateNodeRequestFromJson(Map<String, dynamic> json) =>
+_$UpdateNodeRequestImpl _$$UpdateNodeRequestImplFromJson(
+        Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_UpdateNodeRequest',
+      r'_$UpdateNodeRequestImpl',
       json,
       ($checkedConvert) {
-        final val = _$_UpdateNodeRequest(
+        final val = _$UpdateNodeRequestImpl(
           name: $checkedConvert('name', (v) => v as String),
-          locationId: $checkedConvert('location_id', (v) => v as int),
+          locationId: $checkedConvert('location_id', (v) => (v as num).toInt()),
           fqdn: $checkedConvert('fqdn', (v) => v as String),
           scheme: $checkedConvert('scheme', (v) => v as String),
-          memory: $checkedConvert('memory', (v) => v as int),
+          memory: $checkedConvert('memory', (v) => (v as num).toInt()),
           memoryOverallocate:
-              $checkedConvert('memory_overallocate', (v) => v as int),
-          disk: $checkedConvert('disk', (v) => v as int),
+              $checkedConvert('memory_overallocate', (v) => (v as num).toInt()),
+          disk: $checkedConvert('disk', (v) => (v as num).toInt()),
           diskOverallocate:
-              $checkedConvert('disk_overallocate', (v) => v as int),
-          uploadSize: $checkedConvert('upload_size', (v) => v as int),
-          daemonSftp: $checkedConvert('daemon_sftp', (v) => v as int),
-          daemonListen: $checkedConvert('daemon_listen', (v) => v as int),
+              $checkedConvert('disk_overallocate', (v) => (v as num).toInt()),
+          uploadSize: $checkedConvert('upload_size', (v) => (v as num).toInt()),
+          daemonSftp: $checkedConvert('daemon_sftp', (v) => (v as num).toInt()),
+          daemonListen:
+              $checkedConvert('daemon_listen', (v) => (v as num).toInt()),
           behindProxy: $checkedConvert('behind_proxy', (v) => v as bool),
           maintenanceMode:
               $checkedConvert('maintenance_mode', (v) => v as bool),
@@ -44,8 +46,8 @@ _$_UpdateNodeRequest _$$_UpdateNodeRequestFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_UpdateNodeRequestToJson(
-        _$_UpdateNodeRequest instance) =>
+Map<String, dynamic> _$$UpdateNodeRequestImplToJson(
+        _$UpdateNodeRequestImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'location_id': instance.locationId,

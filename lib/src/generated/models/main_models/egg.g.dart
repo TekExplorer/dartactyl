@@ -6,11 +6,11 @@ part of '../../../models/main_models/egg.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Egg _$$_EggFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Egg',
+_$EggImpl _$$EggImplFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$EggImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Egg(
+        final val = _$EggImpl(
           uuid: $checkedConvert('uuid', (v) => v as String?),
           name: $checkedConvert('name', (v) => v as String),
         );
@@ -18,7 +18,7 @@ _$_Egg _$$_EggFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_EggToJson(_$_Egg instance) => <String, dynamic>{
+Map<String, dynamic> _$$EggImplToJson(_$EggImpl instance) => <String, dynamic>{
       'uuid': instance.uuid,
       'name': instance.name,
     };

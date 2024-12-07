@@ -6,11 +6,11 @@ part of '../../../models/main_models/cron.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Cron _$$_CronFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Cron',
+_$CronImpl _$$CronImplFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$CronImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Cron(
+        final val = _$CronImpl(
           name: $checkedConvert('name', (v) => v as String?),
           minute: $checkedConvert('minute', (v) => v as String),
           hour: $checkedConvert('hour', (v) => v as String),
@@ -26,7 +26,8 @@ _$_Cron _$$_CronFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_CronToJson(_$_Cron instance) => <String, dynamic>{
+Map<String, dynamic> _$$CronImplToJson(_$CronImpl instance) =>
+    <String, dynamic>{
       'name': instance.name,
       'minute': instance.minute,
       'hour': instance.hour,

@@ -16,7 +16,7 @@ class Database with _$Database {
 }
 
 @freezed
-class ServerDatabase with SerializableMixin, _$ServerDatabase {
+class ServerDatabase with _$ServerDatabase {
   const factory ServerDatabase({
     required String id,
     required String name,

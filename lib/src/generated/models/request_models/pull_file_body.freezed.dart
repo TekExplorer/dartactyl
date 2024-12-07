@@ -12,7 +12,7 @@ part of '../../../models/request_models/pull_file_body.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 PullFileBody _$PullFileBodyFromJson(Map<String, dynamic> json) {
   return _PullFileBody.fromJson(json);
@@ -91,11 +91,11 @@ class _$PullFileBodyCopyWithImpl<$Res, $Val extends PullFileBody>
 }
 
 /// @nodoc
-abstract class _$$_PullFileBodyCopyWith<$Res>
+abstract class _$$PullFileBodyImplCopyWith<$Res>
     implements $PullFileBodyCopyWith<$Res> {
-  factory _$$_PullFileBodyCopyWith(
-          _$_PullFileBody value, $Res Function(_$_PullFileBody) then) =
-      __$$_PullFileBodyCopyWithImpl<$Res>;
+  factory _$$PullFileBodyImplCopyWith(
+          _$PullFileBodyImpl value, $Res Function(_$PullFileBodyImpl) then) =
+      __$$PullFileBodyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -107,11 +107,11 @@ abstract class _$$_PullFileBodyCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PullFileBodyCopyWithImpl<$Res>
-    extends _$PullFileBodyCopyWithImpl<$Res, _$_PullFileBody>
-    implements _$$_PullFileBodyCopyWith<$Res> {
-  __$$_PullFileBodyCopyWithImpl(
-      _$_PullFileBody _value, $Res Function(_$_PullFileBody) _then)
+class __$$PullFileBodyImplCopyWithImpl<$Res>
+    extends _$PullFileBodyCopyWithImpl<$Res, _$PullFileBodyImpl>
+    implements _$$PullFileBodyImplCopyWith<$Res> {
+  __$$PullFileBodyImplCopyWithImpl(
+      _$PullFileBodyImpl _value, $Res Function(_$PullFileBodyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +123,7 @@ class __$$_PullFileBodyCopyWithImpl<$Res>
     Object? useHeader = freezed,
     Object? foreground = freezed,
   }) {
-    return _then(_$_PullFileBody(
+    return _then(_$PullFileBodyImpl(
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -150,8 +150,8 @@ class __$$_PullFileBodyCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PullFileBody extends _PullFileBody {
-  const _$_PullFileBody(
+class _$PullFileBodyImpl extends _PullFileBody {
+  const _$PullFileBodyImpl(
       {required this.url,
       this.directory,
       this.filename,
@@ -159,8 +159,8 @@ class _$_PullFileBody extends _PullFileBody {
       this.foreground})
       : super._();
 
-  factory _$_PullFileBody.fromJson(Map<String, dynamic> json) =>
-      _$$_PullFileBodyFromJson(json);
+  factory _$PullFileBodyImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PullFileBodyImplFromJson(json);
 
   @override
   final Uri url;
@@ -179,10 +179,10 @@ class _$_PullFileBody extends _PullFileBody {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PullFileBody &&
+            other is _$PullFileBodyImpl &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.directory, directory) ||
                 other.directory == directory) &&
@@ -202,12 +202,12 @@ class _$_PullFileBody extends _PullFileBody {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PullFileBodyCopyWith<_$_PullFileBody> get copyWith =>
-      __$$_PullFileBodyCopyWithImpl<_$_PullFileBody>(this, _$identity);
+  _$$PullFileBodyImplCopyWith<_$PullFileBodyImpl> get copyWith =>
+      __$$PullFileBodyImplCopyWithImpl<_$PullFileBodyImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PullFileBodyToJson(
+    return _$$PullFileBodyImplToJson(
       this,
     );
   }
@@ -219,11 +219,11 @@ abstract class _PullFileBody extends PullFileBody {
       final String? directory,
       final String? filename,
       final bool? useHeader,
-      final bool? foreground}) = _$_PullFileBody;
+      final bool? foreground}) = _$PullFileBodyImpl;
   const _PullFileBody._() : super._();
 
   factory _PullFileBody.fromJson(Map<String, dynamic> json) =
-      _$_PullFileBody.fromJson;
+      _$PullFileBodyImpl.fromJson;
 
   @override
   Uri get url;
@@ -237,6 +237,6 @@ abstract class _PullFileBody extends PullFileBody {
   bool? get foreground;
   @override
   @JsonKey(ignore: true)
-  _$$_PullFileBodyCopyWith<_$_PullFileBody> get copyWith =>
+  _$$PullFileBodyImplCopyWith<_$PullFileBodyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

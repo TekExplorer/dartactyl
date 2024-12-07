@@ -6,19 +6,19 @@ part of '../../../models/request_models/make_file_copy.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_MakeFileCopy _$$_MakeFileCopyFromJson(Map<String, dynamic> json) =>
+_$MakeFileCopyImpl _$$MakeFileCopyImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_MakeFileCopy',
+      r'_$MakeFileCopyImpl',
       json,
       ($checkedConvert) {
-        final val = _$_MakeFileCopy(
+        final val = _$MakeFileCopyImpl(
           location: $checkedConvert('location', (v) => v as String),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_MakeFileCopyToJson(_$_MakeFileCopy instance) =>
+Map<String, dynamic> _$$MakeFileCopyImplToJson(_$MakeFileCopyImpl instance) =>
     <String, dynamic>{
       'location': instance.location,
     };

@@ -6,12 +6,12 @@ part of '../../../models/request_models/update_image.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UpdateImage _$$_UpdateImageFromJson(Map<String, dynamic> json) =>
+_$UpdateImageImpl _$$UpdateImageImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_UpdateImage',
+      r'_$UpdateImageImpl',
       json,
       ($checkedConvert) {
-        final val = _$_UpdateImage(
+        final val = _$UpdateImageImpl(
           dockerImage: $checkedConvert('docker_image', (v) => v as String),
         );
         return val;
@@ -19,7 +19,7 @@ _$_UpdateImage _$$_UpdateImageFromJson(Map<String, dynamic> json) =>
       fieldKeyMap: const {'dockerImage': 'docker_image'},
     );
 
-Map<String, dynamic> _$$_UpdateImageToJson(_$_UpdateImage instance) =>
+Map<String, dynamic> _$$UpdateImageImplToJson(_$UpdateImageImpl instance) =>
     <String, dynamic>{
       'docker_image': instance.dockerImage,
     };

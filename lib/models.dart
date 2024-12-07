@@ -8,10 +8,9 @@ export 'package:dio/dio.dart' show CancelToken;
 export 'src/clients/client_site_config.dart';
 
 /// Extra
-export 'src/extra/fractal_extensions.dart';
 export 'src/extra/fractal_list_extensions.dart';
+export 'src/extra/json_map.dart';
 export 'src/extra/typedefs.dart';
-export 'src/extra/utility.dart';
 
 /// Interceptors
 export 'src/interceptors/handle_errors.dart';
@@ -21,21 +20,20 @@ export 'src/interceptors/remove_null_resources.dart';
 export 'src/models/application_models/application_models.dart';
 export 'src/models/application_request_models/application_request_models.dart';
 
-///
-export 'src/models/base/serializable.dart';
-
 /// Egg Models
 export 'src/models/egg/egg.dart';
 
 /// Exceptions
 export 'src/models/error_responses/exceptions/generic_api_exception.dart';
 export 'src/models/error_responses/exceptions/no_connection_api_exception.dart';
-export 'src/models/error_responses/exceptions/stupid_dio.dart';
 
 /// Error Response Models
 export 'src/models/error_responses/ptero_error.dart';
 export 'src/models/error_responses/ptero_error_meta.dart';
 export 'src/models/error_responses/ptero_errors.dart';
+
+/// Extension types
+export 'src/models/extension_types.dart';
 
 /// Fractal Models
 export 'src/models/fractal/fractal.dart';

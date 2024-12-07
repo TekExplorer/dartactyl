@@ -6,19 +6,21 @@ part of '../../../models/egg/egg_startup_config.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EggStartupConfig _$$_EggStartupConfigFromJson(Map<String, dynamic> json) =>
+_$EggStartupConfigImpl _$$EggStartupConfigImplFromJson(
+        Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_EggStartupConfig',
+      r'_$EggStartupConfigImpl',
       json,
       ($checkedConvert) {
-        final val = _$_EggStartupConfig(
+        final val = _$EggStartupConfigImpl(
           done: $checkedConvert('done', (v) => v as String),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_EggStartupConfigToJson(_$_EggStartupConfig instance) =>
+Map<String, dynamic> _$$EggStartupConfigImplToJson(
+        _$EggStartupConfigImpl instance) =>
     <String, dynamic>{
       'done': instance.done,
     };

@@ -6,18 +6,20 @@ part of '../../../models/main_models/databases.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Databases _$$_DatabasesFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Databases',
+_$DatabasesImpl _$$DatabasesImplFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      r'_$DatabasesImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Databases(
-          id: $checkedConvert('id', (v) => v as int),
-          server: $checkedConvert('server', (v) => v as int),
-          host: $checkedConvert('host', (v) => v as int),
+        final val = _$DatabasesImpl(
+          id: $checkedConvert('id', (v) => (v as num).toInt()),
+          server: $checkedConvert('server', (v) => (v as num).toInt()),
+          host: $checkedConvert('host', (v) => (v as num).toInt()),
           database: $checkedConvert('database', (v) => v as String),
           username: $checkedConvert('username', (v) => v as String),
           remote: $checkedConvert('remote', (v) => v as String),
-          maxConnections: $checkedConvert('max_connections', (v) => v as int),
+          maxConnections:
+              $checkedConvert('max_connections', (v) => (v as num).toInt()),
           createdAt: $checkedConvert('created_at', (v) => v as String),
           updatedAt: $checkedConvert('updated_at', (v) => v as String),
         );
@@ -30,7 +32,7 @@ _$_Databases _$$_DatabasesFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_DatabasesToJson(_$_Databases instance) =>
+Map<String, dynamic> _$$DatabasesImplToJson(_$DatabasesImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'server': instance.server,

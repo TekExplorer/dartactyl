@@ -12,7 +12,7 @@ part of '../../../models/ptero_data/websocket_details.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 WebsocketDetails _$WebsocketDetailsFromJson(Map<String, dynamic> json) {
   return _WebsocketDetails.fromJson(json);
@@ -21,7 +21,7 @@ WebsocketDetails _$WebsocketDetailsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$WebsocketDetails {
   String get token => throw _privateConstructorUsedError;
-  String get socket => throw _privateConstructorUsedError;
+  Uri get socket => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $WebsocketDetailsCopyWith<$Res> {
           WebsocketDetails value, $Res Function(WebsocketDetails) then) =
       _$WebsocketDetailsCopyWithImpl<$Res, WebsocketDetails>;
   @useResult
-  $Res call({String token, String socket});
+  $Res call({String token, Uri socket});
 }
 
 /// @nodoc
@@ -62,28 +62,28 @@ class _$WebsocketDetailsCopyWithImpl<$Res, $Val extends WebsocketDetails>
       socket: null == socket
           ? _value.socket
           : socket // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Uri,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_WebsocketDetailsCopyWith<$Res>
+abstract class _$$WebsocketDetailsImplCopyWith<$Res>
     implements $WebsocketDetailsCopyWith<$Res> {
-  factory _$$_WebsocketDetailsCopyWith(
-          _$_WebsocketDetails value, $Res Function(_$_WebsocketDetails) then) =
-      __$$_WebsocketDetailsCopyWithImpl<$Res>;
+  factory _$$WebsocketDetailsImplCopyWith(_$WebsocketDetailsImpl value,
+          $Res Function(_$WebsocketDetailsImpl) then) =
+      __$$WebsocketDetailsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String token, String socket});
+  $Res call({String token, Uri socket});
 }
 
 /// @nodoc
-class __$$_WebsocketDetailsCopyWithImpl<$Res>
-    extends _$WebsocketDetailsCopyWithImpl<$Res, _$_WebsocketDetails>
-    implements _$$_WebsocketDetailsCopyWith<$Res> {
-  __$$_WebsocketDetailsCopyWithImpl(
-      _$_WebsocketDetails _value, $Res Function(_$_WebsocketDetails) _then)
+class __$$WebsocketDetailsImplCopyWithImpl<$Res>
+    extends _$WebsocketDetailsCopyWithImpl<$Res, _$WebsocketDetailsImpl>
+    implements _$$WebsocketDetailsImplCopyWith<$Res> {
+  __$$WebsocketDetailsImplCopyWithImpl(_$WebsocketDetailsImpl _value,
+      $Res Function(_$WebsocketDetailsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_WebsocketDetailsCopyWithImpl<$Res>
     Object? token = null,
     Object? socket = null,
   }) {
-    return _then(_$_WebsocketDetails(
+    return _then(_$WebsocketDetailsImpl(
       token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -100,23 +100,23 @@ class __$$_WebsocketDetailsCopyWithImpl<$Res>
       socket: null == socket
           ? _value.socket
           : socket // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Uri,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_WebsocketDetails implements _WebsocketDetails {
-  _$_WebsocketDetails({required this.token, required this.socket});
+class _$WebsocketDetailsImpl implements _WebsocketDetails {
+  _$WebsocketDetailsImpl({required this.token, required this.socket});
 
-  factory _$_WebsocketDetails.fromJson(Map<String, dynamic> json) =>
-      _$$_WebsocketDetailsFromJson(json);
+  factory _$WebsocketDetailsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WebsocketDetailsImplFromJson(json);
 
   @override
   final String token;
   @override
-  final String socket;
+  final Uri socket;
 
   @override
   String toString() {
@@ -124,10 +124,10 @@ class _$_WebsocketDetails implements _WebsocketDetails {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WebsocketDetails &&
+            other is _$WebsocketDetailsImpl &&
             (identical(other.token, token) || other.token == token) &&
             (identical(other.socket, socket) || other.socket == socket));
   }
@@ -139,12 +139,13 @@ class _$_WebsocketDetails implements _WebsocketDetails {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WebsocketDetailsCopyWith<_$_WebsocketDetails> get copyWith =>
-      __$$_WebsocketDetailsCopyWithImpl<_$_WebsocketDetails>(this, _$identity);
+  _$$WebsocketDetailsImplCopyWith<_$WebsocketDetailsImpl> get copyWith =>
+      __$$WebsocketDetailsImplCopyWithImpl<_$WebsocketDetailsImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WebsocketDetailsToJson(
+    return _$$WebsocketDetailsImplToJson(
       this,
     );
   }
@@ -153,17 +154,17 @@ class _$_WebsocketDetails implements _WebsocketDetails {
 abstract class _WebsocketDetails implements WebsocketDetails {
   factory _WebsocketDetails(
       {required final String token,
-      required final String socket}) = _$_WebsocketDetails;
+      required final Uri socket}) = _$WebsocketDetailsImpl;
 
   factory _WebsocketDetails.fromJson(Map<String, dynamic> json) =
-      _$_WebsocketDetails.fromJson;
+      _$WebsocketDetailsImpl.fromJson;
 
   @override
   String get token;
   @override
-  String get socket;
+  Uri get socket;
   @override
   @JsonKey(ignore: true)
-  _$$_WebsocketDetailsCopyWith<_$_WebsocketDetails> get copyWith =>
+  _$$WebsocketDetailsImplCopyWith<_$WebsocketDetailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

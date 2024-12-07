@@ -5,7 +5,7 @@ part '../../generated/models/main_models/signed_url.freezed.dart';
 part '../../generated/models/main_models/signed_url.g.dart';
 
 @freezed
-class SignedUrl with SerializableMixin, _$SignedUrl {
+class SignedUrl with _$SignedUrl {
   const factory SignedUrl({required Uri url}) = _SignedUrl;
   const SignedUrl._();
 

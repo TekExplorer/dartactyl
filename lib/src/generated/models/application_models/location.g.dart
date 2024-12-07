@@ -6,12 +6,13 @@ part of '../../../models/application_models/location.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Location _$$_LocationFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Location',
+_$LocationImpl _$$LocationImplFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      r'_$LocationImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Location(
-          id: $checkedConvert('id', (v) => v as int),
+        final val = _$LocationImpl(
+          id: $checkedConvert('id', (v) => (v as num).toInt()),
           short: $checkedConvert('short', (v) => v as String),
           long: $checkedConvert('long', (v) => v as String?),
           updatedAt:
@@ -24,7 +25,7 @@ _$_Location _$$_LocationFromJson(Map<String, dynamic> json) => $checkedCreate(
       fieldKeyMap: const {'updatedAt': 'updated_at', 'createdAt': 'created_at'},
     );
 
-Map<String, dynamic> _$$_LocationToJson(_$_Location instance) =>
+Map<String, dynamic> _$$LocationImplToJson(_$LocationImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'short': instance.short,

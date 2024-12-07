@@ -1,5 +1,50 @@
 # CHANGELOG
 
+## 1.11.1
+
+- FileObject.size is now a Bytes
+
+## 1.11.0
+
+- Increased the minimum SDK version to 3.3.0
+- Added the Bytes extension type, so that it can be easily targeted by extensions
+- Removed ConnectionState.closing and WebSocketClosedError
+
+## 1.10.0
+
+- Update dependencies
+- Replaced instances of `dynamic` with `Object?`
+- Added `reinstallFailed` to `ServerStatus`
+- Have `WebsocketDetails` use a `Uri`
+- Improve the translation client
+- ServerWebsocket has some changes
+  - You can now optionally not auto-connect to it
+  - Calling any action or awaiting `ready` will connect it
+  - `disconnect()` will disconnect without closing, allowing reuse
+  - `close()` will fully close and dispose the class entirely
+- Remove deprecated `Actor`
+- Remove `SerializableMixin` in favor of `genericArgumentFactories`
+- Deprecate typedefs
+- \[BREAKING\] Remove a bunch of extensions. use `.attributes`/`.data` instead, or define your own extensions
+- Make `StatsResources.uptime` non-nullable and default to -1
+
+## 1.9.0
+
+- Require dart 3 to seal the following
+  - `Meta`
+  - `ServerWebsocketRemoteEvent`
+  - `WebsocketEvent`
+  - `ServerWebsocketEvent`
+  - `DartactylWebsocketException`
+  - `WingsException`
+  - `WebsocketLog`
+
+## 1.8.0
+
+- Update to match newest Dio version
+- Actually use Dio errors correctly (breaking)
+  - This does mean that errors from this package are no longer `DioException`s
+
 ## 1.7.0
 
 - Nuked existing websocket implementation. Bye and tanks for all the 🐟🦈!
@@ -75,6 +120,7 @@
 - Removed experimental (and outdated) login methods. I may come back to this later.
 
 ## 1.5.0
+
 - const all the things, where possible.
 - Get work done for Application Client. some of it might even work
 - Renamed User to Account
@@ -166,12 +212,12 @@
 ## 1.4.0-dev.16
 
 - Fix the error handler
- 
+
 ## 1.4.0-dev.15
 
 - Fix Pterodactyl v1.7 support
 - Fix Websocket registerListeners not supporting multiple registrations
- 
+
 ## 1.4.0-dev.14
 
 - Add Pterodactyl v1.8 support
@@ -182,7 +228,7 @@
 
 ## 1.4.0-dev.12
 
-- Fix `deleteFiles` 
+- Fix `deleteFiles`
 
 ## 1.4.0-dev.11
 
@@ -215,6 +261,7 @@
 ## 1.4.0-dev.4
 
 - `FileListConverter` was the previous bug. still not working. just gonna throw `UnimplementedError` for now
+
 ## 1.4.0-dev.3
 
 - Another minor bug that hardly needs mentioning
@@ -222,7 +269,7 @@
 
 ## 1.4.0-dev.2
 
-- Type related bug... `PteroData` needed to require `SerializableMixin`, so `SerializableMixin` needed to be on `WebsocketDetails` 
+- Type related bug... `PteroData` needed to require `SerializableMixin`, so `SerializableMixin` needed to be on `WebsocketDetails`
 
 ## 1.4.0-dev.1
 
@@ -240,7 +287,7 @@
 
 - Refactored the generated files into their own folder, cause thats apparently possible
 - Removed the cookie manager in order to allow web use.
- - Add `dio_cookie_manager` yourself to make use of it.
+- Add `dio_cookie_manager` yourself to make use of it.
 
 ## 1.3.8
 
@@ -254,7 +301,7 @@
 
 - `JsonMap` typedef now used anywhere `Map<String, dynamic>` was, not including generated files
 - `getSiteConfiguration()` and `getPterodactylUser()` added to the client
- - `getSiteConfiguration()` works without needing to be logged in
+- `getSiteConfiguration()` works without needing to be logged in
 
 ## 1.3.5
 
@@ -273,8 +320,8 @@
 
 - Removed `with SerializableMixin` on stuff that doesn't actually need it, as its only used to make serialization easier in-package. May give to everything with a `toJson` in the future, but its not necessary for now
 - Added a bunch of extensions using those same type aliases
- - `FractalServer` now has a `server` getter (ie `fractalServer.server` => `Server`)
- - `FractalServerList` now has a `servers` getter (ie `fractalServerList.servers` => `List<Server>`)
+- `FractalServer` now has a `server` getter (ie `fractalServer.server` => `Server`)
+- `FractalServerList` now has a `servers` getter (ie `fractalServerList.servers` => `List<Server>`)
 
 ## 1.3.1
 
@@ -284,11 +331,11 @@
 ## 1.3.0
 
 - Added Query parameters like `includes`
- - `getServers` is now more powerful with `type` and `filter[ ]`
+- `getServers` is now more powerful with `type` and `filter[ ]`
 - Renamed a bunch of stuff
- - `getPermissions`-> `getSystemPermissions`
- - A bunch of parameters like `server` are now suffixed by `Id` (ex: `serverId`)
- - Anything that returns a `FractalResponseList` is now prefixed by `list` instead of `get` (ie. `getServers`-> `listServers`)
+- `getPermissions`-> `getSystemPermissions`
+- A bunch of parameters like `server` are now suffixed by `Id` (ex: `serverId`)
+- Anything that returns a `FractalResponseList` is now prefixed by `list` instead of `get` (ie. `getServers`-> `listServers`)
 
 ## 1.2.2
 
@@ -315,8 +362,8 @@
 ## 1.1.6
 
 - Add `PteroClient.mock()` for testing
- - Uses `mockapi.ptero.sh` which itself wraps the <https://pterodactyl.stoplight.io> mock server in a way that works with this client, as `/api/client` is hardcoded
- - *(!!SERVER NOT COMPLETED AS OF WRITING THIS!!)*
+- Uses `mockapi.ptero.sh` which itself wraps the <https://pterodactyl.stoplight.io> mock server in a way that works with this client, as `/api/client` is hardcoded
+- *(!!SERVER NOT COMPLETED AS OF WRITING THIS!!)*
 
 ## 1.1.5
 
@@ -344,7 +391,7 @@
 - Instead, use `PteroClient.generate()`
 - Made it possible to use cookies instead of Api Key by simply omitting the key in the PteroClient.generate() constructor
 - Added `login()`, which is only possible if you are in cookie mode!
- - Conveniently, I will take you out of Key mode and into Cookie mode for you!
+- Conveniently, I will take you out of Key mode and into Cookie mode for you!
 - Added the inverse of `login()`; `logout()`. also takes you out of key mode- but wont work in key mode anyway so...
 - Added an interceptor to do mentioned "taking out of key mode"
 - Updated dependencies

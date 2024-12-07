@@ -6,15 +6,18 @@ part of '../../../models/main_models/api_key.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApiKey _$$_ApiKeyFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_ApiKey',
+_$ApiKeyImpl _$$ApiKeyImplFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$ApiKeyImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ApiKey(
+        final val = _$ApiKeyImpl(
           identifier: $checkedConvert('identifier', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String?),
-          allowedIps: $checkedConvert('allowed_ips',
-              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          allowedIps: $checkedConvert(
+              'allowed_ips',
+              (v) => v == null
+                  ? null
+                  : IList<String>.fromJson(v, (value) => value as String)),
           lastUsedAt: $checkedConvert('last_used_at',
               (v) => v == null ? null : DateTime.parse(v as String)),
           createdAt:
@@ -29,10 +32,13 @@ _$_ApiKey _$$_ApiKeyFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_ApiKeyToJson(_$_ApiKey instance) => <String, dynamic>{
+Map<String, dynamic> _$$ApiKeyImplToJson(_$ApiKeyImpl instance) =>
+    <String, dynamic>{
       'identifier': instance.identifier,
       'description': instance.description,
-      'allowed_ips': instance.allowedIps,
+      'allowed_ips': instance.allowedIps?.toJson(
+        (value) => value,
+      ),
       'last_used_at': instance.lastUsedAt?.toIso8601String(),
       'created_at': instance.createdAt.toIso8601String(),
     };

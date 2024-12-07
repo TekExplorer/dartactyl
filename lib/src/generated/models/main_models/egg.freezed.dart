@@ -12,7 +12,7 @@ part of '../../../models/main_models/egg.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Egg _$EggFromJson(Map<String, dynamic> json) {
   return _Egg.fromJson(json);
@@ -69,18 +69,18 @@ class _$EggCopyWithImpl<$Res, $Val extends Egg> implements $EggCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_EggCopyWith<$Res> implements $EggCopyWith<$Res> {
-  factory _$$_EggCopyWith(_$_Egg value, $Res Function(_$_Egg) then) =
-      __$$_EggCopyWithImpl<$Res>;
+abstract class _$$EggImplCopyWith<$Res> implements $EggCopyWith<$Res> {
+  factory _$$EggImplCopyWith(_$EggImpl value, $Res Function(_$EggImpl) then) =
+      __$$EggImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? uuid, String name});
 }
 
 /// @nodoc
-class __$$_EggCopyWithImpl<$Res> extends _$EggCopyWithImpl<$Res, _$_Egg>
-    implements _$$_EggCopyWith<$Res> {
-  __$$_EggCopyWithImpl(_$_Egg _value, $Res Function(_$_Egg) _then)
+class __$$EggImplCopyWithImpl<$Res> extends _$EggCopyWithImpl<$Res, _$EggImpl>
+    implements _$$EggImplCopyWith<$Res> {
+  __$$EggImplCopyWithImpl(_$EggImpl _value, $Res Function(_$EggImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -89,7 +89,7 @@ class __$$_EggCopyWithImpl<$Res> extends _$EggCopyWithImpl<$Res, _$_Egg>
     Object? uuid = freezed,
     Object? name = null,
   }) {
-    return _then(_$_Egg(
+    return _then(_$EggImpl(
       uuid: freezed == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
@@ -104,10 +104,11 @@ class __$$_EggCopyWithImpl<$Res> extends _$EggCopyWithImpl<$Res, _$_Egg>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Egg extends _Egg {
-  const _$_Egg({this.uuid, required this.name}) : super._();
+class _$EggImpl extends _Egg {
+  const _$EggImpl({this.uuid, required this.name}) : super._();
 
-  factory _$_Egg.fromJson(Map<String, dynamic> json) => _$$_EggFromJson(json);
+  factory _$EggImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EggImplFromJson(json);
 
 // only uuid and name show up in the client api
 // int id,
@@ -124,10 +125,10 @@ class _$_Egg extends _Egg {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Egg &&
+            other is _$EggImpl &&
             (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.name, name) || other.name == name));
   }
@@ -139,22 +140,23 @@ class _$_Egg extends _Egg {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EggCopyWith<_$_Egg> get copyWith =>
-      __$$_EggCopyWithImpl<_$_Egg>(this, _$identity);
+  _$$EggImplCopyWith<_$EggImpl> get copyWith =>
+      __$$EggImplCopyWithImpl<_$EggImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EggToJson(
+    return _$$EggImplToJson(
       this,
     );
   }
 }
 
 abstract class _Egg extends Egg {
-  const factory _Egg({final String? uuid, required final String name}) = _$_Egg;
+  const factory _Egg({final String? uuid, required final String name}) =
+      _$EggImpl;
   const _Egg._() : super._();
 
-  factory _Egg.fromJson(Map<String, dynamic> json) = _$_Egg.fromJson;
+  factory _Egg.fromJson(Map<String, dynamic> json) = _$EggImpl.fromJson;
 
   @override // only uuid and name show up in the client api
 // int id,
@@ -165,5 +167,6 @@ abstract class _Egg extends Egg {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$_EggCopyWith<_$_Egg> get copyWith => throw _privateConstructorUsedError;
+  _$$EggImplCopyWith<_$EggImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

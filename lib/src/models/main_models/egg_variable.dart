@@ -5,7 +5,7 @@ part '../../generated/models/main_models/egg_variable.freezed.dart';
 part '../../generated/models/main_models/egg_variable.g.dart';
 
 @freezed
-class EggVariable with SerializableMixin, _$EggVariable {
+class EggVariable with _$EggVariable {
   const factory EggVariable({
     required String name,
     required String description,

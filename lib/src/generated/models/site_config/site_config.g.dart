@@ -6,11 +6,12 @@ part of '../../../models/site_config/site_config.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Recaptcha _$$_RecaptchaFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Recaptcha',
+_$RecaptchaImpl _$$RecaptchaImplFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      r'_$RecaptchaImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Recaptcha(
+        final val = _$RecaptchaImpl(
           enabled: $checkedConvert('enabled', (v) => v as bool),
           siteKey: $checkedConvert('site_key', (v) => v as String?),
         );
@@ -19,18 +20,18 @@ _$_Recaptcha _$$_RecaptchaFromJson(Map<String, dynamic> json) => $checkedCreate(
       fieldKeyMap: const {'siteKey': 'site_key'},
     );
 
-Map<String, dynamic> _$$_RecaptchaToJson(_$_Recaptcha instance) =>
+Map<String, dynamic> _$$RecaptchaImplToJson(_$RecaptchaImpl instance) =>
     <String, dynamic>{
       'enabled': instance.enabled,
       'site_key': instance.siteKey,
     };
 
-_$_SiteConfig _$$_SiteConfigFromJson(Map<String, dynamic> json) =>
+_$SiteConfigImpl _$$SiteConfigImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_SiteConfig',
+      r'_$SiteConfigImpl',
       json,
       ($checkedConvert) {
-        final val = _$_SiteConfig(
+        final val = _$SiteConfigImpl(
           name: $checkedConvert('name', (v) => v as String),
           locale: $checkedConvert('locale', (v) => v as String),
           recaptcha: $checkedConvert('recaptcha',
@@ -40,7 +41,7 @@ _$_SiteConfig _$$_SiteConfigFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_SiteConfigToJson(_$_SiteConfig instance) =>
+Map<String, dynamic> _$$SiteConfigImplToJson(_$SiteConfigImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'locale': instance.locale,

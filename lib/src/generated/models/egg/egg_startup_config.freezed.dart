@@ -12,7 +12,7 @@ part of '../../../models/egg/egg_startup_config.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 EggStartupConfig _$EggStartupConfigFromJson(Map<String, dynamic> json) {
   return _EggStartupConfig.fromJson(json);
@@ -62,22 +62,22 @@ class _$EggStartupConfigCopyWithImpl<$Res, $Val extends EggStartupConfig>
 }
 
 /// @nodoc
-abstract class _$$_EggStartupConfigCopyWith<$Res>
+abstract class _$$EggStartupConfigImplCopyWith<$Res>
     implements $EggStartupConfigCopyWith<$Res> {
-  factory _$$_EggStartupConfigCopyWith(
-          _$_EggStartupConfig value, $Res Function(_$_EggStartupConfig) then) =
-      __$$_EggStartupConfigCopyWithImpl<$Res>;
+  factory _$$EggStartupConfigImplCopyWith(_$EggStartupConfigImpl value,
+          $Res Function(_$EggStartupConfigImpl) then) =
+      __$$EggStartupConfigImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String done});
 }
 
 /// @nodoc
-class __$$_EggStartupConfigCopyWithImpl<$Res>
-    extends _$EggStartupConfigCopyWithImpl<$Res, _$_EggStartupConfig>
-    implements _$$_EggStartupConfigCopyWith<$Res> {
-  __$$_EggStartupConfigCopyWithImpl(
-      _$_EggStartupConfig _value, $Res Function(_$_EggStartupConfig) _then)
+class __$$EggStartupConfigImplCopyWithImpl<$Res>
+    extends _$EggStartupConfigCopyWithImpl<$Res, _$EggStartupConfigImpl>
+    implements _$$EggStartupConfigImplCopyWith<$Res> {
+  __$$EggStartupConfigImplCopyWithImpl(_$EggStartupConfigImpl _value,
+      $Res Function(_$EggStartupConfigImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_EggStartupConfigCopyWithImpl<$Res>
   $Res call({
     Object? done = null,
   }) {
-    return _then(_$_EggStartupConfig(
+    return _then(_$EggStartupConfigImpl(
       done: null == done
           ? _value.done
           : done // ignore: cast_nullable_to_non_nullable
@@ -96,11 +96,11 @@ class __$$_EggStartupConfigCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EggStartupConfig extends _EggStartupConfig {
-  const _$_EggStartupConfig({required this.done}) : super._();
+class _$EggStartupConfigImpl extends _EggStartupConfig {
+  const _$EggStartupConfigImpl({required this.done}) : super._();
 
-  factory _$_EggStartupConfig.fromJson(Map<String, dynamic> json) =>
-      _$$_EggStartupConfigFromJson(json);
+  factory _$EggStartupConfigImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EggStartupConfigImplFromJson(json);
 
   @override
   final String done;
@@ -111,10 +111,10 @@ class _$_EggStartupConfig extends _EggStartupConfig {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EggStartupConfig &&
+            other is _$EggStartupConfigImpl &&
             (identical(other.done, done) || other.done == done));
   }
 
@@ -125,12 +125,13 @@ class _$_EggStartupConfig extends _EggStartupConfig {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EggStartupConfigCopyWith<_$_EggStartupConfig> get copyWith =>
-      __$$_EggStartupConfigCopyWithImpl<_$_EggStartupConfig>(this, _$identity);
+  _$$EggStartupConfigImplCopyWith<_$EggStartupConfigImpl> get copyWith =>
+      __$$EggStartupConfigImplCopyWithImpl<_$EggStartupConfigImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EggStartupConfigToJson(
+    return _$$EggStartupConfigImplToJson(
       this,
     );
   }
@@ -138,16 +139,16 @@ class _$_EggStartupConfig extends _EggStartupConfig {
 
 abstract class _EggStartupConfig extends EggStartupConfig {
   const factory _EggStartupConfig({required final String done}) =
-      _$_EggStartupConfig;
+      _$EggStartupConfigImpl;
   const _EggStartupConfig._() : super._();
 
   factory _EggStartupConfig.fromJson(Map<String, dynamic> json) =
-      _$_EggStartupConfig.fromJson;
+      _$EggStartupConfigImpl.fromJson;
 
   @override
   String get done;
   @override
   @JsonKey(ignore: true)
-  _$$_EggStartupConfigCopyWith<_$_EggStartupConfig> get copyWith =>
+  _$$EggStartupConfigImplCopyWith<_$EggStartupConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

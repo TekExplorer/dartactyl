@@ -12,7 +12,7 @@ part of '../../../models/permission_keys/allocation_permission_keys.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 AllocationPermissionKeys _$AllocationPermissionKeysFromJson(
     Map<String, dynamic> json) {
@@ -82,24 +82,25 @@ class _$AllocationPermissionKeysCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_AllocationPermissionKeysCopyWith<$Res>
+abstract class _$$AllocationPermissionKeysImplCopyWith<$Res>
     implements $AllocationPermissionKeysCopyWith<$Res> {
-  factory _$$_AllocationPermissionKeysCopyWith(
-          _$_AllocationPermissionKeys value,
-          $Res Function(_$_AllocationPermissionKeys) then) =
-      __$$_AllocationPermissionKeysCopyWithImpl<$Res>;
+  factory _$$AllocationPermissionKeysImplCopyWith(
+          _$AllocationPermissionKeysImpl value,
+          $Res Function(_$AllocationPermissionKeysImpl) then) =
+      __$$AllocationPermissionKeysImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String read, String create, String update, String delete});
 }
 
 /// @nodoc
-class __$$_AllocationPermissionKeysCopyWithImpl<$Res>
+class __$$AllocationPermissionKeysImplCopyWithImpl<$Res>
     extends _$AllocationPermissionKeysCopyWithImpl<$Res,
-        _$_AllocationPermissionKeys>
-    implements _$$_AllocationPermissionKeysCopyWith<$Res> {
-  __$$_AllocationPermissionKeysCopyWithImpl(_$_AllocationPermissionKeys _value,
-      $Res Function(_$_AllocationPermissionKeys) _then)
+        _$AllocationPermissionKeysImpl>
+    implements _$$AllocationPermissionKeysImplCopyWith<$Res> {
+  __$$AllocationPermissionKeysImplCopyWithImpl(
+      _$AllocationPermissionKeysImpl _value,
+      $Res Function(_$AllocationPermissionKeysImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +111,7 @@ class __$$_AllocationPermissionKeysCopyWithImpl<$Res>
     Object? update = null,
     Object? delete = null,
   }) {
-    return _then(_$_AllocationPermissionKeys(
+    return _then(_$AllocationPermissionKeysImpl(
       read: null == read
           ? _value.read
           : read // ignore: cast_nullable_to_non_nullable
@@ -133,16 +134,16 @@ class __$$_AllocationPermissionKeysCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AllocationPermissionKeys extends _AllocationPermissionKeys {
-  const _$_AllocationPermissionKeys(
+class _$AllocationPermissionKeysImpl extends _AllocationPermissionKeys {
+  const _$AllocationPermissionKeysImpl(
       {required this.read,
       required this.create,
       required this.update,
       required this.delete})
       : super._();
 
-  factory _$_AllocationPermissionKeys.fromJson(Map<String, dynamic> json) =>
-      _$$_AllocationPermissionKeysFromJson(json);
+  factory _$AllocationPermissionKeysImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AllocationPermissionKeysImplFromJson(json);
 
   @override
   final String read;
@@ -159,10 +160,10 @@ class _$_AllocationPermissionKeys extends _AllocationPermissionKeys {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AllocationPermissionKeys &&
+            other is _$AllocationPermissionKeysImpl &&
             (identical(other.read, read) || other.read == read) &&
             (identical(other.create, create) || other.create == create) &&
             (identical(other.update, update) || other.update == update) &&
@@ -176,13 +177,13 @@ class _$_AllocationPermissionKeys extends _AllocationPermissionKeys {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AllocationPermissionKeysCopyWith<_$_AllocationPermissionKeys>
-      get copyWith => __$$_AllocationPermissionKeysCopyWithImpl<
-          _$_AllocationPermissionKeys>(this, _$identity);
+  _$$AllocationPermissionKeysImplCopyWith<_$AllocationPermissionKeysImpl>
+      get copyWith => __$$AllocationPermissionKeysImplCopyWithImpl<
+          _$AllocationPermissionKeysImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AllocationPermissionKeysToJson(
+    return _$$AllocationPermissionKeysImplToJson(
       this,
     );
   }
@@ -193,11 +194,11 @@ abstract class _AllocationPermissionKeys extends AllocationPermissionKeys {
       {required final String read,
       required final String create,
       required final String update,
-      required final String delete}) = _$_AllocationPermissionKeys;
+      required final String delete}) = _$AllocationPermissionKeysImpl;
   const _AllocationPermissionKeys._() : super._();
 
   factory _AllocationPermissionKeys.fromJson(Map<String, dynamic> json) =
-      _$_AllocationPermissionKeys.fromJson;
+      _$AllocationPermissionKeysImpl.fromJson;
 
   @override
   String get read;
@@ -209,6 +210,6 @@ abstract class _AllocationPermissionKeys extends AllocationPermissionKeys {
   String get delete;
   @override
   @JsonKey(ignore: true)
-  _$$_AllocationPermissionKeysCopyWith<_$_AllocationPermissionKeys>
+  _$$AllocationPermissionKeysImplCopyWith<_$AllocationPermissionKeysImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

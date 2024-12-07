@@ -12,7 +12,7 @@ part of '../../../models/request_models/server_rename.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Rename _$RenameFromJson(Map<String, dynamic> json) {
   return _Rename.fromJson(json);
@@ -21,8 +21,6 @@ Rename _$RenameFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Rename {
   String get name => throw _privateConstructorUsedError;
-
-  /// Not including this will remove your server [description] entirely (1.11.1)
   String? get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -68,19 +66,21 @@ class _$RenameCopyWithImpl<$Res, $Val extends Rename>
 }
 
 /// @nodoc
-abstract class _$$_RenameCopyWith<$Res> implements $RenameCopyWith<$Res> {
-  factory _$$_RenameCopyWith(_$_Rename value, $Res Function(_$_Rename) then) =
-      __$$_RenameCopyWithImpl<$Res>;
+abstract class _$$RenameImplCopyWith<$Res> implements $RenameCopyWith<$Res> {
+  factory _$$RenameImplCopyWith(
+          _$RenameImpl value, $Res Function(_$RenameImpl) then) =
+      __$$RenameImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String? description});
 }
 
 /// @nodoc
-class __$$_RenameCopyWithImpl<$Res>
-    extends _$RenameCopyWithImpl<$Res, _$_Rename>
-    implements _$$_RenameCopyWith<$Res> {
-  __$$_RenameCopyWithImpl(_$_Rename _value, $Res Function(_$_Rename) _then)
+class __$$RenameImplCopyWithImpl<$Res>
+    extends _$RenameCopyWithImpl<$Res, _$RenameImpl>
+    implements _$$RenameImplCopyWith<$Res> {
+  __$$RenameImplCopyWithImpl(
+      _$RenameImpl _value, $Res Function(_$RenameImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -89,7 +89,7 @@ class __$$_RenameCopyWithImpl<$Res>
     Object? name = null,
     Object? description = freezed,
   }) {
-    return _then(_$_Rename(
+    return _then(_$RenameImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -104,16 +104,15 @@ class __$$_RenameCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Rename extends _Rename {
-  const _$_Rename({required this.name, this.description}) : super._();
+class _$RenameImpl extends _Rename {
+  const _$RenameImpl({required this.name, required this.description})
+      : super._();
 
-  factory _$_Rename.fromJson(Map<String, dynamic> json) =>
-      _$$_RenameFromJson(json);
+  factory _$RenameImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RenameImplFromJson(json);
 
   @override
   final String name;
-
-  /// Not including this will remove your server [description] entirely (1.11.1)
   @override
   final String? description;
 
@@ -123,10 +122,10 @@ class _$_Rename extends _Rename {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Rename &&
+            other is _$RenameImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description));
@@ -139,12 +138,12 @@ class _$_Rename extends _Rename {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RenameCopyWith<_$_Rename> get copyWith =>
-      __$$_RenameCopyWithImpl<_$_Rename>(this, _$identity);
+  _$$RenameImplCopyWith<_$RenameImpl> get copyWith =>
+      __$$RenameImplCopyWithImpl<_$RenameImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RenameToJson(
+    return _$$RenameImplToJson(
       this,
     );
   }
@@ -152,19 +151,18 @@ class _$_Rename extends _Rename {
 
 abstract class _Rename extends Rename {
   const factory _Rename(
-      {required final String name, final String? description}) = _$_Rename;
+      {required final String name,
+      required final String? description}) = _$RenameImpl;
   const _Rename._() : super._();
 
-  factory _Rename.fromJson(Map<String, dynamic> json) = _$_Rename.fromJson;
+  factory _Rename.fromJson(Map<String, dynamic> json) = _$RenameImpl.fromJson;
 
   @override
   String get name;
   @override
-
-  /// Not including this will remove your server [description] entirely (1.11.1)
   String? get description;
   @override
   @JsonKey(ignore: true)
-  _$$_RenameCopyWith<_$_Rename> get copyWith =>
+  _$$RenameImplCopyWith<_$RenameImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

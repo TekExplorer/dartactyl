@@ -6,20 +6,20 @@ part of '../../../models/server/sftp_details.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SftpDetails _$$_SftpDetailsFromJson(Map<String, dynamic> json) =>
+_$SftpDetailsImpl _$$SftpDetailsImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_SftpDetails',
+      r'_$SftpDetailsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_SftpDetails(
+        final val = _$SftpDetailsImpl(
           ip: $checkedConvert('ip', (v) => v as String),
-          port: $checkedConvert('port', (v) => v as int),
+          port: $checkedConvert('port', (v) => (v as num).toInt()),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_SftpDetailsToJson(_$_SftpDetails instance) =>
+Map<String, dynamic> _$$SftpDetailsImplToJson(_$SftpDetailsImpl instance) =>
     <String, dynamic>{
       'ip': instance.ip,
       'port': instance.port,

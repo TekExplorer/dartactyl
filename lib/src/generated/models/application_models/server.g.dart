@@ -6,13 +6,14 @@ part of '../../../models/application_models/server.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApplicationServer _$$_ApplicationServerFromJson(Map<String, dynamic> json) =>
+_$ApplicationServerImpl _$$ApplicationServerImplFromJson(
+        Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ApplicationServer',
+      r'_$ApplicationServerImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ApplicationServer(
-          id: $checkedConvert('id', (v) => v as int),
+        final val = _$ApplicationServerImpl(
+          id: $checkedConvert('id', (v) => (v as num).toInt()),
           externalId: $checkedConvert('external_id', (v) => v as String),
           uuid: $checkedConvert('uuid', (v) => v as String),
           identifier: $checkedConvert('identifier', (v) => v as String),
@@ -25,11 +26,11 @@ _$_ApplicationServer _$$_ApplicationServerFromJson(Map<String, dynamic> json) =>
               (v) => ServerLimits.fromJson(v as Map<String, dynamic>)),
           featureLimits: $checkedConvert('feature_limits',
               (v) => ServerFeatureLimits.fromJson(v as Map<String, dynamic>)),
-          user: $checkedConvert('user', (v) => v as int),
-          node: $checkedConvert('node', (v) => v as int),
-          allocation: $checkedConvert('allocation', (v) => v as int),
-          nest: $checkedConvert('nest', (v) => v as int),
-          egg: $checkedConvert('egg', (v) => v as int),
+          user: $checkedConvert('user', (v) => (v as num).toInt()),
+          node: $checkedConvert('node', (v) => (v as num).toInt()),
+          allocation: $checkedConvert('allocation', (v) => (v as num).toInt()),
+          nest: $checkedConvert('nest', (v) => (v as num).toInt()),
+          egg: $checkedConvert('egg', (v) => (v as num).toInt()),
           container: $checkedConvert(
               'container',
               (v) => ApplicationServerContainer.fromJson(
@@ -55,8 +56,8 @@ _$_ApplicationServer _$$_ApplicationServerFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_ApplicationServerToJson(
-        _$_ApplicationServer instance) =>
+Map<String, dynamic> _$$ApplicationServerImplToJson(
+        _$ApplicationServerImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'external_id': instance.externalId,
@@ -82,18 +83,19 @@ Map<String, dynamic> _$$_ApplicationServerToJson(
 const _$ServerStatusEnumMap = {
   ServerStatus.installing: 'installing',
   ServerStatus.installFailed: 'install_failed',
+  ServerStatus.reinstallFailed: 'reinstall_failed',
   ServerStatus.suspended: 'suspended',
   ServerStatus.restoringBackup: 'restoring_backup',
   ServerStatus.transferring: 'transferring',
 };
 
-_$_ApplicationServerContainer _$$_ApplicationServerContainerFromJson(
+_$ApplicationServerContainerImpl _$$ApplicationServerContainerImplFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ApplicationServerContainer',
+      r'_$ApplicationServerContainerImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ApplicationServerContainer(
+        final val = _$ApplicationServerContainerImpl(
           startupCommand:
               $checkedConvert('startup_command', (v) => v as String),
           image: $checkedConvert('image', (v) => v as String),
@@ -106,8 +108,8 @@ _$_ApplicationServerContainer _$$_ApplicationServerContainerFromJson(
       fieldKeyMap: const {'startupCommand': 'startup_command'},
     );
 
-Map<String, dynamic> _$$_ApplicationServerContainerToJson(
-        _$_ApplicationServerContainer instance) =>
+Map<String, dynamic> _$$ApplicationServerContainerImplToJson(
+        _$ApplicationServerContainerImpl instance) =>
     <String, dynamic>{
       'startup_command': instance.startupCommand,
       'image': instance.image,
@@ -115,26 +117,30 @@ Map<String, dynamic> _$$_ApplicationServerContainerToJson(
       'environment': instance.environment,
     };
 
-_$_ApplicationServerRelationships _$$_ApplicationServerRelationshipsFromJson(
-        Map<String, dynamic> json) =>
-    $checkedCreate(
-      r'_$_ApplicationServerRelationships',
-      json,
-      ($checkedConvert) {
-        final val = _$_ApplicationServerRelationships(
-          $checkedConvert(
-              'user',
-              (v) => v == null
-                  ? null
-                  : FractalData<ApplicationUser>.fromJson(
-                      v as Map<String, dynamic>)),
+_$ApplicationServerRelationshipsImpl
+    _$$ApplicationServerRelationshipsImplFromJson(Map<String, dynamic> json) =>
+        $checkedCreate(
+          r'_$ApplicationServerRelationshipsImpl',
+          json,
+          ($checkedConvert) {
+            final val = _$ApplicationServerRelationshipsImpl(
+              $checkedConvert(
+                  'user',
+                  (v) => v == null
+                      ? null
+                      : FractalData<ApplicationUser>.fromJson(
+                          v as Map<String, dynamic>,
+                          (value) => ApplicationUser.fromJson(
+                              value as Map<String, dynamic>))),
+            );
+            return val;
+          },
         );
-        return val;
-      },
-    );
 
-Map<String, dynamic> _$$_ApplicationServerRelationshipsToJson(
-        _$_ApplicationServerRelationships instance) =>
+Map<String, dynamic> _$$ApplicationServerRelationshipsImplToJson(
+        _$ApplicationServerRelationshipsImpl instance) =>
     <String, dynamic>{
-      'user': instance.user?.toJson(),
+      'user': instance.user?.toJson(
+        (value) => value.toJson(),
+      ),
     };

@@ -12,7 +12,7 @@ part of '../../../models/main_models/egg_variable.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 EggVariable _$EggVariableFromJson(Map<String, dynamic> json) {
   return _EggVariable.fromJson(json);
@@ -105,11 +105,11 @@ class _$EggVariableCopyWithImpl<$Res, $Val extends EggVariable>
 }
 
 /// @nodoc
-abstract class _$$_EggVariableCopyWith<$Res>
+abstract class _$$EggVariableImplCopyWith<$Res>
     implements $EggVariableCopyWith<$Res> {
-  factory _$$_EggVariableCopyWith(
-          _$_EggVariable value, $Res Function(_$_EggVariable) then) =
-      __$$_EggVariableCopyWithImpl<$Res>;
+  factory _$$EggVariableImplCopyWith(
+          _$EggVariableImpl value, $Res Function(_$EggVariableImpl) then) =
+      __$$EggVariableImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -123,11 +123,11 @@ abstract class _$$_EggVariableCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EggVariableCopyWithImpl<$Res>
-    extends _$EggVariableCopyWithImpl<$Res, _$_EggVariable>
-    implements _$$_EggVariableCopyWith<$Res> {
-  __$$_EggVariableCopyWithImpl(
-      _$_EggVariable _value, $Res Function(_$_EggVariable) _then)
+class __$$EggVariableImplCopyWithImpl<$Res>
+    extends _$EggVariableCopyWithImpl<$Res, _$EggVariableImpl>
+    implements _$$EggVariableImplCopyWith<$Res> {
+  __$$EggVariableImplCopyWithImpl(
+      _$EggVariableImpl _value, $Res Function(_$EggVariableImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -141,7 +141,7 @@ class __$$_EggVariableCopyWithImpl<$Res>
     Object? isEditable = null,
     Object? rules = null,
   }) {
-    return _then(_$_EggVariable(
+    return _then(_$EggVariableImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -176,8 +176,8 @@ class __$$_EggVariableCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EggVariable extends _EggVariable {
-  const _$_EggVariable(
+class _$EggVariableImpl extends _EggVariable {
+  const _$EggVariableImpl(
       {required this.name,
       required this.description,
       required this.envVariable,
@@ -187,8 +187,8 @@ class _$_EggVariable extends _EggVariable {
       required this.rules})
       : super._();
 
-  factory _$_EggVariable.fromJson(Map<String, dynamic> json) =>
-      _$$_EggVariableFromJson(json);
+  factory _$EggVariableImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EggVariableImplFromJson(json);
 
   @override
   final String name;
@@ -211,10 +211,10 @@ class _$_EggVariable extends _EggVariable {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EggVariable &&
+            other is _$EggVariableImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -237,12 +237,12 @@ class _$_EggVariable extends _EggVariable {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EggVariableCopyWith<_$_EggVariable> get copyWith =>
-      __$$_EggVariableCopyWithImpl<_$_EggVariable>(this, _$identity);
+  _$$EggVariableImplCopyWith<_$EggVariableImpl> get copyWith =>
+      __$$EggVariableImplCopyWithImpl<_$EggVariableImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EggVariableToJson(
+    return _$$EggVariableImplToJson(
       this,
     );
   }
@@ -256,11 +256,11 @@ abstract class _EggVariable extends EggVariable {
       required final String defaultValue,
       final String? serverValue,
       required final bool isEditable,
-      required final String rules}) = _$_EggVariable;
+      required final String rules}) = _$EggVariableImpl;
   const _EggVariable._() : super._();
 
   factory _EggVariable.fromJson(Map<String, dynamic> json) =
-      _$_EggVariable.fromJson;
+      _$EggVariableImpl.fromJson;
 
   @override
   String get name;
@@ -278,6 +278,6 @@ abstract class _EggVariable extends EggVariable {
   String get rules;
   @override
   @JsonKey(ignore: true)
-  _$$_EggVariableCopyWith<_$_EggVariable> get copyWith =>
+  _$$EggVariableImplCopyWith<_$EggVariableImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

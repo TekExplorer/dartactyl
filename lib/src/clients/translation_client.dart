@@ -7,7 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // import 'package:dio/dio.dart' as dioHeaders show Headers;
 import 'package:retrofit/retrofit.dart';
 
-part '../generated/clients/translation_client.freezed.dart';
+// part '../generated/clients/translation_client.freezed.dart';
 part '../generated/clients/translation_client.g.dart';
 
 @RestApi()
@@ -25,15 +25,30 @@ abstract class PteroTranslationsClient {
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
   });
 
-  Future<TranslationData> getActivityTranslations({
-    String? locale = 'en',
+  Future<TranslationData> _getTranslationFromKnownNamespace({
+    String? locale,
     CancelToken? cancelToken,
+    required KnownNamespace namespace,
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
   }) =>
       getTranslation(
         locale: locale,
-        namespace: KnownNamespaces.activity,
+        namespace: namespace.namespace,
+        cancelToken: cancelToken,
+        onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
+      );
+
+  Future<TranslationData> getActivityTranslations({
+    String? locale,
+    CancelToken? cancelToken,
+    @experimental ProgressCallback? onSendProgress,
+    @experimental ProgressCallback? onReceiveProgress,
+  }) =>
+      _getTranslationFromKnownNamespace(
+        locale: locale,
+        namespace: KnownNamespace.activity,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
@@ -45,9 +60,9 @@ abstract class PteroTranslationsClient {
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
   }) =>
-      getTranslation(
+      _getTranslationFromKnownNamespace(
         locale: locale,
-        namespace: KnownNamespaces.auth,
+        namespace: KnownNamespace.auth,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
@@ -59,9 +74,9 @@ abstract class PteroTranslationsClient {
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
   }) =>
-      getTranslation(
+      _getTranslationFromKnownNamespace(
         locale: locale,
-        namespace: KnownNamespaces.exceptions,
+        namespace: KnownNamespace.exceptions,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
@@ -73,9 +88,9 @@ abstract class PteroTranslationsClient {
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
   }) =>
-      getTranslation(
+      _getTranslationFromKnownNamespace(
         locale: locale,
-        namespace: KnownNamespaces.pagination,
+        namespace: KnownNamespace.pagination,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
@@ -87,9 +102,9 @@ abstract class PteroTranslationsClient {
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
   }) =>
-      getTranslation(
+      _getTranslationFromKnownNamespace(
         locale: locale,
-        namespace: KnownNamespaces.passwords,
+        namespace: KnownNamespace.passwords,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
@@ -101,9 +116,9 @@ abstract class PteroTranslationsClient {
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
   }) =>
-      getTranslation(
+      _getTranslationFromKnownNamespace(
         locale: locale,
-        namespace: KnownNamespaces.strings,
+        namespace: KnownNamespace.strings,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
@@ -115,9 +130,9 @@ abstract class PteroTranslationsClient {
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
   }) =>
-      getTranslation(
+      _getTranslationFromKnownNamespace(
         locale: locale,
-        namespace: KnownNamespaces.validation,
+        namespace: KnownNamespace.validation,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
@@ -129,9 +144,9 @@ abstract class PteroTranslationsClient {
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
   }) =>
-      getTranslation(
+      _getTranslationFromKnownNamespace(
         locale: locale,
-        namespace: KnownNamespaces.adminNests,
+        namespace: KnownNamespace.adminNests,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
@@ -143,9 +158,9 @@ abstract class PteroTranslationsClient {
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
   }) =>
-      getTranslation(
+      _getTranslationFromKnownNamespace(
         locale: locale,
-        namespace: KnownNamespaces.adminNodes,
+        namespace: KnownNamespace.adminNodes,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
@@ -157,9 +172,9 @@ abstract class PteroTranslationsClient {
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
   }) =>
-      getTranslation(
+      _getTranslationFromKnownNamespace(
         locale: locale,
-        namespace: KnownNamespaces.adminServers,
+        namespace: KnownNamespace.adminServers,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
@@ -171,9 +186,9 @@ abstract class PteroTranslationsClient {
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
   }) =>
-      getTranslation(
+      _getTranslationFromKnownNamespace(
         locale: locale,
-        namespace: KnownNamespaces.adminUser,
+        namespace: KnownNamespace.adminUser,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
@@ -185,9 +200,9 @@ abstract class PteroTranslationsClient {
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
   }) =>
-      getTranslation(
+      _getTranslationFromKnownNamespace(
         locale: locale,
-        namespace: KnownNamespaces.commandMessages,
+        namespace: KnownNamespace.commandMessages,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
@@ -199,9 +214,9 @@ abstract class PteroTranslationsClient {
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
   }) =>
-      getTranslation(
+      _getTranslationFromKnownNamespace(
         locale: locale,
-        namespace: KnownNamespaces.dashboardAccount,
+        namespace: KnownNamespace.dashboardAccount,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
@@ -213,9 +228,9 @@ abstract class PteroTranslationsClient {
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
   }) =>
-      getTranslation(
+      _getTranslationFromKnownNamespace(
         locale: locale,
-        namespace: KnownNamespaces.dashboardIndex,
+        namespace: KnownNamespace.dashboardIndex,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
@@ -227,55 +242,48 @@ abstract class PteroTranslationsClient {
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
   }) =>
-      getTranslation(
+      _getTranslationFromKnownNamespace(
         locale: locale,
-        namespace: KnownNamespaces.serverUsers,
+        namespace: KnownNamespace.serverUsers,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
       );
 }
 
-abstract class KnownNamespaces {
-  static const String activity = 'activity';
-  static const String auth = 'auth';
-  static const String exceptions = 'exceptions';
-  static const String pagination = 'pagination';
-  static const String passwords = 'passwords';
-  static const String strings = 'strings';
-  static const String validation = 'validation';
-  static const String adminNests = 'admin.nests';
-  static const String adminNodes = 'admin.nodes';
-  static const String adminServers = 'admin.servers';
-  static const String adminUser = 'admin.user';
-  static const String commandMessages = 'command.messages';
-  static const String dashboardAccount = 'dashboard.account';
-  static const String dashboardIndex = 'dashboard.index';
-  static const String serverUsers = 'server.users';
-  static const List<String> all = [
-    activity,
-    auth,
-    exceptions,
-    pagination,
-    passwords,
-    strings,
-    validation,
-    adminNests,
-    adminNodes,
-    adminServers,
-    adminUser,
-    commandMessages,
-    dashboardAccount,
-    dashboardIndex,
-    serverUsers,
-  ];
+enum KnownNamespace {
+  activity,
+  auth,
+  exceptions,
+  pagination,
+  passwords,
+  strings,
+  validation,
+  adminNests('admin.nests'),
+  adminNodes('admin.nodes'),
+  adminServers('admin.servers'),
+  adminUser('admin.user'),
+  commandMessages('command.messages'),
+  dashboardAccount('dashboard.account'),
+  dashboardIndex('dashboard.index'),
+  serverUsers('server.users'),
+  ;
+
+  const KnownNamespace([String? namespace]) : _namespace = namespace;
+  final String? _namespace;
+  String get namespace => _namespace ?? name;
 }
 
-@freezed
-class TranslationData with _$TranslationData {
-  const factory TranslationData({required JsonMap en}) = _TranslationData;
-  const TranslationData._();
+class TranslationData {
+  const TranslationData(this.all);
+  const factory TranslationData.fromJson(JsonMap json) = TranslationData;
 
-  factory TranslationData.fromJson(Map<String, dynamic> json) =>
-      _$TranslationDataFromJson(json);
+  final JsonMap all;
+
+  // Always exists
+  // JsonMap get en => all['en']! as JsonMap;
+  JsonMap get en => switch (all) {
+        {'en': final JsonMap en} => en,
+        _ => throw StateError('"en" not found in TranslationData: $all'),
+      };
 }

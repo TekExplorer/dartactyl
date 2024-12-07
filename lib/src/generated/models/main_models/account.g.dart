@@ -6,12 +6,13 @@ part of '../../../models/main_models/account.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Account _$$_AccountFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Account',
+_$AccountImpl _$$AccountImplFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      r'_$AccountImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Account(
-          id: $checkedConvert('id', (v) => v as int),
+        final val = _$AccountImpl(
+          id: $checkedConvert('id', (v) => (v as num).toInt()),
           isAdmin: $checkedConvert('admin', (v) => v as bool),
           username: $checkedConvert('username', (v) => v as String),
           email: $checkedConvert('email', (v) => v as String),
@@ -28,7 +29,7 @@ _$_Account _$$_AccountFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_AccountToJson(_$_Account instance) =>
+Map<String, dynamic> _$$AccountImplToJson(_$AccountImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'admin': instance.isAdmin,

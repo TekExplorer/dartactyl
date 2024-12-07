@@ -12,7 +12,7 @@ part of '../../../models/main_models/allocation.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Allocation _$AllocationFromJson(Map<String, dynamic> json) {
   return _Allocation.fromJson(json);
@@ -98,11 +98,11 @@ class _$AllocationCopyWithImpl<$Res, $Val extends Allocation>
 }
 
 /// @nodoc
-abstract class _$$_AllocationCopyWith<$Res>
+abstract class _$$AllocationImplCopyWith<$Res>
     implements $AllocationCopyWith<$Res> {
-  factory _$$_AllocationCopyWith(
-          _$_Allocation value, $Res Function(_$_Allocation) then) =
-      __$$_AllocationCopyWithImpl<$Res>;
+  factory _$$AllocationImplCopyWith(
+          _$AllocationImpl value, $Res Function(_$AllocationImpl) then) =
+      __$$AllocationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -115,11 +115,11 @@ abstract class _$$_AllocationCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AllocationCopyWithImpl<$Res>
-    extends _$AllocationCopyWithImpl<$Res, _$_Allocation>
-    implements _$$_AllocationCopyWith<$Res> {
-  __$$_AllocationCopyWithImpl(
-      _$_Allocation _value, $Res Function(_$_Allocation) _then)
+class __$$AllocationImplCopyWithImpl<$Res>
+    extends _$AllocationCopyWithImpl<$Res, _$AllocationImpl>
+    implements _$$AllocationImplCopyWith<$Res> {
+  __$$AllocationImplCopyWithImpl(
+      _$AllocationImpl _value, $Res Function(_$AllocationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -132,7 +132,7 @@ class __$$_AllocationCopyWithImpl<$Res>
     Object? notes = freezed,
     Object? isDefault = null,
   }) {
-    return _then(_$_Allocation(
+    return _then(_$AllocationImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -163,8 +163,8 @@ class __$$_AllocationCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Allocation extends _Allocation {
-  const _$_Allocation(
+class _$AllocationImpl extends _Allocation {
+  const _$AllocationImpl(
       {required this.id,
       required this.ip,
       this.ipAlias,
@@ -173,8 +173,8 @@ class _$_Allocation extends _Allocation {
       required this.isDefault})
       : super._();
 
-  factory _$_Allocation.fromJson(Map<String, dynamic> json) =>
-      _$$_AllocationFromJson(json);
+  factory _$AllocationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AllocationImplFromJson(json);
 
   @override
   final int id;
@@ -195,10 +195,10 @@ class _$_Allocation extends _Allocation {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Allocation &&
+            other is _$AllocationImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.ip, ip) || other.ip == ip) &&
             (identical(other.ipAlias, ipAlias) || other.ipAlias == ipAlias) &&
@@ -216,12 +216,12 @@ class _$_Allocation extends _Allocation {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AllocationCopyWith<_$_Allocation> get copyWith =>
-      __$$_AllocationCopyWithImpl<_$_Allocation>(this, _$identity);
+  _$$AllocationImplCopyWith<_$AllocationImpl> get copyWith =>
+      __$$AllocationImplCopyWithImpl<_$AllocationImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AllocationToJson(
+    return _$$AllocationImplToJson(
       this,
     );
   }
@@ -234,11 +234,11 @@ abstract class _Allocation extends Allocation {
       final String? ipAlias,
       required final int port,
       final String? notes,
-      required final bool isDefault}) = _$_Allocation;
+      required final bool isDefault}) = _$AllocationImpl;
   const _Allocation._() : super._();
 
   factory _Allocation.fromJson(Map<String, dynamic> json) =
-      _$_Allocation.fromJson;
+      _$AllocationImpl.fromJson;
 
   @override
   int get id;
@@ -254,6 +254,6 @@ abstract class _Allocation extends Allocation {
   bool get isDefault;
   @override
   @JsonKey(ignore: true)
-  _$$_AllocationCopyWith<_$_Allocation> get copyWith =>
+  _$$AllocationImplCopyWith<_$AllocationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

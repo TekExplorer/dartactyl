@@ -12,7 +12,7 @@ part of '../../../models/request_models/from_to.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 FromTo _$FromToFromJson(Map<String, dynamic> json) {
   return _FromTo.fromJson(json);
@@ -66,19 +66,21 @@ class _$FromToCopyWithImpl<$Res, $Val extends FromTo>
 }
 
 /// @nodoc
-abstract class _$$_FromToCopyWith<$Res> implements $FromToCopyWith<$Res> {
-  factory _$$_FromToCopyWith(_$_FromTo value, $Res Function(_$_FromTo) then) =
-      __$$_FromToCopyWithImpl<$Res>;
+abstract class _$$FromToImplCopyWith<$Res> implements $FromToCopyWith<$Res> {
+  factory _$$FromToImplCopyWith(
+          _$FromToImpl value, $Res Function(_$FromToImpl) then) =
+      __$$FromToImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String from, String to});
 }
 
 /// @nodoc
-class __$$_FromToCopyWithImpl<$Res>
-    extends _$FromToCopyWithImpl<$Res, _$_FromTo>
-    implements _$$_FromToCopyWith<$Res> {
-  __$$_FromToCopyWithImpl(_$_FromTo _value, $Res Function(_$_FromTo) _then)
+class __$$FromToImplCopyWithImpl<$Res>
+    extends _$FromToCopyWithImpl<$Res, _$FromToImpl>
+    implements _$$FromToImplCopyWith<$Res> {
+  __$$FromToImplCopyWithImpl(
+      _$FromToImpl _value, $Res Function(_$FromToImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +89,7 @@ class __$$_FromToCopyWithImpl<$Res>
     Object? from = null,
     Object? to = null,
   }) {
-    return _then(_$_FromTo(
+    return _then(_$FromToImpl(
       from: null == from
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
@@ -102,11 +104,11 @@ class __$$_FromToCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FromTo extends _FromTo {
-  const _$_FromTo({required this.from, required this.to}) : super._();
+class _$FromToImpl extends _FromTo {
+  const _$FromToImpl({required this.from, required this.to}) : super._();
 
-  factory _$_FromTo.fromJson(Map<String, dynamic> json) =>
-      _$$_FromToFromJson(json);
+  factory _$FromToImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FromToImplFromJson(json);
 
   @override
   final String from;
@@ -119,10 +121,10 @@ class _$_FromTo extends _FromTo {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FromTo &&
+            other is _$FromToImpl &&
             (identical(other.from, from) || other.from == from) &&
             (identical(other.to, to) || other.to == to));
   }
@@ -134,12 +136,12 @@ class _$_FromTo extends _FromTo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FromToCopyWith<_$_FromTo> get copyWith =>
-      __$$_FromToCopyWithImpl<_$_FromTo>(this, _$identity);
+  _$$FromToImplCopyWith<_$FromToImpl> get copyWith =>
+      __$$FromToImplCopyWithImpl<_$FromToImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FromToToJson(
+    return _$$FromToImplToJson(
       this,
     );
   }
@@ -147,10 +149,10 @@ class _$_FromTo extends _FromTo {
 
 abstract class _FromTo extends FromTo {
   const factory _FromTo(
-      {required final String from, required final String to}) = _$_FromTo;
+      {required final String from, required final String to}) = _$FromToImpl;
   const _FromTo._() : super._();
 
-  factory _FromTo.fromJson(Map<String, dynamic> json) = _$_FromTo.fromJson;
+  factory _FromTo.fromJson(Map<String, dynamic> json) = _$FromToImpl.fromJson;
 
   @override
   String get from;
@@ -158,6 +160,6 @@ abstract class _FromTo extends FromTo {
   String get to;
   @override
   @JsonKey(ignore: true)
-  _$$_FromToCopyWith<_$_FromTo> get copyWith =>
+  _$$FromToImplCopyWith<_$FromToImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

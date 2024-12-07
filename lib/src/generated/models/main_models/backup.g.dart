@@ -6,19 +6,22 @@ part of '../../../models/main_models/backup.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Backup _$$_BackupFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Backup',
+_$BackupImpl _$$BackupImplFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$BackupImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Backup(
+        final val = _$BackupImpl(
           uuid: $checkedConvert('uuid', (v) => v as String),
           isSuccessful: $checkedConvert('is_successful', (v) => v as bool),
           isLocked: $checkedConvert('is_locked', (v) => v as bool),
           name: $checkedConvert('name', (v) => v as String),
-          ignoredFiles: $checkedConvert('ignored_files',
-              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          ignoredFiles: $checkedConvert(
+              'ignored_files',
+              (v) => v == null
+                  ? null
+                  : IList<String>.fromJson(v, (value) => value as String)),
           checksum: $checkedConvert('checksum', (v) => v as String?),
-          bytes: $checkedConvert('bytes', (v) => v as int),
+          bytes: $checkedConvert('bytes', (v) => v as Bytes),
           createdAt:
               $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
           completedAt: $checkedConvert('completed_at',
@@ -35,12 +38,15 @@ _$_Backup _$$_BackupFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_BackupToJson(_$_Backup instance) => <String, dynamic>{
+Map<String, dynamic> _$$BackupImplToJson(_$BackupImpl instance) =>
+    <String, dynamic>{
       'uuid': instance.uuid,
       'is_successful': instance.isSuccessful,
       'is_locked': instance.isLocked,
       'name': instance.name,
-      'ignored_files': instance.ignoredFiles,
+      'ignored_files': instance.ignoredFiles?.toJson(
+        (value) => value,
+      ),
       'checksum': instance.checksum,
       'bytes': instance.bytes,
       'created_at': instance.createdAt.toIso8601String(),

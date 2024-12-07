@@ -12,7 +12,7 @@ part of '../../../models/application_models/nest.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Nest _$NestFromJson(Map<String, dynamic> json) {
   return _Nest.fromJson(json);
@@ -103,9 +103,10 @@ class _$NestCopyWithImpl<$Res, $Val extends Nest>
 }
 
 /// @nodoc
-abstract class _$$_NestCopyWith<$Res> implements $NestCopyWith<$Res> {
-  factory _$$_NestCopyWith(_$_Nest value, $Res Function(_$_Nest) then) =
-      __$$_NestCopyWithImpl<$Res>;
+abstract class _$$NestImplCopyWith<$Res> implements $NestCopyWith<$Res> {
+  factory _$$NestImplCopyWith(
+          _$NestImpl value, $Res Function(_$NestImpl) then) =
+      __$$NestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -119,9 +120,10 @@ abstract class _$$_NestCopyWith<$Res> implements $NestCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_NestCopyWithImpl<$Res> extends _$NestCopyWithImpl<$Res, _$_Nest>
-    implements _$$_NestCopyWith<$Res> {
-  __$$_NestCopyWithImpl(_$_Nest _value, $Res Function(_$_Nest) _then)
+class __$$NestImplCopyWithImpl<$Res>
+    extends _$NestCopyWithImpl<$Res, _$NestImpl>
+    implements _$$NestImplCopyWith<$Res> {
+  __$$NestImplCopyWithImpl(_$NestImpl _value, $Res Function(_$NestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -135,7 +137,7 @@ class __$$_NestCopyWithImpl<$Res> extends _$NestCopyWithImpl<$Res, _$_Nest>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_$_Nest(
+    return _then(_$NestImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -170,8 +172,8 @@ class __$$_NestCopyWithImpl<$Res> extends _$NestCopyWithImpl<$Res, _$_Nest>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Nest extends _Nest {
-  const _$_Nest(
+class _$NestImpl extends _Nest {
+  const _$NestImpl(
       {required this.id,
       required this.uuid,
       required this.author,
@@ -181,7 +183,8 @@ class _$_Nest extends _Nest {
       required this.updatedAt})
       : super._();
 
-  factory _$_Nest.fromJson(Map<String, dynamic> json) => _$$_NestFromJson(json);
+  factory _$NestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NestImplFromJson(json);
 
   @override
   final int id;
@@ -204,10 +207,10 @@ class _$_Nest extends _Nest {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Nest &&
+            other is _$NestImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.author, author) || other.author == author) &&
@@ -228,12 +231,12 @@ class _$_Nest extends _Nest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NestCopyWith<_$_Nest> get copyWith =>
-      __$$_NestCopyWithImpl<_$_Nest>(this, _$identity);
+  _$$NestImplCopyWith<_$NestImpl> get copyWith =>
+      __$$NestImplCopyWithImpl<_$NestImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NestToJson(
+    return _$$NestImplToJson(
       this,
     );
   }
@@ -247,10 +250,10 @@ abstract class _Nest extends Nest {
       required final String name,
       final String? description,
       required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$_Nest;
+      required final DateTime updatedAt}) = _$NestImpl;
   const _Nest._() : super._();
 
-  factory _Nest.fromJson(Map<String, dynamic> json) = _$_Nest.fromJson;
+  factory _Nest.fromJson(Map<String, dynamic> json) = _$NestImpl.fromJson;
 
   @override
   int get id;
@@ -268,5 +271,6 @@ abstract class _Nest extends Nest {
   DateTime get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_NestCopyWith<_$_Nest> get copyWith => throw _privateConstructorUsedError;
+  _$$NestImplCopyWith<_$NestImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

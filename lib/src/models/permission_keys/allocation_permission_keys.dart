@@ -5,8 +5,7 @@ part '../../generated/models/permission_keys/allocation_permission_keys.freezed.
 part '../../generated/models/permission_keys/allocation_permission_keys.g.dart';
 
 @freezed
-class AllocationPermissionKeys
-    with SerializableMixin, _$AllocationPermissionKeys {
+class AllocationPermissionKeys with _$AllocationPermissionKeys {
   const factory AllocationPermissionKeys({
     required String read,
     required String create,

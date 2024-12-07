@@ -1,11 +1,12 @@
 import 'package:dartactyl/models.dart';
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '../../generated/models/main_models/server.freezed.dart';
 part '../../generated/models/main_models/server.g.dart';
 
 @freezed
-class Server with SerializableMixin, _$Server {
+class Server with _$Server {
   const factory Server({
     required bool serverOwner,
     required String identifier,
@@ -18,7 +19,7 @@ class Server with SerializableMixin, _$Server {
     required ServerLimits limits,
     required String invocation,
     required String dockerImage,
-    @Default([]) List<String> eggFeatures,
+    @Default(IListConst([])) IList<String> eggFeatures,
     required ServerFeatureLimits featureLimits,
     ServerStatus? status,
     required bool isSuspended,
@@ -35,6 +36,9 @@ enum ServerStatus {
   installing,
   @JsonValue('install_failed')
   installFailed,
+  // apparently this is a valid value
+  @JsonValue('reinstall_failed')
+  reinstallFailed,
   suspended,
   @JsonValue('restoring_backup')
   restoringBackup,

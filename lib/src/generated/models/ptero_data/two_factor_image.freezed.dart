@@ -12,7 +12,7 @@ part of '../../../models/ptero_data/two_factor_image.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 TwoFactorImage _$TwoFactorImageFromJson(Map<String, dynamic> json) {
   return _TwoFactorImage.fromJson(json);
@@ -68,22 +68,22 @@ class _$TwoFactorImageCopyWithImpl<$Res, $Val extends TwoFactorImage>
 }
 
 /// @nodoc
-abstract class _$$_TwoFactorImageCopyWith<$Res>
+abstract class _$$TwoFactorImageImplCopyWith<$Res>
     implements $TwoFactorImageCopyWith<$Res> {
-  factory _$$_TwoFactorImageCopyWith(
-          _$_TwoFactorImage value, $Res Function(_$_TwoFactorImage) then) =
-      __$$_TwoFactorImageCopyWithImpl<$Res>;
+  factory _$$TwoFactorImageImplCopyWith(_$TwoFactorImageImpl value,
+          $Res Function(_$TwoFactorImageImpl) then) =
+      __$$TwoFactorImageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String imageUrlData, String secret});
 }
 
 /// @nodoc
-class __$$_TwoFactorImageCopyWithImpl<$Res>
-    extends _$TwoFactorImageCopyWithImpl<$Res, _$_TwoFactorImage>
-    implements _$$_TwoFactorImageCopyWith<$Res> {
-  __$$_TwoFactorImageCopyWithImpl(
-      _$_TwoFactorImage _value, $Res Function(_$_TwoFactorImage) _then)
+class __$$TwoFactorImageImplCopyWithImpl<$Res>
+    extends _$TwoFactorImageCopyWithImpl<$Res, _$TwoFactorImageImpl>
+    implements _$$TwoFactorImageImplCopyWith<$Res> {
+  __$$TwoFactorImageImplCopyWithImpl(
+      _$TwoFactorImageImpl _value, $Res Function(_$TwoFactorImageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_TwoFactorImageCopyWithImpl<$Res>
     Object? imageUrlData = null,
     Object? secret = null,
   }) {
-    return _then(_$_TwoFactorImage(
+    return _then(_$TwoFactorImageImpl(
       imageUrlData: null == imageUrlData
           ? _value.imageUrlData
           : imageUrlData // ignore: cast_nullable_to_non_nullable
@@ -107,12 +107,12 @@ class __$$_TwoFactorImageCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TwoFactorImage extends _TwoFactorImage {
-  _$_TwoFactorImage({required this.imageUrlData, required this.secret})
+class _$TwoFactorImageImpl extends _TwoFactorImage {
+  _$TwoFactorImageImpl({required this.imageUrlData, required this.secret})
       : super._();
 
-  factory _$_TwoFactorImage.fromJson(Map<String, dynamic> json) =>
-      _$$_TwoFactorImageFromJson(json);
+  factory _$TwoFactorImageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TwoFactorImageImplFromJson(json);
 
   @override
   final String imageUrlData;
@@ -125,10 +125,10 @@ class _$_TwoFactorImage extends _TwoFactorImage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TwoFactorImage &&
+            other is _$TwoFactorImageImpl &&
             (identical(other.imageUrlData, imageUrlData) ||
                 other.imageUrlData == imageUrlData) &&
             (identical(other.secret, secret) || other.secret == secret));
@@ -141,12 +141,13 @@ class _$_TwoFactorImage extends _TwoFactorImage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TwoFactorImageCopyWith<_$_TwoFactorImage> get copyWith =>
-      __$$_TwoFactorImageCopyWithImpl<_$_TwoFactorImage>(this, _$identity);
+  _$$TwoFactorImageImplCopyWith<_$TwoFactorImageImpl> get copyWith =>
+      __$$TwoFactorImageImplCopyWithImpl<_$TwoFactorImageImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TwoFactorImageToJson(
+    return _$$TwoFactorImageImplToJson(
       this,
     );
   }
@@ -155,11 +156,11 @@ class _$_TwoFactorImage extends _TwoFactorImage {
 abstract class _TwoFactorImage extends TwoFactorImage {
   factory _TwoFactorImage(
       {required final String imageUrlData,
-      required final String secret}) = _$_TwoFactorImage;
+      required final String secret}) = _$TwoFactorImageImpl;
   _TwoFactorImage._() : super._();
 
   factory _TwoFactorImage.fromJson(Map<String, dynamic> json) =
-      _$_TwoFactorImage.fromJson;
+      _$TwoFactorImageImpl.fromJson;
 
   @override
   String get imageUrlData;
@@ -167,6 +168,6 @@ abstract class _TwoFactorImage extends TwoFactorImage {
   String get secret;
   @override
   @JsonKey(ignore: true)
-  _$$_TwoFactorImageCopyWith<_$_TwoFactorImage> get copyWith =>
+  _$$TwoFactorImageImplCopyWith<_$TwoFactorImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

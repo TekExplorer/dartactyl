@@ -5,7 +5,7 @@ part '../../generated/models/permission_keys/backup_permission_keys.freezed.dart
 part '../../generated/models/permission_keys/backup_permission_keys.g.dart';
 
 @freezed
-class BackupPermissionKeys with SerializableMixin, _$BackupPermissionKeys {
+class BackupPermissionKeys with _$BackupPermissionKeys {
   const factory BackupPermissionKeys({
     required String read,
     required String create,

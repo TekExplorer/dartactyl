@@ -12,7 +12,7 @@ part of '../../../models/main_models/recovery_tokens.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 RecoveryTokens _$RecoveryTokensFromJson(Map<String, dynamic> json) {
   return _RecoveryTokens.fromJson(json);
@@ -20,7 +20,7 @@ RecoveryTokens _$RecoveryTokensFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RecoveryTokens {
-  List<String> get tokens => throw _privateConstructorUsedError;
+  IList<String> get tokens => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $RecoveryTokensCopyWith<$Res> {
           RecoveryTokens value, $Res Function(RecoveryTokens) then) =
       _$RecoveryTokensCopyWithImpl<$Res, RecoveryTokens>;
   @useResult
-  $Res call({List<String> tokens});
+  $Res call({IList<String> tokens});
 }
 
 /// @nodoc
@@ -56,28 +56,28 @@ class _$RecoveryTokensCopyWithImpl<$Res, $Val extends RecoveryTokens>
       tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as IList<String>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_RecoveryTokensCopyWith<$Res>
+abstract class _$$RecoveryTokensImplCopyWith<$Res>
     implements $RecoveryTokensCopyWith<$Res> {
-  factory _$$_RecoveryTokensCopyWith(
-          _$_RecoveryTokens value, $Res Function(_$_RecoveryTokens) then) =
-      __$$_RecoveryTokensCopyWithImpl<$Res>;
+  factory _$$RecoveryTokensImplCopyWith(_$RecoveryTokensImpl value,
+          $Res Function(_$RecoveryTokensImpl) then) =
+      __$$RecoveryTokensImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<String> tokens});
+  $Res call({IList<String> tokens});
 }
 
 /// @nodoc
-class __$$_RecoveryTokensCopyWithImpl<$Res>
-    extends _$RecoveryTokensCopyWithImpl<$Res, _$_RecoveryTokens>
-    implements _$$_RecoveryTokensCopyWith<$Res> {
-  __$$_RecoveryTokensCopyWithImpl(
-      _$_RecoveryTokens _value, $Res Function(_$_RecoveryTokens) _then)
+class __$$RecoveryTokensImplCopyWithImpl<$Res>
+    extends _$RecoveryTokensCopyWithImpl<$Res, _$RecoveryTokensImpl>
+    implements _$$RecoveryTokensImplCopyWith<$Res> {
+  __$$RecoveryTokensImplCopyWithImpl(
+      _$RecoveryTokensImpl _value, $Res Function(_$RecoveryTokensImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,32 +85,25 @@ class __$$_RecoveryTokensCopyWithImpl<$Res>
   $Res call({
     Object? tokens = null,
   }) {
-    return _then(_$_RecoveryTokens(
+    return _then(_$RecoveryTokensImpl(
       tokens: null == tokens
-          ? _value._tokens
+          ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as IList<String>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_RecoveryTokens extends _RecoveryTokens {
-  const _$_RecoveryTokens({required final List<String> tokens})
-      : _tokens = tokens,
-        super._();
+class _$RecoveryTokensImpl extends _RecoveryTokens {
+  const _$RecoveryTokensImpl({required this.tokens}) : super._();
 
-  factory _$_RecoveryTokens.fromJson(Map<String, dynamic> json) =>
-      _$$_RecoveryTokensFromJson(json);
+  factory _$RecoveryTokensImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RecoveryTokensImplFromJson(json);
 
-  final List<String> _tokens;
   @override
-  List<String> get tokens {
-    if (_tokens is EqualUnmodifiableListView) return _tokens;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_tokens);
-  }
+  final IList<String> tokens;
 
   @override
   String toString() {
@@ -118,44 +111,45 @@ class _$_RecoveryTokens extends _RecoveryTokens {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RecoveryTokens &&
-            const DeepCollectionEquality().equals(other._tokens, _tokens));
+            other is _$RecoveryTokensImpl &&
+            const DeepCollectionEquality().equals(other.tokens, tokens));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_tokens));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(tokens));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RecoveryTokensCopyWith<_$_RecoveryTokens> get copyWith =>
-      __$$_RecoveryTokensCopyWithImpl<_$_RecoveryTokens>(this, _$identity);
+  _$$RecoveryTokensImplCopyWith<_$RecoveryTokensImpl> get copyWith =>
+      __$$RecoveryTokensImplCopyWithImpl<_$RecoveryTokensImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RecoveryTokensToJson(
+    return _$$RecoveryTokensImplToJson(
       this,
     );
   }
 }
 
 abstract class _RecoveryTokens extends RecoveryTokens {
-  const factory _RecoveryTokens({required final List<String> tokens}) =
-      _$_RecoveryTokens;
+  const factory _RecoveryTokens({required final IList<String> tokens}) =
+      _$RecoveryTokensImpl;
   const _RecoveryTokens._() : super._();
 
   factory _RecoveryTokens.fromJson(Map<String, dynamic> json) =
-      _$_RecoveryTokens.fromJson;
+      _$RecoveryTokensImpl.fromJson;
 
   @override
-  List<String> get tokens;
+  IList<String> get tokens;
   @override
   @JsonKey(ignore: true)
-  _$$_RecoveryTokensCopyWith<_$_RecoveryTokens> get copyWith =>
+  _$$RecoveryTokensImplCopyWith<_$RecoveryTokensImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

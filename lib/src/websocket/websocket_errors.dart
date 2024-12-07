@@ -4,7 +4,7 @@ part of 'server_websocket.dart';
 
 // make it clear where it came from
 
-abstract class ServerWebsocketException implements Exception {
+sealed class ServerWebsocketException implements Exception {
   // Generally speaking, this is what i would shove into a dialog or whatever
   String get message;
 }
@@ -12,13 +12,12 @@ abstract class ServerWebsocketException implements Exception {
 /// Exceptions in the [ServerWebsocket] class itself
 ///
 /// These are either bugs, or are indicators of modded Wings.
-abstract class DartactylWebsocketException
-    implements ServerWebsocketException {}
+sealed class DartactylWebsocketException implements ServerWebsocketException {}
 
 /// Exceptions emitted naturally by Wings
 ///
 /// There may be cases where these can be bugs in this library
-abstract class WingsException implements ServerWebsocketException {
+sealed class WingsException implements ServerWebsocketException {
   String get receivedMessage;
 }
 
@@ -43,6 +42,16 @@ class UnexpectedWebsocketException extends Error
     }
     return 'UnexpectedWebsocketException: $error\n$_stackTrace';
   }
+}
+
+class WebsocketDisconnectedException extends DartactylWebsocketException {
+  WebsocketDisconnectedException([this.message = 'Websocket is disconnected']);
+
+  @override
+  final String message;
+
+  @override
+  String toString() => 'WebsocketDisconnectedException: $message';
 }
 
 class JWTError implements WingsException {
@@ -98,7 +107,7 @@ class UnknownWingsEventException implements DartactylWebsocketException {
     if (_argsReason == null) {
       return 'Unknown Wings event: "$event"';
     }
-    if (_argsReason!.isEmpty) {
+    if (_argsReason.isEmpty) {
       return 'Unknown args for Wings event "$event": $args';
     }
     return 'Unknown Wings event for "$event": $args\n$_argsReason';

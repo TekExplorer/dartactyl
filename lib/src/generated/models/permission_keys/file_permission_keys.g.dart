@@ -6,13 +6,13 @@ part of '../../../models/permission_keys/file_permission_keys.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_FilePermissionKeys _$$_FilePermissionKeysFromJson(
+_$FilePermissionKeysImpl _$$FilePermissionKeysImplFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_FilePermissionKeys',
+      r'_$FilePermissionKeysImpl',
       json,
       ($checkedConvert) {
-        final val = _$_FilePermissionKeys(
+        final val = _$FilePermissionKeysImpl(
           create: $checkedConvert('create', (v) => v as String),
           read: $checkedConvert('read', (v) => v as String),
           update: $checkedConvert('update', (v) => v as String),
@@ -24,8 +24,8 @@ _$_FilePermissionKeys _$$_FilePermissionKeysFromJson(
       },
     );
 
-Map<String, dynamic> _$$_FilePermissionKeysToJson(
-        _$_FilePermissionKeys instance) =>
+Map<String, dynamic> _$$FilePermissionKeysImplToJson(
+        _$FilePermissionKeysImpl instance) =>
     <String, dynamic>{
       'create': instance.create,
       'read': instance.read,

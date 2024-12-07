@@ -5,7 +5,7 @@ part '../../generated/models/request_models/subuser.freezed.dart';
 part '../../generated/models/request_models/subuser.g.dart';
 
 @freezed
-class Subuser with SerializableMixin, _$Subuser {
+class Subuser with _$Subuser {
   const factory Subuser({
     required String email,
     required List<String> permissions,

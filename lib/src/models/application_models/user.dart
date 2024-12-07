@@ -6,7 +6,7 @@ part '../../generated/models/application_models/user.g.dart';
 
 // https://github.com/pterodactyl/panel/blob/1.0-develop/app/Transformers/Api/Application/UserTransformer.php
 @freezed
-class ApplicationUser with _$ApplicationUser, SerializableMixin {
+class ApplicationUser with _$ApplicationUser {
   const factory ApplicationUser({
     required String id,
     String? externalId,

@@ -12,7 +12,7 @@ part of '../../../models/request_models/signal.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Signal _$SignalFromJson(Map<String, dynamic> json) {
   return _Signal.fromJson(json);
@@ -60,19 +60,21 @@ class _$SignalCopyWithImpl<$Res, $Val extends Signal>
 }
 
 /// @nodoc
-abstract class _$$_SignalCopyWith<$Res> implements $SignalCopyWith<$Res> {
-  factory _$$_SignalCopyWith(_$_Signal value, $Res Function(_$_Signal) then) =
-      __$$_SignalCopyWithImpl<$Res>;
+abstract class _$$SignalImplCopyWith<$Res> implements $SignalCopyWith<$Res> {
+  factory _$$SignalImplCopyWith(
+          _$SignalImpl value, $Res Function(_$SignalImpl) then) =
+      __$$SignalImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ServerPowerAction signal});
 }
 
 /// @nodoc
-class __$$_SignalCopyWithImpl<$Res>
-    extends _$SignalCopyWithImpl<$Res, _$_Signal>
-    implements _$$_SignalCopyWith<$Res> {
-  __$$_SignalCopyWithImpl(_$_Signal _value, $Res Function(_$_Signal) _then)
+class __$$SignalImplCopyWithImpl<$Res>
+    extends _$SignalCopyWithImpl<$Res, _$SignalImpl>
+    implements _$$SignalImplCopyWith<$Res> {
+  __$$SignalImplCopyWithImpl(
+      _$SignalImpl _value, $Res Function(_$SignalImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,7 +82,7 @@ class __$$_SignalCopyWithImpl<$Res>
   $Res call({
     Object? signal = null,
   }) {
-    return _then(_$_Signal(
+    return _then(_$SignalImpl(
       signal: null == signal
           ? _value.signal
           : signal // ignore: cast_nullable_to_non_nullable
@@ -91,11 +93,11 @@ class __$$_SignalCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Signal extends _Signal {
-  const _$_Signal({required this.signal}) : super._();
+class _$SignalImpl extends _Signal {
+  const _$SignalImpl({required this.signal}) : super._();
 
-  factory _$_Signal.fromJson(Map<String, dynamic> json) =>
-      _$$_SignalFromJson(json);
+  factory _$SignalImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SignalImplFromJson(json);
 
   @override
   final ServerPowerAction signal;
@@ -106,10 +108,10 @@ class _$_Signal extends _Signal {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Signal &&
+            other is _$SignalImpl &&
             (identical(other.signal, signal) || other.signal == signal));
   }
 
@@ -120,27 +122,28 @@ class _$_Signal extends _Signal {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SignalCopyWith<_$_Signal> get copyWith =>
-      __$$_SignalCopyWithImpl<_$_Signal>(this, _$identity);
+  _$$SignalImplCopyWith<_$SignalImpl> get copyWith =>
+      __$$SignalImplCopyWithImpl<_$SignalImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SignalToJson(
+    return _$$SignalImplToJson(
       this,
     );
   }
 }
 
 abstract class _Signal extends Signal {
-  const factory _Signal({required final ServerPowerAction signal}) = _$_Signal;
+  const factory _Signal({required final ServerPowerAction signal}) =
+      _$SignalImpl;
   const _Signal._() : super._();
 
-  factory _Signal.fromJson(Map<String, dynamic> json) = _$_Signal.fromJson;
+  factory _Signal.fromJson(Map<String, dynamic> json) = _$SignalImpl.fromJson;
 
   @override
   ServerPowerAction get signal;
   @override
   @JsonKey(ignore: true)
-  _$$_SignalCopyWith<_$_Signal> get copyWith =>
+  _$$SignalImplCopyWith<_$SignalImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

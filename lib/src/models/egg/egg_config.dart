@@ -11,7 +11,7 @@ class EggConfig with _$EggConfig {
     required EggStartupConfig startup,
     required String stop,
     EggLogsConfig? logs,
-    dynamic configExtends,
+    Object? configExtends,
   }) = _EggConfig;
   const EggConfig._();
 

@@ -12,7 +12,7 @@ part of '../../../models/error_responses/ptero_errors.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 PteroErrors _$PteroErrorsFromJson(Map<String, dynamic> json) {
   return _PteroErrors.fromJson(json);
@@ -20,7 +20,7 @@ PteroErrors _$PteroErrorsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PteroErrors {
-  List<PteroError> get errors => throw _privateConstructorUsedError;
+  IList<PteroError> get errors => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $PteroErrorsCopyWith<$Res> {
           PteroErrors value, $Res Function(PteroErrors) then) =
       _$PteroErrorsCopyWithImpl<$Res, PteroErrors>;
   @useResult
-  $Res call({List<PteroError> errors});
+  $Res call({IList<PteroError> errors});
 }
 
 /// @nodoc
@@ -56,28 +56,28 @@ class _$PteroErrorsCopyWithImpl<$Res, $Val extends PteroErrors>
       errors: null == errors
           ? _value.errors
           : errors // ignore: cast_nullable_to_non_nullable
-              as List<PteroError>,
+              as IList<PteroError>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_PteroErrorsCopyWith<$Res>
+abstract class _$$PteroErrorsImplCopyWith<$Res>
     implements $PteroErrorsCopyWith<$Res> {
-  factory _$$_PteroErrorsCopyWith(
-          _$_PteroErrors value, $Res Function(_$_PteroErrors) then) =
-      __$$_PteroErrorsCopyWithImpl<$Res>;
+  factory _$$PteroErrorsImplCopyWith(
+          _$PteroErrorsImpl value, $Res Function(_$PteroErrorsImpl) then) =
+      __$$PteroErrorsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<PteroError> errors});
+  $Res call({IList<PteroError> errors});
 }
 
 /// @nodoc
-class __$$_PteroErrorsCopyWithImpl<$Res>
-    extends _$PteroErrorsCopyWithImpl<$Res, _$_PteroErrors>
-    implements _$$_PteroErrorsCopyWith<$Res> {
-  __$$_PteroErrorsCopyWithImpl(
-      _$_PteroErrors _value, $Res Function(_$_PteroErrors) _then)
+class __$$PteroErrorsImplCopyWithImpl<$Res>
+    extends _$PteroErrorsCopyWithImpl<$Res, _$PteroErrorsImpl>
+    implements _$$PteroErrorsImplCopyWith<$Res> {
+  __$$PteroErrorsImplCopyWithImpl(
+      _$PteroErrorsImpl _value, $Res Function(_$PteroErrorsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,32 +85,25 @@ class __$$_PteroErrorsCopyWithImpl<$Res>
   $Res call({
     Object? errors = null,
   }) {
-    return _then(_$_PteroErrors(
+    return _then(_$PteroErrorsImpl(
       errors: null == errors
-          ? _value._errors
+          ? _value.errors
           : errors // ignore: cast_nullable_to_non_nullable
-              as List<PteroError>,
+              as IList<PteroError>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_PteroErrors extends _PteroErrors {
-  const _$_PteroErrors({required final List<PteroError> errors})
-      : _errors = errors,
-        super._();
+class _$PteroErrorsImpl extends _PteroErrors {
+  const _$PteroErrorsImpl({required this.errors}) : super._();
 
-  factory _$_PteroErrors.fromJson(Map<String, dynamic> json) =>
-      _$$_PteroErrorsFromJson(json);
+  factory _$PteroErrorsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PteroErrorsImplFromJson(json);
 
-  final List<PteroError> _errors;
   @override
-  List<PteroError> get errors {
-    if (_errors is EqualUnmodifiableListView) return _errors;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_errors);
-  }
+  final IList<PteroError> errors;
 
   @override
   String toString() {
@@ -118,44 +111,44 @@ class _$_PteroErrors extends _PteroErrors {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PteroErrors &&
-            const DeepCollectionEquality().equals(other._errors, _errors));
+            other is _$PteroErrorsImpl &&
+            const DeepCollectionEquality().equals(other.errors, errors));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_errors));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(errors));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PteroErrorsCopyWith<_$_PteroErrors> get copyWith =>
-      __$$_PteroErrorsCopyWithImpl<_$_PteroErrors>(this, _$identity);
+  _$$PteroErrorsImplCopyWith<_$PteroErrorsImpl> get copyWith =>
+      __$$PteroErrorsImplCopyWithImpl<_$PteroErrorsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PteroErrorsToJson(
+    return _$$PteroErrorsImplToJson(
       this,
     );
   }
 }
 
 abstract class _PteroErrors extends PteroErrors {
-  const factory _PteroErrors({required final List<PteroError> errors}) =
-      _$_PteroErrors;
+  const factory _PteroErrors({required final IList<PteroError> errors}) =
+      _$PteroErrorsImpl;
   const _PteroErrors._() : super._();
 
   factory _PteroErrors.fromJson(Map<String, dynamic> json) =
-      _$_PteroErrors.fromJson;
+      _$PteroErrorsImpl.fromJson;
 
   @override
-  List<PteroError> get errors;
+  IList<PteroError> get errors;
   @override
   @JsonKey(ignore: true)
-  _$$_PteroErrorsCopyWith<_$_PteroErrors> get copyWith =>
+  _$$PteroErrorsImplCopyWith<_$PteroErrorsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

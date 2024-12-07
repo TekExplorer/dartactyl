@@ -7,7 +7,6 @@ import 'dart:developer' as dev;
 import 'package:dartactyl/dartactyl.dart';
 import 'package:dartactyl/src/websocket/_internal.dart';
 import 'package:dartactyl/websocket.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:universal_io/io.dart';
 import 'package:web_socket_channel/io.dart';
@@ -15,7 +14,7 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 
 part 'websocket_errors.dart';
 
-@experimental
+// TODO: Consider the possibility of custom wings mods outputing custom data. some way to map custom data?
 class ServerWebsocket {
   /// Start a connection to the server's websocket.
   ///
@@ -29,18 +28,17 @@ class ServerWebsocket {
     required this.client,
     required this.serverId,
     // onError
-    FutureOr<void> Function(Object, StackTrace)? onError,
+    FutureOr<void> Function(
+      Object error,
+      StackTrace stacktrace,
+    )? onConnectionError,
+    bool autoConnect = true,
   }) {
-    final connectFuture = _connect();
-    if (onError != null) {
-      connectFuture.catchError(onError);
-    }
-  }
+    if (!autoConnect) return;
 
-  ServerWebsocket._noAutoConnect({
-    required this.client,
-    required this.serverId,
-  });
+    final connectFuture = _connect();
+    if (onConnectionError != null) connectFuture.catchError(onConnectionError);
+  }
 
   static void Function(
     String message, {
@@ -57,9 +55,10 @@ class ServerWebsocket {
     required PteroClient client,
     required String serverId,
   }) async {
-    final serverWebsocket = ServerWebsocket._noAutoConnect(
+    final serverWebsocket = ServerWebsocket(
       client: client,
       serverId: serverId,
+      autoConnect: false,
     );
     // throws if the connection or first auth fails
     await serverWebsocket._connect();
@@ -116,7 +115,8 @@ class ServerWebsocket {
   // TODO: is this the right way to keep it as a ValueStream?
   ValueStream<ConnectionState> get connectionState =>
       _connectionState.stream.distinct().shareValue();
-  final _connectionState = BehaviorSubject<ConnectionState>();
+  final _connectionState =
+      BehaviorSubject<ConnectionState>.seeded(ConnectionState.disconnected);
 
   ValueStream<TransferStatus> get transferStatus => _transferStatus.stream;
   final _transferStatus = BehaviorSubject<TransferStatus>();
@@ -127,20 +127,50 @@ class ServerWebsocket {
   ValueStream<BackupStatus> get backupStatus => _backupStatus.stream;
   final _backupStatus = BehaviorSubject<BackupStatus>();
 
-  late Completer<void> _isAuthenticated = Completer<void>();
+  late Completer<void> __isAuthenticated = _initIsAuthenticated();
+  Completer<void> get _isAuthenticated => __isAuthenticated;
+  void _resetIsAuthenticated() => __isAuthenticated = _initIsAuthenticated();
 
-  Future<void> get ready => _isAuthenticated.future;
+  Completer<void> _initIsAuthenticated() {
+    final c = Completer<void>();
+    // we aren't catching Error, so it should cover closed states,
+    // but just in case
+    c.future.onError<Exception>((error, _) {
+      // exception for when we're closed
+      if (isClosed) throw error;
+      // reset the completer on Exception.
+      // this way, all awaiters get the error,
+      // but future awaiters will wait for the next success or failure
+      __isAuthenticated = _initIsAuthenticated();
+      throw error;
+    });
+    // c.future.onError((error, stackTrace) => null);
+    return c;
+  }
+
+  // Future<void> get ready => _isAuthenticated.future;
+  Future<void> get ready async {
+    final bool isConnecting = _connectionState.value.isConnecting;
+
+    if (isDisconnected && !isConnecting) await _connect();
+
+    return _isAuthenticated.future;
+  }
 
   late WebSocketChannel _websocket;
-  StreamSubscription<dynamic>? _sub;
+  StreamSubscription<Object?>? _sub;
 
   Future<void> _connect() async {
     _connectionState.add(ConnectionState.connecting);
     try {
-      final res = await client.getServerWebsocket(serverId: serverId);
+      if (!isDisconnected) await disconnect();
+
+      final res = await client
+          .getServerWebsocket(serverId: serverId)
+          .then((value) => value.data);
 
       _websocket = IOWebSocketChannel.connect(
-        Uri.parse(res.data.socket),
+        res.socket,
         // absolutely necessary to avoid requiring users to edit wings configs
         headers: {'Origin': client.url},
       );
@@ -149,9 +179,8 @@ class ServerWebsocket {
       await _websocket.ready;
       log('Websocket connected (ready)', name: 'ServerWebsocket._connect');
 
-      if (_sub != null) {
-        await _sub!.cancel();
-      }
+      if (_sub case final sub?) await sub.cancel();
+
       _sub = _websocket.stream.listen(
         (event) {
           // allow throwing errors in _onData
@@ -172,6 +201,8 @@ class ServerWebsocket {
               );
               _errors.raiseUnexpected(error, stackTrace);
             }
+            // TODO: send everything into an `everything` stream, *then* split for the sake of spreading errors if `errors` isn't listened to
+            if (!_errors.hasListener) rethrow;
           }
         },
         onDone: () {
@@ -192,8 +223,8 @@ class ServerWebsocket {
       );
 
       await _authenticate(res);
-      await _isAuthenticated.future;
-    } catch (error) {
+      await ready;
+    } catch (_) {
       // should be received by the debugger and handled by the user
       // if called in _onData, it will get caught anyway.
 
@@ -227,25 +258,26 @@ class ServerWebsocket {
   ///
   /// [wsDetailsOverride] is only used in [_connect] to avoid making an extra
   /// request to the API.
-  Future<void> _authenticate(
-      [PteroData<WebsocketDetails>? wsDetailsOverride]) async {
+  Future<void> _authenticate([WebsocketDetails? wsDetailsOverride]) async {
     // if (isClosed) return;
 
     log('Authenticating websocket', name: 'ServerWebsocket._authenticate');
-    if (_isAuthenticated.isCompleted) _isAuthenticated = Completer<void>();
+    if (_isAuthenticated.isCompleted) _resetIsAuthenticated();
     _connectionState.add(ConnectionState.authenticating);
 
     try {
       log('Getting websocket details', name: 'ServerWebsocket._authenticate');
-      final PteroData<WebsocketDetails> socketDetails = wsDetailsOverride ??
-          await client.getServerWebsocket(serverId: serverId);
+      final WebsocketDetails socketDetails = wsDetailsOverride ??
+          await client
+              .getServerWebsocket(serverId: serverId)
+              .then((value) => value.data);
       log(
         'Got websocket details, sending...',
         name: 'ServerWebsocket._authenticate',
       );
       await _send(
         ServerWebsocketSendEvent.auth,
-        socketDetails.data.token,
+        socketDetails.token,
         // lets actually send the data even if we're not authenticated yet
         // because we are authenticating right now
         force: true,
@@ -257,6 +289,7 @@ class ServerWebsocket {
     } catch (error, stackTrace) {
       // if (_isAuthenticated.isCompleted) _isAuthenticated = Completer<void>();
       _isAuthenticated.completeError(error, stackTrace);
+
       _errors.raiseUnexpected(
         error,
         stackTrace,
@@ -275,24 +308,7 @@ class ServerWebsocket {
     if (isClosed) return;
 
     log('Received data from Wings: "$data"', name: 'ServerWebsocket._onData');
-    if (data is! String) {
-      // its a List<int>
-      throw UnexpectedWingsResponse._(data,
-          message: 'Received a binary event from Wings');
-    }
-
-    // is this needed? let the jsonDecode deal with it?
-    if (data.isEmpty) {
-      throw UnexpectedWingsResponse._(data,
-          message: 'Received an empty event from Wings');
-    }
-
-    final dynamic json = jsonDecode(data);
-
-    if (json is! Map<String, dynamic>) {
-      throw UnexpectedWingsResponse._(data,
-          message: 'Received a non-JSON event from Wings');
-    }
+    final json = _onDataToJson(data);
 
     // TODO: handle a CheckedFromJsonException?
     final websocketEvent = WebsocketEvent.fromJson(json);
@@ -300,10 +316,8 @@ class ServerWebsocket {
     // _rawEvents.add(event);
 
     final arg = websocketEvent.args?.first;
-
-    final receiveEvent = ServerWebsocketReceiveEvent.values.firstWhereOrNull(
-      (e) => e.event == websocketEvent.event,
-    );
+    final receiveEvent =
+        ServerWebsocketReceiveEvent.fromEventOrNull(websocketEvent.event);
 
     if (receiveEvent == null) {
       throw UnknownWingsEventException._(websocketEvent);
@@ -324,13 +338,10 @@ class ServerWebsocket {
 
         _isAuthenticated.complete();
         _connectionState.add(ConnectionState.connected);
-        break;
       case ServerWebsocketReceiveEvent.tokenExpiring:
         if (_isAuthenticated.isCompleted) await _authenticate();
-        break;
       case ServerWebsocketReceiveEvent.tokenExpired:
         if (_isAuthenticated.isCompleted) await _authenticate();
-        break;
       case ServerWebsocketReceiveEvent.jwtError:
         _connectionState.add(ConnectionState.disconnected);
         // _errors.arg ?? 'Unknown JWT error');
@@ -338,7 +349,6 @@ class ServerWebsocket {
         // raise but don't throw since we need to reauthenticate
         _errors.raise(JWTError._(arg ?? 'Unknown JWT error'));
         if (_isAuthenticated.isCompleted) await _authenticate();
-        break;
 
       // Daemon
       case ServerWebsocketReceiveEvent.daemonMessage:
@@ -350,7 +360,6 @@ class ServerWebsocket {
         // _daemonMessages.add(arg);
         _logs.add(WebsocketLog.daemon(arg));
 
-        break;
       case ServerWebsocketReceiveEvent.daemonError:
         if (arg == null) {
           throw UnknownWingsEventException._arg(
@@ -360,7 +369,6 @@ class ServerWebsocket {
         // _daemonErrors.add(arg);
         _errors.raise(DaemonError._(arg));
 
-        break;
       // Install
       case ServerWebsocketReceiveEvent.installOutput:
         if (arg == null) {
@@ -370,15 +378,12 @@ class ServerWebsocket {
 
         _logs.add(WebsocketLog.install(arg));
 
-        break;
       case ServerWebsocketReceiveEvent.installStarted:
         _installStatus.add(InstallStatus.started);
 
-        break;
       case ServerWebsocketReceiveEvent.installCompleted:
         _installStatus.add(InstallStatus.completed);
 
-        break;
       // Console
       case ServerWebsocketReceiveEvent.consoleOutput:
         if (arg == null) {
@@ -388,7 +393,6 @@ class ServerWebsocket {
 
         _logs.add(WebsocketLog.console(arg));
 
-        break;
       // Power
       case ServerWebsocketReceiveEvent.status:
         if (arg == null) {
@@ -404,7 +408,6 @@ class ServerWebsocket {
 
         _powerState.add(powerState);
 
-        break;
       // Stats (includes Power)
       case ServerWebsocketReceiveEvent.stats:
         if (arg == null) {
@@ -423,7 +426,6 @@ class ServerWebsocket {
         _stats.add(stats);
         _powerState.add(stats.powerState);
 
-        break;
       // Transfer
       case ServerWebsocketReceiveEvent.transferLogs:
         if (arg == null) {
@@ -433,7 +435,6 @@ class ServerWebsocket {
 
         _logs.add(WebsocketLog.transfer(arg));
 
-        break;
       case ServerWebsocketReceiveEvent.transferStatus:
         if (arg == null) {
           throw UnknownWingsEventException._arg(
@@ -463,64 +464,125 @@ class ServerWebsocket {
         // TODO: are we concerned about this possibly throwing?
         // TODO: NEEDS TESTING BADLY
         await _connect();
-        break;
       // Backup
       case ServerWebsocketReceiveEvent.backupCompleted:
         _backupStatus.add(BackupStatus.backupCompleted);
-        break;
       case ServerWebsocketReceiveEvent.backupRestoreCompleted:
         _backupStatus.add(BackupStatus.backupRestoreCompleted);
-        break;
     }
   }
 
-  // TODO: Is this reliable?
-  bool get isClosed =>
-      _connectionState.isClosed ||
-      _connectionState.value == ConnectionState.closed;
+  JsonMap _onDataToJson(Object? data) {
+    switch (data) {
+      case final String data:
+        // is this needed? let the jsonDecode deal with it?
+        if (data.isEmpty) {
+          throw UnexpectedWingsResponse._(
+            data,
+            message: 'Received an empty event from Wings',
+          );
+        }
+      case null:
+        // its a List<int>
+        throw UnexpectedWingsResponse._(
+          data,
+          message: 'Received a null(!?) event from Wings',
+        );
 
+      case final List<int> data:
+        // its a List<int>
+        throw UnexpectedWingsResponse._(
+          data,
+          message: 'Received a binary event from Wings',
+        );
+      case _:
+        // its something weird, and very much impossible
+        throw UnexpectedWingsResponse._(
+          data,
+          message: 'Received an impossible event from Wings!?',
+        );
+    }
+
+    final Object? json = jsonDecode(data);
+
+    return switch (json) {
+      final JsonMap json => json,
+      _ => throw UnexpectedWingsResponse._(
+          data,
+          message: 'Received a non-JSON event from Wings',
+        ),
+    };
+  }
+
+  bool get isClosed =>
+      _connectionState.isClosed || _connectionState.value.isClosed;
+
+  bool get isDisconnected =>
+      isClosed ||
+      _connectionState.value.isDisconnected ||
+      _sub == null ||
+      // if not completed, it means we aren't connected.
+      // do i need the others?
+      !_isAuthenticated.isCompleted;
+
+  /// Fully close the websocket and all streams
   Future<void> close() async {
     if (isClosed) {
-      // not throwing because multiple
       log(
-        'Tried to close the websocket, but it was already closed.',
+        'Tried to close the websocket, '
+        'but it was already closed.',
         name: 'ServerWebsocket.close()',
       );
       return;
     }
 
-    // So that stuff that only watch for disconnected get triggered too
-    _connectionState
-      ..add(ConnectionState.disconnected)
-      ..add(ConnectionState.closing);
+    try {
+      await _disconnect();
+      _connectionState.add(ConnectionState.closed);
+      await _closeSubjects();
+    } catch (e, s) {
+      log(
+        'close() threw',
+        name: 'WebsocketClose',
+        error: e,
+        stackTrace: s,
+      );
+    }
+  }
 
-    await _websocket.sink.close(WebSocketStatus.normalClosure);
+  /// Disconnect but don't close user-facing streams
+  Future<void> disconnect() async {
+    if (isDisconnected) {
+      return log(
+        'Tried to disconnect from the websocket, '
+        'but it was already disconnected.',
+        name: 'ServerWebsocket.disconnect()',
+      );
+    }
+    return _disconnect();
+  }
+
+  Future<void> _disconnect() async {
     // TODO: see if this is right.
     // Close the websocket listener subscription before closing the streams
     await _sub?.cancel();
+    _sub = null;
 
-    // close the streams
-    await _powerState.close();
-    await _stats.close();
-    await _transferStatus.close();
-    await _installStatus.close();
-    await _backupStatus.close();
-    await _logs.close();
-    // await _daemonMessages.close();
-    // await _daemonErrors.close();
-    await _errors.close();
-    // let listeners know that the websocket is closed
-    _connectionState.add(ConnectionState.closed);
-    await _connectionState.close();
-    // TODO: If i dont complete it, don't people hang forever? Complete with error or data?
+    // So that stuff that only watch for disconnected get triggered too
+    _connectionState.add(ConnectionState.disconnected);
+
+    await _websocket.sink.close(WebSocketStatus.normalClosure);
+    // TODO: If i don't complete it, don't people hang forever?
+    //  Complete with error or data?
     if (!_isAuthenticated.isCompleted) {
       _isAuthenticated.completeError(
         UnexpectedWebsocketException._(
-          "Websocket closed before 'ready' completed",
+          'Websocket disconnected',
           StackTrace.current,
         ),
       );
     }
+
     // else {
     //   // make sure future calls to ready fail,
     //   // because the ServerWebsocket is closed.
@@ -532,19 +594,19 @@ class ServerWebsocket {
     // }
   }
 
-  // TODO: Are these worth adding?
-  // @experimental
-  // Future<void> disconnect() async {
-  //   _connectionState.add(ConnectionState.disconnected);
-  //   await _websocket.sink.close(WebSocketStatus.goingAway);
-  // }
-
-  // @experimental
-  // Future<void> reconnect() async {
-  //   _connectionState.add(ConnectionState.disconnected);
-  //   await _websocket.sink.close(WebSocketStatus.goingAway);
-  //   await _connect();
-  // }
+  Future<void> _closeSubjects() async {
+    // close the streams
+    await _powerState.close();
+    await _stats.close();
+    await _transferStatus.close();
+    await _installStatus.close();
+    await _backupStatus.close();
+    await _logs.close();
+    // await _daemonMessages.close();
+    // await _daemonErrors.close();
+    await _errors.close();
+    await _connectionState.close();
+  }
 }
 
 enum TransferStatus {
@@ -562,9 +624,8 @@ enum TransferStatus {
   cancelled;
 
   static TransferStatus? fromStringOrNull(String value) {
-    return TransferStatus.values.firstWhereOrNull(
-      (e) => e.name.toLowerCase() == value.toLowerCase(),
-    );
+    // byName throws
+    return TransferStatus.values.asNameMap()[value.toLowerCase()];
   }
 
   // TODO: indicate needs reconnect?
@@ -585,14 +646,14 @@ enum BackupStatus {
   bool get isBackupCompleted => this == backupCompleted;
 }
 
-extension<T> on List<T> {
-  T? firstWhereOrNull(bool Function(T) test) {
-    for (final element in this) {
-      if (test(element)) return element;
-    }
-    return null;
-  }
-}
+// extension<T> on List<T> {
+//   T? firstWhereOrNull(bool Function(T) test) {
+//     for (final element in this) {
+//       if (test(element)) return element;
+//     }
+//     return null;
+//   }
+// }
 
 extension on BehaviorSubject<ServerWebsocketException> {
   /// Adds an [error] to the stream.

@@ -6,11 +6,12 @@ part of '../../../models/request_models/subuser.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Subuser _$$_SubuserFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Subuser',
+_$SubuserImpl _$$SubuserImplFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      r'_$SubuserImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Subuser(
+        final val = _$SubuserImpl(
           email: $checkedConvert('email', (v) => v as String),
           permissions: $checkedConvert('permissions',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
@@ -19,19 +20,19 @@ _$_Subuser _$$_SubuserFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_SubuserToJson(_$_Subuser instance) =>
+Map<String, dynamic> _$$SubuserImplToJson(_$SubuserImpl instance) =>
     <String, dynamic>{
       'email': instance.email,
       'permissions': instance.permissions,
     };
 
-_$_SubuserPermissions _$$_SubuserPermissionsFromJson(
+_$SubuserPermissionsImpl _$$SubuserPermissionsImplFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_SubuserPermissions',
+      r'_$SubuserPermissionsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_SubuserPermissions(
+        final val = _$SubuserPermissionsImpl(
           permissions: $checkedConvert('permissions',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
         );
@@ -39,8 +40,8 @@ _$_SubuserPermissions _$$_SubuserPermissionsFromJson(
       },
     );
 
-Map<String, dynamic> _$$_SubuserPermissionsToJson(
-        _$_SubuserPermissions instance) =>
+Map<String, dynamic> _$$SubuserPermissionsImplToJson(
+        _$SubuserPermissionsImpl instance) =>
     <String, dynamic>{
       'permissions': instance.permissions,
     };

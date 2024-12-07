@@ -18,7 +18,7 @@
 //   ForbiddenError({String? detail})
 //       : super(
 //           detail: detail ??
-//               'Forbidden: You do not have permission to access this resource',
+//              'Forbidden: You do not have permission to access this resource',
 //           code: PteroErrorCode.AccessDeniedHttpException,
 //         );
 // }

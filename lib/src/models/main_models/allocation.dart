@@ -5,7 +5,7 @@ part '../../generated/models/main_models/allocation.freezed.dart';
 part '../../generated/models/main_models/allocation.g.dart';
 
 @freezed
-class Allocation with SerializableMixin, _$Allocation {
+class Allocation with _$Allocation {
   const factory Allocation({
     required int id,
     required String ip,

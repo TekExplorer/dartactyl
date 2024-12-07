@@ -12,7 +12,7 @@ part of '../../../models/egg/egg_logs_config.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 EggLogsConfig _$EggLogsConfigFromJson(Map<String, dynamic> json) {
   return _EggLogsConfig.fromJson(json);
@@ -68,22 +68,22 @@ class _$EggLogsConfigCopyWithImpl<$Res, $Val extends EggLogsConfig>
 }
 
 /// @nodoc
-abstract class _$$_EggLogsConfigCopyWith<$Res>
+abstract class _$$EggLogsConfigImplCopyWith<$Res>
     implements $EggLogsConfigCopyWith<$Res> {
-  factory _$$_EggLogsConfigCopyWith(
-          _$_EggLogsConfig value, $Res Function(_$_EggLogsConfig) then) =
-      __$$_EggLogsConfigCopyWithImpl<$Res>;
+  factory _$$EggLogsConfigImplCopyWith(
+          _$EggLogsConfigImpl value, $Res Function(_$EggLogsConfigImpl) then) =
+      __$$EggLogsConfigImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool custom, String? location});
 }
 
 /// @nodoc
-class __$$_EggLogsConfigCopyWithImpl<$Res>
-    extends _$EggLogsConfigCopyWithImpl<$Res, _$_EggLogsConfig>
-    implements _$$_EggLogsConfigCopyWith<$Res> {
-  __$$_EggLogsConfigCopyWithImpl(
-      _$_EggLogsConfig _value, $Res Function(_$_EggLogsConfig) _then)
+class __$$EggLogsConfigImplCopyWithImpl<$Res>
+    extends _$EggLogsConfigCopyWithImpl<$Res, _$EggLogsConfigImpl>
+    implements _$$EggLogsConfigImplCopyWith<$Res> {
+  __$$EggLogsConfigImplCopyWithImpl(
+      _$EggLogsConfigImpl _value, $Res Function(_$EggLogsConfigImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_EggLogsConfigCopyWithImpl<$Res>
     Object? custom = null,
     Object? location = freezed,
   }) {
-    return _then(_$_EggLogsConfig(
+    return _then(_$EggLogsConfigImpl(
       custom: null == custom
           ? _value.custom
           : custom // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,11 @@ class __$$_EggLogsConfigCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EggLogsConfig extends _EggLogsConfig {
-  const _$_EggLogsConfig({required this.custom, this.location}) : super._();
+class _$EggLogsConfigImpl extends _EggLogsConfig {
+  const _$EggLogsConfigImpl({required this.custom, this.location}) : super._();
 
-  factory _$_EggLogsConfig.fromJson(Map<String, dynamic> json) =>
-      _$$_EggLogsConfigFromJson(json);
+  factory _$EggLogsConfigImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EggLogsConfigImplFromJson(json);
 
   @override
   final bool custom;
@@ -124,10 +124,10 @@ class _$_EggLogsConfig extends _EggLogsConfig {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EggLogsConfig &&
+            other is _$EggLogsConfigImpl &&
             (identical(other.custom, custom) || other.custom == custom) &&
             (identical(other.location, location) ||
                 other.location == location));
@@ -140,12 +140,12 @@ class _$_EggLogsConfig extends _EggLogsConfig {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EggLogsConfigCopyWith<_$_EggLogsConfig> get copyWith =>
-      __$$_EggLogsConfigCopyWithImpl<_$_EggLogsConfig>(this, _$identity);
+  _$$EggLogsConfigImplCopyWith<_$EggLogsConfigImpl> get copyWith =>
+      __$$EggLogsConfigImplCopyWithImpl<_$EggLogsConfigImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EggLogsConfigToJson(
+    return _$$EggLogsConfigImplToJson(
       this,
     );
   }
@@ -153,11 +153,12 @@ class _$_EggLogsConfig extends _EggLogsConfig {
 
 abstract class _EggLogsConfig extends EggLogsConfig {
   const factory _EggLogsConfig(
-      {required final bool custom, final String? location}) = _$_EggLogsConfig;
+      {required final bool custom,
+      final String? location}) = _$EggLogsConfigImpl;
   const _EggLogsConfig._() : super._();
 
   factory _EggLogsConfig.fromJson(Map<String, dynamic> json) =
-      _$_EggLogsConfig.fromJson;
+      _$EggLogsConfigImpl.fromJson;
 
   @override
   bool get custom;
@@ -165,6 +166,6 @@ abstract class _EggLogsConfig extends EggLogsConfig {
   String? get location;
   @override
   @JsonKey(ignore: true)
-  _$$_EggLogsConfigCopyWith<_$_EggLogsConfig> get copyWith =>
+  _$$EggLogsConfigImplCopyWith<_$EggLogsConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

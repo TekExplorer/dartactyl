@@ -3,27 +3,6 @@
 part of '../../clients/translation_client.dart';
 
 // **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
-
-_$_TranslationData _$$_TranslationDataFromJson(Map<String, dynamic> json) =>
-    $checkedCreate(
-      r'_$_TranslationData',
-      json,
-      ($checkedConvert) {
-        final val = _$_TranslationData(
-          en: $checkedConvert('en', (v) => v as Map<String, dynamic>),
-        );
-        return val;
-      },
-    );
-
-Map<String, dynamic> _$$_TranslationDataToJson(_$_TranslationData instance) =>
-    <String, dynamic>{
-      'en': instance.en,
-    };
-
-// **************************************************************************
 // RetrofitGenerator
 // **************************************************************************
 
@@ -41,20 +20,20 @@ class _PteroTranslationsClient extends PteroTranslationsClient {
 
   @override
   Future<TranslationData> getTranslation({
-    locale,
-    namespace,
-    cancelToken,
-    onSendProgress,
-    onReceiveProgress,
+    String? locale,
+    String? namespace,
+    CancelToken? cancelToken,
+    void Function(int, int)? onSendProgress,
+    void Function(int, int)? onReceiveProgress,
   }) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'locale': locale,
       r'namespace': namespace,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<TranslationData>(Options(
       method: 'GET',
@@ -70,7 +49,11 @@ class _PteroTranslationsClient extends PteroTranslationsClient {
               onSendProgress: onSendProgress,
               onReceiveProgress: onReceiveProgress,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = TranslationData.fromJson(_result.data!);
     return value;
   }
@@ -86,5 +69,22 @@ class _PteroTranslationsClient extends PteroTranslationsClient {
       }
     }
     return requestOptions;
+  }
+
+  String _combineBaseUrls(
+    String dioBaseUrl,
+    String? baseUrl,
+  ) {
+    if (baseUrl == null || baseUrl.trim().isEmpty) {
+      return dioBaseUrl;
+    }
+
+    final url = Uri.parse(baseUrl);
+
+    if (url.isAbsolute) {
+      return url.toString();
+    }
+
+    return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }

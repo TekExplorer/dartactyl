@@ -117,7 +117,7 @@ abstract class PteroApplication {
   // });
 
   @POST('/api/application/nodes')
-  Future<FractalDataMeta<Node, ResourceMeta>> createNode({
+  Future<FractalMeta<Node, ResourceMeta>> createNode({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -127,7 +127,7 @@ abstract class PteroApplication {
 
   //TODO: check that the response is in fact a [Node]
   @PATCH('/api/application/nodes/{id}')
-  Future<FractalDataMeta<Node, ResourceMeta>> updateNode({
+  Future<FractalMeta<Node, ResourceMeta>> updateNode({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -164,4 +164,26 @@ abstract class PteroApplication {
     @Query('filter[port]') int? filterByPort,
     @Query('filter[server_id]') String? filterByServerId,
   });
+
+  //TODO: MORE
+
+  // @GET('/api/application/servers')
+  // Future<FractalListMeta<ApplicationServer, PaginatedMeta>> listServers({
+  //   @CancelRequest() CancelToken? cancelToken,
+  //   @SendProgress() @experimental ProgressCallback? onSendProgress,
+  //   @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
+  //   //
+  //   @Query('sort') ServersSort? sort,
+  //   @Query('page') int? page,
+  //   @Query('per_page') int? perPage,
+  //   // filters
+  //   @Query('filter[*]') String? filterAll,
+  //   @Query('filter[id]') String? filterById,
+  //   @Query('filter[uuid]') int? filterByUuid,
+  //   @Query('filter[uuidShort]') String? filterByUuidShort,
+  //   @Query('filter[name]') String? filterByName,
+  //   @Query('filter[owner_id]') String? filterByOwnerId,
+  //   @Query('filter[node_id]') String? filterByNodeId,
+  //   @Query('filter[external_id]') String? filterByExternalId,
+  // });
 }

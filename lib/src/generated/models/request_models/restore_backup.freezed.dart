@@ -12,7 +12,7 @@ part of '../../../models/request_models/restore_backup.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 RestoreBackup _$RestoreBackupFromJson(Map<String, dynamic> json) {
   return _RestoreBackup.fromJson(json);
@@ -64,22 +64,22 @@ class _$RestoreBackupCopyWithImpl<$Res, $Val extends RestoreBackup>
 }
 
 /// @nodoc
-abstract class _$$_RestoreBackupCopyWith<$Res>
+abstract class _$$RestoreBackupImplCopyWith<$Res>
     implements $RestoreBackupCopyWith<$Res> {
-  factory _$$_RestoreBackupCopyWith(
-          _$_RestoreBackup value, $Res Function(_$_RestoreBackup) then) =
-      __$$_RestoreBackupCopyWithImpl<$Res>;
+  factory _$$RestoreBackupImplCopyWith(
+          _$RestoreBackupImpl value, $Res Function(_$RestoreBackupImpl) then) =
+      __$$RestoreBackupImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: 'truncate') bool? deleteExistingFiles});
 }
 
 /// @nodoc
-class __$$_RestoreBackupCopyWithImpl<$Res>
-    extends _$RestoreBackupCopyWithImpl<$Res, _$_RestoreBackup>
-    implements _$$_RestoreBackupCopyWith<$Res> {
-  __$$_RestoreBackupCopyWithImpl(
-      _$_RestoreBackup _value, $Res Function(_$_RestoreBackup) _then)
+class __$$RestoreBackupImplCopyWithImpl<$Res>
+    extends _$RestoreBackupCopyWithImpl<$Res, _$RestoreBackupImpl>
+    implements _$$RestoreBackupImplCopyWith<$Res> {
+  __$$RestoreBackupImplCopyWithImpl(
+      _$RestoreBackupImpl _value, $Res Function(_$RestoreBackupImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$_RestoreBackupCopyWithImpl<$Res>
   $Res call({
     Object? deleteExistingFiles = freezed,
   }) {
-    return _then(_$_RestoreBackup(
+    return _then(_$RestoreBackupImpl(
       deleteExistingFiles: freezed == deleteExistingFiles
           ? _value.deleteExistingFiles
           : deleteExistingFiles // ignore: cast_nullable_to_non_nullable
@@ -98,12 +98,13 @@ class __$$_RestoreBackupCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RestoreBackup extends _RestoreBackup {
-  const _$_RestoreBackup({@JsonKey(name: 'truncate') this.deleteExistingFiles})
+class _$RestoreBackupImpl extends _RestoreBackup {
+  const _$RestoreBackupImpl(
+      {@JsonKey(name: 'truncate') this.deleteExistingFiles})
       : super._();
 
-  factory _$_RestoreBackup.fromJson(Map<String, dynamic> json) =>
-      _$$_RestoreBackupFromJson(json);
+  factory _$RestoreBackupImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RestoreBackupImplFromJson(json);
 
 // ignore: invalid_annotation_target
   @override
@@ -116,10 +117,10 @@ class _$_RestoreBackup extends _RestoreBackup {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RestoreBackup &&
+            other is _$RestoreBackupImpl &&
             (identical(other.deleteExistingFiles, deleteExistingFiles) ||
                 other.deleteExistingFiles == deleteExistingFiles));
   }
@@ -131,12 +132,12 @@ class _$_RestoreBackup extends _RestoreBackup {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RestoreBackupCopyWith<_$_RestoreBackup> get copyWith =>
-      __$$_RestoreBackupCopyWithImpl<_$_RestoreBackup>(this, _$identity);
+  _$$RestoreBackupImplCopyWith<_$RestoreBackupImpl> get copyWith =>
+      __$$RestoreBackupImplCopyWithImpl<_$RestoreBackupImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RestoreBackupToJson(
+    return _$$RestoreBackupImplToJson(
       this,
     );
   }
@@ -145,17 +146,17 @@ class _$_RestoreBackup extends _RestoreBackup {
 abstract class _RestoreBackup extends RestoreBackup {
   const factory _RestoreBackup(
           {@JsonKey(name: 'truncate') final bool? deleteExistingFiles}) =
-      _$_RestoreBackup;
+      _$RestoreBackupImpl;
   const _RestoreBackup._() : super._();
 
   factory _RestoreBackup.fromJson(Map<String, dynamic> json) =
-      _$_RestoreBackup.fromJson;
+      _$RestoreBackupImpl.fromJson;
 
   @override // ignore: invalid_annotation_target
   @JsonKey(name: 'truncate')
   bool? get deleteExistingFiles;
   @override
   @JsonKey(ignore: true)
-  _$$_RestoreBackupCopyWith<_$_RestoreBackup> get copyWith =>
+  _$$RestoreBackupImplCopyWith<_$RestoreBackupImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

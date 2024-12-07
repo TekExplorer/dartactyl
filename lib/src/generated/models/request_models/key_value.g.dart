@@ -6,11 +6,12 @@ part of '../../../models/request_models/key_value.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_KeyValue _$$_KeyValueFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_KeyValue',
+_$KeyValueImpl _$$KeyValueImplFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      r'_$KeyValueImpl',
       json,
       ($checkedConvert) {
-        final val = _$_KeyValue(
+        final val = _$KeyValueImpl(
           key: $checkedConvert('key', (v) => v as String),
           value: $checkedConvert('value', (v) => v as String),
         );
@@ -18,7 +19,7 @@ _$_KeyValue _$$_KeyValueFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_KeyValueToJson(_$_KeyValue instance) =>
+Map<String, dynamic> _$$KeyValueImplToJson(_$KeyValueImpl instance) =>
     <String, dynamic>{
       'key': instance.key,
       'value': instance.value,

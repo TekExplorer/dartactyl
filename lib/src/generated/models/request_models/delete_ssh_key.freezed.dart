@@ -12,7 +12,7 @@ part of '../../../models/request_models/delete_ssh_key.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 DeleteSSHKey _$DeleteSSHKeyFromJson(Map<String, dynamic> json) {
   return _DeleteSSHKey.fromJson(json);
@@ -62,22 +62,22 @@ class _$DeleteSSHKeyCopyWithImpl<$Res, $Val extends DeleteSSHKey>
 }
 
 /// @nodoc
-abstract class _$$_DeleteSSHKeyCopyWith<$Res>
+abstract class _$$DeleteSSHKeyImplCopyWith<$Res>
     implements $DeleteSSHKeyCopyWith<$Res> {
-  factory _$$_DeleteSSHKeyCopyWith(
-          _$_DeleteSSHKey value, $Res Function(_$_DeleteSSHKey) then) =
-      __$$_DeleteSSHKeyCopyWithImpl<$Res>;
+  factory _$$DeleteSSHKeyImplCopyWith(
+          _$DeleteSSHKeyImpl value, $Res Function(_$DeleteSSHKeyImpl) then) =
+      __$$DeleteSSHKeyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String fingerprint});
 }
 
 /// @nodoc
-class __$$_DeleteSSHKeyCopyWithImpl<$Res>
-    extends _$DeleteSSHKeyCopyWithImpl<$Res, _$_DeleteSSHKey>
-    implements _$$_DeleteSSHKeyCopyWith<$Res> {
-  __$$_DeleteSSHKeyCopyWithImpl(
-      _$_DeleteSSHKey _value, $Res Function(_$_DeleteSSHKey) _then)
+class __$$DeleteSSHKeyImplCopyWithImpl<$Res>
+    extends _$DeleteSSHKeyCopyWithImpl<$Res, _$DeleteSSHKeyImpl>
+    implements _$$DeleteSSHKeyImplCopyWith<$Res> {
+  __$$DeleteSSHKeyImplCopyWithImpl(
+      _$DeleteSSHKeyImpl _value, $Res Function(_$DeleteSSHKeyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_DeleteSSHKeyCopyWithImpl<$Res>
   $Res call({
     Object? fingerprint = null,
   }) {
-    return _then(_$_DeleteSSHKey(
+    return _then(_$DeleteSSHKeyImpl(
       fingerprint: null == fingerprint
           ? _value.fingerprint
           : fingerprint // ignore: cast_nullable_to_non_nullable
@@ -96,11 +96,11 @@ class __$$_DeleteSSHKeyCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DeleteSSHKey extends _DeleteSSHKey {
-  const _$_DeleteSSHKey({required this.fingerprint}) : super._();
+class _$DeleteSSHKeyImpl extends _DeleteSSHKey {
+  const _$DeleteSSHKeyImpl({required this.fingerprint}) : super._();
 
-  factory _$_DeleteSSHKey.fromJson(Map<String, dynamic> json) =>
-      _$$_DeleteSSHKeyFromJson(json);
+  factory _$DeleteSSHKeyImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DeleteSSHKeyImplFromJson(json);
 
   @override
   final String fingerprint;
@@ -111,10 +111,10 @@ class _$_DeleteSSHKey extends _DeleteSSHKey {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeleteSSHKey &&
+            other is _$DeleteSSHKeyImpl &&
             (identical(other.fingerprint, fingerprint) ||
                 other.fingerprint == fingerprint));
   }
@@ -126,12 +126,12 @@ class _$_DeleteSSHKey extends _DeleteSSHKey {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeleteSSHKeyCopyWith<_$_DeleteSSHKey> get copyWith =>
-      __$$_DeleteSSHKeyCopyWithImpl<_$_DeleteSSHKey>(this, _$identity);
+  _$$DeleteSSHKeyImplCopyWith<_$DeleteSSHKeyImpl> get copyWith =>
+      __$$DeleteSSHKeyImplCopyWithImpl<_$DeleteSSHKeyImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DeleteSSHKeyToJson(
+    return _$$DeleteSSHKeyImplToJson(
       this,
     );
   }
@@ -139,16 +139,16 @@ class _$_DeleteSSHKey extends _DeleteSSHKey {
 
 abstract class _DeleteSSHKey extends DeleteSSHKey {
   const factory _DeleteSSHKey({required final String fingerprint}) =
-      _$_DeleteSSHKey;
+      _$DeleteSSHKeyImpl;
   const _DeleteSSHKey._() : super._();
 
   factory _DeleteSSHKey.fromJson(Map<String, dynamic> json) =
-      _$_DeleteSSHKey.fromJson;
+      _$DeleteSSHKeyImpl.fromJson;
 
   @override
   String get fingerprint;
   @override
   @JsonKey(ignore: true)
-  _$$_DeleteSSHKeyCopyWith<_$_DeleteSSHKey> get copyWith =>
+  _$$DeleteSSHKeyImplCopyWith<_$DeleteSSHKeyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

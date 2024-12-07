@@ -6,11 +6,11 @@ part of '../../../models/main_models/pagination.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Links _$$_LinksFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Links',
+_$LinksImpl _$$LinksImplFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$LinksImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Links(
+        final val = _$LinksImpl(
           previous: $checkedConvert('previous', (v) => v as String?),
           next: $checkedConvert('next', (v) => v as String?),
         );
@@ -18,22 +18,24 @@ _$_Links _$$_LinksFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_LinksToJson(_$_Links instance) => <String, dynamic>{
+Map<String, dynamic> _$$LinksImplToJson(_$LinksImpl instance) =>
+    <String, dynamic>{
       'previous': instance.previous,
       'next': instance.next,
     };
 
-_$_Pagination _$$_PaginationFromJson(Map<String, dynamic> json) =>
+_$PaginationImpl _$$PaginationImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_Pagination',
+      r'_$PaginationImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Pagination(
-          total: $checkedConvert('total', (v) => v as int),
-          count: $checkedConvert('count', (v) => v as int),
-          perPage: $checkedConvert('per_page', (v) => v as int),
-          currentPage: $checkedConvert('current_page', (v) => v as int),
-          totalPages: $checkedConvert('total_pages', (v) => v as int),
+        final val = _$PaginationImpl(
+          total: $checkedConvert('total', (v) => (v as num).toInt()),
+          count: $checkedConvert('count', (v) => (v as num).toInt()),
+          perPage: $checkedConvert('per_page', (v) => (v as num).toInt()),
+          currentPage:
+              $checkedConvert('current_page', (v) => (v as num).toInt()),
+          totalPages: $checkedConvert('total_pages', (v) => (v as num).toInt()),
           links: $checkedConvert(
               'links', (v) => Links.fromJson(v as Map<String, dynamic>)),
         );
@@ -46,7 +48,7 @@ _$_Pagination _$$_PaginationFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_PaginationToJson(_$_Pagination instance) =>
+Map<String, dynamic> _$$PaginationImplToJson(_$PaginationImpl instance) =>
     <String, dynamic>{
       'total': instance.total,
       'count': instance.count,

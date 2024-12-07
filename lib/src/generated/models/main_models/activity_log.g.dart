@@ -6,19 +6,19 @@ part of '../../../models/main_models/activity_log.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ActivityLog _$$_ActivityLogFromJson(Map<String, dynamic> json) =>
+_$ActivityLogImpl _$$ActivityLogImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ActivityLog',
+      r'_$ActivityLogImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ActivityLog(
+        final val = _$ActivityLogImpl(
           batch: $checkedConvert('batch', (v) => v as String?),
           event: $checkedConvert('event', (v) => v as String),
           ip: $checkedConvert('ip', (v) => v as String?),
           isApi: $checkedConvert('is_api', (v) => v as bool),
           description: $checkedConvert('description', (v) => v as String?),
           properties: $checkedConvert(
-              'properties', (v) => activityLogPropertiesFromJson(v)),
+              'properties', (v) => _activityLogPropertiesFromJson(v)),
           hasAdditionalMetadata:
               $checkedConvert('has_additional_metadata', (v) => v as bool),
           timestamp:
@@ -38,7 +38,7 @@ _$_ActivityLog _$$_ActivityLogFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_ActivityLogToJson(_$_ActivityLog instance) =>
+Map<String, dynamic> _$$ActivityLogImplToJson(_$ActivityLogImpl instance) =>
     <String, dynamic>{
       'batch': instance.batch,
       'event': instance.event,

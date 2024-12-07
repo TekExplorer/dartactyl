@@ -12,7 +12,7 @@ part of '../../../models/application_request_models/create_user_request.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 CreateUserRequest _$CreateUserRequestFromJson(Map<String, dynamic> json) {
   return _CreateUserRequest.fromJson(json);
@@ -80,22 +80,22 @@ class _$CreateUserRequestCopyWithImpl<$Res, $Val extends CreateUserRequest>
 }
 
 /// @nodoc
-abstract class _$$_CreateUserRequestCopyWith<$Res>
+abstract class _$$CreateUserRequestImplCopyWith<$Res>
     implements $CreateUserRequestCopyWith<$Res> {
-  factory _$$_CreateUserRequestCopyWith(_$_CreateUserRequest value,
-          $Res Function(_$_CreateUserRequest) then) =
-      __$$_CreateUserRequestCopyWithImpl<$Res>;
+  factory _$$CreateUserRequestImplCopyWith(_$CreateUserRequestImpl value,
+          $Res Function(_$CreateUserRequestImpl) then) =
+      __$$CreateUserRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String email, String username, String firstName, String lastName});
 }
 
 /// @nodoc
-class __$$_CreateUserRequestCopyWithImpl<$Res>
-    extends _$CreateUserRequestCopyWithImpl<$Res, _$_CreateUserRequest>
-    implements _$$_CreateUserRequestCopyWith<$Res> {
-  __$$_CreateUserRequestCopyWithImpl(
-      _$_CreateUserRequest _value, $Res Function(_$_CreateUserRequest) _then)
+class __$$CreateUserRequestImplCopyWithImpl<$Res>
+    extends _$CreateUserRequestCopyWithImpl<$Res, _$CreateUserRequestImpl>
+    implements _$$CreateUserRequestImplCopyWith<$Res> {
+  __$$CreateUserRequestImplCopyWithImpl(_$CreateUserRequestImpl _value,
+      $Res Function(_$CreateUserRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -106,7 +106,7 @@ class __$$_CreateUserRequestCopyWithImpl<$Res>
     Object? firstName = null,
     Object? lastName = null,
   }) {
-    return _then(_$_CreateUserRequest(
+    return _then(_$CreateUserRequestImpl(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -129,16 +129,16 @@ class __$$_CreateUserRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CreateUserRequest extends _CreateUserRequest {
-  const _$_CreateUserRequest(
+class _$CreateUserRequestImpl extends _CreateUserRequest {
+  const _$CreateUserRequestImpl(
       {required this.email,
       required this.username,
       required this.firstName,
       required this.lastName})
       : super._();
 
-  factory _$_CreateUserRequest.fromJson(Map<String, dynamic> json) =>
-      _$$_CreateUserRequestFromJson(json);
+  factory _$CreateUserRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CreateUserRequestImplFromJson(json);
 
   @override
   final String email;
@@ -155,10 +155,10 @@ class _$_CreateUserRequest extends _CreateUserRequest {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CreateUserRequest &&
+            other is _$CreateUserRequestImpl &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.username, username) ||
                 other.username == username) &&
@@ -176,13 +176,13 @@ class _$_CreateUserRequest extends _CreateUserRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CreateUserRequestCopyWith<_$_CreateUserRequest> get copyWith =>
-      __$$_CreateUserRequestCopyWithImpl<_$_CreateUserRequest>(
+  _$$CreateUserRequestImplCopyWith<_$CreateUserRequestImpl> get copyWith =>
+      __$$CreateUserRequestImplCopyWithImpl<_$CreateUserRequestImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CreateUserRequestToJson(
+    return _$$CreateUserRequestImplToJson(
       this,
     );
   }
@@ -193,11 +193,11 @@ abstract class _CreateUserRequest extends CreateUserRequest {
       {required final String email,
       required final String username,
       required final String firstName,
-      required final String lastName}) = _$_CreateUserRequest;
+      required final String lastName}) = _$CreateUserRequestImpl;
   const _CreateUserRequest._() : super._();
 
   factory _CreateUserRequest.fromJson(Map<String, dynamic> json) =
-      _$_CreateUserRequest.fromJson;
+      _$CreateUserRequestImpl.fromJson;
 
   @override
   String get email;
@@ -209,6 +209,6 @@ abstract class _CreateUserRequest extends CreateUserRequest {
   String get lastName;
   @override
   @JsonKey(ignore: true)
-  _$$_CreateUserRequestCopyWith<_$_CreateUserRequest> get copyWith =>
+  _$$CreateUserRequestImplCopyWith<_$CreateUserRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

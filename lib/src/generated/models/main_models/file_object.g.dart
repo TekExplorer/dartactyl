@@ -6,16 +6,16 @@ part of '../../../models/main_models/file_object.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_FileObject _$$_FileObjectFromJson(Map<String, dynamic> json) =>
+_$FileObjectImpl _$$FileObjectImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_FileObject',
+      r'_$FileObjectImpl',
       json,
       ($checkedConvert) {
-        final val = _$_FileObject(
+        final val = _$FileObjectImpl(
           name: $checkedConvert('name', (v) => v as String),
           mode: $checkedConvert('mode', (v) => v as String),
           modeBits: $checkedConvert('mode_bits', (v) => v as String),
-          size: $checkedConvert('size', (v) => v as int),
+          size: $checkedConvert('size', (v) => v as Bytes),
           isFile: $checkedConvert('is_file', (v) => v as bool),
           isSymlink: $checkedConvert('is_symlink', (v) => v as bool),
           mimetype: $checkedConvert('mimetype', (v) => v as String),
@@ -35,7 +35,7 @@ _$_FileObject _$$_FileObjectFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_FileObjectToJson(_$_FileObject instance) =>
+Map<String, dynamic> _$$FileObjectImplToJson(_$FileObjectImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'mode': instance.mode,

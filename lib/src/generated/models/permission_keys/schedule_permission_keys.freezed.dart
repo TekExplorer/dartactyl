@@ -12,7 +12,7 @@ part of '../../../models/permission_keys/schedule_permission_keys.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SchedulePermissionKeys _$SchedulePermissionKeysFromJson(
     Map<String, dynamic> json) {
@@ -82,23 +82,25 @@ class _$SchedulePermissionKeysCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_SchedulePermissionKeysCopyWith<$Res>
+abstract class _$$SchedulePermissionKeysImplCopyWith<$Res>
     implements $SchedulePermissionKeysCopyWith<$Res> {
-  factory _$$_SchedulePermissionKeysCopyWith(_$_SchedulePermissionKeys value,
-          $Res Function(_$_SchedulePermissionKeys) then) =
-      __$$_SchedulePermissionKeysCopyWithImpl<$Res>;
+  factory _$$SchedulePermissionKeysImplCopyWith(
+          _$SchedulePermissionKeysImpl value,
+          $Res Function(_$SchedulePermissionKeysImpl) then) =
+      __$$SchedulePermissionKeysImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String create, String read, String update, String delete});
 }
 
 /// @nodoc
-class __$$_SchedulePermissionKeysCopyWithImpl<$Res>
+class __$$SchedulePermissionKeysImplCopyWithImpl<$Res>
     extends _$SchedulePermissionKeysCopyWithImpl<$Res,
-        _$_SchedulePermissionKeys>
-    implements _$$_SchedulePermissionKeysCopyWith<$Res> {
-  __$$_SchedulePermissionKeysCopyWithImpl(_$_SchedulePermissionKeys _value,
-      $Res Function(_$_SchedulePermissionKeys) _then)
+        _$SchedulePermissionKeysImpl>
+    implements _$$SchedulePermissionKeysImplCopyWith<$Res> {
+  __$$SchedulePermissionKeysImplCopyWithImpl(
+      _$SchedulePermissionKeysImpl _value,
+      $Res Function(_$SchedulePermissionKeysImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -109,7 +111,7 @@ class __$$_SchedulePermissionKeysCopyWithImpl<$Res>
     Object? update = null,
     Object? delete = null,
   }) {
-    return _then(_$_SchedulePermissionKeys(
+    return _then(_$SchedulePermissionKeysImpl(
       create: null == create
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
@@ -132,16 +134,16 @@ class __$$_SchedulePermissionKeysCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SchedulePermissionKeys extends _SchedulePermissionKeys {
-  const _$_SchedulePermissionKeys(
+class _$SchedulePermissionKeysImpl extends _SchedulePermissionKeys {
+  const _$SchedulePermissionKeysImpl(
       {required this.create,
       required this.read,
       required this.update,
       required this.delete})
       : super._();
 
-  factory _$_SchedulePermissionKeys.fromJson(Map<String, dynamic> json) =>
-      _$$_SchedulePermissionKeysFromJson(json);
+  factory _$SchedulePermissionKeysImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SchedulePermissionKeysImplFromJson(json);
 
   @override
   final String create;
@@ -158,10 +160,10 @@ class _$_SchedulePermissionKeys extends _SchedulePermissionKeys {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SchedulePermissionKeys &&
+            other is _$SchedulePermissionKeysImpl &&
             (identical(other.create, create) || other.create == create) &&
             (identical(other.read, read) || other.read == read) &&
             (identical(other.update, update) || other.update == update) &&
@@ -175,13 +177,13 @@ class _$_SchedulePermissionKeys extends _SchedulePermissionKeys {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SchedulePermissionKeysCopyWith<_$_SchedulePermissionKeys> get copyWith =>
-      __$$_SchedulePermissionKeysCopyWithImpl<_$_SchedulePermissionKeys>(
-          this, _$identity);
+  _$$SchedulePermissionKeysImplCopyWith<_$SchedulePermissionKeysImpl>
+      get copyWith => __$$SchedulePermissionKeysImplCopyWithImpl<
+          _$SchedulePermissionKeysImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SchedulePermissionKeysToJson(
+    return _$$SchedulePermissionKeysImplToJson(
       this,
     );
   }
@@ -192,11 +194,11 @@ abstract class _SchedulePermissionKeys extends SchedulePermissionKeys {
       {required final String create,
       required final String read,
       required final String update,
-      required final String delete}) = _$_SchedulePermissionKeys;
+      required final String delete}) = _$SchedulePermissionKeysImpl;
   const _SchedulePermissionKeys._() : super._();
 
   factory _SchedulePermissionKeys.fromJson(Map<String, dynamic> json) =
-      _$_SchedulePermissionKeys.fromJson;
+      _$SchedulePermissionKeysImpl.fromJson;
 
   @override
   String get create;
@@ -208,6 +210,6 @@ abstract class _SchedulePermissionKeys extends SchedulePermissionKeys {
   String get delete;
   @override
   @JsonKey(ignore: true)
-  _$$_SchedulePermissionKeysCopyWith<_$_SchedulePermissionKeys> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SchedulePermissionKeysImplCopyWith<_$SchedulePermissionKeysImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -6,11 +6,11 @@ part of '../../../models/request_models/from_to.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_FromTo _$$_FromToFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_FromTo',
+_$FromToImpl _$$FromToImplFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$FromToImpl',
       json,
       ($checkedConvert) {
-        final val = _$_FromTo(
+        final val = _$FromToImpl(
           from: $checkedConvert('from', (v) => v as String),
           to: $checkedConvert('to', (v) => v as String),
         );
@@ -18,7 +18,8 @@ _$_FromTo _$$_FromToFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_FromToToJson(_$_FromTo instance) => <String, dynamic>{
+Map<String, dynamic> _$$FromToImplToJson(_$FromToImpl instance) =>
+    <String, dynamic>{
       'from': instance.from,
       'to': instance.to,
     };

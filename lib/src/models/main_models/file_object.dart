@@ -23,12 +23,12 @@ part '../../generated/models/main_models/file_object.g.dart';
 /// [createdAt] '2020-01-01T00:00:00.000Z'
 ///
 /// [modifiedAt] '2020-01-01T00:00:00.000Z'
-class FileObject with SerializableMixin, _$FileObject {
+class FileObject with _$FileObject {
   const factory FileObject({
     required String name,
     required String mode,
     required String modeBits,
-    required int size,
+    required Bytes size,
     required bool isFile,
     required bool isSymlink,
     required String mimetype,

@@ -7,6 +7,9 @@
         "dartactyl",
         "Ptero",
         "Subuser",
-        "subusers"
-    ]
+        "subusers",
+        "typedefs"
+    ],
+    "dart.flutterSdkPath": "C:\\Users\\omarr\\.puro\\envs\\stable\\flutter",
+    "dart.sdkPath": "C:\\Users\\omarr\\.puro\\envs\\stable\\flutter\\bin\\cache\\dart-sdk"
 }

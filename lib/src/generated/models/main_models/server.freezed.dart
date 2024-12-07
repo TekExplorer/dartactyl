@@ -12,7 +12,7 @@ part of '../../../models/main_models/server.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Server _$ServerFromJson(Map<String, dynamic> json) {
   return _Server.fromJson(json);
@@ -31,7 +31,7 @@ mixin _$Server {
   ServerLimits get limits => throw _privateConstructorUsedError;
   String get invocation => throw _privateConstructorUsedError;
   String get dockerImage => throw _privateConstructorUsedError;
-  List<String> get eggFeatures => throw _privateConstructorUsedError;
+  IList<String> get eggFeatures => throw _privateConstructorUsedError;
   ServerFeatureLimits get featureLimits => throw _privateConstructorUsedError;
   ServerStatus? get status => throw _privateConstructorUsedError;
   bool get isSuspended => throw _privateConstructorUsedError;
@@ -61,7 +61,7 @@ abstract class $ServerCopyWith<$Res> {
       ServerLimits limits,
       String invocation,
       String dockerImage,
-      List<String> eggFeatures,
+      IList<String> eggFeatures,
       ServerFeatureLimits featureLimits,
       ServerStatus? status,
       bool isSuspended,
@@ -155,7 +155,7 @@ class _$ServerCopyWithImpl<$Res, $Val extends Server>
       eggFeatures: null == eggFeatures
           ? _value.eggFeatures
           : eggFeatures // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as IList<String>,
       featureLimits: null == featureLimits
           ? _value.featureLimits
           : featureLimits // ignore: cast_nullable_to_non_nullable
@@ -217,9 +217,10 @@ class _$ServerCopyWithImpl<$Res, $Val extends Server>
 }
 
 /// @nodoc
-abstract class _$$_ServerCopyWith<$Res> implements $ServerCopyWith<$Res> {
-  factory _$$_ServerCopyWith(_$_Server value, $Res Function(_$_Server) then) =
-      __$$_ServerCopyWithImpl<$Res>;
+abstract class _$$ServerImplCopyWith<$Res> implements $ServerCopyWith<$Res> {
+  factory _$$ServerImplCopyWith(
+          _$ServerImpl value, $Res Function(_$ServerImpl) then) =
+      __$$ServerImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -234,7 +235,7 @@ abstract class _$$_ServerCopyWith<$Res> implements $ServerCopyWith<$Res> {
       ServerLimits limits,
       String invocation,
       String dockerImage,
-      List<String> eggFeatures,
+      IList<String> eggFeatures,
       ServerFeatureLimits featureLimits,
       ServerStatus? status,
       bool isSuspended,
@@ -253,10 +254,11 @@ abstract class _$$_ServerCopyWith<$Res> implements $ServerCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ServerCopyWithImpl<$Res>
-    extends _$ServerCopyWithImpl<$Res, _$_Server>
-    implements _$$_ServerCopyWith<$Res> {
-  __$$_ServerCopyWithImpl(_$_Server _value, $Res Function(_$_Server) _then)
+class __$$ServerImplCopyWithImpl<$Res>
+    extends _$ServerCopyWithImpl<$Res, _$ServerImpl>
+    implements _$$ServerImplCopyWith<$Res> {
+  __$$ServerImplCopyWithImpl(
+      _$ServerImpl _value, $Res Function(_$ServerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -281,7 +283,7 @@ class __$$_ServerCopyWithImpl<$Res>
     Object? isTransferring = null,
     Object? relationships = null,
   }) {
-    return _then(_$_Server(
+    return _then(_$ServerImpl(
       serverOwner: null == serverOwner
           ? _value.serverOwner
           : serverOwner // ignore: cast_nullable_to_non_nullable
@@ -327,9 +329,9 @@ class __$$_ServerCopyWithImpl<$Res>
           : dockerImage // ignore: cast_nullable_to_non_nullable
               as String,
       eggFeatures: null == eggFeatures
-          ? _value._eggFeatures
+          ? _value.eggFeatures
           : eggFeatures // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as IList<String>,
       featureLimits: null == featureLimits
           ? _value.featureLimits
           : featureLimits // ignore: cast_nullable_to_non_nullable
@@ -360,8 +362,8 @@ class __$$_ServerCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Server extends _Server {
-  const _$_Server(
+class _$ServerImpl extends _Server {
+  const _$ServerImpl(
       {required this.serverOwner,
       required this.identifier,
       required this.internalId,
@@ -373,18 +375,17 @@ class _$_Server extends _Server {
       required this.limits,
       required this.invocation,
       required this.dockerImage,
-      final List<String> eggFeatures = const [],
+      this.eggFeatures = const IListConst([]),
       required this.featureLimits,
       this.status,
       required this.isSuspended,
       required this.isInstalling,
       required this.isTransferring,
       required this.relationships})
-      : _eggFeatures = eggFeatures,
-        super._();
+      : super._();
 
-  factory _$_Server.fromJson(Map<String, dynamic> json) =>
-      _$$_ServerFromJson(json);
+  factory _$ServerImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServerImplFromJson(json);
 
   @override
   final bool serverOwner;
@@ -408,15 +409,9 @@ class _$_Server extends _Server {
   final String invocation;
   @override
   final String dockerImage;
-  final List<String> _eggFeatures;
   @override
   @JsonKey()
-  List<String> get eggFeatures {
-    if (_eggFeatures is EqualUnmodifiableListView) return _eggFeatures;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_eggFeatures);
-  }
-
+  final IList<String> eggFeatures;
   @override
   final ServerFeatureLimits featureLimits;
   @override
@@ -436,10 +431,10 @@ class _$_Server extends _Server {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Server &&
+            other is _$ServerImpl &&
             (identical(other.serverOwner, serverOwner) ||
                 other.serverOwner == serverOwner) &&
             (identical(other.identifier, identifier) ||
@@ -459,7 +454,7 @@ class _$_Server extends _Server {
             (identical(other.dockerImage, dockerImage) ||
                 other.dockerImage == dockerImage) &&
             const DeepCollectionEquality()
-                .equals(other._eggFeatures, _eggFeatures) &&
+                .equals(other.eggFeatures, eggFeatures) &&
             (identical(other.featureLimits, featureLimits) ||
                 other.featureLimits == featureLimits) &&
             (identical(other.status, status) || other.status == status) &&
@@ -488,7 +483,7 @@ class _$_Server extends _Server {
       limits,
       invocation,
       dockerImage,
-      const DeepCollectionEquality().hash(_eggFeatures),
+      const DeepCollectionEquality().hash(eggFeatures),
       featureLimits,
       status,
       isSuspended,
@@ -499,12 +494,12 @@ class _$_Server extends _Server {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ServerCopyWith<_$_Server> get copyWith =>
-      __$$_ServerCopyWithImpl<_$_Server>(this, _$identity);
+  _$$ServerImplCopyWith<_$ServerImpl> get copyWith =>
+      __$$ServerImplCopyWithImpl<_$ServerImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServerToJson(
+    return _$$ServerImplToJson(
       this,
     );
   }
@@ -523,16 +518,16 @@ abstract class _Server extends Server {
       required final ServerLimits limits,
       required final String invocation,
       required final String dockerImage,
-      final List<String> eggFeatures,
+      final IList<String> eggFeatures,
       required final ServerFeatureLimits featureLimits,
       final ServerStatus? status,
       required final bool isSuspended,
       required final bool isInstalling,
       required final bool isTransferring,
-      required final ServerRelationships relationships}) = _$_Server;
+      required final ServerRelationships relationships}) = _$ServerImpl;
   const _Server._() : super._();
 
-  factory _Server.fromJson(Map<String, dynamic> json) = _$_Server.fromJson;
+  factory _Server.fromJson(Map<String, dynamic> json) = _$ServerImpl.fromJson;
 
   @override
   bool get serverOwner;
@@ -557,7 +552,7 @@ abstract class _Server extends Server {
   @override
   String get dockerImage;
   @override
-  List<String> get eggFeatures;
+  IList<String> get eggFeatures;
   @override
   ServerFeatureLimits get featureLimits;
   @override
@@ -572,6 +567,6 @@ abstract class _Server extends Server {
   ServerRelationships get relationships;
   @override
   @JsonKey(ignore: true)
-  _$$_ServerCopyWith<_$_Server> get copyWith =>
+  _$$ServerImplCopyWith<_$ServerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

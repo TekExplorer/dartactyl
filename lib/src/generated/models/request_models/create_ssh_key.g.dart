@@ -6,12 +6,12 @@ part of '../../../models/request_models/create_ssh_key.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CreateSshKey _$$_CreateSshKeyFromJson(Map<String, dynamic> json) =>
+_$CreateSshKeyImpl _$$CreateSshKeyImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_CreateSshKey',
+      r'_$CreateSshKeyImpl',
       json,
       ($checkedConvert) {
-        final val = _$_CreateSshKey(
+        final val = _$CreateSshKeyImpl(
           name: $checkedConvert('name', (v) => v as String),
           publicKey: $checkedConvert('public_key', (v) => v as String),
         );
@@ -20,7 +20,7 @@ _$_CreateSshKey _$$_CreateSshKeyFromJson(Map<String, dynamic> json) =>
       fieldKeyMap: const {'publicKey': 'public_key'},
     );
 
-Map<String, dynamic> _$$_CreateSshKeyToJson(_$_CreateSshKey instance) =>
+Map<String, dynamic> _$$CreateSshKeyImplToJson(_$CreateSshKeyImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'public_key': instance.publicKey,

@@ -12,7 +12,7 @@ part of '../../../models/request_models/create_backup_request.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 CreateBackup _$CreateBackupFromJson(Map<String, dynamic> json) {
   return _CreateBackup.fromJson(json);
@@ -74,22 +74,22 @@ class _$CreateBackupCopyWithImpl<$Res, $Val extends CreateBackup>
 }
 
 /// @nodoc
-abstract class _$$_CreateBackupCopyWith<$Res>
+abstract class _$$CreateBackupImplCopyWith<$Res>
     implements $CreateBackupCopyWith<$Res> {
-  factory _$$_CreateBackupCopyWith(
-          _$_CreateBackup value, $Res Function(_$_CreateBackup) then) =
-      __$$_CreateBackupCopyWithImpl<$Res>;
+  factory _$$CreateBackupImplCopyWith(
+          _$CreateBackupImpl value, $Res Function(_$CreateBackupImpl) then) =
+      __$$CreateBackupImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? name, String? ignored, bool isLocked});
 }
 
 /// @nodoc
-class __$$_CreateBackupCopyWithImpl<$Res>
-    extends _$CreateBackupCopyWithImpl<$Res, _$_CreateBackup>
-    implements _$$_CreateBackupCopyWith<$Res> {
-  __$$_CreateBackupCopyWithImpl(
-      _$_CreateBackup _value, $Res Function(_$_CreateBackup) _then)
+class __$$CreateBackupImplCopyWithImpl<$Res>
+    extends _$CreateBackupCopyWithImpl<$Res, _$CreateBackupImpl>
+    implements _$$CreateBackupImplCopyWith<$Res> {
+  __$$CreateBackupImplCopyWithImpl(
+      _$CreateBackupImpl _value, $Res Function(_$CreateBackupImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_CreateBackupCopyWithImpl<$Res>
     Object? ignored = freezed,
     Object? isLocked = null,
   }) {
-    return _then(_$_CreateBackup(
+    return _then(_$CreateBackupImpl(
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -118,12 +118,12 @@ class __$$_CreateBackupCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CreateBackup extends _CreateBackup {
-  const _$_CreateBackup({this.name, this.ignored, required this.isLocked})
+class _$CreateBackupImpl extends _CreateBackup {
+  const _$CreateBackupImpl({this.name, this.ignored, required this.isLocked})
       : super._();
 
-  factory _$_CreateBackup.fromJson(Map<String, dynamic> json) =>
-      _$$_CreateBackupFromJson(json);
+  factory _$CreateBackupImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CreateBackupImplFromJson(json);
 
   @override
   final String? name;
@@ -138,10 +138,10 @@ class _$_CreateBackup extends _CreateBackup {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CreateBackup &&
+            other is _$CreateBackupImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.ignored, ignored) || other.ignored == ignored) &&
             (identical(other.isLocked, isLocked) ||
@@ -155,12 +155,12 @@ class _$_CreateBackup extends _CreateBackup {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CreateBackupCopyWith<_$_CreateBackup> get copyWith =>
-      __$$_CreateBackupCopyWithImpl<_$_CreateBackup>(this, _$identity);
+  _$$CreateBackupImplCopyWith<_$CreateBackupImpl> get copyWith =>
+      __$$CreateBackupImplCopyWithImpl<_$CreateBackupImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CreateBackupToJson(
+    return _$$CreateBackupImplToJson(
       this,
     );
   }
@@ -170,11 +170,11 @@ abstract class _CreateBackup extends CreateBackup {
   const factory _CreateBackup(
       {final String? name,
       final String? ignored,
-      required final bool isLocked}) = _$_CreateBackup;
+      required final bool isLocked}) = _$CreateBackupImpl;
   const _CreateBackup._() : super._();
 
   factory _CreateBackup.fromJson(Map<String, dynamic> json) =
-      _$_CreateBackup.fromJson;
+      _$CreateBackupImpl.fromJson;
 
   @override
   String? get name;
@@ -184,6 +184,6 @@ abstract class _CreateBackup extends CreateBackup {
   bool get isLocked;
   @override
   @JsonKey(ignore: true)
-  _$$_CreateBackupCopyWith<_$_CreateBackup> get copyWith =>
+  _$$CreateBackupImplCopyWith<_$CreateBackupImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,4 +1,4 @@
-import 'package:dartactyl/src/extra/typedefs.dart';
+import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '../../generated/models/request_models/create_ssh_key.freezed.dart';

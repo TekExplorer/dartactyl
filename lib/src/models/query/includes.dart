@@ -1,5 +1,7 @@
-abstract class Includes {
-
+/// Consider using specific subtypes like [ServerIncludes],
+/// [ActivityLogsIncludes], [ScheduleIncludes], and [ServerDatabasesIncludes].
+/// These expose the options available for those routes directly
+class Includes {
   const Includes([this.includes = const []]);
   final List<String> includes;
 

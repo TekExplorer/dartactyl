@@ -6,13 +6,13 @@ part of '../../../models/permission_keys/schedule_permission_keys.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SchedulePermissionKeys _$$_SchedulePermissionKeysFromJson(
+_$SchedulePermissionKeysImpl _$$SchedulePermissionKeysImplFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_SchedulePermissionKeys',
+      r'_$SchedulePermissionKeysImpl',
       json,
       ($checkedConvert) {
-        final val = _$_SchedulePermissionKeys(
+        final val = _$SchedulePermissionKeysImpl(
           create: $checkedConvert('create', (v) => v as String),
           read: $checkedConvert('read', (v) => v as String),
           update: $checkedConvert('update', (v) => v as String),
@@ -22,8 +22,8 @@ _$_SchedulePermissionKeys _$$_SchedulePermissionKeysFromJson(
       },
     );
 
-Map<String, dynamic> _$$_SchedulePermissionKeysToJson(
-        _$_SchedulePermissionKeys instance) =>
+Map<String, dynamic> _$$SchedulePermissionKeysImplToJson(
+        _$SchedulePermissionKeysImpl instance) =>
     <String, dynamic>{
       'create': instance.create,
       'read': instance.read,

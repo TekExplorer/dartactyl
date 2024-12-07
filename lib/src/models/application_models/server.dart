@@ -5,7 +5,7 @@ part '../../generated/models/application_models/server.freezed.dart';
 part '../../generated/models/application_models/server.g.dart';
 
 @freezed
-class ApplicationServer with _$ApplicationServer, SerializableMixin {
+class ApplicationServer with _$ApplicationServer {
   const factory ApplicationServer({
     required int id,
     required String externalId,
@@ -53,6 +53,7 @@ class ApplicationServerRelationships with _$ApplicationServerRelationships {
   const factory ApplicationServerRelationships(
     FractalData<ApplicationUser>? user,
     // todo: add all relationships
+    // FractalListData<???>? databases,
   ) = _ApplicationServerRelationships;
   // https://github.com/pterodactyl/panel/blob/1.0-develop/app/Transformers/Api/Application/ServerTransformer.php
   const ApplicationServerRelationships._();

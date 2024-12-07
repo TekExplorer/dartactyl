@@ -12,36 +12,35 @@ part of '../../../models/fractal/fractal_response_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-FractalData<T> _$FractalDataFromJson<T extends SerializableMixin>(
-    Map<String, dynamic> json) {
-  return _FractalData<T>.fromJson(json);
+FractalData<T> _$FractalDataFromJson<T extends Object>(
+    Map<String, dynamic> json, T Function(Object?) fromJsonT) {
+  return _FractalData<T>.fromJson(json, fromJsonT);
 }
 
 /// @nodoc
-mixin _$FractalData<T extends SerializableMixin> {
-  AttributeObject get object => throw _privateConstructorUsedError;
-  @AttributesConverter()
+mixin _$FractalData<T extends Object> {
   T get attributes => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson(Object? Function(T) toJsonT) =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FractalDataCopyWith<T, FractalData<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FractalDataCopyWith<T extends SerializableMixin, $Res> {
+abstract class $FractalDataCopyWith<T extends Object, $Res> {
   factory $FractalDataCopyWith(
           FractalData<T> value, $Res Function(FractalData<T>) then) =
       _$FractalDataCopyWithImpl<T, $Res, FractalData<T>>;
   @useResult
-  $Res call({AttributeObject object, @AttributesConverter() T attributes});
+  $Res call({T attributes});
 }
 
 /// @nodoc
-class _$FractalDataCopyWithImpl<T extends SerializableMixin, $Res,
+class _$FractalDataCopyWithImpl<T extends Object, $Res,
     $Val extends FractalData<T>> implements $FractalDataCopyWith<T, $Res> {
   _$FractalDataCopyWithImpl(this._value, this._then);
 
@@ -53,14 +52,9 @@ class _$FractalDataCopyWithImpl<T extends SerializableMixin, $Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? object = null,
     Object? attributes = null,
   }) {
     return _then(_value.copyWith(
-      object: null == object
-          ? _value.object
-          : object // ignore: cast_nullable_to_non_nullable
-              as AttributeObject,
       attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -70,35 +64,30 @@ class _$FractalDataCopyWithImpl<T extends SerializableMixin, $Res,
 }
 
 /// @nodoc
-abstract class _$$_FractalDataCopyWith<T extends SerializableMixin, $Res>
+abstract class _$$FractalDataImplCopyWith<T extends Object, $Res>
     implements $FractalDataCopyWith<T, $Res> {
-  factory _$$_FractalDataCopyWith(
-          _$_FractalData<T> value, $Res Function(_$_FractalData<T>) then) =
-      __$$_FractalDataCopyWithImpl<T, $Res>;
+  factory _$$FractalDataImplCopyWith(_$FractalDataImpl<T> value,
+          $Res Function(_$FractalDataImpl<T>) then) =
+      __$$FractalDataImplCopyWithImpl<T, $Res>;
   @override
   @useResult
-  $Res call({AttributeObject object, @AttributesConverter() T attributes});
+  $Res call({T attributes});
 }
 
 /// @nodoc
-class __$$_FractalDataCopyWithImpl<T extends SerializableMixin, $Res>
-    extends _$FractalDataCopyWithImpl<T, $Res, _$_FractalData<T>>
-    implements _$$_FractalDataCopyWith<T, $Res> {
-  __$$_FractalDataCopyWithImpl(
-      _$_FractalData<T> _value, $Res Function(_$_FractalData<T>) _then)
+class __$$FractalDataImplCopyWithImpl<T extends Object, $Res>
+    extends _$FractalDataCopyWithImpl<T, $Res, _$FractalDataImpl<T>>
+    implements _$$FractalDataImplCopyWith<T, $Res> {
+  __$$FractalDataImplCopyWithImpl(
+      _$FractalDataImpl<T> _value, $Res Function(_$FractalDataImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? object = null,
     Object? attributes = null,
   }) {
-    return _then(_$_FractalData<T>(
-      object: null == object
-          ? _value.object
-          : object // ignore: cast_nullable_to_non_nullable
-              as AttributeObject,
+    return _then(_$FractalDataImpl<T>(
       attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -108,114 +97,100 @@ class __$$_FractalDataCopyWithImpl<T extends SerializableMixin, $Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$_FractalData<T extends SerializableMixin> extends _FractalData<T> {
-  const _$_FractalData(
-      {required this.object, @AttributesConverter() required this.attributes})
-      : super._();
+@JsonSerializable(genericArgumentFactories: true)
+class _$FractalDataImpl<T extends Object> extends _FractalData<T> {
+  const _$FractalDataImpl({required this.attributes}) : super._();
 
-  factory _$_FractalData.fromJson(Map<String, dynamic> json) =>
-      _$$_FractalDataFromJson(json);
+  factory _$FractalDataImpl.fromJson(
+          Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
+      _$$FractalDataImplFromJson(json, fromJsonT);
 
   @override
-  final AttributeObject object;
-  @override
-  @AttributesConverter()
   final T attributes;
 
   @override
   String toString() {
-    return 'FractalData<$T>(object: $object, attributes: $attributes)';
+    return 'FractalData<$T>(attributes: $attributes)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FractalData<T> &&
-            (identical(other.object, object) || other.object == object) &&
+            other is _$FractalDataImpl<T> &&
             const DeepCollectionEquality()
                 .equals(other.attributes, attributes));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, object, const DeepCollectionEquality().hash(attributes));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(attributes));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FractalDataCopyWith<T, _$_FractalData<T>> get copyWith =>
-      __$$_FractalDataCopyWithImpl<T, _$_FractalData<T>>(this, _$identity);
+  _$$FractalDataImplCopyWith<T, _$FractalDataImpl<T>> get copyWith =>
+      __$$FractalDataImplCopyWithImpl<T, _$FractalDataImpl<T>>(
+          this, _$identity);
 
   @override
-  Map<String, dynamic> toJson() {
-    return _$$_FractalDataToJson<T>(
-      this,
-    );
+  Map<String, dynamic> toJson(Object? Function(T) toJsonT) {
+    return _$$FractalDataImplToJson<T>(this, toJsonT);
   }
 }
 
-abstract class _FractalData<T extends SerializableMixin>
-    extends FractalData<T> {
-  const factory _FractalData(
-      {required final AttributeObject object,
-      @AttributesConverter() required final T attributes}) = _$_FractalData<T>;
+abstract class _FractalData<T extends Object> extends FractalData<T> {
+  const factory _FractalData({required final T attributes}) =
+      _$FractalDataImpl<T>;
   const _FractalData._() : super._();
 
-  factory _FractalData.fromJson(Map<String, dynamic> json) =
-      _$_FractalData<T>.fromJson;
+  factory _FractalData.fromJson(
+          Map<String, dynamic> json, T Function(Object?) fromJsonT) =
+      _$FractalDataImpl<T>.fromJson;
 
   @override
-  AttributeObject get object;
-  @override
-  @AttributesConverter()
   T get attributes;
   @override
   @JsonKey(ignore: true)
-  _$$_FractalDataCopyWith<T, _$_FractalData<T>> get copyWith =>
+  _$$FractalDataImplCopyWith<T, _$FractalDataImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-FractalDataMeta<T, M>
-    _$FractalDataMetaFromJson<T extends SerializableMixin, M extends Meta>(
-        Map<String, dynamic> json) {
-  return _FractalDataMeta<T, M>.fromJson(json);
+FractalMeta<T, M> _$FractalMetaFromJson<T extends Object, M extends Meta>(
+    Map<String, dynamic> json,
+    T Function(Object?) fromJsonT,
+    M Function(Object?) fromJsonM) {
+  return _FractalMeta<T, M>.fromJson(json, fromJsonT, fromJsonM);
 }
 
 /// @nodoc
-mixin _$FractalDataMeta<T extends SerializableMixin, M extends Meta> {
-  AttributeObject get object => throw _privateConstructorUsedError;
-  @AttributesConverter()
+mixin _$FractalMeta<T extends Object, M extends Meta> {
   T get attributes => throw _privateConstructorUsedError;
-  @MetaConverter()
   M get meta => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson(
+          Object? Function(T) toJsonT, Object? Function(M) toJsonM) =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FractalDataMetaCopyWith<T, M, FractalDataMeta<T, M>> get copyWith =>
+  $FractalMetaCopyWith<T, M, FractalMeta<T, M>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FractalDataMetaCopyWith<T extends SerializableMixin,
-    M extends Meta, $Res> {
-  factory $FractalDataMetaCopyWith(FractalDataMeta<T, M> value,
-          $Res Function(FractalDataMeta<T, M>) then) =
-      _$FractalDataMetaCopyWithImpl<T, M, $Res, FractalDataMeta<T, M>>;
+abstract class $FractalMetaCopyWith<T extends Object, M extends Meta, $Res> {
+  factory $FractalMetaCopyWith(
+          FractalMeta<T, M> value, $Res Function(FractalMeta<T, M>) then) =
+      _$FractalMetaCopyWithImpl<T, M, $Res, FractalMeta<T, M>>;
   @useResult
-  $Res call(
-      {AttributeObject object,
-      @AttributesConverter() T attributes,
-      @MetaConverter() M meta});
+  $Res call({T attributes, M meta});
 }
 
 /// @nodoc
-class _$FractalDataMetaCopyWithImpl<T extends SerializableMixin, M extends Meta,
-        $Res, $Val extends FractalDataMeta<T, M>>
-    implements $FractalDataMetaCopyWith<T, M, $Res> {
-  _$FractalDataMetaCopyWithImpl(this._value, this._then);
+class _$FractalMetaCopyWithImpl<T extends Object, M extends Meta, $Res,
+        $Val extends FractalMeta<T, M>>
+    implements $FractalMetaCopyWith<T, M, $Res> {
+  _$FractalMetaCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -225,15 +200,10 @@ class _$FractalDataMetaCopyWithImpl<T extends SerializableMixin, M extends Meta,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? object = null,
     Object? attributes = null,
     Object? meta = null,
   }) {
     return _then(_value.copyWith(
-      object: null == object
-          ? _value.object
-          : object // ignore: cast_nullable_to_non_nullable
-              as AttributeObject,
       attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -247,40 +217,31 @@ class _$FractalDataMetaCopyWithImpl<T extends SerializableMixin, M extends Meta,
 }
 
 /// @nodoc
-abstract class _$$_FractalDataMetaCopyWith<T extends SerializableMixin,
-    M extends Meta, $Res> implements $FractalDataMetaCopyWith<T, M, $Res> {
-  factory _$$_FractalDataMetaCopyWith(_$_FractalDataMeta<T, M> value,
-          $Res Function(_$_FractalDataMeta<T, M>) then) =
-      __$$_FractalDataMetaCopyWithImpl<T, M, $Res>;
+abstract class _$$FractalMetaImplCopyWith<T extends Object, M extends Meta,
+    $Res> implements $FractalMetaCopyWith<T, M, $Res> {
+  factory _$$FractalMetaImplCopyWith(_$FractalMetaImpl<T, M> value,
+          $Res Function(_$FractalMetaImpl<T, M>) then) =
+      __$$FractalMetaImplCopyWithImpl<T, M, $Res>;
   @override
   @useResult
-  $Res call(
-      {AttributeObject object,
-      @AttributesConverter() T attributes,
-      @MetaConverter() M meta});
+  $Res call({T attributes, M meta});
 }
 
 /// @nodoc
-class __$$_FractalDataMetaCopyWithImpl<T extends SerializableMixin,
-        M extends Meta, $Res>
-    extends _$FractalDataMetaCopyWithImpl<T, M, $Res, _$_FractalDataMeta<T, M>>
-    implements _$$_FractalDataMetaCopyWith<T, M, $Res> {
-  __$$_FractalDataMetaCopyWithImpl(_$_FractalDataMeta<T, M> _value,
-      $Res Function(_$_FractalDataMeta<T, M>) _then)
+class __$$FractalMetaImplCopyWithImpl<T extends Object, M extends Meta, $Res>
+    extends _$FractalMetaCopyWithImpl<T, M, $Res, _$FractalMetaImpl<T, M>>
+    implements _$$FractalMetaImplCopyWith<T, M, $Res> {
+  __$$FractalMetaImplCopyWithImpl(_$FractalMetaImpl<T, M> _value,
+      $Res Function(_$FractalMetaImpl<T, M>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? object = null,
     Object? attributes = null,
     Object? meta = null,
   }) {
-    return _then(_$_FractalDataMeta<T, M>(
-      object: null == object
-          ? _value.object
-          : object // ignore: cast_nullable_to_non_nullable
-              as AttributeObject,
+    return _then(_$FractalMetaImpl<T, M>(
       attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -294,38 +255,31 @@ class __$$_FractalDataMetaCopyWithImpl<T extends SerializableMixin,
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$_FractalDataMeta<T extends SerializableMixin, M extends Meta>
-    extends _FractalDataMeta<T, M> {
-  const _$_FractalDataMeta(
-      {required this.object,
-      @AttributesConverter() required this.attributes,
-      @MetaConverter() required this.meta})
+@JsonSerializable(genericArgumentFactories: true)
+class _$FractalMetaImpl<T extends Object, M extends Meta>
+    extends _FractalMeta<T, M> {
+  const _$FractalMetaImpl({required this.attributes, required this.meta})
       : super._();
 
-  factory _$_FractalDataMeta.fromJson(Map<String, dynamic> json) =>
-      _$$_FractalDataMetaFromJson(json);
+  factory _$FractalMetaImpl.fromJson(Map<String, dynamic> json,
+          T Function(Object?) fromJsonT, M Function(Object?) fromJsonM) =>
+      _$$FractalMetaImplFromJson(json, fromJsonT, fromJsonM);
 
   @override
-  final AttributeObject object;
-  @override
-  @AttributesConverter()
   final T attributes;
   @override
-  @MetaConverter()
   final M meta;
 
   @override
   String toString() {
-    return 'FractalDataMeta<$T, $M>(object: $object, attributes: $attributes, meta: $meta)';
+    return 'FractalMeta<$T, $M>(attributes: $attributes, meta: $meta)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FractalDataMeta<T, M> &&
-            (identical(other.object, object) || other.object == object) &&
+            other is _$FractalMetaImpl<T, M> &&
             const DeepCollectionEquality()
                 .equals(other.attributes, attributes) &&
             const DeepCollectionEquality().equals(other.meta, meta));
@@ -335,46 +289,41 @@ class _$_FractalDataMeta<T extends SerializableMixin, M extends Meta>
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      object,
       const DeepCollectionEquality().hash(attributes),
       const DeepCollectionEquality().hash(meta));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FractalDataMetaCopyWith<T, M, _$_FractalDataMeta<T, M>> get copyWith =>
-      __$$_FractalDataMetaCopyWithImpl<T, M, _$_FractalDataMeta<T, M>>(
+  _$$FractalMetaImplCopyWith<T, M, _$FractalMetaImpl<T, M>> get copyWith =>
+      __$$FractalMetaImplCopyWithImpl<T, M, _$FractalMetaImpl<T, M>>(
           this, _$identity);
 
   @override
-  Map<String, dynamic> toJson() {
-    return _$$_FractalDataMetaToJson<T, M>(
-      this,
-    );
+  Map<String, dynamic> toJson(
+      Object? Function(T) toJsonT, Object? Function(M) toJsonM) {
+    return _$$FractalMetaImplToJson<T, M>(this, toJsonT, toJsonM);
   }
 }
 
-abstract class _FractalDataMeta<T extends SerializableMixin, M extends Meta>
-    extends FractalDataMeta<T, M> {
-  const factory _FractalDataMeta(
-      {required final AttributeObject object,
-      @AttributesConverter() required final T attributes,
-      @MetaConverter() required final M meta}) = _$_FractalDataMeta<T, M>;
-  const _FractalDataMeta._() : super._();
+abstract class _FractalMeta<T extends Object, M extends Meta>
+    extends FractalMeta<T, M> {
+  const factory _FractalMeta(
+      {required final T attributes,
+      required final M meta}) = _$FractalMetaImpl<T, M>;
+  const _FractalMeta._() : super._();
 
-  factory _FractalDataMeta.fromJson(Map<String, dynamic> json) =
-      _$_FractalDataMeta<T, M>.fromJson;
+  factory _FractalMeta.fromJson(
+      Map<String, dynamic> json,
+      T Function(Object?) fromJsonT,
+      M Function(Object?) fromJsonM) = _$FractalMetaImpl<T, M>.fromJson;
 
   @override
-  AttributeObject get object;
-  @override
-  @AttributesConverter()
   T get attributes;
   @override
-  @MetaConverter()
   M get meta;
   @override
   @JsonKey(ignore: true)
-  _$$_FractalDataMetaCopyWith<T, M, _$_FractalDataMeta<T, M>> get copyWith =>
+  _$$FractalMetaImplCopyWith<T, M, _$FractalMetaImpl<T, M>> get copyWith =>
       throw _privateConstructorUsedError;
 }

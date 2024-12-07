@@ -12,7 +12,7 @@ part of '../../../models/site_config/user_config.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 UserConfig _$UserConfigFromJson(Map<String, dynamic> json) {
   return _UserConfig.fromJson(json);
@@ -133,11 +133,11 @@ class _$UserConfigCopyWithImpl<$Res, $Val extends UserConfig>
 }
 
 /// @nodoc
-abstract class _$$_UserConfigCopyWith<$Res>
+abstract class _$$UserConfigImplCopyWith<$Res>
     implements $UserConfigCopyWith<$Res> {
-  factory _$$_UserConfigCopyWith(
-          _$_UserConfig value, $Res Function(_$_UserConfig) then) =
-      __$$_UserConfigCopyWithImpl<$Res>;
+  factory _$$UserConfigImplCopyWith(
+          _$UserConfigImpl value, $Res Function(_$UserConfigImpl) then) =
+      __$$UserConfigImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -155,11 +155,11 @@ abstract class _$$_UserConfigCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UserConfigCopyWithImpl<$Res>
-    extends _$UserConfigCopyWithImpl<$Res, _$_UserConfig>
-    implements _$$_UserConfigCopyWith<$Res> {
-  __$$_UserConfigCopyWithImpl(
-      _$_UserConfig _value, $Res Function(_$_UserConfig) _then)
+class __$$UserConfigImplCopyWithImpl<$Res>
+    extends _$UserConfigCopyWithImpl<$Res, _$UserConfigImpl>
+    implements _$$UserConfigImplCopyWith<$Res> {
+  __$$UserConfigImplCopyWithImpl(
+      _$UserConfigImpl _value, $Res Function(_$UserConfigImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -177,7 +177,7 @@ class __$$_UserConfigCopyWithImpl<$Res>
     Object? nameFirst = null,
     Object? nameLast = null,
   }) {
-    return _then(_$_UserConfig(
+    return _then(_$UserConfigImpl(
       uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
@@ -228,8 +228,8 @@ class __$$_UserConfigCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserConfig extends _UserConfig {
-  const _$_UserConfig(
+class _$UserConfigImpl extends _UserConfig {
+  const _$UserConfigImpl(
       {required this.uuid,
       required this.username,
       required this.email,
@@ -243,8 +243,8 @@ class _$_UserConfig extends _UserConfig {
       required this.nameLast})
       : super._();
 
-  factory _$_UserConfig.fromJson(Map<String, dynamic> json) =>
-      _$$_UserConfigFromJson(json);
+  factory _$UserConfigImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserConfigImplFromJson(json);
 
   @override
   final String uuid;
@@ -275,10 +275,10 @@ class _$_UserConfig extends _UserConfig {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserConfig &&
+            other is _$UserConfigImpl &&
             (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.username, username) ||
                 other.username == username) &&
@@ -308,12 +308,12 @@ class _$_UserConfig extends _UserConfig {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserConfigCopyWith<_$_UserConfig> get copyWith =>
-      __$$_UserConfigCopyWithImpl<_$_UserConfig>(this, _$identity);
+  _$$UserConfigImplCopyWith<_$UserConfigImpl> get copyWith =>
+      __$$UserConfigImplCopyWithImpl<_$UserConfigImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserConfigToJson(
+    return _$$UserConfigImplToJson(
       this,
     );
   }
@@ -331,11 +331,11 @@ abstract class _UserConfig extends UserConfig {
       required final String createdAt,
       required final String updatedAt,
       required final String nameFirst,
-      required final String nameLast}) = _$_UserConfig;
+      required final String nameLast}) = _$UserConfigImpl;
   const _UserConfig._() : super._();
 
   factory _UserConfig.fromJson(Map<String, dynamic> json) =
-      _$_UserConfig.fromJson;
+      _$UserConfigImpl.fromJson;
 
   @override
   String get uuid;
@@ -361,6 +361,6 @@ abstract class _UserConfig extends UserConfig {
   String get nameLast;
   @override
   @JsonKey(ignore: true)
-  _$$_UserConfigCopyWith<_$_UserConfig> get copyWith =>
+  _$$UserConfigImplCopyWith<_$UserConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

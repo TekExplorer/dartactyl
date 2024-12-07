@@ -5,7 +5,7 @@ part '../../generated/models/main_models/databases.freezed.dart';
 part '../../generated/models/main_models/databases.g.dart';
 
 @freezed
-class Databases with SerializableMixin, _$Databases {
+class Databases with _$Databases {
   const factory Databases({
     required int id,
     required int server,

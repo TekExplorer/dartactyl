@@ -1,11 +1,11 @@
 import 'package:dartactyl/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../generated/models/main_models/shedule_task.freezed.dart';
-part '../../generated/models/main_models/shedule_task.g.dart';
+part '../../generated/models/main_models/schedule_task.freezed.dart';
+part '../../generated/models/main_models/schedule_task.g.dart';
 
 @freezed
-class ScheduleTask with SerializableMixin, _$ScheduleTask {
+class ScheduleTask with _$ScheduleTask {
   const factory ScheduleTask({
     required int id,
     required int sequenceId,

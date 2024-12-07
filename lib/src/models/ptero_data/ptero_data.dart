@@ -4,34 +4,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part '../../generated/models/ptero_data/ptero_data.freezed.dart';
 part '../../generated/models/ptero_data/ptero_data.g.dart';
 
-@freezed
-class PteroData<T extends SerializableMixin> with _$PteroData<T> {
+@Freezed(genericArgumentFactories: true)
+class PteroData<T extends Object> with _$PteroData<T> {
   // Websocket and TwoFactorImage
-  const factory PteroData({@PteroDataConverter() required T data}) =
-      _PteroData<T>;
+  const factory PteroData({required T data}) = _PteroData<T>;
   const PteroData._();
 
-  factory PteroData.fromJson(JsonMap json) => _$PteroDataFromJson<T>(json);
-}
+  factory PteroData.fromJson(JsonMap json, T Function(Object?) fromJsonT) =>
+      _$PteroDataFromJson<T>(json, fromJsonT);
 
-@protected
-class PteroDataConverter<T extends SerializableMixin>
-    implements JsonConverter<T, JsonMap> {
-  const PteroDataConverter();
-
-  @override
-  T fromJson(JsonMap json) {
-    switch (T) {
-      case WebsocketDetails:
-        return WebsocketDetails.fromJson(json) as T;
-      case TwoFactorImage:
-        return TwoFactorImage.fromJson(json) as T;
-      default:
-        throw Exception(
-            'Incompatible type used in PteroData.attributes.fromJson: $T',);
-    }
-  }
-
-  @override
-  JsonMap toJson(T object) => object.toJson();
+  // somehow, this isn't a problem for json_serializable
 }

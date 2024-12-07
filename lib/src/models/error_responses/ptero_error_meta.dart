@@ -6,7 +6,6 @@ part '../../generated/models/error_responses/ptero_error_meta.g.dart';
 //TODO: actually use somewhere
 @JsonSerializable()
 class PteroErrorMeta {
-
   const PteroErrorMeta({required this.rule});
 
   factory PteroErrorMeta.fromJson(JsonMap json) =>
@@ -20,7 +19,6 @@ class PteroErrorMeta {
 
 @JsonSerializable()
 class PteroErrorStringMeta extends PteroErrorMeta {
-
   const PteroErrorStringMeta({required super.rule, required this.sourceField});
 
   factory PteroErrorStringMeta.fromJson(JsonMap json) =>
@@ -35,7 +33,6 @@ class PteroErrorStringMeta extends PteroErrorMeta {
 
 @JsonSerializable()
 class PteroErrorScheduleMeta extends PteroErrorMeta {
-
   const PteroErrorScheduleMeta({
     required super.rule,
     required this.sourceField,

@@ -6,12 +6,12 @@ part of '../../../models/main_models/egg_variable.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EggVariable _$$_EggVariableFromJson(Map<String, dynamic> json) =>
+_$EggVariableImpl _$$EggVariableImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_EggVariable',
+      r'_$EggVariableImpl',
       json,
       ($checkedConvert) {
-        final val = _$_EggVariable(
+        final val = _$EggVariableImpl(
           name: $checkedConvert('name', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String),
           envVariable: $checkedConvert('env_variable', (v) => v as String),
@@ -30,7 +30,7 @@ _$_EggVariable _$$_EggVariableFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_EggVariableToJson(_$_EggVariable instance) =>
+Map<String, dynamic> _$$EggVariableImplToJson(_$EggVariableImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'description': instance.description,

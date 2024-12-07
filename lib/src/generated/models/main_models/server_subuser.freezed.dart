@@ -12,7 +12,7 @@ part of '../../../models/main_models/server_subuser.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ServerSubuser _$ServerSubuserFromJson(Map<String, dynamic> json) {
   return _ServerSubuser.fromJson(json);
@@ -27,7 +27,7 @@ mixin _$ServerSubuser {
   @JsonKey(name: '2fa_enabled')
   bool get twoFaEnabled => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
-  List<String> get permissions => throw _privateConstructorUsedError;
+  IList<String> get permissions => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +48,7 @@ abstract class $ServerSubuserCopyWith<$Res> {
       String image,
       @JsonKey(name: '2fa_enabled') bool twoFaEnabled,
       DateTime createdAt,
-      List<String> permissions});
+      IList<String> permissions});
 }
 
 /// @nodoc
@@ -100,17 +100,17 @@ class _$ServerSubuserCopyWithImpl<$Res, $Val extends ServerSubuser>
       permissions: null == permissions
           ? _value.permissions
           : permissions // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as IList<String>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_ServerSubuserCopyWith<$Res>
+abstract class _$$ServerSubuserImplCopyWith<$Res>
     implements $ServerSubuserCopyWith<$Res> {
-  factory _$$_ServerSubuserCopyWith(
-          _$_ServerSubuser value, $Res Function(_$_ServerSubuser) then) =
-      __$$_ServerSubuserCopyWithImpl<$Res>;
+  factory _$$ServerSubuserImplCopyWith(
+          _$ServerSubuserImpl value, $Res Function(_$ServerSubuserImpl) then) =
+      __$$ServerSubuserImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -120,15 +120,15 @@ abstract class _$$_ServerSubuserCopyWith<$Res>
       String image,
       @JsonKey(name: '2fa_enabled') bool twoFaEnabled,
       DateTime createdAt,
-      List<String> permissions});
+      IList<String> permissions});
 }
 
 /// @nodoc
-class __$$_ServerSubuserCopyWithImpl<$Res>
-    extends _$ServerSubuserCopyWithImpl<$Res, _$_ServerSubuser>
-    implements _$$_ServerSubuserCopyWith<$Res> {
-  __$$_ServerSubuserCopyWithImpl(
-      _$_ServerSubuser _value, $Res Function(_$_ServerSubuser) _then)
+class __$$ServerSubuserImplCopyWithImpl<$Res>
+    extends _$ServerSubuserCopyWithImpl<$Res, _$ServerSubuserImpl>
+    implements _$$ServerSubuserImplCopyWith<$Res> {
+  __$$ServerSubuserImplCopyWithImpl(
+      _$ServerSubuserImpl _value, $Res Function(_$ServerSubuserImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -142,7 +142,7 @@ class __$$_ServerSubuserCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? permissions = null,
   }) {
-    return _then(_$_ServerSubuser(
+    return _then(_$ServerSubuserImpl(
       uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
@@ -168,29 +168,28 @@ class __$$_ServerSubuserCopyWithImpl<$Res>
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
       permissions: null == permissions
-          ? _value._permissions
+          ? _value.permissions
           : permissions // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as IList<String>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_ServerSubuser extends _ServerSubuser {
-  const _$_ServerSubuser(
+class _$ServerSubuserImpl extends _ServerSubuser {
+  const _$ServerSubuserImpl(
       {required this.uuid,
       required this.username,
       required this.email,
       required this.image,
       @JsonKey(name: '2fa_enabled') required this.twoFaEnabled,
       required this.createdAt,
-      required final List<String> permissions})
-      : _permissions = permissions,
-        super._();
+      required this.permissions})
+      : super._();
 
-  factory _$_ServerSubuser.fromJson(Map<String, dynamic> json) =>
-      _$$_ServerSubuserFromJson(json);
+  factory _$ServerSubuserImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServerSubuserImplFromJson(json);
 
   @override
   final String uuid;
@@ -205,13 +204,8 @@ class _$_ServerSubuser extends _ServerSubuser {
   final bool twoFaEnabled;
   @override
   final DateTime createdAt;
-  final List<String> _permissions;
   @override
-  List<String> get permissions {
-    if (_permissions is EqualUnmodifiableListView) return _permissions;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_permissions);
-  }
+  final IList<String> permissions;
 
   @override
   String toString() {
@@ -219,10 +213,10 @@ class _$_ServerSubuser extends _ServerSubuser {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ServerSubuser &&
+            other is _$ServerSubuserImpl &&
             (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.username, username) ||
                 other.username == username) &&
@@ -233,7 +227,7 @@ class _$_ServerSubuser extends _ServerSubuser {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             const DeepCollectionEquality()
-                .equals(other._permissions, _permissions));
+                .equals(other.permissions, permissions));
   }
 
   @JsonKey(ignore: true)
@@ -246,17 +240,17 @@ class _$_ServerSubuser extends _ServerSubuser {
       image,
       twoFaEnabled,
       createdAt,
-      const DeepCollectionEquality().hash(_permissions));
+      const DeepCollectionEquality().hash(permissions));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ServerSubuserCopyWith<_$_ServerSubuser> get copyWith =>
-      __$$_ServerSubuserCopyWithImpl<_$_ServerSubuser>(this, _$identity);
+  _$$ServerSubuserImplCopyWith<_$ServerSubuserImpl> get copyWith =>
+      __$$ServerSubuserImplCopyWithImpl<_$ServerSubuserImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServerSubuserToJson(
+    return _$$ServerSubuserImplToJson(
       this,
     );
   }
@@ -270,11 +264,11 @@ abstract class _ServerSubuser extends ServerSubuser {
       required final String image,
       @JsonKey(name: '2fa_enabled') required final bool twoFaEnabled,
       required final DateTime createdAt,
-      required final List<String> permissions}) = _$_ServerSubuser;
+      required final IList<String> permissions}) = _$ServerSubuserImpl;
   const _ServerSubuser._() : super._();
 
   factory _ServerSubuser.fromJson(Map<String, dynamic> json) =
-      _$_ServerSubuser.fromJson;
+      _$ServerSubuserImpl.fromJson;
 
   @override
   String get uuid;
@@ -290,9 +284,9 @@ abstract class _ServerSubuser extends ServerSubuser {
   @override
   DateTime get createdAt;
   @override
-  List<String> get permissions;
+  IList<String> get permissions;
   @override
   @JsonKey(ignore: true)
-  _$$_ServerSubuserCopyWith<_$_ServerSubuser> get copyWith =>
+  _$$ServerSubuserImplCopyWith<_$ServerSubuserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

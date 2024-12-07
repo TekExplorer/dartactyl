@@ -1,4 +1,4 @@
-// TODO: Add example for websocket
+// ignore_for_file: avoid_print
 
 import 'dart:developer';
 
@@ -7,12 +7,12 @@ import 'package:dartactyl/websocket.dart';
 
 Future<ServerWebsocket> getWebsocket() async {
   final client = PteroClient.generate(
-    url: 'panel.yoursite.com',
+    url: 'panel.your_site.com',
     apiKey: '[api-key]',
   );
 
   final fractalServers = await client.listServers();
-  final Server server = fractalServers.servers.first;
+  final Server server = fractalServers.items.first;
 
   await client.getServerWebsocket(serverId: server.identifier);
 

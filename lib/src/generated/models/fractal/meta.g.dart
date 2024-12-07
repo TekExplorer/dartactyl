@@ -6,12 +6,12 @@ part of '../../../models/fractal/meta.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PaginatedMeta _$$_PaginatedMetaFromJson(Map<String, dynamic> json) =>
+_$PaginatedMetaImpl _$$PaginatedMetaImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_PaginatedMeta',
+      r'_$PaginatedMetaImpl',
       json,
       ($checkedConvert) {
-        final val = _$_PaginatedMeta(
+        final val = _$PaginatedMetaImpl(
           pagination: $checkedConvert('pagination',
               (v) => Pagination.fromJson(v as Map<String, dynamic>)),
         );
@@ -19,43 +19,44 @@ _$_PaginatedMeta _$$_PaginatedMetaFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_PaginatedMetaToJson(_$_PaginatedMeta instance) =>
+Map<String, dynamic> _$$PaginatedMetaImplToJson(_$PaginatedMetaImpl instance) =>
     <String, dynamic>{
       'pagination': instance.pagination.toJson(),
     };
 
-_$_PaginatedBackupsMeta _$$_PaginatedBackupsMetaFromJson(
+_$PaginatedBackupsMetaImpl _$$PaginatedBackupsMetaImplFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_PaginatedBackupsMeta',
+      r'_$PaginatedBackupsMetaImpl',
       json,
       ($checkedConvert) {
-        final val = _$_PaginatedBackupsMeta(
+        final val = _$PaginatedBackupsMetaImpl(
           pagination: $checkedConvert('pagination',
               (v) => Pagination.fromJson(v as Map<String, dynamic>)),
-          backupCount: $checkedConvert('backup_count', (v) => v as int),
+          backupCount:
+              $checkedConvert('backup_count', (v) => (v as num).toInt()),
         );
         return val;
       },
       fieldKeyMap: const {'backupCount': 'backup_count'},
     );
 
-Map<String, dynamic> _$$_PaginatedBackupsMetaToJson(
-        _$_PaginatedBackupsMeta instance) =>
+Map<String, dynamic> _$$PaginatedBackupsMetaImplToJson(
+        _$PaginatedBackupsMetaImpl instance) =>
     <String, dynamic>{
       'pagination': instance.pagination.toJson(),
       'backup_count': instance.backupCount,
     };
 
-_$_ServerMeta _$$_ServerMetaFromJson(Map<String, dynamic> json) =>
+_$ServerMetaImpl _$$ServerMetaImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ServerMeta',
+      r'_$ServerMetaImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ServerMeta(
+        final val = _$ServerMetaImpl(
           isServerOwner: $checkedConvert('is_server_owner', (v) => v as bool),
           userPermissions: $checkedConvert('user_permissions',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+              (v) => IList<String>.fromJson(v, (value) => value as String)),
         );
         return val;
       },
@@ -65,24 +66,28 @@ _$_ServerMeta _$$_ServerMetaFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_ServerMetaToJson(_$_ServerMeta instance) =>
+Map<String, dynamic> _$$ServerMetaImplToJson(_$ServerMetaImpl instance) =>
     <String, dynamic>{
       'is_server_owner': instance.isServerOwner,
-      'user_permissions': instance.userPermissions,
+      'user_permissions': instance.userPermissions.toJson(
+        (value) => value,
+      ),
     };
 
-_$_StartupMeta _$$_StartupMetaFromJson(Map<String, dynamic> json) =>
+_$StartupMetaImpl _$$StartupMetaImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_StartupMeta',
+      r'_$StartupMetaImpl',
       json,
       ($checkedConvert) {
-        final val = _$_StartupMeta(
+        final val = _$StartupMetaImpl(
           startupCommand:
               $checkedConvert('startup_command', (v) => v as String),
           rawStartupCommand:
               $checkedConvert('raw_startup_command', (v) => v as String),
           dockerImages: $checkedConvert(
-              'docker_images', (v) => Map<String, String>.from(v as Map)),
+              'docker_images',
+              (v) => IMap<String, String>.fromJson(v as Map<String, dynamic>,
+                  (value) => value as String, (value) => value as String)),
         );
         return val;
       },
@@ -93,19 +98,22 @@ _$_StartupMeta _$$_StartupMetaFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_StartupMetaToJson(_$_StartupMeta instance) =>
+Map<String, dynamic> _$$StartupMetaImplToJson(_$StartupMetaImpl instance) =>
     <String, dynamic>{
       'startup_command': instance.startupCommand,
       'raw_startup_command': instance.rawStartupCommand,
-      'docker_images': instance.dockerImages,
+      'docker_images': instance.dockerImages.toJson(
+        (value) => value,
+        (value) => value,
+      ),
     };
 
-_$_ApiKeyMeta _$$_ApiKeyMetaFromJson(Map<String, dynamic> json) =>
+_$ApiKeyMetaImpl _$$ApiKeyMetaImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ApiKeyMeta',
+      r'_$ApiKeyMetaImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ApiKeyMeta(
+        final val = _$ApiKeyMetaImpl(
           secretToken: $checkedConvert('secret_token', (v) => v as String),
         );
         return val;
@@ -113,24 +121,24 @@ _$_ApiKeyMeta _$$_ApiKeyMetaFromJson(Map<String, dynamic> json) =>
       fieldKeyMap: const {'secretToken': 'secret_token'},
     );
 
-Map<String, dynamic> _$$_ApiKeyMetaToJson(_$_ApiKeyMeta instance) =>
+Map<String, dynamic> _$$ApiKeyMetaImplToJson(_$ApiKeyMetaImpl instance) =>
     <String, dynamic>{
       'secret_token': instance.secretToken,
     };
 
-_$_ResourceMeta _$$_ResourceMetaFromJson(Map<String, dynamic> json) =>
+_$ResourceMetaImpl _$$ResourceMetaImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_ResourceMeta',
+      r'_$ResourceMetaImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ResourceMeta(
+        final val = _$ResourceMetaImpl(
           resource: $checkedConvert('resource', (v) => Uri.parse(v as String)),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_ResourceMetaToJson(_$_ResourceMeta instance) =>
+Map<String, dynamic> _$$ResourceMetaImplToJson(_$ResourceMetaImpl instance) =>
     <String, dynamic>{
       'resource': instance.resource.toString(),
     };

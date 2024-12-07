@@ -12,7 +12,7 @@ part of '../../../models/main_models/server_schedule.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ServerSchedule _$ServerScheduleFromJson(Map<String, dynamic> json) {
   return _ServerSchedule.fromJson(json);
@@ -136,11 +136,11 @@ class _$ServerScheduleCopyWithImpl<$Res, $Val extends ServerSchedule>
 }
 
 /// @nodoc
-abstract class _$$_ServerScheduleCopyWith<$Res>
+abstract class _$$ServerScheduleImplCopyWith<$Res>
     implements $ServerScheduleCopyWith<$Res> {
-  factory _$$_ServerScheduleCopyWith(
-          _$_ServerSchedule value, $Res Function(_$_ServerSchedule) then) =
-      __$$_ServerScheduleCopyWithImpl<$Res>;
+  factory _$$ServerScheduleImplCopyWith(_$ServerScheduleImpl value,
+          $Res Function(_$ServerScheduleImpl) then) =
+      __$$ServerScheduleImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -160,11 +160,11 @@ abstract class _$$_ServerScheduleCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ServerScheduleCopyWithImpl<$Res>
-    extends _$ServerScheduleCopyWithImpl<$Res, _$_ServerSchedule>
-    implements _$$_ServerScheduleCopyWith<$Res> {
-  __$$_ServerScheduleCopyWithImpl(
-      _$_ServerSchedule _value, $Res Function(_$_ServerSchedule) _then)
+class __$$ServerScheduleImplCopyWithImpl<$Res>
+    extends _$ServerScheduleCopyWithImpl<$Res, _$ServerScheduleImpl>
+    implements _$$ServerScheduleImplCopyWith<$Res> {
+  __$$ServerScheduleImplCopyWithImpl(
+      _$ServerScheduleImpl _value, $Res Function(_$ServerScheduleImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -181,7 +181,7 @@ class __$$_ServerScheduleCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_$_ServerSchedule(
+    return _then(_$ServerScheduleImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -228,8 +228,8 @@ class __$$_ServerScheduleCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ServerSchedule extends _ServerSchedule {
-  const _$_ServerSchedule(
+class _$ServerScheduleImpl extends _ServerSchedule {
+  const _$ServerScheduleImpl(
       {required this.id,
       required this.name,
       required this.cron,
@@ -242,8 +242,8 @@ class _$_ServerSchedule extends _ServerSchedule {
       required this.updatedAt})
       : super._();
 
-  factory _$_ServerSchedule.fromJson(Map<String, dynamic> json) =>
-      _$$_ServerScheduleFromJson(json);
+  factory _$ServerScheduleImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServerScheduleImplFromJson(json);
 
   @override
   final int id;
@@ -272,10 +272,10 @@ class _$_ServerSchedule extends _ServerSchedule {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ServerSchedule &&
+            other is _$ServerScheduleImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.cron, cron) || other.cron == cron) &&
@@ -303,12 +303,13 @@ class _$_ServerSchedule extends _ServerSchedule {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ServerScheduleCopyWith<_$_ServerSchedule> get copyWith =>
-      __$$_ServerScheduleCopyWithImpl<_$_ServerSchedule>(this, _$identity);
+  _$$ServerScheduleImplCopyWith<_$ServerScheduleImpl> get copyWith =>
+      __$$ServerScheduleImplCopyWithImpl<_$ServerScheduleImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServerScheduleToJson(
+    return _$$ServerScheduleImplToJson(
       this,
     );
   }
@@ -325,11 +326,11 @@ abstract class _ServerSchedule extends ServerSchedule {
       final DateTime? lastRunAt,
       final DateTime? nextRunAt,
       required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$_ServerSchedule;
+      required final DateTime updatedAt}) = _$ServerScheduleImpl;
   const _ServerSchedule._() : super._();
 
   factory _ServerSchedule.fromJson(Map<String, dynamic> json) =
-      _$_ServerSchedule.fromJson;
+      _$ServerScheduleImpl.fromJson;
 
   @override
   int get id;
@@ -353,6 +354,6 @@ abstract class _ServerSchedule extends ServerSchedule {
   DateTime get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_ServerScheduleCopyWith<_$_ServerSchedule> get copyWith =>
+  _$$ServerScheduleImplCopyWith<_$ServerScheduleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

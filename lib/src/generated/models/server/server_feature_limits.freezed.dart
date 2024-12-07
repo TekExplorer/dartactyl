@@ -12,7 +12,7 @@ part of '../../../models/server/server_feature_limits.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ServerFeatureLimits _$ServerFeatureLimitsFromJson(Map<String, dynamic> json) {
   return _ServerFeatureLimits.fromJson(json);
@@ -74,22 +74,22 @@ class _$ServerFeatureLimitsCopyWithImpl<$Res, $Val extends ServerFeatureLimits>
 }
 
 /// @nodoc
-abstract class _$$_ServerFeatureLimitsCopyWith<$Res>
+abstract class _$$ServerFeatureLimitsImplCopyWith<$Res>
     implements $ServerFeatureLimitsCopyWith<$Res> {
-  factory _$$_ServerFeatureLimitsCopyWith(_$_ServerFeatureLimits value,
-          $Res Function(_$_ServerFeatureLimits) then) =
-      __$$_ServerFeatureLimitsCopyWithImpl<$Res>;
+  factory _$$ServerFeatureLimitsImplCopyWith(_$ServerFeatureLimitsImpl value,
+          $Res Function(_$ServerFeatureLimitsImpl) then) =
+      __$$ServerFeatureLimitsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int allocations, int? databases, int? backups});
 }
 
 /// @nodoc
-class __$$_ServerFeatureLimitsCopyWithImpl<$Res>
-    extends _$ServerFeatureLimitsCopyWithImpl<$Res, _$_ServerFeatureLimits>
-    implements _$$_ServerFeatureLimitsCopyWith<$Res> {
-  __$$_ServerFeatureLimitsCopyWithImpl(_$_ServerFeatureLimits _value,
-      $Res Function(_$_ServerFeatureLimits) _then)
+class __$$ServerFeatureLimitsImplCopyWithImpl<$Res>
+    extends _$ServerFeatureLimitsCopyWithImpl<$Res, _$ServerFeatureLimitsImpl>
+    implements _$$ServerFeatureLimitsImplCopyWith<$Res> {
+  __$$ServerFeatureLimitsImplCopyWithImpl(_$ServerFeatureLimitsImpl _value,
+      $Res Function(_$ServerFeatureLimitsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_ServerFeatureLimitsCopyWithImpl<$Res>
     Object? databases = freezed,
     Object? backups = freezed,
   }) {
-    return _then(_$_ServerFeatureLimits(
+    return _then(_$ServerFeatureLimitsImpl(
       allocations: null == allocations
           ? _value.allocations
           : allocations // ignore: cast_nullable_to_non_nullable
@@ -118,13 +118,13 @@ class __$$_ServerFeatureLimitsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ServerFeatureLimits extends _ServerFeatureLimits {
-  const _$_ServerFeatureLimits(
+class _$ServerFeatureLimitsImpl extends _ServerFeatureLimits {
+  const _$ServerFeatureLimitsImpl(
       {required this.allocations, this.databases, this.backups})
       : super._();
 
-  factory _$_ServerFeatureLimits.fromJson(Map<String, dynamic> json) =>
-      _$$_ServerFeatureLimitsFromJson(json);
+  factory _$ServerFeatureLimitsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServerFeatureLimitsImplFromJson(json);
 
   @override
   final int allocations;
@@ -139,10 +139,10 @@ class _$_ServerFeatureLimits extends _ServerFeatureLimits {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ServerFeatureLimits &&
+            other is _$ServerFeatureLimitsImpl &&
             (identical(other.allocations, allocations) ||
                 other.allocations == allocations) &&
             (identical(other.databases, databases) ||
@@ -157,13 +157,13 @@ class _$_ServerFeatureLimits extends _ServerFeatureLimits {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ServerFeatureLimitsCopyWith<_$_ServerFeatureLimits> get copyWith =>
-      __$$_ServerFeatureLimitsCopyWithImpl<_$_ServerFeatureLimits>(
+  _$$ServerFeatureLimitsImplCopyWith<_$ServerFeatureLimitsImpl> get copyWith =>
+      __$$ServerFeatureLimitsImplCopyWithImpl<_$ServerFeatureLimitsImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServerFeatureLimitsToJson(
+    return _$$ServerFeatureLimitsImplToJson(
       this,
     );
   }
@@ -173,11 +173,11 @@ abstract class _ServerFeatureLimits extends ServerFeatureLimits {
   const factory _ServerFeatureLimits(
       {required final int allocations,
       final int? databases,
-      final int? backups}) = _$_ServerFeatureLimits;
+      final int? backups}) = _$ServerFeatureLimitsImpl;
   const _ServerFeatureLimits._() : super._();
 
   factory _ServerFeatureLimits.fromJson(Map<String, dynamic> json) =
-      _$_ServerFeatureLimits.fromJson;
+      _$ServerFeatureLimitsImpl.fromJson;
 
   @override
   int get allocations;
@@ -187,6 +187,6 @@ abstract class _ServerFeatureLimits extends ServerFeatureLimits {
   int? get backups;
   @override
   @JsonKey(ignore: true)
-  _$$_ServerFeatureLimitsCopyWith<_$_ServerFeatureLimits> get copyWith =>
+  _$$ServerFeatureLimitsImplCopyWith<_$ServerFeatureLimitsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

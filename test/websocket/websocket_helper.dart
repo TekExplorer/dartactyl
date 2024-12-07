@@ -35,16 +35,17 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 Future<HttpServer> createAndHandleMockServer(
   void Function(WebSocket server) handleServer,
 ) async {
-  final server = await HttpServer.bind('localhost', 0);
+  final server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.transform(WebSocketTransformer()).listen(handleServer);
+  addTearDown(server.close);
   return server;
 }
 
 // TODO: rename when relevant
 
 /// Returns the url of a mock websocket server.
-Future<String> mockServer({
-  // if not provided, will accept any token
+Future<Uri> mockServer({
+  /// if not provided, will accept any token
   String? verifyAuthToken,
   List<String>? mockLogs,
 }) async {
@@ -80,7 +81,6 @@ Future<String> mockServer({
               arg: null,
             ).toEncodedJson(),
           );
-          break;
         case ServerWebsocketSendEvent.sendLogs:
           expect(arg, isNull);
           expect(
@@ -96,7 +96,6 @@ Future<String> mockServer({
               ).toEncodedJson(),
             );
           }
-          break;
         case ServerWebsocketSendEvent.sendStats:
           throw UnimplementedError("'send stats' request not implemented yet");
         case ServerWebsocketSendEvent.sendCommand:
@@ -107,9 +106,12 @@ Future<String> mockServer({
       }
     });
   });
-  final url = 'ws://localhost:${mockServer.port}';
 
-  return url;
+  return Uri(
+    scheme: 'ws',
+    host: mockServer.address.address,
+    port: mockServer.port,
+  );
 }
 
 class WebSocketAndUrl {
@@ -119,7 +121,7 @@ class WebSocketAndUrl {
   final WebSocketChannel webSocket;
 }
 
-WebsocketEvent expectAndReturnValidEvent(dynamic request) {
+WebsocketEvent expectAndReturnValidEvent(Object? request) {
   final JsonMap requestJson;
   if (request is JsonMap) {
     requestJson = request;
@@ -140,13 +142,15 @@ WebsocketEvent expectAndReturnValidEvent(dynamic request) {
   return websocketEvent;
 }
 
-JsonMap expectAndReturnValidRequestJson(dynamic request) {
+JsonMap expectAndReturnValidRequestJson(Object? request) {
   log('Server got "$request"', name: 'Mock Server');
   expect(
     request,
     isA<String>(),
     reason: 'Expected request to be a string, but got "$request"',
   );
+
+  request!;
   request as String;
 
   final parsedRequest = jsonDecode(request);

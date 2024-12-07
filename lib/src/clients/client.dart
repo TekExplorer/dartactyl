@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:dartactyl/dartactyl.dart';
 import 'package:dio/dio.dart' hide Headers;
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -18,7 +19,7 @@ abstract class DeprecatedPteroClient {
   /// [baseUrl] is the base URL of the Pterodactyl server.
   ///
   // ignore: deprecated_member_use_from_same_package
-  /// It is recommended to use [PteroClient.old] instead.
+  /// It is recommended to use [PteroClient(...).old] instead.
   factory DeprecatedPteroClient(Dio dio, {String? baseUrl}) =
       _DeprecatedPteroClient._;
   const DeprecatedPteroClient._();
@@ -151,19 +152,18 @@ abstract class PteroClient {
   ///
   /// This is equivalent to calling [getStartup] and
   ///  then accessing the `dockerImages` property.
-  Future<Map<String, String>> listDockerImages({
+  Future<IMap<String, String>> listDockerImages({
     required String serverId,
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
-  }) async =>
-      (await getStartup(
+  }) =>
+      getStartup(
         serverId: serverId,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
-      ))
-          .dockerImages;
+      ).then((result) => result.meta.dockerImages);
 
   // /// Login to Pterodactyl using username and password.
   // ///
@@ -310,7 +310,7 @@ abstract class PteroClient {
   /// Create a new [ApiKey] on your account.
   /// This is the only time you will ever get the full key.
   @POST('/api/client/account/api-keys')
-  Future<FractalDataMeta<ApiKey, ApiKeyMeta>> createApiKey(
+  Future<FractalMeta<ApiKey, ApiKeyMeta>> createApiKey(
     @Body() CreateApiKey data, {
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
@@ -358,7 +358,7 @@ abstract class PteroClient {
   ///
   /// Available [Includes]; 'egg', 'subusers'
   @GET('/api/client/servers/{serverId}')
-  Future<FractalDataMeta<Server, ServerMeta>> getServerDetails({
+  Future<FractalMeta<Server, ServerMeta>> getServerDetails({
     @Path() required String serverId,
     @Query('include') ServerIncludes? include,
     @CancelRequest() CancelToken? cancelToken,
@@ -535,7 +535,7 @@ abstract class PteroClient {
   ///
   /// [file]; url encoded path to the desired file
   @POST('/api/client/servers/{serverId}/files/write')
-  @Headers(<String, dynamic>{'Content-Type': 'text/plain'})
+  @Headers(<String, Object?>{'Content-Type': 'text/plain'})
   Future<void> writeFile(
     @Body() String rawContents, {
     @Path() required String serverId,
