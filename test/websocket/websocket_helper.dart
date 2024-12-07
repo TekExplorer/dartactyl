@@ -6,7 +6,7 @@ import 'dart:io';
 // ignore_for_file: cascade_invocations
 
 import 'package:dartactyl/models.dart';
-import 'package:dartactyl/src/websocket/server_websocket.dart';
+import 'package:dartactyl/src/websocket_v2/server_websocket.dart';
 import 'package:dartactyl/websocket_v2.dart';
 import 'package:meta/meta.dart';
 import 'package:rxdart/transformers.dart';

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../websocket/server_websocket.dart';
+part of '../../websocket_v2/server_websocket.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

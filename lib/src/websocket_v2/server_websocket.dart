@@ -10,8 +10,8 @@ import 'package:rxdart/rxdart.dart';
 import 'package:web_socket/io_web_socket.dart';
 import 'package:web_socket/web_socket.dart';
 
-part '../generated/websocket/server_websocket.freezed.dart';
-part '../generated/websocket/server_websocket.g.dart';
+part '../generated/websocket_v2/server_websocket.freezed.dart';
+part '../generated/websocket_v2/server_websocket.g.dart';
 part 'models/enums.dart';
 part 'models/log_message.dart';
 part 'models/reconnectable_websocket.dart';
