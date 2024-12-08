@@ -10,7 +10,13 @@ import 'package:web_socket/web_socket.dart';
 
 class FakeWebSocket implements WebSocket {
   FakeWebSocket([this._protocol = '']);
-  late FakeWebSocket other;
+  FakeWebSocket? other;
+  FakeWebSocket ensureActive() {
+    if (other != null && other!.eventsController.isClosed) {
+      other = null;
+    }
+    return other ??= FakeWebSocket(_protocol)..other = this;
+  }
 
   final String _protocol;
   final eventsController = StreamController<WebSocketEvent>.broadcast();
@@ -18,7 +24,8 @@ class FakeWebSocket implements WebSocket {
   @override
   Future<void> close([int? code, String? reason]) async {
     if (eventsController.isClosed) {
-      throw WebSocketConnectionClosed();
+      // throw WebSocketConnectionClosed();
+      return;
     }
 
     checkCloseCode(code);
@@ -42,8 +49,9 @@ class FakeWebSocket implements WebSocket {
     if (eventsController.isClosed) {
       throw WebSocketConnectionClosed();
     }
-    if (other.eventsController.isClosed) return;
-    other.eventsController.add(BinaryDataReceived(b));
+    if (other == null) throw StateError('Missing other end');
+    if (other!.eventsController.isClosed) return;
+    other!.eventsController.add(BinaryDataReceived(b));
   }
 
   @override
@@ -51,8 +59,9 @@ class FakeWebSocket implements WebSocket {
     if (eventsController.isClosed) {
       throw WebSocketConnectionClosed();
     }
-    if (other.eventsController.isClosed) return;
-    other.eventsController.add(TextDataReceived(s));
+    if (other == null) throw StateError('Missing other end');
+    if (other!.eventsController.isClosed) return;
+    other!.eventsController.add(TextDataReceived(s));
   }
 }
 

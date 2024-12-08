@@ -125,24 +125,19 @@ class WingsServer {
 
 extension SpawnFake on WingsServer {
   @useResult
-  FakeWebSocket spawnConnectedSocket() {
-    websocket.other.close();
-    return spawnInitialConnectedSocket();
+  Future<FakeWebSocket> _spawnConnectedSocket() async {
+    await websocket.other?.close();
+    return _spawnInitialConnectedSocket();
   }
 
   @useResult
-  FakeWebSocket spawnInitialConnectedSocket() {
-    final newFake = FakeWebSocket(websocket.protocol);
-    websocket.other = newFake;
-    newFake.other = websocket;
-    return newFake;
-  }
+  FakeWebSocket _spawnInitialConnectedSocket() => websocket.ensureActive();
 
   ServerWebsocketImpl _spawnTestWebsocket(
     FutureOr<WebsocketDetails> Function() getWebsocketDetails,
   ) {
     final websocket = ServerWebsocketImpl.raw(
-      createWebsocket: (details) => spawnInitialConnectedSocket(),
+      createWebsocket: (details) => _spawnConnectedSocket(),
       getWebsocketDetails: getWebsocketDetails,
       autoConnect: false,
     );
@@ -151,7 +146,42 @@ extension SpawnFake on WingsServer {
   }
 }
 
-(ServerWebsocketImpl websocket, WingsServer server) createWebsocketFakes({
+typedef WebsocketFakes = (ServerWebsocketImpl websocket, WingsServer server);
+
+extension WebsocketFakesX on WebsocketFakes {
+  ServerWebsocketImpl get websocket => $1;
+  WingsServer get wings => $2;
+
+  Future<WebsocketFakes> get connected async {
+    await websocket.ensureConnected();
+    expect(websocket.isConnected, true, reason: 'Should be connected');
+    final sanityCheck = expectLater(
+      wings.events.first,
+      // ignore: prefer_const_constructors
+      completion(WebsocketEvent('Test Initiated')),
+      reason: 'A message should have made its way to the server',
+    );
+    websocket.sendEventRaw(const WebsocketEvent('Test Initiated'));
+    await sanityCheck;
+    //
+    return this;
+  }
+
+  Future<WebsocketFakes> get ready async {
+    await connected;
+    wings.sendAuthSuccess();
+    await websocket.ready;
+    expect(
+      websocket.isAuthenticated,
+      true,
+      reason: 'Should have been authenticated',
+    );
+
+    return this;
+  }
+}
+
+WebsocketFakes createWebsocketFakes({
   FutureOr<String> Function()? getToken,
 }) {
   final wings = WingsServer.test();

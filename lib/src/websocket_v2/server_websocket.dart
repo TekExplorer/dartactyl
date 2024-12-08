@@ -207,11 +207,15 @@ final class ServerWebsocketImpl implements ServerWebsocket {
     await ready;
   }
 
+  Future<void> forceDisconnect() async {
+    addConnectionState(ConnectionState.disconnected);
+    await websocket.disconnect();
+  }
+
   @override
   Future<void> disconnect() async {
     if (isDisconnected) return;
-    addConnectionState(ConnectionState.disconnected);
-    await websocket.disconnect();
+    await forceDisconnect();
   }
 
   Future<void>? _connectFuture;
@@ -220,9 +224,12 @@ final class ServerWebsocketImpl implements ServerWebsocket {
   /// Debounced connect() method
   Future<void> ensureConnected() {
     return _connectFuture ??= connectImpl().whenComplete(() {
-      return _connectFuture = null;
+      isDisconnected = false;
+      _connectFuture = null;
     });
   }
+
+  bool get isConnected => !isDisconnected;
 
   Future<void> connectImpl() async {
     if (!isDisconnected) await disconnect();
@@ -247,7 +254,7 @@ final class ServerWebsocketImpl implements ServerWebsocket {
   // Distinct because theres no reason to emit the same connection state twice
 
   @override
-  late final connectionState = _connectionState.stream.distinct().shareValue();
+  late final connectionState = _connectionState.stream;
   final _connectionState =
       BehaviorSubject<ConnectionState>.seeded(ConnectionState.disconnected);
 
@@ -328,6 +335,7 @@ final class ServerWebsocketImpl implements ServerWebsocket {
   Future<void> close() async {
     if (isClosed) return;
     _isClosed = true;
+    await forceDisconnect();
     addConnectionState(ConnectionState.closed);
     if (!_readyCompleter.isCompleted) _readyCompleter.complete();
     await _connectionState.close();

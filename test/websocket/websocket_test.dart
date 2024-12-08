@@ -5,6 +5,10 @@ import 'websocket_helper.dart';
 
 void main() async {
   group('Tests', () {
+    test(
+      'Prepare connected sockets',
+      () => createWebsocketFakes().ready,
+    );
     test('test isConnected', () async {
       const token = 'henlo';
       final (websocket, wings) = createWebsocketFakes(getToken: () => token);
@@ -38,6 +42,25 @@ void main() async {
       final future = expectLater(wings.onAuth, emits(authToken));
       websocket.authenticateSync(authToken);
       await future;
+    });
+
+    test('connectionState', () async {
+      final (websocket, wings) = createWebsocketFakes();
+      final later = expectLater(
+        websocket.connectionState,
+        emitsInOrder([
+          ConnectionState.disconnected,
+          ConnectionState.connected,
+          ConnectionState.disconnected,
+          ConnectionState.closed,
+        ]),
+      );
+      await websocket.ensureConnected();
+      wings.sendAuthSuccess();
+
+      await websocket.ready;
+      await websocket.close();
+      await later;
     });
   });
 }

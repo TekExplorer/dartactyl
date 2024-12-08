@@ -215,18 +215,17 @@ void main() {
           ),
         );
 
-        final serverWebsocket = ServerWebsocket(
+        final serverWebsocket = ServerWebsocketImpl(
           client: mockClient,
           serverId: mockServerId,
         );
-
-        serverWebsocket.errors.listen((error) {
-          log(error.message, name: 'ServerWebsocket Error');
-          fail('ServerWebsocket should not have any errors \n${error.message}');
-        });
+        expect(
+          serverWebsocket.connectionState.value,
+          ConnectionState.disconnected,
+        );
 
         serverWebsocket.connectionState.listen((state) {
-          log('$state', name: 'ServerWebsocket State');
+          debugger(message: '$state');
         });
         final el = expectLater(
           serverWebsocket.connectionState,
@@ -236,6 +235,10 @@ void main() {
             ConnectionState.closed,
           ]),
         );
+        serverWebsocket.errors.listen((error) {
+          debugger(message: error.message);
+          fail('ServerWebsocket should not have any errors \n${error.message}');
+        });
 
         // serverWebsocket.connectionState.listen((state) {
         //   log('ServerWebsocket state: $state');
@@ -248,14 +251,21 @@ void main() {
           completes,
           reason: 'ServerWebsocket should complete ready',
         );
-
-        // make sure it does its thing before we murder it
-        await expectLater(
-          serverWebsocket.connectionState,
-          emits(ConnectionState.connected),
-          reason: 'ServerWebsocket should have emitted a connected state',
+        expect(
+          serverWebsocket.isAuthenticated,
+          true,
+          reason: 'Should be authenticated',
         );
-
+        expect(
+          serverWebsocket.isClosed,
+          false,
+          reason: 'Should not be closed',
+        );
+        expect(
+          serverWebsocket.isDisconnected,
+          false,
+          reason: 'Should not be disconnected',
+        );
         await expectLater(
           serverWebsocket.close(),
           completes,
