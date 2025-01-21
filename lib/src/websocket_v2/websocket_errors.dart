@@ -21,9 +21,10 @@ final class JWTError implements WingsException {
   final String receivedMessage;
 
   @override
-  String toString() => 'JWTError($receivedMessage))';
-  @override
   String get message => receivedMessage;
+
+  @override
+  String toString() => 'JWTError($receivedMessage)';
 }
 
 final class DaemonError implements WingsException {
@@ -33,8 +34,8 @@ final class DaemonError implements WingsException {
   final String receivedMessage;
 
   @override
-  String toString() => 'DaemonError($receivedMessage))';
+  String get message => receivedMessage;
 
   @override
-  String get message => receivedMessage;
+  String toString() => 'DaemonError($receivedMessage)';
 }

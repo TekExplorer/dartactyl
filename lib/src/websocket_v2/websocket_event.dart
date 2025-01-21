@@ -10,7 +10,7 @@ abstract interface class WebsocketEvent {
   String get event;
   List<String>? get args;
 
-  Object toJson();
+  JsonMap toJson();
 }
 
 extension WebsocketEventEncoder on WebsocketEvent {
@@ -40,13 +40,13 @@ final class WebsocketEventImpl implements WebsocketEvent {
   final List<String>? args;
 
   @override
-  Map<String, Object?> toJson() => {
+  JsonMap toJson() => {
         'event': event,
         'args': args,
       };
 
   @override
-  int get hashCode => Object.hash(event, args);
+  int get hashCode => Object.hashAll([event, ...?args]);
 
   @override
   bool operator ==(Object other) {
