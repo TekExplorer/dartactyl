@@ -19,8 +19,7 @@ extension on Stream<WebsocketEvent> {
   Stream<WebsocketEvent> whereEvent(String event) =>
       where((websocketEvent) => websocketEvent.event == event);
 
-  Stream<String> mapArg() =>
-      map((event) => event.args?.firstOrNull ?? 'NO ARG FOUND');
+  Stream<String> mapArg() => map((event) => event.args?.firstOrNull ?? '');
 }
 
 extension on Future {
@@ -72,6 +71,7 @@ class WingsServer {
 
   Stream<String> get onSendCommand =>
       events.whereEvent('send command').mapArg();
+
   Stream<String> get onRawSetState => events.whereEvent('set state').mapArg();
 
   Stream<ServerPowerAction> get onSetState =>
@@ -110,9 +110,43 @@ class WingsServer {
       });
 
   void sendPowerState(ServerPowerState state) =>
-      simpleSend('transfer logs', state.toJson());
+      simpleSend('status', state.toJson());
+
   void sendStats(WebsocketStats stats) =>
-      simpleSend('transfer logs', jsonEncode(stats.toJson()));
+      simpleSend('stats', jsonEncode(stats.toJson()));
+
+  // ===============================
+  // --------- Automation ----------
+  // ===============================
+  StreamSubscription<String?> automateAuth() {
+    return onAuth.listen((token) {
+      sendAuthSuccess();
+    });
+  }
+
+  StreamSubscription<String?> echoLogs() {
+    return onSendCommand.listen((_) {
+      sendConsoleOutput('send logs');
+    });
+  }
+
+  StreamSubscription<void> automatePowerState() {
+    return onSetState.listen((state) {
+      switch (state) {
+        start:
+        case ServerPowerAction.start:
+          sendPowerState(ServerPowerState.starting);
+          sendPowerState(ServerPowerState.running);
+        case ServerPowerAction.kill:
+        case ServerPowerAction.stop:
+          sendPowerState(ServerPowerState.stopping);
+          sendPowerState(ServerPowerState.offline);
+        case ServerPowerAction.restart:
+          sendPowerState(ServerPowerState.stopping);
+          continue start;
+      }
+    });
+  }
 }
 
 // extension on ReconnectableWebSocket {

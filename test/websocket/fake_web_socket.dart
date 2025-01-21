@@ -5,11 +5,18 @@
 import 'dart:async';
 import 'dart:typed_data';
 
+import 'package:test/test.dart';
 import 'package:web_socket/src/utils.dart';
 import 'package:web_socket/web_socket.dart';
 
 class FakeWebSocket implements WebSocket {
-  FakeWebSocket([this._protocol = '']);
+  FakeWebSocket([this._protocol = '']) {
+    addTearDown(() {
+      if (!isClosed) {
+        unawaited(close());
+      }
+    });
+  }
   FakeWebSocket? other;
   FakeWebSocket ensureActive() {
     if (other != null && other!.eventsController.isClosed) {
@@ -21,21 +28,22 @@ class FakeWebSocket implements WebSocket {
   final String _protocol;
   final eventsController = StreamController<WebSocketEvent>.broadcast();
 
+  bool get isClosed => eventsController.isClosed;
+
   @override
   Future<void> close([int? code, String? reason]) async {
-    if (eventsController.isClosed) {
-      // throw WebSocketConnectionClosed();
-      return;
-    }
+    if (isClosed) return;
 
     checkCloseCode(code);
     checkCloseReason(reason);
 
+    if (other case final other?) {
+      unawaited(other.eventsController.close());
+      other.other = null;
+      this.other = null;
+    }
+
     await eventsController.close();
-    // if (!other._events.isClosed) {
-    //   other._events.add(CloseReceived(code ?? 1005, reason ?? ''));
-    //   unawaited(other._events.close());
-    // }
   }
 
   @override
@@ -44,87 +52,22 @@ class FakeWebSocket implements WebSocket {
   @override
   String get protocol => _protocol;
 
-  @override
-  void sendBytes(Uint8List b) {
-    if (eventsController.isClosed) {
-      throw WebSocketConnectionClosed();
+  void add(WebSocketEvent event) {
+    if (isClosed) throw WebSocketConnectionClosed();
+
+    switch (other) {
+      case null:
+        throw StateError('Missing other end');
+
+      case final other:
+        if (other.isClosed) return;
+        other.eventsController.add(event);
     }
-    if (other == null) throw StateError('Missing other end');
-    if (other!.eventsController.isClosed) return;
-    other!.eventsController.add(BinaryDataReceived(b));
   }
 
   @override
-  void sendText(String s) {
-    if (eventsController.isClosed) {
-      throw WebSocketConnectionClosed();
-    }
-    if (other == null) throw StateError('Missing other end');
-    if (other!.eventsController.isClosed) return;
-    other!.eventsController.add(TextDataReceived(s));
-  }
-}
+  void sendBytes(Uint8List b) => add(BinaryDataReceived(b));
 
-/// Create a pair of fake [WebSocket]s that are connected to each other.
-///
-/// Sending a message on one [WebSocket] will result in that same message being
-/// received by the other.
-///
-/// This can be useful in constructing tests.
-///
-/// For example:
-///
-/// ```dart
-/// import 'dart:async';
-///
-/// import 'package:test/test.dart';
-/// import 'package:web_socket/src/web_socket.dart';
-/// import 'package:web_socket/testing.dart';
-/// import 'package:web_socket/web_socket.dart';
-///
-/// Future<void> fakeTimeServer(WebSocket webSocket, String time) async {
-///   await webSocket.events.forEach((event) {
-///     switch (event) {
-///       case TextDataReceived():
-///       case BinaryDataReceived():
-///         webSocket.sendText(time);
-///       case CloseReceived():
-///     }
-///   });
-/// }
-///
-/// Future<DateTime> getTime(WebSocket webSocket) async {
-///   webSocket.sendText('');
-///   final time = switch (await webSocket.events.first) {
-///     TextDataReceived(:final text) => DateTime.parse(text),
-///     _ => throw Exception('unexpected response')
-///   };
-///   await webSocket.close();
-///   return time;
-/// }
-///
-/// void main() async {
-///   late WebSocket client;
-///   late WebSocket server;
-///
-///   setUp(() {
-///     (client, server) = fakes();
-///   });
-///
-///   test('test valid time', () async {
-///     unawaited(fakeTimeServer(server, '2024-05-15T01:18:10.456Z'));
-///     expect(
-///         await getTime(client),
-///         DateTime.parse('2024-05-15T01:18:10.456Z'));
-///   });
-/// }
-/// ```
-(FakeWebSocket, FakeWebSocket) fakes({String protocol = ''}) {
-  final peer1 = FakeWebSocket(protocol);
-  final peer2 = FakeWebSocket(protocol);
-
-  peer1.other = peer2;
-  peer2.other = peer1;
-
-  return (peer1, peer2);
+  @override
+  void sendText(String s) => add(TextDataReceived(s));
 }

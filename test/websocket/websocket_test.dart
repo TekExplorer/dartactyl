@@ -25,7 +25,7 @@ void main() async {
       wings.sendAuthSuccess();
       await websocket.ready;
     });
-    test('test stuff', timeout: const Timeout.factor(.5), () async {
+    test('test simple event', timeout: const Timeout.factor(.5), () async {
       final (websocket, wings) = createWebsocketFakes();
       await websocket.ensureConnected();
       const event = WebsocketEvent('test', ['arg']);
@@ -33,15 +33,41 @@ void main() async {
       websocket.sendEventRaw(event);
       await future;
     });
-    test('test stuff 2', timeout: const Timeout.factor(.5), () async {
-      const authToken = 'my token';
-      final (websocket, wings) =
-          createWebsocketFakes(getToken: () => authToken);
-      await websocket.ensureConnected();
+    group('Auth', () {
+      test('Ensure auth messages are passed', () async {
+        const authToken = 'my token';
+        final (websocket, wings) =
+            createWebsocketFakes(getToken: () => authToken);
+        await websocket.ensureConnected();
 
-      final future = expectLater(wings.onAuth, emits(authToken));
-      websocket.authenticateSync(authToken);
-      await future;
+        final future = expectLater(wings.onAuth, emits(authToken));
+        websocket.authenticateSync(authToken);
+        await future;
+      });
+      test('automated wings auth', () async {
+        String token = '0';
+        String getAuthToken() {
+          final count = int.parse(token) + 1;
+          return token = count.toString();
+        }
+
+        final (websocket, wings) = createWebsocketFakes(getToken: getAuthToken);
+
+        wings.onAuth.listen((event) {
+          expect(event, token);
+          wings.sendAuthSuccess();
+        });
+
+        await websocket.ready;
+
+        expect(token, '1');
+
+        await websocket.disconnect();
+        expect(websocket.isConnected, false);
+        await websocket.ready;
+
+        expect(token, '2');
+      });
     });
 
     test('connectionState', () async {
