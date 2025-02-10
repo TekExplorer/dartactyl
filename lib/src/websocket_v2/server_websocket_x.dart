@@ -116,6 +116,21 @@ extension ServerWebsocketX on ServerWebsocket {
       _powerStateMessages.map((e) => e.powerState);
 }
 
+extension _OnWebsocketEvent on Stream<WebsocketEvent> {
+  StreamSubscription<WebsocketEvent> on(
+    String event,
+    void Function(Iterable<String>? args) action,
+  ) =>
+      onAny([event], action);
+
+  StreamSubscription<WebsocketEvent> onAny(
+    List<String> events,
+    void Function(Iterable<String>? args) action,
+  ) =>
+      where((we) => events.contains(we.event))
+          .listen((event) => action(event.args));
+}
+
 extension on Stream<WebsocketEvent> {
   Stream<T> mapEvents<T extends Object>(
     Map<String, T? Function(String arg)> mappers, [

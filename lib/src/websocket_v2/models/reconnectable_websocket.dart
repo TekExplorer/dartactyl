@@ -14,12 +14,16 @@ class ReconnectableWebSocket {
 
   set socket(WebSocket? value) {
     if (isClosed) return;
-    disconnect();
+    if (_socket == value) return;
+    if (_socket case final socket?) socket.close().ignore();
     _socket = value;
     if (value == null) return;
-    value.events
-      ..doOnDone(() => socket = null)
-      ..listen(_controller.add);
+
+    final sub = value.events.listen(
+      _controller.add,
+      onDone: () => _socket = null,
+    );
+    _controller.onCancel = sub.cancel;
   }
 
   Future<void> ensureConnected(
@@ -36,7 +40,14 @@ class ReconnectableWebSocket {
   }
 
   Future<void> disconnect() async {
-    await socket?.close().onError((_, __) {});
+    if (socket == null) return;
+    try {
+      await socket?.close();
+    } on WebSocketConnectionClosed {
+      // Already closed.
+    } finally {
+      _socket = null;
+    }
   }
 
   bool _isClosed = false;

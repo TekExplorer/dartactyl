@@ -37,11 +37,10 @@ enum TransferStatus implements WebsocketMessage {
 
   static TransferStatus? maybeParse(String value) {
     // byName throws
-    return TransferStatus.values.asNameMap()[value.toLowerCase()];
+    return values.asNameMap()[value.toLowerCase()];
   }
 
-  bool get needsReconnect =>
-      this != TransferStatus.success && this != TransferStatus.starting;
+  bool get needsReconnect => this != success && this != starting;
 }
 
 enum InstallStatus implements WebsocketMessage {

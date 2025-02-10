@@ -342,18 +342,3 @@ final class ServerWebsocketImpl implements ServerWebsocket {
     await websocket.close();
   }
 }
-
-extension on Stream<WebsocketEvent> {
-  StreamSubscription<WebsocketEvent> on(
-    String event,
-    void Function(String? arg) action,
-  ) =>
-      onAny([event], action);
-
-  StreamSubscription<WebsocketEvent> onAny(
-    List<String> events,
-    void Function(String? arg) action,
-  ) =>
-      where((we) => events.contains(we.event))
-          .listen((event) => action(event.args?.firstOrNull));
-}
