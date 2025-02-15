@@ -28,7 +28,7 @@ class ActivityLog with _$ActivityLog {
 }
 
 JsonMap _activityLogPropertiesFromJson(Object? value) {
+  if (value is JsonMap) return value;
   // empty = [] which is not a map
-  if (value is! JsonMap?) return {};
-  return value ?? {};
+  return {};
 }
