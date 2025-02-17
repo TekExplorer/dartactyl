@@ -9,6 +9,5 @@ class AllocationNote with _$AllocationNote {
   const factory AllocationNote({required String notes}) = _AllocationNote;
   const AllocationNote._();
 
-  factory AllocationNote.fromJson(JsonMap json) =>
-      _$AllocationNoteFromJson(json);
+  factory AllocationNote.fromJson(JsonMap json) = _AllocationNote.fromJson;
 }

@@ -19,5 +19,5 @@ class ServerSubuser with _$ServerSubuser {
 
   const ServerSubuser._();
 
-  factory ServerSubuser.fromJson(JsonMap json) => _$ServerSubuserFromJson(json);
+  factory ServerSubuser.fromJson(JsonMap json) = _ServerSubuser.fromJson;
 }

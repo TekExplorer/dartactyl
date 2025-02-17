@@ -14,6 +14,6 @@ class BackupPermissionKeys with _$BackupPermissionKeys {
   }) = _BackupPermissionKeys;
   const BackupPermissionKeys._();
 
-  factory BackupPermissionKeys.fromJson(JsonMap json) =>
-      _$BackupPermissionKeysFromJson(json);
+  factory BackupPermissionKeys.fromJson(JsonMap json) =
+      _BackupPermissionKeys.fromJson;
 }

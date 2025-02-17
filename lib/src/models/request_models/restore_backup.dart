@@ -19,5 +19,5 @@ class RestoreBackup with _$RestoreBackup {
   }) = _RestoreBackup;
   const RestoreBackup._();
 
-  factory RestoreBackup.fromJson(JsonMap json) => _$RestoreBackupFromJson(json);
+  factory RestoreBackup.fromJson(JsonMap json) = _RestoreBackup.fromJson;
 }

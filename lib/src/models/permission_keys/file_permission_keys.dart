@@ -16,6 +16,6 @@ class FilePermissionKeys with _$FilePermissionKeys {
   }) = _FilePermissionKeys;
   const FilePermissionKeys._();
 
-  factory FilePermissionKeys.fromJson(JsonMap json) =>
-      _$FilePermissionKeysFromJson(json);
+  factory FilePermissionKeys.fromJson(JsonMap json) =
+      _FilePermissionKeys.fromJson;
 }

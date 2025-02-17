@@ -10,8 +10,8 @@ class SystemPermissions with _$SystemPermissions {
       _SystemPermissions;
   const SystemPermissions._();
 
-  factory SystemPermissions.fromJson(JsonMap json) =>
-      _$SystemPermissionsFromJson(json);
+  factory SystemPermissions.fromJson(JsonMap json) =
+      _SystemPermissions.fromJson;
 }
 
 @freezed
@@ -30,7 +30,7 @@ class Permissions with _$Permissions {
   }) = _Permissions;
   const Permissions._();
 
-  factory Permissions.fromJson(JsonMap json) => _$PermissionsFromJson(json);
+  factory Permissions.fromJson(JsonMap json) = _Permissions.fromJson;
 }
 
 @Freezed(genericArgumentFactories: true)

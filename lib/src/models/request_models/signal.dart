@@ -8,7 +8,7 @@ part '../../generated/models/request_models/signal.g.dart';
 class Signal with _$Signal {
   const factory Signal({required ServerPowerAction signal}) = _Signal;
   const Signal._();
-  factory Signal.fromJson(JsonMap json) => _$SignalFromJson(json);
+  factory Signal.fromJson(JsonMap json) = _Signal.fromJson;
 }
 
 enum ServerPowerAction { start, stop, restart, kill }

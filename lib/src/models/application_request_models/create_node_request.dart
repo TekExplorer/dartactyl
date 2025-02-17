@@ -37,6 +37,6 @@ class CreateNodeRequest with _$CreateNodeRequest {
   }) = _CreateNodeRequest;
   const CreateNodeRequest._();
 
-  factory CreateNodeRequest.fromJson(JsonMap json) =>
-      _$CreateNodeRequestFromJson(json);
+  factory CreateNodeRequest.fromJson(JsonMap json) =
+      _CreateNodeRequest.fromJson;
 }

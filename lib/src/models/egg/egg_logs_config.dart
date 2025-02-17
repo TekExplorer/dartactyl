@@ -12,5 +12,5 @@ class EggLogsConfig with _$EggLogsConfig {
   }) = _EggLogsConfig;
   const EggLogsConfig._();
 
-  factory EggLogsConfig.fromJson(JsonMap json) => _$EggLogsConfigFromJson(json);
+  factory EggLogsConfig.fromJson(JsonMap json) = _EggLogsConfig.fromJson;
 }

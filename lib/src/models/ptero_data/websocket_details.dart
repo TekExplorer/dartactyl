@@ -12,6 +12,5 @@ class WebsocketDetails with _$WebsocketDetails {
   }) = _WebsocketDetails;
   const WebsocketDetails._();
 
-  factory WebsocketDetails.fromJson(JsonMap json) =>
-      _$WebsocketDetailsFromJson(json);
+  factory WebsocketDetails.fromJson(JsonMap json) = _WebsocketDetails.fromJson;
 }

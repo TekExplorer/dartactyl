@@ -11,6 +11,6 @@ class WebsocketPermissionKeys with _$WebsocketPermissionKeys {
   }) = _WebsocketPermissionKeys;
   const WebsocketPermissionKeys._();
 
-  factory WebsocketPermissionKeys.fromJson(JsonMap json) =>
-      _$WebsocketPermissionKeysFromJson(json);
+  factory WebsocketPermissionKeys.fromJson(JsonMap json) =
+      _WebsocketPermissionKeys.fromJson;
 }

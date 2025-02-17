@@ -14,6 +14,6 @@ class AllocationPermissionKeys with _$AllocationPermissionKeys {
   }) = _AllocationPermissionKeys;
   const AllocationPermissionKeys._();
 
-  factory AllocationPermissionKeys.fromJson(JsonMap json) =>
-      _$AllocationPermissionKeysFromJson(json);
+  factory AllocationPermissionKeys.fromJson(JsonMap json) =
+      _AllocationPermissionKeys.fromJson;
 }

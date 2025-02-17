@@ -16,5 +16,5 @@ class ApiKey with _$ApiKey {
   }) = _ApiKey;
   const ApiKey._();
 
-  factory ApiKey.fromJson(JsonMap json) => _$ApiKeyFromJson(json);
+  factory ApiKey.fromJson(JsonMap json) = _ApiKey.fromJson;
 }

@@ -17,5 +17,5 @@ class Account with _$Account {
   }) = _Account;
   const Account._();
 
-  factory Account.fromJson(JsonMap json) => _$AccountFromJson(json);
+  factory Account.fromJson(JsonMap json) = _Account.fromJson;
 }

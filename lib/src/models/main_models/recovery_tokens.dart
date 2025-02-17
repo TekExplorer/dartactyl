@@ -10,6 +10,5 @@ class RecoveryTokens with _$RecoveryTokens {
   const factory RecoveryTokens({required IList<String> tokens}) =
       _RecoveryTokens;
   const RecoveryTokens._();
-  factory RecoveryTokens.fromJson(JsonMap json) =>
-      _$RecoveryTokensFromJson(json);
+  factory RecoveryTokens.fromJson(JsonMap json) = _RecoveryTokens.fromJson;
 }

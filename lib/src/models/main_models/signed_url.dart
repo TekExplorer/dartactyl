@@ -9,5 +9,5 @@ class SignedUrl with _$SignedUrl {
   const factory SignedUrl({required Uri url}) = _SignedUrl;
   const SignedUrl._();
 
-  factory SignedUrl.fromJson(JsonMap json) => _$SignedUrlFromJson(json);
+  factory SignedUrl.fromJson(JsonMap json) = _SignedUrl.fromJson;
 }

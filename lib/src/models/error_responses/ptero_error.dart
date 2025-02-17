@@ -15,7 +15,7 @@ class PteroError with _$PteroError implements Exception {
     JsonMap? meta,
   }) = _PteroError;
 
-  factory PteroError.fromJson(JsonMap json) => _$PteroErrorFromJson(json);
+  factory PteroError.fromJson(JsonMap json) = _PteroError.fromJson;
   const PteroError._();
   String get message => detail;
 }

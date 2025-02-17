@@ -16,5 +16,5 @@ class Cron with _$Cron {
   }) = _Cron;
   const Cron._();
 
-  factory Cron.fromJson(JsonMap json) => _$CronFromJson(json);
+  factory Cron.fromJson(JsonMap json) = _Cron.fromJson;
 }

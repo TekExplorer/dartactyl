@@ -8,5 +8,5 @@ part '../../generated/models/request_models/two_factor_code.g.dart';
 class TwoFactorCode with _$TwoFactorCode {
   const factory TwoFactorCode({required int code}) = _TwoFactorCode;
   const TwoFactorCode._();
-  factory TwoFactorCode.fromJson(JsonMap json) => _$TwoFactorCodeFromJson(json);
+  factory TwoFactorCode.fromJson(JsonMap json) = _TwoFactorCode.fromJson;
 }

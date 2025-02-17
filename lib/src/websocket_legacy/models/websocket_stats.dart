@@ -17,8 +17,7 @@ class WebsocketStats with _$WebsocketStats {
   }) = _WebsocketStats;
   const WebsocketStats._();
 
-  factory WebsocketStats.fromJson(JsonMap json) =>
-      _$WebsocketStatsFromJson(json);
+  factory WebsocketStats.fromJson(JsonMap json) = _WebsocketStats.fromJson;
 
   ServerPowerState get powerState => state;
 }
@@ -33,6 +32,6 @@ class WebsocketNetworkStats with _$WebsocketNetworkStats {
   }) = _WebsocketNetworkStats;
   const WebsocketNetworkStats._();
 
-  factory WebsocketNetworkStats.fromJson(JsonMap json) =>
-      _$WebsocketNetworkStatsFromJson(json);
+  factory WebsocketNetworkStats.fromJson(JsonMap json) =
+      _WebsocketNetworkStats.fromJson;
 }

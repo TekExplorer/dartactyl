@@ -36,8 +36,8 @@ class UpdateNodeRequest with _$UpdateNodeRequest {
   }) = _UpdateNodeRequest;
   const UpdateNodeRequest._();
 
-  factory UpdateNodeRequest.fromJson(JsonMap json) =>
-      _$UpdateNodeRequestFromJson(json);
+  factory UpdateNodeRequest.fromJson(JsonMap json) =
+      _UpdateNodeRequest.fromJson;
 
   factory UpdateNodeRequest.fromCreateNodeRequest(
     CreateNodeRequest request, {

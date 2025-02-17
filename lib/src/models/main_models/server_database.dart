@@ -12,7 +12,7 @@ class Database with _$Database {
     // DatabasePasswordRelationships? relationships,
   }) = _Database;
   const Database._();
-  factory Database.fromJson(JsonMap json) => _$DatabaseFromJson(json);
+  factory Database.fromJson(JsonMap json) = _Database.fromJson;
 }
 
 @freezed
@@ -29,8 +29,7 @@ class ServerDatabase with _$ServerDatabase {
     DatabasePasswordRelationships? relationships,
   }) = _ServerDatabase;
   const ServerDatabase._();
-  factory ServerDatabase.fromJson(JsonMap json) =>
-      _$ServerDatabaseFromJson(json);
+  factory ServerDatabase.fromJson(JsonMap json) = _ServerDatabase.fromJson;
 
   String? get password => relationships?.password.attributes.password;
 }

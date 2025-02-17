@@ -26,5 +26,5 @@ class Egg with _$Egg {
     // Relationships? relationships,
   }) = _Egg;
   const Egg._();
-  factory Egg.fromJson(JsonMap json) => _$EggFromJson(json);
+  factory Egg.fromJson(JsonMap json) = _Egg.fromJson;
 }

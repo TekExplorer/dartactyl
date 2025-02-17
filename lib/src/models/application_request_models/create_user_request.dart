@@ -14,6 +14,6 @@ class CreateUserRequest with _$CreateUserRequest {
   }) = _CreateUserRequest;
   const CreateUserRequest._();
 
-  factory CreateUserRequest.fromJson(JsonMap json) =>
-      _$CreateUserRequestFromJson(json);
+  factory CreateUserRequest.fromJson(JsonMap json) =
+      _CreateUserRequest.fromJson;
 }

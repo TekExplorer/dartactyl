@@ -18,6 +18,5 @@ class RequestSchedule with _$RequestSchedule {
   }) = _RequestSchedule;
   const RequestSchedule._();
 
-  factory RequestSchedule.fromJson(JsonMap json) =>
-      _$RequestScheduleFromJson(json);
+  factory RequestSchedule.fromJson(JsonMap json) = _RequestSchedule.fromJson;
 }

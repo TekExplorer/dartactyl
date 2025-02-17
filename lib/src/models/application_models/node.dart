@@ -32,7 +32,7 @@ class Node with _$Node {
   }) = _Node;
   const Node._();
 
-  factory Node.fromJson(JsonMap json) => _$NodeFromJson(json);
+  factory Node.fromJson(JsonMap json) = _Node.fromJson;
 }
 
 @freezed
@@ -44,6 +44,6 @@ class NodeRelationships with _$NodeRelationships {
   }) = _NodeRelationships;
   const NodeRelationships._();
 
-  factory NodeRelationships.fromJson(JsonMap json) =>
-      _$NodeRelationshipsFromJson(json);
+  factory NodeRelationships.fromJson(JsonMap json) =
+      _NodeRelationships.fromJson;
 }

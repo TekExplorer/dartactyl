@@ -19,5 +19,5 @@ class ScheduleTask with _$ScheduleTask {
   }) = _ScheduleTask;
   const ScheduleTask._();
 
-  factory ScheduleTask.fromJson(JsonMap json) => _$ScheduleTaskFromJson(json);
+  factory ScheduleTask.fromJson(JsonMap json) = _ScheduleTask.fromJson;
 }

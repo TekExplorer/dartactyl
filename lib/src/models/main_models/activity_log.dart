@@ -24,7 +24,7 @@ class ActivityLog with _$ActivityLog {
   }) = _ActivityLog;
   const ActivityLog._();
 
-  factory ActivityLog.fromJson(JsonMap json) => _$ActivityLogFromJson(json);
+  factory ActivityLog.fromJson(JsonMap json) = _ActivityLog.fromJson;
 }
 
 JsonMap _activityLogPropertiesFromJson(Object? value) {

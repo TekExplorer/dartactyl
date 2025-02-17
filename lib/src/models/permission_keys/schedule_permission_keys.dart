@@ -14,6 +14,6 @@ class SchedulePermissionKeys with _$SchedulePermissionKeys {
   }) = _SchedulePermissionKeys;
   const SchedulePermissionKeys._();
 
-  factory SchedulePermissionKeys.fromJson(JsonMap json) =>
-      _$SchedulePermissionKeysFromJson(json);
+  factory SchedulePermissionKeys.fromJson(JsonMap json) =
+      _SchedulePermissionKeys.fromJson;
 }

@@ -15,6 +15,6 @@ class DatabasePermissionKeys with _$DatabasePermissionKeys {
   }) = _DatabasePermissionKeys;
   const DatabasePermissionKeys._();
 
-  factory DatabasePermissionKeys.fromJson(JsonMap json) =>
-      _$DatabasePermissionKeysFromJson(json);
+  factory DatabasePermissionKeys.fromJson(JsonMap json) =
+      _DatabasePermissionKeys.fromJson;
 }

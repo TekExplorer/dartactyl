@@ -9,5 +9,5 @@ class DeleteSSHKey with _$DeleteSSHKey {
   const factory DeleteSSHKey({required String fingerprint}) = _DeleteSSHKey;
   const DeleteSSHKey._();
 
-  factory DeleteSSHKey.fromJson(JsonMap json) => _$DeleteSSHKeyFromJson(json);
+  factory DeleteSSHKey.fromJson(JsonMap json) = _DeleteSSHKey.fromJson;
 }

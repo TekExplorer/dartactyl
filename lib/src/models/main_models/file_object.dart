@@ -36,7 +36,7 @@ class FileObject with _$FileObject {
     required DateTime modifiedAt,
   }) = _FileObject;
   const FileObject._();
-  factory FileObject.fromJson(JsonMap json) => _$FileObjectFromJson(json);
+  factory FileObject.fromJson(JsonMap json) = _FileObject.fromJson;
 
   // /// Translates file codes (ie: 0755) to a string representation. ex: 'drwxr-xr-x'
   // String get modeString {

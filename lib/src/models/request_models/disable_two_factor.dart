@@ -12,6 +12,5 @@ class DisableTwoFactor with _$DisableTwoFactor {
   }) = _DisableTwoFactor;
   const DisableTwoFactor._();
 
-  factory DisableTwoFactor.fromJson(JsonMap json) =>
-      _$DisableTwoFactorFromJson(json);
+  factory DisableTwoFactor.fromJson(JsonMap json) = _DisableTwoFactor.fromJson;
 }

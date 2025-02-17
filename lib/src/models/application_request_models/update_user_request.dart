@@ -18,8 +18,8 @@ class UpdateUserRequest with _$UpdateUserRequest {
   }) = _UpdateUserRequest;
   const UpdateUserRequest._();
 
-  factory UpdateUserRequest.fromJson(JsonMap json) =>
-      _$UpdateUserRequestFromJson(json);
+  factory UpdateUserRequest.fromJson(JsonMap json) =
+      _UpdateUserRequest.fromJson;
 
   factory UpdateUserRequest.fromCreateUserRequest(
     CreateUserRequest request, {

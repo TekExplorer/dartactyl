@@ -16,6 +16,6 @@ class ApplicationAllocation with _$ApplicationAllocation {
   }) = _ApplicationAllocation;
   const ApplicationAllocation._();
 
-  factory ApplicationAllocation.fromJson(JsonMap json) =>
-      _$ApplicationAllocationFromJson(json);
+  factory ApplicationAllocation.fromJson(JsonMap json) =
+      _ApplicationAllocation.fromJson;
 }

@@ -20,5 +20,5 @@ class Backup with _$Backup {
   }) = _Backup;
   const Backup._();
 
-  factory Backup.fromJson(JsonMap json) => _$BackupFromJson(json);
+  factory Backup.fromJson(JsonMap json) = _Backup.fromJson;
 }

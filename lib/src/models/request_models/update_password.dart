@@ -13,6 +13,5 @@ class UpdatePassword with _$UpdatePassword {
   }) = _UpdatePassword;
   const UpdatePassword._();
 
-  factory UpdatePassword.fromJson(JsonMap json) =>
-      _$UpdatePasswordFromJson(json);
+  factory UpdatePassword.fromJson(JsonMap json) = _UpdatePassword.fromJson;
 }

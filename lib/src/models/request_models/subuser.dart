@@ -12,7 +12,7 @@ class Subuser with _$Subuser {
   }) = _Subuser;
   const Subuser._();
 
-  factory Subuser.fromJson(JsonMap json) => _$SubuserFromJson(json);
+  factory Subuser.fromJson(JsonMap json) = _Subuser.fromJson;
 }
 
 @freezed
@@ -21,6 +21,6 @@ class SubuserPermissions with _$SubuserPermissions {
       _SubuserPermissions;
   const SubuserPermissions._();
 
-  factory SubuserPermissions.fromJson(JsonMap json) =>
-      _$SubuserPermissionsFromJson(json);
+  factory SubuserPermissions.fromJson(JsonMap json) =
+      _SubuserPermissions.fromJson;
 }

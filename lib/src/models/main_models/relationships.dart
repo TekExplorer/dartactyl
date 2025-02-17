@@ -11,8 +11,8 @@ class DatabasePasswordRelationships with _$DatabasePasswordRelationships {
   }) = _DatabasePasswordRelationships;
   const DatabasePasswordRelationships._();
 
-  factory DatabasePasswordRelationships.fromJson(JsonMap json) =>
-      _$DatabasePasswordRelationshipsFromJson(json);
+  factory DatabasePasswordRelationships.fromJson(JsonMap json) =
+      _DatabasePasswordRelationships.fromJson;
 }
 
 @freezed // on server
@@ -25,8 +25,8 @@ class ServerRelationships with _$ServerRelationships {
   }) = _ServerRelationships;
   const ServerRelationships._();
 
-  factory ServerRelationships.fromJson(JsonMap json) =>
-      _$ServerRelationshipsFromJson(json);
+  factory ServerRelationships.fromJson(JsonMap json) =
+      _ServerRelationships.fromJson;
 }
 
 @freezed // on server_schedule
@@ -36,8 +36,8 @@ class ServerScheduleRelationships with _$ServerScheduleRelationships {
   }) = _ServerScheduleRelationships;
   const ServerScheduleRelationships._();
 
-  factory ServerScheduleRelationships.fromJson(JsonMap json) =>
-      _$ServerScheduleRelationshipsFromJson(json);
+  factory ServerScheduleRelationships.fromJson(JsonMap json) =
+      _ServerScheduleRelationships.fromJson;
 }
 
 @freezed
@@ -47,6 +47,6 @@ class ActivityLogRelationships with _$ActivityLogRelationships {
   }) = _ActivityLogRelationships;
   const ActivityLogRelationships._();
 
-  factory ActivityLogRelationships.fromJson(JsonMap json) =>
-      _$ActivityLogRelationshipsFromJson(json);
+  factory ActivityLogRelationships.fromJson(JsonMap json) =
+      _ActivityLogRelationships.fromJson;
 }

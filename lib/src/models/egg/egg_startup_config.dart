@@ -9,6 +9,5 @@ class EggStartupConfig with _$EggStartupConfig {
   const factory EggStartupConfig({required String done}) = _EggStartupConfig;
   const EggStartupConfig._();
 
-  factory EggStartupConfig.fromJson(JsonMap json) =>
-      _$EggStartupConfigFromJson(json);
+  factory EggStartupConfig.fromJson(JsonMap json) = _EggStartupConfig.fromJson;
 }

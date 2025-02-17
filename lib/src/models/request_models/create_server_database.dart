@@ -12,6 +12,6 @@ class CreateServerDatabase with _$CreateServerDatabase {
   }) = _CreateServerDatabase;
   const CreateServerDatabase._();
 
-  factory CreateServerDatabase.fromJson(JsonMap json) =>
-      _$CreateServerDatabaseFromJson(json);
+  factory CreateServerDatabase.fromJson(JsonMap json) =
+      _CreateServerDatabase.fromJson;
 }

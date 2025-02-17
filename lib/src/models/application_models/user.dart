@@ -25,8 +25,7 @@ class ApplicationUser with _$ApplicationUser {
   }) = _ApplicationUser;
   const ApplicationUser._();
 
-  factory ApplicationUser.fromJson(JsonMap json) =>
-      _$ApplicationUserFromJson(json);
+  factory ApplicationUser.fromJson(JsonMap json) = _ApplicationUser.fromJson;
 }
 
 @freezed
@@ -36,6 +35,6 @@ class ApplicationUserRelationships with _$ApplicationUserRelationships {
   }) = _ApplicationUserRelationships;
   const ApplicationUserRelationships._();
 
-  factory ApplicationUserRelationships.fromJson(JsonMap json) =>
-      _$ApplicationUserRelationshipsFromJson(json);
+  factory ApplicationUserRelationships.fromJson(JsonMap json) =
+      _ApplicationUserRelationships.fromJson;
 }

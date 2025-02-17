@@ -14,5 +14,5 @@ class EggScript with _$EggScript {
     required Object? scriptExtends,
   }) = _EggScript;
   const EggScript._();
-  factory EggScript.fromJson(JsonMap json) => _$EggScriptFromJson(json);
+  factory EggScript.fromJson(JsonMap json) = _EggScript.fromJson;
 }

@@ -17,5 +17,5 @@ class ServerLimits with _$ServerLimits {
   }) = _ServerLimits;
   const ServerLimits._();
 
-  factory ServerLimits.fromJson(JsonMap json) => _$ServerLimitsFromJson(json);
+  factory ServerLimits.fromJson(JsonMap json) = _ServerLimits.fromJson;
 }

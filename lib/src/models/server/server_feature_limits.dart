@@ -13,6 +13,6 @@ class ServerFeatureLimits with _$ServerFeatureLimits {
   }) = _ServerFeatureLimits;
   const ServerFeatureLimits._();
 
-  factory ServerFeatureLimits.fromJson(JsonMap json) =>
-      _$ServerFeatureLimitsFromJson(json);
+  factory ServerFeatureLimits.fromJson(JsonMap json) =
+      _ServerFeatureLimits.fromJson;
 }

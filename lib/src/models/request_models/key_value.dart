@@ -12,5 +12,5 @@ class KeyValue with _$KeyValue {
   }) = _KeyValue;
   const KeyValue._();
 
-  factory KeyValue.fromJson(JsonMap json) => _$KeyValueFromJson(json);
+  factory KeyValue.fromJson(JsonMap json) = _KeyValue.fromJson;
 }

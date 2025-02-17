@@ -29,5 +29,5 @@ class PullFileBody with _$PullFileBody {
   }) = _PullFileBody;
   const PullFileBody._();
 
-  factory PullFileBody.fromJson(JsonMap json) => _$PullFileBodyFromJson(json);
+  factory PullFileBody.fromJson(JsonMap json) = _PullFileBody.fromJson;
 }

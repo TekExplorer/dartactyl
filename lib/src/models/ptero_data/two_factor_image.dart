@@ -12,6 +12,5 @@ class TwoFactorImage with _$TwoFactorImage {
   }) = _TwoFactorImage;
   const TwoFactorImage._();
 
-  factory TwoFactorImage.fromJson(JsonMap json) =>
-      _$TwoFactorImageFromJson(json);
+  factory TwoFactorImage.fromJson(JsonMap json) = _TwoFactorImage.fromJson;
 }

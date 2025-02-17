@@ -12,6 +12,6 @@ class StartupPermissionKeys with _$StartupPermissionKeys {
   }) = _StartupPermissionKeys;
   const StartupPermissionKeys._();
 
-  factory StartupPermissionKeys.fromJson(JsonMap json) =>
-      _$StartupPermissionKeysFromJson(json);
+  factory StartupPermissionKeys.fromJson(JsonMap json) =
+      _StartupPermissionKeys.fromJson;
 }

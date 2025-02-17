@@ -18,7 +18,7 @@ class PaginatedMeta with _$PaginatedMeta implements Meta, PaginationMixin {
   const factory PaginatedMeta({required Pagination pagination}) =
       _PaginatedMeta;
   const PaginatedMeta._();
-  factory PaginatedMeta.fromJson(JsonMap json) => _$PaginatedMetaFromJson(json);
+  factory PaginatedMeta.fromJson(JsonMap json) = _PaginatedMeta.fromJson;
 }
 
 /// Shows on `listBackups`
@@ -33,8 +33,8 @@ class PaginatedBackupsMeta
   }) = _PaginatedBackupsMeta;
   const PaginatedBackupsMeta._();
 
-  factory PaginatedBackupsMeta.fromJson(JsonMap json) =>
-      _$PaginatedBackupsMetaFromJson(json);
+  factory PaginatedBackupsMeta.fromJson(JsonMap json) =
+      _PaginatedBackupsMeta.fromJson;
 }
 
 /// shows on `getServerDetails`
@@ -45,7 +45,7 @@ class ServerMeta with _$ServerMeta implements Meta {
     required IList<String> userPermissions,
   }) = _ServerMeta;
   const ServerMeta._();
-  factory ServerMeta.fromJson(JsonMap json) => _$ServerMetaFromJson(json);
+  factory ServerMeta.fromJson(JsonMap json) = _ServerMeta.fromJson;
 }
 
 /// Shows up on `listVariables`
@@ -57,7 +57,7 @@ class StartupMeta with _$StartupMeta implements Meta {
     required IMap<String, String> dockerImages,
   }) = _StartupMeta;
   const StartupMeta._();
-  factory StartupMeta.fromJson(JsonMap json) => _$StartupMetaFromJson(json);
+  factory StartupMeta.fromJson(JsonMap json) = _StartupMeta.fromJson;
 }
 
 /// Shows on `createApiKey`
@@ -65,7 +65,7 @@ class StartupMeta with _$StartupMeta implements Meta {
 class ApiKeyMeta with _$ApiKeyMeta implements Meta {
   const factory ApiKeyMeta({required String secretToken}) = _ApiKeyMeta;
   const ApiKeyMeta._();
-  factory ApiKeyMeta.fromJson(JsonMap json) => _$ApiKeyMetaFromJson(json);
+  factory ApiKeyMeta.fromJson(JsonMap json) = _ApiKeyMeta.fromJson;
 }
 
 /// Shows on `application.createNode`
@@ -73,5 +73,5 @@ class ApiKeyMeta with _$ApiKeyMeta implements Meta {
 class ResourceMeta with _$ResourceMeta implements Meta {
   const factory ResourceMeta({required Uri resource}) = _ResourceMeta;
   const ResourceMeta._();
-  factory ResourceMeta.fromJson(JsonMap json) => _$ResourceMetaFromJson(json);
+  factory ResourceMeta.fromJson(JsonMap json) = _ResourceMeta.fromJson;
 }

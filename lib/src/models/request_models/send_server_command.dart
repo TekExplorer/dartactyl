@@ -9,6 +9,6 @@ class SendServerCommand with _$SendServerCommand {
   const factory SendServerCommand({required String command}) =
       _SendServerCommand;
   const SendServerCommand._();
-  factory SendServerCommand.fromJson(JsonMap json) =>
-      _$SendServerCommandFromJson(json);
+  factory SendServerCommand.fromJson(JsonMap json) =
+      _SendServerCommand.fromJson;
 }

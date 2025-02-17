@@ -13,5 +13,5 @@ class CreateBackup with _$CreateBackup {
   }) = _CreateBackup;
   const CreateBackup._();
 
-  factory CreateBackup.fromJson(JsonMap json) => _$CreateBackupFromJson(json);
+  factory CreateBackup.fromJson(JsonMap json) = _CreateBackup.fromJson;
 }

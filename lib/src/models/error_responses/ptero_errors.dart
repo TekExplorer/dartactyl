@@ -9,5 +9,5 @@ part '../../generated/models/error_responses/ptero_errors.g.dart';
 class PteroErrors with _$PteroErrors {
   const factory PteroErrors({required IList<PteroError> errors}) = _PteroErrors;
   const PteroErrors._();
-  factory PteroErrors.fromJson(JsonMap json) => _$PteroErrorsFromJson(json);
+  factory PteroErrors.fromJson(JsonMap json) = _PteroErrors.fromJson;
 }

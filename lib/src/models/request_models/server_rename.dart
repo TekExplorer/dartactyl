@@ -11,5 +11,5 @@ class Rename with _$Rename {
   const factory Rename({required String name, required String? description}) =
       _Rename;
   const Rename._();
-  factory Rename.fromJson(JsonMap json) => _$RenameFromJson(json);
+  factory Rename.fromJson(JsonMap json) = _Rename.fromJson;
 }

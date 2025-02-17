@@ -14,6 +14,6 @@ class UserPermissionKeys with _$UserPermissionKeys {
   }) = _UserPermissionKeys;
   const UserPermissionKeys._();
 
-  factory UserPermissionKeys.fromJson(JsonMap json) =>
-      _$UserPermissionKeysFromJson(json);
+  factory UserPermissionKeys.fromJson(JsonMap json) =
+      _UserPermissionKeys.fromJson;
 }

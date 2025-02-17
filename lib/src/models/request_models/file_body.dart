@@ -13,7 +13,7 @@ class FileBody with _$FileBody {
   }) = _FileBody;
   const FileBody._();
 
-  factory FileBody.fromJson(JsonMap json) => _$FileBodyFromJson(json);
+  factory FileBody.fromJson(JsonMap json) = _FileBody.fromJson;
 }
 
 @freezed
@@ -25,8 +25,8 @@ class FileBodyListFromTo with _$FileBodyListFromTo {
   }) = _FileBodyListFromTo;
   const FileBodyListFromTo._();
 
-  factory FileBodyListFromTo.fromJson(JsonMap json) =>
-      _$FileBodyListFromToFromJson(json);
+  factory FileBodyListFromTo.fromJson(JsonMap json) =
+      _FileBodyListFromTo.fromJson;
 }
 
 @freezed
@@ -38,8 +38,8 @@ class FileBodyListString with _$FileBodyListString {
   }) = _FileBodyListString;
   const FileBodyListString._();
 
-  factory FileBodyListString.fromJson(JsonMap json) =>
-      _$FileBodyListStringFromJson(json);
+  factory FileBodyListString.fromJson(JsonMap json) =
+      _FileBodyListString.fromJson;
 }
 
 /*
@@ -63,5 +63,5 @@ class FolderBody with _$FolderBody {
   }) = _FolderBody;
   const FolderBody._();
 
-  factory FolderBody.fromJson(JsonMap json) => _$FolderBodyFromJson(json);
+  factory FolderBody.fromJson(JsonMap json) = _FolderBody.fromJson;
 }

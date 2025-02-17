@@ -16,5 +16,5 @@ class EggVariable with _$EggVariable {
     required String rules,
   }) = _EggVariable;
   const EggVariable._();
-  factory EggVariable.fromJson(JsonMap json) => _$EggVariableFromJson(json);
+  factory EggVariable.fromJson(JsonMap json) = _EggVariable.fromJson;
 }

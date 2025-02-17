@@ -17,5 +17,5 @@ class User with _$User {
   }) = _User;
   const User._();
 
-  factory User.fromJson(JsonMap json) => _$UserFromJson(json);
+  factory User.fromJson(JsonMap json) = _User.fromJson;
 }

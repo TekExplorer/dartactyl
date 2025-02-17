@@ -13,7 +13,7 @@ class Task with _$Task {
   }) = _Task;
   const Task._();
 
-  factory Task.fromJson(JsonMap json) => _$TaskFromJson(json);
+  factory Task.fromJson(JsonMap json) = _Task.fromJson;
 }
 
 enum Action { command, power, backup }

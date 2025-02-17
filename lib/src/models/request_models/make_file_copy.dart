@@ -11,6 +11,6 @@ class MakeFileCopy with _$MakeFileCopy {
   // MakeFileCopy({required this.location});
   const MakeFileCopy._();
 
-  factory MakeFileCopy.fromJson(JsonMap json) => _$MakeFileCopyFromJson(json);
+  factory MakeFileCopy.fromJson(JsonMap json) = _MakeFileCopy.fromJson;
   // JsonMap toJson() => _$MakeFileCopyToJson(this);
 }

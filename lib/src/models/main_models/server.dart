@@ -29,7 +29,7 @@ class Server with _$Server {
   }) = _Server;
   const Server._();
 
-  factory Server.fromJson(JsonMap json) => _$ServerFromJson(json);
+  factory Server.fromJson(JsonMap json) = _Server.fromJson;
 }
 
 enum ServerStatus {

@@ -12,5 +12,5 @@ class FromTo with _$FromTo {
   }) = _FromTo;
   const FromTo._();
 
-  factory FromTo.fromJson(JsonMap json) => _$FromToFromJson(json);
+  factory FromTo.fromJson(JsonMap json) = _FromTo.fromJson;
 }

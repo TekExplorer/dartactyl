@@ -8,5 +8,5 @@ part '../../generated/models/request_models/update_image.g.dart';
 class UpdateImage with _$UpdateImage {
   const factory UpdateImage({required String dockerImage}) = _UpdateImage;
   const UpdateImage._();
-  factory UpdateImage.fromJson(JsonMap json) => _$UpdateImageFromJson(json);
+  factory UpdateImage.fromJson(JsonMap json) = _UpdateImage.fromJson;
 }

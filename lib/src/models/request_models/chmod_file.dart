@@ -13,7 +13,7 @@ class ChmodFileBody with _$ChmodFileBody {
   }) = _ChmodFileBody;
   const ChmodFileBody._();
 
-  factory ChmodFileBody.fromJson(JsonMap json) => _$ChmodFileBodyFromJson(json);
+  factory ChmodFileBody.fromJson(JsonMap json) = _ChmodFileBody.fromJson;
 }
 
 @freezed
@@ -24,5 +24,5 @@ class ChmodFile with _$ChmodFile {
   }) = _ChmodFile;
   const ChmodFile._();
 
-  factory ChmodFile.fromJson(JsonMap json) => _$ChmodFileFromJson(json);
+  factory ChmodFile.fromJson(JsonMap json) = _ChmodFile.fromJson;
 }

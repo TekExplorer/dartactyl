@@ -16,5 +16,5 @@ class Allocation with _$Allocation {
   }) = _Allocation;
   const Allocation._();
 
-  factory Allocation.fromJson(JsonMap json) => _$AllocationFromJson(json);
+  factory Allocation.fromJson(JsonMap json) = _Allocation.fromJson;
 }

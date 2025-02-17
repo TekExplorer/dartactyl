@@ -12,5 +12,5 @@ class SftpDetails with _$SftpDetails {
   }) = _SftpDetails;
   const SftpDetails._();
 
-  factory SftpDetails.fromJson(JsonMap json) => _$SftpDetailsFromJson(json);
+  factory SftpDetails.fromJson(JsonMap json) = _SftpDetails.fromJson;
 }

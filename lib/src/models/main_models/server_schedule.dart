@@ -19,6 +19,5 @@ class ServerSchedule with _$ServerSchedule {
     required DateTime updatedAt,
   }) = _ServerSchedule;
   const ServerSchedule._();
-  factory ServerSchedule.fromJson(JsonMap json) =>
-      _$ServerScheduleFromJson(json);
+  factory ServerSchedule.fromJson(JsonMap json) = _ServerSchedule.fromJson;
 }

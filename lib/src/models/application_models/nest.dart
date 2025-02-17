@@ -16,5 +16,5 @@ class Nest with _$Nest {
     required DateTime updatedAt,
   }) = _Nest;
   const Nest._();
-  factory Nest.fromJson(JsonMap json) => _$NestFromJson(json);
+  factory Nest.fromJson(JsonMap json) = _Nest.fromJson;
 }

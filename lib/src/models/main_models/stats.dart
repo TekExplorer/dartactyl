@@ -26,7 +26,7 @@ class Stats with _$Stats {
   }) = _Stats;
   const Stats._();
 
-  factory Stats.fromJson(JsonMap json) => _$StatsFromJson(json);
+  factory Stats.fromJson(JsonMap json) = _Stats.fromJson;
 }
 
 @freezed
@@ -45,8 +45,7 @@ class StatsResources with _$StatsResources {
   }) = _StatsResources;
   const StatsResources._();
 
-  factory StatsResources.fromJson(JsonMap json) =>
-      _$StatsResourcesFromJson(json);
+  factory StatsResources.fromJson(JsonMap json) = _StatsResources.fromJson;
 
 //DateTime get uptimeAsDateTime => DateTime.fromMillisecondsSinceEpoch(uptime!);
 }

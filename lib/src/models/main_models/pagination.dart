@@ -8,7 +8,7 @@ part '../../generated/models/main_models/pagination.g.dart';
 class Links with _$Links {
   const factory Links({String? previous, String? next}) = _Links;
   const Links._();
-  factory Links.fromJson(JsonMap json) => _$LinksFromJson(json);
+  factory Links.fromJson(JsonMap json) = _Links.fromJson;
 }
 
 @freezed
@@ -22,5 +22,5 @@ class Pagination with _$Pagination {
     required Links links,
   }) = _Pagination;
   const Pagination._();
-  factory Pagination.fromJson(JsonMap json) => _$PaginationFromJson(json);
+  factory Pagination.fromJson(JsonMap json) = _Pagination.fromJson;
 }

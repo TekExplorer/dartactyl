@@ -12,6 +12,6 @@ class CreateApiKey with _$CreateApiKey {
   }) = _CreateApiKey;
   const CreateApiKey._();
 
-  factory CreateApiKey.fromJson(JsonMap json) => _$CreateApiKeyFromJson(json);
+  factory CreateApiKey.fromJson(JsonMap json) = _CreateApiKey.fromJson;
   // JsonMap toJson() => _$CreateApiKeyToJson(this);
 }

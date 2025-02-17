@@ -15,5 +15,5 @@ class Location with _$Location {
   }) = _Location;
   const Location._();
 
-  factory Location.fromJson(JsonMap json) => _$LocationFromJson(json);
+  factory Location.fromJson(JsonMap json) = _Location.fromJson;
 }

@@ -12,5 +12,5 @@ class UpdateEmail with _$UpdateEmail {
   }) = _UpdateEmail;
   const UpdateEmail._();
 
-  factory UpdateEmail.fromJson(JsonMap json) => _$UpdateEmailFromJson(json);
+  factory UpdateEmail.fromJson(JsonMap json) = _UpdateEmail.fromJson;
 }

@@ -19,5 +19,5 @@ class Databases with _$Databases {
   }) = _Databases;
   const Databases._();
 
-  factory Databases.fromJson(JsonMap json) => _$DatabasesFromJson(json);
+  factory Databases.fromJson(JsonMap json) = _Databases.fromJson;
 }

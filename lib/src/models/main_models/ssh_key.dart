@@ -14,5 +14,5 @@ class SshKey with _$SshKey {
   }) = _SshKey;
   const SshKey._();
 
-  factory SshKey.fromJson(JsonMap json) => _$SshKeyFromJson(json);
+  factory SshKey.fromJson(JsonMap json) = _SshKey.fromJson;
 }

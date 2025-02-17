@@ -30,8 +30,8 @@ class ApplicationServer with _$ApplicationServer {
   // https://github.com/pterodactyl/panel/blob/1.0-develop/app/Transformers/Api/Application/ServerTransformer.php
   const ApplicationServer._();
 
-  factory ApplicationServer.fromJson(JsonMap json) =>
-      _$ApplicationServerFromJson(json);
+  factory ApplicationServer.fromJson(JsonMap json) =
+      _ApplicationServer.fromJson;
 }
 
 @freezed
@@ -44,8 +44,8 @@ class ApplicationServerContainer with _$ApplicationServerContainer {
   }) = _ApplicationServerContainer;
   const ApplicationServerContainer._();
 
-  factory ApplicationServerContainer.fromJson(JsonMap json) =>
-      _$ApplicationServerContainerFromJson(json);
+  factory ApplicationServerContainer.fromJson(JsonMap json) =
+      _ApplicationServerContainer.fromJson;
 }
 
 @freezed
@@ -58,6 +58,6 @@ class ApplicationServerRelationships with _$ApplicationServerRelationships {
   // https://github.com/pterodactyl/panel/blob/1.0-develop/app/Transformers/Api/Application/ServerTransformer.php
   const ApplicationServerRelationships._();
 
-  factory ApplicationServerRelationships.fromJson(JsonMap json) =>
-      _$ApplicationServerRelationshipsFromJson(json);
+  factory ApplicationServerRelationships.fromJson(JsonMap json) =
+      _ApplicationServerRelationships.fromJson;
 }

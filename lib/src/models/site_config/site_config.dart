@@ -12,7 +12,7 @@ class Recaptcha with _$Recaptcha {
   }) = _Recaptcha;
   const Recaptcha._();
 
-  factory Recaptcha.fromJson(JsonMap json) => _$RecaptchaFromJson(json);
+  factory Recaptcha.fromJson(JsonMap json) = _Recaptcha.fromJson;
 }
 
 @freezed
@@ -24,5 +24,5 @@ class SiteConfig with _$SiteConfig {
   }) = _SiteConfig;
   const SiteConfig._();
 
-  factory SiteConfig.fromJson(JsonMap json) => _$SiteConfigFromJson(json);
+  factory SiteConfig.fromJson(JsonMap json) = _SiteConfig.fromJson;
 }

@@ -12,6 +12,6 @@ class SettingsPermissionKeys with _$SettingsPermissionKeys {
   }) = _SettingsPermissionKeys;
   const SettingsPermissionKeys._();
 
-  factory SettingsPermissionKeys.fromJson(JsonMap json) =>
-      _$SettingsPermissionKeysFromJson(json);
+  factory SettingsPermissionKeys.fromJson(JsonMap json) =
+      _SettingsPermissionKeys.fromJson;
 }

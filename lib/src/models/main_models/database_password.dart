@@ -9,6 +9,5 @@ class DatabasePassword with _$DatabasePassword {
   const factory DatabasePassword({required String password}) =
       _DatabasePassword;
   const DatabasePassword._();
-  factory DatabasePassword.fromJson(JsonMap json) =>
-      _$DatabasePasswordFromJson(json);
+  factory DatabasePassword.fromJson(JsonMap json) = _DatabasePassword.fromJson;
 }
