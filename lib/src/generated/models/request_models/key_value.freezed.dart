@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,161 +10,142 @@ part of '../../../models/request_models/key_value.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-KeyValue _$KeyValueFromJson(Map<String, dynamic> json) {
-  return _KeyValue.fromJson(json);
-}
 
 /// @nodoc
 mixin _$KeyValue {
-  String get key => throw _privateConstructorUsedError;
-  String get value => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $KeyValueCopyWith<KeyValue> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get key; String get value;
+/// Create a copy of KeyValue
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$KeyValueCopyWith<KeyValue> get copyWith => _$KeyValueCopyWithImpl<KeyValue>(this as KeyValue, _$identity);
+
+  /// Serializes this KeyValue to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is KeyValue&&(identical(other.key, key) || other.key == key)&&(identical(other.value, value) || other.value == value));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,key,value);
+
+@override
+String toString() {
+  return 'KeyValue(key: $key, value: $value)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $KeyValueCopyWith<$Res> {
-  factory $KeyValueCopyWith(KeyValue value, $Res Function(KeyValue) then) =
-      _$KeyValueCopyWithImpl<$Res, KeyValue>;
-  @useResult
-  $Res call({String key, String value});
-}
+abstract mixin class $KeyValueCopyWith<$Res>  {
+  factory $KeyValueCopyWith(KeyValue value, $Res Function(KeyValue) _then) = _$KeyValueCopyWithImpl;
+@useResult
+$Res call({
+ String key, String value
+});
 
+
+
+
+}
 /// @nodoc
-class _$KeyValueCopyWithImpl<$Res, $Val extends KeyValue>
+class _$KeyValueCopyWithImpl<$Res>
     implements $KeyValueCopyWith<$Res> {
-  _$KeyValueCopyWithImpl(this._value, this._then);
+  _$KeyValueCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final KeyValue _self;
+  final $Res Function(KeyValue) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? key = null,
-    Object? value = null,
-  }) {
-    return _then(_value.copyWith(
-      key: null == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as String,
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of KeyValue
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? key = null,Object? value = null,}) {
+  return _then(_self.copyWith(
+key: null == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
+as String,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$KeyValueImplCopyWith<$Res>
-    implements $KeyValueCopyWith<$Res> {
-  factory _$$KeyValueImplCopyWith(
-          _$KeyValueImpl value, $Res Function(_$KeyValueImpl) then) =
-      __$$KeyValueImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String key, String value});
 }
 
-/// @nodoc
-class __$$KeyValueImplCopyWithImpl<$Res>
-    extends _$KeyValueCopyWithImpl<$Res, _$KeyValueImpl>
-    implements _$$KeyValueImplCopyWith<$Res> {
-  __$$KeyValueImplCopyWithImpl(
-      _$KeyValueImpl _value, $Res Function(_$KeyValueImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? key = null,
-    Object? value = null,
-  }) {
-    return _then(_$KeyValueImpl(
-      key: null == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as String,
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$KeyValueImpl extends _KeyValue {
-  const _$KeyValueImpl({required this.key, required this.value}) : super._();
 
-  factory _$KeyValueImpl.fromJson(Map<String, dynamic> json) =>
-      _$$KeyValueImplFromJson(json);
+class _KeyValue implements KeyValue {
+  const _KeyValue({required this.key, required this.value});
+  factory _KeyValue.fromJson(Map<String, dynamic> json) => _$KeyValueFromJson(json);
 
-  @override
-  final String key;
-  @override
-  final String value;
+@override final  String key;
+@override final  String value;
 
-  @override
-  String toString() {
-    return 'KeyValue(key: $key, value: $value)';
-  }
+/// Create a copy of KeyValue
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$KeyValueCopyWith<_KeyValue> get copyWith => __$KeyValueCopyWithImpl<_KeyValue>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$KeyValueImpl &&
-            (identical(other.key, key) || other.key == key) &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, key, value);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$KeyValueImplCopyWith<_$KeyValueImpl> get copyWith =>
-      __$$KeyValueImplCopyWithImpl<_$KeyValueImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$KeyValueImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$KeyValueToJson(this, );
 }
 
-abstract class _KeyValue extends KeyValue {
-  const factory _KeyValue(
-      {required final String key,
-      required final String value}) = _$KeyValueImpl;
-  const _KeyValue._() : super._();
-
-  factory _KeyValue.fromJson(Map<String, dynamic> json) =
-      _$KeyValueImpl.fromJson;
-
-  @override
-  String get key;
-  @override
-  String get value;
-  @override
-  @JsonKey(ignore: true)
-  _$$KeyValueImplCopyWith<_$KeyValueImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _KeyValue&&(identical(other.key, key) || other.key == key)&&(identical(other.value, value) || other.value == value));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,key,value);
+
+@override
+String toString() {
+  return 'KeyValue(key: $key, value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$KeyValueCopyWith<$Res> implements $KeyValueCopyWith<$Res> {
+  factory _$KeyValueCopyWith(_KeyValue value, $Res Function(_KeyValue) _then) = __$KeyValueCopyWithImpl;
+@override @useResult
+$Res call({
+ String key, String value
+});
+
+
+
+
+}
+/// @nodoc
+class __$KeyValueCopyWithImpl<$Res>
+    implements _$KeyValueCopyWith<$Res> {
+  __$KeyValueCopyWithImpl(this._self, this._then);
+
+  final _KeyValue _self;
+  final $Res Function(_KeyValue) _then;
+
+/// Create a copy of KeyValue
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? key = null,Object? value = null,}) {
+  return _then(_KeyValue(
+key: null == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
+as String,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -10,13 +10,10 @@ abstract interface class Fractal<T extends Object> {
 }
 
 @Freezed(genericArgumentFactories: true)
-class FractalData<T extends Object>
+abstract class FractalData<T extends Object>
     with _$FractalData<T>
     implements Fractal<T> {
-  const factory FractalData({
-    required T attributes,
-  }) = _FractalData<T>;
-  const FractalData._();
+  const factory FractalData({required T attributes}) = _FractalData<T>;
 
   factory FractalData.fromJson(JsonMap json, T Function(Object?) fromJsonT) =>
       _$FractalDataFromJson<T>(json, fromJsonT);
@@ -27,21 +24,17 @@ class FractalData<T extends Object>
 }
 
 @Freezed(genericArgumentFactories: true)
-class FractalMeta<T extends Object, M extends Meta>
+abstract class FractalMeta<T extends Object, M extends Meta>
     with _$FractalMeta<T, M>
     implements Fractal<T> {
-  const factory FractalMeta({
-    required T attributes,
-    required M meta,
-  }) = _FractalMeta<T, M>;
-  const FractalMeta._();
+  const factory FractalMeta({required T attributes, required M meta}) =
+      _FractalMeta<T, M>;
 
   factory FractalMeta.fromJson(
     JsonMap json,
     T Function(Object?) fromJsonT,
     M Function(Object?) fromJsonM,
-  ) =>
-      _$FractalMetaFromJson<T, M>(json, fromJsonT, fromJsonM);
+  ) => _$FractalMetaFromJson<T, M>(json, fromJsonT, fromJsonM);
 
   // required for json_serializable to detect properly
   @override

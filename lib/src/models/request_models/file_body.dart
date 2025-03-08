@@ -5,41 +5,38 @@ part '../../generated/models/request_models/file_body.freezed.dart';
 part '../../generated/models/request_models/file_body.g.dart';
 
 @freezed
-class FileBody with _$FileBody {
+abstract class FileBody with _$FileBody {
   const factory FileBody({
     // ignore: invalid_annotation_target
     @JsonKey(name: 'root') required String rootDir,
     required String file,
   }) = _FileBody;
-  const FileBody._();
 
-  factory FileBody.fromJson(JsonMap json) = _FileBody.fromJson;
+  factory FileBody.fromJson(JsonMap json) => _$FileBodyFromJson(json);
 }
 
 @freezed
-class FileBodyListFromTo with _$FileBodyListFromTo {
+abstract class FileBodyListFromTo with _$FileBodyListFromTo {
   const factory FileBodyListFromTo({
     // ignore: invalid_annotation_target
     @JsonKey(name: 'root') required String rootDir,
     required List<FromTo> files, // String or FromTo
   }) = _FileBodyListFromTo;
-  const FileBodyListFromTo._();
 
-  factory FileBodyListFromTo.fromJson(JsonMap json) =
-      _FileBodyListFromTo.fromJson;
+  factory FileBodyListFromTo.fromJson(JsonMap json) =>
+      _$FileBodyListFromToFromJson(json);
 }
 
 @freezed
-class FileBodyListString with _$FileBodyListString {
+abstract class FileBodyListString with _$FileBodyListString {
   const factory FileBodyListString({
     // ignore: invalid_annotation_target
     @JsonKey(name: 'root') required String rootDir,
     required List<String> files, // String or FromTo
   }) = _FileBodyListString;
-  const FileBodyListString._();
 
-  factory FileBodyListString.fromJson(JsonMap json) =
-      _FileBodyListString.fromJson;
+  factory FileBodyListString.fromJson(JsonMap json) =>
+      _$FileBodyListStringFromJson(json);
 }
 
 /*
@@ -55,13 +52,12 @@ Name:
 */
 
 @freezed
-class FolderBody with _$FolderBody {
+abstract class FolderBody with _$FolderBody {
   const factory FolderBody({
     // ignore: invalid_annotation_target
     @JsonKey(name: 'root') required String rootDir,
     required String name,
   }) = _FolderBody;
-  const FolderBody._();
 
-  factory FolderBody.fromJson(JsonMap json) = _FolderBody.fromJson;
+  factory FolderBody.fromJson(JsonMap json) => _$FolderBodyFromJson(json);
 }

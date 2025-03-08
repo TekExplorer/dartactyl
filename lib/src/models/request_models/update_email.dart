@@ -5,12 +5,9 @@ part '../../generated/models/request_models/update_email.freezed.dart';
 part '../../generated/models/request_models/update_email.g.dart';
 
 @freezed
-class UpdateEmail with _$UpdateEmail {
-  const factory UpdateEmail({
-    required String email,
-    required String password,
-  }) = _UpdateEmail;
-  const UpdateEmail._();
+abstract class UpdateEmail with _$UpdateEmail {
+  const factory UpdateEmail({required String email, required String password}) =
+      _UpdateEmail;
 
-  factory UpdateEmail.fromJson(JsonMap json) = _UpdateEmail.fromJson;
+  factory UpdateEmail.fromJson(JsonMap json) => _$UpdateEmailFromJson(json);
 }

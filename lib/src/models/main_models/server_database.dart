@@ -5,18 +5,18 @@ part '../../generated/models/main_models/server_database.freezed.dart';
 part '../../generated/models/main_models/server_database.g.dart';
 
 @freezed
-class Database with _$Database {
+abstract class Database with _$Database {
   const factory Database({
     required String address,
     required int port,
     // DatabasePasswordRelationships? relationships,
   }) = _Database;
-  const Database._();
-  factory Database.fromJson(JsonMap json) = _Database.fromJson;
+
+  factory Database.fromJson(JsonMap json) => _$DatabaseFromJson(json);
 }
 
 @freezed
-class ServerDatabase with _$ServerDatabase {
+abstract class ServerDatabase with _$ServerDatabase {
   const factory ServerDatabase({
     required String id,
     required String name,
@@ -29,7 +29,9 @@ class ServerDatabase with _$ServerDatabase {
     DatabasePasswordRelationships? relationships,
   }) = _ServerDatabase;
   const ServerDatabase._();
-  factory ServerDatabase.fromJson(JsonMap json) = _ServerDatabase.fromJson;
+
+  factory ServerDatabase.fromJson(JsonMap json) =>
+      _$ServerDatabaseFromJson(json);
 
   String? get password => relationships?.password.attributes.password;
 }

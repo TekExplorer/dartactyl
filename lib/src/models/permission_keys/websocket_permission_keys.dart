@@ -5,12 +5,10 @@ part '../../generated/models/permission_keys/websocket_permission_keys.freezed.d
 part '../../generated/models/permission_keys/websocket_permission_keys.g.dart';
 
 @freezed
-class WebsocketPermissionKeys with _$WebsocketPermissionKeys {
-  const factory WebsocketPermissionKeys({
-    required String connect,
-  }) = _WebsocketPermissionKeys;
-  const WebsocketPermissionKeys._();
+abstract class WebsocketPermissionKeys with _$WebsocketPermissionKeys {
+  const factory WebsocketPermissionKeys({required String connect}) =
+      _WebsocketPermissionKeys;
 
-  factory WebsocketPermissionKeys.fromJson(JsonMap json) =
-      _WebsocketPermissionKeys.fromJson;
+  factory WebsocketPermissionKeys.fromJson(JsonMap json) =>
+      _$WebsocketPermissionKeysFromJson(json);
 }

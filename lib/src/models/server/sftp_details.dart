@@ -5,12 +5,9 @@ part '../../generated/models/server/sftp_details.freezed.dart';
 part '../../generated/models/server/sftp_details.g.dart';
 
 @freezed
-class SftpDetails with _$SftpDetails {
-  const factory SftpDetails({
-    required String ip,
-    required int port,
-  }) = _SftpDetails;
-  const SftpDetails._();
+abstract class SftpDetails with _$SftpDetails {
+  const factory SftpDetails({required String ip, required int port}) =
+      _SftpDetails;
 
-  factory SftpDetails.fromJson(JsonMap json) = _SftpDetails.fromJson;
+  factory SftpDetails.fromJson(JsonMap json) => _$SftpDetailsFromJson(json);
 }

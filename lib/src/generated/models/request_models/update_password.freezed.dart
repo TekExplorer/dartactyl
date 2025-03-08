@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,190 +10,145 @@ part of '../../../models/request_models/update_password.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-UpdatePassword _$UpdatePasswordFromJson(Map<String, dynamic> json) {
-  return _UpdatePassword.fromJson(json);
-}
 
 /// @nodoc
 mixin _$UpdatePassword {
-  String get currentPassword => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
-  String get passwordConfirmation => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $UpdatePasswordCopyWith<UpdatePassword> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get currentPassword; String get password; String get passwordConfirmation;
+/// Create a copy of UpdatePassword
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UpdatePasswordCopyWith<UpdatePassword> get copyWith => _$UpdatePasswordCopyWithImpl<UpdatePassword>(this as UpdatePassword, _$identity);
+
+  /// Serializes this UpdatePassword to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UpdatePassword&&(identical(other.currentPassword, currentPassword) || other.currentPassword == currentPassword)&&(identical(other.password, password) || other.password == password)&&(identical(other.passwordConfirmation, passwordConfirmation) || other.passwordConfirmation == passwordConfirmation));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,currentPassword,password,passwordConfirmation);
+
+@override
+String toString() {
+  return 'UpdatePassword(currentPassword: $currentPassword, password: $password, passwordConfirmation: $passwordConfirmation)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UpdatePasswordCopyWith<$Res> {
-  factory $UpdatePasswordCopyWith(
-          UpdatePassword value, $Res Function(UpdatePassword) then) =
-      _$UpdatePasswordCopyWithImpl<$Res, UpdatePassword>;
-  @useResult
-  $Res call(
-      {String currentPassword, String password, String passwordConfirmation});
-}
+abstract mixin class $UpdatePasswordCopyWith<$Res>  {
+  factory $UpdatePasswordCopyWith(UpdatePassword value, $Res Function(UpdatePassword) _then) = _$UpdatePasswordCopyWithImpl;
+@useResult
+$Res call({
+ String currentPassword, String password, String passwordConfirmation
+});
 
+
+
+
+}
 /// @nodoc
-class _$UpdatePasswordCopyWithImpl<$Res, $Val extends UpdatePassword>
+class _$UpdatePasswordCopyWithImpl<$Res>
     implements $UpdatePasswordCopyWith<$Res> {
-  _$UpdatePasswordCopyWithImpl(this._value, this._then);
+  _$UpdatePasswordCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final UpdatePassword _self;
+  final $Res Function(UpdatePassword) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? currentPassword = null,
-    Object? password = null,
-    Object? passwordConfirmation = null,
-  }) {
-    return _then(_value.copyWith(
-      currentPassword: null == currentPassword
-          ? _value.currentPassword
-          : currentPassword // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      passwordConfirmation: null == passwordConfirmation
-          ? _value.passwordConfirmation
-          : passwordConfirmation // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of UpdatePassword
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? currentPassword = null,Object? password = null,Object? passwordConfirmation = null,}) {
+  return _then(_self.copyWith(
+currentPassword: null == currentPassword ? _self.currentPassword : currentPassword // ignore: cast_nullable_to_non_nullable
+as String,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
+as String,passwordConfirmation: null == passwordConfirmation ? _self.passwordConfirmation : passwordConfirmation // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$UpdatePasswordImplCopyWith<$Res>
-    implements $UpdatePasswordCopyWith<$Res> {
-  factory _$$UpdatePasswordImplCopyWith(_$UpdatePasswordImpl value,
-          $Res Function(_$UpdatePasswordImpl) then) =
-      __$$UpdatePasswordImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String currentPassword, String password, String passwordConfirmation});
 }
 
-/// @nodoc
-class __$$UpdatePasswordImplCopyWithImpl<$Res>
-    extends _$UpdatePasswordCopyWithImpl<$Res, _$UpdatePasswordImpl>
-    implements _$$UpdatePasswordImplCopyWith<$Res> {
-  __$$UpdatePasswordImplCopyWithImpl(
-      _$UpdatePasswordImpl _value, $Res Function(_$UpdatePasswordImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? currentPassword = null,
-    Object? password = null,
-    Object? passwordConfirmation = null,
-  }) {
-    return _then(_$UpdatePasswordImpl(
-      currentPassword: null == currentPassword
-          ? _value.currentPassword
-          : currentPassword // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      passwordConfirmation: null == passwordConfirmation
-          ? _value.passwordConfirmation
-          : passwordConfirmation // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$UpdatePasswordImpl extends _UpdatePassword {
-  const _$UpdatePasswordImpl(
-      {required this.currentPassword,
-      required this.password,
-      required this.passwordConfirmation})
-      : super._();
 
-  factory _$UpdatePasswordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UpdatePasswordImplFromJson(json);
+class _UpdatePassword implements UpdatePassword {
+  const _UpdatePassword({required this.currentPassword, required this.password, required this.passwordConfirmation});
+  factory _UpdatePassword.fromJson(Map<String, dynamic> json) => _$UpdatePasswordFromJson(json);
 
-  @override
-  final String currentPassword;
-  @override
-  final String password;
-  @override
-  final String passwordConfirmation;
+@override final  String currentPassword;
+@override final  String password;
+@override final  String passwordConfirmation;
 
-  @override
-  String toString() {
-    return 'UpdatePassword(currentPassword: $currentPassword, password: $password, passwordConfirmation: $passwordConfirmation)';
-  }
+/// Create a copy of UpdatePassword
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$UpdatePasswordCopyWith<_UpdatePassword> get copyWith => __$UpdatePasswordCopyWithImpl<_UpdatePassword>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UpdatePasswordImpl &&
-            (identical(other.currentPassword, currentPassword) ||
-                other.currentPassword == currentPassword) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.passwordConfirmation, passwordConfirmation) ||
-                other.passwordConfirmation == passwordConfirmation));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, currentPassword, password, passwordConfirmation);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UpdatePasswordImplCopyWith<_$UpdatePasswordImpl> get copyWith =>
-      __$$UpdatePasswordImplCopyWithImpl<_$UpdatePasswordImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UpdatePasswordImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$UpdatePasswordToJson(this, );
 }
 
-abstract class _UpdatePassword extends UpdatePassword {
-  const factory _UpdatePassword(
-      {required final String currentPassword,
-      required final String password,
-      required final String passwordConfirmation}) = _$UpdatePasswordImpl;
-  const _UpdatePassword._() : super._();
-
-  factory _UpdatePassword.fromJson(Map<String, dynamic> json) =
-      _$UpdatePasswordImpl.fromJson;
-
-  @override
-  String get currentPassword;
-  @override
-  String get password;
-  @override
-  String get passwordConfirmation;
-  @override
-  @JsonKey(ignore: true)
-  _$$UpdatePasswordImplCopyWith<_$UpdatePasswordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UpdatePassword&&(identical(other.currentPassword, currentPassword) || other.currentPassword == currentPassword)&&(identical(other.password, password) || other.password == password)&&(identical(other.passwordConfirmation, passwordConfirmation) || other.passwordConfirmation == passwordConfirmation));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,currentPassword,password,passwordConfirmation);
+
+@override
+String toString() {
+  return 'UpdatePassword(currentPassword: $currentPassword, password: $password, passwordConfirmation: $passwordConfirmation)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$UpdatePasswordCopyWith<$Res> implements $UpdatePasswordCopyWith<$Res> {
+  factory _$UpdatePasswordCopyWith(_UpdatePassword value, $Res Function(_UpdatePassword) _then) = __$UpdatePasswordCopyWithImpl;
+@override @useResult
+$Res call({
+ String currentPassword, String password, String passwordConfirmation
+});
+
+
+
+
+}
+/// @nodoc
+class __$UpdatePasswordCopyWithImpl<$Res>
+    implements _$UpdatePasswordCopyWith<$Res> {
+  __$UpdatePasswordCopyWithImpl(this._self, this._then);
+
+  final _UpdatePassword _self;
+  final $Res Function(_UpdatePassword) _then;
+
+/// Create a copy of UpdatePassword
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? currentPassword = null,Object? password = null,Object? passwordConfirmation = null,}) {
+  return _then(_UpdatePassword(
+currentPassword: null == currentPassword ? _self.currentPassword : currentPassword // ignore: cast_nullable_to_non_nullable
+as String,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
+as String,passwordConfirmation: null == passwordConfirmation ? _self.passwordConfirmation : passwordConfirmation // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

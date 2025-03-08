@@ -6,37 +6,36 @@ part of '../../../models/site_config/user_config.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UserConfigImpl _$$UserConfigImplFromJson(Map<String, dynamic> json) =>
-    $checkedCreate(
-      r'_$UserConfigImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$UserConfigImpl(
-          uuid: $checkedConvert('uuid', (v) => v as String),
-          username: $checkedConvert('username', (v) => v as String),
-          email: $checkedConvert('email', (v) => v as String),
-          language: $checkedConvert('language', (v) => v as String),
-          rootAdmin: $checkedConvert('root_admin', (v) => v as bool),
-          useTotp: $checkedConvert('use_totp', (v) => v as bool),
-          gravatar: $checkedConvert('gravatar', (v) => v as bool),
-          createdAt: $checkedConvert('created_at', (v) => v as String),
-          updatedAt: $checkedConvert('updated_at', (v) => v as String),
-          nameFirst: $checkedConvert('name_first', (v) => v as String),
-          nameLast: $checkedConvert('name_last', (v) => v as String),
-        );
-        return val;
-      },
-      fieldKeyMap: const {
-        'rootAdmin': 'root_admin',
-        'useTotp': 'use_totp',
-        'createdAt': 'created_at',
-        'updatedAt': 'updated_at',
-        'nameFirst': 'name_first',
-        'nameLast': 'name_last'
-      },
+_UserConfig _$UserConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
+  '_UserConfig',
+  json,
+  ($checkedConvert) {
+    final val = _UserConfig(
+      uuid: $checkedConvert('uuid', (v) => v as String),
+      username: $checkedConvert('username', (v) => v as String),
+      email: $checkedConvert('email', (v) => v as String),
+      language: $checkedConvert('language', (v) => v as String),
+      rootAdmin: $checkedConvert('root_admin', (v) => v as bool),
+      useTotp: $checkedConvert('use_totp', (v) => v as bool),
+      gravatar: $checkedConvert('gravatar', (v) => v as bool),
+      createdAt: $checkedConvert('created_at', (v) => v as String),
+      updatedAt: $checkedConvert('updated_at', (v) => v as String),
+      nameFirst: $checkedConvert('name_first', (v) => v as String),
+      nameLast: $checkedConvert('name_last', (v) => v as String),
     );
+    return val;
+  },
+  fieldKeyMap: const {
+    'rootAdmin': 'root_admin',
+    'useTotp': 'use_totp',
+    'createdAt': 'created_at',
+    'updatedAt': 'updated_at',
+    'nameFirst': 'name_first',
+    'nameLast': 'name_last',
+  },
+);
 
-Map<String, dynamic> _$$UserConfigImplToJson(_$UserConfigImpl instance) =>
+Map<String, dynamic> _$UserConfigToJson(_UserConfig instance) =>
     <String, dynamic>{
       'uuid': instance.uuid,
       'username': instance.username,

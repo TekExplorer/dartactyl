@@ -5,7 +5,7 @@ part '../../generated/models/server/server_limits.freezed.dart';
 part '../../generated/models/server/server_limits.g.dart';
 
 @freezed
-class ServerLimits with _$ServerLimits {
+abstract class ServerLimits with _$ServerLimits {
   const factory ServerLimits({
     required int memory,
     required int swap,
@@ -15,7 +15,6 @@ class ServerLimits with _$ServerLimits {
     String? threads,
     // required bool oomDisabled,
   }) = _ServerLimits;
-  const ServerLimits._();
 
-  factory ServerLimits.fromJson(JsonMap json) = _ServerLimits.fromJson;
+  factory ServerLimits.fromJson(JsonMap json) => _$ServerLimitsFromJson(json);
 }

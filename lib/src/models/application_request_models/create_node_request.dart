@@ -21,7 +21,7 @@ part '../../generated/models/application_request_models/create_node_request.g.da
 */
 
 @freezed
-class CreateNodeRequest with _$CreateNodeRequest {
+abstract class CreateNodeRequest with _$CreateNodeRequest {
   const factory CreateNodeRequest({
     required String name,
     required int locationId,
@@ -35,8 +35,7 @@ class CreateNodeRequest with _$CreateNodeRequest {
     required int daemonSftp,
     required int daemonListen,
   }) = _CreateNodeRequest;
-  const CreateNodeRequest._();
 
-  factory CreateNodeRequest.fromJson(JsonMap json) =
-      _CreateNodeRequest.fromJson;
+  factory CreateNodeRequest.fromJson(JsonMap json) =>
+      _$CreateNodeRequestFromJson(json);
 }

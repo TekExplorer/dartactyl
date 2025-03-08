@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,161 +10,142 @@ part of '../../../models/server/sftp_details.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SftpDetails _$SftpDetailsFromJson(Map<String, dynamic> json) {
-  return _SftpDetails.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SftpDetails {
-  String get ip => throw _privateConstructorUsedError;
-  int get port => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SftpDetailsCopyWith<SftpDetails> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get ip; int get port;
+/// Create a copy of SftpDetails
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SftpDetailsCopyWith<SftpDetails> get copyWith => _$SftpDetailsCopyWithImpl<SftpDetails>(this as SftpDetails, _$identity);
+
+  /// Serializes this SftpDetails to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SftpDetails&&(identical(other.ip, ip) || other.ip == ip)&&(identical(other.port, port) || other.port == port));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,ip,port);
+
+@override
+String toString() {
+  return 'SftpDetails(ip: $ip, port: $port)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SftpDetailsCopyWith<$Res> {
-  factory $SftpDetailsCopyWith(
-          SftpDetails value, $Res Function(SftpDetails) then) =
-      _$SftpDetailsCopyWithImpl<$Res, SftpDetails>;
-  @useResult
-  $Res call({String ip, int port});
-}
+abstract mixin class $SftpDetailsCopyWith<$Res>  {
+  factory $SftpDetailsCopyWith(SftpDetails value, $Res Function(SftpDetails) _then) = _$SftpDetailsCopyWithImpl;
+@useResult
+$Res call({
+ String ip, int port
+});
 
+
+
+
+}
 /// @nodoc
-class _$SftpDetailsCopyWithImpl<$Res, $Val extends SftpDetails>
+class _$SftpDetailsCopyWithImpl<$Res>
     implements $SftpDetailsCopyWith<$Res> {
-  _$SftpDetailsCopyWithImpl(this._value, this._then);
+  _$SftpDetailsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SftpDetails _self;
+  final $Res Function(SftpDetails) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? ip = null,
-    Object? port = null,
-  }) {
-    return _then(_value.copyWith(
-      ip: null == ip
-          ? _value.ip
-          : ip // ignore: cast_nullable_to_non_nullable
-              as String,
-      port: null == port
-          ? _value.port
-          : port // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
+/// Create a copy of SftpDetails
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? ip = null,Object? port = null,}) {
+  return _then(_self.copyWith(
+ip: null == ip ? _self.ip : ip // ignore: cast_nullable_to_non_nullable
+as String,port: null == port ? _self.port : port // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SftpDetailsImplCopyWith<$Res>
-    implements $SftpDetailsCopyWith<$Res> {
-  factory _$$SftpDetailsImplCopyWith(
-          _$SftpDetailsImpl value, $Res Function(_$SftpDetailsImpl) then) =
-      __$$SftpDetailsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String ip, int port});
 }
 
-/// @nodoc
-class __$$SftpDetailsImplCopyWithImpl<$Res>
-    extends _$SftpDetailsCopyWithImpl<$Res, _$SftpDetailsImpl>
-    implements _$$SftpDetailsImplCopyWith<$Res> {
-  __$$SftpDetailsImplCopyWithImpl(
-      _$SftpDetailsImpl _value, $Res Function(_$SftpDetailsImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? ip = null,
-    Object? port = null,
-  }) {
-    return _then(_$SftpDetailsImpl(
-      ip: null == ip
-          ? _value.ip
-          : ip // ignore: cast_nullable_to_non_nullable
-              as String,
-      port: null == port
-          ? _value.port
-          : port // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$SftpDetailsImpl extends _SftpDetails {
-  const _$SftpDetailsImpl({required this.ip, required this.port}) : super._();
 
-  factory _$SftpDetailsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SftpDetailsImplFromJson(json);
+class _SftpDetails implements SftpDetails {
+  const _SftpDetails({required this.ip, required this.port});
+  factory _SftpDetails.fromJson(Map<String, dynamic> json) => _$SftpDetailsFromJson(json);
 
-  @override
-  final String ip;
-  @override
-  final int port;
+@override final  String ip;
+@override final  int port;
 
-  @override
-  String toString() {
-    return 'SftpDetails(ip: $ip, port: $port)';
-  }
+/// Create a copy of SftpDetails
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SftpDetailsCopyWith<_SftpDetails> get copyWith => __$SftpDetailsCopyWithImpl<_SftpDetails>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SftpDetailsImpl &&
-            (identical(other.ip, ip) || other.ip == ip) &&
-            (identical(other.port, port) || other.port == port));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, ip, port);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SftpDetailsImplCopyWith<_$SftpDetailsImpl> get copyWith =>
-      __$$SftpDetailsImplCopyWithImpl<_$SftpDetailsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SftpDetailsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$SftpDetailsToJson(this, );
 }
 
-abstract class _SftpDetails extends SftpDetails {
-  const factory _SftpDetails(
-      {required final String ip, required final int port}) = _$SftpDetailsImpl;
-  const _SftpDetails._() : super._();
-
-  factory _SftpDetails.fromJson(Map<String, dynamic> json) =
-      _$SftpDetailsImpl.fromJson;
-
-  @override
-  String get ip;
-  @override
-  int get port;
-  @override
-  @JsonKey(ignore: true)
-  _$$SftpDetailsImplCopyWith<_$SftpDetailsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SftpDetails&&(identical(other.ip, ip) || other.ip == ip)&&(identical(other.port, port) || other.port == port));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,ip,port);
+
+@override
+String toString() {
+  return 'SftpDetails(ip: $ip, port: $port)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SftpDetailsCopyWith<$Res> implements $SftpDetailsCopyWith<$Res> {
+  factory _$SftpDetailsCopyWith(_SftpDetails value, $Res Function(_SftpDetails) _then) = __$SftpDetailsCopyWithImpl;
+@override @useResult
+$Res call({
+ String ip, int port
+});
+
+
+
+
+}
+/// @nodoc
+class __$SftpDetailsCopyWithImpl<$Res>
+    implements _$SftpDetailsCopyWith<$Res> {
+  __$SftpDetailsCopyWithImpl(this._self, this._then);
+
+  final _SftpDetails _self;
+  final $Res Function(_SftpDetails) _then;
+
+/// Create a copy of SftpDetails
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? ip = null,Object? port = null,}) {
+  return _then(_SftpDetails(
+ip: null == ip ? _self.ip : ip // ignore: cast_nullable_to_non_nullable
+as String,port: null == port ? _self.port : port // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+// dart format on

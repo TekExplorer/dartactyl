@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,204 +10,148 @@ part of '../../../models/permission_keys/backup_permission_keys.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-BackupPermissionKeys _$BackupPermissionKeysFromJson(Map<String, dynamic> json) {
-  return _BackupPermissionKeys.fromJson(json);
-}
 
 /// @nodoc
 mixin _$BackupPermissionKeys {
-  String get read => throw _privateConstructorUsedError;
-  String get create => throw _privateConstructorUsedError;
-  String get update => throw _privateConstructorUsedError;
-  String get delete => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $BackupPermissionKeysCopyWith<BackupPermissionKeys> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get read; String get create; String get update; String get delete;
+/// Create a copy of BackupPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$BackupPermissionKeysCopyWith<BackupPermissionKeys> get copyWith => _$BackupPermissionKeysCopyWithImpl<BackupPermissionKeys>(this as BackupPermissionKeys, _$identity);
+
+  /// Serializes this BackupPermissionKeys to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BackupPermissionKeys&&(identical(other.read, read) || other.read == read)&&(identical(other.create, create) || other.create == create)&&(identical(other.update, update) || other.update == update)&&(identical(other.delete, delete) || other.delete == delete));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,read,create,update,delete);
+
+@override
+String toString() {
+  return 'BackupPermissionKeys(read: $read, create: $create, update: $update, delete: $delete)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $BackupPermissionKeysCopyWith<$Res> {
-  factory $BackupPermissionKeysCopyWith(BackupPermissionKeys value,
-          $Res Function(BackupPermissionKeys) then) =
-      _$BackupPermissionKeysCopyWithImpl<$Res, BackupPermissionKeys>;
-  @useResult
-  $Res call({String read, String create, String update, String delete});
-}
+abstract mixin class $BackupPermissionKeysCopyWith<$Res>  {
+  factory $BackupPermissionKeysCopyWith(BackupPermissionKeys value, $Res Function(BackupPermissionKeys) _then) = _$BackupPermissionKeysCopyWithImpl;
+@useResult
+$Res call({
+ String read, String create, String update, String delete
+});
 
+
+
+
+}
 /// @nodoc
-class _$BackupPermissionKeysCopyWithImpl<$Res,
-        $Val extends BackupPermissionKeys>
+class _$BackupPermissionKeysCopyWithImpl<$Res>
     implements $BackupPermissionKeysCopyWith<$Res> {
-  _$BackupPermissionKeysCopyWithImpl(this._value, this._then);
+  _$BackupPermissionKeysCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final BackupPermissionKeys _self;
+  final $Res Function(BackupPermissionKeys) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? read = null,
-    Object? create = null,
-    Object? update = null,
-    Object? delete = null,
-  }) {
-    return _then(_value.copyWith(
-      read: null == read
-          ? _value.read
-          : read // ignore: cast_nullable_to_non_nullable
-              as String,
-      create: null == create
-          ? _value.create
-          : create // ignore: cast_nullable_to_non_nullable
-              as String,
-      update: null == update
-          ? _value.update
-          : update // ignore: cast_nullable_to_non_nullable
-              as String,
-      delete: null == delete
-          ? _value.delete
-          : delete // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of BackupPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? read = null,Object? create = null,Object? update = null,Object? delete = null,}) {
+  return _then(_self.copyWith(
+read: null == read ? _self.read : read // ignore: cast_nullable_to_non_nullable
+as String,create: null == create ? _self.create : create // ignore: cast_nullable_to_non_nullable
+as String,update: null == update ? _self.update : update // ignore: cast_nullable_to_non_nullable
+as String,delete: null == delete ? _self.delete : delete // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$BackupPermissionKeysImplCopyWith<$Res>
-    implements $BackupPermissionKeysCopyWith<$Res> {
-  factory _$$BackupPermissionKeysImplCopyWith(_$BackupPermissionKeysImpl value,
-          $Res Function(_$BackupPermissionKeysImpl) then) =
-      __$$BackupPermissionKeysImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String read, String create, String update, String delete});
 }
 
-/// @nodoc
-class __$$BackupPermissionKeysImplCopyWithImpl<$Res>
-    extends _$BackupPermissionKeysCopyWithImpl<$Res, _$BackupPermissionKeysImpl>
-    implements _$$BackupPermissionKeysImplCopyWith<$Res> {
-  __$$BackupPermissionKeysImplCopyWithImpl(_$BackupPermissionKeysImpl _value,
-      $Res Function(_$BackupPermissionKeysImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? read = null,
-    Object? create = null,
-    Object? update = null,
-    Object? delete = null,
-  }) {
-    return _then(_$BackupPermissionKeysImpl(
-      read: null == read
-          ? _value.read
-          : read // ignore: cast_nullable_to_non_nullable
-              as String,
-      create: null == create
-          ? _value.create
-          : create // ignore: cast_nullable_to_non_nullable
-              as String,
-      update: null == update
-          ? _value.update
-          : update // ignore: cast_nullable_to_non_nullable
-              as String,
-      delete: null == delete
-          ? _value.delete
-          : delete // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$BackupPermissionKeysImpl extends _BackupPermissionKeys {
-  const _$BackupPermissionKeysImpl(
-      {required this.read,
-      required this.create,
-      required this.update,
-      required this.delete})
-      : super._();
 
-  factory _$BackupPermissionKeysImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BackupPermissionKeysImplFromJson(json);
+class _BackupPermissionKeys implements BackupPermissionKeys {
+  const _BackupPermissionKeys({required this.read, required this.create, required this.update, required this.delete});
+  factory _BackupPermissionKeys.fromJson(Map<String, dynamic> json) => _$BackupPermissionKeysFromJson(json);
 
-  @override
-  final String read;
-  @override
-  final String create;
-  @override
-  final String update;
-  @override
-  final String delete;
+@override final  String read;
+@override final  String create;
+@override final  String update;
+@override final  String delete;
 
-  @override
-  String toString() {
-    return 'BackupPermissionKeys(read: $read, create: $create, update: $update, delete: $delete)';
-  }
+/// Create a copy of BackupPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$BackupPermissionKeysCopyWith<_BackupPermissionKeys> get copyWith => __$BackupPermissionKeysCopyWithImpl<_BackupPermissionKeys>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$BackupPermissionKeysImpl &&
-            (identical(other.read, read) || other.read == read) &&
-            (identical(other.create, create) || other.create == create) &&
-            (identical(other.update, update) || other.update == update) &&
-            (identical(other.delete, delete) || other.delete == delete));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, read, create, update, delete);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$BackupPermissionKeysImplCopyWith<_$BackupPermissionKeysImpl>
-      get copyWith =>
-          __$$BackupPermissionKeysImplCopyWithImpl<_$BackupPermissionKeysImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BackupPermissionKeysImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$BackupPermissionKeysToJson(this, );
 }
 
-abstract class _BackupPermissionKeys extends BackupPermissionKeys {
-  const factory _BackupPermissionKeys(
-      {required final String read,
-      required final String create,
-      required final String update,
-      required final String delete}) = _$BackupPermissionKeysImpl;
-  const _BackupPermissionKeys._() : super._();
-
-  factory _BackupPermissionKeys.fromJson(Map<String, dynamic> json) =
-      _$BackupPermissionKeysImpl.fromJson;
-
-  @override
-  String get read;
-  @override
-  String get create;
-  @override
-  String get update;
-  @override
-  String get delete;
-  @override
-  @JsonKey(ignore: true)
-  _$$BackupPermissionKeysImplCopyWith<_$BackupPermissionKeysImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BackupPermissionKeys&&(identical(other.read, read) || other.read == read)&&(identical(other.create, create) || other.create == create)&&(identical(other.update, update) || other.update == update)&&(identical(other.delete, delete) || other.delete == delete));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,read,create,update,delete);
+
+@override
+String toString() {
+  return 'BackupPermissionKeys(read: $read, create: $create, update: $update, delete: $delete)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$BackupPermissionKeysCopyWith<$Res> implements $BackupPermissionKeysCopyWith<$Res> {
+  factory _$BackupPermissionKeysCopyWith(_BackupPermissionKeys value, $Res Function(_BackupPermissionKeys) _then) = __$BackupPermissionKeysCopyWithImpl;
+@override @useResult
+$Res call({
+ String read, String create, String update, String delete
+});
+
+
+
+
+}
+/// @nodoc
+class __$BackupPermissionKeysCopyWithImpl<$Res>
+    implements _$BackupPermissionKeysCopyWith<$Res> {
+  __$BackupPermissionKeysCopyWithImpl(this._self, this._then);
+
+  final _BackupPermissionKeys _self;
+  final $Res Function(_BackupPermissionKeys) _then;
+
+/// Create a copy of BackupPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? read = null,Object? create = null,Object? update = null,Object? delete = null,}) {
+  return _then(_BackupPermissionKeys(
+read: null == read ? _self.read : read // ignore: cast_nullable_to_non_nullable
+as String,create: null == create ? _self.create : create // ignore: cast_nullable_to_non_nullable
+as String,update: null == update ? _self.update : update // ignore: cast_nullable_to_non_nullable
+as String,delete: null == delete ? _self.delete : delete // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

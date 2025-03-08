@@ -6,27 +6,32 @@ part of '../../../models/application_request_models/create_node_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CreateNodeRequestImpl _$$CreateNodeRequestImplFromJson(
-        Map<String, dynamic> json) =>
+_CreateNodeRequest _$CreateNodeRequestFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$CreateNodeRequestImpl',
+      '_CreateNodeRequest',
       json,
       ($checkedConvert) {
-        final val = _$CreateNodeRequestImpl(
+        final val = _CreateNodeRequest(
           name: $checkedConvert('name', (v) => v as String),
           locationId: $checkedConvert('location_id', (v) => (v as num).toInt()),
           fqdn: $checkedConvert('fqdn', (v) => v as String),
           scheme: $checkedConvert('scheme', (v) => v as String),
           memory: $checkedConvert('memory', (v) => (v as num).toInt()),
-          memoryOverallocate:
-              $checkedConvert('memory_overallocate', (v) => (v as num).toInt()),
+          memoryOverallocate: $checkedConvert(
+            'memory_overallocate',
+            (v) => (v as num).toInt(),
+          ),
           disk: $checkedConvert('disk', (v) => (v as num).toInt()),
-          diskOverallocate:
-              $checkedConvert('disk_overallocate', (v) => (v as num).toInt()),
+          diskOverallocate: $checkedConvert(
+            'disk_overallocate',
+            (v) => (v as num).toInt(),
+          ),
           uploadSize: $checkedConvert('upload_size', (v) => (v as num).toInt()),
           daemonSftp: $checkedConvert('daemon_sftp', (v) => (v as num).toInt()),
-          daemonListen:
-              $checkedConvert('daemon_listen', (v) => (v as num).toInt()),
+          daemonListen: $checkedConvert(
+            'daemon_listen',
+            (v) => (v as num).toInt(),
+          ),
         );
         return val;
       },
@@ -36,12 +41,11 @@ _$CreateNodeRequestImpl _$$CreateNodeRequestImplFromJson(
         'diskOverallocate': 'disk_overallocate',
         'uploadSize': 'upload_size',
         'daemonSftp': 'daemon_sftp',
-        'daemonListen': 'daemon_listen'
+        'daemonListen': 'daemon_listen',
       },
     );
 
-Map<String, dynamic> _$$CreateNodeRequestImplToJson(
-        _$CreateNodeRequestImpl instance) =>
+Map<String, dynamic> _$CreateNodeRequestToJson(_CreateNodeRequest instance) =>
     <String, dynamic>{
       'name': instance.name,
       'location_id': instance.locationId,

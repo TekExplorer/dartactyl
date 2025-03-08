@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,275 +10,157 @@ part of '../../../models/main_models/egg_variable.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-EggVariable _$EggVariableFromJson(Map<String, dynamic> json) {
-  return _EggVariable.fromJson(json);
-}
 
 /// @nodoc
 mixin _$EggVariable {
-  String get name => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  String get envVariable => throw _privateConstructorUsedError;
-  String get defaultValue => throw _privateConstructorUsedError;
-  String? get serverValue => throw _privateConstructorUsedError;
-  bool get isEditable => throw _privateConstructorUsedError;
-  String get rules => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $EggVariableCopyWith<EggVariable> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get name; String get description; String get envVariable; String get defaultValue; String? get serverValue; bool get isEditable; String get rules;
+/// Create a copy of EggVariable
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$EggVariableCopyWith<EggVariable> get copyWith => _$EggVariableCopyWithImpl<EggVariable>(this as EggVariable, _$identity);
+
+  /// Serializes this EggVariable to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EggVariable&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.envVariable, envVariable) || other.envVariable == envVariable)&&(identical(other.defaultValue, defaultValue) || other.defaultValue == defaultValue)&&(identical(other.serverValue, serverValue) || other.serverValue == serverValue)&&(identical(other.isEditable, isEditable) || other.isEditable == isEditable)&&(identical(other.rules, rules) || other.rules == rules));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,description,envVariable,defaultValue,serverValue,isEditable,rules);
+
+@override
+String toString() {
+  return 'EggVariable(name: $name, description: $description, envVariable: $envVariable, defaultValue: $defaultValue, serverValue: $serverValue, isEditable: $isEditable, rules: $rules)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $EggVariableCopyWith<$Res> {
-  factory $EggVariableCopyWith(
-          EggVariable value, $Res Function(EggVariable) then) =
-      _$EggVariableCopyWithImpl<$Res, EggVariable>;
-  @useResult
-  $Res call(
-      {String name,
-      String description,
-      String envVariable,
-      String defaultValue,
-      String? serverValue,
-      bool isEditable,
-      String rules});
-}
+abstract mixin class $EggVariableCopyWith<$Res>  {
+  factory $EggVariableCopyWith(EggVariable value, $Res Function(EggVariable) _then) = _$EggVariableCopyWithImpl;
+@useResult
+$Res call({
+ String name, String description, String envVariable, String defaultValue, String? serverValue, bool isEditable, String rules
+});
 
+
+
+
+}
 /// @nodoc
-class _$EggVariableCopyWithImpl<$Res, $Val extends EggVariable>
+class _$EggVariableCopyWithImpl<$Res>
     implements $EggVariableCopyWith<$Res> {
-  _$EggVariableCopyWithImpl(this._value, this._then);
+  _$EggVariableCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final EggVariable _self;
+  final $Res Function(EggVariable) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? description = null,
-    Object? envVariable = null,
-    Object? defaultValue = null,
-    Object? serverValue = freezed,
-    Object? isEditable = null,
-    Object? rules = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      envVariable: null == envVariable
-          ? _value.envVariable
-          : envVariable // ignore: cast_nullable_to_non_nullable
-              as String,
-      defaultValue: null == defaultValue
-          ? _value.defaultValue
-          : defaultValue // ignore: cast_nullable_to_non_nullable
-              as String,
-      serverValue: freezed == serverValue
-          ? _value.serverValue
-          : serverValue // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isEditable: null == isEditable
-          ? _value.isEditable
-          : isEditable // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rules: null == rules
-          ? _value.rules
-          : rules // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of EggVariable
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? description = null,Object? envVariable = null,Object? defaultValue = null,Object? serverValue = freezed,Object? isEditable = null,Object? rules = null,}) {
+  return _then(_self.copyWith(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,envVariable: null == envVariable ? _self.envVariable : envVariable // ignore: cast_nullable_to_non_nullable
+as String,defaultValue: null == defaultValue ? _self.defaultValue : defaultValue // ignore: cast_nullable_to_non_nullable
+as String,serverValue: freezed == serverValue ? _self.serverValue : serverValue // ignore: cast_nullable_to_non_nullable
+as String?,isEditable: null == isEditable ? _self.isEditable : isEditable // ignore: cast_nullable_to_non_nullable
+as bool,rules: null == rules ? _self.rules : rules // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$EggVariableImplCopyWith<$Res>
-    implements $EggVariableCopyWith<$Res> {
-  factory _$$EggVariableImplCopyWith(
-          _$EggVariableImpl value, $Res Function(_$EggVariableImpl) then) =
-      __$$EggVariableImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String name,
-      String description,
-      String envVariable,
-      String defaultValue,
-      String? serverValue,
-      bool isEditable,
-      String rules});
 }
 
-/// @nodoc
-class __$$EggVariableImplCopyWithImpl<$Res>
-    extends _$EggVariableCopyWithImpl<$Res, _$EggVariableImpl>
-    implements _$$EggVariableImplCopyWith<$Res> {
-  __$$EggVariableImplCopyWithImpl(
-      _$EggVariableImpl _value, $Res Function(_$EggVariableImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? description = null,
-    Object? envVariable = null,
-    Object? defaultValue = null,
-    Object? serverValue = freezed,
-    Object? isEditable = null,
-    Object? rules = null,
-  }) {
-    return _then(_$EggVariableImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      envVariable: null == envVariable
-          ? _value.envVariable
-          : envVariable // ignore: cast_nullable_to_non_nullable
-              as String,
-      defaultValue: null == defaultValue
-          ? _value.defaultValue
-          : defaultValue // ignore: cast_nullable_to_non_nullable
-              as String,
-      serverValue: freezed == serverValue
-          ? _value.serverValue
-          : serverValue // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isEditable: null == isEditable
-          ? _value.isEditable
-          : isEditable // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rules: null == rules
-          ? _value.rules
-          : rules // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$EggVariableImpl extends _EggVariable {
-  const _$EggVariableImpl(
-      {required this.name,
-      required this.description,
-      required this.envVariable,
-      required this.defaultValue,
-      this.serverValue,
-      required this.isEditable,
-      required this.rules})
-      : super._();
 
-  factory _$EggVariableImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EggVariableImplFromJson(json);
+class _EggVariable implements EggVariable {
+  const _EggVariable({required this.name, required this.description, required this.envVariable, required this.defaultValue, this.serverValue, required this.isEditable, required this.rules});
+  factory _EggVariable.fromJson(Map<String, dynamic> json) => _$EggVariableFromJson(json);
 
-  @override
-  final String name;
-  @override
-  final String description;
-  @override
-  final String envVariable;
-  @override
-  final String defaultValue;
-  @override
-  final String? serverValue;
-  @override
-  final bool isEditable;
-  @override
-  final String rules;
+@override final  String name;
+@override final  String description;
+@override final  String envVariable;
+@override final  String defaultValue;
+@override final  String? serverValue;
+@override final  bool isEditable;
+@override final  String rules;
 
-  @override
-  String toString() {
-    return 'EggVariable(name: $name, description: $description, envVariable: $envVariable, defaultValue: $defaultValue, serverValue: $serverValue, isEditable: $isEditable, rules: $rules)';
-  }
+/// Create a copy of EggVariable
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$EggVariableCopyWith<_EggVariable> get copyWith => __$EggVariableCopyWithImpl<_EggVariable>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$EggVariableImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.envVariable, envVariable) ||
-                other.envVariable == envVariable) &&
-            (identical(other.defaultValue, defaultValue) ||
-                other.defaultValue == defaultValue) &&
-            (identical(other.serverValue, serverValue) ||
-                other.serverValue == serverValue) &&
-            (identical(other.isEditable, isEditable) ||
-                other.isEditable == isEditable) &&
-            (identical(other.rules, rules) || other.rules == rules));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, name, description, envVariable,
-      defaultValue, serverValue, isEditable, rules);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$EggVariableImplCopyWith<_$EggVariableImpl> get copyWith =>
-      __$$EggVariableImplCopyWithImpl<_$EggVariableImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$EggVariableImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$EggVariableToJson(this, );
 }
 
-abstract class _EggVariable extends EggVariable {
-  const factory _EggVariable(
-      {required final String name,
-      required final String description,
-      required final String envVariable,
-      required final String defaultValue,
-      final String? serverValue,
-      required final bool isEditable,
-      required final String rules}) = _$EggVariableImpl;
-  const _EggVariable._() : super._();
-
-  factory _EggVariable.fromJson(Map<String, dynamic> json) =
-      _$EggVariableImpl.fromJson;
-
-  @override
-  String get name;
-  @override
-  String get description;
-  @override
-  String get envVariable;
-  @override
-  String get defaultValue;
-  @override
-  String? get serverValue;
-  @override
-  bool get isEditable;
-  @override
-  String get rules;
-  @override
-  @JsonKey(ignore: true)
-  _$$EggVariableImplCopyWith<_$EggVariableImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EggVariable&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.envVariable, envVariable) || other.envVariable == envVariable)&&(identical(other.defaultValue, defaultValue) || other.defaultValue == defaultValue)&&(identical(other.serverValue, serverValue) || other.serverValue == serverValue)&&(identical(other.isEditable, isEditable) || other.isEditable == isEditable)&&(identical(other.rules, rules) || other.rules == rules));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,description,envVariable,defaultValue,serverValue,isEditable,rules);
+
+@override
+String toString() {
+  return 'EggVariable(name: $name, description: $description, envVariable: $envVariable, defaultValue: $defaultValue, serverValue: $serverValue, isEditable: $isEditable, rules: $rules)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$EggVariableCopyWith<$Res> implements $EggVariableCopyWith<$Res> {
+  factory _$EggVariableCopyWith(_EggVariable value, $Res Function(_EggVariable) _then) = __$EggVariableCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String description, String envVariable, String defaultValue, String? serverValue, bool isEditable, String rules
+});
+
+
+
+
+}
+/// @nodoc
+class __$EggVariableCopyWithImpl<$Res>
+    implements _$EggVariableCopyWith<$Res> {
+  __$EggVariableCopyWithImpl(this._self, this._then);
+
+  final _EggVariable _self;
+  final $Res Function(_EggVariable) _then;
+
+/// Create a copy of EggVariable
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? description = null,Object? envVariable = null,Object? defaultValue = null,Object? serverValue = freezed,Object? isEditable = null,Object? rules = null,}) {
+  return _then(_EggVariable(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,envVariable: null == envVariable ? _self.envVariable : envVariable // ignore: cast_nullable_to_non_nullable
+as String,defaultValue: null == defaultValue ? _self.defaultValue : defaultValue // ignore: cast_nullable_to_non_nullable
+as String,serverValue: freezed == serverValue ? _self.serverValue : serverValue // ignore: cast_nullable_to_non_nullable
+as String?,isEditable: null == isEditable ? _self.isEditable : isEditable // ignore: cast_nullable_to_non_nullable
+as bool,rules: null == rules ? _self.rules : rules // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

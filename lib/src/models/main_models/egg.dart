@@ -6,7 +6,7 @@ part '../../generated/models/main_models/egg.g.dart';
 
 // TODO: full egg vs server egg
 @freezed
-class Egg with _$Egg {
+abstract class Egg with _$Egg {
   const factory Egg({
     // only uuid and name show up in the client api
     // int id,
@@ -25,6 +25,6 @@ class Egg with _$Egg {
     // required DateTime updatedAt,
     // Relationships? relationships,
   }) = _Egg;
-  const Egg._();
-  factory Egg.fromJson(JsonMap json) = _Egg.fromJson;
+
+  factory Egg.fromJson(JsonMap json) => _$EggFromJson(json);
 }

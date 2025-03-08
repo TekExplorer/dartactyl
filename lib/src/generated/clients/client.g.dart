@@ -6,17 +6,16 @@ part of '../../clients/client.dart';
 // RetrofitGenerator
 // **************************************************************************
 
-// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element
+// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
-class _DeprecatedPteroClient extends DeprecatedPteroClient {
-  _DeprecatedPteroClient._(
-    this._dio, {
-    this.baseUrl,
-  }) : super._();
+class _DeprecatedPteroClient implements DeprecatedPteroClient {
+  _DeprecatedPteroClient(this._dio, {this.baseUrl, this.errorLogger});
 
   final Dio _dio;
 
   String? baseUrl;
+
+  final ParseErrorLogger? errorLogger;
 
   @override
   Future<void> deleteSshKey1_8({
@@ -30,25 +29,20 @@ class _DeprecatedPteroClient extends DeprecatedPteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'DELETE',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/account/ssh-keys/${fingerprint}',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/account/ssh-keys/${fingerprint}',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
@@ -64,10 +58,7 @@ class _DeprecatedPteroClient extends DeprecatedPteroClient {
     return requestOptions;
   }
 
-  String _combineBaseUrls(
-    String dioBaseUrl,
-    String? baseUrl,
-  ) {
+  String _combineBaseUrls(String dioBaseUrl, String? baseUrl) {
     if (baseUrl == null || baseUrl.trim().isEmpty) {
       return dioBaseUrl;
     }
@@ -82,17 +73,16 @@ class _DeprecatedPteroClient extends DeprecatedPteroClient {
   }
 }
 
-// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element
+// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
-class _PteroClient extends PteroClient {
-  _PteroClient._(
-    this._dio, {
-    this.baseUrl,
-  }) : super._();
+class _PteroClient implements PteroClient {
+  _PteroClient(this._dio, {this.baseUrl, this.errorLogger});
 
   final Dio _dio;
 
   String? baseUrl;
+
+  final ParseErrorLogger? errorLogger;
 
   @override
   Future<FractalListMeta<Server, PaginatedMeta>> listServers({
@@ -116,31 +106,31 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalListMeta<Server, PaginatedMeta>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalListMeta<Server, PaginatedMeta>.fromJson(
-      _result.data!,
-      (json) => Server.fromJson(json as Map<String, dynamic>),
-      (json) => PaginatedMeta.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalListMeta<Server, PaginatedMeta>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalListMeta<Server, PaginatedMeta> _value;
+    try {
+      _value = FractalListMeta<Server, PaginatedMeta>.fromJson(
+        _result.data!,
+        (json) => Server.fromJson(json as Map<String, dynamic>),
+        (json) => PaginatedMeta.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -155,30 +145,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<SystemPermissions>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/permissions',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<SystemPermissions>.fromJson(
-      _result.data!,
-      (json) => SystemPermissions.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<SystemPermissions>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/permissions',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<SystemPermissions> _value;
+    try {
+      _value = FractalData<SystemPermissions>.fromJson(
+        _result.data!,
+        (json) => SystemPermissions.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -193,30 +183,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<Account>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/account',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<Account>.fromJson(
-      _result.data!,
-      (json) => Account.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<Account>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/account',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<Account> _value;
+    try {
+      _value = FractalData<Account>.fromJson(
+        _result.data!,
+        (json) => Account.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -231,30 +221,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<TwoFactorImage>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/account/two-factor',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<TwoFactorImage>.fromJson(
-      _result.data!,
-      (json) => TwoFactorImage.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<TwoFactorImage>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/account/two-factor',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<TwoFactorImage> _value;
+    try {
+      _value = FractalData<TwoFactorImage>.fromJson(
+        _result.data!,
+        (json) => TwoFactorImage.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -270,30 +260,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = code;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<RecoveryTokens>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/account/two-factor',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<RecoveryTokens>.fromJson(
-      _result.data!,
-      (json) => RecoveryTokens.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<RecoveryTokens>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/account/two-factor',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<RecoveryTokens> _value;
+    try {
+      _value = FractalData<RecoveryTokens>.fromJson(
+        _result.data!,
+        (json) => RecoveryTokens.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -309,25 +299,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = data;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'DELETE',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/account/two-factor',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/account/two-factor',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -342,25 +327,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = data;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'PUT',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/account/email',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'PUT', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/account/email',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -375,25 +355,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = data;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'PUT',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/account/password',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'PUT', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/account/password',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -418,31 +393,34 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalListMeta<ActivityLog, PaginatedMeta>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/account/activity',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalListMeta<ActivityLog, PaginatedMeta>.fromJson(
-      _result.data!,
-      (json) => ActivityLog.fromJson(json as Map<String, dynamic>),
-      (json) => PaginatedMeta.fromJson(json as Map<String, dynamic>),
-    );
+    final _options =
+        _setStreamType<FractalListMeta<ActivityLog, PaginatedMeta>>(
+          Options(method: 'GET', headers: _headers, extra: _extra)
+              .compose(
+                _dio.options,
+                '/api/client/account/activity',
+                queryParameters: queryParameters,
+                data: _data,
+                cancelToken: cancelToken,
+                onSendProgress: onSendProgress,
+                onReceiveProgress: onReceiveProgress,
+              )
+              .copyWith(
+                baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl),
+              ),
+        );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalListMeta<ActivityLog, PaginatedMeta> _value;
+    try {
+      _value = FractalListMeta<ActivityLog, PaginatedMeta>.fromJson(
+        _result.data!,
+        (json) => ActivityLog.fromJson(json as Map<String, dynamic>),
+        (json) => PaginatedMeta.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -457,30 +435,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalListData<ApiKey>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/account/api-keys',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalListData<ApiKey>.fromJson(
-      _result.data!,
-      (json) => ApiKey.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalListData<ApiKey>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/account/api-keys',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalListData<ApiKey> _value;
+    try {
+      _value = FractalListData<ApiKey>.fromJson(
+        _result.data!,
+        (json) => ApiKey.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -496,31 +474,31 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = data;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalMeta<ApiKey, ApiKeyMeta>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/account/api-keys',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalMeta<ApiKey, ApiKeyMeta>.fromJson(
-      _result.data!,
-      (json) => ApiKey.fromJson(json as Map<String, dynamic>),
-      (json) => ApiKeyMeta.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalMeta<ApiKey, ApiKeyMeta>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/account/api-keys',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalMeta<ApiKey, ApiKeyMeta> _value;
+    try {
+      _value = FractalMeta<ApiKey, ApiKeyMeta>.fromJson(
+        _result.data!,
+        (json) => ApiKey.fromJson(json as Map<String, dynamic>),
+        (json) => ApiKeyMeta.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -536,25 +514,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'DELETE',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/account/api-keys/${apiKeyId}',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/account/api-keys/${apiKeyId}',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -568,30 +541,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalListData<SshKey>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/account/ssh-keys',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalListData<SshKey>.fromJson(
-      _result.data!,
-      (json) => SshKey.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalListData<SshKey>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/account/ssh-keys',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalListData<SshKey> _value;
+    try {
+      _value = FractalListData<SshKey>.fromJson(
+        _result.data!,
+        (json) => SshKey.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -607,30 +580,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = data;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<SshKey>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/account/ssh-keys',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<SshKey>.fromJson(
-      _result.data!,
-      (json) => SshKey.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<SshKey>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/account/ssh-keys',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<SshKey> _value;
+    try {
+      _value = FractalData<SshKey>.fromJson(
+        _result.data!,
+        (json) => SshKey.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -646,25 +619,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = body;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/account/ssh-keys/remove',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/account/ssh-keys/remove',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -680,31 +648,31 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalMeta<Server, ServerMeta>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalMeta<Server, ServerMeta>.fromJson(
-      _result.data!,
-      (json) => Server.fromJson(json as Map<String, dynamic>),
-      (json) => ServerMeta.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalMeta<Server, ServerMeta>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalMeta<Server, ServerMeta> _value;
+    try {
+      _value = FractalMeta<Server, ServerMeta>.fromJson(
+        _result.data!,
+        (json) => Server.fromJson(json as Map<String, dynamic>),
+        (json) => ServerMeta.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -720,30 +688,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<PteroData<WebsocketDetails>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/websocket',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = PteroData<WebsocketDetails>.fromJson(
-      _result.data!,
-      (json) => WebsocketDetails.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<PteroData<WebsocketDetails>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/websocket',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late PteroData<WebsocketDetails> _value;
+    try {
+      _value = PteroData<WebsocketDetails>.fromJson(
+        _result.data!,
+        (json) => WebsocketDetails.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -759,30 +727,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<FractalData<Stats>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/resources',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<Stats>.fromJson(
-      _result.data!,
-      (json) => Stats.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<Stats>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/resources',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<Stats> _value;
+    try {
+      _value = FractalData<Stats>.fromJson(
+        _result.data!,
+        (json) => Stats.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -809,31 +777,34 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalListMeta<ActivityLog, PaginatedMeta>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/activity',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalListMeta<ActivityLog, PaginatedMeta>.fromJson(
-      _result.data!,
-      (json) => ActivityLog.fromJson(json as Map<String, dynamic>),
-      (json) => PaginatedMeta.fromJson(json as Map<String, dynamic>),
-    );
+    final _options =
+        _setStreamType<FractalListMeta<ActivityLog, PaginatedMeta>>(
+          Options(method: 'GET', headers: _headers, extra: _extra)
+              .compose(
+                _dio.options,
+                '/api/client/servers/${serverId}/activity',
+                queryParameters: queryParameters,
+                data: _data,
+                cancelToken: cancelToken,
+                onSendProgress: onSendProgress,
+                onReceiveProgress: onReceiveProgress,
+              )
+              .copyWith(
+                baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl),
+              ),
+        );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalListMeta<ActivityLog, PaginatedMeta> _value;
+    try {
+      _value = FractalListMeta<ActivityLog, PaginatedMeta>.fromJson(
+        _result.data!,
+        (json) => ActivityLog.fromJson(json as Map<String, dynamic>),
+        (json) => PaginatedMeta.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -850,25 +821,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = data;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/command',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/command',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -884,25 +850,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = signal;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/power',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/power',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -918,30 +879,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalListData<ServerDatabase>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/databases',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalListData<ServerDatabase>.fromJson(
-      _result.data!,
-      (json) => ServerDatabase.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalListData<ServerDatabase>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/databases',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalListData<ServerDatabase> _value;
+    try {
+      _value = FractalListData<ServerDatabase>.fromJson(
+        _result.data!,
+        (json) => ServerDatabase.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -958,30 +919,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = data;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<ServerDatabase>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/databases',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<ServerDatabase>.fromJson(
-      _result.data!,
-      (json) => ServerDatabase.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<ServerDatabase>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/databases',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<ServerDatabase> _value;
+    try {
+      _value = FractalData<ServerDatabase>.fromJson(
+        _result.data!,
+        (json) => ServerDatabase.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -998,25 +959,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'DELETE',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/databases/${databaseId}',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/databases/${databaseId}',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -1032,30 +988,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<ServerDatabase>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/databases/${databaseId}/rotate-password',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<ServerDatabase>.fromJson(
-      _result.data!,
-      (json) => ServerDatabase.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<ServerDatabase>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/databases/${databaseId}/rotate-password',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<ServerDatabase> _value;
+    try {
+      _value = FractalData<ServerDatabase>.fromJson(
+        _result.data!,
+        (json) => ServerDatabase.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -1072,30 +1028,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalListData<FileObject>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/files/list',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalListData<FileObject>.fromJson(
-      _result.data!,
-      (json) => FileObject.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalListData<FileObject>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/files/list',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalListData<FileObject> _value;
+    try {
+      _value = FractalListData<FileObject>.fromJson(
+        _result.data!,
+        (json) => FileObject.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -1112,26 +1068,27 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/files/contents',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
-    final _value = _result.data;
+    final _options = _setStreamType<String>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/files/contents',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<String>(_options);
+    late String? _value;
+    try {
+      _value = _result.data;
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -1148,30 +1105,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<SignedUrl>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/files/download',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<SignedUrl>.fromJson(
-      _result.data!,
-      (json) => SignedUrl.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<SignedUrl>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/files/download',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<SignedUrl> _value;
+    try {
+      _value = FractalData<SignedUrl>.fromJson(
+        _result.data!,
+        (json) => SignedUrl.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -1188,25 +1145,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = rename;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'PUT',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/files/rename',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'PUT', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/files/rename',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -1222,25 +1174,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = data;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/files/copy',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/files/copy',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -1258,26 +1205,25 @@ class _PteroClient extends PteroClient {
     final _headers = <String, dynamic>{r'Content-Type': 'text/plain'};
     _headers.removeWhere((k, v) => v == null);
     final _data = rawContents;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-      contentType: 'text/plain',
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/files/write',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(
+            method: 'POST',
+            headers: _headers,
+            extra: _extra,
+            contentType: 'text/plain',
+          )
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/files/write',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -1293,30 +1239,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = data;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<FileObject>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/files/compress',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<FileObject>.fromJson(
-      _result.data!,
-      (json) => FileObject.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<FileObject>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/files/compress',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<FileObject> _value;
+    try {
+      _value = FractalData<FileObject>.fromJson(
+        _result.data!,
+        (json) => FileObject.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -1333,25 +1279,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = data;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/files/decompress',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/files/decompress',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -1367,25 +1308,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = data;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/files/delete',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/files/delete',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -1401,25 +1337,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = data;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/files/create-folder',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/files/create-folder',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -1435,25 +1366,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = data;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/files/chmod',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/files/chmod',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -1469,25 +1395,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = data;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/files/pull',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/files/pull',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -1502,30 +1423,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<SignedUrl>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/files/upload',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<SignedUrl>.fromJson(
-      _result.data!,
-      (json) => SignedUrl.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<SignedUrl>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/files/upload',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<SignedUrl> _value;
+    try {
+      _value = FractalData<SignedUrl>.fromJson(
+        _result.data!,
+        (json) => SignedUrl.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -1541,30 +1462,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalListData<ServerSchedule>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/schedules',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalListData<ServerSchedule>.fromJson(
-      _result.data!,
-      (json) => ServerSchedule.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalListData<ServerSchedule>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/schedules',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalListData<ServerSchedule> _value;
+    try {
+      _value = FractalListData<ServerSchedule>.fromJson(
+        _result.data!,
+        (json) => ServerSchedule.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -1581,30 +1502,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = scheduleData;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<ServerSchedule>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/schedules',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<ServerSchedule>.fromJson(
-      _result.data!,
-      (json) => ServerSchedule.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<ServerSchedule>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/schedules',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<ServerSchedule> _value;
+    try {
+      _value = FractalData<ServerSchedule>.fromJson(
+        _result.data!,
+        (json) => ServerSchedule.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -1621,30 +1542,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<ServerSchedule>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/schedules/${scheduleId}',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<ServerSchedule>.fromJson(
-      _result.data!,
-      (json) => ServerSchedule.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<ServerSchedule>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/schedules/${scheduleId}',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<ServerSchedule> _value;
+    try {
+      _value = FractalData<ServerSchedule>.fromJson(
+        _result.data!,
+        (json) => ServerSchedule.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -1662,30 +1583,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = scheduleData;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<ServerSchedule>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/schedules/${scheduleId}',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<ServerSchedule>.fromJson(
-      _result.data!,
-      (json) => ServerSchedule.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<ServerSchedule>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/schedules/${scheduleId}',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<ServerSchedule> _value;
+    try {
+      _value = FractalData<ServerSchedule>.fromJson(
+        _result.data!,
+        (json) => ServerSchedule.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -1702,25 +1623,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'DELETE',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/schedules/${scheduleId}',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/schedules/${scheduleId}',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -1737,30 +1653,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = taskData;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<ScheduleTask>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/schedules/${scheduleId}/tasks',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<ScheduleTask>.fromJson(
-      _result.data!,
-      (json) => ScheduleTask.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<ScheduleTask>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/schedules/${scheduleId}/tasks',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<ScheduleTask> _value;
+    try {
+      _value = FractalData<ScheduleTask>.fromJson(
+        _result.data!,
+        (json) => ScheduleTask.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -1779,30 +1695,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = taskData;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<ScheduleTask>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/schedules/${scheduleId}/tasks/${taskId}',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<ScheduleTask>.fromJson(
-      _result.data!,
-      (json) => ScheduleTask.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<ScheduleTask>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/schedules/${scheduleId}/tasks/${taskId}',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<ScheduleTask> _value;
+    try {
+      _value = FractalData<ScheduleTask>.fromJson(
+        _result.data!,
+        (json) => ScheduleTask.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -1820,25 +1736,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'DELETE',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/schedules/${scheduleId}/tasks/${taskId}',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/schedules/${scheduleId}/tasks/${taskId}',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -1853,30 +1764,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalListData<Allocation>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/network/allocations',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalListData<Allocation>.fromJson(
-      _result.data!,
-      (json) => Allocation.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalListData<Allocation>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/network/allocations',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalListData<Allocation> _value;
+    try {
+      _value = FractalListData<Allocation>.fromJson(
+        _result.data!,
+        (json) => Allocation.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -1892,30 +1803,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<Allocation>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/network/allocations',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<Allocation>.fromJson(
-      _result.data!,
-      (json) => Allocation.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<Allocation>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/network/allocations',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<Allocation> _value;
+    try {
+      _value = FractalData<Allocation>.fromJson(
+        _result.data!,
+        (json) => Allocation.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -1933,30 +1844,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = note;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<Allocation>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/network/allocations/${allocationId}',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<Allocation>.fromJson(
-      _result.data!,
-      (json) => Allocation.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<Allocation>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/network/allocations/${allocationId}',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<Allocation> _value;
+    try {
+      _value = FractalData<Allocation>.fromJson(
+        _result.data!,
+        (json) => Allocation.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -1973,30 +1884,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<Allocation>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/network/allocations/${allocationId}/primary',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<Allocation>.fromJson(
-      _result.data!,
-      (json) => Allocation.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<Allocation>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/network/allocations/${allocationId}/primary',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<Allocation> _value;
+    try {
+      _value = FractalData<Allocation>.fromJson(
+        _result.data!,
+        (json) => Allocation.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -2013,30 +1924,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<Allocation>>(Options(
-      method: 'DELETE',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/network/allocations/${allocationId}',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<Allocation>.fromJson(
-      _result.data!,
-      (json) => Allocation.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<Allocation>>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/network/allocations/${allocationId}',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<Allocation> _value;
+    try {
+      _value = FractalData<Allocation>.fromJson(
+        _result.data!,
+        (json) => Allocation.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -2052,30 +1963,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalListData<ServerSubuser>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/users',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalListData<ServerSubuser>.fromJson(
-      _result.data!,
-      (json) => ServerSubuser.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalListData<ServerSubuser>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/users',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalListData<ServerSubuser> _value;
+    try {
+      _value = FractalListData<ServerSubuser>.fromJson(
+        _result.data!,
+        (json) => ServerSubuser.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -2092,30 +2003,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = subuserData;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<ServerSubuser>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/users',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<ServerSubuser>.fromJson(
-      _result.data!,
-      (json) => ServerSubuser.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<ServerSubuser>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/users',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<ServerSubuser> _value;
+    try {
+      _value = FractalData<ServerSubuser>.fromJson(
+        _result.data!,
+        (json) => ServerSubuser.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -2132,30 +2043,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<ServerSubuser>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/users/${subuserId}',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<ServerSubuser>.fromJson(
-      _result.data!,
-      (json) => ServerSubuser.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<ServerSubuser>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/users/${subuserId}',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<ServerSubuser> _value;
+    try {
+      _value = FractalData<ServerSubuser>.fromJson(
+        _result.data!,
+        (json) => ServerSubuser.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -2173,30 +2084,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = subuserData;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<ServerSubuser>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/users/${subuserId}',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<ServerSubuser>.fromJson(
-      _result.data!,
-      (json) => ServerSubuser.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<ServerSubuser>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/users/${subuserId}',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<ServerSubuser> _value;
+    try {
+      _value = FractalData<ServerSubuser>.fromJson(
+        _result.data!,
+        (json) => ServerSubuser.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -2213,25 +2124,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'DELETE',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/users/${subuserId}',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/users/${subuserId}',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -2251,31 +2157,34 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalListMeta<Backup, PaginatedBackupsMeta>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/backups',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalListMeta<Backup, PaginatedBackupsMeta>.fromJson(
-      _result.data!,
-      (json) => Backup.fromJson(json as Map<String, dynamic>),
-      (json) => PaginatedBackupsMeta.fromJson(json as Map<String, dynamic>),
-    );
+    final _options =
+        _setStreamType<FractalListMeta<Backup, PaginatedBackupsMeta>>(
+          Options(method: 'GET', headers: _headers, extra: _extra)
+              .compose(
+                _dio.options,
+                '/api/client/servers/${serverId}/backups',
+                queryParameters: queryParameters,
+                data: _data,
+                cancelToken: cancelToken,
+                onSendProgress: onSendProgress,
+                onReceiveProgress: onReceiveProgress,
+              )
+              .copyWith(
+                baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl),
+              ),
+        );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalListMeta<Backup, PaginatedBackupsMeta> _value;
+    try {
+      _value = FractalListMeta<Backup, PaginatedBackupsMeta>.fromJson(
+        _result.data!,
+        (json) => Backup.fromJson(json as Map<String, dynamic>),
+        (json) => PaginatedBackupsMeta.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -2292,30 +2201,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = backupData;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<Backup>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/backups',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<Backup>.fromJson(
-      _result.data!,
-      (json) => Backup.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<Backup>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/backups',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<Backup> _value;
+    try {
+      _value = FractalData<Backup>.fromJson(
+        _result.data!,
+        (json) => Backup.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -2332,30 +2241,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<Backup>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/backups/${backupId}',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<Backup>.fromJson(
-      _result.data!,
-      (json) => Backup.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<Backup>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/backups/${backupId}',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<Backup> _value;
+    try {
+      _value = FractalData<Backup>.fromJson(
+        _result.data!,
+        (json) => Backup.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -2372,30 +2281,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<Backup>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/backups/${backupId}/lock',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<Backup>.fromJson(
-      _result.data!,
-      (json) => Backup.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<Backup>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/backups/${backupId}/lock',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<Backup> _value;
+    try {
+      _value = FractalData<Backup>.fromJson(
+        _result.data!,
+        (json) => Backup.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -2412,30 +2321,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<SignedUrl>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/backups/${backupId}/download',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<SignedUrl>.fromJson(
-      _result.data!,
-      (json) => SignedUrl.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<SignedUrl>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/backups/${backupId}/download',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<SignedUrl> _value;
+    try {
+      _value = FractalData<SignedUrl>.fromJson(
+        _result.data!,
+        (json) => SignedUrl.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -2452,25 +2361,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'DELETE',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/backups/${backupId}',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/backups/${backupId}',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -2487,25 +2391,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = body;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/backups/${backupId}/restore',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/backups/${backupId}/restore',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -2520,31 +2419,31 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalListMeta<EggVariable, StartupMeta>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/startup',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalListMeta<EggVariable, StartupMeta>.fromJson(
-      _result.data!,
-      (json) => EggVariable.fromJson(json as Map<String, dynamic>),
-      (json) => StartupMeta.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalListMeta<EggVariable, StartupMeta>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/startup',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalListMeta<EggVariable, StartupMeta> _value;
+    try {
+      _value = FractalListMeta<EggVariable, StartupMeta>.fromJson(
+        _result.data!,
+        (json) => EggVariable.fromJson(json as Map<String, dynamic>),
+        (json) => StartupMeta.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -2561,30 +2460,30 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = variable;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<FractalData<EggVariable>>(Options(
-      method: 'PUT',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/client/servers/${serverId}/startup/variable',
-              queryParameters: queryParameters,
-              data: _data,
-              cancelToken: cancelToken,
-              onSendProgress: onSendProgress,
-              onReceiveProgress: onReceiveProgress,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = FractalData<EggVariable>.fromJson(
-      _result.data!,
-      (json) => EggVariable.fromJson(json as Map<String, dynamic>),
+    final _options = _setStreamType<FractalData<EggVariable>>(
+      Options(method: 'PUT', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/startup/variable',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FractalData<EggVariable> _value;
+    try {
+      _value = FractalData<EggVariable>.fromJson(
+        _result.data!,
+        (json) => EggVariable.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
     return _value;
   }
 
@@ -2601,25 +2500,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = rename;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/settings/rename',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/settings/rename',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -2634,25 +2528,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/settings/reinstall',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/settings/reinstall',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -2668,25 +2557,20 @@ class _PteroClient extends PteroClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = dockerImage;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'PUT',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/client/servers/${serverId}/settings/docker-image',
-          queryParameters: queryParameters,
-          data: _data,
-          cancelToken: cancelToken,
-          onSendProgress: onSendProgress,
-          onReceiveProgress: onReceiveProgress,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+    final _options = _setStreamType<void>(
+      Options(method: 'PUT', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/client/servers/${serverId}/settings/docker-image',
+            queryParameters: queryParameters,
+            data: _data,
+            cancelToken: cancelToken,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
@@ -2702,10 +2586,7 @@ class _PteroClient extends PteroClient {
     return requestOptions;
   }
 
-  String _combineBaseUrls(
-    String dioBaseUrl,
-    String? baseUrl,
-  ) {
+  String _combineBaseUrls(String dioBaseUrl, String? baseUrl) {
     if (baseUrl == null || baseUrl.trim().isEmpty) {
       return dioBaseUrl;
     }

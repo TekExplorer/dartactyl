@@ -5,7 +5,7 @@ part '../../generated/models/main_models/activity_log.freezed.dart';
 part '../../generated/models/main_models/activity_log.g.dart';
 
 @freezed
-class ActivityLog with _$ActivityLog {
+abstract class ActivityLog with _$ActivityLog {
   /// [hasAdditionalMetadata] is set to true if [properties] contains a key
   ///  that isn't `useragent` or `ip`.
   const factory ActivityLog({
@@ -22,9 +22,8 @@ class ActivityLog with _$ActivityLog {
     required DateTime timestamp,
     ActivityLogRelationships? relationships,
   }) = _ActivityLog;
-  const ActivityLog._();
 
-  factory ActivityLog.fromJson(JsonMap json) = _ActivityLog.fromJson;
+  factory ActivityLog.fromJson(JsonMap json) => _$ActivityLogFromJson(json);
 }
 
 JsonMap _activityLogPropertiesFromJson(Object? value) {

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,143 +10,139 @@ part of '../../../models/main_models/signed_url.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SignedUrl _$SignedUrlFromJson(Map<String, dynamic> json) {
-  return _SignedUrl.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SignedUrl {
-  Uri get url => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SignedUrlCopyWith<SignedUrl> get copyWith =>
-      throw _privateConstructorUsedError;
+ Uri get url;
+/// Create a copy of SignedUrl
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SignedUrlCopyWith<SignedUrl> get copyWith => _$SignedUrlCopyWithImpl<SignedUrl>(this as SignedUrl, _$identity);
+
+  /// Serializes this SignedUrl to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignedUrl&&(identical(other.url, url) || other.url == url));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,url);
+
+@override
+String toString() {
+  return 'SignedUrl(url: $url)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SignedUrlCopyWith<$Res> {
-  factory $SignedUrlCopyWith(SignedUrl value, $Res Function(SignedUrl) then) =
-      _$SignedUrlCopyWithImpl<$Res, SignedUrl>;
-  @useResult
-  $Res call({Uri url});
-}
+abstract mixin class $SignedUrlCopyWith<$Res>  {
+  factory $SignedUrlCopyWith(SignedUrl value, $Res Function(SignedUrl) _then) = _$SignedUrlCopyWithImpl;
+@useResult
+$Res call({
+ Uri url
+});
 
+
+
+
+}
 /// @nodoc
-class _$SignedUrlCopyWithImpl<$Res, $Val extends SignedUrl>
+class _$SignedUrlCopyWithImpl<$Res>
     implements $SignedUrlCopyWith<$Res> {
-  _$SignedUrlCopyWithImpl(this._value, this._then);
+  _$SignedUrlCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SignedUrl _self;
+  final $Res Function(SignedUrl) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? url = null,
-  }) {
-    return _then(_value.copyWith(
-      url: null == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as Uri,
-    ) as $Val);
-  }
+/// Create a copy of SignedUrl
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? url = null,}) {
+  return _then(_self.copyWith(
+url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
+as Uri,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SignedUrlImplCopyWith<$Res>
-    implements $SignedUrlCopyWith<$Res> {
-  factory _$$SignedUrlImplCopyWith(
-          _$SignedUrlImpl value, $Res Function(_$SignedUrlImpl) then) =
-      __$$SignedUrlImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Uri url});
 }
 
-/// @nodoc
-class __$$SignedUrlImplCopyWithImpl<$Res>
-    extends _$SignedUrlCopyWithImpl<$Res, _$SignedUrlImpl>
-    implements _$$SignedUrlImplCopyWith<$Res> {
-  __$$SignedUrlImplCopyWithImpl(
-      _$SignedUrlImpl _value, $Res Function(_$SignedUrlImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? url = null,
-  }) {
-    return _then(_$SignedUrlImpl(
-      url: null == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as Uri,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$SignedUrlImpl extends _SignedUrl {
-  const _$SignedUrlImpl({required this.url}) : super._();
 
-  factory _$SignedUrlImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SignedUrlImplFromJson(json);
+class _SignedUrl implements SignedUrl {
+  const _SignedUrl({required this.url});
+  factory _SignedUrl.fromJson(Map<String, dynamic> json) => _$SignedUrlFromJson(json);
 
-  @override
-  final Uri url;
+@override final  Uri url;
 
-  @override
-  String toString() {
-    return 'SignedUrl(url: $url)';
-  }
+/// Create a copy of SignedUrl
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SignedUrlCopyWith<_SignedUrl> get copyWith => __$SignedUrlCopyWithImpl<_SignedUrl>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SignedUrlImpl &&
-            (identical(other.url, url) || other.url == url));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, url);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SignedUrlImplCopyWith<_$SignedUrlImpl> get copyWith =>
-      __$$SignedUrlImplCopyWithImpl<_$SignedUrlImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SignedUrlImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$SignedUrlToJson(this, );
 }
 
-abstract class _SignedUrl extends SignedUrl {
-  const factory _SignedUrl({required final Uri url}) = _$SignedUrlImpl;
-  const _SignedUrl._() : super._();
-
-  factory _SignedUrl.fromJson(Map<String, dynamic> json) =
-      _$SignedUrlImpl.fromJson;
-
-  @override
-  Uri get url;
-  @override
-  @JsonKey(ignore: true)
-  _$$SignedUrlImplCopyWith<_$SignedUrlImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SignedUrl&&(identical(other.url, url) || other.url == url));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,url);
+
+@override
+String toString() {
+  return 'SignedUrl(url: $url)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SignedUrlCopyWith<$Res> implements $SignedUrlCopyWith<$Res> {
+  factory _$SignedUrlCopyWith(_SignedUrl value, $Res Function(_SignedUrl) _then) = __$SignedUrlCopyWithImpl;
+@override @useResult
+$Res call({
+ Uri url
+});
+
+
+
+
+}
+/// @nodoc
+class __$SignedUrlCopyWithImpl<$Res>
+    implements _$SignedUrlCopyWith<$Res> {
+  __$SignedUrlCopyWithImpl(this._self, this._then);
+
+  final _SignedUrl _self;
+  final $Res Function(_SignedUrl) _then;
+
+/// Create a copy of SignedUrl
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? url = null,}) {
+  return _then(_SignedUrl(
+url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
+as Uri,
+  ));
+}
+
+
+}
+
+// dart format on

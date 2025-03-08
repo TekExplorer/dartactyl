@@ -5,10 +5,10 @@ part '../../generated/models/request_models/signal.freezed.dart';
 part '../../generated/models/request_models/signal.g.dart';
 
 @freezed
-class Signal with _$Signal {
+abstract class Signal with _$Signal {
   const factory Signal({required ServerPowerAction signal}) = _Signal;
-  const Signal._();
-  factory Signal.fromJson(JsonMap json) = _Signal.fromJson;
+
+  factory Signal.fromJson(JsonMap json) => _$SignalFromJson(json);
 }
 
 enum ServerPowerAction { start, stop, restart, kill }

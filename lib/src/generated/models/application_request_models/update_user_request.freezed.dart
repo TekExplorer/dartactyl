@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,257 +10,156 @@ part of '../../../models/application_request_models/update_user_request.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-UpdateUserRequest _$UpdateUserRequestFromJson(Map<String, dynamic> json) {
-  return _UpdateUserRequest.fromJson(json);
-}
 
 /// @nodoc
 mixin _$UpdateUserRequest {
-  String get email => throw _privateConstructorUsedError;
-  String get username => throw _privateConstructorUsedError;
-  String get firstName => throw _privateConstructorUsedError;
-  String get lastName => throw _privateConstructorUsedError; //
-  String get language => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $UpdateUserRequestCopyWith<UpdateUserRequest> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get email; String get username; String get firstName; String get lastName;//
+ String get language; String get password;
+/// Create a copy of UpdateUserRequest
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UpdateUserRequestCopyWith<UpdateUserRequest> get copyWith => _$UpdateUserRequestCopyWithImpl<UpdateUserRequest>(this as UpdateUserRequest, _$identity);
+
+  /// Serializes this UpdateUserRequest to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UpdateUserRequest&&(identical(other.email, email) || other.email == email)&&(identical(other.username, username) || other.username == username)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName)&&(identical(other.language, language) || other.language == language)&&(identical(other.password, password) || other.password == password));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,email,username,firstName,lastName,language,password);
+
+@override
+String toString() {
+  return 'UpdateUserRequest(email: $email, username: $username, firstName: $firstName, lastName: $lastName, language: $language, password: $password)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UpdateUserRequestCopyWith<$Res> {
-  factory $UpdateUserRequestCopyWith(
-          UpdateUserRequest value, $Res Function(UpdateUserRequest) then) =
-      _$UpdateUserRequestCopyWithImpl<$Res, UpdateUserRequest>;
-  @useResult
-  $Res call(
-      {String email,
-      String username,
-      String firstName,
-      String lastName,
-      String language,
-      String password});
-}
+abstract mixin class $UpdateUserRequestCopyWith<$Res>  {
+  factory $UpdateUserRequestCopyWith(UpdateUserRequest value, $Res Function(UpdateUserRequest) _then) = _$UpdateUserRequestCopyWithImpl;
+@useResult
+$Res call({
+ String email, String username, String firstName, String lastName, String language, String password
+});
 
+
+
+
+}
 /// @nodoc
-class _$UpdateUserRequestCopyWithImpl<$Res, $Val extends UpdateUserRequest>
+class _$UpdateUserRequestCopyWithImpl<$Res>
     implements $UpdateUserRequestCopyWith<$Res> {
-  _$UpdateUserRequestCopyWithImpl(this._value, this._then);
+  _$UpdateUserRequestCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final UpdateUserRequest _self;
+  final $Res Function(UpdateUserRequest) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = null,
-    Object? username = null,
-    Object? firstName = null,
-    Object? lastName = null,
-    Object? language = null,
-    Object? password = null,
-  }) {
-    return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      firstName: null == firstName
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      lastName: null == lastName
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
-              as String,
-      language: null == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of UpdateUserRequest
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? email = null,Object? username = null,Object? firstName = null,Object? lastName = null,Object? language = null,Object? password = null,}) {
+  return _then(_self.copyWith(
+email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,username: null == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
+as String,firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
+as String,lastName: null == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
+as String,language: null == language ? _self.language : language // ignore: cast_nullable_to_non_nullable
+as String,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$UpdateUserRequestImplCopyWith<$Res>
-    implements $UpdateUserRequestCopyWith<$Res> {
-  factory _$$UpdateUserRequestImplCopyWith(_$UpdateUserRequestImpl value,
-          $Res Function(_$UpdateUserRequestImpl) then) =
-      __$$UpdateUserRequestImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String email,
-      String username,
-      String firstName,
-      String lastName,
-      String language,
-      String password});
 }
 
-/// @nodoc
-class __$$UpdateUserRequestImplCopyWithImpl<$Res>
-    extends _$UpdateUserRequestCopyWithImpl<$Res, _$UpdateUserRequestImpl>
-    implements _$$UpdateUserRequestImplCopyWith<$Res> {
-  __$$UpdateUserRequestImplCopyWithImpl(_$UpdateUserRequestImpl _value,
-      $Res Function(_$UpdateUserRequestImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = null,
-    Object? username = null,
-    Object? firstName = null,
-    Object? lastName = null,
-    Object? language = null,
-    Object? password = null,
-  }) {
-    return _then(_$UpdateUserRequestImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      firstName: null == firstName
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      lastName: null == lastName
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
-              as String,
-      language: null == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$UpdateUserRequestImpl extends _UpdateUserRequest {
-  const _$UpdateUserRequestImpl(
-      {required this.email,
-      required this.username,
-      required this.firstName,
-      required this.lastName,
-      required this.language,
-      required this.password})
-      : super._();
 
-  factory _$UpdateUserRequestImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UpdateUserRequestImplFromJson(json);
+class _UpdateUserRequest implements UpdateUserRequest {
+  const _UpdateUserRequest({required this.email, required this.username, required this.firstName, required this.lastName, required this.language, required this.password});
+  factory _UpdateUserRequest.fromJson(Map<String, dynamic> json) => _$UpdateUserRequestFromJson(json);
 
-  @override
-  final String email;
-  @override
-  final String username;
-  @override
-  final String firstName;
-  @override
-  final String lastName;
+@override final  String email;
+@override final  String username;
+@override final  String firstName;
+@override final  String lastName;
 //
-  @override
-  final String language;
-  @override
-  final String password;
+@override final  String language;
+@override final  String password;
 
-  @override
-  String toString() {
-    return 'UpdateUserRequest(email: $email, username: $username, firstName: $firstName, lastName: $lastName, language: $language, password: $password)';
-  }
+/// Create a copy of UpdateUserRequest
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$UpdateUserRequestCopyWith<_UpdateUserRequest> get copyWith => __$UpdateUserRequestCopyWithImpl<_UpdateUserRequest>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UpdateUserRequestImpl &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.firstName, firstName) ||
-                other.firstName == firstName) &&
-            (identical(other.lastName, lastName) ||
-                other.lastName == lastName) &&
-            (identical(other.language, language) ||
-                other.language == language) &&
-            (identical(other.password, password) ||
-                other.password == password));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, email, username, firstName, lastName, language, password);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UpdateUserRequestImplCopyWith<_$UpdateUserRequestImpl> get copyWith =>
-      __$$UpdateUserRequestImplCopyWithImpl<_$UpdateUserRequestImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UpdateUserRequestImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$UpdateUserRequestToJson(this, );
 }
 
-abstract class _UpdateUserRequest extends UpdateUserRequest {
-  const factory _UpdateUserRequest(
-      {required final String email,
-      required final String username,
-      required final String firstName,
-      required final String lastName,
-      required final String language,
-      required final String password}) = _$UpdateUserRequestImpl;
-  const _UpdateUserRequest._() : super._();
-
-  factory _UpdateUserRequest.fromJson(Map<String, dynamic> json) =
-      _$UpdateUserRequestImpl.fromJson;
-
-  @override
-  String get email;
-  @override
-  String get username;
-  @override
-  String get firstName;
-  @override
-  String get lastName;
-  @override //
-  String get language;
-  @override
-  String get password;
-  @override
-  @JsonKey(ignore: true)
-  _$$UpdateUserRequestImplCopyWith<_$UpdateUserRequestImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UpdateUserRequest&&(identical(other.email, email) || other.email == email)&&(identical(other.username, username) || other.username == username)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName)&&(identical(other.language, language) || other.language == language)&&(identical(other.password, password) || other.password == password));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,email,username,firstName,lastName,language,password);
+
+@override
+String toString() {
+  return 'UpdateUserRequest(email: $email, username: $username, firstName: $firstName, lastName: $lastName, language: $language, password: $password)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$UpdateUserRequestCopyWith<$Res> implements $UpdateUserRequestCopyWith<$Res> {
+  factory _$UpdateUserRequestCopyWith(_UpdateUserRequest value, $Res Function(_UpdateUserRequest) _then) = __$UpdateUserRequestCopyWithImpl;
+@override @useResult
+$Res call({
+ String email, String username, String firstName, String lastName, String language, String password
+});
+
+
+
+
+}
+/// @nodoc
+class __$UpdateUserRequestCopyWithImpl<$Res>
+    implements _$UpdateUserRequestCopyWith<$Res> {
+  __$UpdateUserRequestCopyWithImpl(this._self, this._then);
+
+  final _UpdateUserRequest _self;
+  final $Res Function(_UpdateUserRequest) _then;
+
+/// Create a copy of UpdateUserRequest
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? email = null,Object? username = null,Object? firstName = null,Object? lastName = null,Object? language = null,Object? password = null,}) {
+  return _then(_UpdateUserRequest(
+email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,username: null == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
+as String,firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
+as String,lastName: null == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
+as String,language: null == language ? _self.language : language // ignore: cast_nullable_to_non_nullable
+as String,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

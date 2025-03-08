@@ -5,15 +5,14 @@ part '../../generated/models/permission_keys/allocation_permission_keys.freezed.
 part '../../generated/models/permission_keys/allocation_permission_keys.g.dart';
 
 @freezed
-class AllocationPermissionKeys with _$AllocationPermissionKeys {
+abstract class AllocationPermissionKeys with _$AllocationPermissionKeys {
   const factory AllocationPermissionKeys({
     required String read,
     required String create,
     required String update,
     required String delete,
   }) = _AllocationPermissionKeys;
-  const AllocationPermissionKeys._();
 
-  factory AllocationPermissionKeys.fromJson(JsonMap json) =
-      _AllocationPermissionKeys.fromJson;
+  factory AllocationPermissionKeys.fromJson(JsonMap json) =>
+      _$AllocationPermissionKeysFromJson(json);
 }

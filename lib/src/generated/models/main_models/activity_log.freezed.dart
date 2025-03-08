@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,364 +10,199 @@ part of '../../../models/main_models/activity_log.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ActivityLog _$ActivityLogFromJson(Map<String, dynamic> json) {
-  return _ActivityLog.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ActivityLog {
-  String? get batch => throw _privateConstructorUsedError;
-  String get event => throw _privateConstructorUsedError;
-  String? get ip => throw _privateConstructorUsedError;
-  bool get isApi => throw _privateConstructorUsedError;
-  String? get description =>
-      throw _privateConstructorUsedError; // if its [], set to {}
+
+ String? get batch; String get event; String? get ip; bool get isApi; String? get description;// if its [], set to {}
 // ignore: invalid_annotation_target
-  @JsonKey(fromJson: _activityLogPropertiesFromJson)
-  Map<String, Object?> get properties => throw _privateConstructorUsedError;
-  bool get hasAdditionalMetadata => throw _privateConstructorUsedError;
-  DateTime get timestamp => throw _privateConstructorUsedError;
-  ActivityLogRelationships? get relationships =>
-      throw _privateConstructorUsedError;
+@JsonKey(fromJson: _activityLogPropertiesFromJson) JsonMap get properties; bool get hasAdditionalMetadata; DateTime get timestamp; ActivityLogRelationships? get relationships;
+/// Create a copy of ActivityLog
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ActivityLogCopyWith<ActivityLog> get copyWith => _$ActivityLogCopyWithImpl<ActivityLog>(this as ActivityLog, _$identity);
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ActivityLogCopyWith<ActivityLog> get copyWith =>
-      throw _privateConstructorUsedError;
+  /// Serializes this ActivityLog to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActivityLog&&(identical(other.batch, batch) || other.batch == batch)&&(identical(other.event, event) || other.event == event)&&(identical(other.ip, ip) || other.ip == ip)&&(identical(other.isApi, isApi) || other.isApi == isApi)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.properties, properties)&&(identical(other.hasAdditionalMetadata, hasAdditionalMetadata) || other.hasAdditionalMetadata == hasAdditionalMetadata)&&(identical(other.timestamp, timestamp) || other.timestamp == timestamp)&&(identical(other.relationships, relationships) || other.relationships == relationships));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,batch,event,ip,isApi,description,const DeepCollectionEquality().hash(properties),hasAdditionalMetadata,timestamp,relationships);
+
+@override
+String toString() {
+  return 'ActivityLog(batch: $batch, event: $event, ip: $ip, isApi: $isApi, description: $description, properties: $properties, hasAdditionalMetadata: $hasAdditionalMetadata, timestamp: $timestamp, relationships: $relationships)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ActivityLogCopyWith<$Res> {
-  factory $ActivityLogCopyWith(
-          ActivityLog value, $Res Function(ActivityLog) then) =
-      _$ActivityLogCopyWithImpl<$Res, ActivityLog>;
-  @useResult
-  $Res call(
-      {String? batch,
-      String event,
-      String? ip,
-      bool isApi,
-      String? description,
-      @JsonKey(fromJson: _activityLogPropertiesFromJson)
-      Map<String, Object?> properties,
-      bool hasAdditionalMetadata,
-      DateTime timestamp,
-      ActivityLogRelationships? relationships});
+abstract mixin class $ActivityLogCopyWith<$Res>  {
+  factory $ActivityLogCopyWith(ActivityLog value, $Res Function(ActivityLog) _then) = _$ActivityLogCopyWithImpl;
+@useResult
+$Res call({
+ String? batch, String event, String? ip, bool isApi, String? description,@JsonKey(fromJson: _activityLogPropertiesFromJson) Map<String, Object?> properties, bool hasAdditionalMetadata, DateTime timestamp, ActivityLogRelationships? relationships
+});
 
-  $ActivityLogRelationshipsCopyWith<$Res>? get relationships;
+
+$ActivityLogRelationshipsCopyWith<$Res>? get relationships;
+
 }
-
 /// @nodoc
-class _$ActivityLogCopyWithImpl<$Res, $Val extends ActivityLog>
+class _$ActivityLogCopyWithImpl<$Res>
     implements $ActivityLogCopyWith<$Res> {
-  _$ActivityLogCopyWithImpl(this._value, this._then);
+  _$ActivityLogCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ActivityLog _self;
+  final $Res Function(ActivityLog) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? batch = freezed,
-    Object? event = null,
-    Object? ip = freezed,
-    Object? isApi = null,
-    Object? description = freezed,
-    Object? properties = null,
-    Object? hasAdditionalMetadata = null,
-    Object? timestamp = null,
-    Object? relationships = freezed,
-  }) {
-    return _then(_value.copyWith(
-      batch: freezed == batch
-          ? _value.batch
-          : batch // ignore: cast_nullable_to_non_nullable
-              as String?,
-      event: null == event
-          ? _value.event
-          : event // ignore: cast_nullable_to_non_nullable
-              as String,
-      ip: freezed == ip
-          ? _value.ip
-          : ip // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isApi: null == isApi
-          ? _value.isApi
-          : isApi // ignore: cast_nullable_to_non_nullable
-              as bool,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      properties: null == properties
-          ? _value.properties
-          : properties // ignore: cast_nullable_to_non_nullable
-              as Map<String, Object?>,
-      hasAdditionalMetadata: null == hasAdditionalMetadata
-          ? _value.hasAdditionalMetadata
-          : hasAdditionalMetadata // ignore: cast_nullable_to_non_nullable
-              as bool,
-      timestamp: null == timestamp
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      relationships: freezed == relationships
-          ? _value.relationships
-          : relationships // ignore: cast_nullable_to_non_nullable
-              as ActivityLogRelationships?,
-    ) as $Val);
+/// Create a copy of ActivityLog
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? batch = freezed,Object? event = null,Object? ip = freezed,Object? isApi = null,Object? description = freezed,Object? properties = null,Object? hasAdditionalMetadata = null,Object? timestamp = null,Object? relationships = freezed,}) {
+  return _then(_self.copyWith(
+batch: freezed == batch ? _self.batch : batch // ignore: cast_nullable_to_non_nullable
+as String?,event: null == event ? _self.event : event // ignore: cast_nullable_to_non_nullable
+as String,ip: freezed == ip ? _self.ip : ip // ignore: cast_nullable_to_non_nullable
+as String?,isApi: null == isApi ? _self.isApi : isApi // ignore: cast_nullable_to_non_nullable
+as bool,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,properties: null == properties ? _self.properties! : properties // ignore: cast_nullable_to_non_nullable
+as Map<String, Object?>,hasAdditionalMetadata: null == hasAdditionalMetadata ? _self.hasAdditionalMetadata : hasAdditionalMetadata // ignore: cast_nullable_to_non_nullable
+as bool,timestamp: null == timestamp ? _self.timestamp : timestamp // ignore: cast_nullable_to_non_nullable
+as DateTime,relationships: freezed == relationships ? _self.relationships : relationships // ignore: cast_nullable_to_non_nullable
+as ActivityLogRelationships?,
+  ));
+}
+/// Create a copy of ActivityLog
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ActivityLogRelationshipsCopyWith<$Res>? get relationships {
+    if (_self.relationships == null) {
+    return null;
   }
 
-  @override
-  @pragma('vm:prefer-inline')
-  $ActivityLogRelationshipsCopyWith<$Res>? get relationships {
-    if (_value.relationships == null) {
-      return null;
-    }
-
-    return $ActivityLogRelationshipsCopyWith<$Res>(_value.relationships!,
-        (value) {
-      return _then(_value.copyWith(relationships: value) as $Val);
-    });
-  }
+  return $ActivityLogRelationshipsCopyWith<$Res>(_self.relationships!, (value) {
+    return _then(_self.copyWith(relationships: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$ActivityLogImplCopyWith<$Res>
-    implements $ActivityLogCopyWith<$Res> {
-  factory _$$ActivityLogImplCopyWith(
-          _$ActivityLogImpl value, $Res Function(_$ActivityLogImpl) then) =
-      __$$ActivityLogImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String? batch,
-      String event,
-      String? ip,
-      bool isApi,
-      String? description,
-      @JsonKey(fromJson: _activityLogPropertiesFromJson)
-      Map<String, Object?> properties,
-      bool hasAdditionalMetadata,
-      DateTime timestamp,
-      ActivityLogRelationships? relationships});
-
-  @override
-  $ActivityLogRelationshipsCopyWith<$Res>? get relationships;
-}
-
-/// @nodoc
-class __$$ActivityLogImplCopyWithImpl<$Res>
-    extends _$ActivityLogCopyWithImpl<$Res, _$ActivityLogImpl>
-    implements _$$ActivityLogImplCopyWith<$Res> {
-  __$$ActivityLogImplCopyWithImpl(
-      _$ActivityLogImpl _value, $Res Function(_$ActivityLogImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? batch = freezed,
-    Object? event = null,
-    Object? ip = freezed,
-    Object? isApi = null,
-    Object? description = freezed,
-    Object? properties = null,
-    Object? hasAdditionalMetadata = null,
-    Object? timestamp = null,
-    Object? relationships = freezed,
-  }) {
-    return _then(_$ActivityLogImpl(
-      batch: freezed == batch
-          ? _value.batch
-          : batch // ignore: cast_nullable_to_non_nullable
-              as String?,
-      event: null == event
-          ? _value.event
-          : event // ignore: cast_nullable_to_non_nullable
-              as String,
-      ip: freezed == ip
-          ? _value.ip
-          : ip // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isApi: null == isApi
-          ? _value.isApi
-          : isApi // ignore: cast_nullable_to_non_nullable
-              as bool,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      properties: null == properties
-          ? _value._properties
-          : properties // ignore: cast_nullable_to_non_nullable
-              as Map<String, Object?>,
-      hasAdditionalMetadata: null == hasAdditionalMetadata
-          ? _value.hasAdditionalMetadata
-          : hasAdditionalMetadata // ignore: cast_nullable_to_non_nullable
-              as bool,
-      timestamp: null == timestamp
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      relationships: freezed == relationships
-          ? _value.relationships
-          : relationships // ignore: cast_nullable_to_non_nullable
-              as ActivityLogRelationships?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$ActivityLogImpl extends _ActivityLog {
-  const _$ActivityLogImpl(
-      {this.batch,
-      required this.event,
-      this.ip,
-      required this.isApi,
-      this.description,
-      @JsonKey(fromJson: _activityLogPropertiesFromJson)
-      required final Map<String, Object?> properties,
-      required this.hasAdditionalMetadata,
-      required this.timestamp,
-      this.relationships})
-      : _properties = properties,
-        super._();
 
-  factory _$ActivityLogImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActivityLogImplFromJson(json);
+class _ActivityLog implements ActivityLog {
+  const _ActivityLog({this.batch, required this.event, this.ip, required this.isApi, this.description, @JsonKey(fromJson: _activityLogPropertiesFromJson) required final  Map<String, Object?> properties, required this.hasAdditionalMetadata, required this.timestamp, this.relationships}): _properties = properties;
+  factory _ActivityLog.fromJson(Map<String, dynamic> json) => _$ActivityLogFromJson(json);
 
-  @override
-  final String? batch;
-  @override
-  final String event;
-  @override
-  final String? ip;
-  @override
-  final bool isApi;
-  @override
-  final String? description;
+@override final  String? batch;
+@override final  String event;
+@override final  String? ip;
+@override final  bool isApi;
+@override final  String? description;
 // if its [], set to {}
 // ignore: invalid_annotation_target
-  final Map<String, Object?> _properties;
+ final  Map<String, Object?> _properties;
 // if its [], set to {}
 // ignore: invalid_annotation_target
-  @override
-  @JsonKey(fromJson: _activityLogPropertiesFromJson)
-  Map<String, Object?> get properties {
-    if (_properties is EqualUnmodifiableMapView) return _properties;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_properties);
-  }
-
-  @override
-  final bool hasAdditionalMetadata;
-  @override
-  final DateTime timestamp;
-  @override
-  final ActivityLogRelationships? relationships;
-
-  @override
-  String toString() {
-    return 'ActivityLog(batch: $batch, event: $event, ip: $ip, isApi: $isApi, description: $description, properties: $properties, hasAdditionalMetadata: $hasAdditionalMetadata, timestamp: $timestamp, relationships: $relationships)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ActivityLogImpl &&
-            (identical(other.batch, batch) || other.batch == batch) &&
-            (identical(other.event, event) || other.event == event) &&
-            (identical(other.ip, ip) || other.ip == ip) &&
-            (identical(other.isApi, isApi) || other.isApi == isApi) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            const DeepCollectionEquality()
-                .equals(other._properties, _properties) &&
-            (identical(other.hasAdditionalMetadata, hasAdditionalMetadata) ||
-                other.hasAdditionalMetadata == hasAdditionalMetadata) &&
-            (identical(other.timestamp, timestamp) ||
-                other.timestamp == timestamp) &&
-            (identical(other.relationships, relationships) ||
-                other.relationships == relationships));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      batch,
-      event,
-      ip,
-      isApi,
-      description,
-      const DeepCollectionEquality().hash(_properties),
-      hasAdditionalMetadata,
-      timestamp,
-      relationships);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ActivityLogImplCopyWith<_$ActivityLogImpl> get copyWith =>
-      __$$ActivityLogImplCopyWithImpl<_$ActivityLogImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ActivityLogImplToJson(
-      this,
-    );
-  }
+@override@JsonKey(fromJson: _activityLogPropertiesFromJson) Map<String, Object?> get properties {
+  if (_properties is EqualUnmodifiableMapView) return _properties;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_properties);
 }
 
-abstract class _ActivityLog extends ActivityLog {
-  const factory _ActivityLog(
-      {final String? batch,
-      required final String event,
-      final String? ip,
-      required final bool isApi,
-      final String? description,
-      @JsonKey(fromJson: _activityLogPropertiesFromJson)
-      required final Map<String, Object?> properties,
-      required final bool hasAdditionalMetadata,
-      required final DateTime timestamp,
-      final ActivityLogRelationships? relationships}) = _$ActivityLogImpl;
-  const _ActivityLog._() : super._();
+@override final  bool hasAdditionalMetadata;
+@override final  DateTime timestamp;
+@override final  ActivityLogRelationships? relationships;
 
-  factory _ActivityLog.fromJson(Map<String, dynamic> json) =
-      _$ActivityLogImpl.fromJson;
+/// Create a copy of ActivityLog
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ActivityLogCopyWith<_ActivityLog> get copyWith => __$ActivityLogCopyWithImpl<_ActivityLog>(this, _$identity);
 
-  @override
-  String? get batch;
-  @override
-  String get event;
-  @override
-  String? get ip;
-  @override
-  bool get isApi;
-  @override
-  String? get description;
-  @override // if its [], set to {}
-// ignore: invalid_annotation_target
-  @JsonKey(fromJson: _activityLogPropertiesFromJson)
-  Map<String, Object?> get properties;
-  @override
-  bool get hasAdditionalMetadata;
-  @override
-  DateTime get timestamp;
-  @override
-  ActivityLogRelationships? get relationships;
-  @override
-  @JsonKey(ignore: true)
-  _$$ActivityLogImplCopyWith<_$ActivityLogImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$ActivityLogToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActivityLog&&(identical(other.batch, batch) || other.batch == batch)&&(identical(other.event, event) || other.event == event)&&(identical(other.ip, ip) || other.ip == ip)&&(identical(other.isApi, isApi) || other.isApi == isApi)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._properties, _properties)&&(identical(other.hasAdditionalMetadata, hasAdditionalMetadata) || other.hasAdditionalMetadata == hasAdditionalMetadata)&&(identical(other.timestamp, timestamp) || other.timestamp == timestamp)&&(identical(other.relationships, relationships) || other.relationships == relationships));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,batch,event,ip,isApi,description,const DeepCollectionEquality().hash(_properties),hasAdditionalMetadata,timestamp,relationships);
+
+@override
+String toString() {
+  return 'ActivityLog(batch: $batch, event: $event, ip: $ip, isApi: $isApi, description: $description, properties: $properties, hasAdditionalMetadata: $hasAdditionalMetadata, timestamp: $timestamp, relationships: $relationships)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ActivityLogCopyWith<$Res> implements $ActivityLogCopyWith<$Res> {
+  factory _$ActivityLogCopyWith(_ActivityLog value, $Res Function(_ActivityLog) _then) = __$ActivityLogCopyWithImpl;
+@override @useResult
+$Res call({
+ String? batch, String event, String? ip, bool isApi, String? description,@JsonKey(fromJson: _activityLogPropertiesFromJson) Map<String, Object?> properties, bool hasAdditionalMetadata, DateTime timestamp, ActivityLogRelationships? relationships
+});
+
+
+@override $ActivityLogRelationshipsCopyWith<$Res>? get relationships;
+
+}
+/// @nodoc
+class __$ActivityLogCopyWithImpl<$Res>
+    implements _$ActivityLogCopyWith<$Res> {
+  __$ActivityLogCopyWithImpl(this._self, this._then);
+
+  final _ActivityLog _self;
+  final $Res Function(_ActivityLog) _then;
+
+/// Create a copy of ActivityLog
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? batch = freezed,Object? event = null,Object? ip = freezed,Object? isApi = null,Object? description = freezed,Object? properties = null,Object? hasAdditionalMetadata = null,Object? timestamp = null,Object? relationships = freezed,}) {
+  return _then(_ActivityLog(
+batch: freezed == batch ? _self.batch : batch // ignore: cast_nullable_to_non_nullable
+as String?,event: null == event ? _self.event : event // ignore: cast_nullable_to_non_nullable
+as String,ip: freezed == ip ? _self.ip : ip // ignore: cast_nullable_to_non_nullable
+as String?,isApi: null == isApi ? _self.isApi : isApi // ignore: cast_nullable_to_non_nullable
+as bool,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,properties: null == properties ? _self._properties : properties // ignore: cast_nullable_to_non_nullable
+as Map<String, Object?>,hasAdditionalMetadata: null == hasAdditionalMetadata ? _self.hasAdditionalMetadata : hasAdditionalMetadata // ignore: cast_nullable_to_non_nullable
+as bool,timestamp: null == timestamp ? _self.timestamp : timestamp // ignore: cast_nullable_to_non_nullable
+as DateTime,relationships: freezed == relationships ? _self.relationships : relationships // ignore: cast_nullable_to_non_nullable
+as ActivityLogRelationships?,
+  ));
+}
+
+/// Create a copy of ActivityLog
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ActivityLogRelationshipsCopyWith<$Res>? get relationships {
+    if (_self.relationships == null) {
+    return null;
+  }
+
+  return $ActivityLogRelationshipsCopyWith<$Res>(_self.relationships!, (value) {
+    return _then(_self.copyWith(relationships: value));
+  });
+}
+}
+
+// dart format on

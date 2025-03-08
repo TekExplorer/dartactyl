@@ -6,7 +6,7 @@ part '../../generated/models/main_models/api_key.freezed.dart';
 part '../../generated/models/main_models/api_key.g.dart';
 
 @freezed
-class ApiKey with _$ApiKey {
+abstract class ApiKey with _$ApiKey {
   const factory ApiKey({
     required String identifier,
     String? description,
@@ -14,7 +14,6 @@ class ApiKey with _$ApiKey {
     DateTime? lastUsedAt,
     required DateTime createdAt,
   }) = _ApiKey;
-  const ApiKey._();
 
-  factory ApiKey.fromJson(JsonMap json) = _ApiKey.fromJson;
+  factory ApiKey.fromJson(JsonMap json) => _$ApiKeyFromJson(json);
 }

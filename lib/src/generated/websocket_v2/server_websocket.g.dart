@@ -6,33 +6,40 @@ part of '../../websocket_v2/server_websocket.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$WebsocketStatsImpl _$$WebsocketStatsImplFromJson(Map<String, dynamic> json) =>
+_WebsocketStats _$WebsocketStatsFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$WebsocketStatsImpl',
+      '_WebsocketStats',
       json,
       ($checkedConvert) {
-        final val = _$WebsocketStatsImpl(
-          cpuAbsolute:
-              $checkedConvert('cpu_absolute', (v) => (v as num).toDouble()),
+        final val = _WebsocketStats(
+          cpuAbsolute: $checkedConvert(
+            'cpu_absolute',
+            (v) => (v as num).toDouble(),
+          ),
           memoryBytes: $checkedConvert('memory_bytes', (v) => v as Bytes),
-          memoryLimitBytes:
-              $checkedConvert('memory_limit_bytes', (v) => v as Bytes),
-          network: $checkedConvert('network',
-              (v) => WebsocketNetworkStats.fromJson(v as Map<String, dynamic>)),
+          memoryLimitBytes: $checkedConvert(
+            'memory_limit_bytes',
+            (v) => v as Bytes,
+          ),
+          network: $checkedConvert(
+            'network',
+            (v) => WebsocketNetworkStats.fromJson(v as Map<String, dynamic>),
+          ),
           state: $checkedConvert(
-              'state', (v) => $enumDecode(_$ServerPowerStateEnumMap, v)),
+            'state',
+            (v) => $enumDecode(_$ServerPowerStateEnumMap, v),
+          ),
         );
         return val;
       },
       fieldKeyMap: const {
         'cpuAbsolute': 'cpu_absolute',
         'memoryBytes': 'memory_bytes',
-        'memoryLimitBytes': 'memory_limit_bytes'
+        'memoryLimitBytes': 'memory_limit_bytes',
       },
     );
 
-Map<String, dynamic> _$$WebsocketStatsImplToJson(
-        _$WebsocketStatsImpl instance) =>
+Map<String, dynamic> _$WebsocketStatsToJson(_WebsocketStats instance) =>
     <String, dynamic>{
       'cpu_absolute': instance.cpuAbsolute,
       'memory_bytes': instance.memoryBytes,
@@ -48,24 +55,24 @@ const _$ServerPowerStateEnumMap = {
   ServerPowerState.offline: 'offline',
 };
 
-_$WebsocketNetworkStatsImpl _$$WebsocketNetworkStatsImplFromJson(
-        Map<String, dynamic> json) =>
-    $checkedCreate(
-      r'_$WebsocketNetworkStatsImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$WebsocketNetworkStatsImpl(
-          rxBytes: $checkedConvert('rx_bytes', (v) => v as Bytes),
-          txBytes: $checkedConvert('tx_bytes', (v) => v as Bytes),
-        );
-        return val;
-      },
-      fieldKeyMap: const {'rxBytes': 'rx_bytes', 'txBytes': 'tx_bytes'},
+_WebsocketNetworkStats _$WebsocketNetworkStatsFromJson(
+  Map<String, dynamic> json,
+) => $checkedCreate(
+  '_WebsocketNetworkStats',
+  json,
+  ($checkedConvert) {
+    final val = _WebsocketNetworkStats(
+      rxBytes: $checkedConvert('rx_bytes', (v) => v as Bytes),
+      txBytes: $checkedConvert('tx_bytes', (v) => v as Bytes),
     );
+    return val;
+  },
+  fieldKeyMap: const {'rxBytes': 'rx_bytes', 'txBytes': 'tx_bytes'},
+);
 
-Map<String, dynamic> _$$WebsocketNetworkStatsImplToJson(
-        _$WebsocketNetworkStatsImpl instance) =>
-    <String, dynamic>{
-      'rx_bytes': instance.rxBytes,
-      'tx_bytes': instance.txBytes,
-    };
+Map<String, dynamic> _$WebsocketNetworkStatsToJson(
+  _WebsocketNetworkStats instance,
+) => <String, dynamic>{
+  'rx_bytes': instance.rxBytes,
+  'tx_bytes': instance.txBytes,
+};

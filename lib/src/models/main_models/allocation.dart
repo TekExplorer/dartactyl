@@ -5,7 +5,7 @@ part '../../generated/models/main_models/allocation.freezed.dart';
 part '../../generated/models/main_models/allocation.g.dart';
 
 @freezed
-class Allocation with _$Allocation {
+abstract class Allocation with _$Allocation {
   const factory Allocation({
     required int id,
     required String ip,
@@ -14,7 +14,6 @@ class Allocation with _$Allocation {
     String? notes,
     required bool isDefault,
   }) = _Allocation;
-  const Allocation._();
 
-  factory Allocation.fromJson(JsonMap json) = _Allocation.fromJson;
+  factory Allocation.fromJson(JsonMap json) => _$AllocationFromJson(json);
 }

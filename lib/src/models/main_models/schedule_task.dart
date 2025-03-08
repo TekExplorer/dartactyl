@@ -5,7 +5,7 @@ part '../../generated/models/main_models/schedule_task.freezed.dart';
 part '../../generated/models/main_models/schedule_task.g.dart';
 
 @freezed
-class ScheduleTask with _$ScheduleTask {
+abstract class ScheduleTask with _$ScheduleTask {
   const factory ScheduleTask({
     required int id,
     required int sequenceId,
@@ -17,7 +17,6 @@ class ScheduleTask with _$ScheduleTask {
     required DateTime createdAt,
     required DateTime updatedAt,
   }) = _ScheduleTask;
-  const ScheduleTask._();
 
-  factory ScheduleTask.fromJson(JsonMap json) = _ScheduleTask.fromJson;
+  factory ScheduleTask.fromJson(JsonMap json) => _$ScheduleTaskFromJson(json);
 }

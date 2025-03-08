@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,256 +10,156 @@ part of '../../../models/main_models/user.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-User _$UserFromJson(Map<String, dynamic> json) {
-  return _User.fromJson(json);
-}
 
 /// @nodoc
 mixin _$User {
-  String get uuid => throw _privateConstructorUsedError;
-  String get username => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  @experimental
-  Uri? get image =>
-      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
-  @JsonKey(name: '2fa_enabled')
-  bool get twoFaEnabled => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
+ String get uuid; String get username; String get email;@experimental Uri? get image;// ignore: invalid_annotation_target
+@JsonKey(name: '2fa_enabled') bool get twoFaEnabled; DateTime get createdAt;
+/// Create a copy of User
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UserCopyWith<User> get copyWith => _$UserCopyWithImpl<User>(this as User, _$identity);
+
+  /// Serializes this User to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is User&&(identical(other.uuid, uuid) || other.uuid == uuid)&&(identical(other.username, username) || other.username == username)&&(identical(other.email, email) || other.email == email)&&(identical(other.image, image) || other.image == image)&&(identical(other.twoFaEnabled, twoFaEnabled) || other.twoFaEnabled == twoFaEnabled)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,uuid,username,email,image,twoFaEnabled,createdAt);
+
+@override
+String toString() {
+  return 'User(uuid: $uuid, username: $username, email: $email, image: $image, twoFaEnabled: $twoFaEnabled, createdAt: $createdAt)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UserCopyWith<$Res> {
-  factory $UserCopyWith(User value, $Res Function(User) then) =
-      _$UserCopyWithImpl<$Res, User>;
-  @useResult
-  $Res call(
-      {String uuid,
-      String username,
-      String email,
-      @experimental Uri? image,
-      @JsonKey(name: '2fa_enabled') bool twoFaEnabled,
-      DateTime createdAt});
-}
+abstract mixin class $UserCopyWith<$Res>  {
+  factory $UserCopyWith(User value, $Res Function(User) _then) = _$UserCopyWithImpl;
+@useResult
+$Res call({
+ String uuid, String username, String email,@experimental Uri? image,@JsonKey(name: '2fa_enabled') bool twoFaEnabled, DateTime createdAt
+});
 
+
+
+
+}
 /// @nodoc
-class _$UserCopyWithImpl<$Res, $Val extends User>
+class _$UserCopyWithImpl<$Res>
     implements $UserCopyWith<$Res> {
-  _$UserCopyWithImpl(this._value, this._then);
+  _$UserCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final User _self;
+  final $Res Function(User) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? uuid = null,
-    Object? username = null,
-    Object? email = null,
-    Object? image = freezed,
-    Object? twoFaEnabled = null,
-    Object? createdAt = null,
-  }) {
-    return _then(_value.copyWith(
-      uuid: null == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as Uri?,
-      twoFaEnabled: null == twoFaEnabled
-          ? _value.twoFaEnabled
-          : twoFaEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
-  }
+/// Create a copy of User
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? uuid = null,Object? username = null,Object? email = null,Object? image = freezed,Object? twoFaEnabled = null,Object? createdAt = null,}) {
+  return _then(_self.copyWith(
+uuid: null == uuid ? _self.uuid : uuid // ignore: cast_nullable_to_non_nullable
+as String,username: null == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
+as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,image: freezed == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
+as Uri?,twoFaEnabled: null == twoFaEnabled ? _self.twoFaEnabled : twoFaEnabled // ignore: cast_nullable_to_non_nullable
+as bool,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,
+  ));
 }
 
-/// @nodoc
-abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$$UserImplCopyWith(
-          _$UserImpl value, $Res Function(_$UserImpl) then) =
-      __$$UserImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String uuid,
-      String username,
-      String email,
-      @experimental Uri? image,
-      @JsonKey(name: '2fa_enabled') bool twoFaEnabled,
-      DateTime createdAt});
 }
 
-/// @nodoc
-class __$$UserImplCopyWithImpl<$Res>
-    extends _$UserCopyWithImpl<$Res, _$UserImpl>
-    implements _$$UserImplCopyWith<$Res> {
-  __$$UserImplCopyWithImpl(_$UserImpl _value, $Res Function(_$UserImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? uuid = null,
-    Object? username = null,
-    Object? email = null,
-    Object? image = freezed,
-    Object? twoFaEnabled = null,
-    Object? createdAt = null,
-  }) {
-    return _then(_$UserImpl(
-      uuid: null == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as Uri?,
-      twoFaEnabled: null == twoFaEnabled
-          ? _value.twoFaEnabled
-          : twoFaEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$UserImpl extends _User {
-  const _$UserImpl(
-      {required this.uuid,
-      required this.username,
-      required this.email,
-      @experimental this.image,
-      @JsonKey(name: '2fa_enabled') required this.twoFaEnabled,
-      required this.createdAt})
-      : super._();
 
-  factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UserImplFromJson(json);
+class _User implements User {
+  const _User({required this.uuid, required this.username, required this.email, @experimental this.image, @JsonKey(name: '2fa_enabled') required this.twoFaEnabled, required this.createdAt});
+  factory _User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
-  @override
-  final String uuid;
-  @override
-  final String username;
-  @override
-  final String email;
-  @override
-  @experimental
-  final Uri? image;
+@override final  String uuid;
+@override final  String username;
+@override final  String email;
+@override@experimental final  Uri? image;
 // ignore: invalid_annotation_target
-  @override
-  @JsonKey(name: '2fa_enabled')
-  final bool twoFaEnabled;
-  @override
-  final DateTime createdAt;
+@override@JsonKey(name: '2fa_enabled') final  bool twoFaEnabled;
+@override final  DateTime createdAt;
 
-  @override
-  String toString() {
-    return 'User(uuid: $uuid, username: $username, email: $email, image: $image, twoFaEnabled: $twoFaEnabled, createdAt: $createdAt)';
-  }
+/// Create a copy of User
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$UserCopyWith<_User> get copyWith => __$UserCopyWithImpl<_User>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UserImpl &&
-            (identical(other.uuid, uuid) || other.uuid == uuid) &&
-            (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.image, image) || other.image == image) &&
-            (identical(other.twoFaEnabled, twoFaEnabled) ||
-                other.twoFaEnabled == twoFaEnabled) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, uuid, username, email, image, twoFaEnabled, createdAt);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
-      __$$UserImplCopyWithImpl<_$UserImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UserImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$UserToJson(this, );
 }
 
-abstract class _User extends User {
-  const factory _User(
-      {required final String uuid,
-      required final String username,
-      required final String email,
-      @experimental final Uri? image,
-      @JsonKey(name: '2fa_enabled') required final bool twoFaEnabled,
-      required final DateTime createdAt}) = _$UserImpl;
-  const _User._() : super._();
-
-  factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
-
-  @override
-  String get uuid;
-  @override
-  String get username;
-  @override
-  String get email;
-  @override
-  @experimental
-  Uri? get image;
-  @override // ignore: invalid_annotation_target
-  @JsonKey(name: '2fa_enabled')
-  bool get twoFaEnabled;
-  @override
-  DateTime get createdAt;
-  @override
-  @JsonKey(ignore: true)
-  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _User&&(identical(other.uuid, uuid) || other.uuid == uuid)&&(identical(other.username, username) || other.username == username)&&(identical(other.email, email) || other.email == email)&&(identical(other.image, image) || other.image == image)&&(identical(other.twoFaEnabled, twoFaEnabled) || other.twoFaEnabled == twoFaEnabled)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,uuid,username,email,image,twoFaEnabled,createdAt);
+
+@override
+String toString() {
+  return 'User(uuid: $uuid, username: $username, email: $email, image: $image, twoFaEnabled: $twoFaEnabled, createdAt: $createdAt)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
+  factory _$UserCopyWith(_User value, $Res Function(_User) _then) = __$UserCopyWithImpl;
+@override @useResult
+$Res call({
+ String uuid, String username, String email,@experimental Uri? image,@JsonKey(name: '2fa_enabled') bool twoFaEnabled, DateTime createdAt
+});
+
+
+
+
+}
+/// @nodoc
+class __$UserCopyWithImpl<$Res>
+    implements _$UserCopyWith<$Res> {
+  __$UserCopyWithImpl(this._self, this._then);
+
+  final _User _self;
+  final $Res Function(_User) _then;
+
+/// Create a copy of User
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? uuid = null,Object? username = null,Object? email = null,Object? image = freezed,Object? twoFaEnabled = null,Object? createdAt = null,}) {
+  return _then(_User(
+uuid: null == uuid ? _self.uuid : uuid // ignore: cast_nullable_to_non_nullable
+as String,username: null == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
+as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,image: freezed == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
+as Uri?,twoFaEnabled: null == twoFaEnabled ? _self.twoFaEnabled : twoFaEnabled // ignore: cast_nullable_to_non_nullable
+as bool,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -5,13 +5,12 @@ part '../../generated/models/request_models/create_server_database.freezed.dart'
 part '../../generated/models/request_models/create_server_database.g.dart';
 
 @freezed
-class CreateServerDatabase with _$CreateServerDatabase {
+abstract class CreateServerDatabase with _$CreateServerDatabase {
   const factory CreateServerDatabase({
     required String database,
     required String remote,
   }) = _CreateServerDatabase;
-  const CreateServerDatabase._();
 
-  factory CreateServerDatabase.fromJson(JsonMap json) =
-      _CreateServerDatabase.fromJson;
+  factory CreateServerDatabase.fromJson(JsonMap json) =>
+      _$CreateServerDatabaseFromJson(json);
 }

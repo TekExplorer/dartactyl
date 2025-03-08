@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,416 +10,308 @@ part of '../../../models/main_models/pagination.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Links _$LinksFromJson(Map<String, dynamic> json) {
-  return _Links.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Links {
-  String? get previous => throw _privateConstructorUsedError;
-  String? get next => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $LinksCopyWith<Links> get copyWith => throw _privateConstructorUsedError;
+ String? get previous; String? get next;
+/// Create a copy of Links
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$LinksCopyWith<Links> get copyWith => _$LinksCopyWithImpl<Links>(this as Links, _$identity);
+
+  /// Serializes this Links to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Links&&(identical(other.previous, previous) || other.previous == previous)&&(identical(other.next, next) || other.next == next));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,previous,next);
+
+@override
+String toString() {
+  return 'Links(previous: $previous, next: $next)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $LinksCopyWith<$Res> {
-  factory $LinksCopyWith(Links value, $Res Function(Links) then) =
-      _$LinksCopyWithImpl<$Res, Links>;
-  @useResult
-  $Res call({String? previous, String? next});
-}
+abstract mixin class $LinksCopyWith<$Res>  {
+  factory $LinksCopyWith(Links value, $Res Function(Links) _then) = _$LinksCopyWithImpl;
+@useResult
+$Res call({
+ String? previous, String? next
+});
 
+
+
+
+}
 /// @nodoc
-class _$LinksCopyWithImpl<$Res, $Val extends Links>
+class _$LinksCopyWithImpl<$Res>
     implements $LinksCopyWith<$Res> {
-  _$LinksCopyWithImpl(this._value, this._then);
+  _$LinksCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Links _self;
+  final $Res Function(Links) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? previous = freezed,
-    Object? next = freezed,
-  }) {
-    return _then(_value.copyWith(
-      previous: freezed == previous
-          ? _value.previous
-          : previous // ignore: cast_nullable_to_non_nullable
-              as String?,
-      next: freezed == next
-          ? _value.next
-          : next // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
+/// Create a copy of Links
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? previous = freezed,Object? next = freezed,}) {
+  return _then(_self.copyWith(
+previous: freezed == previous ? _self.previous : previous // ignore: cast_nullable_to_non_nullable
+as String?,next: freezed == next ? _self.next : next // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$LinksImplCopyWith<$Res> implements $LinksCopyWith<$Res> {
-  factory _$$LinksImplCopyWith(
-          _$LinksImpl value, $Res Function(_$LinksImpl) then) =
-      __$$LinksImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String? previous, String? next});
 }
 
-/// @nodoc
-class __$$LinksImplCopyWithImpl<$Res>
-    extends _$LinksCopyWithImpl<$Res, _$LinksImpl>
-    implements _$$LinksImplCopyWith<$Res> {
-  __$$LinksImplCopyWithImpl(
-      _$LinksImpl _value, $Res Function(_$LinksImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? previous = freezed,
-    Object? next = freezed,
-  }) {
-    return _then(_$LinksImpl(
-      previous: freezed == previous
-          ? _value.previous
-          : previous // ignore: cast_nullable_to_non_nullable
-              as String?,
-      next: freezed == next
-          ? _value.next
-          : next // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$LinksImpl extends _Links {
-  const _$LinksImpl({this.previous, this.next}) : super._();
 
-  factory _$LinksImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LinksImplFromJson(json);
+class _Links implements Links {
+  const _Links({this.previous, this.next});
+  factory _Links.fromJson(Map<String, dynamic> json) => _$LinksFromJson(json);
 
-  @override
-  final String? previous;
-  @override
-  final String? next;
+@override final  String? previous;
+@override final  String? next;
 
-  @override
-  String toString() {
-    return 'Links(previous: $previous, next: $next)';
-  }
+/// Create a copy of Links
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$LinksCopyWith<_Links> get copyWith => __$LinksCopyWithImpl<_Links>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LinksImpl &&
-            (identical(other.previous, previous) ||
-                other.previous == previous) &&
-            (identical(other.next, next) || other.next == next));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, previous, next);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LinksImplCopyWith<_$LinksImpl> get copyWith =>
-      __$$LinksImplCopyWithImpl<_$LinksImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LinksImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$LinksToJson(this, );
 }
 
-abstract class _Links extends Links {
-  const factory _Links({final String? previous, final String? next}) =
-      _$LinksImpl;
-  const _Links._() : super._();
-
-  factory _Links.fromJson(Map<String, dynamic> json) = _$LinksImpl.fromJson;
-
-  @override
-  String? get previous;
-  @override
-  String? get next;
-  @override
-  @JsonKey(ignore: true)
-  _$$LinksImplCopyWith<_$LinksImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Links&&(identical(other.previous, previous) || other.previous == previous)&&(identical(other.next, next) || other.next == next));
 }
 
-Pagination _$PaginationFromJson(Map<String, dynamic> json) {
-  return _Pagination.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,previous,next);
+
+@override
+String toString() {
+  return 'Links(previous: $previous, next: $next)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$LinksCopyWith<$Res> implements $LinksCopyWith<$Res> {
+  factory _$LinksCopyWith(_Links value, $Res Function(_Links) _then) = __$LinksCopyWithImpl;
+@override @useResult
+$Res call({
+ String? previous, String? next
+});
+
+
+
+
+}
+/// @nodoc
+class __$LinksCopyWithImpl<$Res>
+    implements _$LinksCopyWith<$Res> {
+  __$LinksCopyWithImpl(this._self, this._then);
+
+  final _Links _self;
+  final $Res Function(_Links) _then;
+
+/// Create a copy of Links
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? previous = freezed,Object? next = freezed,}) {
+  return _then(_Links(
+previous: freezed == previous ? _self.previous : previous // ignore: cast_nullable_to_non_nullable
+as String?,next: freezed == next ? _self.next : next // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$Pagination {
-  int get total => throw _privateConstructorUsedError;
-  int get count => throw _privateConstructorUsedError;
-  int get perPage => throw _privateConstructorUsedError;
-  int get currentPage => throw _privateConstructorUsedError;
-  int get totalPages => throw _privateConstructorUsedError;
-  Links get links => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PaginationCopyWith<Pagination> get copyWith =>
-      throw _privateConstructorUsedError;
+ int get total; int get count; int get perPage; int get currentPage; int get totalPages; Links get links;
+/// Create a copy of Pagination
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PaginationCopyWith<Pagination> get copyWith => _$PaginationCopyWithImpl<Pagination>(this as Pagination, _$identity);
+
+  /// Serializes this Pagination to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Pagination&&(identical(other.total, total) || other.total == total)&&(identical(other.count, count) || other.count == count)&&(identical(other.perPage, perPage) || other.perPage == perPage)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.totalPages, totalPages) || other.totalPages == totalPages)&&(identical(other.links, links) || other.links == links));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,total,count,perPage,currentPage,totalPages,links);
+
+@override
+String toString() {
+  return 'Pagination(total: $total, count: $count, perPage: $perPage, currentPage: $currentPage, totalPages: $totalPages, links: $links)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $PaginationCopyWith<$Res> {
-  factory $PaginationCopyWith(
-          Pagination value, $Res Function(Pagination) then) =
-      _$PaginationCopyWithImpl<$Res, Pagination>;
-  @useResult
-  $Res call(
-      {int total,
-      int count,
-      int perPage,
-      int currentPage,
-      int totalPages,
-      Links links});
+abstract mixin class $PaginationCopyWith<$Res>  {
+  factory $PaginationCopyWith(Pagination value, $Res Function(Pagination) _then) = _$PaginationCopyWithImpl;
+@useResult
+$Res call({
+ int total, int count, int perPage, int currentPage, int totalPages, Links links
+});
 
-  $LinksCopyWith<$Res> get links;
+
+$LinksCopyWith<$Res> get links;
+
 }
-
 /// @nodoc
-class _$PaginationCopyWithImpl<$Res, $Val extends Pagination>
+class _$PaginationCopyWithImpl<$Res>
     implements $PaginationCopyWith<$Res> {
-  _$PaginationCopyWithImpl(this._value, this._then);
+  _$PaginationCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Pagination _self;
+  final $Res Function(Pagination) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? total = null,
-    Object? count = null,
-    Object? perPage = null,
-    Object? currentPage = null,
-    Object? totalPages = null,
-    Object? links = null,
-  }) {
-    return _then(_value.copyWith(
-      total: null == total
-          ? _value.total
-          : total // ignore: cast_nullable_to_non_nullable
-              as int,
-      count: null == count
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
-              as int,
-      perPage: null == perPage
-          ? _value.perPage
-          : perPage // ignore: cast_nullable_to_non_nullable
-              as int,
-      currentPage: null == currentPage
-          ? _value.currentPage
-          : currentPage // ignore: cast_nullable_to_non_nullable
-              as int,
-      totalPages: null == totalPages
-          ? _value.totalPages
-          : totalPages // ignore: cast_nullable_to_non_nullable
-              as int,
-      links: null == links
-          ? _value.links
-          : links // ignore: cast_nullable_to_non_nullable
-              as Links,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $LinksCopyWith<$Res> get links {
-    return $LinksCopyWith<$Res>(_value.links, (value) {
-      return _then(_value.copyWith(links: value) as $Val);
-    });
-  }
+/// Create a copy of Pagination
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? total = null,Object? count = null,Object? perPage = null,Object? currentPage = null,Object? totalPages = null,Object? links = null,}) {
+  return _then(_self.copyWith(
+total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
+as int,count: null == count ? _self.count : count // ignore: cast_nullable_to_non_nullable
+as int,perPage: null == perPage ? _self.perPage : perPage // ignore: cast_nullable_to_non_nullable
+as int,currentPage: null == currentPage ? _self.currentPage : currentPage // ignore: cast_nullable_to_non_nullable
+as int,totalPages: null == totalPages ? _self.totalPages : totalPages // ignore: cast_nullable_to_non_nullable
+as int,links: null == links ? _self.links : links // ignore: cast_nullable_to_non_nullable
+as Links,
+  ));
+}
+/// Create a copy of Pagination
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LinksCopyWith<$Res> get links {
+  
+  return $LinksCopyWith<$Res>(_self.links, (value) {
+    return _then(_self.copyWith(links: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$PaginationImplCopyWith<$Res>
-    implements $PaginationCopyWith<$Res> {
-  factory _$$PaginationImplCopyWith(
-          _$PaginationImpl value, $Res Function(_$PaginationImpl) then) =
-      __$$PaginationImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {int total,
-      int count,
-      int perPage,
-      int currentPage,
-      int totalPages,
-      Links links});
-
-  @override
-  $LinksCopyWith<$Res> get links;
-}
-
-/// @nodoc
-class __$$PaginationImplCopyWithImpl<$Res>
-    extends _$PaginationCopyWithImpl<$Res, _$PaginationImpl>
-    implements _$$PaginationImplCopyWith<$Res> {
-  __$$PaginationImplCopyWithImpl(
-      _$PaginationImpl _value, $Res Function(_$PaginationImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? total = null,
-    Object? count = null,
-    Object? perPage = null,
-    Object? currentPage = null,
-    Object? totalPages = null,
-    Object? links = null,
-  }) {
-    return _then(_$PaginationImpl(
-      total: null == total
-          ? _value.total
-          : total // ignore: cast_nullable_to_non_nullable
-              as int,
-      count: null == count
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
-              as int,
-      perPage: null == perPage
-          ? _value.perPage
-          : perPage // ignore: cast_nullable_to_non_nullable
-              as int,
-      currentPage: null == currentPage
-          ? _value.currentPage
-          : currentPage // ignore: cast_nullable_to_non_nullable
-              as int,
-      totalPages: null == totalPages
-          ? _value.totalPages
-          : totalPages // ignore: cast_nullable_to_non_nullable
-              as int,
-      links: null == links
-          ? _value.links
-          : links // ignore: cast_nullable_to_non_nullable
-              as Links,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$PaginationImpl extends _Pagination {
-  const _$PaginationImpl(
-      {required this.total,
-      required this.count,
-      required this.perPage,
-      required this.currentPage,
-      required this.totalPages,
-      required this.links})
-      : super._();
 
-  factory _$PaginationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaginationImplFromJson(json);
+class _Pagination implements Pagination {
+  const _Pagination({required this.total, required this.count, required this.perPage, required this.currentPage, required this.totalPages, required this.links});
+  factory _Pagination.fromJson(Map<String, dynamic> json) => _$PaginationFromJson(json);
 
-  @override
-  final int total;
-  @override
-  final int count;
-  @override
-  final int perPage;
-  @override
-  final int currentPage;
-  @override
-  final int totalPages;
-  @override
-  final Links links;
+@override final  int total;
+@override final  int count;
+@override final  int perPage;
+@override final  int currentPage;
+@override final  int totalPages;
+@override final  Links links;
 
-  @override
-  String toString() {
-    return 'Pagination(total: $total, count: $count, perPage: $perPage, currentPage: $currentPage, totalPages: $totalPages, links: $links)';
-  }
+/// Create a copy of Pagination
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PaginationCopyWith<_Pagination> get copyWith => __$PaginationCopyWithImpl<_Pagination>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PaginationImpl &&
-            (identical(other.total, total) || other.total == total) &&
-            (identical(other.count, count) || other.count == count) &&
-            (identical(other.perPage, perPage) || other.perPage == perPage) &&
-            (identical(other.currentPage, currentPage) ||
-                other.currentPage == currentPage) &&
-            (identical(other.totalPages, totalPages) ||
-                other.totalPages == totalPages) &&
-            (identical(other.links, links) || other.links == links));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, total, count, perPage, currentPage, totalPages, links);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PaginationImplCopyWith<_$PaginationImpl> get copyWith =>
-      __$$PaginationImplCopyWithImpl<_$PaginationImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PaginationImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$PaginationToJson(this, );
 }
 
-abstract class _Pagination extends Pagination {
-  const factory _Pagination(
-      {required final int total,
-      required final int count,
-      required final int perPage,
-      required final int currentPage,
-      required final int totalPages,
-      required final Links links}) = _$PaginationImpl;
-  const _Pagination._() : super._();
-
-  factory _Pagination.fromJson(Map<String, dynamic> json) =
-      _$PaginationImpl.fromJson;
-
-  @override
-  int get total;
-  @override
-  int get count;
-  @override
-  int get perPage;
-  @override
-  int get currentPage;
-  @override
-  int get totalPages;
-  @override
-  Links get links;
-  @override
-  @JsonKey(ignore: true)
-  _$$PaginationImplCopyWith<_$PaginationImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Pagination&&(identical(other.total, total) || other.total == total)&&(identical(other.count, count) || other.count == count)&&(identical(other.perPage, perPage) || other.perPage == perPage)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.totalPages, totalPages) || other.totalPages == totalPages)&&(identical(other.links, links) || other.links == links));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,total,count,perPage,currentPage,totalPages,links);
+
+@override
+String toString() {
+  return 'Pagination(total: $total, count: $count, perPage: $perPage, currentPage: $currentPage, totalPages: $totalPages, links: $links)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PaginationCopyWith<$Res> implements $PaginationCopyWith<$Res> {
+  factory _$PaginationCopyWith(_Pagination value, $Res Function(_Pagination) _then) = __$PaginationCopyWithImpl;
+@override @useResult
+$Res call({
+ int total, int count, int perPage, int currentPage, int totalPages, Links links
+});
+
+
+@override $LinksCopyWith<$Res> get links;
+
+}
+/// @nodoc
+class __$PaginationCopyWithImpl<$Res>
+    implements _$PaginationCopyWith<$Res> {
+  __$PaginationCopyWithImpl(this._self, this._then);
+
+  final _Pagination _self;
+  final $Res Function(_Pagination) _then;
+
+/// Create a copy of Pagination
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? total = null,Object? count = null,Object? perPage = null,Object? currentPage = null,Object? totalPages = null,Object? links = null,}) {
+  return _then(_Pagination(
+total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
+as int,count: null == count ? _self.count : count // ignore: cast_nullable_to_non_nullable
+as int,perPage: null == perPage ? _self.perPage : perPage // ignore: cast_nullable_to_non_nullable
+as int,currentPage: null == currentPage ? _self.currentPage : currentPage // ignore: cast_nullable_to_non_nullable
+as int,totalPages: null == totalPages ? _self.totalPages : totalPages // ignore: cast_nullable_to_non_nullable
+as int,links: null == links ? _self.links : links // ignore: cast_nullable_to_non_nullable
+as Links,
+  ));
+}
+
+/// Create a copy of Pagination
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LinksCopyWith<$Res> get links {
+  
+  return $LinksCopyWith<$Res>(_self.links, (value) {
+    return _then(_self.copyWith(links: value));
+  });
+}
+}
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,327 +10,275 @@ part of '../../../models/fractal/fractal_response_list.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-FractalListData<T> _$FractalListDataFromJson<T extends Object>(
-    Map<String, dynamic> json, T Function(Object?) fromJsonT) {
-  return _FractalListData<T>.fromJson(json, fromJsonT);
-}
 
 /// @nodoc
 mixin _$FractalListData<T extends Object> {
-  IList<FractalData<T>> get data => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson(Object? Function(T) toJsonT) =>
-      throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $FractalListDataCopyWith<T, FractalListData<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+ IList<FractalData<T>> get data;
+/// Create a copy of FractalListData
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$FractalListDataCopyWith<T, FractalListData<T>> get copyWith => _$FractalListDataCopyWithImpl<T, FractalListData<T>>(this as FractalListData<T>, _$identity);
+
+  /// Serializes this FractalListData to a JSON map.
+  Map<String, dynamic> toJson(Object? Function(T) toJsonT);
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FractalListData<T>&&const DeepCollectionEquality().equals(other.data, data));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'FractalListData<$T>(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $FractalListDataCopyWith<T extends Object, $Res> {
-  factory $FractalListDataCopyWith(
-          FractalListData<T> value, $Res Function(FractalListData<T>) then) =
-      _$FractalListDataCopyWithImpl<T, $Res, FractalListData<T>>;
-  @useResult
-  $Res call({IList<FractalData<T>> data});
-}
+abstract mixin class $FractalListDataCopyWith<T extends Object,$Res>  {
+  factory $FractalListDataCopyWith(FractalListData<T> value, $Res Function(FractalListData<T>) _then) = _$FractalListDataCopyWithImpl;
+@useResult
+$Res call({
+ IList<FractalData<T>> data
+});
 
+
+
+
+}
 /// @nodoc
-class _$FractalListDataCopyWithImpl<T extends Object, $Res,
-        $Val extends FractalListData<T>>
+class _$FractalListDataCopyWithImpl<T extends Object,$Res>
     implements $FractalListDataCopyWith<T, $Res> {
-  _$FractalListDataCopyWithImpl(this._value, this._then);
+  _$FractalListDataCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final FractalListData<T> _self;
+  final $Res Function(FractalListData<T>) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_value.copyWith(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as IList<FractalData<T>>,
-    ) as $Val);
-  }
+/// Create a copy of FractalListData
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? data = null,}) {
+  return _then(_self.copyWith(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as IList<FractalData<T>>,
+  ));
 }
 
-/// @nodoc
-abstract class _$$FractalListDataImplCopyWith<T extends Object, $Res>
-    implements $FractalListDataCopyWith<T, $Res> {
-  factory _$$FractalListDataImplCopyWith(_$FractalListDataImpl<T> value,
-          $Res Function(_$FractalListDataImpl<T>) then) =
-      __$$FractalListDataImplCopyWithImpl<T, $Res>;
-  @override
-  @useResult
-  $Res call({IList<FractalData<T>> data});
 }
 
-/// @nodoc
-class __$$FractalListDataImplCopyWithImpl<T extends Object, $Res>
-    extends _$FractalListDataCopyWithImpl<T, $Res, _$FractalListDataImpl<T>>
-    implements _$$FractalListDataImplCopyWith<T, $Res> {
-  __$$FractalListDataImplCopyWithImpl(_$FractalListDataImpl<T> _value,
-      $Res Function(_$FractalListDataImpl<T>) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$FractalListDataImpl<T>(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as IList<FractalData<T>>,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable(genericArgumentFactories: true)
-class _$FractalListDataImpl<T extends Object> extends _FractalListData<T> {
-  const _$FractalListDataImpl({this.data = const IListConst([])}) : super._();
 
-  factory _$FractalListDataImpl.fromJson(
-          Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
-      _$$FractalListDataImplFromJson(json, fromJsonT);
+class _FractalListData<T extends Object> implements FractalListData<T> {
+  const _FractalListData({this.data = const IListConst([])});
+  factory _FractalListData.fromJson(Map<String, dynamic> json,T Function(Object?) fromJsonT) => _$FractalListDataFromJson(json,fromJsonT);
 
-  @override
-  @JsonKey()
-  final IList<FractalData<T>> data;
+@override@JsonKey() final  IList<FractalData<T>> data;
 
-  @override
-  String toString() {
-    return 'FractalListData<$T>(data: $data)';
-  }
+/// Create a copy of FractalListData
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$FractalListDataCopyWith<T, _FractalListData<T>> get copyWith => __$FractalListDataCopyWithImpl<T, _FractalListData<T>>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FractalListDataImpl<T> &&
-            const DeepCollectionEquality().equals(other.data, data));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FractalListDataImplCopyWith<T, _$FractalListDataImpl<T>> get copyWith =>
-      __$$FractalListDataImplCopyWithImpl<T, _$FractalListDataImpl<T>>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson(Object? Function(T) toJsonT) {
-    return _$$FractalListDataImplToJson<T>(this, toJsonT);
-  }
+@override
+Map<String, dynamic> toJson(Object? Function(T) toJsonT) {
+  return _$FractalListDataToJson<T>(this, toJsonT);
 }
 
-abstract class _FractalListData<T extends Object> extends FractalListData<T> {
-  const factory _FractalListData({final IList<FractalData<T>> data}) =
-      _$FractalListDataImpl<T>;
-  const _FractalListData._() : super._();
-
-  factory _FractalListData.fromJson(
-          Map<String, dynamic> json, T Function(Object?) fromJsonT) =
-      _$FractalListDataImpl<T>.fromJson;
-
-  @override
-  IList<FractalData<T>> get data;
-  @override
-  @JsonKey(ignore: true)
-  _$$FractalListDataImplCopyWith<T, _$FractalListDataImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FractalListData<T>&&const DeepCollectionEquality().equals(other.data, data));
 }
 
-FractalListMeta<T, M>
-    _$FractalListMetaFromJson<T extends Object, M extends Meta>(
-        Map<String, dynamic> json,
-        T Function(Object?) fromJsonT,
-        M Function(Object?) fromJsonM) {
-  return _FractalListMeta<T, M>.fromJson(json, fromJsonT, fromJsonM);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'FractalListData<$T>(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-mixin _$FractalListMeta<T extends Object, M extends Meta> {
-  IList<FractalData<T>> get data => throw _privateConstructorUsedError;
-  M get meta => throw _privateConstructorUsedError;
+abstract mixin class _$FractalListDataCopyWith<T extends Object,$Res> implements $FractalListDataCopyWith<T, $Res> {
+  factory _$FractalListDataCopyWith(_FractalListData<T> value, $Res Function(_FractalListData<T>) _then) = __$FractalListDataCopyWithImpl;
+@override @useResult
+$Res call({
+ IList<FractalData<T>> data
+});
 
-  Map<String, dynamic> toJson(
-          Object? Function(T) toJsonT, Object? Function(M) toJsonM) =>
-      throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $FractalListMetaCopyWith<T, M, FractalListMeta<T, M>> get copyWith =>
-      throw _privateConstructorUsedError;
+
+
+
+}
+/// @nodoc
+class __$FractalListDataCopyWithImpl<T extends Object,$Res>
+    implements _$FractalListDataCopyWith<T, $Res> {
+  __$FractalListDataCopyWithImpl(this._self, this._then);
+
+  final _FractalListData<T> _self;
+  final $Res Function(_FractalListData<T>) _then;
+
+/// Create a copy of FractalListData
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(_FractalListData<T>(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as IList<FractalData<T>>,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
+mixin _$FractalListMeta<T extends Object,M extends Meta> {
+
+ IList<FractalData<T>> get data; M get meta;
+/// Create a copy of FractalListMeta
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$FractalListMetaCopyWith<T, M, FractalListMeta<T, M>> get copyWith => _$FractalListMetaCopyWithImpl<T, M, FractalListMeta<T, M>>(this as FractalListMeta<T, M>, _$identity);
+
+  /// Serializes this FractalListMeta to a JSON map.
+  Map<String, dynamic> toJson(Object? Function(T) toJsonT,Object? Function(M) toJsonM);
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FractalListMeta<T, M>&&const DeepCollectionEquality().equals(other.data, data)&&const DeepCollectionEquality().equals(other.meta, meta));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data),const DeepCollectionEquality().hash(meta));
+
+@override
+String toString() {
+  return 'FractalListMeta<$T, $M>(data: $data, meta: $meta)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $FractalListMetaCopyWith<T extends Object, M extends Meta,
-    $Res> {
-  factory $FractalListMetaCopyWith(FractalListMeta<T, M> value,
-          $Res Function(FractalListMeta<T, M>) then) =
-      _$FractalListMetaCopyWithImpl<T, M, $Res, FractalListMeta<T, M>>;
-  @useResult
-  $Res call({IList<FractalData<T>> data, M meta});
-}
+abstract mixin class $FractalListMetaCopyWith<T extends Object,M extends Meta,$Res>  {
+  factory $FractalListMetaCopyWith(FractalListMeta<T, M> value, $Res Function(FractalListMeta<T, M>) _then) = _$FractalListMetaCopyWithImpl;
+@useResult
+$Res call({
+ IList<FractalData<T>> data, M meta
+});
 
+
+
+
+}
 /// @nodoc
-class _$FractalListMetaCopyWithImpl<T extends Object, M extends Meta, $Res,
-        $Val extends FractalListMeta<T, M>>
+class _$FractalListMetaCopyWithImpl<T extends Object,M extends Meta,$Res>
     implements $FractalListMetaCopyWith<T, M, $Res> {
-  _$FractalListMetaCopyWithImpl(this._value, this._then);
+  _$FractalListMetaCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final FractalListMeta<T, M> _self;
+  final $Res Function(FractalListMeta<T, M>) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-    Object? meta = null,
-  }) {
-    return _then(_value.copyWith(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as IList<FractalData<T>>,
-      meta: null == meta
-          ? _value.meta
-          : meta // ignore: cast_nullable_to_non_nullable
-              as M,
-    ) as $Val);
-  }
+/// Create a copy of FractalListMeta
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? data = null,Object? meta = null,}) {
+  return _then(_self.copyWith(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as IList<FractalData<T>>,meta: null == meta ? _self.meta : meta // ignore: cast_nullable_to_non_nullable
+as M,
+  ));
 }
 
-/// @nodoc
-abstract class _$$FractalListMetaImplCopyWith<T extends Object, M extends Meta,
-    $Res> implements $FractalListMetaCopyWith<T, M, $Res> {
-  factory _$$FractalListMetaImplCopyWith(_$FractalListMetaImpl<T, M> value,
-          $Res Function(_$FractalListMetaImpl<T, M>) then) =
-      __$$FractalListMetaImplCopyWithImpl<T, M, $Res>;
-  @override
-  @useResult
-  $Res call({IList<FractalData<T>> data, M meta});
 }
 
-/// @nodoc
-class __$$FractalListMetaImplCopyWithImpl<T extends Object, M extends Meta,
-        $Res>
-    extends _$FractalListMetaCopyWithImpl<T, M, $Res,
-        _$FractalListMetaImpl<T, M>>
-    implements _$$FractalListMetaImplCopyWith<T, M, $Res> {
-  __$$FractalListMetaImplCopyWithImpl(_$FractalListMetaImpl<T, M> _value,
-      $Res Function(_$FractalListMetaImpl<T, M>) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-    Object? meta = null,
-  }) {
-    return _then(_$FractalListMetaImpl<T, M>(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as IList<FractalData<T>>,
-      meta: null == meta
-          ? _value.meta
-          : meta // ignore: cast_nullable_to_non_nullable
-              as M,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable(genericArgumentFactories: true)
-class _$FractalListMetaImpl<T extends Object, M extends Meta>
-    extends _FractalListMeta<T, M> {
-  const _$FractalListMetaImpl(
-      {this.data = const IListConst([]), required this.meta})
-      : super._();
 
-  factory _$FractalListMetaImpl.fromJson(Map<String, dynamic> json,
-          T Function(Object?) fromJsonT, M Function(Object?) fromJsonM) =>
-      _$$FractalListMetaImplFromJson(json, fromJsonT, fromJsonM);
+class _FractalListMeta<T extends Object,M extends Meta> implements FractalListMeta<T, M> {
+  const _FractalListMeta({this.data = const IListConst([]), required this.meta});
+  factory _FractalListMeta.fromJson(Map<String, dynamic> json,T Function(Object?) fromJsonT,M Function(Object?) fromJsonM) => _$FractalListMetaFromJson(json,fromJsonT,fromJsonM);
 
-  @override
-  @JsonKey()
-  final IList<FractalData<T>> data;
-  @override
-  final M meta;
+@override@JsonKey() final  IList<FractalData<T>> data;
+@override final  M meta;
 
-  @override
-  String toString() {
-    return 'FractalListMeta<$T, $M>(data: $data, meta: $meta)';
-  }
+/// Create a copy of FractalListMeta
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$FractalListMetaCopyWith<T, M, _FractalListMeta<T, M>> get copyWith => __$FractalListMetaCopyWithImpl<T, M, _FractalListMeta<T, M>>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FractalListMetaImpl<T, M> &&
-            const DeepCollectionEquality().equals(other.data, data) &&
-            const DeepCollectionEquality().equals(other.meta, meta));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(data),
-      const DeepCollectionEquality().hash(meta));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FractalListMetaImplCopyWith<T, M, _$FractalListMetaImpl<T, M>>
-      get copyWith => __$$FractalListMetaImplCopyWithImpl<T, M,
-          _$FractalListMetaImpl<T, M>>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson(
-      Object? Function(T) toJsonT, Object? Function(M) toJsonM) {
-    return _$$FractalListMetaImplToJson<T, M>(this, toJsonT, toJsonM);
-  }
+@override
+Map<String, dynamic> toJson(Object? Function(T) toJsonT,Object? Function(M) toJsonM) {
+  return _$FractalListMetaToJson<T, M>(this, toJsonT,toJsonM);
 }
 
-abstract class _FractalListMeta<T extends Object, M extends Meta>
-    extends FractalListMeta<T, M> {
-  const factory _FractalListMeta(
-      {final IList<FractalData<T>> data,
-      required final M meta}) = _$FractalListMetaImpl<T, M>;
-  const _FractalListMeta._() : super._();
-
-  factory _FractalListMeta.fromJson(
-      Map<String, dynamic> json,
-      T Function(Object?) fromJsonT,
-      M Function(Object?) fromJsonM) = _$FractalListMetaImpl<T, M>.fromJson;
-
-  @override
-  IList<FractalData<T>> get data;
-  @override
-  M get meta;
-  @override
-  @JsonKey(ignore: true)
-  _$$FractalListMetaImplCopyWith<T, M, _$FractalListMetaImpl<T, M>>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FractalListMeta<T, M>&&const DeepCollectionEquality().equals(other.data, data)&&const DeepCollectionEquality().equals(other.meta, meta));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data),const DeepCollectionEquality().hash(meta));
+
+@override
+String toString() {
+  return 'FractalListMeta<$T, $M>(data: $data, meta: $meta)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$FractalListMetaCopyWith<T extends Object,M extends Meta,$Res> implements $FractalListMetaCopyWith<T, M, $Res> {
+  factory _$FractalListMetaCopyWith(_FractalListMeta<T, M> value, $Res Function(_FractalListMeta<T, M>) _then) = __$FractalListMetaCopyWithImpl;
+@override @useResult
+$Res call({
+ IList<FractalData<T>> data, M meta
+});
+
+
+
+
+}
+/// @nodoc
+class __$FractalListMetaCopyWithImpl<T extends Object,M extends Meta,$Res>
+    implements _$FractalListMetaCopyWith<T, M, $Res> {
+  __$FractalListMetaCopyWithImpl(this._self, this._then);
+
+  final _FractalListMeta<T, M> _self;
+  final $Res Function(_FractalListMeta<T, M>) _then;
+
+/// Create a copy of FractalListMeta
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? data = null,Object? meta = null,}) {
+  return _then(_FractalListMeta<T, M>(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as IList<FractalData<T>>,meta: null == meta ? _self.meta : meta // ignore: cast_nullable_to_non_nullable
+as M,
+  ));
+}
+
+
+}
+
+// dart format on

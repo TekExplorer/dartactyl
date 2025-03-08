@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,177 +10,145 @@ part of '../../../models/request_models/task.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Task _$TaskFromJson(Map<String, dynamic> json) {
-  return _Task.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Task {
-  Action get action => throw _privateConstructorUsedError;
-  String get payload => throw _privateConstructorUsedError;
-  int get timeOffset => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $TaskCopyWith<Task> get copyWith => throw _privateConstructorUsedError;
+ Action get action; String get payload; int get timeOffset;
+/// Create a copy of Task
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$TaskCopyWith<Task> get copyWith => _$TaskCopyWithImpl<Task>(this as Task, _$identity);
+
+  /// Serializes this Task to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Task&&(identical(other.action, action) || other.action == action)&&(identical(other.payload, payload) || other.payload == payload)&&(identical(other.timeOffset, timeOffset) || other.timeOffset == timeOffset));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,action,payload,timeOffset);
+
+@override
+String toString() {
+  return 'Task(action: $action, payload: $payload, timeOffset: $timeOffset)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $TaskCopyWith<$Res> {
-  factory $TaskCopyWith(Task value, $Res Function(Task) then) =
-      _$TaskCopyWithImpl<$Res, Task>;
-  @useResult
-  $Res call({Action action, String payload, int timeOffset});
-}
+abstract mixin class $TaskCopyWith<$Res>  {
+  factory $TaskCopyWith(Task value, $Res Function(Task) _then) = _$TaskCopyWithImpl;
+@useResult
+$Res call({
+ Action action, String payload, int timeOffset
+});
 
+
+
+
+}
 /// @nodoc
-class _$TaskCopyWithImpl<$Res, $Val extends Task>
+class _$TaskCopyWithImpl<$Res>
     implements $TaskCopyWith<$Res> {
-  _$TaskCopyWithImpl(this._value, this._then);
+  _$TaskCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Task _self;
+  final $Res Function(Task) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? action = null,
-    Object? payload = null,
-    Object? timeOffset = null,
-  }) {
-    return _then(_value.copyWith(
-      action: null == action
-          ? _value.action
-          : action // ignore: cast_nullable_to_non_nullable
-              as Action,
-      payload: null == payload
-          ? _value.payload
-          : payload // ignore: cast_nullable_to_non_nullable
-              as String,
-      timeOffset: null == timeOffset
-          ? _value.timeOffset
-          : timeOffset // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
+/// Create a copy of Task
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? action = null,Object? payload = null,Object? timeOffset = null,}) {
+  return _then(_self.copyWith(
+action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
+as Action,payload: null == payload ? _self.payload : payload // ignore: cast_nullable_to_non_nullable
+as String,timeOffset: null == timeOffset ? _self.timeOffset : timeOffset // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
 }
 
-/// @nodoc
-abstract class _$$TaskImplCopyWith<$Res> implements $TaskCopyWith<$Res> {
-  factory _$$TaskImplCopyWith(
-          _$TaskImpl value, $Res Function(_$TaskImpl) then) =
-      __$$TaskImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Action action, String payload, int timeOffset});
 }
 
-/// @nodoc
-class __$$TaskImplCopyWithImpl<$Res>
-    extends _$TaskCopyWithImpl<$Res, _$TaskImpl>
-    implements _$$TaskImplCopyWith<$Res> {
-  __$$TaskImplCopyWithImpl(_$TaskImpl _value, $Res Function(_$TaskImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? action = null,
-    Object? payload = null,
-    Object? timeOffset = null,
-  }) {
-    return _then(_$TaskImpl(
-      action: null == action
-          ? _value.action
-          : action // ignore: cast_nullable_to_non_nullable
-              as Action,
-      payload: null == payload
-          ? _value.payload
-          : payload // ignore: cast_nullable_to_non_nullable
-              as String,
-      timeOffset: null == timeOffset
-          ? _value.timeOffset
-          : timeOffset // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$TaskImpl extends _Task {
-  const _$TaskImpl(
-      {required this.action, required this.payload, required this.timeOffset})
-      : super._();
 
-  factory _$TaskImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TaskImplFromJson(json);
+class _Task implements Task {
+  const _Task({required this.action, required this.payload, required this.timeOffset});
+  factory _Task.fromJson(Map<String, dynamic> json) => _$TaskFromJson(json);
 
-  @override
-  final Action action;
-  @override
-  final String payload;
-  @override
-  final int timeOffset;
+@override final  Action action;
+@override final  String payload;
+@override final  int timeOffset;
 
-  @override
-  String toString() {
-    return 'Task(action: $action, payload: $payload, timeOffset: $timeOffset)';
-  }
+/// Create a copy of Task
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$TaskCopyWith<_Task> get copyWith => __$TaskCopyWithImpl<_Task>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TaskImpl &&
-            (identical(other.action, action) || other.action == action) &&
-            (identical(other.payload, payload) || other.payload == payload) &&
-            (identical(other.timeOffset, timeOffset) ||
-                other.timeOffset == timeOffset));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, action, payload, timeOffset);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TaskImplCopyWith<_$TaskImpl> get copyWith =>
-      __$$TaskImplCopyWithImpl<_$TaskImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TaskImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$TaskToJson(this, );
 }
 
-abstract class _Task extends Task {
-  const factory _Task(
-      {required final Action action,
-      required final String payload,
-      required final int timeOffset}) = _$TaskImpl;
-  const _Task._() : super._();
-
-  factory _Task.fromJson(Map<String, dynamic> json) = _$TaskImpl.fromJson;
-
-  @override
-  Action get action;
-  @override
-  String get payload;
-  @override
-  int get timeOffset;
-  @override
-  @JsonKey(ignore: true)
-  _$$TaskImplCopyWith<_$TaskImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Task&&(identical(other.action, action) || other.action == action)&&(identical(other.payload, payload) || other.payload == payload)&&(identical(other.timeOffset, timeOffset) || other.timeOffset == timeOffset));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,action,payload,timeOffset);
+
+@override
+String toString() {
+  return 'Task(action: $action, payload: $payload, timeOffset: $timeOffset)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
+  factory _$TaskCopyWith(_Task value, $Res Function(_Task) _then) = __$TaskCopyWithImpl;
+@override @useResult
+$Res call({
+ Action action, String payload, int timeOffset
+});
+
+
+
+
+}
+/// @nodoc
+class __$TaskCopyWithImpl<$Res>
+    implements _$TaskCopyWith<$Res> {
+  __$TaskCopyWithImpl(this._self, this._then);
+
+  final _Task _self;
+  final $Res Function(_Task) _then;
+
+/// Create a copy of Task
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? action = null,Object? payload = null,Object? timeOffset = null,}) {
+  return _then(_Task(
+action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
+as Action,payload: null == payload ? _self.payload : payload // ignore: cast_nullable_to_non_nullable
+as String,timeOffset: null == timeOffset ? _self.timeOffset : timeOffset // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,316 +10,163 @@ part of '../../../models/main_models/schedule_task.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ScheduleTask _$ScheduleTaskFromJson(Map<String, dynamic> json) {
-  return _ScheduleTask.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ScheduleTask {
-  int get id => throw _privateConstructorUsedError;
-  int get sequenceId => throw _privateConstructorUsedError;
-  String get action => throw _privateConstructorUsedError;
-  String get payload => throw _privateConstructorUsedError;
-  int get timeOffset => throw _privateConstructorUsedError;
-  bool get isQueued => throw _privateConstructorUsedError;
-  bool? get continueOnFailure => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  DateTime get updatedAt => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ScheduleTaskCopyWith<ScheduleTask> get copyWith =>
-      throw _privateConstructorUsedError;
+ int get id; int get sequenceId; String get action; String get payload; int get timeOffset; bool get isQueued; bool? get continueOnFailure; DateTime get createdAt; DateTime get updatedAt;
+/// Create a copy of ScheduleTask
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ScheduleTaskCopyWith<ScheduleTask> get copyWith => _$ScheduleTaskCopyWithImpl<ScheduleTask>(this as ScheduleTask, _$identity);
+
+  /// Serializes this ScheduleTask to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScheduleTask&&(identical(other.id, id) || other.id == id)&&(identical(other.sequenceId, sequenceId) || other.sequenceId == sequenceId)&&(identical(other.action, action) || other.action == action)&&(identical(other.payload, payload) || other.payload == payload)&&(identical(other.timeOffset, timeOffset) || other.timeOffset == timeOffset)&&(identical(other.isQueued, isQueued) || other.isQueued == isQueued)&&(identical(other.continueOnFailure, continueOnFailure) || other.continueOnFailure == continueOnFailure)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,sequenceId,action,payload,timeOffset,isQueued,continueOnFailure,createdAt,updatedAt);
+
+@override
+String toString() {
+  return 'ScheduleTask(id: $id, sequenceId: $sequenceId, action: $action, payload: $payload, timeOffset: $timeOffset, isQueued: $isQueued, continueOnFailure: $continueOnFailure, createdAt: $createdAt, updatedAt: $updatedAt)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ScheduleTaskCopyWith<$Res> {
-  factory $ScheduleTaskCopyWith(
-          ScheduleTask value, $Res Function(ScheduleTask) then) =
-      _$ScheduleTaskCopyWithImpl<$Res, ScheduleTask>;
-  @useResult
-  $Res call(
-      {int id,
-      int sequenceId,
-      String action,
-      String payload,
-      int timeOffset,
-      bool isQueued,
-      bool? continueOnFailure,
-      DateTime createdAt,
-      DateTime updatedAt});
-}
+abstract mixin class $ScheduleTaskCopyWith<$Res>  {
+  factory $ScheduleTaskCopyWith(ScheduleTask value, $Res Function(ScheduleTask) _then) = _$ScheduleTaskCopyWithImpl;
+@useResult
+$Res call({
+ int id, int sequenceId, String action, String payload, int timeOffset, bool isQueued, bool? continueOnFailure, DateTime createdAt, DateTime updatedAt
+});
 
+
+
+
+}
 /// @nodoc
-class _$ScheduleTaskCopyWithImpl<$Res, $Val extends ScheduleTask>
+class _$ScheduleTaskCopyWithImpl<$Res>
     implements $ScheduleTaskCopyWith<$Res> {
-  _$ScheduleTaskCopyWithImpl(this._value, this._then);
+  _$ScheduleTaskCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ScheduleTask _self;
+  final $Res Function(ScheduleTask) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? sequenceId = null,
-    Object? action = null,
-    Object? payload = null,
-    Object? timeOffset = null,
-    Object? isQueued = null,
-    Object? continueOnFailure = freezed,
-    Object? createdAt = null,
-    Object? updatedAt = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      sequenceId: null == sequenceId
-          ? _value.sequenceId
-          : sequenceId // ignore: cast_nullable_to_non_nullable
-              as int,
-      action: null == action
-          ? _value.action
-          : action // ignore: cast_nullable_to_non_nullable
-              as String,
-      payload: null == payload
-          ? _value.payload
-          : payload // ignore: cast_nullable_to_non_nullable
-              as String,
-      timeOffset: null == timeOffset
-          ? _value.timeOffset
-          : timeOffset // ignore: cast_nullable_to_non_nullable
-              as int,
-      isQueued: null == isQueued
-          ? _value.isQueued
-          : isQueued // ignore: cast_nullable_to_non_nullable
-              as bool,
-      continueOnFailure: freezed == continueOnFailure
-          ? _value.continueOnFailure
-          : continueOnFailure // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
-  }
+/// Create a copy of ScheduleTask
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? sequenceId = null,Object? action = null,Object? payload = null,Object? timeOffset = null,Object? isQueued = null,Object? continueOnFailure = freezed,Object? createdAt = null,Object? updatedAt = null,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,sequenceId: null == sequenceId ? _self.sequenceId : sequenceId // ignore: cast_nullable_to_non_nullable
+as int,action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
+as String,payload: null == payload ? _self.payload : payload // ignore: cast_nullable_to_non_nullable
+as String,timeOffset: null == timeOffset ? _self.timeOffset : timeOffset // ignore: cast_nullable_to_non_nullable
+as int,isQueued: null == isQueued ? _self.isQueued : isQueued // ignore: cast_nullable_to_non_nullable
+as bool,continueOnFailure: freezed == continueOnFailure ? _self.continueOnFailure : continueOnFailure // ignore: cast_nullable_to_non_nullable
+as bool?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ScheduleTaskImplCopyWith<$Res>
-    implements $ScheduleTaskCopyWith<$Res> {
-  factory _$$ScheduleTaskImplCopyWith(
-          _$ScheduleTaskImpl value, $Res Function(_$ScheduleTaskImpl) then) =
-      __$$ScheduleTaskImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {int id,
-      int sequenceId,
-      String action,
-      String payload,
-      int timeOffset,
-      bool isQueued,
-      bool? continueOnFailure,
-      DateTime createdAt,
-      DateTime updatedAt});
 }
 
-/// @nodoc
-class __$$ScheduleTaskImplCopyWithImpl<$Res>
-    extends _$ScheduleTaskCopyWithImpl<$Res, _$ScheduleTaskImpl>
-    implements _$$ScheduleTaskImplCopyWith<$Res> {
-  __$$ScheduleTaskImplCopyWithImpl(
-      _$ScheduleTaskImpl _value, $Res Function(_$ScheduleTaskImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? sequenceId = null,
-    Object? action = null,
-    Object? payload = null,
-    Object? timeOffset = null,
-    Object? isQueued = null,
-    Object? continueOnFailure = freezed,
-    Object? createdAt = null,
-    Object? updatedAt = null,
-  }) {
-    return _then(_$ScheduleTaskImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      sequenceId: null == sequenceId
-          ? _value.sequenceId
-          : sequenceId // ignore: cast_nullable_to_non_nullable
-              as int,
-      action: null == action
-          ? _value.action
-          : action // ignore: cast_nullable_to_non_nullable
-              as String,
-      payload: null == payload
-          ? _value.payload
-          : payload // ignore: cast_nullable_to_non_nullable
-              as String,
-      timeOffset: null == timeOffset
-          ? _value.timeOffset
-          : timeOffset // ignore: cast_nullable_to_non_nullable
-              as int,
-      isQueued: null == isQueued
-          ? _value.isQueued
-          : isQueued // ignore: cast_nullable_to_non_nullable
-              as bool,
-      continueOnFailure: freezed == continueOnFailure
-          ? _value.continueOnFailure
-          : continueOnFailure // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$ScheduleTaskImpl extends _ScheduleTask {
-  const _$ScheduleTaskImpl(
-      {required this.id,
-      required this.sequenceId,
-      required this.action,
-      required this.payload,
-      required this.timeOffset,
-      required this.isQueued,
-      this.continueOnFailure,
-      required this.createdAt,
-      required this.updatedAt})
-      : super._();
 
-  factory _$ScheduleTaskImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ScheduleTaskImplFromJson(json);
+class _ScheduleTask implements ScheduleTask {
+  const _ScheduleTask({required this.id, required this.sequenceId, required this.action, required this.payload, required this.timeOffset, required this.isQueued, this.continueOnFailure, required this.createdAt, required this.updatedAt});
+  factory _ScheduleTask.fromJson(Map<String, dynamic> json) => _$ScheduleTaskFromJson(json);
 
-  @override
-  final int id;
-  @override
-  final int sequenceId;
-  @override
-  final String action;
-  @override
-  final String payload;
-  @override
-  final int timeOffset;
-  @override
-  final bool isQueued;
-  @override
-  final bool? continueOnFailure;
-  @override
-  final DateTime createdAt;
-  @override
-  final DateTime updatedAt;
+@override final  int id;
+@override final  int sequenceId;
+@override final  String action;
+@override final  String payload;
+@override final  int timeOffset;
+@override final  bool isQueued;
+@override final  bool? continueOnFailure;
+@override final  DateTime createdAt;
+@override final  DateTime updatedAt;
 
-  @override
-  String toString() {
-    return 'ScheduleTask(id: $id, sequenceId: $sequenceId, action: $action, payload: $payload, timeOffset: $timeOffset, isQueued: $isQueued, continueOnFailure: $continueOnFailure, createdAt: $createdAt, updatedAt: $updatedAt)';
-  }
+/// Create a copy of ScheduleTask
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ScheduleTaskCopyWith<_ScheduleTask> get copyWith => __$ScheduleTaskCopyWithImpl<_ScheduleTask>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ScheduleTaskImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.sequenceId, sequenceId) ||
-                other.sequenceId == sequenceId) &&
-            (identical(other.action, action) || other.action == action) &&
-            (identical(other.payload, payload) || other.payload == payload) &&
-            (identical(other.timeOffset, timeOffset) ||
-                other.timeOffset == timeOffset) &&
-            (identical(other.isQueued, isQueued) ||
-                other.isQueued == isQueued) &&
-            (identical(other.continueOnFailure, continueOnFailure) ||
-                other.continueOnFailure == continueOnFailure) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, sequenceId, action, payload,
-      timeOffset, isQueued, continueOnFailure, createdAt, updatedAt);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ScheduleTaskImplCopyWith<_$ScheduleTaskImpl> get copyWith =>
-      __$$ScheduleTaskImplCopyWithImpl<_$ScheduleTaskImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ScheduleTaskImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$ScheduleTaskToJson(this, );
 }
 
-abstract class _ScheduleTask extends ScheduleTask {
-  const factory _ScheduleTask(
-      {required final int id,
-      required final int sequenceId,
-      required final String action,
-      required final String payload,
-      required final int timeOffset,
-      required final bool isQueued,
-      final bool? continueOnFailure,
-      required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$ScheduleTaskImpl;
-  const _ScheduleTask._() : super._();
-
-  factory _ScheduleTask.fromJson(Map<String, dynamic> json) =
-      _$ScheduleTaskImpl.fromJson;
-
-  @override
-  int get id;
-  @override
-  int get sequenceId;
-  @override
-  String get action;
-  @override
-  String get payload;
-  @override
-  int get timeOffset;
-  @override
-  bool get isQueued;
-  @override
-  bool? get continueOnFailure;
-  @override
-  DateTime get createdAt;
-  @override
-  DateTime get updatedAt;
-  @override
-  @JsonKey(ignore: true)
-  _$$ScheduleTaskImplCopyWith<_$ScheduleTaskImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScheduleTask&&(identical(other.id, id) || other.id == id)&&(identical(other.sequenceId, sequenceId) || other.sequenceId == sequenceId)&&(identical(other.action, action) || other.action == action)&&(identical(other.payload, payload) || other.payload == payload)&&(identical(other.timeOffset, timeOffset) || other.timeOffset == timeOffset)&&(identical(other.isQueued, isQueued) || other.isQueued == isQueued)&&(identical(other.continueOnFailure, continueOnFailure) || other.continueOnFailure == continueOnFailure)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,sequenceId,action,payload,timeOffset,isQueued,continueOnFailure,createdAt,updatedAt);
+
+@override
+String toString() {
+  return 'ScheduleTask(id: $id, sequenceId: $sequenceId, action: $action, payload: $payload, timeOffset: $timeOffset, isQueued: $isQueued, continueOnFailure: $continueOnFailure, createdAt: $createdAt, updatedAt: $updatedAt)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ScheduleTaskCopyWith<$Res> implements $ScheduleTaskCopyWith<$Res> {
+  factory _$ScheduleTaskCopyWith(_ScheduleTask value, $Res Function(_ScheduleTask) _then) = __$ScheduleTaskCopyWithImpl;
+@override @useResult
+$Res call({
+ int id, int sequenceId, String action, String payload, int timeOffset, bool isQueued, bool? continueOnFailure, DateTime createdAt, DateTime updatedAt
+});
+
+
+
+
+}
+/// @nodoc
+class __$ScheduleTaskCopyWithImpl<$Res>
+    implements _$ScheduleTaskCopyWith<$Res> {
+  __$ScheduleTaskCopyWithImpl(this._self, this._then);
+
+  final _ScheduleTask _self;
+  final $Res Function(_ScheduleTask) _then;
+
+/// Create a copy of ScheduleTask
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? sequenceId = null,Object? action = null,Object? payload = null,Object? timeOffset = null,Object? isQueued = null,Object? continueOnFailure = freezed,Object? createdAt = null,Object? updatedAt = null,}) {
+  return _then(_ScheduleTask(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,sequenceId: null == sequenceId ? _self.sequenceId : sequenceId // ignore: cast_nullable_to_non_nullable
+as int,action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
+as String,payload: null == payload ? _self.payload : payload // ignore: cast_nullable_to_non_nullable
+as String,timeOffset: null == timeOffset ? _self.timeOffset : timeOffset // ignore: cast_nullable_to_non_nullable
+as int,isQueued: null == isQueued ? _self.isQueued : isQueued // ignore: cast_nullable_to_non_nullable
+as bool,continueOnFailure: freezed == continueOnFailure ? _self.continueOnFailure : continueOnFailure // ignore: cast_nullable_to_non_nullable
+as bool?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime,
+  ));
+}
+
+
+}
+
+// dart format on

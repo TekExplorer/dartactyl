@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,368 +10,169 @@ part of '../../../models/application_request_models/create_node_request.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-CreateNodeRequest _$CreateNodeRequestFromJson(Map<String, dynamic> json) {
-  return _CreateNodeRequest.fromJson(json);
-}
 
 /// @nodoc
 mixin _$CreateNodeRequest {
-  String get name => throw _privateConstructorUsedError;
-  int get locationId => throw _privateConstructorUsedError;
-  String get fqdn => throw _privateConstructorUsedError;
-  String get scheme => throw _privateConstructorUsedError;
-  int get memory => throw _privateConstructorUsedError;
-  int get memoryOverallocate => throw _privateConstructorUsedError;
-  int get disk => throw _privateConstructorUsedError;
-  int get diskOverallocate => throw _privateConstructorUsedError;
-  int get uploadSize => throw _privateConstructorUsedError;
-  int get daemonSftp => throw _privateConstructorUsedError;
-  int get daemonListen => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CreateNodeRequestCopyWith<CreateNodeRequest> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get name; int get locationId; String get fqdn; String get scheme; int get memory; int get memoryOverallocate; int get disk; int get diskOverallocate; int get uploadSize; int get daemonSftp; int get daemonListen;
+/// Create a copy of CreateNodeRequest
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CreateNodeRequestCopyWith<CreateNodeRequest> get copyWith => _$CreateNodeRequestCopyWithImpl<CreateNodeRequest>(this as CreateNodeRequest, _$identity);
+
+  /// Serializes this CreateNodeRequest to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CreateNodeRequest&&(identical(other.name, name) || other.name == name)&&(identical(other.locationId, locationId) || other.locationId == locationId)&&(identical(other.fqdn, fqdn) || other.fqdn == fqdn)&&(identical(other.scheme, scheme) || other.scheme == scheme)&&(identical(other.memory, memory) || other.memory == memory)&&(identical(other.memoryOverallocate, memoryOverallocate) || other.memoryOverallocate == memoryOverallocate)&&(identical(other.disk, disk) || other.disk == disk)&&(identical(other.diskOverallocate, diskOverallocate) || other.diskOverallocate == diskOverallocate)&&(identical(other.uploadSize, uploadSize) || other.uploadSize == uploadSize)&&(identical(other.daemonSftp, daemonSftp) || other.daemonSftp == daemonSftp)&&(identical(other.daemonListen, daemonListen) || other.daemonListen == daemonListen));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,locationId,fqdn,scheme,memory,memoryOverallocate,disk,diskOverallocate,uploadSize,daemonSftp,daemonListen);
+
+@override
+String toString() {
+  return 'CreateNodeRequest(name: $name, locationId: $locationId, fqdn: $fqdn, scheme: $scheme, memory: $memory, memoryOverallocate: $memoryOverallocate, disk: $disk, diskOverallocate: $diskOverallocate, uploadSize: $uploadSize, daemonSftp: $daemonSftp, daemonListen: $daemonListen)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $CreateNodeRequestCopyWith<$Res> {
-  factory $CreateNodeRequestCopyWith(
-          CreateNodeRequest value, $Res Function(CreateNodeRequest) then) =
-      _$CreateNodeRequestCopyWithImpl<$Res, CreateNodeRequest>;
-  @useResult
-  $Res call(
-      {String name,
-      int locationId,
-      String fqdn,
-      String scheme,
-      int memory,
-      int memoryOverallocate,
-      int disk,
-      int diskOverallocate,
-      int uploadSize,
-      int daemonSftp,
-      int daemonListen});
-}
+abstract mixin class $CreateNodeRequestCopyWith<$Res>  {
+  factory $CreateNodeRequestCopyWith(CreateNodeRequest value, $Res Function(CreateNodeRequest) _then) = _$CreateNodeRequestCopyWithImpl;
+@useResult
+$Res call({
+ String name, int locationId, String fqdn, String scheme, int memory, int memoryOverallocate, int disk, int diskOverallocate, int uploadSize, int daemonSftp, int daemonListen
+});
 
+
+
+
+}
 /// @nodoc
-class _$CreateNodeRequestCopyWithImpl<$Res, $Val extends CreateNodeRequest>
+class _$CreateNodeRequestCopyWithImpl<$Res>
     implements $CreateNodeRequestCopyWith<$Res> {
-  _$CreateNodeRequestCopyWithImpl(this._value, this._then);
+  _$CreateNodeRequestCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final CreateNodeRequest _self;
+  final $Res Function(CreateNodeRequest) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? locationId = null,
-    Object? fqdn = null,
-    Object? scheme = null,
-    Object? memory = null,
-    Object? memoryOverallocate = null,
-    Object? disk = null,
-    Object? diskOverallocate = null,
-    Object? uploadSize = null,
-    Object? daemonSftp = null,
-    Object? daemonListen = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      locationId: null == locationId
-          ? _value.locationId
-          : locationId // ignore: cast_nullable_to_non_nullable
-              as int,
-      fqdn: null == fqdn
-          ? _value.fqdn
-          : fqdn // ignore: cast_nullable_to_non_nullable
-              as String,
-      scheme: null == scheme
-          ? _value.scheme
-          : scheme // ignore: cast_nullable_to_non_nullable
-              as String,
-      memory: null == memory
-          ? _value.memory
-          : memory // ignore: cast_nullable_to_non_nullable
-              as int,
-      memoryOverallocate: null == memoryOverallocate
-          ? _value.memoryOverallocate
-          : memoryOverallocate // ignore: cast_nullable_to_non_nullable
-              as int,
-      disk: null == disk
-          ? _value.disk
-          : disk // ignore: cast_nullable_to_non_nullable
-              as int,
-      diskOverallocate: null == diskOverallocate
-          ? _value.diskOverallocate
-          : diskOverallocate // ignore: cast_nullable_to_non_nullable
-              as int,
-      uploadSize: null == uploadSize
-          ? _value.uploadSize
-          : uploadSize // ignore: cast_nullable_to_non_nullable
-              as int,
-      daemonSftp: null == daemonSftp
-          ? _value.daemonSftp
-          : daemonSftp // ignore: cast_nullable_to_non_nullable
-              as int,
-      daemonListen: null == daemonListen
-          ? _value.daemonListen
-          : daemonListen // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
+/// Create a copy of CreateNodeRequest
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? locationId = null,Object? fqdn = null,Object? scheme = null,Object? memory = null,Object? memoryOverallocate = null,Object? disk = null,Object? diskOverallocate = null,Object? uploadSize = null,Object? daemonSftp = null,Object? daemonListen = null,}) {
+  return _then(_self.copyWith(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,locationId: null == locationId ? _self.locationId : locationId // ignore: cast_nullable_to_non_nullable
+as int,fqdn: null == fqdn ? _self.fqdn : fqdn // ignore: cast_nullable_to_non_nullable
+as String,scheme: null == scheme ? _self.scheme : scheme // ignore: cast_nullable_to_non_nullable
+as String,memory: null == memory ? _self.memory : memory // ignore: cast_nullable_to_non_nullable
+as int,memoryOverallocate: null == memoryOverallocate ? _self.memoryOverallocate : memoryOverallocate // ignore: cast_nullable_to_non_nullable
+as int,disk: null == disk ? _self.disk : disk // ignore: cast_nullable_to_non_nullable
+as int,diskOverallocate: null == diskOverallocate ? _self.diskOverallocate : diskOverallocate // ignore: cast_nullable_to_non_nullable
+as int,uploadSize: null == uploadSize ? _self.uploadSize : uploadSize // ignore: cast_nullable_to_non_nullable
+as int,daemonSftp: null == daemonSftp ? _self.daemonSftp : daemonSftp // ignore: cast_nullable_to_non_nullable
+as int,daemonListen: null == daemonListen ? _self.daemonListen : daemonListen // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
 }
 
-/// @nodoc
-abstract class _$$CreateNodeRequestImplCopyWith<$Res>
-    implements $CreateNodeRequestCopyWith<$Res> {
-  factory _$$CreateNodeRequestImplCopyWith(_$CreateNodeRequestImpl value,
-          $Res Function(_$CreateNodeRequestImpl) then) =
-      __$$CreateNodeRequestImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String name,
-      int locationId,
-      String fqdn,
-      String scheme,
-      int memory,
-      int memoryOverallocate,
-      int disk,
-      int diskOverallocate,
-      int uploadSize,
-      int daemonSftp,
-      int daemonListen});
 }
 
-/// @nodoc
-class __$$CreateNodeRequestImplCopyWithImpl<$Res>
-    extends _$CreateNodeRequestCopyWithImpl<$Res, _$CreateNodeRequestImpl>
-    implements _$$CreateNodeRequestImplCopyWith<$Res> {
-  __$$CreateNodeRequestImplCopyWithImpl(_$CreateNodeRequestImpl _value,
-      $Res Function(_$CreateNodeRequestImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? locationId = null,
-    Object? fqdn = null,
-    Object? scheme = null,
-    Object? memory = null,
-    Object? memoryOverallocate = null,
-    Object? disk = null,
-    Object? diskOverallocate = null,
-    Object? uploadSize = null,
-    Object? daemonSftp = null,
-    Object? daemonListen = null,
-  }) {
-    return _then(_$CreateNodeRequestImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      locationId: null == locationId
-          ? _value.locationId
-          : locationId // ignore: cast_nullable_to_non_nullable
-              as int,
-      fqdn: null == fqdn
-          ? _value.fqdn
-          : fqdn // ignore: cast_nullable_to_non_nullable
-              as String,
-      scheme: null == scheme
-          ? _value.scheme
-          : scheme // ignore: cast_nullable_to_non_nullable
-              as String,
-      memory: null == memory
-          ? _value.memory
-          : memory // ignore: cast_nullable_to_non_nullable
-              as int,
-      memoryOverallocate: null == memoryOverallocate
-          ? _value.memoryOverallocate
-          : memoryOverallocate // ignore: cast_nullable_to_non_nullable
-              as int,
-      disk: null == disk
-          ? _value.disk
-          : disk // ignore: cast_nullable_to_non_nullable
-              as int,
-      diskOverallocate: null == diskOverallocate
-          ? _value.diskOverallocate
-          : diskOverallocate // ignore: cast_nullable_to_non_nullable
-              as int,
-      uploadSize: null == uploadSize
-          ? _value.uploadSize
-          : uploadSize // ignore: cast_nullable_to_non_nullable
-              as int,
-      daemonSftp: null == daemonSftp
-          ? _value.daemonSftp
-          : daemonSftp // ignore: cast_nullable_to_non_nullable
-              as int,
-      daemonListen: null == daemonListen
-          ? _value.daemonListen
-          : daemonListen // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$CreateNodeRequestImpl extends _CreateNodeRequest {
-  const _$CreateNodeRequestImpl(
-      {required this.name,
-      required this.locationId,
-      required this.fqdn,
-      required this.scheme,
-      required this.memory,
-      required this.memoryOverallocate,
-      required this.disk,
-      required this.diskOverallocate,
-      required this.uploadSize,
-      required this.daemonSftp,
-      required this.daemonListen})
-      : super._();
 
-  factory _$CreateNodeRequestImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CreateNodeRequestImplFromJson(json);
+class _CreateNodeRequest implements CreateNodeRequest {
+  const _CreateNodeRequest({required this.name, required this.locationId, required this.fqdn, required this.scheme, required this.memory, required this.memoryOverallocate, required this.disk, required this.diskOverallocate, required this.uploadSize, required this.daemonSftp, required this.daemonListen});
+  factory _CreateNodeRequest.fromJson(Map<String, dynamic> json) => _$CreateNodeRequestFromJson(json);
 
-  @override
-  final String name;
-  @override
-  final int locationId;
-  @override
-  final String fqdn;
-  @override
-  final String scheme;
-  @override
-  final int memory;
-  @override
-  final int memoryOverallocate;
-  @override
-  final int disk;
-  @override
-  final int diskOverallocate;
-  @override
-  final int uploadSize;
-  @override
-  final int daemonSftp;
-  @override
-  final int daemonListen;
+@override final  String name;
+@override final  int locationId;
+@override final  String fqdn;
+@override final  String scheme;
+@override final  int memory;
+@override final  int memoryOverallocate;
+@override final  int disk;
+@override final  int diskOverallocate;
+@override final  int uploadSize;
+@override final  int daemonSftp;
+@override final  int daemonListen;
 
-  @override
-  String toString() {
-    return 'CreateNodeRequest(name: $name, locationId: $locationId, fqdn: $fqdn, scheme: $scheme, memory: $memory, memoryOverallocate: $memoryOverallocate, disk: $disk, diskOverallocate: $diskOverallocate, uploadSize: $uploadSize, daemonSftp: $daemonSftp, daemonListen: $daemonListen)';
-  }
+/// Create a copy of CreateNodeRequest
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$CreateNodeRequestCopyWith<_CreateNodeRequest> get copyWith => __$CreateNodeRequestCopyWithImpl<_CreateNodeRequest>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CreateNodeRequestImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.locationId, locationId) ||
-                other.locationId == locationId) &&
-            (identical(other.fqdn, fqdn) || other.fqdn == fqdn) &&
-            (identical(other.scheme, scheme) || other.scheme == scheme) &&
-            (identical(other.memory, memory) || other.memory == memory) &&
-            (identical(other.memoryOverallocate, memoryOverallocate) ||
-                other.memoryOverallocate == memoryOverallocate) &&
-            (identical(other.disk, disk) || other.disk == disk) &&
-            (identical(other.diskOverallocate, diskOverallocate) ||
-                other.diskOverallocate == diskOverallocate) &&
-            (identical(other.uploadSize, uploadSize) ||
-                other.uploadSize == uploadSize) &&
-            (identical(other.daemonSftp, daemonSftp) ||
-                other.daemonSftp == daemonSftp) &&
-            (identical(other.daemonListen, daemonListen) ||
-                other.daemonListen == daemonListen));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      name,
-      locationId,
-      fqdn,
-      scheme,
-      memory,
-      memoryOverallocate,
-      disk,
-      diskOverallocate,
-      uploadSize,
-      daemonSftp,
-      daemonListen);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CreateNodeRequestImplCopyWith<_$CreateNodeRequestImpl> get copyWith =>
-      __$$CreateNodeRequestImplCopyWithImpl<_$CreateNodeRequestImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CreateNodeRequestImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$CreateNodeRequestToJson(this, );
 }
 
-abstract class _CreateNodeRequest extends CreateNodeRequest {
-  const factory _CreateNodeRequest(
-      {required final String name,
-      required final int locationId,
-      required final String fqdn,
-      required final String scheme,
-      required final int memory,
-      required final int memoryOverallocate,
-      required final int disk,
-      required final int diskOverallocate,
-      required final int uploadSize,
-      required final int daemonSftp,
-      required final int daemonListen}) = _$CreateNodeRequestImpl;
-  const _CreateNodeRequest._() : super._();
-
-  factory _CreateNodeRequest.fromJson(Map<String, dynamic> json) =
-      _$CreateNodeRequestImpl.fromJson;
-
-  @override
-  String get name;
-  @override
-  int get locationId;
-  @override
-  String get fqdn;
-  @override
-  String get scheme;
-  @override
-  int get memory;
-  @override
-  int get memoryOverallocate;
-  @override
-  int get disk;
-  @override
-  int get diskOverallocate;
-  @override
-  int get uploadSize;
-  @override
-  int get daemonSftp;
-  @override
-  int get daemonListen;
-  @override
-  @JsonKey(ignore: true)
-  _$$CreateNodeRequestImplCopyWith<_$CreateNodeRequestImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CreateNodeRequest&&(identical(other.name, name) || other.name == name)&&(identical(other.locationId, locationId) || other.locationId == locationId)&&(identical(other.fqdn, fqdn) || other.fqdn == fqdn)&&(identical(other.scheme, scheme) || other.scheme == scheme)&&(identical(other.memory, memory) || other.memory == memory)&&(identical(other.memoryOverallocate, memoryOverallocate) || other.memoryOverallocate == memoryOverallocate)&&(identical(other.disk, disk) || other.disk == disk)&&(identical(other.diskOverallocate, diskOverallocate) || other.diskOverallocate == diskOverallocate)&&(identical(other.uploadSize, uploadSize) || other.uploadSize == uploadSize)&&(identical(other.daemonSftp, daemonSftp) || other.daemonSftp == daemonSftp)&&(identical(other.daemonListen, daemonListen) || other.daemonListen == daemonListen));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,locationId,fqdn,scheme,memory,memoryOverallocate,disk,diskOverallocate,uploadSize,daemonSftp,daemonListen);
+
+@override
+String toString() {
+  return 'CreateNodeRequest(name: $name, locationId: $locationId, fqdn: $fqdn, scheme: $scheme, memory: $memory, memoryOverallocate: $memoryOverallocate, disk: $disk, diskOverallocate: $diskOverallocate, uploadSize: $uploadSize, daemonSftp: $daemonSftp, daemonListen: $daemonListen)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$CreateNodeRequestCopyWith<$Res> implements $CreateNodeRequestCopyWith<$Res> {
+  factory _$CreateNodeRequestCopyWith(_CreateNodeRequest value, $Res Function(_CreateNodeRequest) _then) = __$CreateNodeRequestCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, int locationId, String fqdn, String scheme, int memory, int memoryOverallocate, int disk, int diskOverallocate, int uploadSize, int daemonSftp, int daemonListen
+});
+
+
+
+
+}
+/// @nodoc
+class __$CreateNodeRequestCopyWithImpl<$Res>
+    implements _$CreateNodeRequestCopyWith<$Res> {
+  __$CreateNodeRequestCopyWithImpl(this._self, this._then);
+
+  final _CreateNodeRequest _self;
+  final $Res Function(_CreateNodeRequest) _then;
+
+/// Create a copy of CreateNodeRequest
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? locationId = null,Object? fqdn = null,Object? scheme = null,Object? memory = null,Object? memoryOverallocate = null,Object? disk = null,Object? diskOverallocate = null,Object? uploadSize = null,Object? daemonSftp = null,Object? daemonListen = null,}) {
+  return _then(_CreateNodeRequest(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,locationId: null == locationId ? _self.locationId : locationId // ignore: cast_nullable_to_non_nullable
+as int,fqdn: null == fqdn ? _self.fqdn : fqdn // ignore: cast_nullable_to_non_nullable
+as String,scheme: null == scheme ? _self.scheme : scheme // ignore: cast_nullable_to_non_nullable
+as String,memory: null == memory ? _self.memory : memory // ignore: cast_nullable_to_non_nullable
+as int,memoryOverallocate: null == memoryOverallocate ? _self.memoryOverallocate : memoryOverallocate // ignore: cast_nullable_to_non_nullable
+as int,disk: null == disk ? _self.disk : disk // ignore: cast_nullable_to_non_nullable
+as int,diskOverallocate: null == diskOverallocate ? _self.diskOverallocate : diskOverallocate // ignore: cast_nullable_to_non_nullable
+as int,uploadSize: null == uploadSize ? _self.uploadSize : uploadSize // ignore: cast_nullable_to_non_nullable
+as int,daemonSftp: null == daemonSftp ? _self.daemonSftp : daemonSftp // ignore: cast_nullable_to_non_nullable
+as int,daemonListen: null == daemonListen ? _self.daemonListen : daemonListen // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+// dart format on

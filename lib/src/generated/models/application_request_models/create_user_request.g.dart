@@ -6,13 +6,12 @@ part of '../../../models/application_request_models/create_user_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CreateUserRequestImpl _$$CreateUserRequestImplFromJson(
-        Map<String, dynamic> json) =>
+_CreateUserRequest _$CreateUserRequestFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$CreateUserRequestImpl',
+      '_CreateUserRequest',
       json,
       ($checkedConvert) {
-        final val = _$CreateUserRequestImpl(
+        final val = _CreateUserRequest(
           email: $checkedConvert('email', (v) => v as String),
           username: $checkedConvert('username', (v) => v as String),
           firstName: $checkedConvert('first_name', (v) => v as String),
@@ -23,8 +22,7 @@ _$CreateUserRequestImpl _$$CreateUserRequestImplFromJson(
       fieldKeyMap: const {'firstName': 'first_name', 'lastName': 'last_name'},
     );
 
-Map<String, dynamic> _$$CreateUserRequestImplToJson(
-        _$CreateUserRequestImpl instance) =>
+Map<String, dynamic> _$CreateUserRequestToJson(_CreateUserRequest instance) =>
     <String, dynamic>{
       'email': instance.email,
       'username': instance.username,

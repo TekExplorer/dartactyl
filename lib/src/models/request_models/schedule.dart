@@ -5,7 +5,7 @@ part '../../generated/models/request_models/schedule.freezed.dart';
 part '../../generated/models/request_models/schedule.g.dart';
 
 @freezed
-class RequestSchedule with _$RequestSchedule {
+abstract class RequestSchedule with _$RequestSchedule {
   const factory RequestSchedule({
     required bool onlyWhenOnline,
     required String name,
@@ -16,7 +16,7 @@ class RequestSchedule with _$RequestSchedule {
     required String dayOfMonth,
     required String month,
   }) = _RequestSchedule;
-  const RequestSchedule._();
 
-  factory RequestSchedule.fromJson(JsonMap json) = _RequestSchedule.fromJson;
+  factory RequestSchedule.fromJson(JsonMap json) =>
+      _$RequestScheduleFromJson(json);
 }

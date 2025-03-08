@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,268 +10,157 @@ part of '../../../models/application_models/nest.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Nest _$NestFromJson(Map<String, dynamic> json) {
-  return _Nest.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Nest {
-  int get id => throw _privateConstructorUsedError;
-  String get uuid => throw _privateConstructorUsedError;
-  String get author => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  DateTime get updatedAt => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $NestCopyWith<Nest> get copyWith => throw _privateConstructorUsedError;
+ int get id; String get uuid; String get author; String get name; String? get description; DateTime get createdAt; DateTime get updatedAt;
+/// Create a copy of Nest
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$NestCopyWith<Nest> get copyWith => _$NestCopyWithImpl<Nest>(this as Nest, _$identity);
+
+  /// Serializes this Nest to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Nest&&(identical(other.id, id) || other.id == id)&&(identical(other.uuid, uuid) || other.uuid == uuid)&&(identical(other.author, author) || other.author == author)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,uuid,author,name,description,createdAt,updatedAt);
+
+@override
+String toString() {
+  return 'Nest(id: $id, uuid: $uuid, author: $author, name: $name, description: $description, createdAt: $createdAt, updatedAt: $updatedAt)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $NestCopyWith<$Res> {
-  factory $NestCopyWith(Nest value, $Res Function(Nest) then) =
-      _$NestCopyWithImpl<$Res, Nest>;
-  @useResult
-  $Res call(
-      {int id,
-      String uuid,
-      String author,
-      String name,
-      String? description,
-      DateTime createdAt,
-      DateTime updatedAt});
-}
+abstract mixin class $NestCopyWith<$Res>  {
+  factory $NestCopyWith(Nest value, $Res Function(Nest) _then) = _$NestCopyWithImpl;
+@useResult
+$Res call({
+ int id, String uuid, String author, String name, String? description, DateTime createdAt, DateTime updatedAt
+});
 
+
+
+
+}
 /// @nodoc
-class _$NestCopyWithImpl<$Res, $Val extends Nest>
+class _$NestCopyWithImpl<$Res>
     implements $NestCopyWith<$Res> {
-  _$NestCopyWithImpl(this._value, this._then);
+  _$NestCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Nest _self;
+  final $Res Function(Nest) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? uuid = null,
-    Object? author = null,
-    Object? name = null,
-    Object? description = freezed,
-    Object? createdAt = null,
-    Object? updatedAt = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      uuid: null == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
-      author: null == author
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
-  }
+/// Create a copy of Nest
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? uuid = null,Object? author = null,Object? name = null,Object? description = freezed,Object? createdAt = null,Object? updatedAt = null,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,uuid: null == uuid ? _self.uuid : uuid // ignore: cast_nullable_to_non_nullable
+as String,author: null == author ? _self.author : author // ignore: cast_nullable_to_non_nullable
+as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime,
+  ));
 }
 
-/// @nodoc
-abstract class _$$NestImplCopyWith<$Res> implements $NestCopyWith<$Res> {
-  factory _$$NestImplCopyWith(
-          _$NestImpl value, $Res Function(_$NestImpl) then) =
-      __$$NestImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {int id,
-      String uuid,
-      String author,
-      String name,
-      String? description,
-      DateTime createdAt,
-      DateTime updatedAt});
 }
 
-/// @nodoc
-class __$$NestImplCopyWithImpl<$Res>
-    extends _$NestCopyWithImpl<$Res, _$NestImpl>
-    implements _$$NestImplCopyWith<$Res> {
-  __$$NestImplCopyWithImpl(_$NestImpl _value, $Res Function(_$NestImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? uuid = null,
-    Object? author = null,
-    Object? name = null,
-    Object? description = freezed,
-    Object? createdAt = null,
-    Object? updatedAt = null,
-  }) {
-    return _then(_$NestImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      uuid: null == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
-      author: null == author
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$NestImpl extends _Nest {
-  const _$NestImpl(
-      {required this.id,
-      required this.uuid,
-      required this.author,
-      required this.name,
-      this.description,
-      required this.createdAt,
-      required this.updatedAt})
-      : super._();
 
-  factory _$NestImpl.fromJson(Map<String, dynamic> json) =>
-      _$$NestImplFromJson(json);
+class _Nest implements Nest {
+  const _Nest({required this.id, required this.uuid, required this.author, required this.name, this.description, required this.createdAt, required this.updatedAt});
+  factory _Nest.fromJson(Map<String, dynamic> json) => _$NestFromJson(json);
 
-  @override
-  final int id;
-  @override
-  final String uuid;
-  @override
-  final String author;
-  @override
-  final String name;
-  @override
-  final String? description;
-  @override
-  final DateTime createdAt;
-  @override
-  final DateTime updatedAt;
+@override final  int id;
+@override final  String uuid;
+@override final  String author;
+@override final  String name;
+@override final  String? description;
+@override final  DateTime createdAt;
+@override final  DateTime updatedAt;
 
-  @override
-  String toString() {
-    return 'Nest(id: $id, uuid: $uuid, author: $author, name: $name, description: $description, createdAt: $createdAt, updatedAt: $updatedAt)';
-  }
+/// Create a copy of Nest
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$NestCopyWith<_Nest> get copyWith => __$NestCopyWithImpl<_Nest>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$NestImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.uuid, uuid) || other.uuid == uuid) &&
-            (identical(other.author, author) || other.author == author) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, id, uuid, author, name, description, createdAt, updatedAt);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$NestImplCopyWith<_$NestImpl> get copyWith =>
-      __$$NestImplCopyWithImpl<_$NestImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$NestImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$NestToJson(this, );
 }
 
-abstract class _Nest extends Nest {
-  const factory _Nest(
-      {required final int id,
-      required final String uuid,
-      required final String author,
-      required final String name,
-      final String? description,
-      required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$NestImpl;
-  const _Nest._() : super._();
-
-  factory _Nest.fromJson(Map<String, dynamic> json) = _$NestImpl.fromJson;
-
-  @override
-  int get id;
-  @override
-  String get uuid;
-  @override
-  String get author;
-  @override
-  String get name;
-  @override
-  String? get description;
-  @override
-  DateTime get createdAt;
-  @override
-  DateTime get updatedAt;
-  @override
-  @JsonKey(ignore: true)
-  _$$NestImplCopyWith<_$NestImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Nest&&(identical(other.id, id) || other.id == id)&&(identical(other.uuid, uuid) || other.uuid == uuid)&&(identical(other.author, author) || other.author == author)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,uuid,author,name,description,createdAt,updatedAt);
+
+@override
+String toString() {
+  return 'Nest(id: $id, uuid: $uuid, author: $author, name: $name, description: $description, createdAt: $createdAt, updatedAt: $updatedAt)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$NestCopyWith<$Res> implements $NestCopyWith<$Res> {
+  factory _$NestCopyWith(_Nest value, $Res Function(_Nest) _then) = __$NestCopyWithImpl;
+@override @useResult
+$Res call({
+ int id, String uuid, String author, String name, String? description, DateTime createdAt, DateTime updatedAt
+});
+
+
+
+
+}
+/// @nodoc
+class __$NestCopyWithImpl<$Res>
+    implements _$NestCopyWith<$Res> {
+  __$NestCopyWithImpl(this._self, this._then);
+
+  final _Nest _self;
+  final $Res Function(_Nest) _then;
+
+/// Create a copy of Nest
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? uuid = null,Object? author = null,Object? name = null,Object? description = freezed,Object? createdAt = null,Object? updatedAt = null,}) {
+  return _then(_Nest(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,uuid: null == uuid ? _self.uuid : uuid // ignore: cast_nullable_to_non_nullable
+as String,author: null == author ? _self.author : author // ignore: cast_nullable_to_non_nullable
+as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime,
+  ));
+}
+
+
+}
+
+// dart format on

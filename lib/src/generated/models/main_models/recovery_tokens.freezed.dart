@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,147 +10,139 @@ part of '../../../models/main_models/recovery_tokens.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-RecoveryTokens _$RecoveryTokensFromJson(Map<String, dynamic> json) {
-  return _RecoveryTokens.fromJson(json);
-}
 
 /// @nodoc
 mixin _$RecoveryTokens {
-  IList<String> get tokens => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $RecoveryTokensCopyWith<RecoveryTokens> get copyWith =>
-      throw _privateConstructorUsedError;
+ IList<String> get tokens;
+/// Create a copy of RecoveryTokens
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$RecoveryTokensCopyWith<RecoveryTokens> get copyWith => _$RecoveryTokensCopyWithImpl<RecoveryTokens>(this as RecoveryTokens, _$identity);
+
+  /// Serializes this RecoveryTokens to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RecoveryTokens&&const DeepCollectionEquality().equals(other.tokens, tokens));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(tokens));
+
+@override
+String toString() {
+  return 'RecoveryTokens(tokens: $tokens)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $RecoveryTokensCopyWith<$Res> {
-  factory $RecoveryTokensCopyWith(
-          RecoveryTokens value, $Res Function(RecoveryTokens) then) =
-      _$RecoveryTokensCopyWithImpl<$Res, RecoveryTokens>;
-  @useResult
-  $Res call({IList<String> tokens});
-}
+abstract mixin class $RecoveryTokensCopyWith<$Res>  {
+  factory $RecoveryTokensCopyWith(RecoveryTokens value, $Res Function(RecoveryTokens) _then) = _$RecoveryTokensCopyWithImpl;
+@useResult
+$Res call({
+ IList<String> tokens
+});
 
+
+
+
+}
 /// @nodoc
-class _$RecoveryTokensCopyWithImpl<$Res, $Val extends RecoveryTokens>
+class _$RecoveryTokensCopyWithImpl<$Res>
     implements $RecoveryTokensCopyWith<$Res> {
-  _$RecoveryTokensCopyWithImpl(this._value, this._then);
+  _$RecoveryTokensCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final RecoveryTokens _self;
+  final $Res Function(RecoveryTokens) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? tokens = null,
-  }) {
-    return _then(_value.copyWith(
-      tokens: null == tokens
-          ? _value.tokens
-          : tokens // ignore: cast_nullable_to_non_nullable
-              as IList<String>,
-    ) as $Val);
-  }
+/// Create a copy of RecoveryTokens
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? tokens = null,}) {
+  return _then(_self.copyWith(
+tokens: null == tokens ? _self.tokens : tokens // ignore: cast_nullable_to_non_nullable
+as IList<String>,
+  ));
 }
 
-/// @nodoc
-abstract class _$$RecoveryTokensImplCopyWith<$Res>
-    implements $RecoveryTokensCopyWith<$Res> {
-  factory _$$RecoveryTokensImplCopyWith(_$RecoveryTokensImpl value,
-          $Res Function(_$RecoveryTokensImpl) then) =
-      __$$RecoveryTokensImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({IList<String> tokens});
 }
 
-/// @nodoc
-class __$$RecoveryTokensImplCopyWithImpl<$Res>
-    extends _$RecoveryTokensCopyWithImpl<$Res, _$RecoveryTokensImpl>
-    implements _$$RecoveryTokensImplCopyWith<$Res> {
-  __$$RecoveryTokensImplCopyWithImpl(
-      _$RecoveryTokensImpl _value, $Res Function(_$RecoveryTokensImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? tokens = null,
-  }) {
-    return _then(_$RecoveryTokensImpl(
-      tokens: null == tokens
-          ? _value.tokens
-          : tokens // ignore: cast_nullable_to_non_nullable
-              as IList<String>,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$RecoveryTokensImpl extends _RecoveryTokens {
-  const _$RecoveryTokensImpl({required this.tokens}) : super._();
 
-  factory _$RecoveryTokensImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RecoveryTokensImplFromJson(json);
+class _RecoveryTokens implements RecoveryTokens {
+  const _RecoveryTokens({required this.tokens});
+  factory _RecoveryTokens.fromJson(Map<String, dynamic> json) => _$RecoveryTokensFromJson(json);
 
-  @override
-  final IList<String> tokens;
+@override final  IList<String> tokens;
 
-  @override
-  String toString() {
-    return 'RecoveryTokens(tokens: $tokens)';
-  }
+/// Create a copy of RecoveryTokens
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$RecoveryTokensCopyWith<_RecoveryTokens> get copyWith => __$RecoveryTokensCopyWithImpl<_RecoveryTokens>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RecoveryTokensImpl &&
-            const DeepCollectionEquality().equals(other.tokens, tokens));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(tokens));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RecoveryTokensImplCopyWith<_$RecoveryTokensImpl> get copyWith =>
-      __$$RecoveryTokensImplCopyWithImpl<_$RecoveryTokensImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RecoveryTokensImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$RecoveryTokensToJson(this, );
 }
 
-abstract class _RecoveryTokens extends RecoveryTokens {
-  const factory _RecoveryTokens({required final IList<String> tokens}) =
-      _$RecoveryTokensImpl;
-  const _RecoveryTokens._() : super._();
-
-  factory _RecoveryTokens.fromJson(Map<String, dynamic> json) =
-      _$RecoveryTokensImpl.fromJson;
-
-  @override
-  IList<String> get tokens;
-  @override
-  @JsonKey(ignore: true)
-  _$$RecoveryTokensImplCopyWith<_$RecoveryTokensImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RecoveryTokens&&const DeepCollectionEquality().equals(other.tokens, tokens));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(tokens));
+
+@override
+String toString() {
+  return 'RecoveryTokens(tokens: $tokens)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$RecoveryTokensCopyWith<$Res> implements $RecoveryTokensCopyWith<$Res> {
+  factory _$RecoveryTokensCopyWith(_RecoveryTokens value, $Res Function(_RecoveryTokens) _then) = __$RecoveryTokensCopyWithImpl;
+@override @useResult
+$Res call({
+ IList<String> tokens
+});
+
+
+
+
+}
+/// @nodoc
+class __$RecoveryTokensCopyWithImpl<$Res>
+    implements _$RecoveryTokensCopyWith<$Res> {
+  __$RecoveryTokensCopyWithImpl(this._self, this._then);
+
+  final _RecoveryTokens _self;
+  final $Res Function(_RecoveryTokens) _then;
+
+/// Create a copy of RecoveryTokens
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? tokens = null,}) {
+  return _then(_RecoveryTokens(
+tokens: null == tokens ? _self.tokens : tokens // ignore: cast_nullable_to_non_nullable
+as IList<String>,
+  ));
+}
+
+
+}
+
+// dart format on

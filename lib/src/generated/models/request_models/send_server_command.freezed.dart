@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,146 +10,139 @@ part of '../../../models/request_models/send_server_command.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SendServerCommand _$SendServerCommandFromJson(Map<String, dynamic> json) {
-  return _SendServerCommand.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SendServerCommand {
-  String get command => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SendServerCommandCopyWith<SendServerCommand> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get command;
+/// Create a copy of SendServerCommand
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SendServerCommandCopyWith<SendServerCommand> get copyWith => _$SendServerCommandCopyWithImpl<SendServerCommand>(this as SendServerCommand, _$identity);
+
+  /// Serializes this SendServerCommand to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SendServerCommand&&(identical(other.command, command) || other.command == command));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,command);
+
+@override
+String toString() {
+  return 'SendServerCommand(command: $command)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SendServerCommandCopyWith<$Res> {
-  factory $SendServerCommandCopyWith(
-          SendServerCommand value, $Res Function(SendServerCommand) then) =
-      _$SendServerCommandCopyWithImpl<$Res, SendServerCommand>;
-  @useResult
-  $Res call({String command});
-}
+abstract mixin class $SendServerCommandCopyWith<$Res>  {
+  factory $SendServerCommandCopyWith(SendServerCommand value, $Res Function(SendServerCommand) _then) = _$SendServerCommandCopyWithImpl;
+@useResult
+$Res call({
+ String command
+});
 
+
+
+
+}
 /// @nodoc
-class _$SendServerCommandCopyWithImpl<$Res, $Val extends SendServerCommand>
+class _$SendServerCommandCopyWithImpl<$Res>
     implements $SendServerCommandCopyWith<$Res> {
-  _$SendServerCommandCopyWithImpl(this._value, this._then);
+  _$SendServerCommandCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SendServerCommand _self;
+  final $Res Function(SendServerCommand) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? command = null,
-  }) {
-    return _then(_value.copyWith(
-      command: null == command
-          ? _value.command
-          : command // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of SendServerCommand
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? command = null,}) {
+  return _then(_self.copyWith(
+command: null == command ? _self.command : command // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SendServerCommandImplCopyWith<$Res>
-    implements $SendServerCommandCopyWith<$Res> {
-  factory _$$SendServerCommandImplCopyWith(_$SendServerCommandImpl value,
-          $Res Function(_$SendServerCommandImpl) then) =
-      __$$SendServerCommandImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String command});
 }
 
-/// @nodoc
-class __$$SendServerCommandImplCopyWithImpl<$Res>
-    extends _$SendServerCommandCopyWithImpl<$Res, _$SendServerCommandImpl>
-    implements _$$SendServerCommandImplCopyWith<$Res> {
-  __$$SendServerCommandImplCopyWithImpl(_$SendServerCommandImpl _value,
-      $Res Function(_$SendServerCommandImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? command = null,
-  }) {
-    return _then(_$SendServerCommandImpl(
-      command: null == command
-          ? _value.command
-          : command // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$SendServerCommandImpl extends _SendServerCommand {
-  const _$SendServerCommandImpl({required this.command}) : super._();
 
-  factory _$SendServerCommandImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SendServerCommandImplFromJson(json);
+class _SendServerCommand implements SendServerCommand {
+  const _SendServerCommand({required this.command});
+  factory _SendServerCommand.fromJson(Map<String, dynamic> json) => _$SendServerCommandFromJson(json);
 
-  @override
-  final String command;
+@override final  String command;
 
-  @override
-  String toString() {
-    return 'SendServerCommand(command: $command)';
-  }
+/// Create a copy of SendServerCommand
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SendServerCommandCopyWith<_SendServerCommand> get copyWith => __$SendServerCommandCopyWithImpl<_SendServerCommand>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SendServerCommandImpl &&
-            (identical(other.command, command) || other.command == command));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, command);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SendServerCommandImplCopyWith<_$SendServerCommandImpl> get copyWith =>
-      __$$SendServerCommandImplCopyWithImpl<_$SendServerCommandImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SendServerCommandImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$SendServerCommandToJson(this, );
 }
 
-abstract class _SendServerCommand extends SendServerCommand {
-  const factory _SendServerCommand({required final String command}) =
-      _$SendServerCommandImpl;
-  const _SendServerCommand._() : super._();
-
-  factory _SendServerCommand.fromJson(Map<String, dynamic> json) =
-      _$SendServerCommandImpl.fromJson;
-
-  @override
-  String get command;
-  @override
-  @JsonKey(ignore: true)
-  _$$SendServerCommandImplCopyWith<_$SendServerCommandImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SendServerCommand&&(identical(other.command, command) || other.command == command));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,command);
+
+@override
+String toString() {
+  return 'SendServerCommand(command: $command)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SendServerCommandCopyWith<$Res> implements $SendServerCommandCopyWith<$Res> {
+  factory _$SendServerCommandCopyWith(_SendServerCommand value, $Res Function(_SendServerCommand) _then) = __$SendServerCommandCopyWithImpl;
+@override @useResult
+$Res call({
+ String command
+});
+
+
+
+
+}
+/// @nodoc
+class __$SendServerCommandCopyWithImpl<$Res>
+    implements _$SendServerCommandCopyWith<$Res> {
+  __$SendServerCommandCopyWithImpl(this._self, this._then);
+
+  final _SendServerCommand _self;
+  final $Res Function(_SendServerCommand) _then;
+
+/// Create a copy of SendServerCommand
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? command = null,}) {
+  return _then(_SendServerCommand(
+command: null == command ? _self.command : command // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

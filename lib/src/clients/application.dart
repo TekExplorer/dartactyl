@@ -8,10 +8,8 @@ part '../generated/clients/application.g.dart';
 /// Pterodactyl Application API Client
 @RestApi()
 abstract class PteroApplication {
-  factory PteroApplication(Dio dio, {String? baseUrl}) = _PteroApplication._;
+  factory PteroApplication(Dio dio, {String? baseUrl}) = _PteroApplication;
   // https://github.com/pterodactyl/panel/blob/1.0-develop/routes/api-application.php
-
-  const PteroApplication._();
 
   // Users
   @GET('/api/application/users')
@@ -147,7 +145,7 @@ abstract class PteroApplication {
 
   @GET('/api/application/nodes/{id}/allocations')
   Future<FractalListMeta<ApplicationAllocation, PaginatedMeta>>
-      getNodeAllocations({
+  getNodeAllocations({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,

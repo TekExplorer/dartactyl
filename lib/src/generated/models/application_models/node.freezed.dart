@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,831 +10,434 @@ part of '../../../models/application_models/node.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Node _$NodeFromJson(Map<String, dynamic> json) {
-  return _Node.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Node {
-  int get id => throw _privateConstructorUsedError;
-  String get uuid => throw _privateConstructorUsedError;
-  bool get public => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  int get locationId => throw _privateConstructorUsedError;
-  String get fqdn => throw _privateConstructorUsedError;
-  String get scheme => throw _privateConstructorUsedError;
-  bool get behindProxy => throw _privateConstructorUsedError;
-  bool get maintenanceMode => throw _privateConstructorUsedError;
-  int get memory => throw _privateConstructorUsedError;
-  int get memoryOverallocate => throw _privateConstructorUsedError;
-  int get disk => throw _privateConstructorUsedError;
-  int get diskOverallocate => throw _privateConstructorUsedError;
-  int get uploadSize => throw _privateConstructorUsedError;
-  int get daemonListen => throw _privateConstructorUsedError;
-  int get daemonSftp => throw _privateConstructorUsedError;
-  String get daemonBase => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  DateTime get updatedAt => throw _privateConstructorUsedError;
-  NodeRelationships? get relationships => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $NodeCopyWith<Node> get copyWith => throw _privateConstructorUsedError;
+ int get id; String get uuid; bool get public; String get name; String get description; int get locationId; String get fqdn; String get scheme; bool get behindProxy; bool get maintenanceMode; int get memory; int get memoryOverallocate; int get disk; int get diskOverallocate; int get uploadSize; int get daemonListen; int get daemonSftp; String get daemonBase; DateTime get createdAt; DateTime get updatedAt; NodeRelationships? get relationships;
+/// Create a copy of Node
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$NodeCopyWith<Node> get copyWith => _$NodeCopyWithImpl<Node>(this as Node, _$identity);
+
+  /// Serializes this Node to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Node&&(identical(other.id, id) || other.id == id)&&(identical(other.uuid, uuid) || other.uuid == uuid)&&(identical(other.public, public) || other.public == public)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.locationId, locationId) || other.locationId == locationId)&&(identical(other.fqdn, fqdn) || other.fqdn == fqdn)&&(identical(other.scheme, scheme) || other.scheme == scheme)&&(identical(other.behindProxy, behindProxy) || other.behindProxy == behindProxy)&&(identical(other.maintenanceMode, maintenanceMode) || other.maintenanceMode == maintenanceMode)&&(identical(other.memory, memory) || other.memory == memory)&&(identical(other.memoryOverallocate, memoryOverallocate) || other.memoryOverallocate == memoryOverallocate)&&(identical(other.disk, disk) || other.disk == disk)&&(identical(other.diskOverallocate, diskOverallocate) || other.diskOverallocate == diskOverallocate)&&(identical(other.uploadSize, uploadSize) || other.uploadSize == uploadSize)&&(identical(other.daemonListen, daemonListen) || other.daemonListen == daemonListen)&&(identical(other.daemonSftp, daemonSftp) || other.daemonSftp == daemonSftp)&&(identical(other.daemonBase, daemonBase) || other.daemonBase == daemonBase)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.relationships, relationships) || other.relationships == relationships));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hashAll([runtimeType,id,uuid,public,name,description,locationId,fqdn,scheme,behindProxy,maintenanceMode,memory,memoryOverallocate,disk,diskOverallocate,uploadSize,daemonListen,daemonSftp,daemonBase,createdAt,updatedAt,relationships]);
+
+@override
+String toString() {
+  return 'Node(id: $id, uuid: $uuid, public: $public, name: $name, description: $description, locationId: $locationId, fqdn: $fqdn, scheme: $scheme, behindProxy: $behindProxy, maintenanceMode: $maintenanceMode, memory: $memory, memoryOverallocate: $memoryOverallocate, disk: $disk, diskOverallocate: $diskOverallocate, uploadSize: $uploadSize, daemonListen: $daemonListen, daemonSftp: $daemonSftp, daemonBase: $daemonBase, createdAt: $createdAt, updatedAt: $updatedAt, relationships: $relationships)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $NodeCopyWith<$Res> {
-  factory $NodeCopyWith(Node value, $Res Function(Node) then) =
-      _$NodeCopyWithImpl<$Res, Node>;
-  @useResult
-  $Res call(
-      {int id,
-      String uuid,
-      bool public,
-      String name,
-      String description,
-      int locationId,
-      String fqdn,
-      String scheme,
-      bool behindProxy,
-      bool maintenanceMode,
-      int memory,
-      int memoryOverallocate,
-      int disk,
-      int diskOverallocate,
-      int uploadSize,
-      int daemonListen,
-      int daemonSftp,
-      String daemonBase,
-      DateTime createdAt,
-      DateTime updatedAt,
-      NodeRelationships? relationships});
+abstract mixin class $NodeCopyWith<$Res>  {
+  factory $NodeCopyWith(Node value, $Res Function(Node) _then) = _$NodeCopyWithImpl;
+@useResult
+$Res call({
+ int id, String uuid, bool public, String name, String description, int locationId, String fqdn, String scheme, bool behindProxy, bool maintenanceMode, int memory, int memoryOverallocate, int disk, int diskOverallocate, int uploadSize, int daemonListen, int daemonSftp, String daemonBase, DateTime createdAt, DateTime updatedAt, NodeRelationships? relationships
+});
 
-  $NodeRelationshipsCopyWith<$Res>? get relationships;
+
+$NodeRelationshipsCopyWith<$Res>? get relationships;
+
 }
-
 /// @nodoc
-class _$NodeCopyWithImpl<$Res, $Val extends Node>
+class _$NodeCopyWithImpl<$Res>
     implements $NodeCopyWith<$Res> {
-  _$NodeCopyWithImpl(this._value, this._then);
+  _$NodeCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Node _self;
+  final $Res Function(Node) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? uuid = null,
-    Object? public = null,
-    Object? name = null,
-    Object? description = null,
-    Object? locationId = null,
-    Object? fqdn = null,
-    Object? scheme = null,
-    Object? behindProxy = null,
-    Object? maintenanceMode = null,
-    Object? memory = null,
-    Object? memoryOverallocate = null,
-    Object? disk = null,
-    Object? diskOverallocate = null,
-    Object? uploadSize = null,
-    Object? daemonListen = null,
-    Object? daemonSftp = null,
-    Object? daemonBase = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
-    Object? relationships = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      uuid: null == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
-      public: null == public
-          ? _value.public
-          : public // ignore: cast_nullable_to_non_nullable
-              as bool,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      locationId: null == locationId
-          ? _value.locationId
-          : locationId // ignore: cast_nullable_to_non_nullable
-              as int,
-      fqdn: null == fqdn
-          ? _value.fqdn
-          : fqdn // ignore: cast_nullable_to_non_nullable
-              as String,
-      scheme: null == scheme
-          ? _value.scheme
-          : scheme // ignore: cast_nullable_to_non_nullable
-              as String,
-      behindProxy: null == behindProxy
-          ? _value.behindProxy
-          : behindProxy // ignore: cast_nullable_to_non_nullable
-              as bool,
-      maintenanceMode: null == maintenanceMode
-          ? _value.maintenanceMode
-          : maintenanceMode // ignore: cast_nullable_to_non_nullable
-              as bool,
-      memory: null == memory
-          ? _value.memory
-          : memory // ignore: cast_nullable_to_non_nullable
-              as int,
-      memoryOverallocate: null == memoryOverallocate
-          ? _value.memoryOverallocate
-          : memoryOverallocate // ignore: cast_nullable_to_non_nullable
-              as int,
-      disk: null == disk
-          ? _value.disk
-          : disk // ignore: cast_nullable_to_non_nullable
-              as int,
-      diskOverallocate: null == diskOverallocate
-          ? _value.diskOverallocate
-          : diskOverallocate // ignore: cast_nullable_to_non_nullable
-              as int,
-      uploadSize: null == uploadSize
-          ? _value.uploadSize
-          : uploadSize // ignore: cast_nullable_to_non_nullable
-              as int,
-      daemonListen: null == daemonListen
-          ? _value.daemonListen
-          : daemonListen // ignore: cast_nullable_to_non_nullable
-              as int,
-      daemonSftp: null == daemonSftp
-          ? _value.daemonSftp
-          : daemonSftp // ignore: cast_nullable_to_non_nullable
-              as int,
-      daemonBase: null == daemonBase
-          ? _value.daemonBase
-          : daemonBase // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      relationships: freezed == relationships
-          ? _value.relationships
-          : relationships // ignore: cast_nullable_to_non_nullable
-              as NodeRelationships?,
-    ) as $Val);
+/// Create a copy of Node
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? uuid = null,Object? public = null,Object? name = null,Object? description = null,Object? locationId = null,Object? fqdn = null,Object? scheme = null,Object? behindProxy = null,Object? maintenanceMode = null,Object? memory = null,Object? memoryOverallocate = null,Object? disk = null,Object? diskOverallocate = null,Object? uploadSize = null,Object? daemonListen = null,Object? daemonSftp = null,Object? daemonBase = null,Object? createdAt = null,Object? updatedAt = null,Object? relationships = freezed,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,uuid: null == uuid ? _self.uuid : uuid // ignore: cast_nullable_to_non_nullable
+as String,public: null == public ? _self.public : public // ignore: cast_nullable_to_non_nullable
+as bool,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,locationId: null == locationId ? _self.locationId : locationId // ignore: cast_nullable_to_non_nullable
+as int,fqdn: null == fqdn ? _self.fqdn : fqdn // ignore: cast_nullable_to_non_nullable
+as String,scheme: null == scheme ? _self.scheme : scheme // ignore: cast_nullable_to_non_nullable
+as String,behindProxy: null == behindProxy ? _self.behindProxy : behindProxy // ignore: cast_nullable_to_non_nullable
+as bool,maintenanceMode: null == maintenanceMode ? _self.maintenanceMode : maintenanceMode // ignore: cast_nullable_to_non_nullable
+as bool,memory: null == memory ? _self.memory : memory // ignore: cast_nullable_to_non_nullable
+as int,memoryOverallocate: null == memoryOverallocate ? _self.memoryOverallocate : memoryOverallocate // ignore: cast_nullable_to_non_nullable
+as int,disk: null == disk ? _self.disk : disk // ignore: cast_nullable_to_non_nullable
+as int,diskOverallocate: null == diskOverallocate ? _self.diskOverallocate : diskOverallocate // ignore: cast_nullable_to_non_nullable
+as int,uploadSize: null == uploadSize ? _self.uploadSize : uploadSize // ignore: cast_nullable_to_non_nullable
+as int,daemonListen: null == daemonListen ? _self.daemonListen : daemonListen // ignore: cast_nullable_to_non_nullable
+as int,daemonSftp: null == daemonSftp ? _self.daemonSftp : daemonSftp // ignore: cast_nullable_to_non_nullable
+as int,daemonBase: null == daemonBase ? _self.daemonBase : daemonBase // ignore: cast_nullable_to_non_nullable
+as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime,relationships: freezed == relationships ? _self.relationships : relationships // ignore: cast_nullable_to_non_nullable
+as NodeRelationships?,
+  ));
+}
+/// Create a copy of Node
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$NodeRelationshipsCopyWith<$Res>? get relationships {
+    if (_self.relationships == null) {
+    return null;
   }
 
-  @override
-  @pragma('vm:prefer-inline')
-  $NodeRelationshipsCopyWith<$Res>? get relationships {
-    if (_value.relationships == null) {
-      return null;
-    }
-
-    return $NodeRelationshipsCopyWith<$Res>(_value.relationships!, (value) {
-      return _then(_value.copyWith(relationships: value) as $Val);
-    });
-  }
+  return $NodeRelationshipsCopyWith<$Res>(_self.relationships!, (value) {
+    return _then(_self.copyWith(relationships: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$NodeImplCopyWith<$Res> implements $NodeCopyWith<$Res> {
-  factory _$$NodeImplCopyWith(
-          _$NodeImpl value, $Res Function(_$NodeImpl) then) =
-      __$$NodeImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {int id,
-      String uuid,
-      bool public,
-      String name,
-      String description,
-      int locationId,
-      String fqdn,
-      String scheme,
-      bool behindProxy,
-      bool maintenanceMode,
-      int memory,
-      int memoryOverallocate,
-      int disk,
-      int diskOverallocate,
-      int uploadSize,
-      int daemonListen,
-      int daemonSftp,
-      String daemonBase,
-      DateTime createdAt,
-      DateTime updatedAt,
-      NodeRelationships? relationships});
-
-  @override
-  $NodeRelationshipsCopyWith<$Res>? get relationships;
-}
-
-/// @nodoc
-class __$$NodeImplCopyWithImpl<$Res>
-    extends _$NodeCopyWithImpl<$Res, _$NodeImpl>
-    implements _$$NodeImplCopyWith<$Res> {
-  __$$NodeImplCopyWithImpl(_$NodeImpl _value, $Res Function(_$NodeImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? uuid = null,
-    Object? public = null,
-    Object? name = null,
-    Object? description = null,
-    Object? locationId = null,
-    Object? fqdn = null,
-    Object? scheme = null,
-    Object? behindProxy = null,
-    Object? maintenanceMode = null,
-    Object? memory = null,
-    Object? memoryOverallocate = null,
-    Object? disk = null,
-    Object? diskOverallocate = null,
-    Object? uploadSize = null,
-    Object? daemonListen = null,
-    Object? daemonSftp = null,
-    Object? daemonBase = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
-    Object? relationships = freezed,
-  }) {
-    return _then(_$NodeImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      uuid: null == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
-      public: null == public
-          ? _value.public
-          : public // ignore: cast_nullable_to_non_nullable
-              as bool,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      locationId: null == locationId
-          ? _value.locationId
-          : locationId // ignore: cast_nullable_to_non_nullable
-              as int,
-      fqdn: null == fqdn
-          ? _value.fqdn
-          : fqdn // ignore: cast_nullable_to_non_nullable
-              as String,
-      scheme: null == scheme
-          ? _value.scheme
-          : scheme // ignore: cast_nullable_to_non_nullable
-              as String,
-      behindProxy: null == behindProxy
-          ? _value.behindProxy
-          : behindProxy // ignore: cast_nullable_to_non_nullable
-              as bool,
-      maintenanceMode: null == maintenanceMode
-          ? _value.maintenanceMode
-          : maintenanceMode // ignore: cast_nullable_to_non_nullable
-              as bool,
-      memory: null == memory
-          ? _value.memory
-          : memory // ignore: cast_nullable_to_non_nullable
-              as int,
-      memoryOverallocate: null == memoryOverallocate
-          ? _value.memoryOverallocate
-          : memoryOverallocate // ignore: cast_nullable_to_non_nullable
-              as int,
-      disk: null == disk
-          ? _value.disk
-          : disk // ignore: cast_nullable_to_non_nullable
-              as int,
-      diskOverallocate: null == diskOverallocate
-          ? _value.diskOverallocate
-          : diskOverallocate // ignore: cast_nullable_to_non_nullable
-              as int,
-      uploadSize: null == uploadSize
-          ? _value.uploadSize
-          : uploadSize // ignore: cast_nullable_to_non_nullable
-              as int,
-      daemonListen: null == daemonListen
-          ? _value.daemonListen
-          : daemonListen // ignore: cast_nullable_to_non_nullable
-              as int,
-      daemonSftp: null == daemonSftp
-          ? _value.daemonSftp
-          : daemonSftp // ignore: cast_nullable_to_non_nullable
-              as int,
-      daemonBase: null == daemonBase
-          ? _value.daemonBase
-          : daemonBase // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      relationships: freezed == relationships
-          ? _value.relationships
-          : relationships // ignore: cast_nullable_to_non_nullable
-              as NodeRelationships?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$NodeImpl extends _Node {
-  const _$NodeImpl(
-      {required this.id,
-      required this.uuid,
-      required this.public,
-      required this.name,
-      required this.description,
-      required this.locationId,
-      required this.fqdn,
-      required this.scheme,
-      required this.behindProxy,
-      required this.maintenanceMode,
-      required this.memory,
-      required this.memoryOverallocate,
-      required this.disk,
-      required this.diskOverallocate,
-      required this.uploadSize,
-      required this.daemonListen,
-      required this.daemonSftp,
-      required this.daemonBase,
-      required this.createdAt,
-      required this.updatedAt,
-      this.relationships})
-      : super._();
 
-  factory _$NodeImpl.fromJson(Map<String, dynamic> json) =>
-      _$$NodeImplFromJson(json);
+class _Node implements Node {
+  const _Node({required this.id, required this.uuid, required this.public, required this.name, required this.description, required this.locationId, required this.fqdn, required this.scheme, required this.behindProxy, required this.maintenanceMode, required this.memory, required this.memoryOverallocate, required this.disk, required this.diskOverallocate, required this.uploadSize, required this.daemonListen, required this.daemonSftp, required this.daemonBase, required this.createdAt, required this.updatedAt, this.relationships});
+  factory _Node.fromJson(Map<String, dynamic> json) => _$NodeFromJson(json);
 
-  @override
-  final int id;
-  @override
-  final String uuid;
-  @override
-  final bool public;
-  @override
-  final String name;
-  @override
-  final String description;
-  @override
-  final int locationId;
-  @override
-  final String fqdn;
-  @override
-  final String scheme;
-  @override
-  final bool behindProxy;
-  @override
-  final bool maintenanceMode;
-  @override
-  final int memory;
-  @override
-  final int memoryOverallocate;
-  @override
-  final int disk;
-  @override
-  final int diskOverallocate;
-  @override
-  final int uploadSize;
-  @override
-  final int daemonListen;
-  @override
-  final int daemonSftp;
-  @override
-  final String daemonBase;
-  @override
-  final DateTime createdAt;
-  @override
-  final DateTime updatedAt;
-  @override
-  final NodeRelationships? relationships;
+@override final  int id;
+@override final  String uuid;
+@override final  bool public;
+@override final  String name;
+@override final  String description;
+@override final  int locationId;
+@override final  String fqdn;
+@override final  String scheme;
+@override final  bool behindProxy;
+@override final  bool maintenanceMode;
+@override final  int memory;
+@override final  int memoryOverallocate;
+@override final  int disk;
+@override final  int diskOverallocate;
+@override final  int uploadSize;
+@override final  int daemonListen;
+@override final  int daemonSftp;
+@override final  String daemonBase;
+@override final  DateTime createdAt;
+@override final  DateTime updatedAt;
+@override final  NodeRelationships? relationships;
 
-  @override
-  String toString() {
-    return 'Node(id: $id, uuid: $uuid, public: $public, name: $name, description: $description, locationId: $locationId, fqdn: $fqdn, scheme: $scheme, behindProxy: $behindProxy, maintenanceMode: $maintenanceMode, memory: $memory, memoryOverallocate: $memoryOverallocate, disk: $disk, diskOverallocate: $diskOverallocate, uploadSize: $uploadSize, daemonListen: $daemonListen, daemonSftp: $daemonSftp, daemonBase: $daemonBase, createdAt: $createdAt, updatedAt: $updatedAt, relationships: $relationships)';
-  }
+/// Create a copy of Node
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$NodeCopyWith<_Node> get copyWith => __$NodeCopyWithImpl<_Node>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$NodeImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.uuid, uuid) || other.uuid == uuid) &&
-            (identical(other.public, public) || other.public == public) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.locationId, locationId) ||
-                other.locationId == locationId) &&
-            (identical(other.fqdn, fqdn) || other.fqdn == fqdn) &&
-            (identical(other.scheme, scheme) || other.scheme == scheme) &&
-            (identical(other.behindProxy, behindProxy) ||
-                other.behindProxy == behindProxy) &&
-            (identical(other.maintenanceMode, maintenanceMode) ||
-                other.maintenanceMode == maintenanceMode) &&
-            (identical(other.memory, memory) || other.memory == memory) &&
-            (identical(other.memoryOverallocate, memoryOverallocate) ||
-                other.memoryOverallocate == memoryOverallocate) &&
-            (identical(other.disk, disk) || other.disk == disk) &&
-            (identical(other.diskOverallocate, diskOverallocate) ||
-                other.diskOverallocate == diskOverallocate) &&
-            (identical(other.uploadSize, uploadSize) ||
-                other.uploadSize == uploadSize) &&
-            (identical(other.daemonListen, daemonListen) ||
-                other.daemonListen == daemonListen) &&
-            (identical(other.daemonSftp, daemonSftp) ||
-                other.daemonSftp == daemonSftp) &&
-            (identical(other.daemonBase, daemonBase) ||
-                other.daemonBase == daemonBase) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
-            (identical(other.relationships, relationships) ||
-                other.relationships == relationships));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        id,
-        uuid,
-        public,
-        name,
-        description,
-        locationId,
-        fqdn,
-        scheme,
-        behindProxy,
-        maintenanceMode,
-        memory,
-        memoryOverallocate,
-        disk,
-        diskOverallocate,
-        uploadSize,
-        daemonListen,
-        daemonSftp,
-        daemonBase,
-        createdAt,
-        updatedAt,
-        relationships
-      ]);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$NodeImplCopyWith<_$NodeImpl> get copyWith =>
-      __$$NodeImplCopyWithImpl<_$NodeImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$NodeImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$NodeToJson(this, );
 }
 
-abstract class _Node extends Node {
-  const factory _Node(
-      {required final int id,
-      required final String uuid,
-      required final bool public,
-      required final String name,
-      required final String description,
-      required final int locationId,
-      required final String fqdn,
-      required final String scheme,
-      required final bool behindProxy,
-      required final bool maintenanceMode,
-      required final int memory,
-      required final int memoryOverallocate,
-      required final int disk,
-      required final int diskOverallocate,
-      required final int uploadSize,
-      required final int daemonListen,
-      required final int daemonSftp,
-      required final String daemonBase,
-      required final DateTime createdAt,
-      required final DateTime updatedAt,
-      final NodeRelationships? relationships}) = _$NodeImpl;
-  const _Node._() : super._();
-
-  factory _Node.fromJson(Map<String, dynamic> json) = _$NodeImpl.fromJson;
-
-  @override
-  int get id;
-  @override
-  String get uuid;
-  @override
-  bool get public;
-  @override
-  String get name;
-  @override
-  String get description;
-  @override
-  int get locationId;
-  @override
-  String get fqdn;
-  @override
-  String get scheme;
-  @override
-  bool get behindProxy;
-  @override
-  bool get maintenanceMode;
-  @override
-  int get memory;
-  @override
-  int get memoryOverallocate;
-  @override
-  int get disk;
-  @override
-  int get diskOverallocate;
-  @override
-  int get uploadSize;
-  @override
-  int get daemonListen;
-  @override
-  int get daemonSftp;
-  @override
-  String get daemonBase;
-  @override
-  DateTime get createdAt;
-  @override
-  DateTime get updatedAt;
-  @override
-  NodeRelationships? get relationships;
-  @override
-  @JsonKey(ignore: true)
-  _$$NodeImplCopyWith<_$NodeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Node&&(identical(other.id, id) || other.id == id)&&(identical(other.uuid, uuid) || other.uuid == uuid)&&(identical(other.public, public) || other.public == public)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.locationId, locationId) || other.locationId == locationId)&&(identical(other.fqdn, fqdn) || other.fqdn == fqdn)&&(identical(other.scheme, scheme) || other.scheme == scheme)&&(identical(other.behindProxy, behindProxy) || other.behindProxy == behindProxy)&&(identical(other.maintenanceMode, maintenanceMode) || other.maintenanceMode == maintenanceMode)&&(identical(other.memory, memory) || other.memory == memory)&&(identical(other.memoryOverallocate, memoryOverallocate) || other.memoryOverallocate == memoryOverallocate)&&(identical(other.disk, disk) || other.disk == disk)&&(identical(other.diskOverallocate, diskOverallocate) || other.diskOverallocate == diskOverallocate)&&(identical(other.uploadSize, uploadSize) || other.uploadSize == uploadSize)&&(identical(other.daemonListen, daemonListen) || other.daemonListen == daemonListen)&&(identical(other.daemonSftp, daemonSftp) || other.daemonSftp == daemonSftp)&&(identical(other.daemonBase, daemonBase) || other.daemonBase == daemonBase)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.relationships, relationships) || other.relationships == relationships));
 }
 
-NodeRelationships _$NodeRelationshipsFromJson(Map<String, dynamic> json) {
-  return _NodeRelationships.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hashAll([runtimeType,id,uuid,public,name,description,locationId,fqdn,scheme,behindProxy,maintenanceMode,memory,memoryOverallocate,disk,diskOverallocate,uploadSize,daemonListen,daemonSftp,daemonBase,createdAt,updatedAt,relationships]);
+
+@override
+String toString() {
+  return 'Node(id: $id, uuid: $uuid, public: $public, name: $name, description: $description, locationId: $locationId, fqdn: $fqdn, scheme: $scheme, behindProxy: $behindProxy, maintenanceMode: $maintenanceMode, memory: $memory, memoryOverallocate: $memoryOverallocate, disk: $disk, diskOverallocate: $diskOverallocate, uploadSize: $uploadSize, daemonListen: $daemonListen, daemonSftp: $daemonSftp, daemonBase: $daemonBase, createdAt: $createdAt, updatedAt: $updatedAt, relationships: $relationships)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$NodeCopyWith<$Res> implements $NodeCopyWith<$Res> {
+  factory _$NodeCopyWith(_Node value, $Res Function(_Node) _then) = __$NodeCopyWithImpl;
+@override @useResult
+$Res call({
+ int id, String uuid, bool public, String name, String description, int locationId, String fqdn, String scheme, bool behindProxy, bool maintenanceMode, int memory, int memoryOverallocate, int disk, int diskOverallocate, int uploadSize, int daemonListen, int daemonSftp, String daemonBase, DateTime createdAt, DateTime updatedAt, NodeRelationships? relationships
+});
+
+
+@override $NodeRelationshipsCopyWith<$Res>? get relationships;
+
+}
+/// @nodoc
+class __$NodeCopyWithImpl<$Res>
+    implements _$NodeCopyWith<$Res> {
+  __$NodeCopyWithImpl(this._self, this._then);
+
+  final _Node _self;
+  final $Res Function(_Node) _then;
+
+/// Create a copy of Node
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? uuid = null,Object? public = null,Object? name = null,Object? description = null,Object? locationId = null,Object? fqdn = null,Object? scheme = null,Object? behindProxy = null,Object? maintenanceMode = null,Object? memory = null,Object? memoryOverallocate = null,Object? disk = null,Object? diskOverallocate = null,Object? uploadSize = null,Object? daemonListen = null,Object? daemonSftp = null,Object? daemonBase = null,Object? createdAt = null,Object? updatedAt = null,Object? relationships = freezed,}) {
+  return _then(_Node(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,uuid: null == uuid ? _self.uuid : uuid // ignore: cast_nullable_to_non_nullable
+as String,public: null == public ? _self.public : public // ignore: cast_nullable_to_non_nullable
+as bool,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,locationId: null == locationId ? _self.locationId : locationId // ignore: cast_nullable_to_non_nullable
+as int,fqdn: null == fqdn ? _self.fqdn : fqdn // ignore: cast_nullable_to_non_nullable
+as String,scheme: null == scheme ? _self.scheme : scheme // ignore: cast_nullable_to_non_nullable
+as String,behindProxy: null == behindProxy ? _self.behindProxy : behindProxy // ignore: cast_nullable_to_non_nullable
+as bool,maintenanceMode: null == maintenanceMode ? _self.maintenanceMode : maintenanceMode // ignore: cast_nullable_to_non_nullable
+as bool,memory: null == memory ? _self.memory : memory // ignore: cast_nullable_to_non_nullable
+as int,memoryOverallocate: null == memoryOverallocate ? _self.memoryOverallocate : memoryOverallocate // ignore: cast_nullable_to_non_nullable
+as int,disk: null == disk ? _self.disk : disk // ignore: cast_nullable_to_non_nullable
+as int,diskOverallocate: null == diskOverallocate ? _self.diskOverallocate : diskOverallocate // ignore: cast_nullable_to_non_nullable
+as int,uploadSize: null == uploadSize ? _self.uploadSize : uploadSize // ignore: cast_nullable_to_non_nullable
+as int,daemonListen: null == daemonListen ? _self.daemonListen : daemonListen // ignore: cast_nullable_to_non_nullable
+as int,daemonSftp: null == daemonSftp ? _self.daemonSftp : daemonSftp // ignore: cast_nullable_to_non_nullable
+as int,daemonBase: null == daemonBase ? _self.daemonBase : daemonBase // ignore: cast_nullable_to_non_nullable
+as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime,relationships: freezed == relationships ? _self.relationships : relationships // ignore: cast_nullable_to_non_nullable
+as NodeRelationships?,
+  ));
+}
+
+/// Create a copy of Node
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$NodeRelationshipsCopyWith<$Res>? get relationships {
+    if (_self.relationships == null) {
+    return null;
+  }
+
+  return $NodeRelationshipsCopyWith<$Res>(_self.relationships!, (value) {
+    return _then(_self.copyWith(relationships: value));
+  });
+}
+}
+
 
 /// @nodoc
 mixin _$NodeRelationships {
-  FractalData<ApplicationAllocation>? get allocation =>
-      throw _privateConstructorUsedError;
-  FractalData<Location>? get location => throw _privateConstructorUsedError;
-  FractalListData<ApplicationServer>? get servers =>
-      throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $NodeRelationshipsCopyWith<NodeRelationships> get copyWith =>
-      throw _privateConstructorUsedError;
+ FractalData<ApplicationAllocation>? get allocation; FractalData<Location>? get location; FractalListData<ApplicationServer>? get servers;
+/// Create a copy of NodeRelationships
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$NodeRelationshipsCopyWith<NodeRelationships> get copyWith => _$NodeRelationshipsCopyWithImpl<NodeRelationships>(this as NodeRelationships, _$identity);
+
+  /// Serializes this NodeRelationships to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NodeRelationships&&(identical(other.allocation, allocation) || other.allocation == allocation)&&(identical(other.location, location) || other.location == location)&&(identical(other.servers, servers) || other.servers == servers));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,allocation,location,servers);
+
+@override
+String toString() {
+  return 'NodeRelationships(allocation: $allocation, location: $location, servers: $servers)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $NodeRelationshipsCopyWith<$Res> {
-  factory $NodeRelationshipsCopyWith(
-          NodeRelationships value, $Res Function(NodeRelationships) then) =
-      _$NodeRelationshipsCopyWithImpl<$Res, NodeRelationships>;
-  @useResult
-  $Res call(
-      {FractalData<ApplicationAllocation>? allocation,
-      FractalData<Location>? location,
-      FractalListData<ApplicationServer>? servers});
+abstract mixin class $NodeRelationshipsCopyWith<$Res>  {
+  factory $NodeRelationshipsCopyWith(NodeRelationships value, $Res Function(NodeRelationships) _then) = _$NodeRelationshipsCopyWithImpl;
+@useResult
+$Res call({
+ FractalData<ApplicationAllocation>? allocation, FractalData<Location>? location, FractalListData<ApplicationServer>? servers
+});
 
-  $FractalDataCopyWith<ApplicationAllocation, $Res>? get allocation;
-  $FractalDataCopyWith<Location, $Res>? get location;
-  $FractalListDataCopyWith<ApplicationServer, $Res>? get servers;
+
+$FractalDataCopyWith<ApplicationAllocation, $Res>? get allocation;$FractalDataCopyWith<Location, $Res>? get location;$FractalListDataCopyWith<ApplicationServer, $Res>? get servers;
+
 }
-
 /// @nodoc
-class _$NodeRelationshipsCopyWithImpl<$Res, $Val extends NodeRelationships>
+class _$NodeRelationshipsCopyWithImpl<$Res>
     implements $NodeRelationshipsCopyWith<$Res> {
-  _$NodeRelationshipsCopyWithImpl(this._value, this._then);
+  _$NodeRelationshipsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final NodeRelationships _self;
+  final $Res Function(NodeRelationships) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? allocation = freezed,
-    Object? location = freezed,
-    Object? servers = freezed,
-  }) {
-    return _then(_value.copyWith(
-      allocation: freezed == allocation
-          ? _value.allocation
-          : allocation // ignore: cast_nullable_to_non_nullable
-              as FractalData<ApplicationAllocation>?,
-      location: freezed == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as FractalData<Location>?,
-      servers: freezed == servers
-          ? _value.servers
-          : servers // ignore: cast_nullable_to_non_nullable
-              as FractalListData<ApplicationServer>?,
-    ) as $Val);
+/// Create a copy of NodeRelationships
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? allocation = freezed,Object? location = freezed,Object? servers = freezed,}) {
+  return _then(_self.copyWith(
+allocation: freezed == allocation ? _self.allocation : allocation // ignore: cast_nullable_to_non_nullable
+as FractalData<ApplicationAllocation>?,location: freezed == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
+as FractalData<Location>?,servers: freezed == servers ? _self.servers : servers // ignore: cast_nullable_to_non_nullable
+as FractalListData<ApplicationServer>?,
+  ));
+}
+/// Create a copy of NodeRelationships
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$FractalDataCopyWith<ApplicationAllocation, $Res>? get allocation {
+    if (_self.allocation == null) {
+    return null;
   }
 
-  @override
-  @pragma('vm:prefer-inline')
-  $FractalDataCopyWith<ApplicationAllocation, $Res>? get allocation {
-    if (_value.allocation == null) {
-      return null;
-    }
-
-    return $FractalDataCopyWith<ApplicationAllocation, $Res>(_value.allocation!,
-        (value) {
-      return _then(_value.copyWith(allocation: value) as $Val);
-    });
+  return $FractalDataCopyWith<ApplicationAllocation, $Res>(_self.allocation!, (value) {
+    return _then(_self.copyWith(allocation: value));
+  });
+}/// Create a copy of NodeRelationships
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$FractalDataCopyWith<Location, $Res>? get location {
+    if (_self.location == null) {
+    return null;
   }
 
-  @override
-  @pragma('vm:prefer-inline')
-  $FractalDataCopyWith<Location, $Res>? get location {
-    if (_value.location == null) {
-      return null;
-    }
-
-    return $FractalDataCopyWith<Location, $Res>(_value.location!, (value) {
-      return _then(_value.copyWith(location: value) as $Val);
-    });
+  return $FractalDataCopyWith<Location, $Res>(_self.location!, (value) {
+    return _then(_self.copyWith(location: value));
+  });
+}/// Create a copy of NodeRelationships
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$FractalListDataCopyWith<ApplicationServer, $Res>? get servers {
+    if (_self.servers == null) {
+    return null;
   }
 
-  @override
-  @pragma('vm:prefer-inline')
-  $FractalListDataCopyWith<ApplicationServer, $Res>? get servers {
-    if (_value.servers == null) {
-      return null;
-    }
-
-    return $FractalListDataCopyWith<ApplicationServer, $Res>(_value.servers!,
-        (value) {
-      return _then(_value.copyWith(servers: value) as $Val);
-    });
-  }
+  return $FractalListDataCopyWith<ApplicationServer, $Res>(_self.servers!, (value) {
+    return _then(_self.copyWith(servers: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$NodeRelationshipsImplCopyWith<$Res>
-    implements $NodeRelationshipsCopyWith<$Res> {
-  factory _$$NodeRelationshipsImplCopyWith(_$NodeRelationshipsImpl value,
-          $Res Function(_$NodeRelationshipsImpl) then) =
-      __$$NodeRelationshipsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {FractalData<ApplicationAllocation>? allocation,
-      FractalData<Location>? location,
-      FractalListData<ApplicationServer>? servers});
-
-  @override
-  $FractalDataCopyWith<ApplicationAllocation, $Res>? get allocation;
-  @override
-  $FractalDataCopyWith<Location, $Res>? get location;
-  @override
-  $FractalListDataCopyWith<ApplicationServer, $Res>? get servers;
-}
-
-/// @nodoc
-class __$$NodeRelationshipsImplCopyWithImpl<$Res>
-    extends _$NodeRelationshipsCopyWithImpl<$Res, _$NodeRelationshipsImpl>
-    implements _$$NodeRelationshipsImplCopyWith<$Res> {
-  __$$NodeRelationshipsImplCopyWithImpl(_$NodeRelationshipsImpl _value,
-      $Res Function(_$NodeRelationshipsImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? allocation = freezed,
-    Object? location = freezed,
-    Object? servers = freezed,
-  }) {
-    return _then(_$NodeRelationshipsImpl(
-      allocation: freezed == allocation
-          ? _value.allocation
-          : allocation // ignore: cast_nullable_to_non_nullable
-              as FractalData<ApplicationAllocation>?,
-      location: freezed == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as FractalData<Location>?,
-      servers: freezed == servers
-          ? _value.servers
-          : servers // ignore: cast_nullable_to_non_nullable
-              as FractalListData<ApplicationServer>?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$NodeRelationshipsImpl extends _NodeRelationships {
-  const _$NodeRelationshipsImpl({this.allocation, this.location, this.servers})
-      : super._();
 
-  factory _$NodeRelationshipsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$NodeRelationshipsImplFromJson(json);
+class _NodeRelationships implements NodeRelationships {
+  const _NodeRelationships({this.allocation, this.location, this.servers});
+  factory _NodeRelationships.fromJson(Map<String, dynamic> json) => _$NodeRelationshipsFromJson(json);
 
-  @override
-  final FractalData<ApplicationAllocation>? allocation;
-  @override
-  final FractalData<Location>? location;
-  @override
-  final FractalListData<ApplicationServer>? servers;
+@override final  FractalData<ApplicationAllocation>? allocation;
+@override final  FractalData<Location>? location;
+@override final  FractalListData<ApplicationServer>? servers;
 
-  @override
-  String toString() {
-    return 'NodeRelationships(allocation: $allocation, location: $location, servers: $servers)';
-  }
+/// Create a copy of NodeRelationships
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$NodeRelationshipsCopyWith<_NodeRelationships> get copyWith => __$NodeRelationshipsCopyWithImpl<_NodeRelationships>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$NodeRelationshipsImpl &&
-            (identical(other.allocation, allocation) ||
-                other.allocation == allocation) &&
-            (identical(other.location, location) ||
-                other.location == location) &&
-            (identical(other.servers, servers) || other.servers == servers));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, allocation, location, servers);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$NodeRelationshipsImplCopyWith<_$NodeRelationshipsImpl> get copyWith =>
-      __$$NodeRelationshipsImplCopyWithImpl<_$NodeRelationshipsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$NodeRelationshipsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$NodeRelationshipsToJson(this, );
 }
 
-abstract class _NodeRelationships extends NodeRelationships {
-  const factory _NodeRelationships(
-          {final FractalData<ApplicationAllocation>? allocation,
-          final FractalData<Location>? location,
-          final FractalListData<ApplicationServer>? servers}) =
-      _$NodeRelationshipsImpl;
-  const _NodeRelationships._() : super._();
-
-  factory _NodeRelationships.fromJson(Map<String, dynamic> json) =
-      _$NodeRelationshipsImpl.fromJson;
-
-  @override
-  FractalData<ApplicationAllocation>? get allocation;
-  @override
-  FractalData<Location>? get location;
-  @override
-  FractalListData<ApplicationServer>? get servers;
-  @override
-  @JsonKey(ignore: true)
-  _$$NodeRelationshipsImplCopyWith<_$NodeRelationshipsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _NodeRelationships&&(identical(other.allocation, allocation) || other.allocation == allocation)&&(identical(other.location, location) || other.location == location)&&(identical(other.servers, servers) || other.servers == servers));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,allocation,location,servers);
+
+@override
+String toString() {
+  return 'NodeRelationships(allocation: $allocation, location: $location, servers: $servers)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$NodeRelationshipsCopyWith<$Res> implements $NodeRelationshipsCopyWith<$Res> {
+  factory _$NodeRelationshipsCopyWith(_NodeRelationships value, $Res Function(_NodeRelationships) _then) = __$NodeRelationshipsCopyWithImpl;
+@override @useResult
+$Res call({
+ FractalData<ApplicationAllocation>? allocation, FractalData<Location>? location, FractalListData<ApplicationServer>? servers
+});
+
+
+@override $FractalDataCopyWith<ApplicationAllocation, $Res>? get allocation;@override $FractalDataCopyWith<Location, $Res>? get location;@override $FractalListDataCopyWith<ApplicationServer, $Res>? get servers;
+
+}
+/// @nodoc
+class __$NodeRelationshipsCopyWithImpl<$Res>
+    implements _$NodeRelationshipsCopyWith<$Res> {
+  __$NodeRelationshipsCopyWithImpl(this._self, this._then);
+
+  final _NodeRelationships _self;
+  final $Res Function(_NodeRelationships) _then;
+
+/// Create a copy of NodeRelationships
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? allocation = freezed,Object? location = freezed,Object? servers = freezed,}) {
+  return _then(_NodeRelationships(
+allocation: freezed == allocation ? _self.allocation : allocation // ignore: cast_nullable_to_non_nullable
+as FractalData<ApplicationAllocation>?,location: freezed == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
+as FractalData<Location>?,servers: freezed == servers ? _self.servers : servers // ignore: cast_nullable_to_non_nullable
+as FractalListData<ApplicationServer>?,
+  ));
+}
+
+/// Create a copy of NodeRelationships
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$FractalDataCopyWith<ApplicationAllocation, $Res>? get allocation {
+    if (_self.allocation == null) {
+    return null;
+  }
+
+  return $FractalDataCopyWith<ApplicationAllocation, $Res>(_self.allocation!, (value) {
+    return _then(_self.copyWith(allocation: value));
+  });
+}/// Create a copy of NodeRelationships
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$FractalDataCopyWith<Location, $Res>? get location {
+    if (_self.location == null) {
+    return null;
+  }
+
+  return $FractalDataCopyWith<Location, $Res>(_self.location!, (value) {
+    return _then(_self.copyWith(location: value));
+  });
+}/// Create a copy of NodeRelationships
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$FractalListDataCopyWith<ApplicationServer, $Res>? get servers {
+    if (_self.servers == null) {
+    return null;
+  }
+
+  return $FractalListDataCopyWith<ApplicationServer, $Res>(_self.servers!, (value) {
+    return _then(_self.copyWith(servers: value));
+  });
+}
+}
+
+// dart format on

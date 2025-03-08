@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,146 +10,139 @@ part of '../../../models/request_models/update_image.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-UpdateImage _$UpdateImageFromJson(Map<String, dynamic> json) {
-  return _UpdateImage.fromJson(json);
-}
 
 /// @nodoc
 mixin _$UpdateImage {
-  String get dockerImage => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $UpdateImageCopyWith<UpdateImage> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get dockerImage;
+/// Create a copy of UpdateImage
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UpdateImageCopyWith<UpdateImage> get copyWith => _$UpdateImageCopyWithImpl<UpdateImage>(this as UpdateImage, _$identity);
+
+  /// Serializes this UpdateImage to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UpdateImage&&(identical(other.dockerImage, dockerImage) || other.dockerImage == dockerImage));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,dockerImage);
+
+@override
+String toString() {
+  return 'UpdateImage(dockerImage: $dockerImage)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UpdateImageCopyWith<$Res> {
-  factory $UpdateImageCopyWith(
-          UpdateImage value, $Res Function(UpdateImage) then) =
-      _$UpdateImageCopyWithImpl<$Res, UpdateImage>;
-  @useResult
-  $Res call({String dockerImage});
-}
+abstract mixin class $UpdateImageCopyWith<$Res>  {
+  factory $UpdateImageCopyWith(UpdateImage value, $Res Function(UpdateImage) _then) = _$UpdateImageCopyWithImpl;
+@useResult
+$Res call({
+ String dockerImage
+});
 
+
+
+
+}
 /// @nodoc
-class _$UpdateImageCopyWithImpl<$Res, $Val extends UpdateImage>
+class _$UpdateImageCopyWithImpl<$Res>
     implements $UpdateImageCopyWith<$Res> {
-  _$UpdateImageCopyWithImpl(this._value, this._then);
+  _$UpdateImageCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final UpdateImage _self;
+  final $Res Function(UpdateImage) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? dockerImage = null,
-  }) {
-    return _then(_value.copyWith(
-      dockerImage: null == dockerImage
-          ? _value.dockerImage
-          : dockerImage // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of UpdateImage
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? dockerImage = null,}) {
+  return _then(_self.copyWith(
+dockerImage: null == dockerImage ? _self.dockerImage : dockerImage // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$UpdateImageImplCopyWith<$Res>
-    implements $UpdateImageCopyWith<$Res> {
-  factory _$$UpdateImageImplCopyWith(
-          _$UpdateImageImpl value, $Res Function(_$UpdateImageImpl) then) =
-      __$$UpdateImageImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String dockerImage});
 }
 
-/// @nodoc
-class __$$UpdateImageImplCopyWithImpl<$Res>
-    extends _$UpdateImageCopyWithImpl<$Res, _$UpdateImageImpl>
-    implements _$$UpdateImageImplCopyWith<$Res> {
-  __$$UpdateImageImplCopyWithImpl(
-      _$UpdateImageImpl _value, $Res Function(_$UpdateImageImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? dockerImage = null,
-  }) {
-    return _then(_$UpdateImageImpl(
-      dockerImage: null == dockerImage
-          ? _value.dockerImage
-          : dockerImage // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$UpdateImageImpl extends _UpdateImage {
-  const _$UpdateImageImpl({required this.dockerImage}) : super._();
 
-  factory _$UpdateImageImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UpdateImageImplFromJson(json);
+class _UpdateImage implements UpdateImage {
+  const _UpdateImage({required this.dockerImage});
+  factory _UpdateImage.fromJson(Map<String, dynamic> json) => _$UpdateImageFromJson(json);
 
-  @override
-  final String dockerImage;
+@override final  String dockerImage;
 
-  @override
-  String toString() {
-    return 'UpdateImage(dockerImage: $dockerImage)';
-  }
+/// Create a copy of UpdateImage
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$UpdateImageCopyWith<_UpdateImage> get copyWith => __$UpdateImageCopyWithImpl<_UpdateImage>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UpdateImageImpl &&
-            (identical(other.dockerImage, dockerImage) ||
-                other.dockerImage == dockerImage));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, dockerImage);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UpdateImageImplCopyWith<_$UpdateImageImpl> get copyWith =>
-      __$$UpdateImageImplCopyWithImpl<_$UpdateImageImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UpdateImageImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$UpdateImageToJson(this, );
 }
 
-abstract class _UpdateImage extends UpdateImage {
-  const factory _UpdateImage({required final String dockerImage}) =
-      _$UpdateImageImpl;
-  const _UpdateImage._() : super._();
-
-  factory _UpdateImage.fromJson(Map<String, dynamic> json) =
-      _$UpdateImageImpl.fromJson;
-
-  @override
-  String get dockerImage;
-  @override
-  @JsonKey(ignore: true)
-  _$$UpdateImageImplCopyWith<_$UpdateImageImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UpdateImage&&(identical(other.dockerImage, dockerImage) || other.dockerImage == dockerImage));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,dockerImage);
+
+@override
+String toString() {
+  return 'UpdateImage(dockerImage: $dockerImage)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$UpdateImageCopyWith<$Res> implements $UpdateImageCopyWith<$Res> {
+  factory _$UpdateImageCopyWith(_UpdateImage value, $Res Function(_UpdateImage) _then) = __$UpdateImageCopyWithImpl;
+@override @useResult
+$Res call({
+ String dockerImage
+});
+
+
+
+
+}
+/// @nodoc
+class __$UpdateImageCopyWithImpl<$Res>
+    implements _$UpdateImageCopyWith<$Res> {
+  __$UpdateImageCopyWithImpl(this._self, this._then);
+
+  final _UpdateImage _self;
+  final $Res Function(_UpdateImage) _then;
+
+/// Create a copy of UpdateImage
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? dockerImage = null,}) {
+  return _then(_UpdateImage(
+dockerImage: null == dockerImage ? _self.dockerImage : dockerImage // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

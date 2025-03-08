@@ -5,14 +5,13 @@ part '../../generated/models/server/server_feature_limits.freezed.dart';
 part '../../generated/models/server/server_feature_limits.g.dart';
 
 @freezed
-class ServerFeatureLimits with _$ServerFeatureLimits {
+abstract class ServerFeatureLimits with _$ServerFeatureLimits {
   const factory ServerFeatureLimits({
     required int allocations,
     int? databases,
     int? backups,
   }) = _ServerFeatureLimits;
-  const ServerFeatureLimits._();
 
-  factory ServerFeatureLimits.fromJson(JsonMap json) =
-      _ServerFeatureLimits.fromJson;
+  factory ServerFeatureLimits.fromJson(JsonMap json) =>
+      _$ServerFeatureLimitsFromJson(json);
 }

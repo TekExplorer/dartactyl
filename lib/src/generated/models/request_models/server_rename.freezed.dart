@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,160 +10,142 @@ part of '../../../models/request_models/server_rename.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Rename _$RenameFromJson(Map<String, dynamic> json) {
-  return _Rename.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Rename {
-  String get name => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $RenameCopyWith<Rename> get copyWith => throw _privateConstructorUsedError;
+ String get name; String? get description;
+/// Create a copy of Rename
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$RenameCopyWith<Rename> get copyWith => _$RenameCopyWithImpl<Rename>(this as Rename, _$identity);
+
+  /// Serializes this Rename to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Rename&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,description);
+
+@override
+String toString() {
+  return 'Rename(name: $name, description: $description)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $RenameCopyWith<$Res> {
-  factory $RenameCopyWith(Rename value, $Res Function(Rename) then) =
-      _$RenameCopyWithImpl<$Res, Rename>;
-  @useResult
-  $Res call({String name, String? description});
-}
+abstract mixin class $RenameCopyWith<$Res>  {
+  factory $RenameCopyWith(Rename value, $Res Function(Rename) _then) = _$RenameCopyWithImpl;
+@useResult
+$Res call({
+ String name, String? description
+});
 
+
+
+
+}
 /// @nodoc
-class _$RenameCopyWithImpl<$Res, $Val extends Rename>
+class _$RenameCopyWithImpl<$Res>
     implements $RenameCopyWith<$Res> {
-  _$RenameCopyWithImpl(this._value, this._then);
+  _$RenameCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Rename _self;
+  final $Res Function(Rename) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? description = freezed,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
+/// Create a copy of Rename
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? description = freezed,}) {
+  return _then(_self.copyWith(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$RenameImplCopyWith<$Res> implements $RenameCopyWith<$Res> {
-  factory _$$RenameImplCopyWith(
-          _$RenameImpl value, $Res Function(_$RenameImpl) then) =
-      __$$RenameImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String name, String? description});
 }
 
-/// @nodoc
-class __$$RenameImplCopyWithImpl<$Res>
-    extends _$RenameCopyWithImpl<$Res, _$RenameImpl>
-    implements _$$RenameImplCopyWith<$Res> {
-  __$$RenameImplCopyWithImpl(
-      _$RenameImpl _value, $Res Function(_$RenameImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? description = freezed,
-  }) {
-    return _then(_$RenameImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$RenameImpl extends _Rename {
-  const _$RenameImpl({required this.name, required this.description})
-      : super._();
 
-  factory _$RenameImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RenameImplFromJson(json);
+class _Rename implements Rename {
+  const _Rename({required this.name, required this.description});
+  factory _Rename.fromJson(Map<String, dynamic> json) => _$RenameFromJson(json);
 
-  @override
-  final String name;
-  @override
-  final String? description;
+@override final  String name;
+@override final  String? description;
 
-  @override
-  String toString() {
-    return 'Rename(name: $name, description: $description)';
-  }
+/// Create a copy of Rename
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$RenameCopyWith<_Rename> get copyWith => __$RenameCopyWithImpl<_Rename>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RenameImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.description, description) ||
-                other.description == description));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, name, description);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RenameImplCopyWith<_$RenameImpl> get copyWith =>
-      __$$RenameImplCopyWithImpl<_$RenameImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RenameImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$RenameToJson(this, );
 }
 
-abstract class _Rename extends Rename {
-  const factory _Rename(
-      {required final String name,
-      required final String? description}) = _$RenameImpl;
-  const _Rename._() : super._();
-
-  factory _Rename.fromJson(Map<String, dynamic> json) = _$RenameImpl.fromJson;
-
-  @override
-  String get name;
-  @override
-  String? get description;
-  @override
-  @JsonKey(ignore: true)
-  _$$RenameImplCopyWith<_$RenameImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Rename&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,description);
+
+@override
+String toString() {
+  return 'Rename(name: $name, description: $description)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$RenameCopyWith<$Res> implements $RenameCopyWith<$Res> {
+  factory _$RenameCopyWith(_Rename value, $Res Function(_Rename) _then) = __$RenameCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String? description
+});
+
+
+
+
+}
+/// @nodoc
+class __$RenameCopyWithImpl<$Res>
+    implements _$RenameCopyWith<$Res> {
+  __$RenameCopyWithImpl(this._self, this._then);
+
+  final _Rename _self;
+  final $Res Function(_Rename) _then;
+
+/// Create a copy of Rename
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? description = freezed,}) {
+  return _then(_Rename(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+// dart format on

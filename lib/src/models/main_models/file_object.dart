@@ -5,7 +5,6 @@ part '../../generated/models/main_models/file_object.freezed.dart';
 part '../../generated/models/main_models/file_object.g.dart';
 
 @freezed
-
 /// [name] is the name of the file.
 ///
 /// [mode] 'drwxr-xr-x'
@@ -23,7 +22,7 @@ part '../../generated/models/main_models/file_object.g.dart';
 /// [createdAt] '2020-01-01T00:00:00.000Z'
 ///
 /// [modifiedAt] '2020-01-01T00:00:00.000Z'
-class FileObject with _$FileObject {
+abstract class FileObject with _$FileObject {
   const factory FileObject({
     required String name,
     required String mode,
@@ -35,8 +34,8 @@ class FileObject with _$FileObject {
     required DateTime createdAt,
     required DateTime modifiedAt,
   }) = _FileObject;
-  const FileObject._();
-  factory FileObject.fromJson(JsonMap json) = _FileObject.fromJson;
+
+  factory FileObject.fromJson(JsonMap json) => _$FileObjectFromJson(json);
 
   // /// Translates file codes (ie: 0755) to a string representation. ex: 'drwxr-xr-x'
   // String get modeString {

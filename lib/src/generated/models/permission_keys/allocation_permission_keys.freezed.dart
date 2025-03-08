@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,207 +10,148 @@ part of '../../../models/permission_keys/allocation_permission_keys.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-AllocationPermissionKeys _$AllocationPermissionKeysFromJson(
-    Map<String, dynamic> json) {
-  return _AllocationPermissionKeys.fromJson(json);
-}
 
 /// @nodoc
 mixin _$AllocationPermissionKeys {
-  String get read => throw _privateConstructorUsedError;
-  String get create => throw _privateConstructorUsedError;
-  String get update => throw _privateConstructorUsedError;
-  String get delete => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $AllocationPermissionKeysCopyWith<AllocationPermissionKeys> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get read; String get create; String get update; String get delete;
+/// Create a copy of AllocationPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AllocationPermissionKeysCopyWith<AllocationPermissionKeys> get copyWith => _$AllocationPermissionKeysCopyWithImpl<AllocationPermissionKeys>(this as AllocationPermissionKeys, _$identity);
+
+  /// Serializes this AllocationPermissionKeys to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AllocationPermissionKeys&&(identical(other.read, read) || other.read == read)&&(identical(other.create, create) || other.create == create)&&(identical(other.update, update) || other.update == update)&&(identical(other.delete, delete) || other.delete == delete));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,read,create,update,delete);
+
+@override
+String toString() {
+  return 'AllocationPermissionKeys(read: $read, create: $create, update: $update, delete: $delete)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AllocationPermissionKeysCopyWith<$Res> {
-  factory $AllocationPermissionKeysCopyWith(AllocationPermissionKeys value,
-          $Res Function(AllocationPermissionKeys) then) =
-      _$AllocationPermissionKeysCopyWithImpl<$Res, AllocationPermissionKeys>;
-  @useResult
-  $Res call({String read, String create, String update, String delete});
-}
+abstract mixin class $AllocationPermissionKeysCopyWith<$Res>  {
+  factory $AllocationPermissionKeysCopyWith(AllocationPermissionKeys value, $Res Function(AllocationPermissionKeys) _then) = _$AllocationPermissionKeysCopyWithImpl;
+@useResult
+$Res call({
+ String read, String create, String update, String delete
+});
 
+
+
+
+}
 /// @nodoc
-class _$AllocationPermissionKeysCopyWithImpl<$Res,
-        $Val extends AllocationPermissionKeys>
+class _$AllocationPermissionKeysCopyWithImpl<$Res>
     implements $AllocationPermissionKeysCopyWith<$Res> {
-  _$AllocationPermissionKeysCopyWithImpl(this._value, this._then);
+  _$AllocationPermissionKeysCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AllocationPermissionKeys _self;
+  final $Res Function(AllocationPermissionKeys) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? read = null,
-    Object? create = null,
-    Object? update = null,
-    Object? delete = null,
-  }) {
-    return _then(_value.copyWith(
-      read: null == read
-          ? _value.read
-          : read // ignore: cast_nullable_to_non_nullable
-              as String,
-      create: null == create
-          ? _value.create
-          : create // ignore: cast_nullable_to_non_nullable
-              as String,
-      update: null == update
-          ? _value.update
-          : update // ignore: cast_nullable_to_non_nullable
-              as String,
-      delete: null == delete
-          ? _value.delete
-          : delete // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of AllocationPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? read = null,Object? create = null,Object? update = null,Object? delete = null,}) {
+  return _then(_self.copyWith(
+read: null == read ? _self.read : read // ignore: cast_nullable_to_non_nullable
+as String,create: null == create ? _self.create : create // ignore: cast_nullable_to_non_nullable
+as String,update: null == update ? _self.update : update // ignore: cast_nullable_to_non_nullable
+as String,delete: null == delete ? _self.delete : delete // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$AllocationPermissionKeysImplCopyWith<$Res>
-    implements $AllocationPermissionKeysCopyWith<$Res> {
-  factory _$$AllocationPermissionKeysImplCopyWith(
-          _$AllocationPermissionKeysImpl value,
-          $Res Function(_$AllocationPermissionKeysImpl) then) =
-      __$$AllocationPermissionKeysImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String read, String create, String update, String delete});
 }
 
-/// @nodoc
-class __$$AllocationPermissionKeysImplCopyWithImpl<$Res>
-    extends _$AllocationPermissionKeysCopyWithImpl<$Res,
-        _$AllocationPermissionKeysImpl>
-    implements _$$AllocationPermissionKeysImplCopyWith<$Res> {
-  __$$AllocationPermissionKeysImplCopyWithImpl(
-      _$AllocationPermissionKeysImpl _value,
-      $Res Function(_$AllocationPermissionKeysImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? read = null,
-    Object? create = null,
-    Object? update = null,
-    Object? delete = null,
-  }) {
-    return _then(_$AllocationPermissionKeysImpl(
-      read: null == read
-          ? _value.read
-          : read // ignore: cast_nullable_to_non_nullable
-              as String,
-      create: null == create
-          ? _value.create
-          : create // ignore: cast_nullable_to_non_nullable
-              as String,
-      update: null == update
-          ? _value.update
-          : update // ignore: cast_nullable_to_non_nullable
-              as String,
-      delete: null == delete
-          ? _value.delete
-          : delete // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$AllocationPermissionKeysImpl extends _AllocationPermissionKeys {
-  const _$AllocationPermissionKeysImpl(
-      {required this.read,
-      required this.create,
-      required this.update,
-      required this.delete})
-      : super._();
 
-  factory _$AllocationPermissionKeysImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AllocationPermissionKeysImplFromJson(json);
+class _AllocationPermissionKeys implements AllocationPermissionKeys {
+  const _AllocationPermissionKeys({required this.read, required this.create, required this.update, required this.delete});
+  factory _AllocationPermissionKeys.fromJson(Map<String, dynamic> json) => _$AllocationPermissionKeysFromJson(json);
 
-  @override
-  final String read;
-  @override
-  final String create;
-  @override
-  final String update;
-  @override
-  final String delete;
+@override final  String read;
+@override final  String create;
+@override final  String update;
+@override final  String delete;
 
-  @override
-  String toString() {
-    return 'AllocationPermissionKeys(read: $read, create: $create, update: $update, delete: $delete)';
-  }
+/// Create a copy of AllocationPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AllocationPermissionKeysCopyWith<_AllocationPermissionKeys> get copyWith => __$AllocationPermissionKeysCopyWithImpl<_AllocationPermissionKeys>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AllocationPermissionKeysImpl &&
-            (identical(other.read, read) || other.read == read) &&
-            (identical(other.create, create) || other.create == create) &&
-            (identical(other.update, update) || other.update == update) &&
-            (identical(other.delete, delete) || other.delete == delete));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, read, create, update, delete);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AllocationPermissionKeysImplCopyWith<_$AllocationPermissionKeysImpl>
-      get copyWith => __$$AllocationPermissionKeysImplCopyWithImpl<
-          _$AllocationPermissionKeysImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AllocationPermissionKeysImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$AllocationPermissionKeysToJson(this, );
 }
 
-abstract class _AllocationPermissionKeys extends AllocationPermissionKeys {
-  const factory _AllocationPermissionKeys(
-      {required final String read,
-      required final String create,
-      required final String update,
-      required final String delete}) = _$AllocationPermissionKeysImpl;
-  const _AllocationPermissionKeys._() : super._();
-
-  factory _AllocationPermissionKeys.fromJson(Map<String, dynamic> json) =
-      _$AllocationPermissionKeysImpl.fromJson;
-
-  @override
-  String get read;
-  @override
-  String get create;
-  @override
-  String get update;
-  @override
-  String get delete;
-  @override
-  @JsonKey(ignore: true)
-  _$$AllocationPermissionKeysImplCopyWith<_$AllocationPermissionKeysImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AllocationPermissionKeys&&(identical(other.read, read) || other.read == read)&&(identical(other.create, create) || other.create == create)&&(identical(other.update, update) || other.update == update)&&(identical(other.delete, delete) || other.delete == delete));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,read,create,update,delete);
+
+@override
+String toString() {
+  return 'AllocationPermissionKeys(read: $read, create: $create, update: $update, delete: $delete)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AllocationPermissionKeysCopyWith<$Res> implements $AllocationPermissionKeysCopyWith<$Res> {
+  factory _$AllocationPermissionKeysCopyWith(_AllocationPermissionKeys value, $Res Function(_AllocationPermissionKeys) _then) = __$AllocationPermissionKeysCopyWithImpl;
+@override @useResult
+$Res call({
+ String read, String create, String update, String delete
+});
+
+
+
+
+}
+/// @nodoc
+class __$AllocationPermissionKeysCopyWithImpl<$Res>
+    implements _$AllocationPermissionKeysCopyWith<$Res> {
+  __$AllocationPermissionKeysCopyWithImpl(this._self, this._then);
+
+  final _AllocationPermissionKeys _self;
+  final $Res Function(_AllocationPermissionKeys) _then;
+
+/// Create a copy of AllocationPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? read = null,Object? create = null,Object? update = null,Object? delete = null,}) {
+  return _then(_AllocationPermissionKeys(
+read: null == read ? _self.read : read // ignore: cast_nullable_to_non_nullable
+as String,create: null == create ? _self.create : create // ignore: cast_nullable_to_non_nullable
+as String,update: null == update ? _self.update : update // ignore: cast_nullable_to_non_nullable
+as String,delete: null == delete ? _self.delete : delete // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -5,7 +5,7 @@ part '../../generated/models/main_models/databases.freezed.dart';
 part '../../generated/models/main_models/databases.g.dart';
 
 @freezed
-class Databases with _$Databases {
+abstract class Databases with _$Databases {
   const factory Databases({
     required int id,
     required int server,
@@ -17,7 +17,6 @@ class Databases with _$Databases {
     required String createdAt,
     required String updatedAt,
   }) = _Databases;
-  const Databases._();
 
-  factory Databases.fromJson(JsonMap json) = _Databases.fromJson;
+  factory Databases.fromJson(JsonMap json) => _$DatabasesFromJson(json);
 }

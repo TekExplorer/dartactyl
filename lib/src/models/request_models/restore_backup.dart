@@ -12,12 +12,11 @@ part '../../generated/models/request_models/restore_backup.g.dart';
 ///
 /// Default value is `false`.
 @freezed
-class RestoreBackup with _$RestoreBackup {
+abstract class RestoreBackup with _$RestoreBackup {
   const factory RestoreBackup({
     // ignore: invalid_annotation_target
     @JsonKey(name: 'truncate') bool? deleteExistingFiles,
   }) = _RestoreBackup;
-  const RestoreBackup._();
 
-  factory RestoreBackup.fromJson(JsonMap json) = _RestoreBackup.fromJson;
+  factory RestoreBackup.fromJson(JsonMap json) => _$RestoreBackupFromJson(json);
 }

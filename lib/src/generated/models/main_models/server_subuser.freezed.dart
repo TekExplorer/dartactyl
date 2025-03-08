@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,284 +10,157 @@ part of '../../../models/main_models/server_subuser.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ServerSubuser _$ServerSubuserFromJson(Map<String, dynamic> json) {
-  return _ServerSubuser.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ServerSubuser {
-  String get uuid => throw _privateConstructorUsedError;
-  String get username => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String get image => throw _privateConstructorUsedError;
-  @JsonKey(name: '2fa_enabled')
-  bool get twoFaEnabled => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  IList<String> get permissions => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ServerSubuserCopyWith<ServerSubuser> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get uuid; String get username; String get email; String get image;@JsonKey(name: '2fa_enabled') bool get twoFaEnabled; DateTime get createdAt; IList<String> get permissions;
+/// Create a copy of ServerSubuser
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ServerSubuserCopyWith<ServerSubuser> get copyWith => _$ServerSubuserCopyWithImpl<ServerSubuser>(this as ServerSubuser, _$identity);
+
+  /// Serializes this ServerSubuser to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ServerSubuser&&(identical(other.uuid, uuid) || other.uuid == uuid)&&(identical(other.username, username) || other.username == username)&&(identical(other.email, email) || other.email == email)&&(identical(other.image, image) || other.image == image)&&(identical(other.twoFaEnabled, twoFaEnabled) || other.twoFaEnabled == twoFaEnabled)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other.permissions, permissions));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,uuid,username,email,image,twoFaEnabled,createdAt,const DeepCollectionEquality().hash(permissions));
+
+@override
+String toString() {
+  return 'ServerSubuser(uuid: $uuid, username: $username, email: $email, image: $image, twoFaEnabled: $twoFaEnabled, createdAt: $createdAt, permissions: $permissions)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ServerSubuserCopyWith<$Res> {
-  factory $ServerSubuserCopyWith(
-          ServerSubuser value, $Res Function(ServerSubuser) then) =
-      _$ServerSubuserCopyWithImpl<$Res, ServerSubuser>;
-  @useResult
-  $Res call(
-      {String uuid,
-      String username,
-      String email,
-      String image,
-      @JsonKey(name: '2fa_enabled') bool twoFaEnabled,
-      DateTime createdAt,
-      IList<String> permissions});
-}
+abstract mixin class $ServerSubuserCopyWith<$Res>  {
+  factory $ServerSubuserCopyWith(ServerSubuser value, $Res Function(ServerSubuser) _then) = _$ServerSubuserCopyWithImpl;
+@useResult
+$Res call({
+ String uuid, String username, String email, String image,@JsonKey(name: '2fa_enabled') bool twoFaEnabled, DateTime createdAt, IList<String> permissions
+});
 
+
+
+
+}
 /// @nodoc
-class _$ServerSubuserCopyWithImpl<$Res, $Val extends ServerSubuser>
+class _$ServerSubuserCopyWithImpl<$Res>
     implements $ServerSubuserCopyWith<$Res> {
-  _$ServerSubuserCopyWithImpl(this._value, this._then);
+  _$ServerSubuserCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ServerSubuser _self;
+  final $Res Function(ServerSubuser) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? uuid = null,
-    Object? username = null,
-    Object? email = null,
-    Object? image = null,
-    Object? twoFaEnabled = null,
-    Object? createdAt = null,
-    Object? permissions = null,
-  }) {
-    return _then(_value.copyWith(
-      uuid: null == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      image: null == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String,
-      twoFaEnabled: null == twoFaEnabled
-          ? _value.twoFaEnabled
-          : twoFaEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      permissions: null == permissions
-          ? _value.permissions
-          : permissions // ignore: cast_nullable_to_non_nullable
-              as IList<String>,
-    ) as $Val);
-  }
+/// Create a copy of ServerSubuser
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? uuid = null,Object? username = null,Object? email = null,Object? image = null,Object? twoFaEnabled = null,Object? createdAt = null,Object? permissions = null,}) {
+  return _then(_self.copyWith(
+uuid: null == uuid ? _self.uuid : uuid // ignore: cast_nullable_to_non_nullable
+as String,username: null == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
+as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,image: null == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
+as String,twoFaEnabled: null == twoFaEnabled ? _self.twoFaEnabled : twoFaEnabled // ignore: cast_nullable_to_non_nullable
+as bool,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,permissions: null == permissions ? _self.permissions : permissions // ignore: cast_nullable_to_non_nullable
+as IList<String>,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ServerSubuserImplCopyWith<$Res>
-    implements $ServerSubuserCopyWith<$Res> {
-  factory _$$ServerSubuserImplCopyWith(
-          _$ServerSubuserImpl value, $Res Function(_$ServerSubuserImpl) then) =
-      __$$ServerSubuserImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String uuid,
-      String username,
-      String email,
-      String image,
-      @JsonKey(name: '2fa_enabled') bool twoFaEnabled,
-      DateTime createdAt,
-      IList<String> permissions});
 }
 
-/// @nodoc
-class __$$ServerSubuserImplCopyWithImpl<$Res>
-    extends _$ServerSubuserCopyWithImpl<$Res, _$ServerSubuserImpl>
-    implements _$$ServerSubuserImplCopyWith<$Res> {
-  __$$ServerSubuserImplCopyWithImpl(
-      _$ServerSubuserImpl _value, $Res Function(_$ServerSubuserImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? uuid = null,
-    Object? username = null,
-    Object? email = null,
-    Object? image = null,
-    Object? twoFaEnabled = null,
-    Object? createdAt = null,
-    Object? permissions = null,
-  }) {
-    return _then(_$ServerSubuserImpl(
-      uuid: null == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      image: null == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String,
-      twoFaEnabled: null == twoFaEnabled
-          ? _value.twoFaEnabled
-          : twoFaEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      permissions: null == permissions
-          ? _value.permissions
-          : permissions // ignore: cast_nullable_to_non_nullable
-              as IList<String>,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$ServerSubuserImpl extends _ServerSubuser {
-  const _$ServerSubuserImpl(
-      {required this.uuid,
-      required this.username,
-      required this.email,
-      required this.image,
-      @JsonKey(name: '2fa_enabled') required this.twoFaEnabled,
-      required this.createdAt,
-      required this.permissions})
-      : super._();
 
-  factory _$ServerSubuserImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ServerSubuserImplFromJson(json);
+class _ServerSubuser implements ServerSubuser {
+  const _ServerSubuser({required this.uuid, required this.username, required this.email, required this.image, @JsonKey(name: '2fa_enabled') required this.twoFaEnabled, required this.createdAt, required this.permissions});
+  factory _ServerSubuser.fromJson(Map<String, dynamic> json) => _$ServerSubuserFromJson(json);
 
-  @override
-  final String uuid;
-  @override
-  final String username;
-  @override
-  final String email;
-  @override
-  final String image;
-  @override
-  @JsonKey(name: '2fa_enabled')
-  final bool twoFaEnabled;
-  @override
-  final DateTime createdAt;
-  @override
-  final IList<String> permissions;
+@override final  String uuid;
+@override final  String username;
+@override final  String email;
+@override final  String image;
+@override@JsonKey(name: '2fa_enabled') final  bool twoFaEnabled;
+@override final  DateTime createdAt;
+@override final  IList<String> permissions;
 
-  @override
-  String toString() {
-    return 'ServerSubuser(uuid: $uuid, username: $username, email: $email, image: $image, twoFaEnabled: $twoFaEnabled, createdAt: $createdAt, permissions: $permissions)';
-  }
+/// Create a copy of ServerSubuser
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ServerSubuserCopyWith<_ServerSubuser> get copyWith => __$ServerSubuserCopyWithImpl<_ServerSubuser>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ServerSubuserImpl &&
-            (identical(other.uuid, uuid) || other.uuid == uuid) &&
-            (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.image, image) || other.image == image) &&
-            (identical(other.twoFaEnabled, twoFaEnabled) ||
-                other.twoFaEnabled == twoFaEnabled) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            const DeepCollectionEquality()
-                .equals(other.permissions, permissions));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      uuid,
-      username,
-      email,
-      image,
-      twoFaEnabled,
-      createdAt,
-      const DeepCollectionEquality().hash(permissions));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ServerSubuserImplCopyWith<_$ServerSubuserImpl> get copyWith =>
-      __$$ServerSubuserImplCopyWithImpl<_$ServerSubuserImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ServerSubuserImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$ServerSubuserToJson(this, );
 }
 
-abstract class _ServerSubuser extends ServerSubuser {
-  const factory _ServerSubuser(
-      {required final String uuid,
-      required final String username,
-      required final String email,
-      required final String image,
-      @JsonKey(name: '2fa_enabled') required final bool twoFaEnabled,
-      required final DateTime createdAt,
-      required final IList<String> permissions}) = _$ServerSubuserImpl;
-  const _ServerSubuser._() : super._();
-
-  factory _ServerSubuser.fromJson(Map<String, dynamic> json) =
-      _$ServerSubuserImpl.fromJson;
-
-  @override
-  String get uuid;
-  @override
-  String get username;
-  @override
-  String get email;
-  @override
-  String get image;
-  @override
-  @JsonKey(name: '2fa_enabled')
-  bool get twoFaEnabled;
-  @override
-  DateTime get createdAt;
-  @override
-  IList<String> get permissions;
-  @override
-  @JsonKey(ignore: true)
-  _$$ServerSubuserImplCopyWith<_$ServerSubuserImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ServerSubuser&&(identical(other.uuid, uuid) || other.uuid == uuid)&&(identical(other.username, username) || other.username == username)&&(identical(other.email, email) || other.email == email)&&(identical(other.image, image) || other.image == image)&&(identical(other.twoFaEnabled, twoFaEnabled) || other.twoFaEnabled == twoFaEnabled)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other.permissions, permissions));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,uuid,username,email,image,twoFaEnabled,createdAt,const DeepCollectionEquality().hash(permissions));
+
+@override
+String toString() {
+  return 'ServerSubuser(uuid: $uuid, username: $username, email: $email, image: $image, twoFaEnabled: $twoFaEnabled, createdAt: $createdAt, permissions: $permissions)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ServerSubuserCopyWith<$Res> implements $ServerSubuserCopyWith<$Res> {
+  factory _$ServerSubuserCopyWith(_ServerSubuser value, $Res Function(_ServerSubuser) _then) = __$ServerSubuserCopyWithImpl;
+@override @useResult
+$Res call({
+ String uuid, String username, String email, String image,@JsonKey(name: '2fa_enabled') bool twoFaEnabled, DateTime createdAt, IList<String> permissions
+});
+
+
+
+
+}
+/// @nodoc
+class __$ServerSubuserCopyWithImpl<$Res>
+    implements _$ServerSubuserCopyWith<$Res> {
+  __$ServerSubuserCopyWithImpl(this._self, this._then);
+
+  final _ServerSubuser _self;
+  final $Res Function(_ServerSubuser) _then;
+
+/// Create a copy of ServerSubuser
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? uuid = null,Object? username = null,Object? email = null,Object? image = null,Object? twoFaEnabled = null,Object? createdAt = null,Object? permissions = null,}) {
+  return _then(_ServerSubuser(
+uuid: null == uuid ? _self.uuid : uuid // ignore: cast_nullable_to_non_nullable
+as String,username: null == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
+as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,image: null == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
+as String,twoFaEnabled: null == twoFaEnabled ? _self.twoFaEnabled : twoFaEnabled // ignore: cast_nullable_to_non_nullable
+as bool,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,permissions: null == permissions ? _self.permissions : permissions // ignore: cast_nullable_to_non_nullable
+as IList<String>,
+  ));
+}
+
+
+}
+
+// dart format on

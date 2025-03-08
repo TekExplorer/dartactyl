@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,141 +10,139 @@ part of '../../../models/request_models/signal.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Signal _$SignalFromJson(Map<String, dynamic> json) {
-  return _Signal.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Signal {
-  ServerPowerAction get signal => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SignalCopyWith<Signal> get copyWith => throw _privateConstructorUsedError;
+ ServerPowerAction get signal;
+/// Create a copy of Signal
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SignalCopyWith<Signal> get copyWith => _$SignalCopyWithImpl<Signal>(this as Signal, _$identity);
+
+  /// Serializes this Signal to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Signal&&(identical(other.signal, signal) || other.signal == signal));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,signal);
+
+@override
+String toString() {
+  return 'Signal(signal: $signal)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SignalCopyWith<$Res> {
-  factory $SignalCopyWith(Signal value, $Res Function(Signal) then) =
-      _$SignalCopyWithImpl<$Res, Signal>;
-  @useResult
-  $Res call({ServerPowerAction signal});
-}
+abstract mixin class $SignalCopyWith<$Res>  {
+  factory $SignalCopyWith(Signal value, $Res Function(Signal) _then) = _$SignalCopyWithImpl;
+@useResult
+$Res call({
+ ServerPowerAction signal
+});
 
+
+
+
+}
 /// @nodoc
-class _$SignalCopyWithImpl<$Res, $Val extends Signal>
+class _$SignalCopyWithImpl<$Res>
     implements $SignalCopyWith<$Res> {
-  _$SignalCopyWithImpl(this._value, this._then);
+  _$SignalCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Signal _self;
+  final $Res Function(Signal) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? signal = null,
-  }) {
-    return _then(_value.copyWith(
-      signal: null == signal
-          ? _value.signal
-          : signal // ignore: cast_nullable_to_non_nullable
-              as ServerPowerAction,
-    ) as $Val);
-  }
+/// Create a copy of Signal
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? signal = null,}) {
+  return _then(_self.copyWith(
+signal: null == signal ? _self.signal : signal // ignore: cast_nullable_to_non_nullable
+as ServerPowerAction,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SignalImplCopyWith<$Res> implements $SignalCopyWith<$Res> {
-  factory _$$SignalImplCopyWith(
-          _$SignalImpl value, $Res Function(_$SignalImpl) then) =
-      __$$SignalImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({ServerPowerAction signal});
 }
 
-/// @nodoc
-class __$$SignalImplCopyWithImpl<$Res>
-    extends _$SignalCopyWithImpl<$Res, _$SignalImpl>
-    implements _$$SignalImplCopyWith<$Res> {
-  __$$SignalImplCopyWithImpl(
-      _$SignalImpl _value, $Res Function(_$SignalImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? signal = null,
-  }) {
-    return _then(_$SignalImpl(
-      signal: null == signal
-          ? _value.signal
-          : signal // ignore: cast_nullable_to_non_nullable
-              as ServerPowerAction,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$SignalImpl extends _Signal {
-  const _$SignalImpl({required this.signal}) : super._();
 
-  factory _$SignalImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SignalImplFromJson(json);
+class _Signal implements Signal {
+  const _Signal({required this.signal});
+  factory _Signal.fromJson(Map<String, dynamic> json) => _$SignalFromJson(json);
 
-  @override
-  final ServerPowerAction signal;
+@override final  ServerPowerAction signal;
 
-  @override
-  String toString() {
-    return 'Signal(signal: $signal)';
-  }
+/// Create a copy of Signal
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SignalCopyWith<_Signal> get copyWith => __$SignalCopyWithImpl<_Signal>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SignalImpl &&
-            (identical(other.signal, signal) || other.signal == signal));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, signal);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SignalImplCopyWith<_$SignalImpl> get copyWith =>
-      __$$SignalImplCopyWithImpl<_$SignalImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SignalImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$SignalToJson(this, );
 }
 
-abstract class _Signal extends Signal {
-  const factory _Signal({required final ServerPowerAction signal}) =
-      _$SignalImpl;
-  const _Signal._() : super._();
-
-  factory _Signal.fromJson(Map<String, dynamic> json) = _$SignalImpl.fromJson;
-
-  @override
-  ServerPowerAction get signal;
-  @override
-  @JsonKey(ignore: true)
-  _$$SignalImplCopyWith<_$SignalImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Signal&&(identical(other.signal, signal) || other.signal == signal));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,signal);
+
+@override
+String toString() {
+  return 'Signal(signal: $signal)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SignalCopyWith<$Res> implements $SignalCopyWith<$Res> {
+  factory _$SignalCopyWith(_Signal value, $Res Function(_Signal) _then) = __$SignalCopyWithImpl;
+@override @useResult
+$Res call({
+ ServerPowerAction signal
+});
+
+
+
+
+}
+/// @nodoc
+class __$SignalCopyWithImpl<$Res>
+    implements _$SignalCopyWith<$Res> {
+  __$SignalCopyWithImpl(this._self, this._then);
+
+  final _Signal _self;
+  final $Res Function(_Signal) _then;
+
+/// Create a copy of Signal
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? signal = null,}) {
+  return _then(_Signal(
+signal: null == signal ? _self.signal : signal // ignore: cast_nullable_to_non_nullable
+as ServerPowerAction,
+  ));
+}
+
+
+}
+
+// dart format on

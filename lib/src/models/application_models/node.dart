@@ -6,7 +6,7 @@ part '../../generated/models/application_models/node.g.dart';
 
 //TODO: ensure all fields are correct
 @freezed
-class Node with _$Node {
+abstract class Node with _$Node {
   const factory Node({
     required int id,
     required String uuid,
@@ -30,20 +30,18 @@ class Node with _$Node {
     required DateTime updatedAt,
     NodeRelationships? relationships,
   }) = _Node;
-  const Node._();
 
-  factory Node.fromJson(JsonMap json) = _Node.fromJson;
+  factory Node.fromJson(JsonMap json) => _$NodeFromJson(json);
 }
 
 @freezed
-class NodeRelationships with _$NodeRelationships {
+abstract class NodeRelationships with _$NodeRelationships {
   const factory NodeRelationships({
     FractalData<ApplicationAllocation>? allocation,
     FractalData<Location>? location,
     FractalListData<ApplicationServer>? servers,
   }) = _NodeRelationships;
-  const NodeRelationships._();
 
-  factory NodeRelationships.fromJson(JsonMap json) =
-      _NodeRelationships.fromJson;
+  factory NodeRelationships.fromJson(JsonMap json) =>
+      _$NodeRelationshipsFromJson(json);
 }

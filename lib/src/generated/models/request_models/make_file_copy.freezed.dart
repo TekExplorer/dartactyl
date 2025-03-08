@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,146 +10,139 @@ part of '../../../models/request_models/make_file_copy.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-MakeFileCopy _$MakeFileCopyFromJson(Map<String, dynamic> json) {
-  return _MakeFileCopy.fromJson(json);
-}
 
 /// @nodoc
 mixin _$MakeFileCopy {
-  String get location => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $MakeFileCopyCopyWith<MakeFileCopy> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get location;
+/// Create a copy of MakeFileCopy
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$MakeFileCopyCopyWith<MakeFileCopy> get copyWith => _$MakeFileCopyCopyWithImpl<MakeFileCopy>(this as MakeFileCopy, _$identity);
+
+  /// Serializes this MakeFileCopy to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MakeFileCopy&&(identical(other.location, location) || other.location == location));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,location);
+
+@override
+String toString() {
+  return 'MakeFileCopy(location: $location)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $MakeFileCopyCopyWith<$Res> {
-  factory $MakeFileCopyCopyWith(
-          MakeFileCopy value, $Res Function(MakeFileCopy) then) =
-      _$MakeFileCopyCopyWithImpl<$Res, MakeFileCopy>;
-  @useResult
-  $Res call({String location});
-}
+abstract mixin class $MakeFileCopyCopyWith<$Res>  {
+  factory $MakeFileCopyCopyWith(MakeFileCopy value, $Res Function(MakeFileCopy) _then) = _$MakeFileCopyCopyWithImpl;
+@useResult
+$Res call({
+ String location
+});
 
+
+
+
+}
 /// @nodoc
-class _$MakeFileCopyCopyWithImpl<$Res, $Val extends MakeFileCopy>
+class _$MakeFileCopyCopyWithImpl<$Res>
     implements $MakeFileCopyCopyWith<$Res> {
-  _$MakeFileCopyCopyWithImpl(this._value, this._then);
+  _$MakeFileCopyCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final MakeFileCopy _self;
+  final $Res Function(MakeFileCopy) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? location = null,
-  }) {
-    return _then(_value.copyWith(
-      location: null == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of MakeFileCopy
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? location = null,}) {
+  return _then(_self.copyWith(
+location: null == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$MakeFileCopyImplCopyWith<$Res>
-    implements $MakeFileCopyCopyWith<$Res> {
-  factory _$$MakeFileCopyImplCopyWith(
-          _$MakeFileCopyImpl value, $Res Function(_$MakeFileCopyImpl) then) =
-      __$$MakeFileCopyImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String location});
 }
 
-/// @nodoc
-class __$$MakeFileCopyImplCopyWithImpl<$Res>
-    extends _$MakeFileCopyCopyWithImpl<$Res, _$MakeFileCopyImpl>
-    implements _$$MakeFileCopyImplCopyWith<$Res> {
-  __$$MakeFileCopyImplCopyWithImpl(
-      _$MakeFileCopyImpl _value, $Res Function(_$MakeFileCopyImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? location = null,
-  }) {
-    return _then(_$MakeFileCopyImpl(
-      location: null == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$MakeFileCopyImpl extends _MakeFileCopy {
-  const _$MakeFileCopyImpl({required this.location}) : super._();
 
-  factory _$MakeFileCopyImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MakeFileCopyImplFromJson(json);
+class _MakeFileCopy implements MakeFileCopy {
+  const _MakeFileCopy({required this.location});
+  factory _MakeFileCopy.fromJson(Map<String, dynamic> json) => _$MakeFileCopyFromJson(json);
 
-  @override
-  final String location;
+@override final  String location;
 
-  @override
-  String toString() {
-    return 'MakeFileCopy(location: $location)';
-  }
+/// Create a copy of MakeFileCopy
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$MakeFileCopyCopyWith<_MakeFileCopy> get copyWith => __$MakeFileCopyCopyWithImpl<_MakeFileCopy>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$MakeFileCopyImpl &&
-            (identical(other.location, location) ||
-                other.location == location));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, location);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$MakeFileCopyImplCopyWith<_$MakeFileCopyImpl> get copyWith =>
-      __$$MakeFileCopyImplCopyWithImpl<_$MakeFileCopyImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MakeFileCopyImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$MakeFileCopyToJson(this, );
 }
 
-abstract class _MakeFileCopy extends MakeFileCopy {
-  const factory _MakeFileCopy({required final String location}) =
-      _$MakeFileCopyImpl;
-  const _MakeFileCopy._() : super._();
-
-  factory _MakeFileCopy.fromJson(Map<String, dynamic> json) =
-      _$MakeFileCopyImpl.fromJson;
-
-  @override
-  String get location;
-  @override
-  @JsonKey(ignore: true)
-  _$$MakeFileCopyImplCopyWith<_$MakeFileCopyImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MakeFileCopy&&(identical(other.location, location) || other.location == location));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,location);
+
+@override
+String toString() {
+  return 'MakeFileCopy(location: $location)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$MakeFileCopyCopyWith<$Res> implements $MakeFileCopyCopyWith<$Res> {
+  factory _$MakeFileCopyCopyWith(_MakeFileCopy value, $Res Function(_MakeFileCopy) _then) = __$MakeFileCopyCopyWithImpl;
+@override @useResult
+$Res call({
+ String location
+});
+
+
+
+
+}
+/// @nodoc
+class __$MakeFileCopyCopyWithImpl<$Res>
+    implements _$MakeFileCopyCopyWith<$Res> {
+  __$MakeFileCopyCopyWithImpl(this._self, this._then);
+
+  final _MakeFileCopy _self;
+  final $Res Function(_MakeFileCopy) _then;
+
+/// Create a copy of MakeFileCopy
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? location = null,}) {
+  return _then(_MakeFileCopy(
+location: null == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

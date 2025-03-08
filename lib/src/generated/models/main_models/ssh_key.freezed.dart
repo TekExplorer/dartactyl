@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,203 +10,148 @@ part of '../../../models/main_models/ssh_key.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SshKey _$SshKeyFromJson(Map<String, dynamic> json) {
-  return _SshKey.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SshKey {
-  String get name => throw _privateConstructorUsedError;
-  String get fingerprint => throw _privateConstructorUsedError;
-  String get publicKey => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SshKeyCopyWith<SshKey> get copyWith => throw _privateConstructorUsedError;
+ String get name; String get fingerprint; String get publicKey; DateTime get createdAt;
+/// Create a copy of SshKey
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SshKeyCopyWith<SshKey> get copyWith => _$SshKeyCopyWithImpl<SshKey>(this as SshKey, _$identity);
+
+  /// Serializes this SshKey to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SshKey&&(identical(other.name, name) || other.name == name)&&(identical(other.fingerprint, fingerprint) || other.fingerprint == fingerprint)&&(identical(other.publicKey, publicKey) || other.publicKey == publicKey)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,fingerprint,publicKey,createdAt);
+
+@override
+String toString() {
+  return 'SshKey(name: $name, fingerprint: $fingerprint, publicKey: $publicKey, createdAt: $createdAt)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SshKeyCopyWith<$Res> {
-  factory $SshKeyCopyWith(SshKey value, $Res Function(SshKey) then) =
-      _$SshKeyCopyWithImpl<$Res, SshKey>;
-  @useResult
-  $Res call(
-      {String name, String fingerprint, String publicKey, DateTime createdAt});
-}
+abstract mixin class $SshKeyCopyWith<$Res>  {
+  factory $SshKeyCopyWith(SshKey value, $Res Function(SshKey) _then) = _$SshKeyCopyWithImpl;
+@useResult
+$Res call({
+ String name, String fingerprint, String publicKey, DateTime createdAt
+});
 
+
+
+
+}
 /// @nodoc
-class _$SshKeyCopyWithImpl<$Res, $Val extends SshKey>
+class _$SshKeyCopyWithImpl<$Res>
     implements $SshKeyCopyWith<$Res> {
-  _$SshKeyCopyWithImpl(this._value, this._then);
+  _$SshKeyCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SshKey _self;
+  final $Res Function(SshKey) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? fingerprint = null,
-    Object? publicKey = null,
-    Object? createdAt = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      fingerprint: null == fingerprint
-          ? _value.fingerprint
-          : fingerprint // ignore: cast_nullable_to_non_nullable
-              as String,
-      publicKey: null == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
-  }
+/// Create a copy of SshKey
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? fingerprint = null,Object? publicKey = null,Object? createdAt = null,}) {
+  return _then(_self.copyWith(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,fingerprint: null == fingerprint ? _self.fingerprint : fingerprint // ignore: cast_nullable_to_non_nullable
+as String,publicKey: null == publicKey ? _self.publicKey : publicKey // ignore: cast_nullable_to_non_nullable
+as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SshKeyImplCopyWith<$Res> implements $SshKeyCopyWith<$Res> {
-  factory _$$SshKeyImplCopyWith(
-          _$SshKeyImpl value, $Res Function(_$SshKeyImpl) then) =
-      __$$SshKeyImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String name, String fingerprint, String publicKey, DateTime createdAt});
 }
 
-/// @nodoc
-class __$$SshKeyImplCopyWithImpl<$Res>
-    extends _$SshKeyCopyWithImpl<$Res, _$SshKeyImpl>
-    implements _$$SshKeyImplCopyWith<$Res> {
-  __$$SshKeyImplCopyWithImpl(
-      _$SshKeyImpl _value, $Res Function(_$SshKeyImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? fingerprint = null,
-    Object? publicKey = null,
-    Object? createdAt = null,
-  }) {
-    return _then(_$SshKeyImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      fingerprint: null == fingerprint
-          ? _value.fingerprint
-          : fingerprint // ignore: cast_nullable_to_non_nullable
-              as String,
-      publicKey: null == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$SshKeyImpl extends _SshKey {
-  const _$SshKeyImpl(
-      {required this.name,
-      required this.fingerprint,
-      required this.publicKey,
-      required this.createdAt})
-      : super._();
 
-  factory _$SshKeyImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SshKeyImplFromJson(json);
+class _SshKey implements SshKey {
+  const _SshKey({required this.name, required this.fingerprint, required this.publicKey, required this.createdAt});
+  factory _SshKey.fromJson(Map<String, dynamic> json) => _$SshKeyFromJson(json);
 
-  @override
-  final String name;
-  @override
-  final String fingerprint;
-  @override
-  final String publicKey;
-  @override
-  final DateTime createdAt;
+@override final  String name;
+@override final  String fingerprint;
+@override final  String publicKey;
+@override final  DateTime createdAt;
 
-  @override
-  String toString() {
-    return 'SshKey(name: $name, fingerprint: $fingerprint, publicKey: $publicKey, createdAt: $createdAt)';
-  }
+/// Create a copy of SshKey
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SshKeyCopyWith<_SshKey> get copyWith => __$SshKeyCopyWithImpl<_SshKey>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SshKeyImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.fingerprint, fingerprint) ||
-                other.fingerprint == fingerprint) &&
-            (identical(other.publicKey, publicKey) ||
-                other.publicKey == publicKey) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, fingerprint, publicKey, createdAt);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SshKeyImplCopyWith<_$SshKeyImpl> get copyWith =>
-      __$$SshKeyImplCopyWithImpl<_$SshKeyImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SshKeyImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$SshKeyToJson(this, );
 }
 
-abstract class _SshKey extends SshKey {
-  const factory _SshKey(
-      {required final String name,
-      required final String fingerprint,
-      required final String publicKey,
-      required final DateTime createdAt}) = _$SshKeyImpl;
-  const _SshKey._() : super._();
-
-  factory _SshKey.fromJson(Map<String, dynamic> json) = _$SshKeyImpl.fromJson;
-
-  @override
-  String get name;
-  @override
-  String get fingerprint;
-  @override
-  String get publicKey;
-  @override
-  DateTime get createdAt;
-  @override
-  @JsonKey(ignore: true)
-  _$$SshKeyImplCopyWith<_$SshKeyImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SshKey&&(identical(other.name, name) || other.name == name)&&(identical(other.fingerprint, fingerprint) || other.fingerprint == fingerprint)&&(identical(other.publicKey, publicKey) || other.publicKey == publicKey)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,fingerprint,publicKey,createdAt);
+
+@override
+String toString() {
+  return 'SshKey(name: $name, fingerprint: $fingerprint, publicKey: $publicKey, createdAt: $createdAt)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SshKeyCopyWith<$Res> implements $SshKeyCopyWith<$Res> {
+  factory _$SshKeyCopyWith(_SshKey value, $Res Function(_SshKey) _then) = __$SshKeyCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String fingerprint, String publicKey, DateTime createdAt
+});
+
+
+
+
+}
+/// @nodoc
+class __$SshKeyCopyWithImpl<$Res>
+    implements _$SshKeyCopyWith<$Res> {
+  __$SshKeyCopyWithImpl(this._self, this._then);
+
+  final _SshKey _self;
+  final $Res Function(_SshKey) _then;
+
+/// Create a copy of SshKey
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? fingerprint = null,Object? publicKey = null,Object? createdAt = null,}) {
+  return _then(_SshKey(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,fingerprint: null == fingerprint ? _self.fingerprint : fingerprint // ignore: cast_nullable_to_non_nullable
+as String,publicKey: null == publicKey ? _self.publicKey : publicKey // ignore: cast_nullable_to_non_nullable
+as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,
+  ));
+}
+
+
+}
+
+// dart format on

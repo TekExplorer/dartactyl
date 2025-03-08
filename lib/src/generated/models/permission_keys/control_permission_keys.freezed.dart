@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,150 +10,139 @@ part of '../../../models/permission_keys/control_permission_keys.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ControlPermissionKeys _$ControlPermissionKeysFromJson(
-    Map<String, dynamic> json) {
-  return _ControlPermissionKeys.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ControlPermissionKeys {
-  String get connect => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ControlPermissionKeysCopyWith<ControlPermissionKeys> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get connect;
+/// Create a copy of ControlPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ControlPermissionKeysCopyWith<ControlPermissionKeys> get copyWith => _$ControlPermissionKeysCopyWithImpl<ControlPermissionKeys>(this as ControlPermissionKeys, _$identity);
+
+  /// Serializes this ControlPermissionKeys to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ControlPermissionKeys&&(identical(other.connect, connect) || other.connect == connect));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,connect);
+
+@override
+String toString() {
+  return 'ControlPermissionKeys(connect: $connect)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ControlPermissionKeysCopyWith<$Res> {
-  factory $ControlPermissionKeysCopyWith(ControlPermissionKeys value,
-          $Res Function(ControlPermissionKeys) then) =
-      _$ControlPermissionKeysCopyWithImpl<$Res, ControlPermissionKeys>;
-  @useResult
-  $Res call({String connect});
-}
+abstract mixin class $ControlPermissionKeysCopyWith<$Res>  {
+  factory $ControlPermissionKeysCopyWith(ControlPermissionKeys value, $Res Function(ControlPermissionKeys) _then) = _$ControlPermissionKeysCopyWithImpl;
+@useResult
+$Res call({
+ String connect
+});
 
+
+
+
+}
 /// @nodoc
-class _$ControlPermissionKeysCopyWithImpl<$Res,
-        $Val extends ControlPermissionKeys>
+class _$ControlPermissionKeysCopyWithImpl<$Res>
     implements $ControlPermissionKeysCopyWith<$Res> {
-  _$ControlPermissionKeysCopyWithImpl(this._value, this._then);
+  _$ControlPermissionKeysCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ControlPermissionKeys _self;
+  final $Res Function(ControlPermissionKeys) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? connect = null,
-  }) {
-    return _then(_value.copyWith(
-      connect: null == connect
-          ? _value.connect
-          : connect // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of ControlPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? connect = null,}) {
+  return _then(_self.copyWith(
+connect: null == connect ? _self.connect : connect // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ControlPermissionKeysImplCopyWith<$Res>
-    implements $ControlPermissionKeysCopyWith<$Res> {
-  factory _$$ControlPermissionKeysImplCopyWith(
-          _$ControlPermissionKeysImpl value,
-          $Res Function(_$ControlPermissionKeysImpl) then) =
-      __$$ControlPermissionKeysImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String connect});
 }
 
-/// @nodoc
-class __$$ControlPermissionKeysImplCopyWithImpl<$Res>
-    extends _$ControlPermissionKeysCopyWithImpl<$Res,
-        _$ControlPermissionKeysImpl>
-    implements _$$ControlPermissionKeysImplCopyWith<$Res> {
-  __$$ControlPermissionKeysImplCopyWithImpl(_$ControlPermissionKeysImpl _value,
-      $Res Function(_$ControlPermissionKeysImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? connect = null,
-  }) {
-    return _then(_$ControlPermissionKeysImpl(
-      connect: null == connect
-          ? _value.connect
-          : connect // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$ControlPermissionKeysImpl extends _ControlPermissionKeys {
-  const _$ControlPermissionKeysImpl({required this.connect}) : super._();
 
-  factory _$ControlPermissionKeysImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ControlPermissionKeysImplFromJson(json);
+class _ControlPermissionKeys implements ControlPermissionKeys {
+  const _ControlPermissionKeys({required this.connect});
+  factory _ControlPermissionKeys.fromJson(Map<String, dynamic> json) => _$ControlPermissionKeysFromJson(json);
 
-  @override
-  final String connect;
+@override final  String connect;
 
-  @override
-  String toString() {
-    return 'ControlPermissionKeys(connect: $connect)';
-  }
+/// Create a copy of ControlPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ControlPermissionKeysCopyWith<_ControlPermissionKeys> get copyWith => __$ControlPermissionKeysCopyWithImpl<_ControlPermissionKeys>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ControlPermissionKeysImpl &&
-            (identical(other.connect, connect) || other.connect == connect));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, connect);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ControlPermissionKeysImplCopyWith<_$ControlPermissionKeysImpl>
-      get copyWith => __$$ControlPermissionKeysImplCopyWithImpl<
-          _$ControlPermissionKeysImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ControlPermissionKeysImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$ControlPermissionKeysToJson(this, );
 }
 
-abstract class _ControlPermissionKeys extends ControlPermissionKeys {
-  const factory _ControlPermissionKeys({required final String connect}) =
-      _$ControlPermissionKeysImpl;
-  const _ControlPermissionKeys._() : super._();
-
-  factory _ControlPermissionKeys.fromJson(Map<String, dynamic> json) =
-      _$ControlPermissionKeysImpl.fromJson;
-
-  @override
-  String get connect;
-  @override
-  @JsonKey(ignore: true)
-  _$$ControlPermissionKeysImplCopyWith<_$ControlPermissionKeysImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ControlPermissionKeys&&(identical(other.connect, connect) || other.connect == connect));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,connect);
+
+@override
+String toString() {
+  return 'ControlPermissionKeys(connect: $connect)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ControlPermissionKeysCopyWith<$Res> implements $ControlPermissionKeysCopyWith<$Res> {
+  factory _$ControlPermissionKeysCopyWith(_ControlPermissionKeys value, $Res Function(_ControlPermissionKeys) _then) = __$ControlPermissionKeysCopyWithImpl;
+@override @useResult
+$Res call({
+ String connect
+});
+
+
+
+
+}
+/// @nodoc
+class __$ControlPermissionKeysCopyWithImpl<$Res>
+    implements _$ControlPermissionKeysCopyWith<$Res> {
+  __$ControlPermissionKeysCopyWithImpl(this._self, this._then);
+
+  final _ControlPermissionKeys _self;
+  final $Res Function(_ControlPermissionKeys) _then;
+
+/// Create a copy of ControlPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? connect = null,}) {
+  return _then(_ControlPermissionKeys(
+connect: null == connect ? _self.connect : connect // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

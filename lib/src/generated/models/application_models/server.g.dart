@@ -6,13 +6,12 @@ part of '../../../models/application_models/server.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ApplicationServerImpl _$$ApplicationServerImplFromJson(
-        Map<String, dynamic> json) =>
+_ApplicationServer _$ApplicationServerFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$ApplicationServerImpl',
+      '_ApplicationServer',
       json,
       ($checkedConvert) {
-        final val = _$ApplicationServerImpl(
+        final val = _ApplicationServer(
           id: $checkedConvert('id', (v) => (v as num).toInt()),
           externalId: $checkedConvert('external_id', (v) => v as String),
           uuid: $checkedConvert('uuid', (v) => v as String),
@@ -20,31 +19,45 @@ _$ApplicationServerImpl _$$ApplicationServerImplFromJson(
           name: $checkedConvert('name', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String),
           status: $checkedConvert(
-              'status', (v) => $enumDecode(_$ServerStatusEnumMap, v)),
+            'status',
+            (v) => $enumDecode(_$ServerStatusEnumMap, v),
+          ),
           suspended: $checkedConvert('suspended', (v) => v as bool),
-          limits: $checkedConvert('limits',
-              (v) => ServerLimits.fromJson(v as Map<String, dynamic>)),
-          featureLimits: $checkedConvert('feature_limits',
-              (v) => ServerFeatureLimits.fromJson(v as Map<String, dynamic>)),
+          limits: $checkedConvert(
+            'limits',
+            (v) => ServerLimits.fromJson(v as Map<String, dynamic>),
+          ),
+          featureLimits: $checkedConvert(
+            'feature_limits',
+            (v) => ServerFeatureLimits.fromJson(v as Map<String, dynamic>),
+          ),
           user: $checkedConvert('user', (v) => (v as num).toInt()),
           node: $checkedConvert('node', (v) => (v as num).toInt()),
           allocation: $checkedConvert('allocation', (v) => (v as num).toInt()),
           nest: $checkedConvert('nest', (v) => (v as num).toInt()),
           egg: $checkedConvert('egg', (v) => (v as num).toInt()),
           container: $checkedConvert(
-              'container',
-              (v) => ApplicationServerContainer.fromJson(
-                  v as Map<String, dynamic>)),
-          createdAt:
-              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
-          updatedAt:
-              $checkedConvert('updated_at', (v) => DateTime.parse(v as String)),
+            'container',
+            (v) =>
+                ApplicationServerContainer.fromJson(v as Map<String, dynamic>),
+          ),
+          createdAt: $checkedConvert(
+            'created_at',
+            (v) => DateTime.parse(v as String),
+          ),
+          updatedAt: $checkedConvert(
+            'updated_at',
+            (v) => DateTime.parse(v as String),
+          ),
           relationships: $checkedConvert(
-              'relationships',
-              (v) => v == null
-                  ? null
-                  : ApplicationServerRelationships.fromJson(
-                      v as Map<String, dynamic>)),
+            'relationships',
+            (v) =>
+                v == null
+                    ? null
+                    : ApplicationServerRelationships.fromJson(
+                      v as Map<String, dynamic>,
+                    ),
+          ),
         );
         return val;
       },
@@ -52,12 +65,11 @@ _$ApplicationServerImpl _$$ApplicationServerImplFromJson(
         'externalId': 'external_id',
         'featureLimits': 'feature_limits',
         'createdAt': 'created_at',
-        'updatedAt': 'updated_at'
+        'updatedAt': 'updated_at',
       },
     );
 
-Map<String, dynamic> _$$ApplicationServerImplToJson(
-        _$ApplicationServerImpl instance) =>
+Map<String, dynamic> _$ApplicationServerToJson(_ApplicationServer instance) =>
     <String, dynamic>{
       'id': instance.id,
       'external_id': instance.externalId,
@@ -89,58 +101,56 @@ const _$ServerStatusEnumMap = {
   ServerStatus.transferring: 'transferring',
 };
 
-_$ApplicationServerContainerImpl _$$ApplicationServerContainerImplFromJson(
-        Map<String, dynamic> json) =>
-    $checkedCreate(
-      r'_$ApplicationServerContainerImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ApplicationServerContainerImpl(
-          startupCommand:
-              $checkedConvert('startup_command', (v) => v as String),
-          image: $checkedConvert('image', (v) => v as String),
-          installed: $checkedConvert('installed', (v) => v as bool),
-          environment:
-              $checkedConvert('environment', (v) => v as Map<String, dynamic>),
-        );
-        return val;
-      },
-      fieldKeyMap: const {'startupCommand': 'startup_command'},
-    );
-
-Map<String, dynamic> _$$ApplicationServerContainerImplToJson(
-        _$ApplicationServerContainerImpl instance) =>
-    <String, dynamic>{
-      'startup_command': instance.startupCommand,
-      'image': instance.image,
-      'installed': instance.installed,
-      'environment': instance.environment,
-    };
-
-_$ApplicationServerRelationshipsImpl
-    _$$ApplicationServerRelationshipsImplFromJson(Map<String, dynamic> json) =>
-        $checkedCreate(
-          r'_$ApplicationServerRelationshipsImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$ApplicationServerRelationshipsImpl(
-              $checkedConvert(
-                  'user',
-                  (v) => v == null
-                      ? null
-                      : FractalData<ApplicationUser>.fromJson(
-                          v as Map<String, dynamic>,
-                          (value) => ApplicationUser.fromJson(
-                              value as Map<String, dynamic>))),
-            );
-            return val;
-          },
-        );
-
-Map<String, dynamic> _$$ApplicationServerRelationshipsImplToJson(
-        _$ApplicationServerRelationshipsImpl instance) =>
-    <String, dynamic>{
-      'user': instance.user?.toJson(
-        (value) => value.toJson(),
+_ApplicationServerContainer _$ApplicationServerContainerFromJson(
+  Map<String, dynamic> json,
+) => $checkedCreate(
+  '_ApplicationServerContainer',
+  json,
+  ($checkedConvert) {
+    final val = _ApplicationServerContainer(
+      startupCommand: $checkedConvert('startup_command', (v) => v as String),
+      image: $checkedConvert('image', (v) => v as String),
+      installed: $checkedConvert('installed', (v) => v as bool),
+      environment: $checkedConvert(
+        'environment',
+        (v) => v as Map<String, dynamic>,
       ),
-    };
+    );
+    return val;
+  },
+  fieldKeyMap: const {'startupCommand': 'startup_command'},
+);
+
+Map<String, dynamic> _$ApplicationServerContainerToJson(
+  _ApplicationServerContainer instance,
+) => <String, dynamic>{
+  'startup_command': instance.startupCommand,
+  'image': instance.image,
+  'installed': instance.installed,
+  'environment': instance.environment,
+};
+
+_ApplicationServerRelationships _$ApplicationServerRelationshipsFromJson(
+  Map<String, dynamic> json,
+) => $checkedCreate('_ApplicationServerRelationships', json, ($checkedConvert) {
+  final val = _ApplicationServerRelationships(
+    $checkedConvert(
+      'user',
+      (v) =>
+          v == null
+              ? null
+              : FractalData<ApplicationUser>.fromJson(
+                v as Map<String, dynamic>,
+                (value) =>
+                    ApplicationUser.fromJson(value as Map<String, dynamic>),
+              ),
+    ),
+  );
+  return val;
+});
+
+Map<String, dynamic> _$ApplicationServerRelationshipsToJson(
+  _ApplicationServerRelationships instance,
+) => <String, dynamic>{
+  'user': instance.user?.toJson((value) => value.toJson()),
+};

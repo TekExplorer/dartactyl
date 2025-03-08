@@ -5,9 +5,8 @@ part '../../generated/models/main_models/signed_url.freezed.dart';
 part '../../generated/models/main_models/signed_url.g.dart';
 
 @freezed
-class SignedUrl with _$SignedUrl {
+abstract class SignedUrl with _$SignedUrl {
   const factory SignedUrl({required Uri url}) = _SignedUrl;
-  const SignedUrl._();
 
-  factory SignedUrl.fromJson(JsonMap json) = _SignedUrl.fromJson;
+  factory SignedUrl.fromJson(JsonMap json) => _$SignedUrlFromJson(json);
 }

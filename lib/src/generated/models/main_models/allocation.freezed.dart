@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,251 +10,154 @@ part of '../../../models/main_models/allocation.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Allocation _$AllocationFromJson(Map<String, dynamic> json) {
-  return _Allocation.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Allocation {
-  int get id => throw _privateConstructorUsedError;
-  String get ip => throw _privateConstructorUsedError;
-  String? get ipAlias => throw _privateConstructorUsedError;
-  int get port => throw _privateConstructorUsedError;
-  String? get notes => throw _privateConstructorUsedError;
-  bool get isDefault => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $AllocationCopyWith<Allocation> get copyWith =>
-      throw _privateConstructorUsedError;
+ int get id; String get ip; String? get ipAlias; int get port; String? get notes; bool get isDefault;
+/// Create a copy of Allocation
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AllocationCopyWith<Allocation> get copyWith => _$AllocationCopyWithImpl<Allocation>(this as Allocation, _$identity);
+
+  /// Serializes this Allocation to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Allocation&&(identical(other.id, id) || other.id == id)&&(identical(other.ip, ip) || other.ip == ip)&&(identical(other.ipAlias, ipAlias) || other.ipAlias == ipAlias)&&(identical(other.port, port) || other.port == port)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.isDefault, isDefault) || other.isDefault == isDefault));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,ip,ipAlias,port,notes,isDefault);
+
+@override
+String toString() {
+  return 'Allocation(id: $id, ip: $ip, ipAlias: $ipAlias, port: $port, notes: $notes, isDefault: $isDefault)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AllocationCopyWith<$Res> {
-  factory $AllocationCopyWith(
-          Allocation value, $Res Function(Allocation) then) =
-      _$AllocationCopyWithImpl<$Res, Allocation>;
-  @useResult
-  $Res call(
-      {int id,
-      String ip,
-      String? ipAlias,
-      int port,
-      String? notes,
-      bool isDefault});
-}
+abstract mixin class $AllocationCopyWith<$Res>  {
+  factory $AllocationCopyWith(Allocation value, $Res Function(Allocation) _then) = _$AllocationCopyWithImpl;
+@useResult
+$Res call({
+ int id, String ip, String? ipAlias, int port, String? notes, bool isDefault
+});
 
+
+
+
+}
 /// @nodoc
-class _$AllocationCopyWithImpl<$Res, $Val extends Allocation>
+class _$AllocationCopyWithImpl<$Res>
     implements $AllocationCopyWith<$Res> {
-  _$AllocationCopyWithImpl(this._value, this._then);
+  _$AllocationCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Allocation _self;
+  final $Res Function(Allocation) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? ip = null,
-    Object? ipAlias = freezed,
-    Object? port = null,
-    Object? notes = freezed,
-    Object? isDefault = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      ip: null == ip
-          ? _value.ip
-          : ip // ignore: cast_nullable_to_non_nullable
-              as String,
-      ipAlias: freezed == ipAlias
-          ? _value.ipAlias
-          : ipAlias // ignore: cast_nullable_to_non_nullable
-              as String?,
-      port: null == port
-          ? _value.port
-          : port // ignore: cast_nullable_to_non_nullable
-              as int,
-      notes: freezed == notes
-          ? _value.notes
-          : notes // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isDefault: null == isDefault
-          ? _value.isDefault
-          : isDefault // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
+/// Create a copy of Allocation
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? ip = null,Object? ipAlias = freezed,Object? port = null,Object? notes = freezed,Object? isDefault = null,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,ip: null == ip ? _self.ip : ip // ignore: cast_nullable_to_non_nullable
+as String,ipAlias: freezed == ipAlias ? _self.ipAlias : ipAlias // ignore: cast_nullable_to_non_nullable
+as String?,port: null == port ? _self.port : port // ignore: cast_nullable_to_non_nullable
+as int,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as String?,isDefault: null == isDefault ? _self.isDefault : isDefault // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
 }
 
-/// @nodoc
-abstract class _$$AllocationImplCopyWith<$Res>
-    implements $AllocationCopyWith<$Res> {
-  factory _$$AllocationImplCopyWith(
-          _$AllocationImpl value, $Res Function(_$AllocationImpl) then) =
-      __$$AllocationImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {int id,
-      String ip,
-      String? ipAlias,
-      int port,
-      String? notes,
-      bool isDefault});
 }
 
-/// @nodoc
-class __$$AllocationImplCopyWithImpl<$Res>
-    extends _$AllocationCopyWithImpl<$Res, _$AllocationImpl>
-    implements _$$AllocationImplCopyWith<$Res> {
-  __$$AllocationImplCopyWithImpl(
-      _$AllocationImpl _value, $Res Function(_$AllocationImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? ip = null,
-    Object? ipAlias = freezed,
-    Object? port = null,
-    Object? notes = freezed,
-    Object? isDefault = null,
-  }) {
-    return _then(_$AllocationImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      ip: null == ip
-          ? _value.ip
-          : ip // ignore: cast_nullable_to_non_nullable
-              as String,
-      ipAlias: freezed == ipAlias
-          ? _value.ipAlias
-          : ipAlias // ignore: cast_nullable_to_non_nullable
-              as String?,
-      port: null == port
-          ? _value.port
-          : port // ignore: cast_nullable_to_non_nullable
-              as int,
-      notes: freezed == notes
-          ? _value.notes
-          : notes // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isDefault: null == isDefault
-          ? _value.isDefault
-          : isDefault // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$AllocationImpl extends _Allocation {
-  const _$AllocationImpl(
-      {required this.id,
-      required this.ip,
-      this.ipAlias,
-      required this.port,
-      this.notes,
-      required this.isDefault})
-      : super._();
 
-  factory _$AllocationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AllocationImplFromJson(json);
+class _Allocation implements Allocation {
+  const _Allocation({required this.id, required this.ip, this.ipAlias, required this.port, this.notes, required this.isDefault});
+  factory _Allocation.fromJson(Map<String, dynamic> json) => _$AllocationFromJson(json);
 
-  @override
-  final int id;
-  @override
-  final String ip;
-  @override
-  final String? ipAlias;
-  @override
-  final int port;
-  @override
-  final String? notes;
-  @override
-  final bool isDefault;
+@override final  int id;
+@override final  String ip;
+@override final  String? ipAlias;
+@override final  int port;
+@override final  String? notes;
+@override final  bool isDefault;
 
-  @override
-  String toString() {
-    return 'Allocation(id: $id, ip: $ip, ipAlias: $ipAlias, port: $port, notes: $notes, isDefault: $isDefault)';
-  }
+/// Create a copy of Allocation
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AllocationCopyWith<_Allocation> get copyWith => __$AllocationCopyWithImpl<_Allocation>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AllocationImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.ip, ip) || other.ip == ip) &&
-            (identical(other.ipAlias, ipAlias) || other.ipAlias == ipAlias) &&
-            (identical(other.port, port) || other.port == port) &&
-            (identical(other.notes, notes) || other.notes == notes) &&
-            (identical(other.isDefault, isDefault) ||
-                other.isDefault == isDefault));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, ip, ipAlias, port, notes, isDefault);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AllocationImplCopyWith<_$AllocationImpl> get copyWith =>
-      __$$AllocationImplCopyWithImpl<_$AllocationImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AllocationImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$AllocationToJson(this, );
 }
 
-abstract class _Allocation extends Allocation {
-  const factory _Allocation(
-      {required final int id,
-      required final String ip,
-      final String? ipAlias,
-      required final int port,
-      final String? notes,
-      required final bool isDefault}) = _$AllocationImpl;
-  const _Allocation._() : super._();
-
-  factory _Allocation.fromJson(Map<String, dynamic> json) =
-      _$AllocationImpl.fromJson;
-
-  @override
-  int get id;
-  @override
-  String get ip;
-  @override
-  String? get ipAlias;
-  @override
-  int get port;
-  @override
-  String? get notes;
-  @override
-  bool get isDefault;
-  @override
-  @JsonKey(ignore: true)
-  _$$AllocationImplCopyWith<_$AllocationImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Allocation&&(identical(other.id, id) || other.id == id)&&(identical(other.ip, ip) || other.ip == ip)&&(identical(other.ipAlias, ipAlias) || other.ipAlias == ipAlias)&&(identical(other.port, port) || other.port == port)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.isDefault, isDefault) || other.isDefault == isDefault));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,ip,ipAlias,port,notes,isDefault);
+
+@override
+String toString() {
+  return 'Allocation(id: $id, ip: $ip, ipAlias: $ipAlias, port: $port, notes: $notes, isDefault: $isDefault)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AllocationCopyWith<$Res> implements $AllocationCopyWith<$Res> {
+  factory _$AllocationCopyWith(_Allocation value, $Res Function(_Allocation) _then) = __$AllocationCopyWithImpl;
+@override @useResult
+$Res call({
+ int id, String ip, String? ipAlias, int port, String? notes, bool isDefault
+});
+
+
+
+
+}
+/// @nodoc
+class __$AllocationCopyWithImpl<$Res>
+    implements _$AllocationCopyWith<$Res> {
+  __$AllocationCopyWithImpl(this._self, this._then);
+
+  final _Allocation _self;
+  final $Res Function(_Allocation) _then;
+
+/// Create a copy of Allocation
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? ip = null,Object? ipAlias = freezed,Object? port = null,Object? notes = freezed,Object? isDefault = null,}) {
+  return _then(_Allocation(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,ip: null == ip ? _self.ip : ip // ignore: cast_nullable_to_non_nullable
+as String,ipAlias: freezed == ipAlias ? _self.ipAlias : ipAlias // ignore: cast_nullable_to_non_nullable
+as String?,port: null == port ? _self.port : port // ignore: cast_nullable_to_non_nullable
+as int,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as String?,isDefault: null == isDefault ? _self.isDefault : isDefault // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
+// dart format on

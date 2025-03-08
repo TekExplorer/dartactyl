@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,146 +10,139 @@ part of '../../../models/error_responses/ptero_errors.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-PteroErrors _$PteroErrorsFromJson(Map<String, dynamic> json) {
-  return _PteroErrors.fromJson(json);
-}
 
 /// @nodoc
 mixin _$PteroErrors {
-  IList<PteroError> get errors => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PteroErrorsCopyWith<PteroErrors> get copyWith =>
-      throw _privateConstructorUsedError;
+ IList<PteroError> get errors;
+/// Create a copy of PteroErrors
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PteroErrorsCopyWith<PteroErrors> get copyWith => _$PteroErrorsCopyWithImpl<PteroErrors>(this as PteroErrors, _$identity);
+
+  /// Serializes this PteroErrors to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PteroErrors&&const DeepCollectionEquality().equals(other.errors, errors));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(errors));
+
+@override
+String toString() {
+  return 'PteroErrors(errors: $errors)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $PteroErrorsCopyWith<$Res> {
-  factory $PteroErrorsCopyWith(
-          PteroErrors value, $Res Function(PteroErrors) then) =
-      _$PteroErrorsCopyWithImpl<$Res, PteroErrors>;
-  @useResult
-  $Res call({IList<PteroError> errors});
-}
+abstract mixin class $PteroErrorsCopyWith<$Res>  {
+  factory $PteroErrorsCopyWith(PteroErrors value, $Res Function(PteroErrors) _then) = _$PteroErrorsCopyWithImpl;
+@useResult
+$Res call({
+ IList<PteroError> errors
+});
 
+
+
+
+}
 /// @nodoc
-class _$PteroErrorsCopyWithImpl<$Res, $Val extends PteroErrors>
+class _$PteroErrorsCopyWithImpl<$Res>
     implements $PteroErrorsCopyWith<$Res> {
-  _$PteroErrorsCopyWithImpl(this._value, this._then);
+  _$PteroErrorsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final PteroErrors _self;
+  final $Res Function(PteroErrors) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? errors = null,
-  }) {
-    return _then(_value.copyWith(
-      errors: null == errors
-          ? _value.errors
-          : errors // ignore: cast_nullable_to_non_nullable
-              as IList<PteroError>,
-    ) as $Val);
-  }
+/// Create a copy of PteroErrors
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? errors = null,}) {
+  return _then(_self.copyWith(
+errors: null == errors ? _self.errors : errors // ignore: cast_nullable_to_non_nullable
+as IList<PteroError>,
+  ));
 }
 
-/// @nodoc
-abstract class _$$PteroErrorsImplCopyWith<$Res>
-    implements $PteroErrorsCopyWith<$Res> {
-  factory _$$PteroErrorsImplCopyWith(
-          _$PteroErrorsImpl value, $Res Function(_$PteroErrorsImpl) then) =
-      __$$PteroErrorsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({IList<PteroError> errors});
 }
 
-/// @nodoc
-class __$$PteroErrorsImplCopyWithImpl<$Res>
-    extends _$PteroErrorsCopyWithImpl<$Res, _$PteroErrorsImpl>
-    implements _$$PteroErrorsImplCopyWith<$Res> {
-  __$$PteroErrorsImplCopyWithImpl(
-      _$PteroErrorsImpl _value, $Res Function(_$PteroErrorsImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? errors = null,
-  }) {
-    return _then(_$PteroErrorsImpl(
-      errors: null == errors
-          ? _value.errors
-          : errors // ignore: cast_nullable_to_non_nullable
-              as IList<PteroError>,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$PteroErrorsImpl extends _PteroErrors {
-  const _$PteroErrorsImpl({required this.errors}) : super._();
 
-  factory _$PteroErrorsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PteroErrorsImplFromJson(json);
+class _PteroErrors implements PteroErrors {
+  const _PteroErrors({required this.errors});
+  factory _PteroErrors.fromJson(Map<String, dynamic> json) => _$PteroErrorsFromJson(json);
 
-  @override
-  final IList<PteroError> errors;
+@override final  IList<PteroError> errors;
 
-  @override
-  String toString() {
-    return 'PteroErrors(errors: $errors)';
-  }
+/// Create a copy of PteroErrors
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PteroErrorsCopyWith<_PteroErrors> get copyWith => __$PteroErrorsCopyWithImpl<_PteroErrors>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PteroErrorsImpl &&
-            const DeepCollectionEquality().equals(other.errors, errors));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(errors));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PteroErrorsImplCopyWith<_$PteroErrorsImpl> get copyWith =>
-      __$$PteroErrorsImplCopyWithImpl<_$PteroErrorsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PteroErrorsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$PteroErrorsToJson(this, );
 }
 
-abstract class _PteroErrors extends PteroErrors {
-  const factory _PteroErrors({required final IList<PteroError> errors}) =
-      _$PteroErrorsImpl;
-  const _PteroErrors._() : super._();
-
-  factory _PteroErrors.fromJson(Map<String, dynamic> json) =
-      _$PteroErrorsImpl.fromJson;
-
-  @override
-  IList<PteroError> get errors;
-  @override
-  @JsonKey(ignore: true)
-  _$$PteroErrorsImplCopyWith<_$PteroErrorsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PteroErrors&&const DeepCollectionEquality().equals(other.errors, errors));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(errors));
+
+@override
+String toString() {
+  return 'PteroErrors(errors: $errors)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PteroErrorsCopyWith<$Res> implements $PteroErrorsCopyWith<$Res> {
+  factory _$PteroErrorsCopyWith(_PteroErrors value, $Res Function(_PteroErrors) _then) = __$PteroErrorsCopyWithImpl;
+@override @useResult
+$Res call({
+ IList<PteroError> errors
+});
+
+
+
+
+}
+/// @nodoc
+class __$PteroErrorsCopyWithImpl<$Res>
+    implements _$PteroErrorsCopyWith<$Res> {
+  __$PteroErrorsCopyWithImpl(this._self, this._then);
+
+  final _PteroErrors _self;
+  final $Res Function(_PteroErrors) _then;
+
+/// Create a copy of PteroErrors
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? errors = null,}) {
+  return _then(_PteroErrors(
+errors: null == errors ? _self.errors : errors // ignore: cast_nullable_to_non_nullable
+as IList<PteroError>,
+  ));
+}
+
+
+}
+
+// dart format on

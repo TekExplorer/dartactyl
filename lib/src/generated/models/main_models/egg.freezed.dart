@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,164 +10,150 @@ part of '../../../models/main_models/egg.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Egg _$EggFromJson(Map<String, dynamic> json) {
-  return _Egg.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Egg {
+
 // only uuid and name show up in the client api
 // int id,
 // TODO: double check this
-  /// Can be null if the egg was updated after the server was created.
-  String? get uuid => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+/// Can be null if the egg was updated after the server was created.
+ String? get uuid; String get name;
+/// Create a copy of Egg
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$EggCopyWith<Egg> get copyWith => _$EggCopyWithImpl<Egg>(this as Egg, _$identity);
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $EggCopyWith<Egg> get copyWith => throw _privateConstructorUsedError;
+  /// Serializes this Egg to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Egg&&(identical(other.uuid, uuid) || other.uuid == uuid)&&(identical(other.name, name) || other.name == name));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,uuid,name);
+
+@override
+String toString() {
+  return 'Egg(uuid: $uuid, name: $name)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $EggCopyWith<$Res> {
-  factory $EggCopyWith(Egg value, $Res Function(Egg) then) =
-      _$EggCopyWithImpl<$Res, Egg>;
-  @useResult
-  $Res call({String? uuid, String name});
-}
+abstract mixin class $EggCopyWith<$Res>  {
+  factory $EggCopyWith(Egg value, $Res Function(Egg) _then) = _$EggCopyWithImpl;
+@useResult
+$Res call({
+ String? uuid, String name
+});
 
+
+
+
+}
 /// @nodoc
-class _$EggCopyWithImpl<$Res, $Val extends Egg> implements $EggCopyWith<$Res> {
-  _$EggCopyWithImpl(this._value, this._then);
+class _$EggCopyWithImpl<$Res>
+    implements $EggCopyWith<$Res> {
+  _$EggCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Egg _self;
+  final $Res Function(Egg) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? uuid = freezed,
-    Object? name = null,
-  }) {
-    return _then(_value.copyWith(
-      uuid: freezed == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of Egg
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? uuid = freezed,Object? name = null,}) {
+  return _then(_self.copyWith(
+uuid: freezed == uuid ? _self.uuid : uuid // ignore: cast_nullable_to_non_nullable
+as String?,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$EggImplCopyWith<$Res> implements $EggCopyWith<$Res> {
-  factory _$$EggImplCopyWith(_$EggImpl value, $Res Function(_$EggImpl) then) =
-      __$$EggImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String? uuid, String name});
 }
 
-/// @nodoc
-class __$$EggImplCopyWithImpl<$Res> extends _$EggCopyWithImpl<$Res, _$EggImpl>
-    implements _$$EggImplCopyWith<$Res> {
-  __$$EggImplCopyWithImpl(_$EggImpl _value, $Res Function(_$EggImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? uuid = freezed,
-    Object? name = null,
-  }) {
-    return _then(_$EggImpl(
-      uuid: freezed == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$EggImpl extends _Egg {
-  const _$EggImpl({this.uuid, required this.name}) : super._();
 
-  factory _$EggImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EggImplFromJson(json);
+class _Egg implements Egg {
+  const _Egg({this.uuid, required this.name});
+  factory _Egg.fromJson(Map<String, dynamic> json) => _$EggFromJson(json);
 
 // only uuid and name show up in the client api
 // int id,
 // TODO: double check this
-  /// Can be null if the egg was updated after the server was created.
-  @override
-  final String? uuid;
-  @override
-  final String name;
+/// Can be null if the egg was updated after the server was created.
+@override final  String? uuid;
+@override final  String name;
 
-  @override
-  String toString() {
-    return 'Egg(uuid: $uuid, name: $name)';
-  }
+/// Create a copy of Egg
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$EggCopyWith<_Egg> get copyWith => __$EggCopyWithImpl<_Egg>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$EggImpl &&
-            (identical(other.uuid, uuid) || other.uuid == uuid) &&
-            (identical(other.name, name) || other.name == name));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, uuid, name);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$EggImplCopyWith<_$EggImpl> get copyWith =>
-      __$$EggImplCopyWithImpl<_$EggImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$EggImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$EggToJson(this, );
 }
 
-abstract class _Egg extends Egg {
-  const factory _Egg({final String? uuid, required final String name}) =
-      _$EggImpl;
-  const _Egg._() : super._();
-
-  factory _Egg.fromJson(Map<String, dynamic> json) = _$EggImpl.fromJson;
-
-  @override // only uuid and name show up in the client api
-// int id,
-// TODO: double check this
-  /// Can be null if the egg was updated after the server was created.
-  String? get uuid;
-  @override
-  String get name;
-  @override
-  @JsonKey(ignore: true)
-  _$$EggImplCopyWith<_$EggImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Egg&&(identical(other.uuid, uuid) || other.uuid == uuid)&&(identical(other.name, name) || other.name == name));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,uuid,name);
+
+@override
+String toString() {
+  return 'Egg(uuid: $uuid, name: $name)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$EggCopyWith<$Res> implements $EggCopyWith<$Res> {
+  factory _$EggCopyWith(_Egg value, $Res Function(_Egg) _then) = __$EggCopyWithImpl;
+@override @useResult
+$Res call({
+ String? uuid, String name
+});
+
+
+
+
+}
+/// @nodoc
+class __$EggCopyWithImpl<$Res>
+    implements _$EggCopyWith<$Res> {
+  __$EggCopyWithImpl(this._self, this._then);
+
+  final _Egg _self;
+  final $Res Function(_Egg) _then;
+
+/// Create a copy of Egg
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? uuid = freezed,Object? name = null,}) {
+  return _then(_Egg(
+uuid: freezed == uuid ? _self.uuid : uuid // ignore: cast_nullable_to_non_nullable
+as String?,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

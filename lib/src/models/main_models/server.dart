@@ -6,7 +6,7 @@ part '../../generated/models/main_models/server.freezed.dart';
 part '../../generated/models/main_models/server.g.dart';
 
 @freezed
-class Server with _$Server {
+abstract class Server with _$Server {
   const factory Server({
     required bool serverOwner,
     required String identifier,
@@ -27,9 +27,8 @@ class Server with _$Server {
     required bool isTransferring,
     required ServerRelationships relationships,
   }) = _Server;
-  const Server._();
 
-  factory Server.fromJson(JsonMap json) = _Server.fromJson;
+  factory Server.fromJson(JsonMap json) => _$ServerFromJson(json);
 }
 
 enum ServerStatus {
@@ -42,5 +41,5 @@ enum ServerStatus {
   suspended,
   @JsonValue('restoring_backup')
   restoringBackup,
-  transferring;
+  transferring,
 }

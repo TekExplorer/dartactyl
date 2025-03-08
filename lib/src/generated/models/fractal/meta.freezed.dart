@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,959 +10,852 @@ part of '../../../models/fractal/meta.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-PaginatedMeta _$PaginatedMetaFromJson(Map<String, dynamic> json) {
-  return _PaginatedMeta.fromJson(json);
-}
 
 /// @nodoc
 mixin _$PaginatedMeta {
-  Pagination get pagination => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PaginatedMetaCopyWith<PaginatedMeta> get copyWith =>
-      throw _privateConstructorUsedError;
+ Pagination get pagination;
+/// Create a copy of PaginatedMeta
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PaginatedMetaCopyWith<PaginatedMeta> get copyWith => _$PaginatedMetaCopyWithImpl<PaginatedMeta>(this as PaginatedMeta, _$identity);
+
+  /// Serializes this PaginatedMeta to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PaginatedMeta&&(identical(other.pagination, pagination) || other.pagination == pagination));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,pagination);
+
+@override
+String toString() {
+  return 'PaginatedMeta(pagination: $pagination)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $PaginatedMetaCopyWith<$Res> {
-  factory $PaginatedMetaCopyWith(
-          PaginatedMeta value, $Res Function(PaginatedMeta) then) =
-      _$PaginatedMetaCopyWithImpl<$Res, PaginatedMeta>;
-  @useResult
-  $Res call({Pagination pagination});
+abstract mixin class $PaginatedMetaCopyWith<$Res>  {
+  factory $PaginatedMetaCopyWith(PaginatedMeta value, $Res Function(PaginatedMeta) _then) = _$PaginatedMetaCopyWithImpl;
+@useResult
+$Res call({
+ Pagination pagination
+});
 
-  $PaginationCopyWith<$Res> get pagination;
+
+$PaginationCopyWith<$Res> get pagination;
+
 }
-
 /// @nodoc
-class _$PaginatedMetaCopyWithImpl<$Res, $Val extends PaginatedMeta>
+class _$PaginatedMetaCopyWithImpl<$Res>
     implements $PaginatedMetaCopyWith<$Res> {
-  _$PaginatedMetaCopyWithImpl(this._value, this._then);
+  _$PaginatedMetaCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final PaginatedMeta _self;
+  final $Res Function(PaginatedMeta) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? pagination = null,
-  }) {
-    return _then(_value.copyWith(
-      pagination: null == pagination
-          ? _value.pagination
-          : pagination // ignore: cast_nullable_to_non_nullable
-              as Pagination,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PaginationCopyWith<$Res> get pagination {
-    return $PaginationCopyWith<$Res>(_value.pagination, (value) {
-      return _then(_value.copyWith(pagination: value) as $Val);
-    });
-  }
+/// Create a copy of PaginatedMeta
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? pagination = null,}) {
+  return _then(_self.copyWith(
+pagination: null == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
+as Pagination,
+  ));
+}
+/// Create a copy of PaginatedMeta
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PaginationCopyWith<$Res> get pagination {
+  
+  return $PaginationCopyWith<$Res>(_self.pagination, (value) {
+    return _then(_self.copyWith(pagination: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$PaginatedMetaImplCopyWith<$Res>
-    implements $PaginatedMetaCopyWith<$Res> {
-  factory _$$PaginatedMetaImplCopyWith(
-          _$PaginatedMetaImpl value, $Res Function(_$PaginatedMetaImpl) then) =
-      __$$PaginatedMetaImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Pagination pagination});
-
-  @override
-  $PaginationCopyWith<$Res> get pagination;
-}
-
-/// @nodoc
-class __$$PaginatedMetaImplCopyWithImpl<$Res>
-    extends _$PaginatedMetaCopyWithImpl<$Res, _$PaginatedMetaImpl>
-    implements _$$PaginatedMetaImplCopyWith<$Res> {
-  __$$PaginatedMetaImplCopyWithImpl(
-      _$PaginatedMetaImpl _value, $Res Function(_$PaginatedMetaImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? pagination = null,
-  }) {
-    return _then(_$PaginatedMetaImpl(
-      pagination: null == pagination
-          ? _value.pagination
-          : pagination // ignore: cast_nullable_to_non_nullable
-              as Pagination,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$PaginatedMetaImpl extends _PaginatedMeta {
-  const _$PaginatedMetaImpl({required this.pagination}) : super._();
 
-  factory _$PaginatedMetaImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaginatedMetaImplFromJson(json);
+class _PaginatedMeta implements PaginatedMeta {
+  const _PaginatedMeta({required this.pagination});
+  factory _PaginatedMeta.fromJson(Map<String, dynamic> json) => _$PaginatedMetaFromJson(json);
 
-  @override
-  final Pagination pagination;
+@override final  Pagination pagination;
 
-  @override
-  String toString() {
-    return 'PaginatedMeta(pagination: $pagination)';
-  }
+/// Create a copy of PaginatedMeta
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PaginatedMetaCopyWith<_PaginatedMeta> get copyWith => __$PaginatedMetaCopyWithImpl<_PaginatedMeta>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PaginatedMetaImpl &&
-            (identical(other.pagination, pagination) ||
-                other.pagination == pagination));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, pagination);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PaginatedMetaImplCopyWith<_$PaginatedMetaImpl> get copyWith =>
-      __$$PaginatedMetaImplCopyWithImpl<_$PaginatedMetaImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PaginatedMetaImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$PaginatedMetaToJson(this, );
 }
 
-abstract class _PaginatedMeta extends PaginatedMeta implements PaginationMixin {
-  const factory _PaginatedMeta({required final Pagination pagination}) =
-      _$PaginatedMetaImpl;
-  const _PaginatedMeta._() : super._();
-
-  factory _PaginatedMeta.fromJson(Map<String, dynamic> json) =
-      _$PaginatedMetaImpl.fromJson;
-
-  @override
-  Pagination get pagination;
-  @override
-  @JsonKey(ignore: true)
-  _$$PaginatedMetaImplCopyWith<_$PaginatedMetaImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PaginatedMeta&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
-PaginatedBackupsMeta _$PaginatedBackupsMetaFromJson(Map<String, dynamic> json) {
-  return _PaginatedBackupsMeta.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,pagination);
+
+@override
+String toString() {
+  return 'PaginatedMeta(pagination: $pagination)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PaginatedMetaCopyWith<$Res> implements $PaginatedMetaCopyWith<$Res> {
+  factory _$PaginatedMetaCopyWith(_PaginatedMeta value, $Res Function(_PaginatedMeta) _then) = __$PaginatedMetaCopyWithImpl;
+@override @useResult
+$Res call({
+ Pagination pagination
+});
+
+
+@override $PaginationCopyWith<$Res> get pagination;
+
+}
+/// @nodoc
+class __$PaginatedMetaCopyWithImpl<$Res>
+    implements _$PaginatedMetaCopyWith<$Res> {
+  __$PaginatedMetaCopyWithImpl(this._self, this._then);
+
+  final _PaginatedMeta _self;
+  final $Res Function(_PaginatedMeta) _then;
+
+/// Create a copy of PaginatedMeta
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? pagination = null,}) {
+  return _then(_PaginatedMeta(
+pagination: null == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
+as Pagination,
+  ));
+}
+
+/// Create a copy of PaginatedMeta
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PaginationCopyWith<$Res> get pagination {
+  
+  return $PaginationCopyWith<$Res>(_self.pagination, (value) {
+    return _then(_self.copyWith(pagination: value));
+  });
+}
+}
+
 
 /// @nodoc
 mixin _$PaginatedBackupsMeta {
-  Pagination get pagination => throw _privateConstructorUsedError;
-  int get backupCount => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PaginatedBackupsMetaCopyWith<PaginatedBackupsMeta> get copyWith =>
-      throw _privateConstructorUsedError;
+ Pagination get pagination; int get backupCount;
+/// Create a copy of PaginatedBackupsMeta
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PaginatedBackupsMetaCopyWith<PaginatedBackupsMeta> get copyWith => _$PaginatedBackupsMetaCopyWithImpl<PaginatedBackupsMeta>(this as PaginatedBackupsMeta, _$identity);
+
+  /// Serializes this PaginatedBackupsMeta to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PaginatedBackupsMeta&&(identical(other.pagination, pagination) || other.pagination == pagination)&&(identical(other.backupCount, backupCount) || other.backupCount == backupCount));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,pagination,backupCount);
+
+@override
+String toString() {
+  return 'PaginatedBackupsMeta(pagination: $pagination, backupCount: $backupCount)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $PaginatedBackupsMetaCopyWith<$Res> {
-  factory $PaginatedBackupsMetaCopyWith(PaginatedBackupsMeta value,
-          $Res Function(PaginatedBackupsMeta) then) =
-      _$PaginatedBackupsMetaCopyWithImpl<$Res, PaginatedBackupsMeta>;
-  @useResult
-  $Res call({Pagination pagination, int backupCount});
+abstract mixin class $PaginatedBackupsMetaCopyWith<$Res>  {
+  factory $PaginatedBackupsMetaCopyWith(PaginatedBackupsMeta value, $Res Function(PaginatedBackupsMeta) _then) = _$PaginatedBackupsMetaCopyWithImpl;
+@useResult
+$Res call({
+ Pagination pagination, int backupCount
+});
 
-  $PaginationCopyWith<$Res> get pagination;
+
+$PaginationCopyWith<$Res> get pagination;
+
 }
-
 /// @nodoc
-class _$PaginatedBackupsMetaCopyWithImpl<$Res,
-        $Val extends PaginatedBackupsMeta>
+class _$PaginatedBackupsMetaCopyWithImpl<$Res>
     implements $PaginatedBackupsMetaCopyWith<$Res> {
-  _$PaginatedBackupsMetaCopyWithImpl(this._value, this._then);
+  _$PaginatedBackupsMetaCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final PaginatedBackupsMeta _self;
+  final $Res Function(PaginatedBackupsMeta) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? pagination = null,
-    Object? backupCount = null,
-  }) {
-    return _then(_value.copyWith(
-      pagination: null == pagination
-          ? _value.pagination
-          : pagination // ignore: cast_nullable_to_non_nullable
-              as Pagination,
-      backupCount: null == backupCount
-          ? _value.backupCount
-          : backupCount // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PaginationCopyWith<$Res> get pagination {
-    return $PaginationCopyWith<$Res>(_value.pagination, (value) {
-      return _then(_value.copyWith(pagination: value) as $Val);
-    });
-  }
+/// Create a copy of PaginatedBackupsMeta
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? pagination = null,Object? backupCount = null,}) {
+  return _then(_self.copyWith(
+pagination: null == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
+as Pagination,backupCount: null == backupCount ? _self.backupCount : backupCount // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+/// Create a copy of PaginatedBackupsMeta
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PaginationCopyWith<$Res> get pagination {
+  
+  return $PaginationCopyWith<$Res>(_self.pagination, (value) {
+    return _then(_self.copyWith(pagination: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$PaginatedBackupsMetaImplCopyWith<$Res>
-    implements $PaginatedBackupsMetaCopyWith<$Res> {
-  factory _$$PaginatedBackupsMetaImplCopyWith(_$PaginatedBackupsMetaImpl value,
-          $Res Function(_$PaginatedBackupsMetaImpl) then) =
-      __$$PaginatedBackupsMetaImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Pagination pagination, int backupCount});
-
-  @override
-  $PaginationCopyWith<$Res> get pagination;
-}
-
-/// @nodoc
-class __$$PaginatedBackupsMetaImplCopyWithImpl<$Res>
-    extends _$PaginatedBackupsMetaCopyWithImpl<$Res, _$PaginatedBackupsMetaImpl>
-    implements _$$PaginatedBackupsMetaImplCopyWith<$Res> {
-  __$$PaginatedBackupsMetaImplCopyWithImpl(_$PaginatedBackupsMetaImpl _value,
-      $Res Function(_$PaginatedBackupsMetaImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? pagination = null,
-    Object? backupCount = null,
-  }) {
-    return _then(_$PaginatedBackupsMetaImpl(
-      pagination: null == pagination
-          ? _value.pagination
-          : pagination // ignore: cast_nullable_to_non_nullable
-              as Pagination,
-      backupCount: null == backupCount
-          ? _value.backupCount
-          : backupCount // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$PaginatedBackupsMetaImpl extends _PaginatedBackupsMeta {
-  const _$PaginatedBackupsMetaImpl(
-      {required this.pagination, required this.backupCount})
-      : super._();
 
-  factory _$PaginatedBackupsMetaImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaginatedBackupsMetaImplFromJson(json);
+class _PaginatedBackupsMeta implements PaginatedBackupsMeta {
+  const _PaginatedBackupsMeta({required this.pagination, required this.backupCount});
+  factory _PaginatedBackupsMeta.fromJson(Map<String, dynamic> json) => _$PaginatedBackupsMetaFromJson(json);
 
-  @override
-  final Pagination pagination;
-  @override
-  final int backupCount;
+@override final  Pagination pagination;
+@override final  int backupCount;
 
-  @override
-  String toString() {
-    return 'PaginatedBackupsMeta(pagination: $pagination, backupCount: $backupCount)';
-  }
+/// Create a copy of PaginatedBackupsMeta
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PaginatedBackupsMetaCopyWith<_PaginatedBackupsMeta> get copyWith => __$PaginatedBackupsMetaCopyWithImpl<_PaginatedBackupsMeta>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PaginatedBackupsMetaImpl &&
-            (identical(other.pagination, pagination) ||
-                other.pagination == pagination) &&
-            (identical(other.backupCount, backupCount) ||
-                other.backupCount == backupCount));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, pagination, backupCount);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PaginatedBackupsMetaImplCopyWith<_$PaginatedBackupsMetaImpl>
-      get copyWith =>
-          __$$PaginatedBackupsMetaImplCopyWithImpl<_$PaginatedBackupsMetaImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PaginatedBackupsMetaImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$PaginatedBackupsMetaToJson(this, );
 }
 
-abstract class _PaginatedBackupsMeta extends PaginatedBackupsMeta
-    implements PaginationMixin {
-  const factory _PaginatedBackupsMeta(
-      {required final Pagination pagination,
-      required final int backupCount}) = _$PaginatedBackupsMetaImpl;
-  const _PaginatedBackupsMeta._() : super._();
-
-  factory _PaginatedBackupsMeta.fromJson(Map<String, dynamic> json) =
-      _$PaginatedBackupsMetaImpl.fromJson;
-
-  @override
-  Pagination get pagination;
-  @override
-  int get backupCount;
-  @override
-  @JsonKey(ignore: true)
-  _$$PaginatedBackupsMetaImplCopyWith<_$PaginatedBackupsMetaImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PaginatedBackupsMeta&&(identical(other.pagination, pagination) || other.pagination == pagination)&&(identical(other.backupCount, backupCount) || other.backupCount == backupCount));
 }
 
-ServerMeta _$ServerMetaFromJson(Map<String, dynamic> json) {
-  return _ServerMeta.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,pagination,backupCount);
+
+@override
+String toString() {
+  return 'PaginatedBackupsMeta(pagination: $pagination, backupCount: $backupCount)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PaginatedBackupsMetaCopyWith<$Res> implements $PaginatedBackupsMetaCopyWith<$Res> {
+  factory _$PaginatedBackupsMetaCopyWith(_PaginatedBackupsMeta value, $Res Function(_PaginatedBackupsMeta) _then) = __$PaginatedBackupsMetaCopyWithImpl;
+@override @useResult
+$Res call({
+ Pagination pagination, int backupCount
+});
+
+
+@override $PaginationCopyWith<$Res> get pagination;
+
+}
+/// @nodoc
+class __$PaginatedBackupsMetaCopyWithImpl<$Res>
+    implements _$PaginatedBackupsMetaCopyWith<$Res> {
+  __$PaginatedBackupsMetaCopyWithImpl(this._self, this._then);
+
+  final _PaginatedBackupsMeta _self;
+  final $Res Function(_PaginatedBackupsMeta) _then;
+
+/// Create a copy of PaginatedBackupsMeta
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? pagination = null,Object? backupCount = null,}) {
+  return _then(_PaginatedBackupsMeta(
+pagination: null == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
+as Pagination,backupCount: null == backupCount ? _self.backupCount : backupCount // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+/// Create a copy of PaginatedBackupsMeta
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PaginationCopyWith<$Res> get pagination {
+  
+  return $PaginationCopyWith<$Res>(_self.pagination, (value) {
+    return _then(_self.copyWith(pagination: value));
+  });
+}
+}
+
 
 /// @nodoc
 mixin _$ServerMeta {
-  bool get isServerOwner => throw _privateConstructorUsedError;
-  IList<String> get userPermissions => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ServerMetaCopyWith<ServerMeta> get copyWith =>
-      throw _privateConstructorUsedError;
+ bool get isServerOwner; IList<String> get userPermissions;
+/// Create a copy of ServerMeta
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ServerMetaCopyWith<ServerMeta> get copyWith => _$ServerMetaCopyWithImpl<ServerMeta>(this as ServerMeta, _$identity);
+
+  /// Serializes this ServerMeta to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ServerMeta&&(identical(other.isServerOwner, isServerOwner) || other.isServerOwner == isServerOwner)&&const DeepCollectionEquality().equals(other.userPermissions, userPermissions));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,isServerOwner,const DeepCollectionEquality().hash(userPermissions));
+
+@override
+String toString() {
+  return 'ServerMeta(isServerOwner: $isServerOwner, userPermissions: $userPermissions)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ServerMetaCopyWith<$Res> {
-  factory $ServerMetaCopyWith(
-          ServerMeta value, $Res Function(ServerMeta) then) =
-      _$ServerMetaCopyWithImpl<$Res, ServerMeta>;
-  @useResult
-  $Res call({bool isServerOwner, IList<String> userPermissions});
-}
+abstract mixin class $ServerMetaCopyWith<$Res>  {
+  factory $ServerMetaCopyWith(ServerMeta value, $Res Function(ServerMeta) _then) = _$ServerMetaCopyWithImpl;
+@useResult
+$Res call({
+ bool isServerOwner, IList<String> userPermissions
+});
 
+
+
+
+}
 /// @nodoc
-class _$ServerMetaCopyWithImpl<$Res, $Val extends ServerMeta>
+class _$ServerMetaCopyWithImpl<$Res>
     implements $ServerMetaCopyWith<$Res> {
-  _$ServerMetaCopyWithImpl(this._value, this._then);
+  _$ServerMetaCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ServerMeta _self;
+  final $Res Function(ServerMeta) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? isServerOwner = null,
-    Object? userPermissions = null,
-  }) {
-    return _then(_value.copyWith(
-      isServerOwner: null == isServerOwner
-          ? _value.isServerOwner
-          : isServerOwner // ignore: cast_nullable_to_non_nullable
-              as bool,
-      userPermissions: null == userPermissions
-          ? _value.userPermissions
-          : userPermissions // ignore: cast_nullable_to_non_nullable
-              as IList<String>,
-    ) as $Val);
-  }
+/// Create a copy of ServerMeta
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? isServerOwner = null,Object? userPermissions = null,}) {
+  return _then(_self.copyWith(
+isServerOwner: null == isServerOwner ? _self.isServerOwner : isServerOwner // ignore: cast_nullable_to_non_nullable
+as bool,userPermissions: null == userPermissions ? _self.userPermissions : userPermissions // ignore: cast_nullable_to_non_nullable
+as IList<String>,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ServerMetaImplCopyWith<$Res>
-    implements $ServerMetaCopyWith<$Res> {
-  factory _$$ServerMetaImplCopyWith(
-          _$ServerMetaImpl value, $Res Function(_$ServerMetaImpl) then) =
-      __$$ServerMetaImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({bool isServerOwner, IList<String> userPermissions});
 }
 
-/// @nodoc
-class __$$ServerMetaImplCopyWithImpl<$Res>
-    extends _$ServerMetaCopyWithImpl<$Res, _$ServerMetaImpl>
-    implements _$$ServerMetaImplCopyWith<$Res> {
-  __$$ServerMetaImplCopyWithImpl(
-      _$ServerMetaImpl _value, $Res Function(_$ServerMetaImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? isServerOwner = null,
-    Object? userPermissions = null,
-  }) {
-    return _then(_$ServerMetaImpl(
-      isServerOwner: null == isServerOwner
-          ? _value.isServerOwner
-          : isServerOwner // ignore: cast_nullable_to_non_nullable
-              as bool,
-      userPermissions: null == userPermissions
-          ? _value.userPermissions
-          : userPermissions // ignore: cast_nullable_to_non_nullable
-              as IList<String>,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$ServerMetaImpl extends _ServerMeta {
-  const _$ServerMetaImpl(
-      {required this.isServerOwner, required this.userPermissions})
-      : super._();
 
-  factory _$ServerMetaImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ServerMetaImplFromJson(json);
+class _ServerMeta implements ServerMeta {
+  const _ServerMeta({required this.isServerOwner, required this.userPermissions});
+  factory _ServerMeta.fromJson(Map<String, dynamic> json) => _$ServerMetaFromJson(json);
 
-  @override
-  final bool isServerOwner;
-  @override
-  final IList<String> userPermissions;
+@override final  bool isServerOwner;
+@override final  IList<String> userPermissions;
 
-  @override
-  String toString() {
-    return 'ServerMeta(isServerOwner: $isServerOwner, userPermissions: $userPermissions)';
-  }
+/// Create a copy of ServerMeta
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ServerMetaCopyWith<_ServerMeta> get copyWith => __$ServerMetaCopyWithImpl<_ServerMeta>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ServerMetaImpl &&
-            (identical(other.isServerOwner, isServerOwner) ||
-                other.isServerOwner == isServerOwner) &&
-            const DeepCollectionEquality()
-                .equals(other.userPermissions, userPermissions));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, isServerOwner,
-      const DeepCollectionEquality().hash(userPermissions));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ServerMetaImplCopyWith<_$ServerMetaImpl> get copyWith =>
-      __$$ServerMetaImplCopyWithImpl<_$ServerMetaImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ServerMetaImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$ServerMetaToJson(this, );
 }
 
-abstract class _ServerMeta extends ServerMeta {
-  const factory _ServerMeta(
-      {required final bool isServerOwner,
-      required final IList<String> userPermissions}) = _$ServerMetaImpl;
-  const _ServerMeta._() : super._();
-
-  factory _ServerMeta.fromJson(Map<String, dynamic> json) =
-      _$ServerMetaImpl.fromJson;
-
-  @override
-  bool get isServerOwner;
-  @override
-  IList<String> get userPermissions;
-  @override
-  @JsonKey(ignore: true)
-  _$$ServerMetaImplCopyWith<_$ServerMetaImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ServerMeta&&(identical(other.isServerOwner, isServerOwner) || other.isServerOwner == isServerOwner)&&const DeepCollectionEquality().equals(other.userPermissions, userPermissions));
 }
 
-StartupMeta _$StartupMetaFromJson(Map<String, dynamic> json) {
-  return _StartupMeta.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,isServerOwner,const DeepCollectionEquality().hash(userPermissions));
+
+@override
+String toString() {
+  return 'ServerMeta(isServerOwner: $isServerOwner, userPermissions: $userPermissions)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ServerMetaCopyWith<$Res> implements $ServerMetaCopyWith<$Res> {
+  factory _$ServerMetaCopyWith(_ServerMeta value, $Res Function(_ServerMeta) _then) = __$ServerMetaCopyWithImpl;
+@override @useResult
+$Res call({
+ bool isServerOwner, IList<String> userPermissions
+});
+
+
+
+
+}
+/// @nodoc
+class __$ServerMetaCopyWithImpl<$Res>
+    implements _$ServerMetaCopyWith<$Res> {
+  __$ServerMetaCopyWithImpl(this._self, this._then);
+
+  final _ServerMeta _self;
+  final $Res Function(_ServerMeta) _then;
+
+/// Create a copy of ServerMeta
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? isServerOwner = null,Object? userPermissions = null,}) {
+  return _then(_ServerMeta(
+isServerOwner: null == isServerOwner ? _self.isServerOwner : isServerOwner // ignore: cast_nullable_to_non_nullable
+as bool,userPermissions: null == userPermissions ? _self.userPermissions : userPermissions // ignore: cast_nullable_to_non_nullable
+as IList<String>,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$StartupMeta {
-  String get startupCommand => throw _privateConstructorUsedError;
-  String get rawStartupCommand => throw _privateConstructorUsedError;
-  IMap<String, String> get dockerImages => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $StartupMetaCopyWith<StartupMeta> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get startupCommand; String get rawStartupCommand; IMap<String, String> get dockerImages;
+/// Create a copy of StartupMeta
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$StartupMetaCopyWith<StartupMeta> get copyWith => _$StartupMetaCopyWithImpl<StartupMeta>(this as StartupMeta, _$identity);
+
+  /// Serializes this StartupMeta to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StartupMeta&&(identical(other.startupCommand, startupCommand) || other.startupCommand == startupCommand)&&(identical(other.rawStartupCommand, rawStartupCommand) || other.rawStartupCommand == rawStartupCommand)&&(identical(other.dockerImages, dockerImages) || other.dockerImages == dockerImages));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,startupCommand,rawStartupCommand,dockerImages);
+
+@override
+String toString() {
+  return 'StartupMeta(startupCommand: $startupCommand, rawStartupCommand: $rawStartupCommand, dockerImages: $dockerImages)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $StartupMetaCopyWith<$Res> {
-  factory $StartupMetaCopyWith(
-          StartupMeta value, $Res Function(StartupMeta) then) =
-      _$StartupMetaCopyWithImpl<$Res, StartupMeta>;
-  @useResult
-  $Res call(
-      {String startupCommand,
-      String rawStartupCommand,
-      IMap<String, String> dockerImages});
-}
+abstract mixin class $StartupMetaCopyWith<$Res>  {
+  factory $StartupMetaCopyWith(StartupMeta value, $Res Function(StartupMeta) _then) = _$StartupMetaCopyWithImpl;
+@useResult
+$Res call({
+ String startupCommand, String rawStartupCommand, IMap<String, String> dockerImages
+});
 
+
+
+
+}
 /// @nodoc
-class _$StartupMetaCopyWithImpl<$Res, $Val extends StartupMeta>
+class _$StartupMetaCopyWithImpl<$Res>
     implements $StartupMetaCopyWith<$Res> {
-  _$StartupMetaCopyWithImpl(this._value, this._then);
+  _$StartupMetaCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final StartupMeta _self;
+  final $Res Function(StartupMeta) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? startupCommand = null,
-    Object? rawStartupCommand = null,
-    Object? dockerImages = null,
-  }) {
-    return _then(_value.copyWith(
-      startupCommand: null == startupCommand
-          ? _value.startupCommand
-          : startupCommand // ignore: cast_nullable_to_non_nullable
-              as String,
-      rawStartupCommand: null == rawStartupCommand
-          ? _value.rawStartupCommand
-          : rawStartupCommand // ignore: cast_nullable_to_non_nullable
-              as String,
-      dockerImages: null == dockerImages
-          ? _value.dockerImages
-          : dockerImages // ignore: cast_nullable_to_non_nullable
-              as IMap<String, String>,
-    ) as $Val);
-  }
+/// Create a copy of StartupMeta
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? startupCommand = null,Object? rawStartupCommand = null,Object? dockerImages = null,}) {
+  return _then(_self.copyWith(
+startupCommand: null == startupCommand ? _self.startupCommand : startupCommand // ignore: cast_nullable_to_non_nullable
+as String,rawStartupCommand: null == rawStartupCommand ? _self.rawStartupCommand : rawStartupCommand // ignore: cast_nullable_to_non_nullable
+as String,dockerImages: null == dockerImages ? _self.dockerImages : dockerImages // ignore: cast_nullable_to_non_nullable
+as IMap<String, String>,
+  ));
 }
 
-/// @nodoc
-abstract class _$$StartupMetaImplCopyWith<$Res>
-    implements $StartupMetaCopyWith<$Res> {
-  factory _$$StartupMetaImplCopyWith(
-          _$StartupMetaImpl value, $Res Function(_$StartupMetaImpl) then) =
-      __$$StartupMetaImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String startupCommand,
-      String rawStartupCommand,
-      IMap<String, String> dockerImages});
 }
 
-/// @nodoc
-class __$$StartupMetaImplCopyWithImpl<$Res>
-    extends _$StartupMetaCopyWithImpl<$Res, _$StartupMetaImpl>
-    implements _$$StartupMetaImplCopyWith<$Res> {
-  __$$StartupMetaImplCopyWithImpl(
-      _$StartupMetaImpl _value, $Res Function(_$StartupMetaImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? startupCommand = null,
-    Object? rawStartupCommand = null,
-    Object? dockerImages = null,
-  }) {
-    return _then(_$StartupMetaImpl(
-      startupCommand: null == startupCommand
-          ? _value.startupCommand
-          : startupCommand // ignore: cast_nullable_to_non_nullable
-              as String,
-      rawStartupCommand: null == rawStartupCommand
-          ? _value.rawStartupCommand
-          : rawStartupCommand // ignore: cast_nullable_to_non_nullable
-              as String,
-      dockerImages: null == dockerImages
-          ? _value.dockerImages
-          : dockerImages // ignore: cast_nullable_to_non_nullable
-              as IMap<String, String>,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$StartupMetaImpl extends _StartupMeta {
-  const _$StartupMetaImpl(
-      {required this.startupCommand,
-      required this.rawStartupCommand,
-      required this.dockerImages})
-      : super._();
 
-  factory _$StartupMetaImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StartupMetaImplFromJson(json);
+class _StartupMeta implements StartupMeta {
+  const _StartupMeta({required this.startupCommand, required this.rawStartupCommand, required this.dockerImages});
+  factory _StartupMeta.fromJson(Map<String, dynamic> json) => _$StartupMetaFromJson(json);
 
-  @override
-  final String startupCommand;
-  @override
-  final String rawStartupCommand;
-  @override
-  final IMap<String, String> dockerImages;
+@override final  String startupCommand;
+@override final  String rawStartupCommand;
+@override final  IMap<String, String> dockerImages;
 
-  @override
-  String toString() {
-    return 'StartupMeta(startupCommand: $startupCommand, rawStartupCommand: $rawStartupCommand, dockerImages: $dockerImages)';
-  }
+/// Create a copy of StartupMeta
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$StartupMetaCopyWith<_StartupMeta> get copyWith => __$StartupMetaCopyWithImpl<_StartupMeta>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$StartupMetaImpl &&
-            (identical(other.startupCommand, startupCommand) ||
-                other.startupCommand == startupCommand) &&
-            (identical(other.rawStartupCommand, rawStartupCommand) ||
-                other.rawStartupCommand == rawStartupCommand) &&
-            (identical(other.dockerImages, dockerImages) ||
-                other.dockerImages == dockerImages));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, startupCommand, rawStartupCommand, dockerImages);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$StartupMetaImplCopyWith<_$StartupMetaImpl> get copyWith =>
-      __$$StartupMetaImplCopyWithImpl<_$StartupMetaImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StartupMetaImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$StartupMetaToJson(this, );
 }
 
-abstract class _StartupMeta extends StartupMeta {
-  const factory _StartupMeta(
-      {required final String startupCommand,
-      required final String rawStartupCommand,
-      required final IMap<String, String> dockerImages}) = _$StartupMetaImpl;
-  const _StartupMeta._() : super._();
-
-  factory _StartupMeta.fromJson(Map<String, dynamic> json) =
-      _$StartupMetaImpl.fromJson;
-
-  @override
-  String get startupCommand;
-  @override
-  String get rawStartupCommand;
-  @override
-  IMap<String, String> get dockerImages;
-  @override
-  @JsonKey(ignore: true)
-  _$$StartupMetaImplCopyWith<_$StartupMetaImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _StartupMeta&&(identical(other.startupCommand, startupCommand) || other.startupCommand == startupCommand)&&(identical(other.rawStartupCommand, rawStartupCommand) || other.rawStartupCommand == rawStartupCommand)&&(identical(other.dockerImages, dockerImages) || other.dockerImages == dockerImages));
 }
 
-ApiKeyMeta _$ApiKeyMetaFromJson(Map<String, dynamic> json) {
-  return _ApiKeyMeta.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,startupCommand,rawStartupCommand,dockerImages);
+
+@override
+String toString() {
+  return 'StartupMeta(startupCommand: $startupCommand, rawStartupCommand: $rawStartupCommand, dockerImages: $dockerImages)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$StartupMetaCopyWith<$Res> implements $StartupMetaCopyWith<$Res> {
+  factory _$StartupMetaCopyWith(_StartupMeta value, $Res Function(_StartupMeta) _then) = __$StartupMetaCopyWithImpl;
+@override @useResult
+$Res call({
+ String startupCommand, String rawStartupCommand, IMap<String, String> dockerImages
+});
+
+
+
+
+}
+/// @nodoc
+class __$StartupMetaCopyWithImpl<$Res>
+    implements _$StartupMetaCopyWith<$Res> {
+  __$StartupMetaCopyWithImpl(this._self, this._then);
+
+  final _StartupMeta _self;
+  final $Res Function(_StartupMeta) _then;
+
+/// Create a copy of StartupMeta
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? startupCommand = null,Object? rawStartupCommand = null,Object? dockerImages = null,}) {
+  return _then(_StartupMeta(
+startupCommand: null == startupCommand ? _self.startupCommand : startupCommand // ignore: cast_nullable_to_non_nullable
+as String,rawStartupCommand: null == rawStartupCommand ? _self.rawStartupCommand : rawStartupCommand // ignore: cast_nullable_to_non_nullable
+as String,dockerImages: null == dockerImages ? _self.dockerImages : dockerImages // ignore: cast_nullable_to_non_nullable
+as IMap<String, String>,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$ApiKeyMeta {
-  String get secretToken => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ApiKeyMetaCopyWith<ApiKeyMeta> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get secretToken;
+/// Create a copy of ApiKeyMeta
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ApiKeyMetaCopyWith<ApiKeyMeta> get copyWith => _$ApiKeyMetaCopyWithImpl<ApiKeyMeta>(this as ApiKeyMeta, _$identity);
+
+  /// Serializes this ApiKeyMeta to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ApiKeyMeta&&(identical(other.secretToken, secretToken) || other.secretToken == secretToken));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,secretToken);
+
+@override
+String toString() {
+  return 'ApiKeyMeta(secretToken: $secretToken)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ApiKeyMetaCopyWith<$Res> {
-  factory $ApiKeyMetaCopyWith(
-          ApiKeyMeta value, $Res Function(ApiKeyMeta) then) =
-      _$ApiKeyMetaCopyWithImpl<$Res, ApiKeyMeta>;
-  @useResult
-  $Res call({String secretToken});
-}
+abstract mixin class $ApiKeyMetaCopyWith<$Res>  {
+  factory $ApiKeyMetaCopyWith(ApiKeyMeta value, $Res Function(ApiKeyMeta) _then) = _$ApiKeyMetaCopyWithImpl;
+@useResult
+$Res call({
+ String secretToken
+});
 
+
+
+
+}
 /// @nodoc
-class _$ApiKeyMetaCopyWithImpl<$Res, $Val extends ApiKeyMeta>
+class _$ApiKeyMetaCopyWithImpl<$Res>
     implements $ApiKeyMetaCopyWith<$Res> {
-  _$ApiKeyMetaCopyWithImpl(this._value, this._then);
+  _$ApiKeyMetaCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ApiKeyMeta _self;
+  final $Res Function(ApiKeyMeta) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? secretToken = null,
-  }) {
-    return _then(_value.copyWith(
-      secretToken: null == secretToken
-          ? _value.secretToken
-          : secretToken // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of ApiKeyMeta
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? secretToken = null,}) {
+  return _then(_self.copyWith(
+secretToken: null == secretToken ? _self.secretToken : secretToken // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ApiKeyMetaImplCopyWith<$Res>
-    implements $ApiKeyMetaCopyWith<$Res> {
-  factory _$$ApiKeyMetaImplCopyWith(
-          _$ApiKeyMetaImpl value, $Res Function(_$ApiKeyMetaImpl) then) =
-      __$$ApiKeyMetaImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String secretToken});
 }
 
-/// @nodoc
-class __$$ApiKeyMetaImplCopyWithImpl<$Res>
-    extends _$ApiKeyMetaCopyWithImpl<$Res, _$ApiKeyMetaImpl>
-    implements _$$ApiKeyMetaImplCopyWith<$Res> {
-  __$$ApiKeyMetaImplCopyWithImpl(
-      _$ApiKeyMetaImpl _value, $Res Function(_$ApiKeyMetaImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? secretToken = null,
-  }) {
-    return _then(_$ApiKeyMetaImpl(
-      secretToken: null == secretToken
-          ? _value.secretToken
-          : secretToken // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$ApiKeyMetaImpl extends _ApiKeyMeta {
-  const _$ApiKeyMetaImpl({required this.secretToken}) : super._();
 
-  factory _$ApiKeyMetaImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ApiKeyMetaImplFromJson(json);
+class _ApiKeyMeta implements ApiKeyMeta {
+  const _ApiKeyMeta({required this.secretToken});
+  factory _ApiKeyMeta.fromJson(Map<String, dynamic> json) => _$ApiKeyMetaFromJson(json);
 
-  @override
-  final String secretToken;
+@override final  String secretToken;
 
-  @override
-  String toString() {
-    return 'ApiKeyMeta(secretToken: $secretToken)';
-  }
+/// Create a copy of ApiKeyMeta
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ApiKeyMetaCopyWith<_ApiKeyMeta> get copyWith => __$ApiKeyMetaCopyWithImpl<_ApiKeyMeta>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ApiKeyMetaImpl &&
-            (identical(other.secretToken, secretToken) ||
-                other.secretToken == secretToken));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, secretToken);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ApiKeyMetaImplCopyWith<_$ApiKeyMetaImpl> get copyWith =>
-      __$$ApiKeyMetaImplCopyWithImpl<_$ApiKeyMetaImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ApiKeyMetaImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$ApiKeyMetaToJson(this, );
 }
 
-abstract class _ApiKeyMeta extends ApiKeyMeta {
-  const factory _ApiKeyMeta({required final String secretToken}) =
-      _$ApiKeyMetaImpl;
-  const _ApiKeyMeta._() : super._();
-
-  factory _ApiKeyMeta.fromJson(Map<String, dynamic> json) =
-      _$ApiKeyMetaImpl.fromJson;
-
-  @override
-  String get secretToken;
-  @override
-  @JsonKey(ignore: true)
-  _$$ApiKeyMetaImplCopyWith<_$ApiKeyMetaImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ApiKeyMeta&&(identical(other.secretToken, secretToken) || other.secretToken == secretToken));
 }
 
-ResourceMeta _$ResourceMetaFromJson(Map<String, dynamic> json) {
-  return _ResourceMeta.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,secretToken);
+
+@override
+String toString() {
+  return 'ApiKeyMeta(secretToken: $secretToken)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ApiKeyMetaCopyWith<$Res> implements $ApiKeyMetaCopyWith<$Res> {
+  factory _$ApiKeyMetaCopyWith(_ApiKeyMeta value, $Res Function(_ApiKeyMeta) _then) = __$ApiKeyMetaCopyWithImpl;
+@override @useResult
+$Res call({
+ String secretToken
+});
+
+
+
+
+}
+/// @nodoc
+class __$ApiKeyMetaCopyWithImpl<$Res>
+    implements _$ApiKeyMetaCopyWith<$Res> {
+  __$ApiKeyMetaCopyWithImpl(this._self, this._then);
+
+  final _ApiKeyMeta _self;
+  final $Res Function(_ApiKeyMeta) _then;
+
+/// Create a copy of ApiKeyMeta
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? secretToken = null,}) {
+  return _then(_ApiKeyMeta(
+secretToken: null == secretToken ? _self.secretToken : secretToken // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$ResourceMeta {
-  Uri get resource => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ResourceMetaCopyWith<ResourceMeta> get copyWith =>
-      throw _privateConstructorUsedError;
+ Uri get resource;
+/// Create a copy of ResourceMeta
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ResourceMetaCopyWith<ResourceMeta> get copyWith => _$ResourceMetaCopyWithImpl<ResourceMeta>(this as ResourceMeta, _$identity);
+
+  /// Serializes this ResourceMeta to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResourceMeta&&(identical(other.resource, resource) || other.resource == resource));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,resource);
+
+@override
+String toString() {
+  return 'ResourceMeta(resource: $resource)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ResourceMetaCopyWith<$Res> {
-  factory $ResourceMetaCopyWith(
-          ResourceMeta value, $Res Function(ResourceMeta) then) =
-      _$ResourceMetaCopyWithImpl<$Res, ResourceMeta>;
-  @useResult
-  $Res call({Uri resource});
-}
+abstract mixin class $ResourceMetaCopyWith<$Res>  {
+  factory $ResourceMetaCopyWith(ResourceMeta value, $Res Function(ResourceMeta) _then) = _$ResourceMetaCopyWithImpl;
+@useResult
+$Res call({
+ Uri resource
+});
 
+
+
+
+}
 /// @nodoc
-class _$ResourceMetaCopyWithImpl<$Res, $Val extends ResourceMeta>
+class _$ResourceMetaCopyWithImpl<$Res>
     implements $ResourceMetaCopyWith<$Res> {
-  _$ResourceMetaCopyWithImpl(this._value, this._then);
+  _$ResourceMetaCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ResourceMeta _self;
+  final $Res Function(ResourceMeta) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? resource = null,
-  }) {
-    return _then(_value.copyWith(
-      resource: null == resource
-          ? _value.resource
-          : resource // ignore: cast_nullable_to_non_nullable
-              as Uri,
-    ) as $Val);
-  }
+/// Create a copy of ResourceMeta
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? resource = null,}) {
+  return _then(_self.copyWith(
+resource: null == resource ? _self.resource : resource // ignore: cast_nullable_to_non_nullable
+as Uri,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ResourceMetaImplCopyWith<$Res>
-    implements $ResourceMetaCopyWith<$Res> {
-  factory _$$ResourceMetaImplCopyWith(
-          _$ResourceMetaImpl value, $Res Function(_$ResourceMetaImpl) then) =
-      __$$ResourceMetaImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Uri resource});
 }
 
-/// @nodoc
-class __$$ResourceMetaImplCopyWithImpl<$Res>
-    extends _$ResourceMetaCopyWithImpl<$Res, _$ResourceMetaImpl>
-    implements _$$ResourceMetaImplCopyWith<$Res> {
-  __$$ResourceMetaImplCopyWithImpl(
-      _$ResourceMetaImpl _value, $Res Function(_$ResourceMetaImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? resource = null,
-  }) {
-    return _then(_$ResourceMetaImpl(
-      resource: null == resource
-          ? _value.resource
-          : resource // ignore: cast_nullable_to_non_nullable
-              as Uri,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$ResourceMetaImpl extends _ResourceMeta {
-  const _$ResourceMetaImpl({required this.resource}) : super._();
 
-  factory _$ResourceMetaImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ResourceMetaImplFromJson(json);
+class _ResourceMeta implements ResourceMeta {
+  const _ResourceMeta({required this.resource});
+  factory _ResourceMeta.fromJson(Map<String, dynamic> json) => _$ResourceMetaFromJson(json);
 
-  @override
-  final Uri resource;
+@override final  Uri resource;
 
-  @override
-  String toString() {
-    return 'ResourceMeta(resource: $resource)';
-  }
+/// Create a copy of ResourceMeta
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ResourceMetaCopyWith<_ResourceMeta> get copyWith => __$ResourceMetaCopyWithImpl<_ResourceMeta>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ResourceMetaImpl &&
-            (identical(other.resource, resource) ||
-                other.resource == resource));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, resource);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ResourceMetaImplCopyWith<_$ResourceMetaImpl> get copyWith =>
-      __$$ResourceMetaImplCopyWithImpl<_$ResourceMetaImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ResourceMetaImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$ResourceMetaToJson(this, );
 }
 
-abstract class _ResourceMeta extends ResourceMeta {
-  const factory _ResourceMeta({required final Uri resource}) =
-      _$ResourceMetaImpl;
-  const _ResourceMeta._() : super._();
-
-  factory _ResourceMeta.fromJson(Map<String, dynamic> json) =
-      _$ResourceMetaImpl.fromJson;
-
-  @override
-  Uri get resource;
-  @override
-  @JsonKey(ignore: true)
-  _$$ResourceMetaImplCopyWith<_$ResourceMetaImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ResourceMeta&&(identical(other.resource, resource) || other.resource == resource));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,resource);
+
+@override
+String toString() {
+  return 'ResourceMeta(resource: $resource)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ResourceMetaCopyWith<$Res> implements $ResourceMetaCopyWith<$Res> {
+  factory _$ResourceMetaCopyWith(_ResourceMeta value, $Res Function(_ResourceMeta) _then) = __$ResourceMetaCopyWithImpl;
+@override @useResult
+$Res call({
+ Uri resource
+});
+
+
+
+
+}
+/// @nodoc
+class __$ResourceMetaCopyWithImpl<$Res>
+    implements _$ResourceMetaCopyWith<$Res> {
+  __$ResourceMetaCopyWithImpl(this._self, this._then);
+
+  final _ResourceMeta _self;
+  final $Res Function(_ResourceMeta) _then;
+
+/// Create a copy of ResourceMeta
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? resource = null,}) {
+  return _then(_ResourceMeta(
+resource: null == resource ? _self.resource : resource // ignore: cast_nullable_to_non_nullable
+as Uri,
+  ));
+}
+
+
+}
+
+// dart format on

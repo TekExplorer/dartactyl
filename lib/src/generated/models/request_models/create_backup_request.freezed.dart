@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,181 +10,145 @@ part of '../../../models/request_models/create_backup_request.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-CreateBackup _$CreateBackupFromJson(Map<String, dynamic> json) {
-  return _CreateBackup.fromJson(json);
-}
 
 /// @nodoc
 mixin _$CreateBackup {
-  String? get name => throw _privateConstructorUsedError;
-  String? get ignored => throw _privateConstructorUsedError;
-  bool get isLocked => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CreateBackupCopyWith<CreateBackup> get copyWith =>
-      throw _privateConstructorUsedError;
+ String? get name; String? get ignored; bool get isLocked;
+/// Create a copy of CreateBackup
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CreateBackupCopyWith<CreateBackup> get copyWith => _$CreateBackupCopyWithImpl<CreateBackup>(this as CreateBackup, _$identity);
+
+  /// Serializes this CreateBackup to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CreateBackup&&(identical(other.name, name) || other.name == name)&&(identical(other.ignored, ignored) || other.ignored == ignored)&&(identical(other.isLocked, isLocked) || other.isLocked == isLocked));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,ignored,isLocked);
+
+@override
+String toString() {
+  return 'CreateBackup(name: $name, ignored: $ignored, isLocked: $isLocked)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $CreateBackupCopyWith<$Res> {
-  factory $CreateBackupCopyWith(
-          CreateBackup value, $Res Function(CreateBackup) then) =
-      _$CreateBackupCopyWithImpl<$Res, CreateBackup>;
-  @useResult
-  $Res call({String? name, String? ignored, bool isLocked});
-}
+abstract mixin class $CreateBackupCopyWith<$Res>  {
+  factory $CreateBackupCopyWith(CreateBackup value, $Res Function(CreateBackup) _then) = _$CreateBackupCopyWithImpl;
+@useResult
+$Res call({
+ String? name, String? ignored, bool isLocked
+});
 
+
+
+
+}
 /// @nodoc
-class _$CreateBackupCopyWithImpl<$Res, $Val extends CreateBackup>
+class _$CreateBackupCopyWithImpl<$Res>
     implements $CreateBackupCopyWith<$Res> {
-  _$CreateBackupCopyWithImpl(this._value, this._then);
+  _$CreateBackupCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final CreateBackup _self;
+  final $Res Function(CreateBackup) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = freezed,
-    Object? ignored = freezed,
-    Object? isLocked = null,
-  }) {
-    return _then(_value.copyWith(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      ignored: freezed == ignored
-          ? _value.ignored
-          : ignored // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isLocked: null == isLocked
-          ? _value.isLocked
-          : isLocked // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
+/// Create a copy of CreateBackup
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = freezed,Object? ignored = freezed,Object? isLocked = null,}) {
+  return _then(_self.copyWith(
+name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String?,ignored: freezed == ignored ? _self.ignored : ignored // ignore: cast_nullable_to_non_nullable
+as String?,isLocked: null == isLocked ? _self.isLocked : isLocked // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
 }
 
-/// @nodoc
-abstract class _$$CreateBackupImplCopyWith<$Res>
-    implements $CreateBackupCopyWith<$Res> {
-  factory _$$CreateBackupImplCopyWith(
-          _$CreateBackupImpl value, $Res Function(_$CreateBackupImpl) then) =
-      __$$CreateBackupImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String? name, String? ignored, bool isLocked});
 }
 
-/// @nodoc
-class __$$CreateBackupImplCopyWithImpl<$Res>
-    extends _$CreateBackupCopyWithImpl<$Res, _$CreateBackupImpl>
-    implements _$$CreateBackupImplCopyWith<$Res> {
-  __$$CreateBackupImplCopyWithImpl(
-      _$CreateBackupImpl _value, $Res Function(_$CreateBackupImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = freezed,
-    Object? ignored = freezed,
-    Object? isLocked = null,
-  }) {
-    return _then(_$CreateBackupImpl(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      ignored: freezed == ignored
-          ? _value.ignored
-          : ignored // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isLocked: null == isLocked
-          ? _value.isLocked
-          : isLocked // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$CreateBackupImpl extends _CreateBackup {
-  const _$CreateBackupImpl({this.name, this.ignored, required this.isLocked})
-      : super._();
 
-  factory _$CreateBackupImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CreateBackupImplFromJson(json);
+class _CreateBackup implements CreateBackup {
+  const _CreateBackup({this.name, this.ignored, required this.isLocked});
+  factory _CreateBackup.fromJson(Map<String, dynamic> json) => _$CreateBackupFromJson(json);
 
-  @override
-  final String? name;
-  @override
-  final String? ignored;
-  @override
-  final bool isLocked;
+@override final  String? name;
+@override final  String? ignored;
+@override final  bool isLocked;
 
-  @override
-  String toString() {
-    return 'CreateBackup(name: $name, ignored: $ignored, isLocked: $isLocked)';
-  }
+/// Create a copy of CreateBackup
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$CreateBackupCopyWith<_CreateBackup> get copyWith => __$CreateBackupCopyWithImpl<_CreateBackup>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CreateBackupImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.ignored, ignored) || other.ignored == ignored) &&
-            (identical(other.isLocked, isLocked) ||
-                other.isLocked == isLocked));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, name, ignored, isLocked);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CreateBackupImplCopyWith<_$CreateBackupImpl> get copyWith =>
-      __$$CreateBackupImplCopyWithImpl<_$CreateBackupImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CreateBackupImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$CreateBackupToJson(this, );
 }
 
-abstract class _CreateBackup extends CreateBackup {
-  const factory _CreateBackup(
-      {final String? name,
-      final String? ignored,
-      required final bool isLocked}) = _$CreateBackupImpl;
-  const _CreateBackup._() : super._();
-
-  factory _CreateBackup.fromJson(Map<String, dynamic> json) =
-      _$CreateBackupImpl.fromJson;
-
-  @override
-  String? get name;
-  @override
-  String? get ignored;
-  @override
-  bool get isLocked;
-  @override
-  @JsonKey(ignore: true)
-  _$$CreateBackupImplCopyWith<_$CreateBackupImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CreateBackup&&(identical(other.name, name) || other.name == name)&&(identical(other.ignored, ignored) || other.ignored == ignored)&&(identical(other.isLocked, isLocked) || other.isLocked == isLocked));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,ignored,isLocked);
+
+@override
+String toString() {
+  return 'CreateBackup(name: $name, ignored: $ignored, isLocked: $isLocked)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$CreateBackupCopyWith<$Res> implements $CreateBackupCopyWith<$Res> {
+  factory _$CreateBackupCopyWith(_CreateBackup value, $Res Function(_CreateBackup) _then) = __$CreateBackupCopyWithImpl;
+@override @useResult
+$Res call({
+ String? name, String? ignored, bool isLocked
+});
+
+
+
+
+}
+/// @nodoc
+class __$CreateBackupCopyWithImpl<$Res>
+    implements _$CreateBackupCopyWith<$Res> {
+  __$CreateBackupCopyWithImpl(this._self, this._then);
+
+  final _CreateBackup _self;
+  final $Res Function(_CreateBackup) _then;
+
+/// Create a copy of CreateBackup
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = freezed,Object? ignored = freezed,Object? isLocked = null,}) {
+  return _then(_CreateBackup(
+name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String?,ignored: freezed == ignored ? _self.ignored : ignored // ignore: cast_nullable_to_non_nullable
+as String?,isLocked: null == isLocked ? _self.isLocked : isLocked // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
+// dart format on

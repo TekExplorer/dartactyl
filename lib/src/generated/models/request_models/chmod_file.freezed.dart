@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,323 +10,284 @@ part of '../../../models/request_models/chmod_file.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ChmodFileBody _$ChmodFileBodyFromJson(Map<String, dynamic> json) {
-  return _ChmodFileBody.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ChmodFileBody {
-  String? get root => throw _privateConstructorUsedError;
-  List<ChmodFile> get files => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ChmodFileBodyCopyWith<ChmodFileBody> get copyWith =>
-      throw _privateConstructorUsedError;
+ String? get root; List<ChmodFile> get files;
+/// Create a copy of ChmodFileBody
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ChmodFileBodyCopyWith<ChmodFileBody> get copyWith => _$ChmodFileBodyCopyWithImpl<ChmodFileBody>(this as ChmodFileBody, _$identity);
+
+  /// Serializes this ChmodFileBody to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ChmodFileBody&&(identical(other.root, root) || other.root == root)&&const DeepCollectionEquality().equals(other.files, files));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,root,const DeepCollectionEquality().hash(files));
+
+@override
+String toString() {
+  return 'ChmodFileBody(root: $root, files: $files)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ChmodFileBodyCopyWith<$Res> {
-  factory $ChmodFileBodyCopyWith(
-          ChmodFileBody value, $Res Function(ChmodFileBody) then) =
-      _$ChmodFileBodyCopyWithImpl<$Res, ChmodFileBody>;
-  @useResult
-  $Res call({String? root, List<ChmodFile> files});
-}
+abstract mixin class $ChmodFileBodyCopyWith<$Res>  {
+  factory $ChmodFileBodyCopyWith(ChmodFileBody value, $Res Function(ChmodFileBody) _then) = _$ChmodFileBodyCopyWithImpl;
+@useResult
+$Res call({
+ String? root, List<ChmodFile> files
+});
 
+
+
+
+}
 /// @nodoc
-class _$ChmodFileBodyCopyWithImpl<$Res, $Val extends ChmodFileBody>
+class _$ChmodFileBodyCopyWithImpl<$Res>
     implements $ChmodFileBodyCopyWith<$Res> {
-  _$ChmodFileBodyCopyWithImpl(this._value, this._then);
+  _$ChmodFileBodyCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ChmodFileBody _self;
+  final $Res Function(ChmodFileBody) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? root = freezed,
-    Object? files = null,
-  }) {
-    return _then(_value.copyWith(
-      root: freezed == root
-          ? _value.root
-          : root // ignore: cast_nullable_to_non_nullable
-              as String?,
-      files: null == files
-          ? _value.files
-          : files // ignore: cast_nullable_to_non_nullable
-              as List<ChmodFile>,
-    ) as $Val);
-  }
+/// Create a copy of ChmodFileBody
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? root = freezed,Object? files = null,}) {
+  return _then(_self.copyWith(
+root: freezed == root ? _self.root : root // ignore: cast_nullable_to_non_nullable
+as String?,files: null == files ? _self.files : files // ignore: cast_nullable_to_non_nullable
+as List<ChmodFile>,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ChmodFileBodyImplCopyWith<$Res>
-    implements $ChmodFileBodyCopyWith<$Res> {
-  factory _$$ChmodFileBodyImplCopyWith(
-          _$ChmodFileBodyImpl value, $Res Function(_$ChmodFileBodyImpl) then) =
-      __$$ChmodFileBodyImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String? root, List<ChmodFile> files});
 }
 
-/// @nodoc
-class __$$ChmodFileBodyImplCopyWithImpl<$Res>
-    extends _$ChmodFileBodyCopyWithImpl<$Res, _$ChmodFileBodyImpl>
-    implements _$$ChmodFileBodyImplCopyWith<$Res> {
-  __$$ChmodFileBodyImplCopyWithImpl(
-      _$ChmodFileBodyImpl _value, $Res Function(_$ChmodFileBodyImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? root = freezed,
-    Object? files = null,
-  }) {
-    return _then(_$ChmodFileBodyImpl(
-      root: freezed == root
-          ? _value.root
-          : root // ignore: cast_nullable_to_non_nullable
-              as String?,
-      files: null == files
-          ? _value._files
-          : files // ignore: cast_nullable_to_non_nullable
-              as List<ChmodFile>,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$ChmodFileBodyImpl extends _ChmodFileBody {
-  const _$ChmodFileBodyImpl({this.root, required final List<ChmodFile> files})
-      : _files = files,
-        super._();
 
-  factory _$ChmodFileBodyImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ChmodFileBodyImplFromJson(json);
+class _ChmodFileBody implements ChmodFileBody {
+  const _ChmodFileBody({this.root, required final  List<ChmodFile> files}): _files = files;
+  factory _ChmodFileBody.fromJson(Map<String, dynamic> json) => _$ChmodFileBodyFromJson(json);
 
-  @override
-  final String? root;
-  final List<ChmodFile> _files;
-  @override
-  List<ChmodFile> get files {
-    if (_files is EqualUnmodifiableListView) return _files;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_files);
-  }
-
-  @override
-  String toString() {
-    return 'ChmodFileBody(root: $root, files: $files)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChmodFileBodyImpl &&
-            (identical(other.root, root) || other.root == root) &&
-            const DeepCollectionEquality().equals(other._files, _files));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, root, const DeepCollectionEquality().hash(_files));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ChmodFileBodyImplCopyWith<_$ChmodFileBodyImpl> get copyWith =>
-      __$$ChmodFileBodyImplCopyWithImpl<_$ChmodFileBodyImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ChmodFileBodyImplToJson(
-      this,
-    );
-  }
+@override final  String? root;
+ final  List<ChmodFile> _files;
+@override List<ChmodFile> get files {
+  if (_files is EqualUnmodifiableListView) return _files;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_files);
 }
 
-abstract class _ChmodFileBody extends ChmodFileBody {
-  const factory _ChmodFileBody(
-      {final String? root,
-      required final List<ChmodFile> files}) = _$ChmodFileBodyImpl;
-  const _ChmodFileBody._() : super._();
 
-  factory _ChmodFileBody.fromJson(Map<String, dynamic> json) =
-      _$ChmodFileBodyImpl.fromJson;
+/// Create a copy of ChmodFileBody
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ChmodFileBodyCopyWith<_ChmodFileBody> get copyWith => __$ChmodFileBodyCopyWithImpl<_ChmodFileBody>(this, _$identity);
 
-  @override
-  String? get root;
-  @override
-  List<ChmodFile> get files;
-  @override
-  @JsonKey(ignore: true)
-  _$$ChmodFileBodyImplCopyWith<_$ChmodFileBodyImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$ChmodFileBodyToJson(this, );
 }
 
-ChmodFile _$ChmodFileFromJson(Map<String, dynamic> json) {
-  return _ChmodFile.fromJson(json);
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ChmodFileBody&&(identical(other.root, root) || other.root == root)&&const DeepCollectionEquality().equals(other._files, _files));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,root,const DeepCollectionEquality().hash(_files));
+
+@override
+String toString() {
+  return 'ChmodFileBody(root: $root, files: $files)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ChmodFileBodyCopyWith<$Res> implements $ChmodFileBodyCopyWith<$Res> {
+  factory _$ChmodFileBodyCopyWith(_ChmodFileBody value, $Res Function(_ChmodFileBody) _then) = __$ChmodFileBodyCopyWithImpl;
+@override @useResult
+$Res call({
+ String? root, List<ChmodFile> files
+});
+
+
+
+
+}
+/// @nodoc
+class __$ChmodFileBodyCopyWithImpl<$Res>
+    implements _$ChmodFileBodyCopyWith<$Res> {
+  __$ChmodFileBodyCopyWithImpl(this._self, this._then);
+
+  final _ChmodFileBody _self;
+  final $Res Function(_ChmodFileBody) _then;
+
+/// Create a copy of ChmodFileBody
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? root = freezed,Object? files = null,}) {
+  return _then(_ChmodFileBody(
+root: freezed == root ? _self.root : root // ignore: cast_nullable_to_non_nullable
+as String?,files: null == files ? _self._files : files // ignore: cast_nullable_to_non_nullable
+as List<ChmodFile>,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$ChmodFile {
-  String get file => throw _privateConstructorUsedError;
-  int get mode => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ChmodFileCopyWith<ChmodFile> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get file; int get mode;
+/// Create a copy of ChmodFile
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ChmodFileCopyWith<ChmodFile> get copyWith => _$ChmodFileCopyWithImpl<ChmodFile>(this as ChmodFile, _$identity);
+
+  /// Serializes this ChmodFile to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ChmodFile&&(identical(other.file, file) || other.file == file)&&(identical(other.mode, mode) || other.mode == mode));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,file,mode);
+
+@override
+String toString() {
+  return 'ChmodFile(file: $file, mode: $mode)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ChmodFileCopyWith<$Res> {
-  factory $ChmodFileCopyWith(ChmodFile value, $Res Function(ChmodFile) then) =
-      _$ChmodFileCopyWithImpl<$Res, ChmodFile>;
-  @useResult
-  $Res call({String file, int mode});
-}
+abstract mixin class $ChmodFileCopyWith<$Res>  {
+  factory $ChmodFileCopyWith(ChmodFile value, $Res Function(ChmodFile) _then) = _$ChmodFileCopyWithImpl;
+@useResult
+$Res call({
+ String file, int mode
+});
 
+
+
+
+}
 /// @nodoc
-class _$ChmodFileCopyWithImpl<$Res, $Val extends ChmodFile>
+class _$ChmodFileCopyWithImpl<$Res>
     implements $ChmodFileCopyWith<$Res> {
-  _$ChmodFileCopyWithImpl(this._value, this._then);
+  _$ChmodFileCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ChmodFile _self;
+  final $Res Function(ChmodFile) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? file = null,
-    Object? mode = null,
-  }) {
-    return _then(_value.copyWith(
-      file: null == file
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as String,
-      mode: null == mode
-          ? _value.mode
-          : mode // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
+/// Create a copy of ChmodFile
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? file = null,Object? mode = null,}) {
+  return _then(_self.copyWith(
+file: null == file ? _self.file : file // ignore: cast_nullable_to_non_nullable
+as String,mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ChmodFileImplCopyWith<$Res>
-    implements $ChmodFileCopyWith<$Res> {
-  factory _$$ChmodFileImplCopyWith(
-          _$ChmodFileImpl value, $Res Function(_$ChmodFileImpl) then) =
-      __$$ChmodFileImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String file, int mode});
 }
 
-/// @nodoc
-class __$$ChmodFileImplCopyWithImpl<$Res>
-    extends _$ChmodFileCopyWithImpl<$Res, _$ChmodFileImpl>
-    implements _$$ChmodFileImplCopyWith<$Res> {
-  __$$ChmodFileImplCopyWithImpl(
-      _$ChmodFileImpl _value, $Res Function(_$ChmodFileImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? file = null,
-    Object? mode = null,
-  }) {
-    return _then(_$ChmodFileImpl(
-      file: null == file
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as String,
-      mode: null == mode
-          ? _value.mode
-          : mode // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$ChmodFileImpl extends _ChmodFile {
-  const _$ChmodFileImpl({required this.file, required this.mode}) : super._();
 
-  factory _$ChmodFileImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ChmodFileImplFromJson(json);
+class _ChmodFile implements ChmodFile {
+  const _ChmodFile({required this.file, required this.mode});
+  factory _ChmodFile.fromJson(Map<String, dynamic> json) => _$ChmodFileFromJson(json);
 
-  @override
-  final String file;
-  @override
-  final int mode;
+@override final  String file;
+@override final  int mode;
 
-  @override
-  String toString() {
-    return 'ChmodFile(file: $file, mode: $mode)';
-  }
+/// Create a copy of ChmodFile
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ChmodFileCopyWith<_ChmodFile> get copyWith => __$ChmodFileCopyWithImpl<_ChmodFile>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChmodFileImpl &&
-            (identical(other.file, file) || other.file == file) &&
-            (identical(other.mode, mode) || other.mode == mode));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, file, mode);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ChmodFileImplCopyWith<_$ChmodFileImpl> get copyWith =>
-      __$$ChmodFileImplCopyWithImpl<_$ChmodFileImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ChmodFileImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$ChmodFileToJson(this, );
 }
 
-abstract class _ChmodFile extends ChmodFile {
-  const factory _ChmodFile(
-      {required final String file, required final int mode}) = _$ChmodFileImpl;
-  const _ChmodFile._() : super._();
-
-  factory _ChmodFile.fromJson(Map<String, dynamic> json) =
-      _$ChmodFileImpl.fromJson;
-
-  @override
-  String get file;
-  @override
-  int get mode;
-  @override
-  @JsonKey(ignore: true)
-  _$$ChmodFileImplCopyWith<_$ChmodFileImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ChmodFile&&(identical(other.file, file) || other.file == file)&&(identical(other.mode, mode) || other.mode == mode));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,file,mode);
+
+@override
+String toString() {
+  return 'ChmodFile(file: $file, mode: $mode)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ChmodFileCopyWith<$Res> implements $ChmodFileCopyWith<$Res> {
+  factory _$ChmodFileCopyWith(_ChmodFile value, $Res Function(_ChmodFile) _then) = __$ChmodFileCopyWithImpl;
+@override @useResult
+$Res call({
+ String file, int mode
+});
+
+
+
+
+}
+/// @nodoc
+class __$ChmodFileCopyWithImpl<$Res>
+    implements _$ChmodFileCopyWith<$Res> {
+  __$ChmodFileCopyWithImpl(this._self, this._then);
+
+  final _ChmodFile _self;
+  final $Res Function(_ChmodFile) _then;
+
+/// Create a copy of ChmodFile
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? file = null,Object? mode = null,}) {
+  return _then(_ChmodFile(
+file: null == file ? _self.file : file // ignore: cast_nullable_to_non_nullable
+as String,mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+// dart format on

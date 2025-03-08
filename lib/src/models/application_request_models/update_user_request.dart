@@ -5,7 +5,7 @@ part '../../generated/models/application_request_models/update_user_request.free
 part '../../generated/models/application_request_models/update_user_request.g.dart';
 
 @freezed
-class UpdateUserRequest with _$UpdateUserRequest {
+abstract class UpdateUserRequest with _$UpdateUserRequest {
   const factory UpdateUserRequest({
     required String email,
     required String username,
@@ -16,10 +16,9 @@ class UpdateUserRequest with _$UpdateUserRequest {
     required String language,
     required String password,
   }) = _UpdateUserRequest;
-  const UpdateUserRequest._();
 
-  factory UpdateUserRequest.fromJson(JsonMap json) =
-      _UpdateUserRequest.fromJson;
+  factory UpdateUserRequest.fromJson(JsonMap json) =>
+      _$UpdateUserRequestFromJson(json);
 
   factory UpdateUserRequest.fromCreateUserRequest(
     CreateUserRequest request, {

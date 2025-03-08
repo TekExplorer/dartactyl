@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,154 +10,141 @@ part of '../../../models/request_models/restore_backup.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-RestoreBackup _$RestoreBackupFromJson(Map<String, dynamic> json) {
-  return _RestoreBackup.fromJson(json);
-}
 
 /// @nodoc
 mixin _$RestoreBackup {
+
 // ignore: invalid_annotation_target
-  @JsonKey(name: 'truncate')
-  bool? get deleteExistingFiles => throw _privateConstructorUsedError;
+@JsonKey(name: 'truncate') bool? get deleteExistingFiles;
+/// Create a copy of RestoreBackup
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$RestoreBackupCopyWith<RestoreBackup> get copyWith => _$RestoreBackupCopyWithImpl<RestoreBackup>(this as RestoreBackup, _$identity);
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $RestoreBackupCopyWith<RestoreBackup> get copyWith =>
-      throw _privateConstructorUsedError;
+  /// Serializes this RestoreBackup to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RestoreBackup&&(identical(other.deleteExistingFiles, deleteExistingFiles) || other.deleteExistingFiles == deleteExistingFiles));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,deleteExistingFiles);
+
+@override
+String toString() {
+  return 'RestoreBackup(deleteExistingFiles: $deleteExistingFiles)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $RestoreBackupCopyWith<$Res> {
-  factory $RestoreBackupCopyWith(
-          RestoreBackup value, $Res Function(RestoreBackup) then) =
-      _$RestoreBackupCopyWithImpl<$Res, RestoreBackup>;
-  @useResult
-  $Res call({@JsonKey(name: 'truncate') bool? deleteExistingFiles});
-}
+abstract mixin class $RestoreBackupCopyWith<$Res>  {
+  factory $RestoreBackupCopyWith(RestoreBackup value, $Res Function(RestoreBackup) _then) = _$RestoreBackupCopyWithImpl;
+@useResult
+$Res call({
+@JsonKey(name: 'truncate') bool? deleteExistingFiles
+});
 
+
+
+
+}
 /// @nodoc
-class _$RestoreBackupCopyWithImpl<$Res, $Val extends RestoreBackup>
+class _$RestoreBackupCopyWithImpl<$Res>
     implements $RestoreBackupCopyWith<$Res> {
-  _$RestoreBackupCopyWithImpl(this._value, this._then);
+  _$RestoreBackupCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final RestoreBackup _self;
+  final $Res Function(RestoreBackup) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? deleteExistingFiles = freezed,
-  }) {
-    return _then(_value.copyWith(
-      deleteExistingFiles: freezed == deleteExistingFiles
-          ? _value.deleteExistingFiles
-          : deleteExistingFiles // ignore: cast_nullable_to_non_nullable
-              as bool?,
-    ) as $Val);
-  }
+/// Create a copy of RestoreBackup
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? deleteExistingFiles = freezed,}) {
+  return _then(_self.copyWith(
+deleteExistingFiles: freezed == deleteExistingFiles ? _self.deleteExistingFiles : deleteExistingFiles // ignore: cast_nullable_to_non_nullable
+as bool?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$RestoreBackupImplCopyWith<$Res>
-    implements $RestoreBackupCopyWith<$Res> {
-  factory _$$RestoreBackupImplCopyWith(
-          _$RestoreBackupImpl value, $Res Function(_$RestoreBackupImpl) then) =
-      __$$RestoreBackupImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@JsonKey(name: 'truncate') bool? deleteExistingFiles});
 }
 
-/// @nodoc
-class __$$RestoreBackupImplCopyWithImpl<$Res>
-    extends _$RestoreBackupCopyWithImpl<$Res, _$RestoreBackupImpl>
-    implements _$$RestoreBackupImplCopyWith<$Res> {
-  __$$RestoreBackupImplCopyWithImpl(
-      _$RestoreBackupImpl _value, $Res Function(_$RestoreBackupImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? deleteExistingFiles = freezed,
-  }) {
-    return _then(_$RestoreBackupImpl(
-      deleteExistingFiles: freezed == deleteExistingFiles
-          ? _value.deleteExistingFiles
-          : deleteExistingFiles // ignore: cast_nullable_to_non_nullable
-              as bool?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$RestoreBackupImpl extends _RestoreBackup {
-  const _$RestoreBackupImpl(
-      {@JsonKey(name: 'truncate') this.deleteExistingFiles})
-      : super._();
 
-  factory _$RestoreBackupImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RestoreBackupImplFromJson(json);
+class _RestoreBackup implements RestoreBackup {
+  const _RestoreBackup({@JsonKey(name: 'truncate') this.deleteExistingFiles});
+  factory _RestoreBackup.fromJson(Map<String, dynamic> json) => _$RestoreBackupFromJson(json);
 
 // ignore: invalid_annotation_target
-  @override
-  @JsonKey(name: 'truncate')
-  final bool? deleteExistingFiles;
+@override@JsonKey(name: 'truncate') final  bool? deleteExistingFiles;
 
-  @override
-  String toString() {
-    return 'RestoreBackup(deleteExistingFiles: $deleteExistingFiles)';
-  }
+/// Create a copy of RestoreBackup
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$RestoreBackupCopyWith<_RestoreBackup> get copyWith => __$RestoreBackupCopyWithImpl<_RestoreBackup>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RestoreBackupImpl &&
-            (identical(other.deleteExistingFiles, deleteExistingFiles) ||
-                other.deleteExistingFiles == deleteExistingFiles));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, deleteExistingFiles);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RestoreBackupImplCopyWith<_$RestoreBackupImpl> get copyWith =>
-      __$$RestoreBackupImplCopyWithImpl<_$RestoreBackupImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RestoreBackupImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$RestoreBackupToJson(this, );
 }
 
-abstract class _RestoreBackup extends RestoreBackup {
-  const factory _RestoreBackup(
-          {@JsonKey(name: 'truncate') final bool? deleteExistingFiles}) =
-      _$RestoreBackupImpl;
-  const _RestoreBackup._() : super._();
-
-  factory _RestoreBackup.fromJson(Map<String, dynamic> json) =
-      _$RestoreBackupImpl.fromJson;
-
-  @override // ignore: invalid_annotation_target
-  @JsonKey(name: 'truncate')
-  bool? get deleteExistingFiles;
-  @override
-  @JsonKey(ignore: true)
-  _$$RestoreBackupImplCopyWith<_$RestoreBackupImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RestoreBackup&&(identical(other.deleteExistingFiles, deleteExistingFiles) || other.deleteExistingFiles == deleteExistingFiles));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,deleteExistingFiles);
+
+@override
+String toString() {
+  return 'RestoreBackup(deleteExistingFiles: $deleteExistingFiles)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$RestoreBackupCopyWith<$Res> implements $RestoreBackupCopyWith<$Res> {
+  factory _$RestoreBackupCopyWith(_RestoreBackup value, $Res Function(_RestoreBackup) _then) = __$RestoreBackupCopyWithImpl;
+@override @useResult
+$Res call({
+@JsonKey(name: 'truncate') bool? deleteExistingFiles
+});
+
+
+
+
+}
+/// @nodoc
+class __$RestoreBackupCopyWithImpl<$Res>
+    implements _$RestoreBackupCopyWith<$Res> {
+  __$RestoreBackupCopyWithImpl(this._self, this._then);
+
+  final _RestoreBackup _self;
+  final $Res Function(_RestoreBackup) _then;
+
+/// Create a copy of RestoreBackup
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? deleteExistingFiles = freezed,}) {
+  return _then(_RestoreBackup(
+deleteExistingFiles: freezed == deleteExistingFiles ? _self.deleteExistingFiles : deleteExistingFiles // ignore: cast_nullable_to_non_nullable
+as bool?,
+  ));
+}
+
+
+}
+
+// dart format on

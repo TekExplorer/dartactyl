@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,273 +10,157 @@ part of '../../../models/main_models/account.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Account _$AccountFromJson(Map<String, dynamic> json) {
-  return _Account.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Account {
-  int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'admin')
-  bool get isAdmin => throw _privateConstructorUsedError;
-  String get username => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String get firstName => throw _privateConstructorUsedError;
-  String get lastName => throw _privateConstructorUsedError;
-  String get language => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $AccountCopyWith<Account> get copyWith => throw _privateConstructorUsedError;
+ int get id;@JsonKey(name: 'admin') bool get isAdmin; String get username; String get email; String get firstName; String get lastName; String get language;
+/// Create a copy of Account
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AccountCopyWith<Account> get copyWith => _$AccountCopyWithImpl<Account>(this as Account, _$identity);
+
+  /// Serializes this Account to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Account&&(identical(other.id, id) || other.id == id)&&(identical(other.isAdmin, isAdmin) || other.isAdmin == isAdmin)&&(identical(other.username, username) || other.username == username)&&(identical(other.email, email) || other.email == email)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName)&&(identical(other.language, language) || other.language == language));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,isAdmin,username,email,firstName,lastName,language);
+
+@override
+String toString() {
+  return 'Account(id: $id, isAdmin: $isAdmin, username: $username, email: $email, firstName: $firstName, lastName: $lastName, language: $language)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AccountCopyWith<$Res> {
-  factory $AccountCopyWith(Account value, $Res Function(Account) then) =
-      _$AccountCopyWithImpl<$Res, Account>;
-  @useResult
-  $Res call(
-      {int id,
-      @JsonKey(name: 'admin') bool isAdmin,
-      String username,
-      String email,
-      String firstName,
-      String lastName,
-      String language});
-}
+abstract mixin class $AccountCopyWith<$Res>  {
+  factory $AccountCopyWith(Account value, $Res Function(Account) _then) = _$AccountCopyWithImpl;
+@useResult
+$Res call({
+ int id,@JsonKey(name: 'admin') bool isAdmin, String username, String email, String firstName, String lastName, String language
+});
 
+
+
+
+}
 /// @nodoc
-class _$AccountCopyWithImpl<$Res, $Val extends Account>
+class _$AccountCopyWithImpl<$Res>
     implements $AccountCopyWith<$Res> {
-  _$AccountCopyWithImpl(this._value, this._then);
+  _$AccountCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Account _self;
+  final $Res Function(Account) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? isAdmin = null,
-    Object? username = null,
-    Object? email = null,
-    Object? firstName = null,
-    Object? lastName = null,
-    Object? language = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      isAdmin: null == isAdmin
-          ? _value.isAdmin
-          : isAdmin // ignore: cast_nullable_to_non_nullable
-              as bool,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      firstName: null == firstName
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      lastName: null == lastName
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
-              as String,
-      language: null == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of Account
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? isAdmin = null,Object? username = null,Object? email = null,Object? firstName = null,Object? lastName = null,Object? language = null,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,isAdmin: null == isAdmin ? _self.isAdmin : isAdmin // ignore: cast_nullable_to_non_nullable
+as bool,username: null == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
+as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
+as String,lastName: null == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
+as String,language: null == language ? _self.language : language // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$AccountImplCopyWith<$Res> implements $AccountCopyWith<$Res> {
-  factory _$$AccountImplCopyWith(
-          _$AccountImpl value, $Res Function(_$AccountImpl) then) =
-      __$$AccountImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {int id,
-      @JsonKey(name: 'admin') bool isAdmin,
-      String username,
-      String email,
-      String firstName,
-      String lastName,
-      String language});
 }
 
-/// @nodoc
-class __$$AccountImplCopyWithImpl<$Res>
-    extends _$AccountCopyWithImpl<$Res, _$AccountImpl>
-    implements _$$AccountImplCopyWith<$Res> {
-  __$$AccountImplCopyWithImpl(
-      _$AccountImpl _value, $Res Function(_$AccountImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? isAdmin = null,
-    Object? username = null,
-    Object? email = null,
-    Object? firstName = null,
-    Object? lastName = null,
-    Object? language = null,
-  }) {
-    return _then(_$AccountImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      isAdmin: null == isAdmin
-          ? _value.isAdmin
-          : isAdmin // ignore: cast_nullable_to_non_nullable
-              as bool,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      firstName: null == firstName
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      lastName: null == lastName
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
-              as String,
-      language: null == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$AccountImpl extends _Account {
-  const _$AccountImpl(
-      {required this.id,
-      @JsonKey(name: 'admin') required this.isAdmin,
-      required this.username,
-      required this.email,
-      required this.firstName,
-      required this.lastName,
-      required this.language})
-      : super._();
 
-  factory _$AccountImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AccountImplFromJson(json);
+class _Account implements Account {
+  const _Account({required this.id, @JsonKey(name: 'admin') required this.isAdmin, required this.username, required this.email, required this.firstName, required this.lastName, required this.language});
+  factory _Account.fromJson(Map<String, dynamic> json) => _$AccountFromJson(json);
 
-  @override
-  final int id;
-  @override
-  @JsonKey(name: 'admin')
-  final bool isAdmin;
-  @override
-  final String username;
-  @override
-  final String email;
-  @override
-  final String firstName;
-  @override
-  final String lastName;
-  @override
-  final String language;
+@override final  int id;
+@override@JsonKey(name: 'admin') final  bool isAdmin;
+@override final  String username;
+@override final  String email;
+@override final  String firstName;
+@override final  String lastName;
+@override final  String language;
 
-  @override
-  String toString() {
-    return 'Account(id: $id, isAdmin: $isAdmin, username: $username, email: $email, firstName: $firstName, lastName: $lastName, language: $language)';
-  }
+/// Create a copy of Account
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AccountCopyWith<_Account> get copyWith => __$AccountCopyWithImpl<_Account>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AccountImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.isAdmin, isAdmin) || other.isAdmin == isAdmin) &&
-            (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.firstName, firstName) ||
-                other.firstName == firstName) &&
-            (identical(other.lastName, lastName) ||
-                other.lastName == lastName) &&
-            (identical(other.language, language) ||
-                other.language == language));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, id, isAdmin, username, email, firstName, lastName, language);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AccountImplCopyWith<_$AccountImpl> get copyWith =>
-      __$$AccountImplCopyWithImpl<_$AccountImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AccountImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$AccountToJson(this, );
 }
 
-abstract class _Account extends Account {
-  const factory _Account(
-      {required final int id,
-      @JsonKey(name: 'admin') required final bool isAdmin,
-      required final String username,
-      required final String email,
-      required final String firstName,
-      required final String lastName,
-      required final String language}) = _$AccountImpl;
-  const _Account._() : super._();
-
-  factory _Account.fromJson(Map<String, dynamic> json) = _$AccountImpl.fromJson;
-
-  @override
-  int get id;
-  @override
-  @JsonKey(name: 'admin')
-  bool get isAdmin;
-  @override
-  String get username;
-  @override
-  String get email;
-  @override
-  String get firstName;
-  @override
-  String get lastName;
-  @override
-  String get language;
-  @override
-  @JsonKey(ignore: true)
-  _$$AccountImplCopyWith<_$AccountImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Account&&(identical(other.id, id) || other.id == id)&&(identical(other.isAdmin, isAdmin) || other.isAdmin == isAdmin)&&(identical(other.username, username) || other.username == username)&&(identical(other.email, email) || other.email == email)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName)&&(identical(other.language, language) || other.language == language));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,isAdmin,username,email,firstName,lastName,language);
+
+@override
+String toString() {
+  return 'Account(id: $id, isAdmin: $isAdmin, username: $username, email: $email, firstName: $firstName, lastName: $lastName, language: $language)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
+  factory _$AccountCopyWith(_Account value, $Res Function(_Account) _then) = __$AccountCopyWithImpl;
+@override @useResult
+$Res call({
+ int id,@JsonKey(name: 'admin') bool isAdmin, String username, String email, String firstName, String lastName, String language
+});
+
+
+
+
+}
+/// @nodoc
+class __$AccountCopyWithImpl<$Res>
+    implements _$AccountCopyWith<$Res> {
+  __$AccountCopyWithImpl(this._self, this._then);
+
+  final _Account _self;
+  final $Res Function(_Account) _then;
+
+/// Create a copy of Account
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? isAdmin = null,Object? username = null,Object? email = null,Object? firstName = null,Object? lastName = null,Object? language = null,}) {
+  return _then(_Account(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,isAdmin: null == isAdmin ? _self.isAdmin : isAdmin // ignore: cast_nullable_to_non_nullable
+as bool,username: null == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
+as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
+as String,lastName: null == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
+as String,language: null == language ? _self.language : language // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

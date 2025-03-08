@@ -5,14 +5,13 @@ part '../../generated/models/main_models/ssh_key.freezed.dart';
 part '../../generated/models/main_models/ssh_key.g.dart';
 
 @freezed
-class SshKey with _$SshKey {
+abstract class SshKey with _$SshKey {
   const factory SshKey({
     required String name,
     required String fingerprint,
     required String publicKey,
     required DateTime createdAt,
   }) = _SshKey;
-  const SshKey._();
 
-  factory SshKey.fromJson(JsonMap json) = _SshKey.fromJson;
+  factory SshKey.fromJson(JsonMap json) => _$SshKeyFromJson(json);
 }

@@ -21,8 +21,7 @@ abstract class DeprecatedPteroClient {
   // ignore: deprecated_member_use_from_same_package
   /// It is recommended to use [PteroClient(...).old] instead.
   factory DeprecatedPteroClient(Dio dio, {String? baseUrl}) =
-      _DeprecatedPteroClient._;
-  const DeprecatedPteroClient._();
+      _DeprecatedPteroClient;
 
   /// Delete an [SshKey] on your account. (1.8.0-1.8.1)
   @DELETE('/api/client/account/ssh-keys/{fingerprint}')
@@ -72,7 +71,7 @@ abstract class PteroClient {
   ///
   /// [baseUrl] is the base URL of the Pterodactyl server.
   /// Not needed if you've already set it in the Dio instance.
-  factory PteroClient(Dio dio, {String? baseUrl}) = _PteroClient._;
+  factory PteroClient(Dio dio, {String? baseUrl}) = _PteroClient;
 
   /// Creates an instance of the [PteroClient] class.
   ///
@@ -84,10 +83,10 @@ abstract class PteroClient {
   ///
   /// Does not work with /auth endpoints - only /api/client
   factory PteroClient.mockApi([Dio? dio]) => PteroClient.generate(
-        url: 'https://mockapi.ptero.sh',
-        dio: dio,
-        apiKey: 'mock-api-key',
-      );
+    url: 'https://mockapi.ptero.sh',
+    dio: dio,
+    apiKey: 'mock-api-key',
+  );
 
   /// Set up a Pterodactyl API Client in one go!
   /// [baseUrl] is the base URL of the Pterodactyl server.
@@ -116,7 +115,6 @@ abstract class PteroClient {
 
     return PteroClient(dio);
   }
-  const PteroClient._();
 
   /// A list of interceptors that are added
   ///  by default with [PteroClient.generate].
@@ -140,13 +138,12 @@ abstract class PteroClient {
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
-  }) =>
-      listVariables(
-        serverId: serverId,
-        cancelToken: cancelToken,
-        onSendProgress: onSendProgress,
-        onReceiveProgress: onReceiveProgress,
-      );
+  }) => listVariables(
+    serverId: serverId,
+    cancelToken: cancelToken,
+    onSendProgress: onSendProgress,
+    onReceiveProgress: onReceiveProgress,
+  );
 
   /// List all docker images for a server.
   ///
@@ -157,13 +154,12 @@ abstract class PteroClient {
     CancelToken? cancelToken,
     @experimental ProgressCallback? onSendProgress,
     @experimental ProgressCallback? onReceiveProgress,
-  }) =>
-      getStartup(
-        serverId: serverId,
-        cancelToken: cancelToken,
-        onSendProgress: onSendProgress,
-        onReceiveProgress: onReceiveProgress,
-      ).then((result) => result.meta.dockerImages);
+  }) => getStartup(
+    serverId: serverId,
+    cancelToken: cancelToken,
+    onSendProgress: onSendProgress,
+    onReceiveProgress: onReceiveProgress,
+  ).then((result) => result.meta.dockerImages);
 
   // /// Login to Pterodactyl using username and password.
   // ///

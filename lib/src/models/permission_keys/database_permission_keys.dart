@@ -5,7 +5,7 @@ part '../../generated/models/permission_keys/database_permission_keys.freezed.da
 part '../../generated/models/permission_keys/database_permission_keys.g.dart';
 
 @freezed
-class DatabasePermissionKeys with _$DatabasePermissionKeys {
+abstract class DatabasePermissionKeys with _$DatabasePermissionKeys {
   const factory DatabasePermissionKeys({
     required String create,
     required String read,
@@ -13,8 +13,7 @@ class DatabasePermissionKeys with _$DatabasePermissionKeys {
     required String delete,
     required String viewPassword,
   }) = _DatabasePermissionKeys;
-  const DatabasePermissionKeys._();
 
-  factory DatabasePermissionKeys.fromJson(JsonMap json) =
-      _DatabasePermissionKeys.fromJson;
+  factory DatabasePermissionKeys.fromJson(JsonMap json) =>
+      _$DatabasePermissionKeysFromJson(json);
 }

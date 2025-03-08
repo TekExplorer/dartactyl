@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,171 +10,142 @@ part of '../../../models/permission_keys/settings_permission_keys.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SettingsPermissionKeys _$SettingsPermissionKeysFromJson(
-    Map<String, dynamic> json) {
-  return _SettingsPermissionKeys.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SettingsPermissionKeys {
-  String get rename => throw _privateConstructorUsedError;
-  String get reinstall => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SettingsPermissionKeysCopyWith<SettingsPermissionKeys> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get rename; String get reinstall;
+/// Create a copy of SettingsPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SettingsPermissionKeysCopyWith<SettingsPermissionKeys> get copyWith => _$SettingsPermissionKeysCopyWithImpl<SettingsPermissionKeys>(this as SettingsPermissionKeys, _$identity);
+
+  /// Serializes this SettingsPermissionKeys to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SettingsPermissionKeys&&(identical(other.rename, rename) || other.rename == rename)&&(identical(other.reinstall, reinstall) || other.reinstall == reinstall));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,rename,reinstall);
+
+@override
+String toString() {
+  return 'SettingsPermissionKeys(rename: $rename, reinstall: $reinstall)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SettingsPermissionKeysCopyWith<$Res> {
-  factory $SettingsPermissionKeysCopyWith(SettingsPermissionKeys value,
-          $Res Function(SettingsPermissionKeys) then) =
-      _$SettingsPermissionKeysCopyWithImpl<$Res, SettingsPermissionKeys>;
-  @useResult
-  $Res call({String rename, String reinstall});
-}
+abstract mixin class $SettingsPermissionKeysCopyWith<$Res>  {
+  factory $SettingsPermissionKeysCopyWith(SettingsPermissionKeys value, $Res Function(SettingsPermissionKeys) _then) = _$SettingsPermissionKeysCopyWithImpl;
+@useResult
+$Res call({
+ String rename, String reinstall
+});
 
+
+
+
+}
 /// @nodoc
-class _$SettingsPermissionKeysCopyWithImpl<$Res,
-        $Val extends SettingsPermissionKeys>
+class _$SettingsPermissionKeysCopyWithImpl<$Res>
     implements $SettingsPermissionKeysCopyWith<$Res> {
-  _$SettingsPermissionKeysCopyWithImpl(this._value, this._then);
+  _$SettingsPermissionKeysCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SettingsPermissionKeys _self;
+  final $Res Function(SettingsPermissionKeys) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? rename = null,
-    Object? reinstall = null,
-  }) {
-    return _then(_value.copyWith(
-      rename: null == rename
-          ? _value.rename
-          : rename // ignore: cast_nullable_to_non_nullable
-              as String,
-      reinstall: null == reinstall
-          ? _value.reinstall
-          : reinstall // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of SettingsPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? rename = null,Object? reinstall = null,}) {
+  return _then(_self.copyWith(
+rename: null == rename ? _self.rename : rename // ignore: cast_nullable_to_non_nullable
+as String,reinstall: null == reinstall ? _self.reinstall : reinstall // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SettingsPermissionKeysImplCopyWith<$Res>
-    implements $SettingsPermissionKeysCopyWith<$Res> {
-  factory _$$SettingsPermissionKeysImplCopyWith(
-          _$SettingsPermissionKeysImpl value,
-          $Res Function(_$SettingsPermissionKeysImpl) then) =
-      __$$SettingsPermissionKeysImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String rename, String reinstall});
 }
 
-/// @nodoc
-class __$$SettingsPermissionKeysImplCopyWithImpl<$Res>
-    extends _$SettingsPermissionKeysCopyWithImpl<$Res,
-        _$SettingsPermissionKeysImpl>
-    implements _$$SettingsPermissionKeysImplCopyWith<$Res> {
-  __$$SettingsPermissionKeysImplCopyWithImpl(
-      _$SettingsPermissionKeysImpl _value,
-      $Res Function(_$SettingsPermissionKeysImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? rename = null,
-    Object? reinstall = null,
-  }) {
-    return _then(_$SettingsPermissionKeysImpl(
-      rename: null == rename
-          ? _value.rename
-          : rename // ignore: cast_nullable_to_non_nullable
-              as String,
-      reinstall: null == reinstall
-          ? _value.reinstall
-          : reinstall // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$SettingsPermissionKeysImpl extends _SettingsPermissionKeys {
-  const _$SettingsPermissionKeysImpl(
-      {required this.rename, required this.reinstall})
-      : super._();
 
-  factory _$SettingsPermissionKeysImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SettingsPermissionKeysImplFromJson(json);
+class _SettingsPermissionKeys implements SettingsPermissionKeys {
+  const _SettingsPermissionKeys({required this.rename, required this.reinstall});
+  factory _SettingsPermissionKeys.fromJson(Map<String, dynamic> json) => _$SettingsPermissionKeysFromJson(json);
 
-  @override
-  final String rename;
-  @override
-  final String reinstall;
+@override final  String rename;
+@override final  String reinstall;
 
-  @override
-  String toString() {
-    return 'SettingsPermissionKeys(rename: $rename, reinstall: $reinstall)';
-  }
+/// Create a copy of SettingsPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SettingsPermissionKeysCopyWith<_SettingsPermissionKeys> get copyWith => __$SettingsPermissionKeysCopyWithImpl<_SettingsPermissionKeys>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SettingsPermissionKeysImpl &&
-            (identical(other.rename, rename) || other.rename == rename) &&
-            (identical(other.reinstall, reinstall) ||
-                other.reinstall == reinstall));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, rename, reinstall);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SettingsPermissionKeysImplCopyWith<_$SettingsPermissionKeysImpl>
-      get copyWith => __$$SettingsPermissionKeysImplCopyWithImpl<
-          _$SettingsPermissionKeysImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SettingsPermissionKeysImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$SettingsPermissionKeysToJson(this, );
 }
 
-abstract class _SettingsPermissionKeys extends SettingsPermissionKeys {
-  const factory _SettingsPermissionKeys(
-      {required final String rename,
-      required final String reinstall}) = _$SettingsPermissionKeysImpl;
-  const _SettingsPermissionKeys._() : super._();
-
-  factory _SettingsPermissionKeys.fromJson(Map<String, dynamic> json) =
-      _$SettingsPermissionKeysImpl.fromJson;
-
-  @override
-  String get rename;
-  @override
-  String get reinstall;
-  @override
-  @JsonKey(ignore: true)
-  _$$SettingsPermissionKeysImplCopyWith<_$SettingsPermissionKeysImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SettingsPermissionKeys&&(identical(other.rename, rename) || other.rename == rename)&&(identical(other.reinstall, reinstall) || other.reinstall == reinstall));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,rename,reinstall);
+
+@override
+String toString() {
+  return 'SettingsPermissionKeys(rename: $rename, reinstall: $reinstall)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SettingsPermissionKeysCopyWith<$Res> implements $SettingsPermissionKeysCopyWith<$Res> {
+  factory _$SettingsPermissionKeysCopyWith(_SettingsPermissionKeys value, $Res Function(_SettingsPermissionKeys) _then) = __$SettingsPermissionKeysCopyWithImpl;
+@override @useResult
+$Res call({
+ String rename, String reinstall
+});
+
+
+
+
+}
+/// @nodoc
+class __$SettingsPermissionKeysCopyWithImpl<$Res>
+    implements _$SettingsPermissionKeysCopyWith<$Res> {
+  __$SettingsPermissionKeysCopyWithImpl(this._self, this._then);
+
+  final _SettingsPermissionKeys _self;
+  final $Res Function(_SettingsPermissionKeys) _then;
+
+/// Create a copy of SettingsPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? rename = null,Object? reinstall = null,}) {
+  return _then(_SettingsPermissionKeys(
+rename: null == rename ? _self.rename : rename // ignore: cast_nullable_to_non_nullable
+as String,reinstall: null == reinstall ? _self.reinstall : reinstall // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

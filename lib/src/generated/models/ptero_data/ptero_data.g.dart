@@ -6,25 +6,15 @@ part of '../../../models/ptero_data/ptero_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PteroDataImpl<T> _$$PteroDataImplFromJson<T extends Object>(
+_PteroData<T> _$PteroDataFromJson<T extends Object>(
   Map<String, dynamic> json,
   T Function(Object? json) fromJsonT,
-) =>
-    $checkedCreate(
-      r'_$PteroDataImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$PteroDataImpl<T>(
-          data: $checkedConvert('data', (v) => fromJsonT(v)),
-        );
-        return val;
-      },
-    );
+) => $checkedCreate('_PteroData', json, ($checkedConvert) {
+  final val = _PteroData<T>(data: $checkedConvert('data', (v) => fromJsonT(v)));
+  return val;
+});
 
-Map<String, dynamic> _$$PteroDataImplToJson<T extends Object>(
-  _$PteroDataImpl<T> instance,
+Map<String, dynamic> _$PteroDataToJson<T extends Object>(
+  _PteroData<T> instance,
   Object? Function(T value) toJsonT,
-) =>
-    <String, dynamic>{
-      'data': toJsonT(instance.data),
-    };
+) => <String, dynamic>{'data': toJsonT(instance.data)};

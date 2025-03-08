@@ -6,39 +6,45 @@ part of '../../../models/main_models/activity_log.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActivityLogImpl _$$ActivityLogImplFromJson(Map<String, dynamic> json) =>
-    $checkedCreate(
-      r'_$ActivityLogImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ActivityLogImpl(
-          batch: $checkedConvert('batch', (v) => v as String?),
-          event: $checkedConvert('event', (v) => v as String),
-          ip: $checkedConvert('ip', (v) => v as String?),
-          isApi: $checkedConvert('is_api', (v) => v as bool),
-          description: $checkedConvert('description', (v) => v as String?),
-          properties: $checkedConvert(
-              'properties', (v) => _activityLogPropertiesFromJson(v)),
-          hasAdditionalMetadata:
-              $checkedConvert('has_additional_metadata', (v) => v as bool),
-          timestamp:
-              $checkedConvert('timestamp', (v) => DateTime.parse(v as String)),
-          relationships: $checkedConvert(
-              'relationships',
-              (v) => v == null
-                  ? null
-                  : ActivityLogRelationships.fromJson(
-                      v as Map<String, dynamic>)),
-        );
-        return val;
-      },
-      fieldKeyMap: const {
-        'isApi': 'is_api',
-        'hasAdditionalMetadata': 'has_additional_metadata'
-      },
+_ActivityLog _$ActivityLogFromJson(Map<String, dynamic> json) => $checkedCreate(
+  '_ActivityLog',
+  json,
+  ($checkedConvert) {
+    final val = _ActivityLog(
+      batch: $checkedConvert('batch', (v) => v as String?),
+      event: $checkedConvert('event', (v) => v as String),
+      ip: $checkedConvert('ip', (v) => v as String?),
+      isApi: $checkedConvert('is_api', (v) => v as bool),
+      description: $checkedConvert('description', (v) => v as String?),
+      properties: $checkedConvert(
+        'properties',
+        (v) => _activityLogPropertiesFromJson(v),
+      ),
+      hasAdditionalMetadata: $checkedConvert(
+        'has_additional_metadata',
+        (v) => v as bool,
+      ),
+      timestamp: $checkedConvert(
+        'timestamp',
+        (v) => DateTime.parse(v as String),
+      ),
+      relationships: $checkedConvert(
+        'relationships',
+        (v) =>
+            v == null
+                ? null
+                : ActivityLogRelationships.fromJson(v as Map<String, dynamic>),
+      ),
     );
+    return val;
+  },
+  fieldKeyMap: const {
+    'isApi': 'is_api',
+    'hasAdditionalMetadata': 'has_additional_metadata',
+  },
+);
 
-Map<String, dynamic> _$$ActivityLogImplToJson(_$ActivityLogImpl instance) =>
+Map<String, dynamic> _$ActivityLogToJson(_ActivityLog instance) =>
     <String, dynamic>{
       'batch': instance.batch,
       'event': instance.event,

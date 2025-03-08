@@ -5,7 +5,7 @@ part '../../generated/models/request_models/pull_file_body.freezed.dart';
 part '../../generated/models/request_models/pull_file_body.g.dart';
 
 @freezed
-class PullFileBody with _$PullFileBody {
+abstract class PullFileBody with _$PullFileBody {
   /// [url] is the URL of the file to pull.
   ///
   /// [directory] is the directory to save the file to. defaults to the root
@@ -27,7 +27,6 @@ class PullFileBody with _$PullFileBody {
     bool? useHeader,
     bool? foreground,
   }) = _PullFileBody;
-  const PullFileBody._();
 
-  factory PullFileBody.fromJson(JsonMap json) = _PullFileBody.fromJson;
+  factory PullFileBody.fromJson(JsonMap json) => _$PullFileBodyFromJson(json);
 }

@@ -5,13 +5,12 @@ part '../../generated/models/permission_keys/settings_permission_keys.freezed.da
 part '../../generated/models/permission_keys/settings_permission_keys.g.dart';
 
 @freezed
-class SettingsPermissionKeys with _$SettingsPermissionKeys {
+abstract class SettingsPermissionKeys with _$SettingsPermissionKeys {
   const factory SettingsPermissionKeys({
     required String rename,
     required String reinstall,
   }) = _SettingsPermissionKeys;
-  const SettingsPermissionKeys._();
 
-  factory SettingsPermissionKeys.fromJson(JsonMap json) =
-      _SettingsPermissionKeys.fromJson;
+  factory SettingsPermissionKeys.fromJson(JsonMap json) =>
+      _$SettingsPermissionKeysFromJson(json);
 }

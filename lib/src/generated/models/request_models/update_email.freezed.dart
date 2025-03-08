@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,164 +10,142 @@ part of '../../../models/request_models/update_email.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-UpdateEmail _$UpdateEmailFromJson(Map<String, dynamic> json) {
-  return _UpdateEmail.fromJson(json);
-}
 
 /// @nodoc
 mixin _$UpdateEmail {
-  String get email => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $UpdateEmailCopyWith<UpdateEmail> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get email; String get password;
+/// Create a copy of UpdateEmail
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UpdateEmailCopyWith<UpdateEmail> get copyWith => _$UpdateEmailCopyWithImpl<UpdateEmail>(this as UpdateEmail, _$identity);
+
+  /// Serializes this UpdateEmail to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UpdateEmail&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,email,password);
+
+@override
+String toString() {
+  return 'UpdateEmail(email: $email, password: $password)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UpdateEmailCopyWith<$Res> {
-  factory $UpdateEmailCopyWith(
-          UpdateEmail value, $Res Function(UpdateEmail) then) =
-      _$UpdateEmailCopyWithImpl<$Res, UpdateEmail>;
-  @useResult
-  $Res call({String email, String password});
-}
+abstract mixin class $UpdateEmailCopyWith<$Res>  {
+  factory $UpdateEmailCopyWith(UpdateEmail value, $Res Function(UpdateEmail) _then) = _$UpdateEmailCopyWithImpl;
+@useResult
+$Res call({
+ String email, String password
+});
 
+
+
+
+}
 /// @nodoc
-class _$UpdateEmailCopyWithImpl<$Res, $Val extends UpdateEmail>
+class _$UpdateEmailCopyWithImpl<$Res>
     implements $UpdateEmailCopyWith<$Res> {
-  _$UpdateEmailCopyWithImpl(this._value, this._then);
+  _$UpdateEmailCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final UpdateEmail _self;
+  final $Res Function(UpdateEmail) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = null,
-    Object? password = null,
-  }) {
-    return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of UpdateEmail
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? email = null,Object? password = null,}) {
+  return _then(_self.copyWith(
+email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$UpdateEmailImplCopyWith<$Res>
-    implements $UpdateEmailCopyWith<$Res> {
-  factory _$$UpdateEmailImplCopyWith(
-          _$UpdateEmailImpl value, $Res Function(_$UpdateEmailImpl) then) =
-      __$$UpdateEmailImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String email, String password});
 }
 
-/// @nodoc
-class __$$UpdateEmailImplCopyWithImpl<$Res>
-    extends _$UpdateEmailCopyWithImpl<$Res, _$UpdateEmailImpl>
-    implements _$$UpdateEmailImplCopyWith<$Res> {
-  __$$UpdateEmailImplCopyWithImpl(
-      _$UpdateEmailImpl _value, $Res Function(_$UpdateEmailImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = null,
-    Object? password = null,
-  }) {
-    return _then(_$UpdateEmailImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$UpdateEmailImpl extends _UpdateEmail {
-  const _$UpdateEmailImpl({required this.email, required this.password})
-      : super._();
 
-  factory _$UpdateEmailImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UpdateEmailImplFromJson(json);
+class _UpdateEmail implements UpdateEmail {
+  const _UpdateEmail({required this.email, required this.password});
+  factory _UpdateEmail.fromJson(Map<String, dynamic> json) => _$UpdateEmailFromJson(json);
 
-  @override
-  final String email;
-  @override
-  final String password;
+@override final  String email;
+@override final  String password;
 
-  @override
-  String toString() {
-    return 'UpdateEmail(email: $email, password: $password)';
-  }
+/// Create a copy of UpdateEmail
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$UpdateEmailCopyWith<_UpdateEmail> get copyWith => __$UpdateEmailCopyWithImpl<_UpdateEmail>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UpdateEmailImpl &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, email, password);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UpdateEmailImplCopyWith<_$UpdateEmailImpl> get copyWith =>
-      __$$UpdateEmailImplCopyWithImpl<_$UpdateEmailImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UpdateEmailImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$UpdateEmailToJson(this, );
 }
 
-abstract class _UpdateEmail extends UpdateEmail {
-  const factory _UpdateEmail(
-      {required final String email,
-      required final String password}) = _$UpdateEmailImpl;
-  const _UpdateEmail._() : super._();
-
-  factory _UpdateEmail.fromJson(Map<String, dynamic> json) =
-      _$UpdateEmailImpl.fromJson;
-
-  @override
-  String get email;
-  @override
-  String get password;
-  @override
-  @JsonKey(ignore: true)
-  _$$UpdateEmailImplCopyWith<_$UpdateEmailImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UpdateEmail&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,email,password);
+
+@override
+String toString() {
+  return 'UpdateEmail(email: $email, password: $password)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$UpdateEmailCopyWith<$Res> implements $UpdateEmailCopyWith<$Res> {
+  factory _$UpdateEmailCopyWith(_UpdateEmail value, $Res Function(_UpdateEmail) _then) = __$UpdateEmailCopyWithImpl;
+@override @useResult
+$Res call({
+ String email, String password
+});
+
+
+
+
+}
+/// @nodoc
+class __$UpdateEmailCopyWithImpl<$Res>
+    implements _$UpdateEmailCopyWith<$Res> {
+  __$UpdateEmailCopyWithImpl(this._self, this._then);
+
+  final _UpdateEmail _self;
+  final $Res Function(_UpdateEmail) _then;
+
+/// Create a copy of UpdateEmail
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? email = null,Object? password = null,}) {
+  return _then(_UpdateEmail(
+email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

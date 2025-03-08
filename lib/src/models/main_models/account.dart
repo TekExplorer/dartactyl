@@ -5,7 +5,7 @@ part '../../generated/models/main_models/account.freezed.dart';
 part '../../generated/models/main_models/account.g.dart';
 
 @freezed
-class Account with _$Account {
+abstract class Account with _$Account {
   const factory Account({
     required int id,
     @JsonKey(name: 'admin') required bool isAdmin,
@@ -15,7 +15,6 @@ class Account with _$Account {
     required String lastName,
     required String language,
   }) = _Account;
-  const Account._();
 
-  factory Account.fromJson(JsonMap json) = _Account.fromJson;
+  factory Account.fromJson(JsonMap json) => _$AccountFromJson(json);
 }

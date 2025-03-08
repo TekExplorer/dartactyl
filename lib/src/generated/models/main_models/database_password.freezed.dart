@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,147 +10,139 @@ part of '../../../models/main_models/database_password.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-DatabasePassword _$DatabasePasswordFromJson(Map<String, dynamic> json) {
-  return _DatabasePassword.fromJson(json);
-}
 
 /// @nodoc
 mixin _$DatabasePassword {
-  String get password => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $DatabasePasswordCopyWith<DatabasePassword> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get password;
+/// Create a copy of DatabasePassword
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DatabasePasswordCopyWith<DatabasePassword> get copyWith => _$DatabasePasswordCopyWithImpl<DatabasePassword>(this as DatabasePassword, _$identity);
+
+  /// Serializes this DatabasePassword to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DatabasePassword&&(identical(other.password, password) || other.password == password));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,password);
+
+@override
+String toString() {
+  return 'DatabasePassword(password: $password)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $DatabasePasswordCopyWith<$Res> {
-  factory $DatabasePasswordCopyWith(
-          DatabasePassword value, $Res Function(DatabasePassword) then) =
-      _$DatabasePasswordCopyWithImpl<$Res, DatabasePassword>;
-  @useResult
-  $Res call({String password});
-}
+abstract mixin class $DatabasePasswordCopyWith<$Res>  {
+  factory $DatabasePasswordCopyWith(DatabasePassword value, $Res Function(DatabasePassword) _then) = _$DatabasePasswordCopyWithImpl;
+@useResult
+$Res call({
+ String password
+});
 
+
+
+
+}
 /// @nodoc
-class _$DatabasePasswordCopyWithImpl<$Res, $Val extends DatabasePassword>
+class _$DatabasePasswordCopyWithImpl<$Res>
     implements $DatabasePasswordCopyWith<$Res> {
-  _$DatabasePasswordCopyWithImpl(this._value, this._then);
+  _$DatabasePasswordCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final DatabasePassword _self;
+  final $Res Function(DatabasePassword) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? password = null,
-  }) {
-    return _then(_value.copyWith(
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of DatabasePassword
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? password = null,}) {
+  return _then(_self.copyWith(
+password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$DatabasePasswordImplCopyWith<$Res>
-    implements $DatabasePasswordCopyWith<$Res> {
-  factory _$$DatabasePasswordImplCopyWith(_$DatabasePasswordImpl value,
-          $Res Function(_$DatabasePasswordImpl) then) =
-      __$$DatabasePasswordImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String password});
 }
 
-/// @nodoc
-class __$$DatabasePasswordImplCopyWithImpl<$Res>
-    extends _$DatabasePasswordCopyWithImpl<$Res, _$DatabasePasswordImpl>
-    implements _$$DatabasePasswordImplCopyWith<$Res> {
-  __$$DatabasePasswordImplCopyWithImpl(_$DatabasePasswordImpl _value,
-      $Res Function(_$DatabasePasswordImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? password = null,
-  }) {
-    return _then(_$DatabasePasswordImpl(
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$DatabasePasswordImpl extends _DatabasePassword {
-  const _$DatabasePasswordImpl({required this.password}) : super._();
 
-  factory _$DatabasePasswordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DatabasePasswordImplFromJson(json);
+class _DatabasePassword implements DatabasePassword {
+  const _DatabasePassword({required this.password});
+  factory _DatabasePassword.fromJson(Map<String, dynamic> json) => _$DatabasePasswordFromJson(json);
 
-  @override
-  final String password;
+@override final  String password;
 
-  @override
-  String toString() {
-    return 'DatabasePassword(password: $password)';
-  }
+/// Create a copy of DatabasePassword
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DatabasePasswordCopyWith<_DatabasePassword> get copyWith => __$DatabasePasswordCopyWithImpl<_DatabasePassword>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DatabasePasswordImpl &&
-            (identical(other.password, password) ||
-                other.password == password));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, password);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DatabasePasswordImplCopyWith<_$DatabasePasswordImpl> get copyWith =>
-      __$$DatabasePasswordImplCopyWithImpl<_$DatabasePasswordImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DatabasePasswordImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$DatabasePasswordToJson(this, );
 }
 
-abstract class _DatabasePassword extends DatabasePassword {
-  const factory _DatabasePassword({required final String password}) =
-      _$DatabasePasswordImpl;
-  const _DatabasePassword._() : super._();
-
-  factory _DatabasePassword.fromJson(Map<String, dynamic> json) =
-      _$DatabasePasswordImpl.fromJson;
-
-  @override
-  String get password;
-  @override
-  @JsonKey(ignore: true)
-  _$$DatabasePasswordImplCopyWith<_$DatabasePasswordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DatabasePassword&&(identical(other.password, password) || other.password == password));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,password);
+
+@override
+String toString() {
+  return 'DatabasePassword(password: $password)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DatabasePasswordCopyWith<$Res> implements $DatabasePasswordCopyWith<$Res> {
+  factory _$DatabasePasswordCopyWith(_DatabasePassword value, $Res Function(_DatabasePassword) _then) = __$DatabasePasswordCopyWithImpl;
+@override @useResult
+$Res call({
+ String password
+});
+
+
+
+
+}
+/// @nodoc
+class __$DatabasePasswordCopyWithImpl<$Res>
+    implements _$DatabasePasswordCopyWith<$Res> {
+  __$DatabasePasswordCopyWithImpl(this._self, this._then);
+
+  final _DatabasePassword _self;
+  final $Res Function(_DatabasePassword) _then;
+
+/// Create a copy of DatabasePassword
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? password = null,}) {
+  return _then(_DatabasePassword(
+password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

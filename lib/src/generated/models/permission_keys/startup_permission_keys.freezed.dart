@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,168 +10,142 @@ part of '../../../models/permission_keys/startup_permission_keys.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StartupPermissionKeys _$StartupPermissionKeysFromJson(
-    Map<String, dynamic> json) {
-  return _StartupPermissionKeys.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StartupPermissionKeys {
-  String get read => throw _privateConstructorUsedError;
-  String get update => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $StartupPermissionKeysCopyWith<StartupPermissionKeys> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get read; String get update;
+/// Create a copy of StartupPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$StartupPermissionKeysCopyWith<StartupPermissionKeys> get copyWith => _$StartupPermissionKeysCopyWithImpl<StartupPermissionKeys>(this as StartupPermissionKeys, _$identity);
+
+  /// Serializes this StartupPermissionKeys to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StartupPermissionKeys&&(identical(other.read, read) || other.read == read)&&(identical(other.update, update) || other.update == update));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,read,update);
+
+@override
+String toString() {
+  return 'StartupPermissionKeys(read: $read, update: $update)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $StartupPermissionKeysCopyWith<$Res> {
-  factory $StartupPermissionKeysCopyWith(StartupPermissionKeys value,
-          $Res Function(StartupPermissionKeys) then) =
-      _$StartupPermissionKeysCopyWithImpl<$Res, StartupPermissionKeys>;
-  @useResult
-  $Res call({String read, String update});
-}
+abstract mixin class $StartupPermissionKeysCopyWith<$Res>  {
+  factory $StartupPermissionKeysCopyWith(StartupPermissionKeys value, $Res Function(StartupPermissionKeys) _then) = _$StartupPermissionKeysCopyWithImpl;
+@useResult
+$Res call({
+ String read, String update
+});
 
+
+
+
+}
 /// @nodoc
-class _$StartupPermissionKeysCopyWithImpl<$Res,
-        $Val extends StartupPermissionKeys>
+class _$StartupPermissionKeysCopyWithImpl<$Res>
     implements $StartupPermissionKeysCopyWith<$Res> {
-  _$StartupPermissionKeysCopyWithImpl(this._value, this._then);
+  _$StartupPermissionKeysCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final StartupPermissionKeys _self;
+  final $Res Function(StartupPermissionKeys) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? read = null,
-    Object? update = null,
-  }) {
-    return _then(_value.copyWith(
-      read: null == read
-          ? _value.read
-          : read // ignore: cast_nullable_to_non_nullable
-              as String,
-      update: null == update
-          ? _value.update
-          : update // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of StartupPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? read = null,Object? update = null,}) {
+  return _then(_self.copyWith(
+read: null == read ? _self.read : read // ignore: cast_nullable_to_non_nullable
+as String,update: null == update ? _self.update : update // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$StartupPermissionKeysImplCopyWith<$Res>
-    implements $StartupPermissionKeysCopyWith<$Res> {
-  factory _$$StartupPermissionKeysImplCopyWith(
-          _$StartupPermissionKeysImpl value,
-          $Res Function(_$StartupPermissionKeysImpl) then) =
-      __$$StartupPermissionKeysImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String read, String update});
 }
 
-/// @nodoc
-class __$$StartupPermissionKeysImplCopyWithImpl<$Res>
-    extends _$StartupPermissionKeysCopyWithImpl<$Res,
-        _$StartupPermissionKeysImpl>
-    implements _$$StartupPermissionKeysImplCopyWith<$Res> {
-  __$$StartupPermissionKeysImplCopyWithImpl(_$StartupPermissionKeysImpl _value,
-      $Res Function(_$StartupPermissionKeysImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? read = null,
-    Object? update = null,
-  }) {
-    return _then(_$StartupPermissionKeysImpl(
-      read: null == read
-          ? _value.read
-          : read // ignore: cast_nullable_to_non_nullable
-              as String,
-      update: null == update
-          ? _value.update
-          : update // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$StartupPermissionKeysImpl extends _StartupPermissionKeys {
-  const _$StartupPermissionKeysImpl({required this.read, required this.update})
-      : super._();
 
-  factory _$StartupPermissionKeysImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StartupPermissionKeysImplFromJson(json);
+class _StartupPermissionKeys implements StartupPermissionKeys {
+  const _StartupPermissionKeys({required this.read, required this.update});
+  factory _StartupPermissionKeys.fromJson(Map<String, dynamic> json) => _$StartupPermissionKeysFromJson(json);
 
-  @override
-  final String read;
-  @override
-  final String update;
+@override final  String read;
+@override final  String update;
 
-  @override
-  String toString() {
-    return 'StartupPermissionKeys(read: $read, update: $update)';
-  }
+/// Create a copy of StartupPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$StartupPermissionKeysCopyWith<_StartupPermissionKeys> get copyWith => __$StartupPermissionKeysCopyWithImpl<_StartupPermissionKeys>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$StartupPermissionKeysImpl &&
-            (identical(other.read, read) || other.read == read) &&
-            (identical(other.update, update) || other.update == update));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, read, update);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$StartupPermissionKeysImplCopyWith<_$StartupPermissionKeysImpl>
-      get copyWith => __$$StartupPermissionKeysImplCopyWithImpl<
-          _$StartupPermissionKeysImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StartupPermissionKeysImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$StartupPermissionKeysToJson(this, );
 }
 
-abstract class _StartupPermissionKeys extends StartupPermissionKeys {
-  const factory _StartupPermissionKeys(
-      {required final String read,
-      required final String update}) = _$StartupPermissionKeysImpl;
-  const _StartupPermissionKeys._() : super._();
-
-  factory _StartupPermissionKeys.fromJson(Map<String, dynamic> json) =
-      _$StartupPermissionKeysImpl.fromJson;
-
-  @override
-  String get read;
-  @override
-  String get update;
-  @override
-  @JsonKey(ignore: true)
-  _$$StartupPermissionKeysImplCopyWith<_$StartupPermissionKeysImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _StartupPermissionKeys&&(identical(other.read, read) || other.read == read)&&(identical(other.update, update) || other.update == update));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,read,update);
+
+@override
+String toString() {
+  return 'StartupPermissionKeys(read: $read, update: $update)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$StartupPermissionKeysCopyWith<$Res> implements $StartupPermissionKeysCopyWith<$Res> {
+  factory _$StartupPermissionKeysCopyWith(_StartupPermissionKeys value, $Res Function(_StartupPermissionKeys) _then) = __$StartupPermissionKeysCopyWithImpl;
+@override @useResult
+$Res call({
+ String read, String update
+});
+
+
+
+
+}
+/// @nodoc
+class __$StartupPermissionKeysCopyWithImpl<$Res>
+    implements _$StartupPermissionKeysCopyWith<$Res> {
+  __$StartupPermissionKeysCopyWithImpl(this._self, this._then);
+
+  final _StartupPermissionKeys _self;
+  final $Res Function(_StartupPermissionKeys) _then;
+
+/// Create a copy of StartupPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? read = null,Object? update = null,}) {
+  return _then(_StartupPermissionKeys(
+read: null == read ? _self.read : read // ignore: cast_nullable_to_non_nullable
+as String,update: null == update ? _self.update : update // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

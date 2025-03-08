@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,146 +10,139 @@ part of '../../../models/request_models/delete_ssh_key.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-DeleteSSHKey _$DeleteSSHKeyFromJson(Map<String, dynamic> json) {
-  return _DeleteSSHKey.fromJson(json);
-}
 
 /// @nodoc
 mixin _$DeleteSSHKey {
-  String get fingerprint => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $DeleteSSHKeyCopyWith<DeleteSSHKey> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get fingerprint;
+/// Create a copy of DeleteSSHKey
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DeleteSSHKeyCopyWith<DeleteSSHKey> get copyWith => _$DeleteSSHKeyCopyWithImpl<DeleteSSHKey>(this as DeleteSSHKey, _$identity);
+
+  /// Serializes this DeleteSSHKey to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeleteSSHKey&&(identical(other.fingerprint, fingerprint) || other.fingerprint == fingerprint));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,fingerprint);
+
+@override
+String toString() {
+  return 'DeleteSSHKey(fingerprint: $fingerprint)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $DeleteSSHKeyCopyWith<$Res> {
-  factory $DeleteSSHKeyCopyWith(
-          DeleteSSHKey value, $Res Function(DeleteSSHKey) then) =
-      _$DeleteSSHKeyCopyWithImpl<$Res, DeleteSSHKey>;
-  @useResult
-  $Res call({String fingerprint});
-}
+abstract mixin class $DeleteSSHKeyCopyWith<$Res>  {
+  factory $DeleteSSHKeyCopyWith(DeleteSSHKey value, $Res Function(DeleteSSHKey) _then) = _$DeleteSSHKeyCopyWithImpl;
+@useResult
+$Res call({
+ String fingerprint
+});
 
+
+
+
+}
 /// @nodoc
-class _$DeleteSSHKeyCopyWithImpl<$Res, $Val extends DeleteSSHKey>
+class _$DeleteSSHKeyCopyWithImpl<$Res>
     implements $DeleteSSHKeyCopyWith<$Res> {
-  _$DeleteSSHKeyCopyWithImpl(this._value, this._then);
+  _$DeleteSSHKeyCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final DeleteSSHKey _self;
+  final $Res Function(DeleteSSHKey) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? fingerprint = null,
-  }) {
-    return _then(_value.copyWith(
-      fingerprint: null == fingerprint
-          ? _value.fingerprint
-          : fingerprint // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of DeleteSSHKey
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? fingerprint = null,}) {
+  return _then(_self.copyWith(
+fingerprint: null == fingerprint ? _self.fingerprint : fingerprint // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$DeleteSSHKeyImplCopyWith<$Res>
-    implements $DeleteSSHKeyCopyWith<$Res> {
-  factory _$$DeleteSSHKeyImplCopyWith(
-          _$DeleteSSHKeyImpl value, $Res Function(_$DeleteSSHKeyImpl) then) =
-      __$$DeleteSSHKeyImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String fingerprint});
 }
 
-/// @nodoc
-class __$$DeleteSSHKeyImplCopyWithImpl<$Res>
-    extends _$DeleteSSHKeyCopyWithImpl<$Res, _$DeleteSSHKeyImpl>
-    implements _$$DeleteSSHKeyImplCopyWith<$Res> {
-  __$$DeleteSSHKeyImplCopyWithImpl(
-      _$DeleteSSHKeyImpl _value, $Res Function(_$DeleteSSHKeyImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? fingerprint = null,
-  }) {
-    return _then(_$DeleteSSHKeyImpl(
-      fingerprint: null == fingerprint
-          ? _value.fingerprint
-          : fingerprint // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$DeleteSSHKeyImpl extends _DeleteSSHKey {
-  const _$DeleteSSHKeyImpl({required this.fingerprint}) : super._();
 
-  factory _$DeleteSSHKeyImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DeleteSSHKeyImplFromJson(json);
+class _DeleteSSHKey implements DeleteSSHKey {
+  const _DeleteSSHKey({required this.fingerprint});
+  factory _DeleteSSHKey.fromJson(Map<String, dynamic> json) => _$DeleteSSHKeyFromJson(json);
 
-  @override
-  final String fingerprint;
+@override final  String fingerprint;
 
-  @override
-  String toString() {
-    return 'DeleteSSHKey(fingerprint: $fingerprint)';
-  }
+/// Create a copy of DeleteSSHKey
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DeleteSSHKeyCopyWith<_DeleteSSHKey> get copyWith => __$DeleteSSHKeyCopyWithImpl<_DeleteSSHKey>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DeleteSSHKeyImpl &&
-            (identical(other.fingerprint, fingerprint) ||
-                other.fingerprint == fingerprint));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, fingerprint);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DeleteSSHKeyImplCopyWith<_$DeleteSSHKeyImpl> get copyWith =>
-      __$$DeleteSSHKeyImplCopyWithImpl<_$DeleteSSHKeyImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DeleteSSHKeyImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$DeleteSSHKeyToJson(this, );
 }
 
-abstract class _DeleteSSHKey extends DeleteSSHKey {
-  const factory _DeleteSSHKey({required final String fingerprint}) =
-      _$DeleteSSHKeyImpl;
-  const _DeleteSSHKey._() : super._();
-
-  factory _DeleteSSHKey.fromJson(Map<String, dynamic> json) =
-      _$DeleteSSHKeyImpl.fromJson;
-
-  @override
-  String get fingerprint;
-  @override
-  @JsonKey(ignore: true)
-  _$$DeleteSSHKeyImplCopyWith<_$DeleteSSHKeyImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DeleteSSHKey&&(identical(other.fingerprint, fingerprint) || other.fingerprint == fingerprint));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,fingerprint);
+
+@override
+String toString() {
+  return 'DeleteSSHKey(fingerprint: $fingerprint)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DeleteSSHKeyCopyWith<$Res> implements $DeleteSSHKeyCopyWith<$Res> {
+  factory _$DeleteSSHKeyCopyWith(_DeleteSSHKey value, $Res Function(_DeleteSSHKey) _then) = __$DeleteSSHKeyCopyWithImpl;
+@override @useResult
+$Res call({
+ String fingerprint
+});
+
+
+
+
+}
+/// @nodoc
+class __$DeleteSSHKeyCopyWithImpl<$Res>
+    implements _$DeleteSSHKeyCopyWith<$Res> {
+  __$DeleteSSHKeyCopyWithImpl(this._self, this._then);
+
+  final _DeleteSSHKey _self;
+  final $Res Function(_DeleteSSHKey) _then;
+
+/// Create a copy of DeleteSSHKey
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? fingerprint = null,}) {
+  return _then(_DeleteSSHKey(
+fingerprint: null == fingerprint ? _self.fingerprint : fingerprint // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -5,7 +5,7 @@ part '../../generated/models/application_models/nest.freezed.dart';
 part '../../generated/models/application_models/nest.g.dart';
 
 @freezed
-class Nest with _$Nest {
+abstract class Nest with _$Nest {
   const factory Nest({
     required int id,
     required String uuid,
@@ -15,6 +15,6 @@ class Nest with _$Nest {
     required DateTime createdAt,
     required DateTime updatedAt,
   }) = _Nest;
-  const Nest._();
-  factory Nest.fromJson(JsonMap json) = _Nest.fromJson;
+
+  factory Nest.fromJson(JsonMap json) => _$NestFromJson(json);
 }

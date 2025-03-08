@@ -5,12 +5,10 @@ part '../../generated/models/permission_keys/control_permission_keys.freezed.dar
 part '../../generated/models/permission_keys/control_permission_keys.g.dart';
 
 @freezed
-class ControlPermissionKeys with _$ControlPermissionKeys {
-  const factory ControlPermissionKeys({
-    required String connect,
-  }) = _ControlPermissionKeys;
-  const ControlPermissionKeys._();
+abstract class ControlPermissionKeys with _$ControlPermissionKeys {
+  const factory ControlPermissionKeys({required String connect}) =
+      _ControlPermissionKeys;
 
-  factory ControlPermissionKeys.fromJson(JsonMap json) =
-      _ControlPermissionKeys.fromJson;
+  factory ControlPermissionKeys.fromJson(JsonMap json) =>
+      _$ControlPermissionKeysFromJson(json);
 }

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,144 +10,139 @@ part of '../../../models/request_models/two_factor_code.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-TwoFactorCode _$TwoFactorCodeFromJson(Map<String, dynamic> json) {
-  return _TwoFactorCode.fromJson(json);
-}
 
 /// @nodoc
 mixin _$TwoFactorCode {
-  int get code => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $TwoFactorCodeCopyWith<TwoFactorCode> get copyWith =>
-      throw _privateConstructorUsedError;
+ int get code;
+/// Create a copy of TwoFactorCode
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$TwoFactorCodeCopyWith<TwoFactorCode> get copyWith => _$TwoFactorCodeCopyWithImpl<TwoFactorCode>(this as TwoFactorCode, _$identity);
+
+  /// Serializes this TwoFactorCode to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TwoFactorCode&&(identical(other.code, code) || other.code == code));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,code);
+
+@override
+String toString() {
+  return 'TwoFactorCode(code: $code)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $TwoFactorCodeCopyWith<$Res> {
-  factory $TwoFactorCodeCopyWith(
-          TwoFactorCode value, $Res Function(TwoFactorCode) then) =
-      _$TwoFactorCodeCopyWithImpl<$Res, TwoFactorCode>;
-  @useResult
-  $Res call({int code});
-}
+abstract mixin class $TwoFactorCodeCopyWith<$Res>  {
+  factory $TwoFactorCodeCopyWith(TwoFactorCode value, $Res Function(TwoFactorCode) _then) = _$TwoFactorCodeCopyWithImpl;
+@useResult
+$Res call({
+ int code
+});
 
+
+
+
+}
 /// @nodoc
-class _$TwoFactorCodeCopyWithImpl<$Res, $Val extends TwoFactorCode>
+class _$TwoFactorCodeCopyWithImpl<$Res>
     implements $TwoFactorCodeCopyWith<$Res> {
-  _$TwoFactorCodeCopyWithImpl(this._value, this._then);
+  _$TwoFactorCodeCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final TwoFactorCode _self;
+  final $Res Function(TwoFactorCode) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? code = null,
-  }) {
-    return _then(_value.copyWith(
-      code: null == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
+/// Create a copy of TwoFactorCode
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? code = null,}) {
+  return _then(_self.copyWith(
+code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
 }
 
-/// @nodoc
-abstract class _$$TwoFactorCodeImplCopyWith<$Res>
-    implements $TwoFactorCodeCopyWith<$Res> {
-  factory _$$TwoFactorCodeImplCopyWith(
-          _$TwoFactorCodeImpl value, $Res Function(_$TwoFactorCodeImpl) then) =
-      __$$TwoFactorCodeImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int code});
 }
 
-/// @nodoc
-class __$$TwoFactorCodeImplCopyWithImpl<$Res>
-    extends _$TwoFactorCodeCopyWithImpl<$Res, _$TwoFactorCodeImpl>
-    implements _$$TwoFactorCodeImplCopyWith<$Res> {
-  __$$TwoFactorCodeImplCopyWithImpl(
-      _$TwoFactorCodeImpl _value, $Res Function(_$TwoFactorCodeImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? code = null,
-  }) {
-    return _then(_$TwoFactorCodeImpl(
-      code: null == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$TwoFactorCodeImpl extends _TwoFactorCode {
-  const _$TwoFactorCodeImpl({required this.code}) : super._();
 
-  factory _$TwoFactorCodeImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TwoFactorCodeImplFromJson(json);
+class _TwoFactorCode implements TwoFactorCode {
+  const _TwoFactorCode({required this.code});
+  factory _TwoFactorCode.fromJson(Map<String, dynamic> json) => _$TwoFactorCodeFromJson(json);
 
-  @override
-  final int code;
+@override final  int code;
 
-  @override
-  String toString() {
-    return 'TwoFactorCode(code: $code)';
-  }
+/// Create a copy of TwoFactorCode
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$TwoFactorCodeCopyWith<_TwoFactorCode> get copyWith => __$TwoFactorCodeCopyWithImpl<_TwoFactorCode>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TwoFactorCodeImpl &&
-            (identical(other.code, code) || other.code == code));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, code);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TwoFactorCodeImplCopyWith<_$TwoFactorCodeImpl> get copyWith =>
-      __$$TwoFactorCodeImplCopyWithImpl<_$TwoFactorCodeImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TwoFactorCodeImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$TwoFactorCodeToJson(this, );
 }
 
-abstract class _TwoFactorCode extends TwoFactorCode {
-  const factory _TwoFactorCode({required final int code}) = _$TwoFactorCodeImpl;
-  const _TwoFactorCode._() : super._();
-
-  factory _TwoFactorCode.fromJson(Map<String, dynamic> json) =
-      _$TwoFactorCodeImpl.fromJson;
-
-  @override
-  int get code;
-  @override
-  @JsonKey(ignore: true)
-  _$$TwoFactorCodeImplCopyWith<_$TwoFactorCodeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TwoFactorCode&&(identical(other.code, code) || other.code == code));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,code);
+
+@override
+String toString() {
+  return 'TwoFactorCode(code: $code)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$TwoFactorCodeCopyWith<$Res> implements $TwoFactorCodeCopyWith<$Res> {
+  factory _$TwoFactorCodeCopyWith(_TwoFactorCode value, $Res Function(_TwoFactorCode) _then) = __$TwoFactorCodeCopyWithImpl;
+@override @useResult
+$Res call({
+ int code
+});
+
+
+
+
+}
+/// @nodoc
+class __$TwoFactorCodeCopyWithImpl<$Res>
+    implements _$TwoFactorCodeCopyWith<$Res> {
+  __$TwoFactorCodeCopyWithImpl(this._self, this._then);
+
+  final _TwoFactorCode _self;
+  final $Res Function(_TwoFactorCode) _then;
+
+/// Create a copy of TwoFactorCode
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? code = null,}) {
+  return _then(_TwoFactorCode(
+code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+// dart format on

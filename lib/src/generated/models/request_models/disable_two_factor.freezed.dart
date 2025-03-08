@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,165 +10,142 @@ part of '../../../models/request_models/disable_two_factor.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-DisableTwoFactor _$DisableTwoFactorFromJson(Map<String, dynamic> json) {
-  return _DisableTwoFactor.fromJson(json);
-}
 
 /// @nodoc
 mixin _$DisableTwoFactor {
-  String get email => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $DisableTwoFactorCopyWith<DisableTwoFactor> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get email; String get password;
+/// Create a copy of DisableTwoFactor
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DisableTwoFactorCopyWith<DisableTwoFactor> get copyWith => _$DisableTwoFactorCopyWithImpl<DisableTwoFactor>(this as DisableTwoFactor, _$identity);
+
+  /// Serializes this DisableTwoFactor to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DisableTwoFactor&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,email,password);
+
+@override
+String toString() {
+  return 'DisableTwoFactor(email: $email, password: $password)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $DisableTwoFactorCopyWith<$Res> {
-  factory $DisableTwoFactorCopyWith(
-          DisableTwoFactor value, $Res Function(DisableTwoFactor) then) =
-      _$DisableTwoFactorCopyWithImpl<$Res, DisableTwoFactor>;
-  @useResult
-  $Res call({String email, String password});
-}
+abstract mixin class $DisableTwoFactorCopyWith<$Res>  {
+  factory $DisableTwoFactorCopyWith(DisableTwoFactor value, $Res Function(DisableTwoFactor) _then) = _$DisableTwoFactorCopyWithImpl;
+@useResult
+$Res call({
+ String email, String password
+});
 
+
+
+
+}
 /// @nodoc
-class _$DisableTwoFactorCopyWithImpl<$Res, $Val extends DisableTwoFactor>
+class _$DisableTwoFactorCopyWithImpl<$Res>
     implements $DisableTwoFactorCopyWith<$Res> {
-  _$DisableTwoFactorCopyWithImpl(this._value, this._then);
+  _$DisableTwoFactorCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final DisableTwoFactor _self;
+  final $Res Function(DisableTwoFactor) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = null,
-    Object? password = null,
-  }) {
-    return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of DisableTwoFactor
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? email = null,Object? password = null,}) {
+  return _then(_self.copyWith(
+email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$DisableTwoFactorImplCopyWith<$Res>
-    implements $DisableTwoFactorCopyWith<$Res> {
-  factory _$$DisableTwoFactorImplCopyWith(_$DisableTwoFactorImpl value,
-          $Res Function(_$DisableTwoFactorImpl) then) =
-      __$$DisableTwoFactorImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String email, String password});
 }
 
-/// @nodoc
-class __$$DisableTwoFactorImplCopyWithImpl<$Res>
-    extends _$DisableTwoFactorCopyWithImpl<$Res, _$DisableTwoFactorImpl>
-    implements _$$DisableTwoFactorImplCopyWith<$Res> {
-  __$$DisableTwoFactorImplCopyWithImpl(_$DisableTwoFactorImpl _value,
-      $Res Function(_$DisableTwoFactorImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = null,
-    Object? password = null,
-  }) {
-    return _then(_$DisableTwoFactorImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$DisableTwoFactorImpl extends _DisableTwoFactor {
-  const _$DisableTwoFactorImpl({required this.email, required this.password})
-      : super._();
 
-  factory _$DisableTwoFactorImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DisableTwoFactorImplFromJson(json);
+class _DisableTwoFactor implements DisableTwoFactor {
+  const _DisableTwoFactor({required this.email, required this.password});
+  factory _DisableTwoFactor.fromJson(Map<String, dynamic> json) => _$DisableTwoFactorFromJson(json);
 
-  @override
-  final String email;
-  @override
-  final String password;
+@override final  String email;
+@override final  String password;
 
-  @override
-  String toString() {
-    return 'DisableTwoFactor(email: $email, password: $password)';
-  }
+/// Create a copy of DisableTwoFactor
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DisableTwoFactorCopyWith<_DisableTwoFactor> get copyWith => __$DisableTwoFactorCopyWithImpl<_DisableTwoFactor>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DisableTwoFactorImpl &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, email, password);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DisableTwoFactorImplCopyWith<_$DisableTwoFactorImpl> get copyWith =>
-      __$$DisableTwoFactorImplCopyWithImpl<_$DisableTwoFactorImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DisableTwoFactorImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$DisableTwoFactorToJson(this, );
 }
 
-abstract class _DisableTwoFactor extends DisableTwoFactor {
-  const factory _DisableTwoFactor(
-      {required final String email,
-      required final String password}) = _$DisableTwoFactorImpl;
-  const _DisableTwoFactor._() : super._();
-
-  factory _DisableTwoFactor.fromJson(Map<String, dynamic> json) =
-      _$DisableTwoFactorImpl.fromJson;
-
-  @override
-  String get email;
-  @override
-  String get password;
-  @override
-  @JsonKey(ignore: true)
-  _$$DisableTwoFactorImplCopyWith<_$DisableTwoFactorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DisableTwoFactor&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,email,password);
+
+@override
+String toString() {
+  return 'DisableTwoFactor(email: $email, password: $password)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DisableTwoFactorCopyWith<$Res> implements $DisableTwoFactorCopyWith<$Res> {
+  factory _$DisableTwoFactorCopyWith(_DisableTwoFactor value, $Res Function(_DisableTwoFactor) _then) = __$DisableTwoFactorCopyWithImpl;
+@override @useResult
+$Res call({
+ String email, String password
+});
+
+
+
+
+}
+/// @nodoc
+class __$DisableTwoFactorCopyWithImpl<$Res>
+    implements _$DisableTwoFactorCopyWith<$Res> {
+  __$DisableTwoFactorCopyWithImpl(this._self, this._then);
+
+  final _DisableTwoFactor _self;
+  final $Res Function(_DisableTwoFactor) _then;
+
+/// Create a copy of DisableTwoFactor
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? email = null,Object? password = null,}) {
+  return _then(_DisableTwoFactor(
+email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -5,14 +5,14 @@ part '../../generated/models/main_models/pagination.freezed.dart';
 part '../../generated/models/main_models/pagination.g.dart';
 
 @freezed
-class Links with _$Links {
+abstract class Links with _$Links {
   const factory Links({String? previous, String? next}) = _Links;
-  const Links._();
-  factory Links.fromJson(JsonMap json) = _Links.fromJson;
+
+  factory Links.fromJson(JsonMap json) => _$LinksFromJson(json);
 }
 
 @freezed
-class Pagination with _$Pagination {
+abstract class Pagination with _$Pagination {
   const factory Pagination({
     required int total,
     required int count,
@@ -21,6 +21,6 @@ class Pagination with _$Pagination {
     required int totalPages,
     required Links links,
   }) = _Pagination;
-  const Pagination._();
-  factory Pagination.fromJson(JsonMap json) = _Pagination.fromJson;
+
+  factory Pagination.fromJson(JsonMap json) => _$PaginationFromJson(json);
 }

@@ -6,7 +6,7 @@ part '../../generated/models/main_models/backup.freezed.dart';
 part '../../generated/models/main_models/backup.g.dart';
 
 @freezed
-class Backup with _$Backup {
+abstract class Backup with _$Backup {
   const factory Backup({
     required String uuid,
     required bool isSuccessful,
@@ -18,7 +18,6 @@ class Backup with _$Backup {
     required DateTime createdAt,
     DateTime? completedAt,
   }) = _Backup;
-  const Backup._();
 
-  factory Backup.fromJson(JsonMap json) = _Backup.fromJson;
+  factory Backup.fromJson(JsonMap json) => _$BackupFromJson(json);
 }

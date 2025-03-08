@@ -6,7 +6,7 @@ part '../../generated/models/main_models/server_subuser.freezed.dart';
 part '../../generated/models/main_models/server_subuser.g.dart';
 
 @freezed
-class ServerSubuser with _$ServerSubuser {
+abstract class ServerSubuser with _$ServerSubuser {
   const factory ServerSubuser({
     required String uuid,
     required String username,
@@ -17,7 +17,5 @@ class ServerSubuser with _$ServerSubuser {
     required IList<String> permissions,
   }) = _ServerSubuser;
 
-  const ServerSubuser._();
-
-  factory ServerSubuser.fromJson(JsonMap json) = _ServerSubuser.fromJson;
+  factory ServerSubuser.fromJson(JsonMap json) => _$ServerSubuserFromJson(json);
 }

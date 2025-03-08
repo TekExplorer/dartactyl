@@ -6,27 +6,37 @@ part of '../../../models/main_models/server_schedule.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ServerScheduleImpl _$$ServerScheduleImplFromJson(Map<String, dynamic> json) =>
+_ServerSchedule _$ServerScheduleFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$ServerScheduleImpl',
+      '_ServerSchedule',
       json,
       ($checkedConvert) {
-        final val = _$ServerScheduleImpl(
+        final val = _ServerSchedule(
           id: $checkedConvert('id', (v) => (v as num).toInt()),
           name: $checkedConvert('name', (v) => v as String),
           cron: $checkedConvert(
-              'cron', (v) => Cron.fromJson(v as Map<String, dynamic>)),
+            'cron',
+            (v) => Cron.fromJson(v as Map<String, dynamic>),
+          ),
           isActive: $checkedConvert('is_active', (v) => v as bool),
           isProcessing: $checkedConvert('is_processing', (v) => v as bool),
           onlyWhenOnline: $checkedConvert('only_when_online', (v) => v as bool),
-          lastRunAt: $checkedConvert('last_run_at',
-              (v) => v == null ? null : DateTime.parse(v as String)),
-          nextRunAt: $checkedConvert('next_run_at',
-              (v) => v == null ? null : DateTime.parse(v as String)),
-          createdAt:
-              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
-          updatedAt:
-              $checkedConvert('updated_at', (v) => DateTime.parse(v as String)),
+          lastRunAt: $checkedConvert(
+            'last_run_at',
+            (v) => v == null ? null : DateTime.parse(v as String),
+          ),
+          nextRunAt: $checkedConvert(
+            'next_run_at',
+            (v) => v == null ? null : DateTime.parse(v as String),
+          ),
+          createdAt: $checkedConvert(
+            'created_at',
+            (v) => DateTime.parse(v as String),
+          ),
+          updatedAt: $checkedConvert(
+            'updated_at',
+            (v) => DateTime.parse(v as String),
+          ),
         );
         return val;
       },
@@ -37,12 +47,11 @@ _$ServerScheduleImpl _$$ServerScheduleImplFromJson(Map<String, dynamic> json) =>
         'lastRunAt': 'last_run_at',
         'nextRunAt': 'next_run_at',
         'createdAt': 'created_at',
-        'updatedAt': 'updated_at'
+        'updatedAt': 'updated_at',
       },
     );
 
-Map<String, dynamic> _$$ServerScheduleImplToJson(
-        _$ServerScheduleImpl instance) =>
+Map<String, dynamic> _$ServerScheduleToJson(_ServerSchedule instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

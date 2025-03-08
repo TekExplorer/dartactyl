@@ -5,12 +5,8 @@ part '../../generated/models/request_models/from_to.freezed.dart';
 part '../../generated/models/request_models/from_to.g.dart';
 
 @freezed
-class FromTo with _$FromTo {
-  const factory FromTo({
-    required String from,
-    required String to,
-  }) = _FromTo;
-  const FromTo._();
+abstract class FromTo with _$FromTo {
+  const factory FromTo({required String from, required String to}) = _FromTo;
 
-  factory FromTo.fromJson(JsonMap json) = _FromTo.fromJson;
+  factory FromTo.fromJson(JsonMap json) => _$FromToFromJson(json);
 }

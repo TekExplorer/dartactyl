@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,695 +10,331 @@ part of '../../../websocket_legacy/models/websocket_log.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$WebsocketLog {
-  String get message => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String message) console,
-    required TResult Function(String message) install,
-    required TResult Function(String message) transfer,
-    required TResult Function(String message) daemon,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message)? console,
-    TResult? Function(String message)? install,
-    TResult? Function(String message)? transfer,
-    TResult? Function(String message)? daemon,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message)? console,
-    TResult Function(String message)? install,
-    TResult Function(String message)? transfer,
-    TResult Function(String message)? daemon,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ConsoleLog value) console,
-    required TResult Function(InstallLog value) install,
-    required TResult Function(TransferLog value) transfer,
-    required TResult Function(DaemonMessage value) daemon,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ConsoleLog value)? console,
-    TResult? Function(InstallLog value)? install,
-    TResult? Function(TransferLog value)? transfer,
-    TResult? Function(DaemonMessage value)? daemon,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ConsoleLog value)? console,
-    TResult Function(InstallLog value)? install,
-    TResult Function(TransferLog value)? transfer,
-    TResult Function(DaemonMessage value)? daemon,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
-  $WebsocketLogCopyWith<WebsocketLog> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get message;
+/// Create a copy of WebsocketLog
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$WebsocketLogCopyWith<WebsocketLog> get copyWith => _$WebsocketLogCopyWithImpl<WebsocketLog>(this as WebsocketLog, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WebsocketLog&&(identical(other.message, message) || other.message == message));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,message);
+
+@override
+String toString() {
+  return 'WebsocketLog(message: $message)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $WebsocketLogCopyWith<$Res> {
-  factory $WebsocketLogCopyWith(
-          WebsocketLog value, $Res Function(WebsocketLog) then) =
-      _$WebsocketLogCopyWithImpl<$Res, WebsocketLog>;
-  @useResult
-  $Res call({String message});
-}
+abstract mixin class $WebsocketLogCopyWith<$Res>  {
+  factory $WebsocketLogCopyWith(WebsocketLog value, $Res Function(WebsocketLog) _then) = _$WebsocketLogCopyWithImpl;
+@useResult
+$Res call({
+ String message
+});
 
+
+
+
+}
 /// @nodoc
-class _$WebsocketLogCopyWithImpl<$Res, $Val extends WebsocketLog>
+class _$WebsocketLogCopyWithImpl<$Res>
     implements $WebsocketLogCopyWith<$Res> {
-  _$WebsocketLogCopyWithImpl(this._value, this._then);
+  _$WebsocketLogCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final WebsocketLog _self;
+  final $Res Function(WebsocketLog) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_value.copyWith(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of WebsocketLog
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? message = null,}) {
+  return _then(_self.copyWith(
+message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ConsoleLogImplCopyWith<$Res>
-    implements $WebsocketLogCopyWith<$Res> {
-  factory _$$ConsoleLogImplCopyWith(
-          _$ConsoleLogImpl value, $Res Function(_$ConsoleLogImpl) then) =
-      __$$ConsoleLogImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String message});
 }
 
-/// @nodoc
-class __$$ConsoleLogImplCopyWithImpl<$Res>
-    extends _$WebsocketLogCopyWithImpl<$Res, _$ConsoleLogImpl>
-    implements _$$ConsoleLogImplCopyWith<$Res> {
-  __$$ConsoleLogImplCopyWithImpl(
-      _$ConsoleLogImpl _value, $Res Function(_$ConsoleLogImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$ConsoleLogImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$ConsoleLogImpl implements ConsoleLog {
-  const _$ConsoleLogImpl(this.message);
 
-  @override
-  final String message;
+class ConsoleLog implements WebsocketLog {
+  const ConsoleLog(this.message);
+  
 
-  @override
-  String toString() {
-    return 'WebsocketLog.console(message: $message)';
-  }
+@override final  String message;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ConsoleLogImpl &&
-            (identical(other.message, message) || other.message == message));
-  }
+/// Create a copy of WebsocketLog
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ConsoleLogCopyWith<ConsoleLog> get copyWith => _$ConsoleLogCopyWithImpl<ConsoleLog>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ConsoleLogImplCopyWith<_$ConsoleLogImpl> get copyWith =>
-      __$$ConsoleLogImplCopyWithImpl<_$ConsoleLogImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String message) console,
-    required TResult Function(String message) install,
-    required TResult Function(String message) transfer,
-    required TResult Function(String message) daemon,
-  }) {
-    return console(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message)? console,
-    TResult? Function(String message)? install,
-    TResult? Function(String message)? transfer,
-    TResult? Function(String message)? daemon,
-  }) {
-    return console?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message)? console,
-    TResult Function(String message)? install,
-    TResult Function(String message)? transfer,
-    TResult Function(String message)? daemon,
-    required TResult orElse(),
-  }) {
-    if (console != null) {
-      return console(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ConsoleLog value) console,
-    required TResult Function(InstallLog value) install,
-    required TResult Function(TransferLog value) transfer,
-    required TResult Function(DaemonMessage value) daemon,
-  }) {
-    return console(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ConsoleLog value)? console,
-    TResult? Function(InstallLog value)? install,
-    TResult? Function(TransferLog value)? transfer,
-    TResult? Function(DaemonMessage value)? daemon,
-  }) {
-    return console?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ConsoleLog value)? console,
-    TResult Function(InstallLog value)? install,
-    TResult Function(TransferLog value)? transfer,
-    TResult Function(DaemonMessage value)? daemon,
-    required TResult orElse(),
-  }) {
-    if (console != null) {
-      return console(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ConsoleLog&&(identical(other.message, message) || other.message == message));
 }
 
-abstract class ConsoleLog implements WebsocketLog {
-  const factory ConsoleLog(final String message) = _$ConsoleLogImpl;
 
-  @override
-  String get message;
-  @override
-  @JsonKey(ignore: true)
-  _$$ConsoleLogImplCopyWith<_$ConsoleLogImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+int get hashCode => Object.hash(runtimeType,message);
+
+@override
+String toString() {
+  return 'WebsocketLog.console(message: $message)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$InstallLogImplCopyWith<$Res>
-    implements $WebsocketLogCopyWith<$Res> {
-  factory _$$InstallLogImplCopyWith(
-          _$InstallLogImpl value, $Res Function(_$InstallLogImpl) then) =
-      __$$InstallLogImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String message});
+abstract mixin class $ConsoleLogCopyWith<$Res> implements $WebsocketLogCopyWith<$Res> {
+  factory $ConsoleLogCopyWith(ConsoleLog value, $Res Function(ConsoleLog) _then) = _$ConsoleLogCopyWithImpl;
+@override @useResult
+$Res call({
+ String message
+});
+
+
+
+
+}
+/// @nodoc
+class _$ConsoleLogCopyWithImpl<$Res>
+    implements $ConsoleLogCopyWith<$Res> {
+  _$ConsoleLogCopyWithImpl(this._self, this._then);
+
+  final ConsoleLog _self;
+  final $Res Function(ConsoleLog) _then;
+
+/// Create a copy of WebsocketLog
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
+  return _then(ConsoleLog(
+null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-class __$$InstallLogImplCopyWithImpl<$Res>
-    extends _$WebsocketLogCopyWithImpl<$Res, _$InstallLogImpl>
-    implements _$$InstallLogImplCopyWith<$Res> {
-  __$$InstallLogImplCopyWithImpl(
-      _$InstallLogImpl _value, $Res Function(_$InstallLogImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$InstallLogImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$InstallLogImpl implements InstallLog {
-  const _$InstallLogImpl(this.message);
 
-  @override
-  final String message;
+class InstallLog implements WebsocketLog {
+  const InstallLog(this.message);
+  
 
-  @override
-  String toString() {
-    return 'WebsocketLog.install(message: $message)';
-  }
+@override final  String message;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$InstallLogImpl &&
-            (identical(other.message, message) || other.message == message));
-  }
+/// Create a copy of WebsocketLog
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$InstallLogCopyWith<InstallLog> get copyWith => _$InstallLogCopyWithImpl<InstallLog>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$InstallLogImplCopyWith<_$InstallLogImpl> get copyWith =>
-      __$$InstallLogImplCopyWithImpl<_$InstallLogImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String message) console,
-    required TResult Function(String message) install,
-    required TResult Function(String message) transfer,
-    required TResult Function(String message) daemon,
-  }) {
-    return install(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message)? console,
-    TResult? Function(String message)? install,
-    TResult? Function(String message)? transfer,
-    TResult? Function(String message)? daemon,
-  }) {
-    return install?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message)? console,
-    TResult Function(String message)? install,
-    TResult Function(String message)? transfer,
-    TResult Function(String message)? daemon,
-    required TResult orElse(),
-  }) {
-    if (install != null) {
-      return install(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ConsoleLog value) console,
-    required TResult Function(InstallLog value) install,
-    required TResult Function(TransferLog value) transfer,
-    required TResult Function(DaemonMessage value) daemon,
-  }) {
-    return install(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ConsoleLog value)? console,
-    TResult? Function(InstallLog value)? install,
-    TResult? Function(TransferLog value)? transfer,
-    TResult? Function(DaemonMessage value)? daemon,
-  }) {
-    return install?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ConsoleLog value)? console,
-    TResult Function(InstallLog value)? install,
-    TResult Function(TransferLog value)? transfer,
-    TResult Function(DaemonMessage value)? daemon,
-    required TResult orElse(),
-  }) {
-    if (install != null) {
-      return install(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is InstallLog&&(identical(other.message, message) || other.message == message));
 }
 
-abstract class InstallLog implements WebsocketLog {
-  const factory InstallLog(final String message) = _$InstallLogImpl;
 
-  @override
-  String get message;
-  @override
-  @JsonKey(ignore: true)
-  _$$InstallLogImplCopyWith<_$InstallLogImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+int get hashCode => Object.hash(runtimeType,message);
+
+@override
+String toString() {
+  return 'WebsocketLog.install(message: $message)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$TransferLogImplCopyWith<$Res>
-    implements $WebsocketLogCopyWith<$Res> {
-  factory _$$TransferLogImplCopyWith(
-          _$TransferLogImpl value, $Res Function(_$TransferLogImpl) then) =
-      __$$TransferLogImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String message});
+abstract mixin class $InstallLogCopyWith<$Res> implements $WebsocketLogCopyWith<$Res> {
+  factory $InstallLogCopyWith(InstallLog value, $Res Function(InstallLog) _then) = _$InstallLogCopyWithImpl;
+@override @useResult
+$Res call({
+ String message
+});
+
+
+
+
+}
+/// @nodoc
+class _$InstallLogCopyWithImpl<$Res>
+    implements $InstallLogCopyWith<$Res> {
+  _$InstallLogCopyWithImpl(this._self, this._then);
+
+  final InstallLog _self;
+  final $Res Function(InstallLog) _then;
+
+/// Create a copy of WebsocketLog
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
+  return _then(InstallLog(
+null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-class __$$TransferLogImplCopyWithImpl<$Res>
-    extends _$WebsocketLogCopyWithImpl<$Res, _$TransferLogImpl>
-    implements _$$TransferLogImplCopyWith<$Res> {
-  __$$TransferLogImplCopyWithImpl(
-      _$TransferLogImpl _value, $Res Function(_$TransferLogImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$TransferLogImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$TransferLogImpl implements TransferLog {
-  const _$TransferLogImpl(this.message);
 
-  @override
-  final String message;
+class TransferLog implements WebsocketLog {
+  const TransferLog(this.message);
+  
 
-  @override
-  String toString() {
-    return 'WebsocketLog.transfer(message: $message)';
-  }
+@override final  String message;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransferLogImpl &&
-            (identical(other.message, message) || other.message == message));
-  }
+/// Create a copy of WebsocketLog
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$TransferLogCopyWith<TransferLog> get copyWith => _$TransferLogCopyWithImpl<TransferLog>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TransferLogImplCopyWith<_$TransferLogImpl> get copyWith =>
-      __$$TransferLogImplCopyWithImpl<_$TransferLogImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String message) console,
-    required TResult Function(String message) install,
-    required TResult Function(String message) transfer,
-    required TResult Function(String message) daemon,
-  }) {
-    return transfer(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message)? console,
-    TResult? Function(String message)? install,
-    TResult? Function(String message)? transfer,
-    TResult? Function(String message)? daemon,
-  }) {
-    return transfer?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message)? console,
-    TResult Function(String message)? install,
-    TResult Function(String message)? transfer,
-    TResult Function(String message)? daemon,
-    required TResult orElse(),
-  }) {
-    if (transfer != null) {
-      return transfer(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ConsoleLog value) console,
-    required TResult Function(InstallLog value) install,
-    required TResult Function(TransferLog value) transfer,
-    required TResult Function(DaemonMessage value) daemon,
-  }) {
-    return transfer(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ConsoleLog value)? console,
-    TResult? Function(InstallLog value)? install,
-    TResult? Function(TransferLog value)? transfer,
-    TResult? Function(DaemonMessage value)? daemon,
-  }) {
-    return transfer?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ConsoleLog value)? console,
-    TResult Function(InstallLog value)? install,
-    TResult Function(TransferLog value)? transfer,
-    TResult Function(DaemonMessage value)? daemon,
-    required TResult orElse(),
-  }) {
-    if (transfer != null) {
-      return transfer(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TransferLog&&(identical(other.message, message) || other.message == message));
 }
 
-abstract class TransferLog implements WebsocketLog {
-  const factory TransferLog(final String message) = _$TransferLogImpl;
 
-  @override
-  String get message;
-  @override
-  @JsonKey(ignore: true)
-  _$$TransferLogImplCopyWith<_$TransferLogImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+int get hashCode => Object.hash(runtimeType,message);
+
+@override
+String toString() {
+  return 'WebsocketLog.transfer(message: $message)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$DaemonMessageImplCopyWith<$Res>
-    implements $WebsocketLogCopyWith<$Res> {
-  factory _$$DaemonMessageImplCopyWith(
-          _$DaemonMessageImpl value, $Res Function(_$DaemonMessageImpl) then) =
-      __$$DaemonMessageImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String message});
+abstract mixin class $TransferLogCopyWith<$Res> implements $WebsocketLogCopyWith<$Res> {
+  factory $TransferLogCopyWith(TransferLog value, $Res Function(TransferLog) _then) = _$TransferLogCopyWithImpl;
+@override @useResult
+$Res call({
+ String message
+});
+
+
+
+
+}
+/// @nodoc
+class _$TransferLogCopyWithImpl<$Res>
+    implements $TransferLogCopyWith<$Res> {
+  _$TransferLogCopyWithImpl(this._self, this._then);
+
+  final TransferLog _self;
+  final $Res Function(TransferLog) _then;
+
+/// Create a copy of WebsocketLog
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
+  return _then(TransferLog(
+null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-class __$$DaemonMessageImplCopyWithImpl<$Res>
-    extends _$WebsocketLogCopyWithImpl<$Res, _$DaemonMessageImpl>
-    implements _$$DaemonMessageImplCopyWith<$Res> {
-  __$$DaemonMessageImplCopyWithImpl(
-      _$DaemonMessageImpl _value, $Res Function(_$DaemonMessageImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$DaemonMessageImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$DaemonMessageImpl implements DaemonMessage {
-  const _$DaemonMessageImpl(this.message);
 
-  @override
-  final String message;
+class DaemonMessage implements WebsocketLog {
+  const DaemonMessage(this.message);
+  
 
-  @override
-  String toString() {
-    return 'WebsocketLog.daemon(message: $message)';
-  }
+@override final  String message;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DaemonMessageImpl &&
-            (identical(other.message, message) || other.message == message));
-  }
+/// Create a copy of WebsocketLog
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DaemonMessageCopyWith<DaemonMessage> get copyWith => _$DaemonMessageCopyWithImpl<DaemonMessage>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DaemonMessageImplCopyWith<_$DaemonMessageImpl> get copyWith =>
-      __$$DaemonMessageImplCopyWithImpl<_$DaemonMessageImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String message) console,
-    required TResult Function(String message) install,
-    required TResult Function(String message) transfer,
-    required TResult Function(String message) daemon,
-  }) {
-    return daemon(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message)? console,
-    TResult? Function(String message)? install,
-    TResult? Function(String message)? transfer,
-    TResult? Function(String message)? daemon,
-  }) {
-    return daemon?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message)? console,
-    TResult Function(String message)? install,
-    TResult Function(String message)? transfer,
-    TResult Function(String message)? daemon,
-    required TResult orElse(),
-  }) {
-    if (daemon != null) {
-      return daemon(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ConsoleLog value) console,
-    required TResult Function(InstallLog value) install,
-    required TResult Function(TransferLog value) transfer,
-    required TResult Function(DaemonMessage value) daemon,
-  }) {
-    return daemon(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ConsoleLog value)? console,
-    TResult? Function(InstallLog value)? install,
-    TResult? Function(TransferLog value)? transfer,
-    TResult? Function(DaemonMessage value)? daemon,
-  }) {
-    return daemon?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ConsoleLog value)? console,
-    TResult Function(InstallLog value)? install,
-    TResult Function(TransferLog value)? transfer,
-    TResult Function(DaemonMessage value)? daemon,
-    required TResult orElse(),
-  }) {
-    if (daemon != null) {
-      return daemon(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DaemonMessage&&(identical(other.message, message) || other.message == message));
 }
 
-abstract class DaemonMessage implements WebsocketLog {
-  const factory DaemonMessage(final String message) = _$DaemonMessageImpl;
 
-  @override
-  String get message;
-  @override
-  @JsonKey(ignore: true)
-  _$$DaemonMessageImplCopyWith<_$DaemonMessageImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+int get hashCode => Object.hash(runtimeType,message);
+
+@override
+String toString() {
+  return 'WebsocketLog.daemon(message: $message)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class $DaemonMessageCopyWith<$Res> implements $WebsocketLogCopyWith<$Res> {
+  factory $DaemonMessageCopyWith(DaemonMessage value, $Res Function(DaemonMessage) _then) = _$DaemonMessageCopyWithImpl;
+@override @useResult
+$Res call({
+ String message
+});
+
+
+
+
+}
+/// @nodoc
+class _$DaemonMessageCopyWithImpl<$Res>
+    implements $DaemonMessageCopyWith<$Res> {
+  _$DaemonMessageCopyWithImpl(this._self, this._then);
+
+  final DaemonMessage _self;
+  final $Res Function(DaemonMessage) _then;
+
+/// Create a copy of WebsocketLog
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
+  return _then(DaemonMessage(
+null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -6,9 +6,10 @@ part '../../generated/models/main_models/recovery_tokens.freezed.dart';
 part '../../generated/models/main_models/recovery_tokens.g.dart';
 
 @freezed
-class RecoveryTokens with _$RecoveryTokens {
+abstract class RecoveryTokens with _$RecoveryTokens {
   const factory RecoveryTokens({required IList<String> tokens}) =
       _RecoveryTokens;
-  const RecoveryTokens._();
-  factory RecoveryTokens.fromJson(JsonMap json) = _RecoveryTokens.fromJson;
+
+  factory RecoveryTokens.fromJson(JsonMap json) =>
+      _$RecoveryTokensFromJson(json);
 }

@@ -5,7 +5,7 @@ part '../../generated/models/permission_keys/file_permission_keys.freezed.dart';
 part '../../generated/models/permission_keys/file_permission_keys.g.dart';
 
 @freezed
-class FilePermissionKeys with _$FilePermissionKeys {
+abstract class FilePermissionKeys with _$FilePermissionKeys {
   const factory FilePermissionKeys({
     required String create,
     required String read,
@@ -14,8 +14,7 @@ class FilePermissionKeys with _$FilePermissionKeys {
     required String archive,
     required String sftp,
   }) = _FilePermissionKeys;
-  const FilePermissionKeys._();
 
-  factory FilePermissionKeys.fromJson(JsonMap json) =
-      _FilePermissionKeys.fromJson;
+  factory FilePermissionKeys.fromJson(JsonMap json) =>
+      _$FilePermissionKeysFromJson(json);
 }

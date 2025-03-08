@@ -32,8 +32,7 @@ enum ServerWebsocketSendEvent implements ServerWebsocketRemoteEvent {
   sendStats('send stats'),
   sendLogs('send logs'),
   sendCommand('send command'),
-  setState('set state'),
-  ;
+  setState('set state');
 
   const ServerWebsocketSendEvent(this.event);
   @override
@@ -69,8 +68,7 @@ enum ServerWebsocketReceiveEvent implements ServerWebsocketRemoteEvent {
   transferStatus('transfer status'),
 
   backupCompleted('backup completed'),
-  backupRestoreCompleted('backup restore completed'),
-  ;
+  backupRestoreCompleted('backup restore completed');
 
   const ServerWebsocketReceiveEvent(this.event);
   @override
@@ -86,10 +84,7 @@ enum ServerWebsocketReceiveEvent implements ServerWebsocketRemoteEvent {
 /// This is used internally by [ServerWebsocket].
 ///
 /// This is not intended to be used by the user.
-@Freezed(
-  when: FreezedWhenOptions.none,
-  map: FreezedMapOptions.none,
-)
+@freezed
 @visibleForTesting
 sealed class WebsocketEvent with _$WebsocketEvent {
   const factory WebsocketEvent._internal({
@@ -107,10 +102,10 @@ sealed class WebsocketEvent with _$WebsocketEvent {
       args: arg == null ? null : [arg],
     );
   }
-  const WebsocketEvent._();
 
   @visibleForTesting
-  factory WebsocketEvent.fromJson(JsonMap json) = _WebsocketEvent.fromJson;
+  factory WebsocketEvent.fromJson(JsonMap json) =>
+      _$WebsocketEventFromJson(json);
 
   String toEncodedJson() => jsonEncode(toJson());
 }

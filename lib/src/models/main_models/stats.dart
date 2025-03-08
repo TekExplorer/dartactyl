@@ -18,19 +18,18 @@ enum ServerPowerState {
 }
 
 @freezed
-class Stats with _$Stats {
+abstract class Stats with _$Stats {
   const factory Stats({
     required ServerPowerState currentState,
     required bool isSuspended,
     required StatsResources resources,
   }) = _Stats;
-  const Stats._();
 
-  factory Stats.fromJson(JsonMap json) = _Stats.fromJson;
+  factory Stats.fromJson(JsonMap json) => _$StatsFromJson(json);
 }
 
 @freezed
-class StatsResources with _$StatsResources {
+abstract class StatsResources with _$StatsResources {
   const factory StatsResources({
     required Bytes memoryBytes,
     required double cpuAbsolute,
@@ -43,9 +42,9 @@ class StatsResources with _$StatsResources {
     /// will be -1 if on a version (v1.7 and below) that does not have it
     @JsonKey(defaultValue: -1) required int uptime,
   }) = _StatsResources;
-  const StatsResources._();
 
-  factory StatsResources.fromJson(JsonMap json) = _StatsResources.fromJson;
+  factory StatsResources.fromJson(JsonMap json) =>
+      _$StatsResourcesFromJson(json);
 
-//DateTime get uptimeAsDateTime => DateTime.fromMillisecondsSinceEpoch(uptime!);
+  //DateTime get uptimeAsDateTime => DateTime.fromMillisecondsSinceEpoch(uptime!);
 }

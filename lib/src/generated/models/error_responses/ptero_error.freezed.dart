@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,218 +10,156 @@ part of '../../../models/error_responses/ptero_error.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-PteroError _$PteroErrorFromJson(Map<String, dynamic> json) {
-  return _PteroError.fromJson(json);
-}
 
 /// @nodoc
 mixin _$PteroError {
-  PteroErrorCode get code => throw _privateConstructorUsedError;
-  String get status => throw _privateConstructorUsedError;
-  String get detail => throw _privateConstructorUsedError;
-  Map<String, Object?>? get meta => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PteroErrorCopyWith<PteroError> get copyWith =>
-      throw _privateConstructorUsedError;
+ PteroErrorCode get code; String get status; String get detail; JsonMap? get meta;
+/// Create a copy of PteroError
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PteroErrorCopyWith<PteroError> get copyWith => _$PteroErrorCopyWithImpl<PteroError>(this as PteroError, _$identity);
+
+  /// Serializes this PteroError to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PteroError&&(identical(other.code, code) || other.code == code)&&(identical(other.status, status) || other.status == status)&&(identical(other.detail, detail) || other.detail == detail)&&const DeepCollectionEquality().equals(other.meta, meta));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,code,status,detail,const DeepCollectionEquality().hash(meta));
+
+@override
+String toString() {
+  return 'PteroError(code: $code, status: $status, detail: $detail, meta: $meta)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $PteroErrorCopyWith<$Res> {
-  factory $PteroErrorCopyWith(
-          PteroError value, $Res Function(PteroError) then) =
-      _$PteroErrorCopyWithImpl<$Res, PteroError>;
-  @useResult
-  $Res call(
-      {PteroErrorCode code,
-      String status,
-      String detail,
-      Map<String, Object?>? meta});
-}
+abstract mixin class $PteroErrorCopyWith<$Res>  {
+  factory $PteroErrorCopyWith(PteroError value, $Res Function(PteroError) _then) = _$PteroErrorCopyWithImpl;
+@useResult
+$Res call({
+ PteroErrorCode code, String status, String detail, Map<String, Object?>? meta
+});
 
+
+
+
+}
 /// @nodoc
-class _$PteroErrorCopyWithImpl<$Res, $Val extends PteroError>
+class _$PteroErrorCopyWithImpl<$Res>
     implements $PteroErrorCopyWith<$Res> {
-  _$PteroErrorCopyWithImpl(this._value, this._then);
+  _$PteroErrorCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final PteroError _self;
+  final $Res Function(PteroError) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? code = null,
-    Object? status = null,
-    Object? detail = null,
-    Object? meta = freezed,
-  }) {
-    return _then(_value.copyWith(
-      code: null == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as PteroErrorCode,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String,
-      detail: null == detail
-          ? _value.detail
-          : detail // ignore: cast_nullable_to_non_nullable
-              as String,
-      meta: freezed == meta
-          ? _value.meta
-          : meta // ignore: cast_nullable_to_non_nullable
-              as Map<String, Object?>?,
-    ) as $Val);
-  }
+/// Create a copy of PteroError
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? code = null,Object? status = null,Object? detail = null,Object? meta = freezed,}) {
+  return _then(_self.copyWith(
+code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
+as PteroErrorCode,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as String,detail: null == detail ? _self.detail : detail // ignore: cast_nullable_to_non_nullable
+as String,meta: freezed == meta ? _self.meta! : meta // ignore: cast_nullable_to_non_nullable
+as Map<String, Object?>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$PteroErrorImplCopyWith<$Res>
-    implements $PteroErrorCopyWith<$Res> {
-  factory _$$PteroErrorImplCopyWith(
-          _$PteroErrorImpl value, $Res Function(_$PteroErrorImpl) then) =
-      __$$PteroErrorImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {PteroErrorCode code,
-      String status,
-      String detail,
-      Map<String, Object?>? meta});
 }
 
-/// @nodoc
-class __$$PteroErrorImplCopyWithImpl<$Res>
-    extends _$PteroErrorCopyWithImpl<$Res, _$PteroErrorImpl>
-    implements _$$PteroErrorImplCopyWith<$Res> {
-  __$$PteroErrorImplCopyWithImpl(
-      _$PteroErrorImpl _value, $Res Function(_$PteroErrorImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? code = null,
-    Object? status = null,
-    Object? detail = null,
-    Object? meta = freezed,
-  }) {
-    return _then(_$PteroErrorImpl(
-      code: null == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as PteroErrorCode,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String,
-      detail: null == detail
-          ? _value.detail
-          : detail // ignore: cast_nullable_to_non_nullable
-              as String,
-      meta: freezed == meta
-          ? _value._meta
-          : meta // ignore: cast_nullable_to_non_nullable
-              as Map<String, Object?>?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$PteroErrorImpl extends _PteroError {
-  const _$PteroErrorImpl(
-      {required this.code,
-      required this.status,
-      required this.detail,
-      final Map<String, Object?>? meta})
-      : _meta = meta,
-        super._();
 
-  factory _$PteroErrorImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PteroErrorImplFromJson(json);
+class _PteroError extends PteroError {
+  const _PteroError({required this.code, required this.status, required this.detail, final  Map<String, Object?>? meta}): _meta = meta,super._();
+  factory _PteroError.fromJson(Map<String, dynamic> json) => _$PteroErrorFromJson(json);
 
-  @override
-  final PteroErrorCode code;
-  @override
-  final String status;
-  @override
-  final String detail;
-  final Map<String, Object?>? _meta;
-  @override
-  Map<String, Object?>? get meta {
-    final value = _meta;
-    if (value == null) return null;
-    if (_meta is EqualUnmodifiableMapView) return _meta;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'PteroError(code: $code, status: $status, detail: $detail, meta: $meta)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PteroErrorImpl &&
-            (identical(other.code, code) || other.code == code) &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.detail, detail) || other.detail == detail) &&
-            const DeepCollectionEquality().equals(other._meta, _meta));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, code, status, detail,
-      const DeepCollectionEquality().hash(_meta));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PteroErrorImplCopyWith<_$PteroErrorImpl> get copyWith =>
-      __$$PteroErrorImplCopyWithImpl<_$PteroErrorImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PteroErrorImplToJson(
-      this,
-    );
-  }
+@override final  PteroErrorCode code;
+@override final  String status;
+@override final  String detail;
+ final  Map<String, Object?>? _meta;
+@override Map<String, Object?>? get meta {
+  final value = _meta;
+  if (value == null) return null;
+  if (_meta is EqualUnmodifiableMapView) return _meta;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
 
-abstract class _PteroError extends PteroError {
-  const factory _PteroError(
-      {required final PteroErrorCode code,
-      required final String status,
-      required final String detail,
-      final Map<String, Object?>? meta}) = _$PteroErrorImpl;
-  const _PteroError._() : super._();
 
-  factory _PteroError.fromJson(Map<String, dynamic> json) =
-      _$PteroErrorImpl.fromJson;
+/// Create a copy of PteroError
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PteroErrorCopyWith<_PteroError> get copyWith => __$PteroErrorCopyWithImpl<_PteroError>(this, _$identity);
 
-  @override
-  PteroErrorCode get code;
-  @override
-  String get status;
-  @override
-  String get detail;
-  @override
-  Map<String, Object?>? get meta;
-  @override
-  @JsonKey(ignore: true)
-  _$$PteroErrorImplCopyWith<_$PteroErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$PteroErrorToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PteroError&&(identical(other.code, code) || other.code == code)&&(identical(other.status, status) || other.status == status)&&(identical(other.detail, detail) || other.detail == detail)&&const DeepCollectionEquality().equals(other._meta, _meta));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,code,status,detail,const DeepCollectionEquality().hash(_meta));
+
+@override
+String toString() {
+  return 'PteroError(code: $code, status: $status, detail: $detail, meta: $meta)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PteroErrorCopyWith<$Res> implements $PteroErrorCopyWith<$Res> {
+  factory _$PteroErrorCopyWith(_PteroError value, $Res Function(_PteroError) _then) = __$PteroErrorCopyWithImpl;
+@override @useResult
+$Res call({
+ PteroErrorCode code, String status, String detail, Map<String, Object?>? meta
+});
+
+
+
+
+}
+/// @nodoc
+class __$PteroErrorCopyWithImpl<$Res>
+    implements _$PteroErrorCopyWith<$Res> {
+  __$PteroErrorCopyWithImpl(this._self, this._then);
+
+  final _PteroError _self;
+  final $Res Function(_PteroError) _then;
+
+/// Create a copy of PteroError
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? code = null,Object? status = null,Object? detail = null,Object? meta = freezed,}) {
+  return _then(_PteroError(
+code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
+as PteroErrorCode,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as String,detail: null == detail ? _self.detail : detail // ignore: cast_nullable_to_non_nullable
+as String,meta: freezed == meta ? _self._meta : meta // ignore: cast_nullable_to_non_nullable
+as Map<String, Object?>?,
+  ));
+}
+
+
+}
+
+// dart format on

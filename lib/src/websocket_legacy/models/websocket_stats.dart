@@ -7,7 +7,7 @@ part '../../generated/websocket_legacy/models/websocket_stats.g.dart';
 // typedef WebsocketStatsModel = WebsocketStats;
 
 @freezed
-class WebsocketStats with _$WebsocketStats {
+abstract class WebsocketStats with _$WebsocketStats {
   const factory WebsocketStats({
     required double cpuAbsolute,
     required Bytes memoryBytes,
@@ -17,7 +17,8 @@ class WebsocketStats with _$WebsocketStats {
   }) = _WebsocketStats;
   const WebsocketStats._();
 
-  factory WebsocketStats.fromJson(JsonMap json) = _WebsocketStats.fromJson;
+  factory WebsocketStats.fromJson(JsonMap json) =>
+      _$WebsocketStatsFromJson(json);
 
   ServerPowerState get powerState => state;
 }
@@ -25,13 +26,12 @@ class WebsocketStats with _$WebsocketStats {
 // typedef WebsocketNetworkStatsModel = WebsocketNetworkStats;
 
 @freezed
-class WebsocketNetworkStats with _$WebsocketNetworkStats {
+abstract class WebsocketNetworkStats with _$WebsocketNetworkStats {
   const factory WebsocketNetworkStats({
     required Bytes rxBytes,
     required Bytes txBytes,
   }) = _WebsocketNetworkStats;
-  const WebsocketNetworkStats._();
 
-  factory WebsocketNetworkStats.fromJson(JsonMap json) =
-      _WebsocketNetworkStats.fromJson;
+  factory WebsocketNetworkStats.fromJson(JsonMap json) =>
+      _$WebsocketNetworkStatsFromJson(json);
 }

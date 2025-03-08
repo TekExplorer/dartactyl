@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,207 +10,148 @@ part of '../../../models/permission_keys/schedule_permission_keys.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SchedulePermissionKeys _$SchedulePermissionKeysFromJson(
-    Map<String, dynamic> json) {
-  return _SchedulePermissionKeys.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SchedulePermissionKeys {
-  String get create => throw _privateConstructorUsedError;
-  String get read => throw _privateConstructorUsedError;
-  String get update => throw _privateConstructorUsedError;
-  String get delete => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SchedulePermissionKeysCopyWith<SchedulePermissionKeys> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get create; String get read; String get update; String get delete;
+/// Create a copy of SchedulePermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SchedulePermissionKeysCopyWith<SchedulePermissionKeys> get copyWith => _$SchedulePermissionKeysCopyWithImpl<SchedulePermissionKeys>(this as SchedulePermissionKeys, _$identity);
+
+  /// Serializes this SchedulePermissionKeys to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SchedulePermissionKeys&&(identical(other.create, create) || other.create == create)&&(identical(other.read, read) || other.read == read)&&(identical(other.update, update) || other.update == update)&&(identical(other.delete, delete) || other.delete == delete));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,create,read,update,delete);
+
+@override
+String toString() {
+  return 'SchedulePermissionKeys(create: $create, read: $read, update: $update, delete: $delete)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SchedulePermissionKeysCopyWith<$Res> {
-  factory $SchedulePermissionKeysCopyWith(SchedulePermissionKeys value,
-          $Res Function(SchedulePermissionKeys) then) =
-      _$SchedulePermissionKeysCopyWithImpl<$Res, SchedulePermissionKeys>;
-  @useResult
-  $Res call({String create, String read, String update, String delete});
-}
+abstract mixin class $SchedulePermissionKeysCopyWith<$Res>  {
+  factory $SchedulePermissionKeysCopyWith(SchedulePermissionKeys value, $Res Function(SchedulePermissionKeys) _then) = _$SchedulePermissionKeysCopyWithImpl;
+@useResult
+$Res call({
+ String create, String read, String update, String delete
+});
 
+
+
+
+}
 /// @nodoc
-class _$SchedulePermissionKeysCopyWithImpl<$Res,
-        $Val extends SchedulePermissionKeys>
+class _$SchedulePermissionKeysCopyWithImpl<$Res>
     implements $SchedulePermissionKeysCopyWith<$Res> {
-  _$SchedulePermissionKeysCopyWithImpl(this._value, this._then);
+  _$SchedulePermissionKeysCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SchedulePermissionKeys _self;
+  final $Res Function(SchedulePermissionKeys) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? create = null,
-    Object? read = null,
-    Object? update = null,
-    Object? delete = null,
-  }) {
-    return _then(_value.copyWith(
-      create: null == create
-          ? _value.create
-          : create // ignore: cast_nullable_to_non_nullable
-              as String,
-      read: null == read
-          ? _value.read
-          : read // ignore: cast_nullable_to_non_nullable
-              as String,
-      update: null == update
-          ? _value.update
-          : update // ignore: cast_nullable_to_non_nullable
-              as String,
-      delete: null == delete
-          ? _value.delete
-          : delete // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of SchedulePermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? create = null,Object? read = null,Object? update = null,Object? delete = null,}) {
+  return _then(_self.copyWith(
+create: null == create ? _self.create : create // ignore: cast_nullable_to_non_nullable
+as String,read: null == read ? _self.read : read // ignore: cast_nullable_to_non_nullable
+as String,update: null == update ? _self.update : update // ignore: cast_nullable_to_non_nullable
+as String,delete: null == delete ? _self.delete : delete // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SchedulePermissionKeysImplCopyWith<$Res>
-    implements $SchedulePermissionKeysCopyWith<$Res> {
-  factory _$$SchedulePermissionKeysImplCopyWith(
-          _$SchedulePermissionKeysImpl value,
-          $Res Function(_$SchedulePermissionKeysImpl) then) =
-      __$$SchedulePermissionKeysImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String create, String read, String update, String delete});
 }
 
-/// @nodoc
-class __$$SchedulePermissionKeysImplCopyWithImpl<$Res>
-    extends _$SchedulePermissionKeysCopyWithImpl<$Res,
-        _$SchedulePermissionKeysImpl>
-    implements _$$SchedulePermissionKeysImplCopyWith<$Res> {
-  __$$SchedulePermissionKeysImplCopyWithImpl(
-      _$SchedulePermissionKeysImpl _value,
-      $Res Function(_$SchedulePermissionKeysImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? create = null,
-    Object? read = null,
-    Object? update = null,
-    Object? delete = null,
-  }) {
-    return _then(_$SchedulePermissionKeysImpl(
-      create: null == create
-          ? _value.create
-          : create // ignore: cast_nullable_to_non_nullable
-              as String,
-      read: null == read
-          ? _value.read
-          : read // ignore: cast_nullable_to_non_nullable
-              as String,
-      update: null == update
-          ? _value.update
-          : update // ignore: cast_nullable_to_non_nullable
-              as String,
-      delete: null == delete
-          ? _value.delete
-          : delete // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$SchedulePermissionKeysImpl extends _SchedulePermissionKeys {
-  const _$SchedulePermissionKeysImpl(
-      {required this.create,
-      required this.read,
-      required this.update,
-      required this.delete})
-      : super._();
 
-  factory _$SchedulePermissionKeysImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SchedulePermissionKeysImplFromJson(json);
+class _SchedulePermissionKeys implements SchedulePermissionKeys {
+  const _SchedulePermissionKeys({required this.create, required this.read, required this.update, required this.delete});
+  factory _SchedulePermissionKeys.fromJson(Map<String, dynamic> json) => _$SchedulePermissionKeysFromJson(json);
 
-  @override
-  final String create;
-  @override
-  final String read;
-  @override
-  final String update;
-  @override
-  final String delete;
+@override final  String create;
+@override final  String read;
+@override final  String update;
+@override final  String delete;
 
-  @override
-  String toString() {
-    return 'SchedulePermissionKeys(create: $create, read: $read, update: $update, delete: $delete)';
-  }
+/// Create a copy of SchedulePermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SchedulePermissionKeysCopyWith<_SchedulePermissionKeys> get copyWith => __$SchedulePermissionKeysCopyWithImpl<_SchedulePermissionKeys>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SchedulePermissionKeysImpl &&
-            (identical(other.create, create) || other.create == create) &&
-            (identical(other.read, read) || other.read == read) &&
-            (identical(other.update, update) || other.update == update) &&
-            (identical(other.delete, delete) || other.delete == delete));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, create, read, update, delete);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SchedulePermissionKeysImplCopyWith<_$SchedulePermissionKeysImpl>
-      get copyWith => __$$SchedulePermissionKeysImplCopyWithImpl<
-          _$SchedulePermissionKeysImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SchedulePermissionKeysImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$SchedulePermissionKeysToJson(this, );
 }
 
-abstract class _SchedulePermissionKeys extends SchedulePermissionKeys {
-  const factory _SchedulePermissionKeys(
-      {required final String create,
-      required final String read,
-      required final String update,
-      required final String delete}) = _$SchedulePermissionKeysImpl;
-  const _SchedulePermissionKeys._() : super._();
-
-  factory _SchedulePermissionKeys.fromJson(Map<String, dynamic> json) =
-      _$SchedulePermissionKeysImpl.fromJson;
-
-  @override
-  String get create;
-  @override
-  String get read;
-  @override
-  String get update;
-  @override
-  String get delete;
-  @override
-  @JsonKey(ignore: true)
-  _$$SchedulePermissionKeysImplCopyWith<_$SchedulePermissionKeysImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SchedulePermissionKeys&&(identical(other.create, create) || other.create == create)&&(identical(other.read, read) || other.read == read)&&(identical(other.update, update) || other.update == update)&&(identical(other.delete, delete) || other.delete == delete));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,create,read,update,delete);
+
+@override
+String toString() {
+  return 'SchedulePermissionKeys(create: $create, read: $read, update: $update, delete: $delete)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SchedulePermissionKeysCopyWith<$Res> implements $SchedulePermissionKeysCopyWith<$Res> {
+  factory _$SchedulePermissionKeysCopyWith(_SchedulePermissionKeys value, $Res Function(_SchedulePermissionKeys) _then) = __$SchedulePermissionKeysCopyWithImpl;
+@override @useResult
+$Res call({
+ String create, String read, String update, String delete
+});
+
+
+
+
+}
+/// @nodoc
+class __$SchedulePermissionKeysCopyWithImpl<$Res>
+    implements _$SchedulePermissionKeysCopyWith<$Res> {
+  __$SchedulePermissionKeysCopyWithImpl(this._self, this._then);
+
+  final _SchedulePermissionKeys _self;
+  final $Res Function(_SchedulePermissionKeys) _then;
+
+/// Create a copy of SchedulePermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? create = null,Object? read = null,Object? update = null,Object? delete = null,}) {
+  return _then(_SchedulePermissionKeys(
+create: null == create ? _self.create : create // ignore: cast_nullable_to_non_nullable
+as String,read: null == read ? _self.read : read // ignore: cast_nullable_to_non_nullable
+as String,update: null == update ? _self.update : update // ignore: cast_nullable_to_non_nullable
+as String,delete: null == delete ? _self.delete : delete // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

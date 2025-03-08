@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,467 +10,317 @@ part of '../../../models/main_models/stats.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Stats _$StatsFromJson(Map<String, dynamic> json) {
-  return _Stats.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Stats {
-  ServerPowerState get currentState => throw _privateConstructorUsedError;
-  bool get isSuspended => throw _privateConstructorUsedError;
-  StatsResources get resources => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $StatsCopyWith<Stats> get copyWith => throw _privateConstructorUsedError;
+ ServerPowerState get currentState; bool get isSuspended; StatsResources get resources;
+/// Create a copy of Stats
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$StatsCopyWith<Stats> get copyWith => _$StatsCopyWithImpl<Stats>(this as Stats, _$identity);
+
+  /// Serializes this Stats to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Stats&&(identical(other.currentState, currentState) || other.currentState == currentState)&&(identical(other.isSuspended, isSuspended) || other.isSuspended == isSuspended)&&(identical(other.resources, resources) || other.resources == resources));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,currentState,isSuspended,resources);
+
+@override
+String toString() {
+  return 'Stats(currentState: $currentState, isSuspended: $isSuspended, resources: $resources)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $StatsCopyWith<$Res> {
-  factory $StatsCopyWith(Stats value, $Res Function(Stats) then) =
-      _$StatsCopyWithImpl<$Res, Stats>;
-  @useResult
-  $Res call(
-      {ServerPowerState currentState,
-      bool isSuspended,
-      StatsResources resources});
+abstract mixin class $StatsCopyWith<$Res>  {
+  factory $StatsCopyWith(Stats value, $Res Function(Stats) _then) = _$StatsCopyWithImpl;
+@useResult
+$Res call({
+ ServerPowerState currentState, bool isSuspended, StatsResources resources
+});
 
-  $StatsResourcesCopyWith<$Res> get resources;
+
+$StatsResourcesCopyWith<$Res> get resources;
+
 }
-
 /// @nodoc
-class _$StatsCopyWithImpl<$Res, $Val extends Stats>
+class _$StatsCopyWithImpl<$Res>
     implements $StatsCopyWith<$Res> {
-  _$StatsCopyWithImpl(this._value, this._then);
+  _$StatsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Stats _self;
+  final $Res Function(Stats) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? currentState = null,
-    Object? isSuspended = null,
-    Object? resources = null,
-  }) {
-    return _then(_value.copyWith(
-      currentState: null == currentState
-          ? _value.currentState
-          : currentState // ignore: cast_nullable_to_non_nullable
-              as ServerPowerState,
-      isSuspended: null == isSuspended
-          ? _value.isSuspended
-          : isSuspended // ignore: cast_nullable_to_non_nullable
-              as bool,
-      resources: null == resources
-          ? _value.resources
-          : resources // ignore: cast_nullable_to_non_nullable
-              as StatsResources,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $StatsResourcesCopyWith<$Res> get resources {
-    return $StatsResourcesCopyWith<$Res>(_value.resources, (value) {
-      return _then(_value.copyWith(resources: value) as $Val);
-    });
-  }
+/// Create a copy of Stats
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? currentState = null,Object? isSuspended = null,Object? resources = null,}) {
+  return _then(_self.copyWith(
+currentState: null == currentState ? _self.currentState : currentState // ignore: cast_nullable_to_non_nullable
+as ServerPowerState,isSuspended: null == isSuspended ? _self.isSuspended : isSuspended // ignore: cast_nullable_to_non_nullable
+as bool,resources: null == resources ? _self.resources : resources // ignore: cast_nullable_to_non_nullable
+as StatsResources,
+  ));
+}
+/// Create a copy of Stats
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$StatsResourcesCopyWith<$Res> get resources {
+  
+  return $StatsResourcesCopyWith<$Res>(_self.resources, (value) {
+    return _then(_self.copyWith(resources: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$StatsImplCopyWith<$Res> implements $StatsCopyWith<$Res> {
-  factory _$$StatsImplCopyWith(
-          _$StatsImpl value, $Res Function(_$StatsImpl) then) =
-      __$$StatsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {ServerPowerState currentState,
-      bool isSuspended,
-      StatsResources resources});
-
-  @override
-  $StatsResourcesCopyWith<$Res> get resources;
-}
-
-/// @nodoc
-class __$$StatsImplCopyWithImpl<$Res>
-    extends _$StatsCopyWithImpl<$Res, _$StatsImpl>
-    implements _$$StatsImplCopyWith<$Res> {
-  __$$StatsImplCopyWithImpl(
-      _$StatsImpl _value, $Res Function(_$StatsImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? currentState = null,
-    Object? isSuspended = null,
-    Object? resources = null,
-  }) {
-    return _then(_$StatsImpl(
-      currentState: null == currentState
-          ? _value.currentState
-          : currentState // ignore: cast_nullable_to_non_nullable
-              as ServerPowerState,
-      isSuspended: null == isSuspended
-          ? _value.isSuspended
-          : isSuspended // ignore: cast_nullable_to_non_nullable
-              as bool,
-      resources: null == resources
-          ? _value.resources
-          : resources // ignore: cast_nullable_to_non_nullable
-              as StatsResources,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$StatsImpl extends _Stats {
-  const _$StatsImpl(
-      {required this.currentState,
-      required this.isSuspended,
-      required this.resources})
-      : super._();
 
-  factory _$StatsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StatsImplFromJson(json);
+class _Stats implements Stats {
+  const _Stats({required this.currentState, required this.isSuspended, required this.resources});
+  factory _Stats.fromJson(Map<String, dynamic> json) => _$StatsFromJson(json);
 
-  @override
-  final ServerPowerState currentState;
-  @override
-  final bool isSuspended;
-  @override
-  final StatsResources resources;
+@override final  ServerPowerState currentState;
+@override final  bool isSuspended;
+@override final  StatsResources resources;
 
-  @override
-  String toString() {
-    return 'Stats(currentState: $currentState, isSuspended: $isSuspended, resources: $resources)';
-  }
+/// Create a copy of Stats
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$StatsCopyWith<_Stats> get copyWith => __$StatsCopyWithImpl<_Stats>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$StatsImpl &&
-            (identical(other.currentState, currentState) ||
-                other.currentState == currentState) &&
-            (identical(other.isSuspended, isSuspended) ||
-                other.isSuspended == isSuspended) &&
-            (identical(other.resources, resources) ||
-                other.resources == resources));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, currentState, isSuspended, resources);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$StatsImplCopyWith<_$StatsImpl> get copyWith =>
-      __$$StatsImplCopyWithImpl<_$StatsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StatsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$StatsToJson(this, );
 }
 
-abstract class _Stats extends Stats {
-  const factory _Stats(
-      {required final ServerPowerState currentState,
-      required final bool isSuspended,
-      required final StatsResources resources}) = _$StatsImpl;
-  const _Stats._() : super._();
-
-  factory _Stats.fromJson(Map<String, dynamic> json) = _$StatsImpl.fromJson;
-
-  @override
-  ServerPowerState get currentState;
-  @override
-  bool get isSuspended;
-  @override
-  StatsResources get resources;
-  @override
-  @JsonKey(ignore: true)
-  _$$StatsImplCopyWith<_$StatsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Stats&&(identical(other.currentState, currentState) || other.currentState == currentState)&&(identical(other.isSuspended, isSuspended) || other.isSuspended == isSuspended)&&(identical(other.resources, resources) || other.resources == resources));
 }
 
-StatsResources _$StatsResourcesFromJson(Map<String, dynamic> json) {
-  return _StatsResources.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,currentState,isSuspended,resources);
+
+@override
+String toString() {
+  return 'Stats(currentState: $currentState, isSuspended: $isSuspended, resources: $resources)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$StatsCopyWith<$Res> implements $StatsCopyWith<$Res> {
+  factory _$StatsCopyWith(_Stats value, $Res Function(_Stats) _then) = __$StatsCopyWithImpl;
+@override @useResult
+$Res call({
+ ServerPowerState currentState, bool isSuspended, StatsResources resources
+});
+
+
+@override $StatsResourcesCopyWith<$Res> get resources;
+
+}
+/// @nodoc
+class __$StatsCopyWithImpl<$Res>
+    implements _$StatsCopyWith<$Res> {
+  __$StatsCopyWithImpl(this._self, this._then);
+
+  final _Stats _self;
+  final $Res Function(_Stats) _then;
+
+/// Create a copy of Stats
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? currentState = null,Object? isSuspended = null,Object? resources = null,}) {
+  return _then(_Stats(
+currentState: null == currentState ? _self.currentState : currentState // ignore: cast_nullable_to_non_nullable
+as ServerPowerState,isSuspended: null == isSuspended ? _self.isSuspended : isSuspended // ignore: cast_nullable_to_non_nullable
+as bool,resources: null == resources ? _self.resources : resources // ignore: cast_nullable_to_non_nullable
+as StatsResources,
+  ));
+}
+
+/// Create a copy of Stats
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$StatsResourcesCopyWith<$Res> get resources {
+  
+  return $StatsResourcesCopyWith<$Res>(_self.resources, (value) {
+    return _then(_self.copyWith(resources: value));
+  });
+}
+}
+
 
 /// @nodoc
 mixin _$StatsResources {
-  Bytes get memoryBytes => throw _privateConstructorUsedError;
-  double get cpuAbsolute => throw _privateConstructorUsedError;
-  Bytes get diskBytes => throw _privateConstructorUsedError;
-  Bytes get networkRxBytes => throw _privateConstructorUsedError;
-  Bytes get networkTxBytes => throw _privateConstructorUsedError;
 
-  /// the amount of time the server has been running
-  /// added in pterodactyl v1.8, where it guaranteed to exist
-  /// will be -1 if on a version (v1.7 and below) that does not have it
-  @JsonKey(defaultValue: -1)
-  int get uptime => throw _privateConstructorUsedError;
+ Bytes get memoryBytes; double get cpuAbsolute; Bytes get diskBytes; Bytes get networkRxBytes; Bytes get networkTxBytes;/// the amount of time the server has been running
+/// added in pterodactyl v1.8, where it guaranteed to exist
+/// will be -1 if on a version (v1.7 and below) that does not have it
+@JsonKey(defaultValue: -1) int get uptime;
+/// Create a copy of StatsResources
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$StatsResourcesCopyWith<StatsResources> get copyWith => _$StatsResourcesCopyWithImpl<StatsResources>(this as StatsResources, _$identity);
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $StatsResourcesCopyWith<StatsResources> get copyWith =>
-      throw _privateConstructorUsedError;
+  /// Serializes this StatsResources to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StatsResources&&(identical(other.memoryBytes, memoryBytes) || other.memoryBytes == memoryBytes)&&(identical(other.cpuAbsolute, cpuAbsolute) || other.cpuAbsolute == cpuAbsolute)&&(identical(other.diskBytes, diskBytes) || other.diskBytes == diskBytes)&&(identical(other.networkRxBytes, networkRxBytes) || other.networkRxBytes == networkRxBytes)&&(identical(other.networkTxBytes, networkTxBytes) || other.networkTxBytes == networkTxBytes)&&(identical(other.uptime, uptime) || other.uptime == uptime));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,memoryBytes,cpuAbsolute,diskBytes,networkRxBytes,networkTxBytes,uptime);
+
+@override
+String toString() {
+  return 'StatsResources(memoryBytes: $memoryBytes, cpuAbsolute: $cpuAbsolute, diskBytes: $diskBytes, networkRxBytes: $networkRxBytes, networkTxBytes: $networkTxBytes, uptime: $uptime)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $StatsResourcesCopyWith<$Res> {
-  factory $StatsResourcesCopyWith(
-          StatsResources value, $Res Function(StatsResources) then) =
-      _$StatsResourcesCopyWithImpl<$Res, StatsResources>;
-  @useResult
-  $Res call(
-      {Bytes memoryBytes,
-      double cpuAbsolute,
-      Bytes diskBytes,
-      Bytes networkRxBytes,
-      Bytes networkTxBytes,
-      @JsonKey(defaultValue: -1) int uptime});
-}
+abstract mixin class $StatsResourcesCopyWith<$Res>  {
+  factory $StatsResourcesCopyWith(StatsResources value, $Res Function(StatsResources) _then) = _$StatsResourcesCopyWithImpl;
+@useResult
+$Res call({
+ Bytes memoryBytes, double cpuAbsolute, Bytes diskBytes, Bytes networkRxBytes, Bytes networkTxBytes,@JsonKey(defaultValue: -1) int uptime
+});
 
+
+
+
+}
 /// @nodoc
-class _$StatsResourcesCopyWithImpl<$Res, $Val extends StatsResources>
+class _$StatsResourcesCopyWithImpl<$Res>
     implements $StatsResourcesCopyWith<$Res> {
-  _$StatsResourcesCopyWithImpl(this._value, this._then);
+  _$StatsResourcesCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final StatsResources _self;
+  final $Res Function(StatsResources) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? memoryBytes = null,
-    Object? cpuAbsolute = null,
-    Object? diskBytes = null,
-    Object? networkRxBytes = null,
-    Object? networkTxBytes = null,
-    Object? uptime = null,
-  }) {
-    return _then(_value.copyWith(
-      memoryBytes: null == memoryBytes
-          ? _value.memoryBytes
-          : memoryBytes // ignore: cast_nullable_to_non_nullable
-              as Bytes,
-      cpuAbsolute: null == cpuAbsolute
-          ? _value.cpuAbsolute
-          : cpuAbsolute // ignore: cast_nullable_to_non_nullable
-              as double,
-      diskBytes: null == diskBytes
-          ? _value.diskBytes
-          : diskBytes // ignore: cast_nullable_to_non_nullable
-              as Bytes,
-      networkRxBytes: null == networkRxBytes
-          ? _value.networkRxBytes
-          : networkRxBytes // ignore: cast_nullable_to_non_nullable
-              as Bytes,
-      networkTxBytes: null == networkTxBytes
-          ? _value.networkTxBytes
-          : networkTxBytes // ignore: cast_nullable_to_non_nullable
-              as Bytes,
-      uptime: null == uptime
-          ? _value.uptime
-          : uptime // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
+/// Create a copy of StatsResources
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? memoryBytes = null,Object? cpuAbsolute = null,Object? diskBytes = null,Object? networkRxBytes = null,Object? networkTxBytes = null,Object? uptime = null,}) {
+  return _then(_self.copyWith(
+memoryBytes: null == memoryBytes ? _self.memoryBytes : memoryBytes // ignore: cast_nullable_to_non_nullable
+as Bytes,cpuAbsolute: null == cpuAbsolute ? _self.cpuAbsolute : cpuAbsolute // ignore: cast_nullable_to_non_nullable
+as double,diskBytes: null == diskBytes ? _self.diskBytes : diskBytes // ignore: cast_nullable_to_non_nullable
+as Bytes,networkRxBytes: null == networkRxBytes ? _self.networkRxBytes : networkRxBytes // ignore: cast_nullable_to_non_nullable
+as Bytes,networkTxBytes: null == networkTxBytes ? _self.networkTxBytes : networkTxBytes // ignore: cast_nullable_to_non_nullable
+as Bytes,uptime: null == uptime ? _self.uptime : uptime // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
 }
 
-/// @nodoc
-abstract class _$$StatsResourcesImplCopyWith<$Res>
-    implements $StatsResourcesCopyWith<$Res> {
-  factory _$$StatsResourcesImplCopyWith(_$StatsResourcesImpl value,
-          $Res Function(_$StatsResourcesImpl) then) =
-      __$$StatsResourcesImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {Bytes memoryBytes,
-      double cpuAbsolute,
-      Bytes diskBytes,
-      Bytes networkRxBytes,
-      Bytes networkTxBytes,
-      @JsonKey(defaultValue: -1) int uptime});
 }
 
-/// @nodoc
-class __$$StatsResourcesImplCopyWithImpl<$Res>
-    extends _$StatsResourcesCopyWithImpl<$Res, _$StatsResourcesImpl>
-    implements _$$StatsResourcesImplCopyWith<$Res> {
-  __$$StatsResourcesImplCopyWithImpl(
-      _$StatsResourcesImpl _value, $Res Function(_$StatsResourcesImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? memoryBytes = null,
-    Object? cpuAbsolute = null,
-    Object? diskBytes = null,
-    Object? networkRxBytes = null,
-    Object? networkTxBytes = null,
-    Object? uptime = null,
-  }) {
-    return _then(_$StatsResourcesImpl(
-      memoryBytes: null == memoryBytes
-          ? _value.memoryBytes
-          : memoryBytes // ignore: cast_nullable_to_non_nullable
-              as Bytes,
-      cpuAbsolute: null == cpuAbsolute
-          ? _value.cpuAbsolute
-          : cpuAbsolute // ignore: cast_nullable_to_non_nullable
-              as double,
-      diskBytes: null == diskBytes
-          ? _value.diskBytes
-          : diskBytes // ignore: cast_nullable_to_non_nullable
-              as Bytes,
-      networkRxBytes: null == networkRxBytes
-          ? _value.networkRxBytes
-          : networkRxBytes // ignore: cast_nullable_to_non_nullable
-              as Bytes,
-      networkTxBytes: null == networkTxBytes
-          ? _value.networkTxBytes
-          : networkTxBytes // ignore: cast_nullable_to_non_nullable
-              as Bytes,
-      uptime: null == uptime
-          ? _value.uptime
-          : uptime // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$StatsResourcesImpl extends _StatsResources {
-  const _$StatsResourcesImpl(
-      {required this.memoryBytes,
-      required this.cpuAbsolute,
-      required this.diskBytes,
-      required this.networkRxBytes,
-      required this.networkTxBytes,
-      @JsonKey(defaultValue: -1) required this.uptime})
-      : super._();
 
-  factory _$StatsResourcesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StatsResourcesImplFromJson(json);
+class _StatsResources implements StatsResources {
+  const _StatsResources({required this.memoryBytes, required this.cpuAbsolute, required this.diskBytes, required this.networkRxBytes, required this.networkTxBytes, @JsonKey(defaultValue: -1) required this.uptime});
+  factory _StatsResources.fromJson(Map<String, dynamic> json) => _$StatsResourcesFromJson(json);
 
-  @override
-  final Bytes memoryBytes;
-  @override
-  final double cpuAbsolute;
-  @override
-  final Bytes diskBytes;
-  @override
-  final Bytes networkRxBytes;
-  @override
-  final Bytes networkTxBytes;
+@override final  Bytes memoryBytes;
+@override final  double cpuAbsolute;
+@override final  Bytes diskBytes;
+@override final  Bytes networkRxBytes;
+@override final  Bytes networkTxBytes;
+/// the amount of time the server has been running
+/// added in pterodactyl v1.8, where it guaranteed to exist
+/// will be -1 if on a version (v1.7 and below) that does not have it
+@override@JsonKey(defaultValue: -1) final  int uptime;
 
-  /// the amount of time the server has been running
-  /// added in pterodactyl v1.8, where it guaranteed to exist
-  /// will be -1 if on a version (v1.7 and below) that does not have it
-  @override
-  @JsonKey(defaultValue: -1)
-  final int uptime;
+/// Create a copy of StatsResources
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$StatsResourcesCopyWith<_StatsResources> get copyWith => __$StatsResourcesCopyWithImpl<_StatsResources>(this, _$identity);
 
-  @override
-  String toString() {
-    return 'StatsResources(memoryBytes: $memoryBytes, cpuAbsolute: $cpuAbsolute, diskBytes: $diskBytes, networkRxBytes: $networkRxBytes, networkTxBytes: $networkTxBytes, uptime: $uptime)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$StatsResourcesImpl &&
-            (identical(other.memoryBytes, memoryBytes) ||
-                other.memoryBytes == memoryBytes) &&
-            (identical(other.cpuAbsolute, cpuAbsolute) ||
-                other.cpuAbsolute == cpuAbsolute) &&
-            (identical(other.diskBytes, diskBytes) ||
-                other.diskBytes == diskBytes) &&
-            (identical(other.networkRxBytes, networkRxBytes) ||
-                other.networkRxBytes == networkRxBytes) &&
-            (identical(other.networkTxBytes, networkTxBytes) ||
-                other.networkTxBytes == networkTxBytes) &&
-            (identical(other.uptime, uptime) || other.uptime == uptime));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, memoryBytes, cpuAbsolute,
-      diskBytes, networkRxBytes, networkTxBytes, uptime);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$StatsResourcesImplCopyWith<_$StatsResourcesImpl> get copyWith =>
-      __$$StatsResourcesImplCopyWithImpl<_$StatsResourcesImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StatsResourcesImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$StatsResourcesToJson(this, );
 }
 
-abstract class _StatsResources extends StatsResources {
-  const factory _StatsResources(
-          {required final Bytes memoryBytes,
-          required final double cpuAbsolute,
-          required final Bytes diskBytes,
-          required final Bytes networkRxBytes,
-          required final Bytes networkTxBytes,
-          @JsonKey(defaultValue: -1) required final int uptime}) =
-      _$StatsResourcesImpl;
-  const _StatsResources._() : super._();
-
-  factory _StatsResources.fromJson(Map<String, dynamic> json) =
-      _$StatsResourcesImpl.fromJson;
-
-  @override
-  Bytes get memoryBytes;
-  @override
-  double get cpuAbsolute;
-  @override
-  Bytes get diskBytes;
-  @override
-  Bytes get networkRxBytes;
-  @override
-  Bytes get networkTxBytes;
-  @override
-
-  /// the amount of time the server has been running
-  /// added in pterodactyl v1.8, where it guaranteed to exist
-  /// will be -1 if on a version (v1.7 and below) that does not have it
-  @JsonKey(defaultValue: -1)
-  int get uptime;
-  @override
-  @JsonKey(ignore: true)
-  _$$StatsResourcesImplCopyWith<_$StatsResourcesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _StatsResources&&(identical(other.memoryBytes, memoryBytes) || other.memoryBytes == memoryBytes)&&(identical(other.cpuAbsolute, cpuAbsolute) || other.cpuAbsolute == cpuAbsolute)&&(identical(other.diskBytes, diskBytes) || other.diskBytes == diskBytes)&&(identical(other.networkRxBytes, networkRxBytes) || other.networkRxBytes == networkRxBytes)&&(identical(other.networkTxBytes, networkTxBytes) || other.networkTxBytes == networkTxBytes)&&(identical(other.uptime, uptime) || other.uptime == uptime));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,memoryBytes,cpuAbsolute,diskBytes,networkRxBytes,networkTxBytes,uptime);
+
+@override
+String toString() {
+  return 'StatsResources(memoryBytes: $memoryBytes, cpuAbsolute: $cpuAbsolute, diskBytes: $diskBytes, networkRxBytes: $networkRxBytes, networkTxBytes: $networkTxBytes, uptime: $uptime)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$StatsResourcesCopyWith<$Res> implements $StatsResourcesCopyWith<$Res> {
+  factory _$StatsResourcesCopyWith(_StatsResources value, $Res Function(_StatsResources) _then) = __$StatsResourcesCopyWithImpl;
+@override @useResult
+$Res call({
+ Bytes memoryBytes, double cpuAbsolute, Bytes diskBytes, Bytes networkRxBytes, Bytes networkTxBytes,@JsonKey(defaultValue: -1) int uptime
+});
+
+
+
+
+}
+/// @nodoc
+class __$StatsResourcesCopyWithImpl<$Res>
+    implements _$StatsResourcesCopyWith<$Res> {
+  __$StatsResourcesCopyWithImpl(this._self, this._then);
+
+  final _StatsResources _self;
+  final $Res Function(_StatsResources) _then;
+
+/// Create a copy of StatsResources
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? memoryBytes = null,Object? cpuAbsolute = null,Object? diskBytes = null,Object? networkRxBytes = null,Object? networkTxBytes = null,Object? uptime = null,}) {
+  return _then(_StatsResources(
+memoryBytes: null == memoryBytes ? _self.memoryBytes : memoryBytes // ignore: cast_nullable_to_non_nullable
+as Bytes,cpuAbsolute: null == cpuAbsolute ? _self.cpuAbsolute : cpuAbsolute // ignore: cast_nullable_to_non_nullable
+as double,diskBytes: null == diskBytes ? _self.diskBytes : diskBytes // ignore: cast_nullable_to_non_nullable
+as Bytes,networkRxBytes: null == networkRxBytes ? _self.networkRxBytes : networkRxBytes // ignore: cast_nullable_to_non_nullable
+as Bytes,networkTxBytes: null == networkTxBytes ? _self.networkTxBytes : networkTxBytes // ignore: cast_nullable_to_non_nullable
+as Bytes,uptime: null == uptime ? _self.uptime : uptime // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+// dart format on

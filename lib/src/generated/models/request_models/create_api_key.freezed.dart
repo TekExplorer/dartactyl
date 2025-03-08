@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,173 +10,148 @@ part of '../../../models/request_models/create_api_key.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-CreateApiKey _$CreateApiKeyFromJson(Map<String, dynamic> json) {
-  return _CreateApiKey.fromJson(json);
-}
 
 /// @nodoc
 mixin _$CreateApiKey {
-  String get description => throw _privateConstructorUsedError;
-  List<String> get allowedIps => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CreateApiKeyCopyWith<CreateApiKey> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get description; List<String> get allowedIps;
+/// Create a copy of CreateApiKey
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CreateApiKeyCopyWith<CreateApiKey> get copyWith => _$CreateApiKeyCopyWithImpl<CreateApiKey>(this as CreateApiKey, _$identity);
+
+  /// Serializes this CreateApiKey to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CreateApiKey&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.allowedIps, allowedIps));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,description,const DeepCollectionEquality().hash(allowedIps));
+
+@override
+String toString() {
+  return 'CreateApiKey(description: $description, allowedIps: $allowedIps)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $CreateApiKeyCopyWith<$Res> {
-  factory $CreateApiKeyCopyWith(
-          CreateApiKey value, $Res Function(CreateApiKey) then) =
-      _$CreateApiKeyCopyWithImpl<$Res, CreateApiKey>;
-  @useResult
-  $Res call({String description, List<String> allowedIps});
-}
+abstract mixin class $CreateApiKeyCopyWith<$Res>  {
+  factory $CreateApiKeyCopyWith(CreateApiKey value, $Res Function(CreateApiKey) _then) = _$CreateApiKeyCopyWithImpl;
+@useResult
+$Res call({
+ String description, List<String> allowedIps
+});
 
+
+
+
+}
 /// @nodoc
-class _$CreateApiKeyCopyWithImpl<$Res, $Val extends CreateApiKey>
+class _$CreateApiKeyCopyWithImpl<$Res>
     implements $CreateApiKeyCopyWith<$Res> {
-  _$CreateApiKeyCopyWithImpl(this._value, this._then);
+  _$CreateApiKeyCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final CreateApiKey _self;
+  final $Res Function(CreateApiKey) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? description = null,
-    Object? allowedIps = null,
-  }) {
-    return _then(_value.copyWith(
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      allowedIps: null == allowedIps
-          ? _value.allowedIps
-          : allowedIps // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ) as $Val);
-  }
+/// Create a copy of CreateApiKey
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? description = null,Object? allowedIps = null,}) {
+  return _then(_self.copyWith(
+description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,allowedIps: null == allowedIps ? _self.allowedIps : allowedIps // ignore: cast_nullable_to_non_nullable
+as List<String>,
+  ));
 }
 
-/// @nodoc
-abstract class _$$CreateApiKeyImplCopyWith<$Res>
-    implements $CreateApiKeyCopyWith<$Res> {
-  factory _$$CreateApiKeyImplCopyWith(
-          _$CreateApiKeyImpl value, $Res Function(_$CreateApiKeyImpl) then) =
-      __$$CreateApiKeyImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String description, List<String> allowedIps});
 }
 
-/// @nodoc
-class __$$CreateApiKeyImplCopyWithImpl<$Res>
-    extends _$CreateApiKeyCopyWithImpl<$Res, _$CreateApiKeyImpl>
-    implements _$$CreateApiKeyImplCopyWith<$Res> {
-  __$$CreateApiKeyImplCopyWithImpl(
-      _$CreateApiKeyImpl _value, $Res Function(_$CreateApiKeyImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? description = null,
-    Object? allowedIps = null,
-  }) {
-    return _then(_$CreateApiKeyImpl(
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      allowedIps: null == allowedIps
-          ? _value._allowedIps
-          : allowedIps // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$CreateApiKeyImpl extends _CreateApiKey {
-  const _$CreateApiKeyImpl(
-      {required this.description, required final List<String> allowedIps})
-      : _allowedIps = allowedIps,
-        super._();
 
-  factory _$CreateApiKeyImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CreateApiKeyImplFromJson(json);
+class _CreateApiKey implements CreateApiKey {
+  const _CreateApiKey({required this.description, required final  List<String> allowedIps}): _allowedIps = allowedIps;
+  factory _CreateApiKey.fromJson(Map<String, dynamic> json) => _$CreateApiKeyFromJson(json);
 
-  @override
-  final String description;
-  final List<String> _allowedIps;
-  @override
-  List<String> get allowedIps {
-    if (_allowedIps is EqualUnmodifiableListView) return _allowedIps;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_allowedIps);
-  }
-
-  @override
-  String toString() {
-    return 'CreateApiKey(description: $description, allowedIps: $allowedIps)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CreateApiKeyImpl &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            const DeepCollectionEquality()
-                .equals(other._allowedIps, _allowedIps));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, description,
-      const DeepCollectionEquality().hash(_allowedIps));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CreateApiKeyImplCopyWith<_$CreateApiKeyImpl> get copyWith =>
-      __$$CreateApiKeyImplCopyWithImpl<_$CreateApiKeyImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CreateApiKeyImplToJson(
-      this,
-    );
-  }
+@override final  String description;
+ final  List<String> _allowedIps;
+@override List<String> get allowedIps {
+  if (_allowedIps is EqualUnmodifiableListView) return _allowedIps;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_allowedIps);
 }
 
-abstract class _CreateApiKey extends CreateApiKey {
-  const factory _CreateApiKey(
-      {required final String description,
-      required final List<String> allowedIps}) = _$CreateApiKeyImpl;
-  const _CreateApiKey._() : super._();
 
-  factory _CreateApiKey.fromJson(Map<String, dynamic> json) =
-      _$CreateApiKeyImpl.fromJson;
+/// Create a copy of CreateApiKey
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$CreateApiKeyCopyWith<_CreateApiKey> get copyWith => __$CreateApiKeyCopyWithImpl<_CreateApiKey>(this, _$identity);
 
-  @override
-  String get description;
-  @override
-  List<String> get allowedIps;
-  @override
-  @JsonKey(ignore: true)
-  _$$CreateApiKeyImplCopyWith<_$CreateApiKeyImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$CreateApiKeyToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CreateApiKey&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._allowedIps, _allowedIps));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,description,const DeepCollectionEquality().hash(_allowedIps));
+
+@override
+String toString() {
+  return 'CreateApiKey(description: $description, allowedIps: $allowedIps)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$CreateApiKeyCopyWith<$Res> implements $CreateApiKeyCopyWith<$Res> {
+  factory _$CreateApiKeyCopyWith(_CreateApiKey value, $Res Function(_CreateApiKey) _then) = __$CreateApiKeyCopyWithImpl;
+@override @useResult
+$Res call({
+ String description, List<String> allowedIps
+});
+
+
+
+
+}
+/// @nodoc
+class __$CreateApiKeyCopyWithImpl<$Res>
+    implements _$CreateApiKeyCopyWith<$Res> {
+  __$CreateApiKeyCopyWithImpl(this._self, this._then);
+
+  final _CreateApiKey _self;
+  final $Res Function(_CreateApiKey) _then;
+
+/// Create a copy of CreateApiKey
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? description = null,Object? allowedIps = null,}) {
+  return _then(_CreateApiKey(
+description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,allowedIps: null == allowedIps ? _self._allowedIps : allowedIps // ignore: cast_nullable_to_non_nullable
+as List<String>,
+  ));
+}
+
+
+}
+
+// dart format on

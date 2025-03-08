@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,314 +10,163 @@ part of '../../../models/main_models/databases.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Databases _$DatabasesFromJson(Map<String, dynamic> json) {
-  return _Databases.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Databases {
-  int get id => throw _privateConstructorUsedError;
-  int get server => throw _privateConstructorUsedError;
-  int get host => throw _privateConstructorUsedError;
-  String get database => throw _privateConstructorUsedError;
-  String get username => throw _privateConstructorUsedError;
-  String get remote => throw _privateConstructorUsedError;
-  int get maxConnections => throw _privateConstructorUsedError;
-  String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $DatabasesCopyWith<Databases> get copyWith =>
-      throw _privateConstructorUsedError;
+ int get id; int get server; int get host; String get database; String get username; String get remote; int get maxConnections; String get createdAt; String get updatedAt;
+/// Create a copy of Databases
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DatabasesCopyWith<Databases> get copyWith => _$DatabasesCopyWithImpl<Databases>(this as Databases, _$identity);
+
+  /// Serializes this Databases to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Databases&&(identical(other.id, id) || other.id == id)&&(identical(other.server, server) || other.server == server)&&(identical(other.host, host) || other.host == host)&&(identical(other.database, database) || other.database == database)&&(identical(other.username, username) || other.username == username)&&(identical(other.remote, remote) || other.remote == remote)&&(identical(other.maxConnections, maxConnections) || other.maxConnections == maxConnections)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,server,host,database,username,remote,maxConnections,createdAt,updatedAt);
+
+@override
+String toString() {
+  return 'Databases(id: $id, server: $server, host: $host, database: $database, username: $username, remote: $remote, maxConnections: $maxConnections, createdAt: $createdAt, updatedAt: $updatedAt)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $DatabasesCopyWith<$Res> {
-  factory $DatabasesCopyWith(Databases value, $Res Function(Databases) then) =
-      _$DatabasesCopyWithImpl<$Res, Databases>;
-  @useResult
-  $Res call(
-      {int id,
-      int server,
-      int host,
-      String database,
-      String username,
-      String remote,
-      int maxConnections,
-      String createdAt,
-      String updatedAt});
-}
+abstract mixin class $DatabasesCopyWith<$Res>  {
+  factory $DatabasesCopyWith(Databases value, $Res Function(Databases) _then) = _$DatabasesCopyWithImpl;
+@useResult
+$Res call({
+ int id, int server, int host, String database, String username, String remote, int maxConnections, String createdAt, String updatedAt
+});
 
+
+
+
+}
 /// @nodoc
-class _$DatabasesCopyWithImpl<$Res, $Val extends Databases>
+class _$DatabasesCopyWithImpl<$Res>
     implements $DatabasesCopyWith<$Res> {
-  _$DatabasesCopyWithImpl(this._value, this._then);
+  _$DatabasesCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Databases _self;
+  final $Res Function(Databases) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? server = null,
-    Object? host = null,
-    Object? database = null,
-    Object? username = null,
-    Object? remote = null,
-    Object? maxConnections = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      server: null == server
-          ? _value.server
-          : server // ignore: cast_nullable_to_non_nullable
-              as int,
-      host: null == host
-          ? _value.host
-          : host // ignore: cast_nullable_to_non_nullable
-              as int,
-      database: null == database
-          ? _value.database
-          : database // ignore: cast_nullable_to_non_nullable
-              as String,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      remote: null == remote
-          ? _value.remote
-          : remote // ignore: cast_nullable_to_non_nullable
-              as String,
-      maxConnections: null == maxConnections
-          ? _value.maxConnections
-          : maxConnections // ignore: cast_nullable_to_non_nullable
-              as int,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of Databases
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? server = null,Object? host = null,Object? database = null,Object? username = null,Object? remote = null,Object? maxConnections = null,Object? createdAt = null,Object? updatedAt = null,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,server: null == server ? _self.server : server // ignore: cast_nullable_to_non_nullable
+as int,host: null == host ? _self.host : host // ignore: cast_nullable_to_non_nullable
+as int,database: null == database ? _self.database : database // ignore: cast_nullable_to_non_nullable
+as String,username: null == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
+as String,remote: null == remote ? _self.remote : remote // ignore: cast_nullable_to_non_nullable
+as String,maxConnections: null == maxConnections ? _self.maxConnections : maxConnections // ignore: cast_nullable_to_non_nullable
+as int,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as String,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$DatabasesImplCopyWith<$Res>
-    implements $DatabasesCopyWith<$Res> {
-  factory _$$DatabasesImplCopyWith(
-          _$DatabasesImpl value, $Res Function(_$DatabasesImpl) then) =
-      __$$DatabasesImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {int id,
-      int server,
-      int host,
-      String database,
-      String username,
-      String remote,
-      int maxConnections,
-      String createdAt,
-      String updatedAt});
 }
 
-/// @nodoc
-class __$$DatabasesImplCopyWithImpl<$Res>
-    extends _$DatabasesCopyWithImpl<$Res, _$DatabasesImpl>
-    implements _$$DatabasesImplCopyWith<$Res> {
-  __$$DatabasesImplCopyWithImpl(
-      _$DatabasesImpl _value, $Res Function(_$DatabasesImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? server = null,
-    Object? host = null,
-    Object? database = null,
-    Object? username = null,
-    Object? remote = null,
-    Object? maxConnections = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
-  }) {
-    return _then(_$DatabasesImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      server: null == server
-          ? _value.server
-          : server // ignore: cast_nullable_to_non_nullable
-              as int,
-      host: null == host
-          ? _value.host
-          : host // ignore: cast_nullable_to_non_nullable
-              as int,
-      database: null == database
-          ? _value.database
-          : database // ignore: cast_nullable_to_non_nullable
-              as String,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      remote: null == remote
-          ? _value.remote
-          : remote // ignore: cast_nullable_to_non_nullable
-              as String,
-      maxConnections: null == maxConnections
-          ? _value.maxConnections
-          : maxConnections // ignore: cast_nullable_to_non_nullable
-              as int,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$DatabasesImpl extends _Databases {
-  const _$DatabasesImpl(
-      {required this.id,
-      required this.server,
-      required this.host,
-      required this.database,
-      required this.username,
-      required this.remote,
-      required this.maxConnections,
-      required this.createdAt,
-      required this.updatedAt})
-      : super._();
 
-  factory _$DatabasesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DatabasesImplFromJson(json);
+class _Databases implements Databases {
+  const _Databases({required this.id, required this.server, required this.host, required this.database, required this.username, required this.remote, required this.maxConnections, required this.createdAt, required this.updatedAt});
+  factory _Databases.fromJson(Map<String, dynamic> json) => _$DatabasesFromJson(json);
 
-  @override
-  final int id;
-  @override
-  final int server;
-  @override
-  final int host;
-  @override
-  final String database;
-  @override
-  final String username;
-  @override
-  final String remote;
-  @override
-  final int maxConnections;
-  @override
-  final String createdAt;
-  @override
-  final String updatedAt;
+@override final  int id;
+@override final  int server;
+@override final  int host;
+@override final  String database;
+@override final  String username;
+@override final  String remote;
+@override final  int maxConnections;
+@override final  String createdAt;
+@override final  String updatedAt;
 
-  @override
-  String toString() {
-    return 'Databases(id: $id, server: $server, host: $host, database: $database, username: $username, remote: $remote, maxConnections: $maxConnections, createdAt: $createdAt, updatedAt: $updatedAt)';
-  }
+/// Create a copy of Databases
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DatabasesCopyWith<_Databases> get copyWith => __$DatabasesCopyWithImpl<_Databases>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DatabasesImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.server, server) || other.server == server) &&
-            (identical(other.host, host) || other.host == host) &&
-            (identical(other.database, database) ||
-                other.database == database) &&
-            (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.remote, remote) || other.remote == remote) &&
-            (identical(other.maxConnections, maxConnections) ||
-                other.maxConnections == maxConnections) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, server, host, database,
-      username, remote, maxConnections, createdAt, updatedAt);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DatabasesImplCopyWith<_$DatabasesImpl> get copyWith =>
-      __$$DatabasesImplCopyWithImpl<_$DatabasesImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DatabasesImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$DatabasesToJson(this, );
 }
 
-abstract class _Databases extends Databases {
-  const factory _Databases(
-      {required final int id,
-      required final int server,
-      required final int host,
-      required final String database,
-      required final String username,
-      required final String remote,
-      required final int maxConnections,
-      required final String createdAt,
-      required final String updatedAt}) = _$DatabasesImpl;
-  const _Databases._() : super._();
-
-  factory _Databases.fromJson(Map<String, dynamic> json) =
-      _$DatabasesImpl.fromJson;
-
-  @override
-  int get id;
-  @override
-  int get server;
-  @override
-  int get host;
-  @override
-  String get database;
-  @override
-  String get username;
-  @override
-  String get remote;
-  @override
-  int get maxConnections;
-  @override
-  String get createdAt;
-  @override
-  String get updatedAt;
-  @override
-  @JsonKey(ignore: true)
-  _$$DatabasesImplCopyWith<_$DatabasesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Databases&&(identical(other.id, id) || other.id == id)&&(identical(other.server, server) || other.server == server)&&(identical(other.host, host) || other.host == host)&&(identical(other.database, database) || other.database == database)&&(identical(other.username, username) || other.username == username)&&(identical(other.remote, remote) || other.remote == remote)&&(identical(other.maxConnections, maxConnections) || other.maxConnections == maxConnections)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,server,host,database,username,remote,maxConnections,createdAt,updatedAt);
+
+@override
+String toString() {
+  return 'Databases(id: $id, server: $server, host: $host, database: $database, username: $username, remote: $remote, maxConnections: $maxConnections, createdAt: $createdAt, updatedAt: $updatedAt)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DatabasesCopyWith<$Res> implements $DatabasesCopyWith<$Res> {
+  factory _$DatabasesCopyWith(_Databases value, $Res Function(_Databases) _then) = __$DatabasesCopyWithImpl;
+@override @useResult
+$Res call({
+ int id, int server, int host, String database, String username, String remote, int maxConnections, String createdAt, String updatedAt
+});
+
+
+
+
+}
+/// @nodoc
+class __$DatabasesCopyWithImpl<$Res>
+    implements _$DatabasesCopyWith<$Res> {
+  __$DatabasesCopyWithImpl(this._self, this._then);
+
+  final _Databases _self;
+  final $Res Function(_Databases) _then;
+
+/// Create a copy of Databases
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? server = null,Object? host = null,Object? database = null,Object? username = null,Object? remote = null,Object? maxConnections = null,Object? createdAt = null,Object? updatedAt = null,}) {
+  return _then(_Databases(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,server: null == server ? _self.server : server // ignore: cast_nullable_to_non_nullable
+as int,host: null == host ? _self.host : host // ignore: cast_nullable_to_non_nullable
+as int,database: null == database ? _self.database : database // ignore: cast_nullable_to_non_nullable
+as String,username: null == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
+as String,remote: null == remote ? _self.remote : remote // ignore: cast_nullable_to_non_nullable
+as String,maxConnections: null == maxConnections ? _self.maxConnections : maxConnections // ignore: cast_nullable_to_non_nullable
+as int,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as String,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

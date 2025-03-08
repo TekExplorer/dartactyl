@@ -6,13 +6,12 @@ part of '../../../models/application_request_models/update_user_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UpdateUserRequestImpl _$$UpdateUserRequestImplFromJson(
-        Map<String, dynamic> json) =>
+_UpdateUserRequest _$UpdateUserRequestFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$UpdateUserRequestImpl',
+      '_UpdateUserRequest',
       json,
       ($checkedConvert) {
-        final val = _$UpdateUserRequestImpl(
+        final val = _UpdateUserRequest(
           email: $checkedConvert('email', (v) => v as String),
           username: $checkedConvert('username', (v) => v as String),
           firstName: $checkedConvert('first_name', (v) => v as String),
@@ -25,8 +24,7 @@ _$UpdateUserRequestImpl _$$UpdateUserRequestImplFromJson(
       fieldKeyMap: const {'firstName': 'first_name', 'lastName': 'last_name'},
     );
 
-Map<String, dynamic> _$$UpdateUserRequestImplToJson(
-        _$UpdateUserRequestImpl instance) =>
+Map<String, dynamic> _$UpdateUserRequestToJson(_UpdateUserRequest instance) =>
     <String, dynamic>{
       'email': instance.email,
       'username': instance.username,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,151 +10,139 @@ part of '../../../models/permission_keys/websocket_permission_keys.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-WebsocketPermissionKeys _$WebsocketPermissionKeysFromJson(
-    Map<String, dynamic> json) {
-  return _WebsocketPermissionKeys.fromJson(json);
-}
 
 /// @nodoc
 mixin _$WebsocketPermissionKeys {
-  String get connect => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $WebsocketPermissionKeysCopyWith<WebsocketPermissionKeys> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get connect;
+/// Create a copy of WebsocketPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$WebsocketPermissionKeysCopyWith<WebsocketPermissionKeys> get copyWith => _$WebsocketPermissionKeysCopyWithImpl<WebsocketPermissionKeys>(this as WebsocketPermissionKeys, _$identity);
+
+  /// Serializes this WebsocketPermissionKeys to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WebsocketPermissionKeys&&(identical(other.connect, connect) || other.connect == connect));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,connect);
+
+@override
+String toString() {
+  return 'WebsocketPermissionKeys(connect: $connect)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $WebsocketPermissionKeysCopyWith<$Res> {
-  factory $WebsocketPermissionKeysCopyWith(WebsocketPermissionKeys value,
-          $Res Function(WebsocketPermissionKeys) then) =
-      _$WebsocketPermissionKeysCopyWithImpl<$Res, WebsocketPermissionKeys>;
-  @useResult
-  $Res call({String connect});
-}
+abstract mixin class $WebsocketPermissionKeysCopyWith<$Res>  {
+  factory $WebsocketPermissionKeysCopyWith(WebsocketPermissionKeys value, $Res Function(WebsocketPermissionKeys) _then) = _$WebsocketPermissionKeysCopyWithImpl;
+@useResult
+$Res call({
+ String connect
+});
 
+
+
+
+}
 /// @nodoc
-class _$WebsocketPermissionKeysCopyWithImpl<$Res,
-        $Val extends WebsocketPermissionKeys>
+class _$WebsocketPermissionKeysCopyWithImpl<$Res>
     implements $WebsocketPermissionKeysCopyWith<$Res> {
-  _$WebsocketPermissionKeysCopyWithImpl(this._value, this._then);
+  _$WebsocketPermissionKeysCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final WebsocketPermissionKeys _self;
+  final $Res Function(WebsocketPermissionKeys) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? connect = null,
-  }) {
-    return _then(_value.copyWith(
-      connect: null == connect
-          ? _value.connect
-          : connect // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of WebsocketPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? connect = null,}) {
+  return _then(_self.copyWith(
+connect: null == connect ? _self.connect : connect // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$WebsocketPermissionKeysImplCopyWith<$Res>
-    implements $WebsocketPermissionKeysCopyWith<$Res> {
-  factory _$$WebsocketPermissionKeysImplCopyWith(
-          _$WebsocketPermissionKeysImpl value,
-          $Res Function(_$WebsocketPermissionKeysImpl) then) =
-      __$$WebsocketPermissionKeysImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String connect});
 }
 
-/// @nodoc
-class __$$WebsocketPermissionKeysImplCopyWithImpl<$Res>
-    extends _$WebsocketPermissionKeysCopyWithImpl<$Res,
-        _$WebsocketPermissionKeysImpl>
-    implements _$$WebsocketPermissionKeysImplCopyWith<$Res> {
-  __$$WebsocketPermissionKeysImplCopyWithImpl(
-      _$WebsocketPermissionKeysImpl _value,
-      $Res Function(_$WebsocketPermissionKeysImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? connect = null,
-  }) {
-    return _then(_$WebsocketPermissionKeysImpl(
-      connect: null == connect
-          ? _value.connect
-          : connect // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$WebsocketPermissionKeysImpl extends _WebsocketPermissionKeys {
-  const _$WebsocketPermissionKeysImpl({required this.connect}) : super._();
 
-  factory _$WebsocketPermissionKeysImpl.fromJson(Map<String, dynamic> json) =>
-      _$$WebsocketPermissionKeysImplFromJson(json);
+class _WebsocketPermissionKeys implements WebsocketPermissionKeys {
+  const _WebsocketPermissionKeys({required this.connect});
+  factory _WebsocketPermissionKeys.fromJson(Map<String, dynamic> json) => _$WebsocketPermissionKeysFromJson(json);
 
-  @override
-  final String connect;
+@override final  String connect;
 
-  @override
-  String toString() {
-    return 'WebsocketPermissionKeys(connect: $connect)';
-  }
+/// Create a copy of WebsocketPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$WebsocketPermissionKeysCopyWith<_WebsocketPermissionKeys> get copyWith => __$WebsocketPermissionKeysCopyWithImpl<_WebsocketPermissionKeys>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$WebsocketPermissionKeysImpl &&
-            (identical(other.connect, connect) || other.connect == connect));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, connect);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$WebsocketPermissionKeysImplCopyWith<_$WebsocketPermissionKeysImpl>
-      get copyWith => __$$WebsocketPermissionKeysImplCopyWithImpl<
-          _$WebsocketPermissionKeysImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$WebsocketPermissionKeysImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$WebsocketPermissionKeysToJson(this, );
 }
 
-abstract class _WebsocketPermissionKeys extends WebsocketPermissionKeys {
-  const factory _WebsocketPermissionKeys({required final String connect}) =
-      _$WebsocketPermissionKeysImpl;
-  const _WebsocketPermissionKeys._() : super._();
-
-  factory _WebsocketPermissionKeys.fromJson(Map<String, dynamic> json) =
-      _$WebsocketPermissionKeysImpl.fromJson;
-
-  @override
-  String get connect;
-  @override
-  @JsonKey(ignore: true)
-  _$$WebsocketPermissionKeysImplCopyWith<_$WebsocketPermissionKeysImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WebsocketPermissionKeys&&(identical(other.connect, connect) || other.connect == connect));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,connect);
+
+@override
+String toString() {
+  return 'WebsocketPermissionKeys(connect: $connect)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$WebsocketPermissionKeysCopyWith<$Res> implements $WebsocketPermissionKeysCopyWith<$Res> {
+  factory _$WebsocketPermissionKeysCopyWith(_WebsocketPermissionKeys value, $Res Function(_WebsocketPermissionKeys) _then) = __$WebsocketPermissionKeysCopyWithImpl;
+@override @useResult
+$Res call({
+ String connect
+});
+
+
+
+
+}
+/// @nodoc
+class __$WebsocketPermissionKeysCopyWithImpl<$Res>
+    implements _$WebsocketPermissionKeysCopyWith<$Res> {
+  __$WebsocketPermissionKeysCopyWithImpl(this._self, this._then);
+
+  final _WebsocketPermissionKeys _self;
+  final $Res Function(_WebsocketPermissionKeys) _then;
+
+/// Create a copy of WebsocketPermissionKeys
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? connect = null,}) {
+  return _then(_WebsocketPermissionKeys(
+connect: null == connect ? _self.connect : connect // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

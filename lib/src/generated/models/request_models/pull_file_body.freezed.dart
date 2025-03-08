@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,234 +10,151 @@ part of '../../../models/request_models/pull_file_body.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-PullFileBody _$PullFileBodyFromJson(Map<String, dynamic> json) {
-  return _PullFileBody.fromJson(json);
-}
 
 /// @nodoc
 mixin _$PullFileBody {
-  Uri get url => throw _privateConstructorUsedError;
-  String? get directory => throw _privateConstructorUsedError;
-  String? get filename => throw _privateConstructorUsedError;
-  bool? get useHeader => throw _privateConstructorUsedError;
-  bool? get foreground => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PullFileBodyCopyWith<PullFileBody> get copyWith =>
-      throw _privateConstructorUsedError;
+ Uri get url; String? get directory; String? get filename; bool? get useHeader; bool? get foreground;
+/// Create a copy of PullFileBody
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PullFileBodyCopyWith<PullFileBody> get copyWith => _$PullFileBodyCopyWithImpl<PullFileBody>(this as PullFileBody, _$identity);
+
+  /// Serializes this PullFileBody to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PullFileBody&&(identical(other.url, url) || other.url == url)&&(identical(other.directory, directory) || other.directory == directory)&&(identical(other.filename, filename) || other.filename == filename)&&(identical(other.useHeader, useHeader) || other.useHeader == useHeader)&&(identical(other.foreground, foreground) || other.foreground == foreground));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,url,directory,filename,useHeader,foreground);
+
+@override
+String toString() {
+  return 'PullFileBody(url: $url, directory: $directory, filename: $filename, useHeader: $useHeader, foreground: $foreground)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $PullFileBodyCopyWith<$Res> {
-  factory $PullFileBodyCopyWith(
-          PullFileBody value, $Res Function(PullFileBody) then) =
-      _$PullFileBodyCopyWithImpl<$Res, PullFileBody>;
-  @useResult
-  $Res call(
-      {Uri url,
-      String? directory,
-      String? filename,
-      bool? useHeader,
-      bool? foreground});
-}
+abstract mixin class $PullFileBodyCopyWith<$Res>  {
+  factory $PullFileBodyCopyWith(PullFileBody value, $Res Function(PullFileBody) _then) = _$PullFileBodyCopyWithImpl;
+@useResult
+$Res call({
+ Uri url, String? directory, String? filename, bool? useHeader, bool? foreground
+});
 
+
+
+
+}
 /// @nodoc
-class _$PullFileBodyCopyWithImpl<$Res, $Val extends PullFileBody>
+class _$PullFileBodyCopyWithImpl<$Res>
     implements $PullFileBodyCopyWith<$Res> {
-  _$PullFileBodyCopyWithImpl(this._value, this._then);
+  _$PullFileBodyCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final PullFileBody _self;
+  final $Res Function(PullFileBody) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? url = null,
-    Object? directory = freezed,
-    Object? filename = freezed,
-    Object? useHeader = freezed,
-    Object? foreground = freezed,
-  }) {
-    return _then(_value.copyWith(
-      url: null == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as Uri,
-      directory: freezed == directory
-          ? _value.directory
-          : directory // ignore: cast_nullable_to_non_nullable
-              as String?,
-      filename: freezed == filename
-          ? _value.filename
-          : filename // ignore: cast_nullable_to_non_nullable
-              as String?,
-      useHeader: freezed == useHeader
-          ? _value.useHeader
-          : useHeader // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      foreground: freezed == foreground
-          ? _value.foreground
-          : foreground // ignore: cast_nullable_to_non_nullable
-              as bool?,
-    ) as $Val);
-  }
+/// Create a copy of PullFileBody
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? url = null,Object? directory = freezed,Object? filename = freezed,Object? useHeader = freezed,Object? foreground = freezed,}) {
+  return _then(_self.copyWith(
+url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
+as Uri,directory: freezed == directory ? _self.directory : directory // ignore: cast_nullable_to_non_nullable
+as String?,filename: freezed == filename ? _self.filename : filename // ignore: cast_nullable_to_non_nullable
+as String?,useHeader: freezed == useHeader ? _self.useHeader : useHeader // ignore: cast_nullable_to_non_nullable
+as bool?,foreground: freezed == foreground ? _self.foreground : foreground // ignore: cast_nullable_to_non_nullable
+as bool?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$PullFileBodyImplCopyWith<$Res>
-    implements $PullFileBodyCopyWith<$Res> {
-  factory _$$PullFileBodyImplCopyWith(
-          _$PullFileBodyImpl value, $Res Function(_$PullFileBodyImpl) then) =
-      __$$PullFileBodyImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {Uri url,
-      String? directory,
-      String? filename,
-      bool? useHeader,
-      bool? foreground});
 }
 
-/// @nodoc
-class __$$PullFileBodyImplCopyWithImpl<$Res>
-    extends _$PullFileBodyCopyWithImpl<$Res, _$PullFileBodyImpl>
-    implements _$$PullFileBodyImplCopyWith<$Res> {
-  __$$PullFileBodyImplCopyWithImpl(
-      _$PullFileBodyImpl _value, $Res Function(_$PullFileBodyImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? url = null,
-    Object? directory = freezed,
-    Object? filename = freezed,
-    Object? useHeader = freezed,
-    Object? foreground = freezed,
-  }) {
-    return _then(_$PullFileBodyImpl(
-      url: null == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as Uri,
-      directory: freezed == directory
-          ? _value.directory
-          : directory // ignore: cast_nullable_to_non_nullable
-              as String?,
-      filename: freezed == filename
-          ? _value.filename
-          : filename // ignore: cast_nullable_to_non_nullable
-              as String?,
-      useHeader: freezed == useHeader
-          ? _value.useHeader
-          : useHeader // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      foreground: freezed == foreground
-          ? _value.foreground
-          : foreground // ignore: cast_nullable_to_non_nullable
-              as bool?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$PullFileBodyImpl extends _PullFileBody {
-  const _$PullFileBodyImpl(
-      {required this.url,
-      this.directory,
-      this.filename,
-      this.useHeader,
-      this.foreground})
-      : super._();
 
-  factory _$PullFileBodyImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PullFileBodyImplFromJson(json);
+class _PullFileBody implements PullFileBody {
+  const _PullFileBody({required this.url, this.directory, this.filename, this.useHeader, this.foreground});
+  factory _PullFileBody.fromJson(Map<String, dynamic> json) => _$PullFileBodyFromJson(json);
 
-  @override
-  final Uri url;
-  @override
-  final String? directory;
-  @override
-  final String? filename;
-  @override
-  final bool? useHeader;
-  @override
-  final bool? foreground;
+@override final  Uri url;
+@override final  String? directory;
+@override final  String? filename;
+@override final  bool? useHeader;
+@override final  bool? foreground;
 
-  @override
-  String toString() {
-    return 'PullFileBody(url: $url, directory: $directory, filename: $filename, useHeader: $useHeader, foreground: $foreground)';
-  }
+/// Create a copy of PullFileBody
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PullFileBodyCopyWith<_PullFileBody> get copyWith => __$PullFileBodyCopyWithImpl<_PullFileBody>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PullFileBodyImpl &&
-            (identical(other.url, url) || other.url == url) &&
-            (identical(other.directory, directory) ||
-                other.directory == directory) &&
-            (identical(other.filename, filename) ||
-                other.filename == filename) &&
-            (identical(other.useHeader, useHeader) ||
-                other.useHeader == useHeader) &&
-            (identical(other.foreground, foreground) ||
-                other.foreground == foreground));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, url, directory, filename, useHeader, foreground);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PullFileBodyImplCopyWith<_$PullFileBodyImpl> get copyWith =>
-      __$$PullFileBodyImplCopyWithImpl<_$PullFileBodyImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PullFileBodyImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$PullFileBodyToJson(this, );
 }
 
-abstract class _PullFileBody extends PullFileBody {
-  const factory _PullFileBody(
-      {required final Uri url,
-      final String? directory,
-      final String? filename,
-      final bool? useHeader,
-      final bool? foreground}) = _$PullFileBodyImpl;
-  const _PullFileBody._() : super._();
-
-  factory _PullFileBody.fromJson(Map<String, dynamic> json) =
-      _$PullFileBodyImpl.fromJson;
-
-  @override
-  Uri get url;
-  @override
-  String? get directory;
-  @override
-  String? get filename;
-  @override
-  bool? get useHeader;
-  @override
-  bool? get foreground;
-  @override
-  @JsonKey(ignore: true)
-  _$$PullFileBodyImplCopyWith<_$PullFileBodyImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PullFileBody&&(identical(other.url, url) || other.url == url)&&(identical(other.directory, directory) || other.directory == directory)&&(identical(other.filename, filename) || other.filename == filename)&&(identical(other.useHeader, useHeader) || other.useHeader == useHeader)&&(identical(other.foreground, foreground) || other.foreground == foreground));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,url,directory,filename,useHeader,foreground);
+
+@override
+String toString() {
+  return 'PullFileBody(url: $url, directory: $directory, filename: $filename, useHeader: $useHeader, foreground: $foreground)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PullFileBodyCopyWith<$Res> implements $PullFileBodyCopyWith<$Res> {
+  factory _$PullFileBodyCopyWith(_PullFileBody value, $Res Function(_PullFileBody) _then) = __$PullFileBodyCopyWithImpl;
+@override @useResult
+$Res call({
+ Uri url, String? directory, String? filename, bool? useHeader, bool? foreground
+});
+
+
+
+
+}
+/// @nodoc
+class __$PullFileBodyCopyWithImpl<$Res>
+    implements _$PullFileBodyCopyWith<$Res> {
+  __$PullFileBodyCopyWithImpl(this._self, this._then);
+
+  final _PullFileBody _self;
+  final $Res Function(_PullFileBody) _then;
+
+/// Create a copy of PullFileBody
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? url = null,Object? directory = freezed,Object? filename = freezed,Object? useHeader = freezed,Object? foreground = freezed,}) {
+  return _then(_PullFileBody(
+url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
+as Uri,directory: freezed == directory ? _self.directory : directory // ignore: cast_nullable_to_non_nullable
+as String?,filename: freezed == filename ? _self.filename : filename // ignore: cast_nullable_to_non_nullable
+as String?,useHeader: freezed == useHeader ? _self.useHeader : useHeader // ignore: cast_nullable_to_non_nullable
+as bool?,foreground: freezed == foreground ? _self.foreground : foreground // ignore: cast_nullable_to_non_nullable
+as bool?,
+  ));
+}
+
+
+}
+
+// dart format on

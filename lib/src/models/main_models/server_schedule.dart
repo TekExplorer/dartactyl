@@ -5,7 +5,7 @@ part '../../generated/models/main_models/server_schedule.freezed.dart';
 part '../../generated/models/main_models/server_schedule.g.dart';
 
 @freezed
-class ServerSchedule with _$ServerSchedule {
+abstract class ServerSchedule with _$ServerSchedule {
   const factory ServerSchedule({
     required int id,
     required String name,
@@ -18,6 +18,7 @@ class ServerSchedule with _$ServerSchedule {
     required DateTime createdAt,
     required DateTime updatedAt,
   }) = _ServerSchedule;
-  const ServerSchedule._();
-  factory ServerSchedule.fromJson(JsonMap json) = _ServerSchedule.fromJson;
+
+  factory ServerSchedule.fromJson(JsonMap json) =>
+      _$ServerScheduleFromJson(json);
 }

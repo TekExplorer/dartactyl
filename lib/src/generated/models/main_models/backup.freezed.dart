@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,321 +10,163 @@ part of '../../../models/main_models/backup.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Backup _$BackupFromJson(Map<String, dynamic> json) {
-  return _Backup.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Backup {
-  String get uuid => throw _privateConstructorUsedError;
-  bool get isSuccessful => throw _privateConstructorUsedError;
-  bool get isLocked => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  IList<String>? get ignoredFiles => throw _privateConstructorUsedError;
-  String? get checksum => throw _privateConstructorUsedError;
-  Bytes get bytes => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  DateTime? get completedAt => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $BackupCopyWith<Backup> get copyWith => throw _privateConstructorUsedError;
+ String get uuid; bool get isSuccessful; bool get isLocked; String get name; IList<String>? get ignoredFiles; String? get checksum; Bytes get bytes; DateTime get createdAt; DateTime? get completedAt;
+/// Create a copy of Backup
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$BackupCopyWith<Backup> get copyWith => _$BackupCopyWithImpl<Backup>(this as Backup, _$identity);
+
+  /// Serializes this Backup to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Backup&&(identical(other.uuid, uuid) || other.uuid == uuid)&&(identical(other.isSuccessful, isSuccessful) || other.isSuccessful == isSuccessful)&&(identical(other.isLocked, isLocked) || other.isLocked == isLocked)&&(identical(other.name, name) || other.name == name)&&const DeepCollectionEquality().equals(other.ignoredFiles, ignoredFiles)&&(identical(other.checksum, checksum) || other.checksum == checksum)&&(identical(other.bytes, bytes) || other.bytes == bytes)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.completedAt, completedAt) || other.completedAt == completedAt));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,uuid,isSuccessful,isLocked,name,const DeepCollectionEquality().hash(ignoredFiles),checksum,bytes,createdAt,completedAt);
+
+@override
+String toString() {
+  return 'Backup(uuid: $uuid, isSuccessful: $isSuccessful, isLocked: $isLocked, name: $name, ignoredFiles: $ignoredFiles, checksum: $checksum, bytes: $bytes, createdAt: $createdAt, completedAt: $completedAt)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $BackupCopyWith<$Res> {
-  factory $BackupCopyWith(Backup value, $Res Function(Backup) then) =
-      _$BackupCopyWithImpl<$Res, Backup>;
-  @useResult
-  $Res call(
-      {String uuid,
-      bool isSuccessful,
-      bool isLocked,
-      String name,
-      IList<String>? ignoredFiles,
-      String? checksum,
-      Bytes bytes,
-      DateTime createdAt,
-      DateTime? completedAt});
-}
+abstract mixin class $BackupCopyWith<$Res>  {
+  factory $BackupCopyWith(Backup value, $Res Function(Backup) _then) = _$BackupCopyWithImpl;
+@useResult
+$Res call({
+ String uuid, bool isSuccessful, bool isLocked, String name, IList<String>? ignoredFiles, String? checksum, Bytes bytes, DateTime createdAt, DateTime? completedAt
+});
 
+
+
+
+}
 /// @nodoc
-class _$BackupCopyWithImpl<$Res, $Val extends Backup>
+class _$BackupCopyWithImpl<$Res>
     implements $BackupCopyWith<$Res> {
-  _$BackupCopyWithImpl(this._value, this._then);
+  _$BackupCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Backup _self;
+  final $Res Function(Backup) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? uuid = null,
-    Object? isSuccessful = null,
-    Object? isLocked = null,
-    Object? name = null,
-    Object? ignoredFiles = freezed,
-    Object? checksum = freezed,
-    Object? bytes = null,
-    Object? createdAt = null,
-    Object? completedAt = freezed,
-  }) {
-    return _then(_value.copyWith(
-      uuid: null == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
-      isSuccessful: null == isSuccessful
-          ? _value.isSuccessful
-          : isSuccessful // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isLocked: null == isLocked
-          ? _value.isLocked
-          : isLocked // ignore: cast_nullable_to_non_nullable
-              as bool,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      ignoredFiles: freezed == ignoredFiles
-          ? _value.ignoredFiles
-          : ignoredFiles // ignore: cast_nullable_to_non_nullable
-              as IList<String>?,
-      checksum: freezed == checksum
-          ? _value.checksum
-          : checksum // ignore: cast_nullable_to_non_nullable
-              as String?,
-      bytes: null == bytes
-          ? _value.bytes
-          : bytes // ignore: cast_nullable_to_non_nullable
-              as Bytes,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      completedAt: freezed == completedAt
-          ? _value.completedAt
-          : completedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ) as $Val);
-  }
+/// Create a copy of Backup
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? uuid = null,Object? isSuccessful = null,Object? isLocked = null,Object? name = null,Object? ignoredFiles = freezed,Object? checksum = freezed,Object? bytes = null,Object? createdAt = null,Object? completedAt = freezed,}) {
+  return _then(_self.copyWith(
+uuid: null == uuid ? _self.uuid : uuid // ignore: cast_nullable_to_non_nullable
+as String,isSuccessful: null == isSuccessful ? _self.isSuccessful : isSuccessful // ignore: cast_nullable_to_non_nullable
+as bool,isLocked: null == isLocked ? _self.isLocked : isLocked // ignore: cast_nullable_to_non_nullable
+as bool,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,ignoredFiles: freezed == ignoredFiles ? _self.ignoredFiles : ignoredFiles // ignore: cast_nullable_to_non_nullable
+as IList<String>?,checksum: freezed == checksum ? _self.checksum : checksum // ignore: cast_nullable_to_non_nullable
+as String?,bytes: null == bytes ? _self.bytes : bytes // ignore: cast_nullable_to_non_nullable
+as Bytes,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,completedAt: freezed == completedAt ? _self.completedAt : completedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$BackupImplCopyWith<$Res> implements $BackupCopyWith<$Res> {
-  factory _$$BackupImplCopyWith(
-          _$BackupImpl value, $Res Function(_$BackupImpl) then) =
-      __$$BackupImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String uuid,
-      bool isSuccessful,
-      bool isLocked,
-      String name,
-      IList<String>? ignoredFiles,
-      String? checksum,
-      Bytes bytes,
-      DateTime createdAt,
-      DateTime? completedAt});
 }
 
-/// @nodoc
-class __$$BackupImplCopyWithImpl<$Res>
-    extends _$BackupCopyWithImpl<$Res, _$BackupImpl>
-    implements _$$BackupImplCopyWith<$Res> {
-  __$$BackupImplCopyWithImpl(
-      _$BackupImpl _value, $Res Function(_$BackupImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? uuid = null,
-    Object? isSuccessful = null,
-    Object? isLocked = null,
-    Object? name = null,
-    Object? ignoredFiles = freezed,
-    Object? checksum = freezed,
-    Object? bytes = null,
-    Object? createdAt = null,
-    Object? completedAt = freezed,
-  }) {
-    return _then(_$BackupImpl(
-      uuid: null == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
-      isSuccessful: null == isSuccessful
-          ? _value.isSuccessful
-          : isSuccessful // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isLocked: null == isLocked
-          ? _value.isLocked
-          : isLocked // ignore: cast_nullable_to_non_nullable
-              as bool,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      ignoredFiles: freezed == ignoredFiles
-          ? _value.ignoredFiles
-          : ignoredFiles // ignore: cast_nullable_to_non_nullable
-              as IList<String>?,
-      checksum: freezed == checksum
-          ? _value.checksum
-          : checksum // ignore: cast_nullable_to_non_nullable
-              as String?,
-      bytes: null == bytes
-          ? _value.bytes
-          : bytes // ignore: cast_nullable_to_non_nullable
-              as Bytes,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      completedAt: freezed == completedAt
-          ? _value.completedAt
-          : completedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$BackupImpl extends _Backup {
-  const _$BackupImpl(
-      {required this.uuid,
-      required this.isSuccessful,
-      required this.isLocked,
-      required this.name,
-      this.ignoredFiles,
-      this.checksum,
-      required this.bytes,
-      required this.createdAt,
-      this.completedAt})
-      : super._();
 
-  factory _$BackupImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BackupImplFromJson(json);
+class _Backup implements Backup {
+  const _Backup({required this.uuid, required this.isSuccessful, required this.isLocked, required this.name, this.ignoredFiles, this.checksum, required this.bytes, required this.createdAt, this.completedAt});
+  factory _Backup.fromJson(Map<String, dynamic> json) => _$BackupFromJson(json);
 
-  @override
-  final String uuid;
-  @override
-  final bool isSuccessful;
-  @override
-  final bool isLocked;
-  @override
-  final String name;
-  @override
-  final IList<String>? ignoredFiles;
-  @override
-  final String? checksum;
-  @override
-  final Bytes bytes;
-  @override
-  final DateTime createdAt;
-  @override
-  final DateTime? completedAt;
+@override final  String uuid;
+@override final  bool isSuccessful;
+@override final  bool isLocked;
+@override final  String name;
+@override final  IList<String>? ignoredFiles;
+@override final  String? checksum;
+@override final  Bytes bytes;
+@override final  DateTime createdAt;
+@override final  DateTime? completedAt;
 
-  @override
-  String toString() {
-    return 'Backup(uuid: $uuid, isSuccessful: $isSuccessful, isLocked: $isLocked, name: $name, ignoredFiles: $ignoredFiles, checksum: $checksum, bytes: $bytes, createdAt: $createdAt, completedAt: $completedAt)';
-  }
+/// Create a copy of Backup
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$BackupCopyWith<_Backup> get copyWith => __$BackupCopyWithImpl<_Backup>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$BackupImpl &&
-            (identical(other.uuid, uuid) || other.uuid == uuid) &&
-            (identical(other.isSuccessful, isSuccessful) ||
-                other.isSuccessful == isSuccessful) &&
-            (identical(other.isLocked, isLocked) ||
-                other.isLocked == isLocked) &&
-            (identical(other.name, name) || other.name == name) &&
-            const DeepCollectionEquality()
-                .equals(other.ignoredFiles, ignoredFiles) &&
-            (identical(other.checksum, checksum) ||
-                other.checksum == checksum) &&
-            (identical(other.bytes, bytes) || other.bytes == bytes) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.completedAt, completedAt) ||
-                other.completedAt == completedAt));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      uuid,
-      isSuccessful,
-      isLocked,
-      name,
-      const DeepCollectionEquality().hash(ignoredFiles),
-      checksum,
-      bytes,
-      createdAt,
-      completedAt);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$BackupImplCopyWith<_$BackupImpl> get copyWith =>
-      __$$BackupImplCopyWithImpl<_$BackupImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BackupImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$BackupToJson(this, );
 }
 
-abstract class _Backup extends Backup {
-  const factory _Backup(
-      {required final String uuid,
-      required final bool isSuccessful,
-      required final bool isLocked,
-      required final String name,
-      final IList<String>? ignoredFiles,
-      final String? checksum,
-      required final Bytes bytes,
-      required final DateTime createdAt,
-      final DateTime? completedAt}) = _$BackupImpl;
-  const _Backup._() : super._();
-
-  factory _Backup.fromJson(Map<String, dynamic> json) = _$BackupImpl.fromJson;
-
-  @override
-  String get uuid;
-  @override
-  bool get isSuccessful;
-  @override
-  bool get isLocked;
-  @override
-  String get name;
-  @override
-  IList<String>? get ignoredFiles;
-  @override
-  String? get checksum;
-  @override
-  Bytes get bytes;
-  @override
-  DateTime get createdAt;
-  @override
-  DateTime? get completedAt;
-  @override
-  @JsonKey(ignore: true)
-  _$$BackupImplCopyWith<_$BackupImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Backup&&(identical(other.uuid, uuid) || other.uuid == uuid)&&(identical(other.isSuccessful, isSuccessful) || other.isSuccessful == isSuccessful)&&(identical(other.isLocked, isLocked) || other.isLocked == isLocked)&&(identical(other.name, name) || other.name == name)&&const DeepCollectionEquality().equals(other.ignoredFiles, ignoredFiles)&&(identical(other.checksum, checksum) || other.checksum == checksum)&&(identical(other.bytes, bytes) || other.bytes == bytes)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.completedAt, completedAt) || other.completedAt == completedAt));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,uuid,isSuccessful,isLocked,name,const DeepCollectionEquality().hash(ignoredFiles),checksum,bytes,createdAt,completedAt);
+
+@override
+String toString() {
+  return 'Backup(uuid: $uuid, isSuccessful: $isSuccessful, isLocked: $isLocked, name: $name, ignoredFiles: $ignoredFiles, checksum: $checksum, bytes: $bytes, createdAt: $createdAt, completedAt: $completedAt)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$BackupCopyWith<$Res> implements $BackupCopyWith<$Res> {
+  factory _$BackupCopyWith(_Backup value, $Res Function(_Backup) _then) = __$BackupCopyWithImpl;
+@override @useResult
+$Res call({
+ String uuid, bool isSuccessful, bool isLocked, String name, IList<String>? ignoredFiles, String? checksum, Bytes bytes, DateTime createdAt, DateTime? completedAt
+});
+
+
+
+
+}
+/// @nodoc
+class __$BackupCopyWithImpl<$Res>
+    implements _$BackupCopyWith<$Res> {
+  __$BackupCopyWithImpl(this._self, this._then);
+
+  final _Backup _self;
+  final $Res Function(_Backup) _then;
+
+/// Create a copy of Backup
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? uuid = null,Object? isSuccessful = null,Object? isLocked = null,Object? name = null,Object? ignoredFiles = freezed,Object? checksum = freezed,Object? bytes = null,Object? createdAt = null,Object? completedAt = freezed,}) {
+  return _then(_Backup(
+uuid: null == uuid ? _self.uuid : uuid // ignore: cast_nullable_to_non_nullable
+as String,isSuccessful: null == isSuccessful ? _self.isSuccessful : isSuccessful // ignore: cast_nullable_to_non_nullable
+as bool,isLocked: null == isLocked ? _self.isLocked : isLocked // ignore: cast_nullable_to_non_nullable
+as bool,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,ignoredFiles: freezed == ignoredFiles ? _self.ignoredFiles : ignoredFiles // ignore: cast_nullable_to_non_nullable
+as IList<String>?,checksum: freezed == checksum ? _self.checksum : checksum // ignore: cast_nullable_to_non_nullable
+as String?,bytes: null == bytes ? _self.bytes : bytes // ignore: cast_nullable_to_non_nullable
+as Bytes,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,completedAt: freezed == completedAt ? _self.completedAt : completedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,
+  ));
+}
+
+
+}
+
+// dart format on

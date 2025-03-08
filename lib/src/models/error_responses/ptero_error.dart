@@ -7,16 +7,17 @@ part '../../generated/models/error_responses/ptero_error.freezed.dart';
 part '../../generated/models/error_responses/ptero_error.g.dart';
 
 @freezed
-class PteroError with _$PteroError implements Exception {
+abstract class PteroError with _$PteroError implements Exception {
   const factory PteroError({
     required PteroErrorCode code,
     required String status,
     required String detail,
     JsonMap? meta,
   }) = _PteroError;
-
-  factory PteroError.fromJson(JsonMap json) = _PteroError.fromJson;
   const PteroError._();
+
+  factory PteroError.fromJson(JsonMap json) => _$PteroErrorFromJson(json);
+
   String get message => detail;
 }
 

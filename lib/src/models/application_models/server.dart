@@ -5,7 +5,7 @@ part '../../generated/models/application_models/server.freezed.dart';
 part '../../generated/models/application_models/server.g.dart';
 
 @freezed
-class ApplicationServer with _$ApplicationServer {
+abstract class ApplicationServer with _$ApplicationServer {
   const factory ApplicationServer({
     required int id,
     required String externalId,
@@ -28,36 +28,34 @@ class ApplicationServer with _$ApplicationServer {
     ApplicationServerRelationships? relationships,
   }) = _ApplicationServer;
   // https://github.com/pterodactyl/panel/blob/1.0-develop/app/Transformers/Api/Application/ServerTransformer.php
-  const ApplicationServer._();
 
-  factory ApplicationServer.fromJson(JsonMap json) =
-      _ApplicationServer.fromJson;
+  factory ApplicationServer.fromJson(JsonMap json) =>
+      _$ApplicationServerFromJson(json);
 }
 
 @freezed
-class ApplicationServerContainer with _$ApplicationServerContainer {
+abstract class ApplicationServerContainer with _$ApplicationServerContainer {
   const factory ApplicationServerContainer({
     required String startupCommand,
     required String image,
     @Deprecated('Use status instead') required bool installed,
     required JsonMap environment,
   }) = _ApplicationServerContainer;
-  const ApplicationServerContainer._();
 
-  factory ApplicationServerContainer.fromJson(JsonMap json) =
-      _ApplicationServerContainer.fromJson;
+  factory ApplicationServerContainer.fromJson(JsonMap json) =>
+      _$ApplicationServerContainerFromJson(json);
 }
 
 @freezed
-class ApplicationServerRelationships with _$ApplicationServerRelationships {
+abstract class ApplicationServerRelationships
+    with _$ApplicationServerRelationships {
   const factory ApplicationServerRelationships(
     FractalData<ApplicationUser>? user,
     // todo: add all relationships
     // FractalListData<???>? databases,
   ) = _ApplicationServerRelationships;
   // https://github.com/pterodactyl/panel/blob/1.0-develop/app/Transformers/Api/Application/ServerTransformer.php
-  const ApplicationServerRelationships._();
 
-  factory ApplicationServerRelationships.fromJson(JsonMap json) =
-      _ApplicationServerRelationships.fromJson;
+  factory ApplicationServerRelationships.fromJson(JsonMap json) =>
+      _$ApplicationServerRelationshipsFromJson(json);
 }

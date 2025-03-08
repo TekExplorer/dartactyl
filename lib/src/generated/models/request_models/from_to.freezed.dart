@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,157 +10,142 @@ part of '../../../models/request_models/from_to.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-FromTo _$FromToFromJson(Map<String, dynamic> json) {
-  return _FromTo.fromJson(json);
-}
 
 /// @nodoc
 mixin _$FromTo {
-  String get from => throw _privateConstructorUsedError;
-  String get to => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $FromToCopyWith<FromTo> get copyWith => throw _privateConstructorUsedError;
+ String get from; String get to;
+/// Create a copy of FromTo
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$FromToCopyWith<FromTo> get copyWith => _$FromToCopyWithImpl<FromTo>(this as FromTo, _$identity);
+
+  /// Serializes this FromTo to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FromTo&&(identical(other.from, from) || other.from == from)&&(identical(other.to, to) || other.to == to));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,from,to);
+
+@override
+String toString() {
+  return 'FromTo(from: $from, to: $to)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $FromToCopyWith<$Res> {
-  factory $FromToCopyWith(FromTo value, $Res Function(FromTo) then) =
-      _$FromToCopyWithImpl<$Res, FromTo>;
-  @useResult
-  $Res call({String from, String to});
-}
+abstract mixin class $FromToCopyWith<$Res>  {
+  factory $FromToCopyWith(FromTo value, $Res Function(FromTo) _then) = _$FromToCopyWithImpl;
+@useResult
+$Res call({
+ String from, String to
+});
 
+
+
+
+}
 /// @nodoc
-class _$FromToCopyWithImpl<$Res, $Val extends FromTo>
+class _$FromToCopyWithImpl<$Res>
     implements $FromToCopyWith<$Res> {
-  _$FromToCopyWithImpl(this._value, this._then);
+  _$FromToCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final FromTo _self;
+  final $Res Function(FromTo) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? from = null,
-    Object? to = null,
-  }) {
-    return _then(_value.copyWith(
-      from: null == from
-          ? _value.from
-          : from // ignore: cast_nullable_to_non_nullable
-              as String,
-      to: null == to
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of FromTo
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? from = null,Object? to = null,}) {
+  return _then(_self.copyWith(
+from: null == from ? _self.from : from // ignore: cast_nullable_to_non_nullable
+as String,to: null == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$FromToImplCopyWith<$Res> implements $FromToCopyWith<$Res> {
-  factory _$$FromToImplCopyWith(
-          _$FromToImpl value, $Res Function(_$FromToImpl) then) =
-      __$$FromToImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String from, String to});
 }
 
-/// @nodoc
-class __$$FromToImplCopyWithImpl<$Res>
-    extends _$FromToCopyWithImpl<$Res, _$FromToImpl>
-    implements _$$FromToImplCopyWith<$Res> {
-  __$$FromToImplCopyWithImpl(
-      _$FromToImpl _value, $Res Function(_$FromToImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? from = null,
-    Object? to = null,
-  }) {
-    return _then(_$FromToImpl(
-      from: null == from
-          ? _value.from
-          : from // ignore: cast_nullable_to_non_nullable
-              as String,
-      to: null == to
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$FromToImpl extends _FromTo {
-  const _$FromToImpl({required this.from, required this.to}) : super._();
 
-  factory _$FromToImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FromToImplFromJson(json);
+class _FromTo implements FromTo {
+  const _FromTo({required this.from, required this.to});
+  factory _FromTo.fromJson(Map<String, dynamic> json) => _$FromToFromJson(json);
 
-  @override
-  final String from;
-  @override
-  final String to;
+@override final  String from;
+@override final  String to;
 
-  @override
-  String toString() {
-    return 'FromTo(from: $from, to: $to)';
-  }
+/// Create a copy of FromTo
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$FromToCopyWith<_FromTo> get copyWith => __$FromToCopyWithImpl<_FromTo>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FromToImpl &&
-            (identical(other.from, from) || other.from == from) &&
-            (identical(other.to, to) || other.to == to));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, from, to);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FromToImplCopyWith<_$FromToImpl> get copyWith =>
-      __$$FromToImplCopyWithImpl<_$FromToImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FromToImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$FromToToJson(this, );
 }
 
-abstract class _FromTo extends FromTo {
-  const factory _FromTo(
-      {required final String from, required final String to}) = _$FromToImpl;
-  const _FromTo._() : super._();
-
-  factory _FromTo.fromJson(Map<String, dynamic> json) = _$FromToImpl.fromJson;
-
-  @override
-  String get from;
-  @override
-  String get to;
-  @override
-  @JsonKey(ignore: true)
-  _$$FromToImplCopyWith<_$FromToImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FromTo&&(identical(other.from, from) || other.from == from)&&(identical(other.to, to) || other.to == to));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,from,to);
+
+@override
+String toString() {
+  return 'FromTo(from: $from, to: $to)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$FromToCopyWith<$Res> implements $FromToCopyWith<$Res> {
+  factory _$FromToCopyWith(_FromTo value, $Res Function(_FromTo) _then) = __$FromToCopyWithImpl;
+@override @useResult
+$Res call({
+ String from, String to
+});
+
+
+
+
+}
+/// @nodoc
+class __$FromToCopyWithImpl<$Res>
+    implements _$FromToCopyWith<$Res> {
+  __$FromToCopyWithImpl(this._self, this._then);
+
+  final _FromTo _self;
+  final $Res Function(_FromTo) _then;
+
+/// Create a copy of FromTo
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? from = null,Object? to = null,}) {
+  return _then(_FromTo(
+from: null == from ? _self.from : from // ignore: cast_nullable_to_non_nullable
+as String,to: null == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

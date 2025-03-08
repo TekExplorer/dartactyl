@@ -5,15 +5,14 @@ part '../../generated/models/application_request_models/create_user_request.free
 part '../../generated/models/application_request_models/create_user_request.g.dart';
 
 @freezed
-class CreateUserRequest with _$CreateUserRequest {
+abstract class CreateUserRequest with _$CreateUserRequest {
   const factory CreateUserRequest({
     required String email,
     required String username,
     required String firstName,
     required String lastName,
   }) = _CreateUserRequest;
-  const CreateUserRequest._();
 
-  factory CreateUserRequest.fromJson(JsonMap json) =
-      _CreateUserRequest.fromJson;
+  factory CreateUserRequest.fromJson(JsonMap json) =>
+      _$CreateUserRequestFromJson(json);
 }
