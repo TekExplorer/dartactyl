@@ -9,9 +9,10 @@ class NoConnectionPteroApiException extends GenericApiException {
   });
 
   @override
-  String get statusMessage => super.statusMessage.isEmpty
-      ? 'No connection to server'
-      : super.statusMessage;
+  String get statusMessage =>
+      super.statusMessage.isEmpty
+          ? 'No connection to server'
+          : super.statusMessage;
 
   @override
   String toString() =>

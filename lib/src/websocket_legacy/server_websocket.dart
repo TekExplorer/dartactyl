@@ -30,10 +30,8 @@ class ServerWebsocket {
     required this.client,
     required this.serverId,
     // onError
-    FutureOr<void> Function(
-      Object error,
-      StackTrace stacktrace,
-    )? onConnectionError,
+    FutureOr<void> Function(Object error, StackTrace stacktrace)?
+    onConnectionError,
     bool autoConnect = true,
   }) {
     if (!autoConnect) return;
@@ -47,7 +45,8 @@ class ServerWebsocket {
     String name,
     Object? error,
     StackTrace? stackTrace,
-  }) log = dev.log;
+  })
+  log = dev.log;
 
   /// Connect to the websocket for a server and return the [ServerWebsocket]
   /// once it's authenticated.
@@ -72,28 +71,19 @@ class ServerWebsocket {
   final PteroClient client;
   final String serverId;
 
-  Future<void> requestStats() => _send(
-        ServerWebsocketSendEvent.sendStats,
-        null,
-      );
-  Future<void> requestLogs() => _send(
-        ServerWebsocketSendEvent.sendLogs,
-        null,
-      );
-  Future<void> sendCommand(String command) => _send(
-        ServerWebsocketSendEvent.sendCommand,
-        command,
-      );
+  Future<void> requestStats() =>
+      _send(ServerWebsocketSendEvent.sendStats, null);
+  Future<void> requestLogs() => _send(ServerWebsocketSendEvent.sendLogs, null);
+  Future<void> sendCommand(String command) =>
+      _send(ServerWebsocketSendEvent.sendCommand, command);
 
   Future<void> startServer() => setPowerState(ServerPowerAction.start);
   Future<void> restartServer() => setPowerState(ServerPowerAction.restart);
   Future<void> stopServer() => setPowerState(ServerPowerAction.stop);
   Future<void> killServer() => setPowerState(ServerPowerAction.kill);
 
-  Future<void> setPowerState(ServerPowerAction powerAction) => _send(
-        ServerWebsocketSendEvent.setState,
-        powerAction.name,
-      );
+  Future<void> setPowerState(ServerPowerAction powerAction) =>
+      _send(ServerWebsocketSendEvent.setState, powerAction.name);
 
   // TODO: consider if I want to include a raw stream of source events for logging/debugging or something
   // Stream<String> get rawEvents => _rawEvents.stream;
@@ -117,8 +107,9 @@ class ServerWebsocket {
   // TODO: is this the right way to keep it as a ValueStream?
   ValueStream<ConnectionState> get connectionState =>
       _connectionState.stream.distinct().shareValue();
-  final _connectionState =
-      BehaviorSubject<ConnectionState>.seeded(ConnectionState.disconnected);
+  final _connectionState = BehaviorSubject<ConnectionState>.seeded(
+    ConnectionState.disconnected,
+  );
 
   ValueStream<TransferStatus> get transferStatus => _transferStatus.stream;
   final _transferStatus = BehaviorSubject<TransferStatus>();
@@ -244,10 +235,7 @@ class ServerWebsocket {
     bool force = false,
   }) async {
     if (!force) await _isAuthenticated.future;
-    final _event = WebsocketEvent.fromEvent(
-      event: event,
-      arg: arg,
-    );
+    final _event = WebsocketEvent.fromEvent(event: event, arg: arg);
 
     log('Sending data to Wings: $_event', name: 'ServerWebsocket._send');
     _websocket.sink.add(_event.toEncodedJson());
@@ -269,7 +257,8 @@ class ServerWebsocket {
 
     try {
       log('Getting websocket details', name: 'ServerWebsocket._authenticate');
-      final WebsocketDetails socketDetails = wsDetailsOverride ??
+      final WebsocketDetails socketDetails =
+          wsDetailsOverride ??
           await client
               .getServerWebsocket(serverId: serverId)
               .then((value) => value.data);
@@ -318,8 +307,9 @@ class ServerWebsocket {
     // _rawEvents.add(event);
 
     final arg = websocketEvent.args?.first;
-    final receiveEvent =
-        ServerWebsocketReceiveEvent.fromEventOrNull(websocketEvent.event);
+    final receiveEvent = ServerWebsocketReceiveEvent.fromEventOrNull(
+      websocketEvent.event,
+    );
 
     if (receiveEvent == null) {
       throw UnknownWingsEventException._(websocketEvent);
@@ -356,7 +346,9 @@ class ServerWebsocket {
       case ServerWebsocketReceiveEvent.daemonMessage:
         if (arg == null) {
           throw UnknownWingsEventException._arg(
-              websocketEvent, 'Received a null daemon message from Wings');
+            websocketEvent,
+            'Received a null daemon message from Wings',
+          );
         }
 
         // _daemonMessages.add(arg);
@@ -365,7 +357,9 @@ class ServerWebsocket {
       case ServerWebsocketReceiveEvent.daemonError:
         if (arg == null) {
           throw UnknownWingsEventException._arg(
-              websocketEvent, 'Received a null daemon error from Wings');
+            websocketEvent,
+            'Received a null daemon error from Wings',
+          );
         }
 
         // _daemonErrors.add(arg);
@@ -375,7 +369,9 @@ class ServerWebsocket {
       case ServerWebsocketReceiveEvent.installOutput:
         if (arg == null) {
           throw UnknownWingsEventException._arg(
-              websocketEvent, 'Received a null install output from Wings');
+            websocketEvent,
+            'Received a null install output from Wings',
+          );
         }
 
         _logs.add(WebsocketLog.install(arg));
@@ -390,7 +386,9 @@ class ServerWebsocket {
       case ServerWebsocketReceiveEvent.consoleOutput:
         if (arg == null) {
           throw UnknownWingsEventException._arg(
-              websocketEvent, 'Received a null console output from Wings');
+            websocketEvent,
+            'Received a null console output from Wings',
+          );
         }
 
         _logs.add(WebsocketLog.console(arg));
@@ -399,13 +397,17 @@ class ServerWebsocket {
       case ServerWebsocketReceiveEvent.status:
         if (arg == null) {
           throw UnknownWingsEventException._arg(
-              websocketEvent, 'Received a null power state from Wings');
+            websocketEvent,
+            'Received a null power state from Wings',
+          );
         }
 
         final powerState = ServerPowerState.maybeParse(arg);
         if (powerState == null) {
           throw UnknownWingsEventException._arg(
-              websocketEvent, 'Received an unknown power state from Wings');
+            websocketEvent,
+            'Received an unknown power state from Wings',
+          );
         }
 
         _powerState.add(powerState);
@@ -414,13 +416,17 @@ class ServerWebsocket {
       case ServerWebsocketReceiveEvent.stats:
         if (arg == null) {
           throw UnknownWingsEventException._arg(
-              websocketEvent, 'Received a null stats object from Wings');
+            websocketEvent,
+            'Received a null stats object from Wings',
+          );
         }
 
         final json = jsonDecode(arg);
         if (json is! JsonMap) {
           throw UnknownWingsEventException._arg(
-              websocketEvent, 'Received a non-JSON stats object from Wings');
+            websocketEvent,
+            'Received a non-JSON stats object from Wings',
+          );
         }
 
         final stats = WebsocketStats.fromJson(json);
@@ -432,7 +438,9 @@ class ServerWebsocket {
       case ServerWebsocketReceiveEvent.transferLogs:
         if (arg == null) {
           throw UnknownWingsEventException._arg(
-              websocketEvent, 'Received a null transfer log from Wings');
+            websocketEvent,
+            'Received a null transfer log from Wings',
+          );
         }
 
         _logs.add(WebsocketLog.transfer(arg));
@@ -440,18 +448,24 @@ class ServerWebsocket {
       case ServerWebsocketReceiveEvent.transferStatus:
         if (arg == null) {
           throw UnknownWingsEventException._arg(
-              websocketEvent, 'Received a null transfer status from Wings');
+            websocketEvent,
+            'Received a null transfer status from Wings',
+          );
         }
         if (arg.isEmpty) {
           throw UnknownWingsEventException._arg(
-              websocketEvent, 'Received an empty transfer status from Wings');
+            websocketEvent,
+            'Received an empty transfer status from Wings',
+          );
         }
 
         final status = TransferStatus.fromStringOrNull(arg);
 
         if (status == null) {
           throw UnknownWingsEventException._arg(
-              websocketEvent, 'Received an unknown transfer status from Wings');
+            websocketEvent,
+            'Received an unknown transfer status from Wings',
+          );
         }
 
         _transferStatus.add(status);
@@ -509,7 +523,8 @@ class ServerWebsocket {
 
     return switch (json) {
       final JsonMap json => json,
-      _ => throw UnexpectedWingsResponse._(
+      _ =>
+        throw UnexpectedWingsResponse._(
           data,
           message: 'Received a non-JSON event from Wings',
         ),
@@ -543,12 +558,7 @@ class ServerWebsocket {
       _connectionState.add(ConnectionState.closed);
       await _closeSubjects();
     } catch (e, s) {
-      log(
-        'close() threw',
-        name: 'WebsocketClose',
-        error: e,
-        stackTrace: s,
-      );
+      log('close() threw', name: 'WebsocketClose', error: e, stackTrace: s);
     }
   }
 

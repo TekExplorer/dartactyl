@@ -12,9 +12,9 @@ class GenericApiException implements Exception {
     int? statusCode,
     String? statusMessage,
     String? message,
-  })  : _message = message,
-        _statusMessage = statusMessage,
-        statusCode = statusCode ?? rawDioException.response?.statusCode;
+  }) : _message = message,
+       _statusMessage = statusMessage,
+       statusCode = statusCode ?? rawDioException.response?.statusCode;
 
   /// The status code of the response if available.
   final int? statusCode;

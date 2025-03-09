@@ -30,23 +30,22 @@ class ServerFilters extends Filters {
     String? name,
     String? externalId,
     String? description,
-  }) =>
-      ServerFilters(
-        all: all ?? this.all,
-        uuid: uuid ?? this.uuid,
-        name: name ?? this.name,
-        externalId: externalId ?? this.externalId,
-        description: description ?? this.description,
-      );
+  }) => ServerFilters(
+    all: all ?? this.all,
+    uuid: uuid ?? this.uuid,
+    name: name ?? this.name,
+    externalId: externalId ?? this.externalId,
+    description: description ?? this.description,
+  );
 
   @override
   Map<String, String> get filters => {
-        if (all != null) '*': all!,
-        if (uuid != null) 'uuid': uuid!,
-        if (name != null) 'name': name!,
-        if (externalId != null) 'external_id': externalId!,
-        if (description != null) 'description': description!,
-      };
+    if (all != null) '*': all!,
+    if (uuid != null) 'uuid': uuid!,
+    if (name != null) 'name': name!,
+    if (externalId != null) 'external_id': externalId!,
+    if (description != null) 'description': description!,
+  };
 }
 
 class ActivityFilters extends Filters {
@@ -58,9 +57,7 @@ class ActivityFilters extends Filters {
       ActivityFilters(event: event ?? this.event);
 
   @override
-  Map<String, String> get filters => {
-        if (event != null) 'event': event!,
-      };
+  Map<String, String> get filters => {if (event != null) 'event': event!};
 }
 
 @immutable
@@ -71,9 +68,8 @@ abstract class Filters {
   Map<String, String> get filters;
 
   Map<String, String> toJson() => {
-        for (final filter in filters.entries)
-          'filter[${filter.key}]': filter.value,
-      };
+    for (final filter in filters.entries) 'filter[${filter.key}]': filter.value,
+  };
 
   @override
   String toString() => 'Filters(filters: $filters)';

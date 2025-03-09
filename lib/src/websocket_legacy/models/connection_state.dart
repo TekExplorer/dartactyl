@@ -3,8 +3,7 @@ enum ConnectionState {
   authenticating,
   connected,
   disconnected,
-  closed,
-  ;
+  closed;
 
   bool get isConnected => this == ConnectionState.connected;
 

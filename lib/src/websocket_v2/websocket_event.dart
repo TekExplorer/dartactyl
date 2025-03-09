@@ -40,10 +40,7 @@ final class WebsocketEventImpl implements WebsocketEvent {
   final List<String>? args;
 
   @override
-  JsonMap toJson() => {
-        'event': event,
-        'args': args,
-      };
+  JsonMap toJson() => {'event': event, 'args': args};
 
   @override
   int get hashCode => Object.hashAll([event, ...?args]);

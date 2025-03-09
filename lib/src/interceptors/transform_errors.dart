@@ -6,7 +6,6 @@ import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 @experimental
-
 /// This should be added AFTER the [HandleErrorInterceptor]
 class TransformErrorInterceptor extends Interceptor {
   // should be last to intercept
@@ -69,10 +68,10 @@ class NotFoundException extends PteroApiException {
   });
 
   factory NotFoundException.fromPApiE(PteroApiException e) => NotFoundException(
-        errors: PteroErrors(errors: e.errors),
-        rawData: e.rawData,
-        rawDioException: e.rawDioException,
-      );
+    errors: PteroErrors(errors: e.errors),
+    rawData: e.rawData,
+    rawDioException: e.rawDioException,
+  );
 }
 
 class MethodNotAllowedException extends PteroApiException {

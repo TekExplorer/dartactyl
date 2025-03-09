@@ -56,7 +56,7 @@ class WebsocketDisconnectedException extends DartactylWebsocketException {
 
 class JWTError implements WingsException {
   const JWTError._(String? receivedMessage)
-      : receivedMessage = receivedMessage ?? 'Unknown JWT Error';
+    : receivedMessage = receivedMessage ?? 'Unknown JWT Error';
 
   // in the form of: 'jwt: something'
   @override

@@ -25,10 +25,8 @@ abstract interface class ServerWebsocket {
     required PteroClient client,
     required String serverId,
     // onError
-    FutureOr<void> Function(
-      Object error,
-      StackTrace stacktrace,
-    )? onConnectionError,
+    FutureOr<void> Function(Object error, StackTrace stacktrace)?
+    onConnectionError,
     bool autoConnect,
   }) = ServerWebsocketImpl;
 
@@ -44,13 +42,13 @@ abstract interface class ServerWebsocket {
     String name,
     Object? error,
     StackTrace? stackTrace,
-  }) log = dev.log;
+  })
+  log = dev.log;
 
   static Future<ServerWebsocket> connect({
     required PteroClient client,
     required String serverId,
-  }) =>
-      ServerWebsocketImpl.connect(client: client, serverId: serverId);
+  }) => ServerWebsocketImpl.connect(client: client, serverId: serverId);
 
   Future<void> get ready;
 
@@ -100,16 +98,15 @@ final class ServerWebsocketImpl implements ServerWebsocket {
     required PteroClient client,
     required String serverId,
     // onError
-    FutureOr<void> Function(
-      Object error,
-      StackTrace stacktrace,
-    )? onConnectionError,
+    FutureOr<void> Function(Object error, StackTrace stacktrace)?
+    onConnectionError,
     bool autoConnect = true,
   }) {
     return ServerWebsocketImpl.raw(
-      getWebsocketDetails: () => client
-          .getServerWebsocket(serverId: serverId)
-          .then((value) => value.data),
+      getWebsocketDetails:
+          () => client
+              .getServerWebsocket(serverId: serverId)
+              .then((value) => value.data),
       createWebsocket: (details) async {
         return IOWebSocket.fromWebSocket(
           await io.WebSocket.connect(
@@ -127,10 +124,8 @@ final class ServerWebsocketImpl implements ServerWebsocket {
     required this.createWebsocket,
     required this.getWebsocketDetails,
     // onError
-    FutureOr<void> Function(
-      Object error,
-      StackTrace stacktrace,
-    )? onConnectionError,
+    FutureOr<void> Function(Object error, StackTrace stacktrace)?
+    onConnectionError,
     bool autoConnect = true,
   }) {
     registerListeners();
@@ -166,39 +161,39 @@ final class ServerWebsocketImpl implements ServerWebsocket {
   final websocket = ReconnectableWebSocket();
 
   List<StreamSubscription<Object>> registerListeners() => [
-        connectionState.listen((event) {
-          switch (event) {
-            case ConnectionState.connected:
-              _isDisconnected = false;
-            case ConnectionState.disconnected:
-            case ConnectionState.closed:
-              _isDisconnected = true;
-          }
-        }),
-        rawEvents.whereType<CloseReceived>().listen((_) async {
-          addConnectionState(ConnectionState.disconnected);
-          isDisconnected = true;
-          isAuthenticated = false;
-          if (!isClosed) await ensureConnected();
-        }),
-        events.on('token expiring', (_) {
-          authenticate();
-        }),
-        events.onAny(const ['token expired', 'jwt error'], (_) {
-          addConnectionState(ConnectionState.disconnected);
-          isDisconnected = true;
-          isAuthenticated = false;
-          authenticate();
-        }),
-        events.on('auth success', (_) {
-          addConnectionState(ConnectionState.connected);
-          isAuthenticated = true;
-          isDisconnected = false;
-        }),
-        transferStatus.where((e) => e.needsReconnect).listen((_) async {
-          await reconnect();
-        }),
-      ];
+    connectionState.listen((event) {
+      switch (event) {
+        case ConnectionState.connected:
+          _isDisconnected = false;
+        case ConnectionState.disconnected:
+        case ConnectionState.closed:
+          _isDisconnected = true;
+      }
+    }),
+    rawEvents.whereType<CloseReceived>().listen((_) async {
+      addConnectionState(ConnectionState.disconnected);
+      isDisconnected = true;
+      isAuthenticated = false;
+      if (!isClosed) await ensureConnected();
+    }),
+    events.on('token expiring', (_) {
+      authenticate();
+    }),
+    events.onAny(const ['token expired', 'jwt error'], (_) {
+      addConnectionState(ConnectionState.disconnected);
+      isDisconnected = true;
+      isAuthenticated = false;
+      authenticate();
+    }),
+    events.on('auth success', (_) {
+      addConnectionState(ConnectionState.connected);
+      isAuthenticated = true;
+      isDisconnected = false;
+    }),
+    transferStatus.where((e) => e.needsReconnect).listen((_) async {
+      await reconnect();
+    }),
+  ];
 
   Future<void> reconnect() async {
     if (isClosed) return;
@@ -255,8 +250,9 @@ final class ServerWebsocketImpl implements ServerWebsocket {
 
   @override
   late final connectionState = _connectionState.stream;
-  final _connectionState =
-      BehaviorSubject<ConnectionState>.seeded(ConnectionState.disconnected);
+  final _connectionState = BehaviorSubject<ConnectionState>.seeded(
+    ConnectionState.disconnected,
+  );
 
   void addConnectionState(ConnectionState state) {
     if (state == _connectionState.valueOrNull) return;

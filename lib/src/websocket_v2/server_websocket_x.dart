@@ -73,34 +73,37 @@ extension ServerWebsocketX on ServerWebsocket {
   Stream<WebsocketEvent> get events =>
       jsonMapEvents.mapNotNull(WebsocketEvent.fromJson);
 
-  Stream<WebsocketMessage> get messages => events.mapEvents({
-        'daemon message': LogMessage.daemon,
-        'install output': LogMessage.install,
-        'console output': LogMessage.console,
-        'transfer logs': LogMessage.transfer,
-        //
-        'daemon error': DaemonError.new,
-        'jwt error': JWTError.new,
-        //
-        //
-        'transfer status': TransferStatus.maybeParse,
-        //
-        'install started': (_) => InstallStatus.started,
-        'install completed': (_) => InstallStatus.completed,
-        //
-        'backup completed': (_) => BackupStatus.backupCompleted,
-        'backup restore completed': (_) => BackupStatus.backupRestoreCompleted,
-        //
-        'status': WebsocketPowerState.maybeParse,
-      }, {
-        'stats': (arg) {
-          final stats = switch (_maybeJsonMapDecode(arg)) {
-            final JsonMap json => WebsocketStats.fromJson(json),
-            null => null,
-          };
-          return [stats, WebsocketPowerState.maybeOf(stats?.powerState)];
-        }
-      });
+  Stream<WebsocketMessage> get messages => events.mapEvents(
+    {
+      'daemon message': LogMessage.daemon,
+      'install output': LogMessage.install,
+      'console output': LogMessage.console,
+      'transfer logs': LogMessage.transfer,
+      //
+      'daemon error': DaemonError.new,
+      'jwt error': JWTError.new,
+      //
+      //
+      'transfer status': TransferStatus.maybeParse,
+      //
+      'install started': (_) => InstallStatus.started,
+      'install completed': (_) => InstallStatus.completed,
+      //
+      'backup completed': (_) => BackupStatus.backupCompleted,
+      'backup restore completed': (_) => BackupStatus.backupRestoreCompleted,
+      //
+      'status': WebsocketPowerState.maybeParse,
+    },
+    {
+      'stats': (arg) {
+        final stats = switch (_maybeJsonMapDecode(arg)) {
+          final JsonMap json => WebsocketStats.fromJson(json),
+          null => null,
+        };
+        return [stats, WebsocketPowerState.maybeOf(stats?.powerState)];
+      },
+    },
+  );
 
   Stream<WingsException> get errors => messages.whereType();
   // Stream<DaemonError> get daemonErrors => errors.whereType();
@@ -120,15 +123,14 @@ extension _OnWebsocketEvent on Stream<WebsocketEvent> {
   StreamSubscription<WebsocketEvent> on(
     String event,
     void Function(Iterable<String>? args) action,
-  ) =>
-      onAny([event], action);
+  ) => onAny([event], action);
 
   StreamSubscription<WebsocketEvent> onAny(
     List<String> events,
     void Function(Iterable<String>? args) action,
-  ) =>
-      where((we) => events.contains(we.event))
-          .listen((event) => action(event.args));
+  ) => where(
+    (we) => events.contains(we.event),
+  ).listen((event) => action(event.args));
 }
 
 extension on Stream<WebsocketEvent> {

@@ -13,8 +13,7 @@ part of '../server_websocket.dart';
 enum ConnectionState {
   connected,
   disconnected,
-  closed,
-  ;
+  closed;
 
   bool get isConnected => this == connected;
   bool get isDisconnected => this == disconnected || isClosed;

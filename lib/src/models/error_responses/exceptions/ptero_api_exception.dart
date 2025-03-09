@@ -8,8 +8,8 @@ class PteroApiException extends GenericApiException {
     super.rawData,
     super.statusCode,
     super.statusMessage,
-  })  : _errors = errors,
-        super(message: rawDioException.message);
+  }) : _errors = errors,
+       super(message: rawDioException.message);
   final PteroErrors _errors;
 
   /// The errors the panel gave us

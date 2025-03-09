@@ -9,16 +9,18 @@ extension ParseSiteConfig on PteroClient {
   /// @throws ConfigNotFoundException
   /// Needs to be logged in
   Future<SiteConfig> getSiteConfiguration() async {
-    final json =
-        await _parseScriptTagsForJson(SiteConfigOption.SiteConfiguration);
+    final json = await _parseScriptTagsForJson(
+      SiteConfigOption.SiteConfiguration,
+    );
     return SiteConfig.fromJson(json);
   }
 
   /// @throws ConfigNotFoundException
   /// Works if not logged in
   Future<UserConfig> getPterodactylUser() async {
-    final json =
-        await _parseScriptTagsForJson(SiteConfigOption.PterodactylUser);
+    final json = await _parseScriptTagsForJson(
+      SiteConfigOption.PterodactylUser,
+    );
     return UserConfig.fromJson(json);
   }
 
@@ -33,9 +35,11 @@ extension ParseSiteConfig on PteroClient {
     final elements = document.getElementsByTagName('script');
     final element = elements.firstWhere(
       (element) => element.text.contains('window.${searchFor.name}'),
-      orElse: () => throw ConfigNotFoundException(
-        'Could not find window.${searchFor.name}',
-      ),
+      orElse:
+          () =>
+              throw ConfigNotFoundException(
+                'Could not find window.${searchFor.name}',
+              ),
     );
 
     final s = element.text;

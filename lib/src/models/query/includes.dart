@@ -9,13 +9,8 @@ class Includes {
 }
 
 class ServerIncludes extends Includes {
-  ServerIncludes({
-    required bool includeEgg,
-    required bool includeSubusers,
-  }) : super([
-          if (includeEgg) 'egg',
-          if (includeSubusers) 'subusers',
-        ]);
+  ServerIncludes({required bool includeEgg, required bool includeSubusers})
+    : super([if (includeEgg) 'egg', if (includeSubusers) 'subusers']);
 
   const ServerIncludes._(super.includes);
 
@@ -25,11 +20,8 @@ class ServerIncludes extends Includes {
 }
 
 class ActivityLogsIncludes extends Includes {
-  ActivityLogsIncludes({
-    required bool includeActor,
-  }) : super([
-          if (includeActor) 'actor',
-        ]);
+  ActivityLogsIncludes({required bool includeActor})
+    : super([if (includeActor) 'actor']);
 
   const ActivityLogsIncludes._(super.includes);
 
@@ -37,11 +29,8 @@ class ActivityLogsIncludes extends Includes {
 }
 
 class ScheduleIncludes extends Includes {
-  ScheduleIncludes({
-    required bool includeTasks,
-  }) : super([
-          if (includeTasks) 'tasks',
-        ]);
+  ScheduleIncludes({required bool includeTasks})
+    : super([if (includeTasks) 'tasks']);
 
   const ScheduleIncludes._(super.includes);
 
@@ -49,11 +38,8 @@ class ScheduleIncludes extends Includes {
 }
 
 class ServerDatabasesIncludes extends Includes {
-  ServerDatabasesIncludes({
-    required bool includePassword,
-  }) : super([
-          if (includePassword) 'password',
-        ]);
+  ServerDatabasesIncludes({required bool includePassword})
+    : super([if (includePassword) 'password']);
 
   const ServerDatabasesIncludes._(super.includes);
 

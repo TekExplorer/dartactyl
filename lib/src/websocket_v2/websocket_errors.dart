@@ -14,7 +14,7 @@ sealed class WingsException implements Exception, WebsocketMessage {
 
 final class JWTError implements WingsException {
   const JWTError(String? receivedMessage)
-      : receivedMessage = receivedMessage ?? 'Unknown JWT Error';
+    : receivedMessage = receivedMessage ?? 'Unknown JWT Error';
 
   // in the form of: 'jwt: something'
   @override

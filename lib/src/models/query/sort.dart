@@ -5,10 +5,10 @@ abstract class Sort<T extends Sort<T>> {
   String? toJson() => sort;
 
   String? get negativeString => switch (sort) {
-        null => null,
-        final sort when sort.startsWith('-') => sort.substring(1),
-        final sort => '-$sort',
-      };
+    null => null,
+    final sort when sort.startsWith('-') => sort.substring(1),
+    final sort => '-$sort',
+  };
 
   T get negative;
   T operator -() => negative;

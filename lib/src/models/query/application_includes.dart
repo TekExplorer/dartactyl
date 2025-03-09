@@ -1,11 +1,8 @@
 import 'package:dartactyl/src/models/query/includes.dart';
 
 class ApplicationUsersIncludes extends Includes {
-  ApplicationUsersIncludes({
-    required bool includeServers,
-  }) : super([
-          if (includeServers) 'servers',
-        ]);
+  ApplicationUsersIncludes({required bool includeServers})
+    : super([if (includeServers) 'servers']);
   const ApplicationUsersIncludes.raw(super.includes);
 
   static const includeServers = ApplicationUsersIncludes.raw(['servers']);
@@ -38,17 +35,17 @@ class ApplicationServerIncludes extends Includes {
     bool includeDatabases = false,
     bool includeTransfer = false,
   }) : super([
-          if (includeAllocations) 'allocations',
-          if (includeUser) 'user',
-          if (includeSubusers) 'subusers',
-          if (includeNest) 'nest',
-          if (includeEgg) 'egg',
-          if (includeVariables) 'variables',
-          if (includeLocation) 'location',
-          if (includeNode) 'node',
-          if (includeDatabases) 'databases',
-          if (includeTransfer) 'transfer',
-        ]);
+         if (includeAllocations) 'allocations',
+         if (includeUser) 'user',
+         if (includeSubusers) 'subusers',
+         if (includeNest) 'nest',
+         if (includeEgg) 'egg',
+         if (includeVariables) 'variables',
+         if (includeLocation) 'location',
+         if (includeNode) 'node',
+         if (includeDatabases) 'databases',
+         if (includeTransfer) 'transfer',
+       ]);
   const ApplicationServerIncludes.raw(super.includes);
   static const _all = [
     'allocations',
@@ -71,10 +68,10 @@ class NodeIncludes extends Includes {
     required bool includeLocation,
     required bool includeServers,
   }) : super([
-          if (includeAllocations) 'allocations',
-          if (includeLocation) 'location',
-          if (includeServers) 'servers',
-        ]);
+         if (includeAllocations) 'allocations',
+         if (includeLocation) 'location',
+         if (includeServers) 'servers',
+       ]);
 
   const NodeIncludes.raw(super.includes);
 
@@ -90,13 +87,8 @@ class NodeIncludes extends Includes {
 }
 
 class AllocationIncludes extends Includes {
-  AllocationIncludes({
-    required bool includeNode,
-    required bool includeServer,
-  }) : super([
-          if (includeNode) 'node',
-          if (includeServer) 'server',
-        ]);
+  AllocationIncludes({required bool includeNode, required bool includeServer})
+    : super([if (includeNode) 'node', if (includeServer) 'server']);
 
   const AllocationIncludes.raw(super.includes);
 
