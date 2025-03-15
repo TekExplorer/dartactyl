@@ -1,7 +1,7 @@
 /// Pterodactyl API Client Models
 ///
 /// Admin/Application API not yet supported
-library dartactyl;
+library;
 
 export 'package:dio/dio.dart' show CancelToken;
 

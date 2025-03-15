@@ -1,7 +1,7 @@
 /// Pterodactyl API Client
 ///
 /// Admin/Application API not yet supported
-library dartactyl;
+library;
 
 export 'models.dart';
 export 'src/clients/application.dart';
