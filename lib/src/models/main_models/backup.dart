@@ -6,7 +6,7 @@ part '../../generated/models/main_models/backup.freezed.dart';
 part '../../generated/models/main_models/backup.g.dart';
 
 @freezed
-abstract class Backup with _$Backup {
+abstract class Backup with _$Backup implements Serializable {
   const factory Backup({
     required String uuid,
     required bool isSuccessful,

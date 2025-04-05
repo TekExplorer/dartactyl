@@ -5,6 +5,7 @@ part '../../generated/models/main_models/pagination.freezed.dart';
 part '../../generated/models/main_models/pagination.g.dart';
 
 @freezed
+@Deprecated('Unnecessary')
 abstract class Links with _$Links {
   const factory Links({String? previous, String? next}) = _Links;
 
@@ -19,6 +20,7 @@ abstract class Pagination with _$Pagination {
     required int perPage,
     required int currentPage,
     required int totalPages,
+    // ignore: deprecated_member_use_from_same_package
     required Links links,
   }) = _Pagination;
 

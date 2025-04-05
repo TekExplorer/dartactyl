@@ -5,7 +5,9 @@ part '../../generated/models/permission_keys/schedule_permission_keys.freezed.da
 part '../../generated/models/permission_keys/schedule_permission_keys.g.dart';
 
 @freezed
-abstract class SchedulePermissionKeys with _$SchedulePermissionKeys {
+abstract class SchedulePermissionKeys
+    with _$SchedulePermissionKeys
+    implements Serializable {
   const factory SchedulePermissionKeys({
     required String create,
     required String read,

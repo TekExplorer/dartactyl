@@ -6,7 +6,7 @@ part '../../generated/models/main_models/server_subuser.freezed.dart';
 part '../../generated/models/main_models/server_subuser.g.dart';
 
 @freezed
-abstract class ServerSubuser with _$ServerSubuser {
+abstract class ServerSubuser with _$ServerSubuser implements Serializable {
   const factory ServerSubuser({
     required String uuid,
     required String username,

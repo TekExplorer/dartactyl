@@ -233,7 +233,7 @@ $NodeRelationshipsCopyWith<$Res>? get relationships {
 /// @nodoc
 mixin _$NodeRelationships {
 
- FractalData<ApplicationAllocation>? get allocation; FractalData<Location>? get location; FractalListData<ApplicationServer>? get servers;
+ Fractal<ApplicationAllocation>? get allocation; Fractal<Location>? get location; FractalList<ApplicationServer>? get servers;
 /// Create a copy of NodeRelationships
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -266,11 +266,11 @@ abstract mixin class $NodeRelationshipsCopyWith<$Res>  {
   factory $NodeRelationshipsCopyWith(NodeRelationships value, $Res Function(NodeRelationships) _then) = _$NodeRelationshipsCopyWithImpl;
 @useResult
 $Res call({
- FractalData<ApplicationAllocation>? allocation, FractalData<Location>? location, FractalListData<ApplicationServer>? servers
+ Fractal<ApplicationAllocation>? allocation, Fractal<Location>? location, FractalList<ApplicationServer>? servers
 });
 
 
-$FractalDataCopyWith<ApplicationAllocation, $Res>? get allocation;$FractalDataCopyWith<Location, $Res>? get location;$FractalListDataCopyWith<ApplicationServer, $Res>? get servers;
+
 
 }
 /// @nodoc
@@ -286,48 +286,12 @@ class _$NodeRelationshipsCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? allocation = freezed,Object? location = freezed,Object? servers = freezed,}) {
   return _then(_self.copyWith(
 allocation: freezed == allocation ? _self.allocation : allocation // ignore: cast_nullable_to_non_nullable
-as FractalData<ApplicationAllocation>?,location: freezed == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
-as FractalData<Location>?,servers: freezed == servers ? _self.servers : servers // ignore: cast_nullable_to_non_nullable
-as FractalListData<ApplicationServer>?,
+as Fractal<ApplicationAllocation>?,location: freezed == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
+as Fractal<Location>?,servers: freezed == servers ? _self.servers : servers // ignore: cast_nullable_to_non_nullable
+as FractalList<ApplicationServer>?,
   ));
 }
-/// Create a copy of NodeRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalDataCopyWith<ApplicationAllocation, $Res>? get allocation {
-    if (_self.allocation == null) {
-    return null;
-  }
 
-  return $FractalDataCopyWith<ApplicationAllocation, $Res>(_self.allocation!, (value) {
-    return _then(_self.copyWith(allocation: value));
-  });
-}/// Create a copy of NodeRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalDataCopyWith<Location, $Res>? get location {
-    if (_self.location == null) {
-    return null;
-  }
-
-  return $FractalDataCopyWith<Location, $Res>(_self.location!, (value) {
-    return _then(_self.copyWith(location: value));
-  });
-}/// Create a copy of NodeRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalListDataCopyWith<ApplicationServer, $Res>? get servers {
-    if (_self.servers == null) {
-    return null;
-  }
-
-  return $FractalListDataCopyWith<ApplicationServer, $Res>(_self.servers!, (value) {
-    return _then(_self.copyWith(servers: value));
-  });
-}
 }
 
 
@@ -338,9 +302,9 @@ class _NodeRelationships implements NodeRelationships {
   const _NodeRelationships({this.allocation, this.location, this.servers});
   factory _NodeRelationships.fromJson(Map<String, dynamic> json) => _$NodeRelationshipsFromJson(json);
 
-@override final  FractalData<ApplicationAllocation>? allocation;
-@override final  FractalData<Location>? location;
-@override final  FractalListData<ApplicationServer>? servers;
+@override final  Fractal<ApplicationAllocation>? allocation;
+@override final  Fractal<Location>? location;
+@override final  FractalList<ApplicationServer>? servers;
 
 /// Create a copy of NodeRelationships
 /// with the given fields replaced by the non-null parameter values.
@@ -375,11 +339,11 @@ abstract mixin class _$NodeRelationshipsCopyWith<$Res> implements $NodeRelations
   factory _$NodeRelationshipsCopyWith(_NodeRelationships value, $Res Function(_NodeRelationships) _then) = __$NodeRelationshipsCopyWithImpl;
 @override @useResult
 $Res call({
- FractalData<ApplicationAllocation>? allocation, FractalData<Location>? location, FractalListData<ApplicationServer>? servers
+ Fractal<ApplicationAllocation>? allocation, Fractal<Location>? location, FractalList<ApplicationServer>? servers
 });
 
 
-@override $FractalDataCopyWith<ApplicationAllocation, $Res>? get allocation;@override $FractalDataCopyWith<Location, $Res>? get location;@override $FractalListDataCopyWith<ApplicationServer, $Res>? get servers;
+
 
 }
 /// @nodoc
@@ -395,49 +359,13 @@ class __$NodeRelationshipsCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? allocation = freezed,Object? location = freezed,Object? servers = freezed,}) {
   return _then(_NodeRelationships(
 allocation: freezed == allocation ? _self.allocation : allocation // ignore: cast_nullable_to_non_nullable
-as FractalData<ApplicationAllocation>?,location: freezed == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
-as FractalData<Location>?,servers: freezed == servers ? _self.servers : servers // ignore: cast_nullable_to_non_nullable
-as FractalListData<ApplicationServer>?,
+as Fractal<ApplicationAllocation>?,location: freezed == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
+as Fractal<Location>?,servers: freezed == servers ? _self.servers : servers // ignore: cast_nullable_to_non_nullable
+as FractalList<ApplicationServer>?,
   ));
 }
 
-/// Create a copy of NodeRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalDataCopyWith<ApplicationAllocation, $Res>? get allocation {
-    if (_self.allocation == null) {
-    return null;
-  }
 
-  return $FractalDataCopyWith<ApplicationAllocation, $Res>(_self.allocation!, (value) {
-    return _then(_self.copyWith(allocation: value));
-  });
-}/// Create a copy of NodeRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalDataCopyWith<Location, $Res>? get location {
-    if (_self.location == null) {
-    return null;
-  }
-
-  return $FractalDataCopyWith<Location, $Res>(_self.location!, (value) {
-    return _then(_self.copyWith(location: value));
-  });
-}/// Create a copy of NodeRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalListDataCopyWith<ApplicationServer, $Res>? get servers {
-    if (_self.servers == null) {
-    return null;
-  }
-
-  return $FractalListDataCopyWith<ApplicationServer, $Res>(_self.servers!, (value) {
-    return _then(_self.copyWith(servers: value));
-  });
-}
 }
 
 // dart format on

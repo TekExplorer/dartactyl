@@ -139,7 +139,7 @@ _ApplicationServerRelationships _$ApplicationServerRelationshipsFromJson(
       (v) =>
           v == null
               ? null
-              : FractalData<ApplicationUser>.fromJson(
+              : Fractal<ApplicationUser>.fromJson(
                 v as Map<String, dynamic>,
                 (value) =>
                     ApplicationUser.fromJson(value as Map<String, dynamic>),
@@ -151,6 +151,4 @@ _ApplicationServerRelationships _$ApplicationServerRelationshipsFromJson(
 
 Map<String, dynamic> _$ApplicationServerRelationshipsToJson(
   _ApplicationServerRelationships instance,
-) => <String, dynamic>{
-  'user': instance.user?.toJson((value) => value.toJson()),
-};
+) => <String, dynamic>{'user': instance.user?.toJson()};

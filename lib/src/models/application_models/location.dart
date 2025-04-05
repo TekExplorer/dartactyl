@@ -5,7 +5,7 @@ part '../../generated/models/application_models/location.freezed.dart';
 part '../../generated/models/application_models/location.g.dart';
 
 @freezed
-abstract class Location with _$Location {
+abstract class Location with _$Location implements Serializable {
   const factory Location({
     required int id,
     required String short,

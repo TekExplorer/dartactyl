@@ -5,7 +5,9 @@ part '../../generated/models/main_models/database_password.freezed.dart';
 part '../../generated/models/main_models/database_password.g.dart';
 
 @freezed
-abstract class DatabasePassword with _$DatabasePassword {
+abstract class DatabasePassword
+    with _$DatabasePassword
+    implements Serializable {
   const factory DatabasePassword({required String password}) =
       _DatabasePassword;
 

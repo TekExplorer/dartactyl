@@ -205,7 +205,7 @@ $ApplicationUserRelationshipsCopyWith<$Res> get relationships {
 /// @nodoc
 mixin _$ApplicationUserRelationships {
 
- FractalListData<ApplicationServer> get servers;
+ FractalList<ApplicationServer> get servers;
 /// Create a copy of ApplicationUserRelationships
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -238,11 +238,11 @@ abstract mixin class $ApplicationUserRelationshipsCopyWith<$Res>  {
   factory $ApplicationUserRelationshipsCopyWith(ApplicationUserRelationships value, $Res Function(ApplicationUserRelationships) _then) = _$ApplicationUserRelationshipsCopyWithImpl;
 @useResult
 $Res call({
- FractalListData<ApplicationServer> servers
+ FractalList<ApplicationServer> servers
 });
 
 
-$FractalListDataCopyWith<ApplicationServer, $Res> get servers;
+
 
 }
 /// @nodoc
@@ -258,19 +258,10 @@ class _$ApplicationUserRelationshipsCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? servers = null,}) {
   return _then(_self.copyWith(
 servers: null == servers ? _self.servers : servers // ignore: cast_nullable_to_non_nullable
-as FractalListData<ApplicationServer>,
+as FractalList<ApplicationServer>,
   ));
 }
-/// Create a copy of ApplicationUserRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalListDataCopyWith<ApplicationServer, $Res> get servers {
-  
-  return $FractalListDataCopyWith<ApplicationServer, $Res>(_self.servers, (value) {
-    return _then(_self.copyWith(servers: value));
-  });
-}
+
 }
 
 
@@ -281,7 +272,7 @@ class _ApplicationUserRelationships implements ApplicationUserRelationships {
   const _ApplicationUserRelationships({required this.servers});
   factory _ApplicationUserRelationships.fromJson(Map<String, dynamic> json) => _$ApplicationUserRelationshipsFromJson(json);
 
-@override final  FractalListData<ApplicationServer> servers;
+@override final  FractalList<ApplicationServer> servers;
 
 /// Create a copy of ApplicationUserRelationships
 /// with the given fields replaced by the non-null parameter values.
@@ -316,11 +307,11 @@ abstract mixin class _$ApplicationUserRelationshipsCopyWith<$Res> implements $Ap
   factory _$ApplicationUserRelationshipsCopyWith(_ApplicationUserRelationships value, $Res Function(_ApplicationUserRelationships) _then) = __$ApplicationUserRelationshipsCopyWithImpl;
 @override @useResult
 $Res call({
- FractalListData<ApplicationServer> servers
+ FractalList<ApplicationServer> servers
 });
 
 
-@override $FractalListDataCopyWith<ApplicationServer, $Res> get servers;
+
 
 }
 /// @nodoc
@@ -336,20 +327,11 @@ class __$ApplicationUserRelationshipsCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? servers = null,}) {
   return _then(_ApplicationUserRelationships(
 servers: null == servers ? _self.servers : servers // ignore: cast_nullable_to_non_nullable
-as FractalListData<ApplicationServer>,
+as FractalList<ApplicationServer>,
   ));
 }
 
-/// Create a copy of ApplicationUserRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalListDataCopyWith<ApplicationServer, $Res> get servers {
-  
-  return $FractalListDataCopyWith<ApplicationServer, $Res>(_self.servers, (value) {
-    return _then(_self.copyWith(servers: value));
-  });
-}
+
 }
 
 // dart format on

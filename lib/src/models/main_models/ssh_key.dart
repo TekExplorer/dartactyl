@@ -5,7 +5,7 @@ part '../../generated/models/main_models/ssh_key.freezed.dart';
 part '../../generated/models/main_models/ssh_key.g.dart';
 
 @freezed
-abstract class SshKey with _$SshKey {
+abstract class SshKey with _$SshKey implements Serializable {
   const factory SshKey({
     required String name,
     required String fingerprint,

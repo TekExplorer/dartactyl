@@ -6,7 +6,7 @@ part '../../generated/models/main_models/server.freezed.dart';
 part '../../generated/models/main_models/server.g.dart';
 
 @freezed
-abstract class Server with _$Server {
+abstract class Server with _$Server implements Serializable {
   const factory Server({
     required bool serverOwner,
     required String identifier,

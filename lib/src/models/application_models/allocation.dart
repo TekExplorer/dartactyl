@@ -5,7 +5,9 @@ part '../../generated/models/application_models/allocation.freezed.dart';
 part '../../generated/models/application_models/allocation.g.dart';
 
 @freezed
-abstract class ApplicationAllocation with _$ApplicationAllocation {
+abstract class ApplicationAllocation
+    with _$ApplicationAllocation
+    implements Serializable {
   const factory ApplicationAllocation({
     required int id,
     required String ip,

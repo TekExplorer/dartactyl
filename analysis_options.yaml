@@ -44,3 +44,5 @@ analyzer:
     invalid_annotation_target: ignore
     strict_raw_type: false
 
+  plugins:
+    - custom_lint

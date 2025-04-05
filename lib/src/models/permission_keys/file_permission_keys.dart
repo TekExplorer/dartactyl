@@ -5,7 +5,9 @@ part '../../generated/models/permission_keys/file_permission_keys.freezed.dart';
 part '../../generated/models/permission_keys/file_permission_keys.g.dart';
 
 @freezed
-abstract class FilePermissionKeys with _$FilePermissionKeys {
+abstract class FilePermissionKeys
+    with _$FilePermissionKeys
+    implements Serializable {
   const factory FilePermissionKeys({
     required String create,
     required String read,

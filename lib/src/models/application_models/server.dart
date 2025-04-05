@@ -5,7 +5,9 @@ part '../../generated/models/application_models/server.freezed.dart';
 part '../../generated/models/application_models/server.g.dart';
 
 @freezed
-abstract class ApplicationServer with _$ApplicationServer {
+abstract class ApplicationServer
+    with _$ApplicationServer
+    implements Serializable {
   const factory ApplicationServer({
     required int id,
     required String externalId,
@@ -50,7 +52,7 @@ abstract class ApplicationServerContainer with _$ApplicationServerContainer {
 abstract class ApplicationServerRelationships
     with _$ApplicationServerRelationships {
   const factory ApplicationServerRelationships(
-    FractalData<ApplicationUser>? user,
+    Fractal<ApplicationUser>? user,
     // todo: add all relationships
     // FractalListData<???>? databases,
   ) = _ApplicationServerRelationships;

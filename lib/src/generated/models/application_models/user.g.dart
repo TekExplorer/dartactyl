@@ -72,7 +72,7 @@ _ApplicationUserRelationships _$ApplicationUserRelationshipsFromJson(
   final val = _ApplicationUserRelationships(
     servers: $checkedConvert(
       'servers',
-      (v) => FractalListData<ApplicationServer>.fromJson(
+      (v) => FractalList<ApplicationServer>.fromJson(
         v as Map<String, dynamic>,
         (value) => ApplicationServer.fromJson(value as Map<String, dynamic>),
       ),
@@ -83,6 +83,4 @@ _ApplicationUserRelationships _$ApplicationUserRelationshipsFromJson(
 
 Map<String, dynamic> _$ApplicationUserRelationshipsToJson(
   _ApplicationUserRelationships instance,
-) => <String, dynamic>{
-  'servers': instance.servers.toJson((value) => value.toJson()),
-};
+) => <String, dynamic>{'servers': instance.servers.toJson()};

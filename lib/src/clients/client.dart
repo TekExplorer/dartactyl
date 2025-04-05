@@ -20,8 +20,11 @@ abstract class DeprecatedPteroClient {
   ///
   // ignore: deprecated_member_use_from_same_package
   /// It is recommended to use [PteroClient(...).old] instead.
-  factory DeprecatedPteroClient(Dio dio, {String? baseUrl}) =
-      _DeprecatedPteroClient;
+  factory DeprecatedPteroClient(
+    Dio dio, {
+    String? baseUrl,
+    ParseErrorLogger? errorLogger,
+  }) = _DeprecatedPteroClient;
 
   /// Delete an [SshKey] on your account. (1.8.0-1.8.1)
   @DELETE('/api/client/account/ssh-keys/{fingerprint}')
@@ -218,7 +221,7 @@ abstract class PteroClient {
 
   /// Get system permissions
   @GET('/api/client/permissions')
-  Future<FractalData<SystemPermissions>> getSystemPermissions({
+  Future<Fractal<SystemPermissions>> getSystemPermissions({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -228,7 +231,7 @@ abstract class PteroClient {
 
   /// Get account information.
   @GET('/api/client/account')
-  Future<FractalData<Account>> getAccountInfo({
+  Future<Fractal<Account>> getAccountInfo({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -236,7 +239,7 @@ abstract class PteroClient {
 
   /// Get two factor authentication image.
   @GET('/api/client/account/two-factor')
-  Future<FractalData<TwoFactorImage>> getTwoFactor({
+  Future<Fractal<TwoFactorImage>> getTwoFactor({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -244,7 +247,7 @@ abstract class PteroClient {
 
   /// Enable two factor authentication.
   @POST('/api/client/account/two-factor')
-  Future<FractalData<RecoveryTokens>> enableTwoFactor(
+  Future<Fractal<RecoveryTokens>> enableTwoFactor(
     @Body() TwoFactorCode code, {
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
@@ -297,7 +300,7 @@ abstract class PteroClient {
   /// Get all current [ApiKey]s on your account.
   /// Keys are shortened to the first x characters.
   @GET('/api/client/account/api-keys')
-  Future<FractalListData<ApiKey>> listApiKeys({
+  Future<FractalList<ApiKey>> listApiKeys({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -324,7 +327,7 @@ abstract class PteroClient {
 
   /// List all [SshKey]s on your account.
   @GET('/api/client/account/ssh-keys')
-  Future<FractalListData<SshKey>> listSshKeys({
+  Future<FractalList<SshKey>> listSshKeys({
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
@@ -332,7 +335,7 @@ abstract class PteroClient {
 
   /// Create a new [SshKey] on your account.
   @POST('/api/client/account/ssh-keys')
-  Future<FractalData<SshKey>> createSshKey(
+  Future<Fractal<SshKey>> createSshKey(
     @Body() CreateSshKey data, {
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
@@ -373,7 +376,7 @@ abstract class PteroClient {
 
   /// Get the [Server]'s current [Stats].
   @GET('/api/client/servers/{serverId}/resources')
-  Future<FractalData<Stats>> getServerResources({
+  Future<Fractal<Stats>> getServerResources({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
@@ -424,7 +427,7 @@ abstract class PteroClient {
   ///
   /// Available [Includes]; 'password' (include the database user password)
   @GET('/api/client/servers/{serverId}/databases')
-  Future<FractalListData<ServerDatabase>> listServerDatabases({
+  Future<FractalList<ServerDatabase>> listServerDatabases({
     @Path() required String serverId,
     @Query('include') ServerDatabasesIncludes? include,
     // pagination
@@ -439,7 +442,7 @@ abstract class PteroClient {
 
   /// Create a new database on the server
   @POST('/api/client/servers/{serverId}/databases')
-  Future<FractalData<ServerDatabase>> createServerDatabase(
+  Future<Fractal<ServerDatabase>> createServerDatabase(
     @Body() CreateServerDatabase data, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
@@ -459,7 +462,7 @@ abstract class PteroClient {
 
   /// TODO: on [rotateDatabasePassword]
   @POST('/api/client/servers/{serverId}/databases/{databaseId}/rotate-password')
-  Future<FractalData<ServerDatabase>> rotateDatabasePassword({
+  Future<Fractal<ServerDatabase>> rotateDatabasePassword({
     @Path() required String serverId,
     @Path() required String databaseId,
     @CancelRequest() CancelToken? cancelToken,
@@ -473,7 +476,7 @@ abstract class PteroClient {
   ///
   /// [directory]; path to list files from
   @GET('/api/client/servers/{serverId}/files/list')
-  Future<FractalListData<FileObject>> listFiles({
+  Future<FractalList<FileObject>> listFiles({
     @Path() required String serverId,
     @Query('directory', encoded: true) required String directory,
     @CancelRequest() CancelToken? cancelToken,
@@ -497,7 +500,7 @@ abstract class PteroClient {
   ///
   /// [file]; path to the desired file
   @GET('/api/client/servers/{serverId}/files/download')
-  Future<FractalData<SignedUrl>> getFileDownloadUrl({
+  Future<Fractal<SignedUrl>> getFileDownloadUrl({
     @Path() required String serverId,
     @Query('file', encoded: true) required String file,
     @CancelRequest() CancelToken? cancelToken,
@@ -543,7 +546,7 @@ abstract class PteroClient {
 
   /// Compress a file into an archive (eg. zip) on the [Server]
   @POST('/api/client/servers/{serverId}/files/compress')
-  Future<FractalData<FileObject>> compressFile(
+  Future<Fractal<FileObject>> compressFile(
     @Body() FileBodyListString data, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
@@ -603,7 +606,7 @@ abstract class PteroClient {
 
   /// Returns a [SignedUrl] used to upload files to the [Server] using POST
   @GET('/api/client/servers/{serverId}/files/upload')
-  Future<FractalData<SignedUrl>> getFileUploadUrl({
+  Future<Fractal<SignedUrl>> getFileUploadUrl({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
@@ -615,7 +618,7 @@ abstract class PteroClient {
   // Schedules
   /// List all schedules that the [Server] has
   @GET('/api/client/servers/{serverId}/schedules')
-  Future<FractalListData<ServerSchedule>> listSchedules({
+  Future<FractalList<ServerSchedule>> listSchedules({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
@@ -624,7 +627,7 @@ abstract class PteroClient {
 
   /// Create a [ServerSchedule] on the [Server]
   @POST('/api/client/servers/{serverId}/schedules')
-  Future<FractalData<ServerSchedule>> createSchedule(
+  Future<Fractal<ServerSchedule>> createSchedule(
     @Body() RequestSchedule scheduleData, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
@@ -634,7 +637,7 @@ abstract class PteroClient {
 
   /// Get a [ServerSchedule]'s details from the [Server]
   @GET('/api/client/servers/{serverId}/schedules/{scheduleId}')
-  Future<FractalData<ServerSchedule>> getScheduleDetails({
+  Future<Fractal<ServerSchedule>> getScheduleDetails({
     @Path() required String serverId,
     @Path() required int scheduleId,
     @CancelRequest() CancelToken? cancelToken,
@@ -644,7 +647,7 @@ abstract class PteroClient {
 
   /// Update a [ServerSchedule] on the [Server]
   @POST('/api/client/servers/{serverId}/schedules/{scheduleId}')
-  Future<FractalData<ServerSchedule>> updateSchedule(
+  Future<Fractal<ServerSchedule>> updateSchedule(
     @Body() RequestSchedule scheduleData, {
     @Path() required String serverId,
     @Path() required int scheduleId,
@@ -665,7 +668,7 @@ abstract class PteroClient {
 
   /// Create a scheduled [Task] on a [ServerSchedule]
   @POST('/api/client/servers/{serverId}/schedules/{scheduleId}/tasks')
-  Future<FractalData<ScheduleTask>> createTask(
+  Future<Fractal<ScheduleTask>> createTask(
     @Body() Task taskData, {
     @Path() required String serverId,
     @Path() required int scheduleId,
@@ -676,7 +679,7 @@ abstract class PteroClient {
 
   /// Update a scheduled [Task] on a [ServerSchedule]
   @POST('/api/client/servers/{serverId}/schedules/{scheduleId}/tasks/{taskId}')
-  Future<FractalData<ScheduleTask>> updateTask(
+  Future<Fractal<ScheduleTask>> updateTask(
     @Body() Task taskData, {
     @Path() required String serverId,
     @Path() required int scheduleId,
@@ -702,7 +705,7 @@ abstract class PteroClient {
   // Network
   /// List all allocations that the [Server] has
   @GET('/api/client/servers/{serverId}/network/allocations')
-  Future<FractalListData<Allocation>> listAllocations({
+  Future<FractalList<Allocation>> listAllocations({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
@@ -711,7 +714,7 @@ abstract class PteroClient {
 
   /// Automatically assign an allocation on the [Server]
   @POST('/api/client/servers/{serverId}/network/allocations')
-  Future<FractalData<Allocation>> autoAssignAllocation({
+  Future<Fractal<Allocation>> autoAssignAllocation({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
@@ -720,7 +723,7 @@ abstract class PteroClient {
 
   /// Set the allocation note for an [Allocation] on the [Server]
   @POST('/api/client/servers/{serverId}/network/allocations/{allocationId}')
-  Future<FractalData<Allocation>> setAllocationNote(
+  Future<Fractal<Allocation>> setAllocationNote(
     @Body() AllocationNote note, {
     @Path() required String serverId,
     @Path() required int allocationId,
@@ -733,7 +736,7 @@ abstract class PteroClient {
   @POST(
     '/api/client/servers/{serverId}/network/allocations/{allocationId}/primary',
   )
-  Future<FractalData<Allocation>> setPrimaryAllocation({
+  Future<Fractal<Allocation>> setPrimaryAllocation({
     @Path() required String serverId,
     @Path() required int allocationId,
     @CancelRequest() CancelToken? cancelToken,
@@ -743,7 +746,7 @@ abstract class PteroClient {
 
   /// Unassign an [Allocation] from [Server]
   @DELETE('/api/client/servers/{serverId}/network/allocations/{allocationId}')
-  Future<FractalData<Allocation>> unassignAllocation({
+  Future<Fractal<Allocation>> unassignAllocation({
     @Path() required String serverId,
     @Path() required int allocationId,
     @CancelRequest() CancelToken? cancelToken,
@@ -755,7 +758,7 @@ abstract class PteroClient {
 
   /// List all [ServerSubuser]s on the [Server]
   @GET('/api/client/servers/{serverId}/users')
-  Future<FractalListData<ServerSubuser>> listSubusers({
+  Future<FractalList<ServerSubuser>> listSubusers({
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
@@ -764,7 +767,7 @@ abstract class PteroClient {
 
   /// Create [ServerSubuser] on the [Server]
   @POST('/api/client/servers/{serverId}/users')
-  Future<FractalData<ServerSubuser>> createSubuser(
+  Future<Fractal<ServerSubuser>> createSubuser(
     @Body() Subuser subuserData, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
@@ -774,7 +777,7 @@ abstract class PteroClient {
 
   /// Get a [ServerSubuser]'s details on the [Server]
   @GET('/api/client/servers/{serverId}/users/{subuserId}')
-  Future<FractalData<ServerSubuser>> getSubuserDetails({
+  Future<Fractal<ServerSubuser>> getSubuserDetails({
     @Path() required String serverId,
     @Path() required String subuserId,
     @CancelRequest() CancelToken? cancelToken,
@@ -784,7 +787,7 @@ abstract class PteroClient {
 
   /// Update a [ServerSubuser] on the [Server]
   @POST('/api/client/servers/{serverId}/users/{subuserId}')
-  Future<FractalData<ServerSubuser>> updateSubuser(
+  Future<Fractal<ServerSubuser>> updateSubuser(
     @Body() SubuserPermissions subuserData, {
     @Path() required String serverId,
     @Path() required String subuserId,
@@ -819,7 +822,7 @@ abstract class PteroClient {
 
   /// Create a backup on the [Server]
   @POST('/api/client/servers/{serverId}/backups')
-  Future<FractalData<Backup>> createBackup(
+  Future<Fractal<Backup>> createBackup(
     @Body() CreateBackup backupData, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,
@@ -829,7 +832,7 @@ abstract class PteroClient {
 
   /// Get information about a [Backup] from the [Server]
   @GET('/api/client/servers/{serverId}/backups/{backupId}')
-  Future<FractalData<Backup>> getBackupDetails({
+  Future<Fractal<Backup>> getBackupDetails({
     @Path() required String serverId,
     @Path() required String backupId,
     @CancelRequest() CancelToken? cancelToken,
@@ -841,7 +844,7 @@ abstract class PteroClient {
   ///
   /// If the [Backup] is already locked, this will unlock it instead
   @POST('/api/client/servers/{serverId}/backups/{backupId}/lock')
-  Future<FractalData<Backup>> toggleBackupLock({
+  Future<Fractal<Backup>> toggleBackupLock({
     @Path() required String serverId,
     @Path() required String backupId,
     @CancelRequest() CancelToken? cancelToken,
@@ -851,7 +854,7 @@ abstract class PteroClient {
 
   /// Generate download url for a [Backup] from  the [Server]
   @GET('/api/client/servers/{serverId}/backups/{backupId}/download')
-  Future<FractalData<SignedUrl>> getBackupDownloadUrl({
+  Future<Fractal<SignedUrl>> getBackupDownloadUrl({
     @Path() required String serverId,
     @Path() required String backupId,
     @CancelRequest() CancelToken? cancelToken,
@@ -893,7 +896,7 @@ abstract class PteroClient {
 
   /// Update the [Server] startup variable with the contents of [variable]
   @PUT('/api/client/servers/{serverId}/startup/variable')
-  Future<FractalData<EggVariable>> updateVariable(
+  Future<Fractal<EggVariable>> updateVariable(
     @Body() KeyValue variable, {
     @Path() required String serverId,
     @CancelRequest() CancelToken? cancelToken,

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$DatabasePasswordRelationships {
 
- FractalData<DatabasePassword> get password;
+ Fractal<DatabasePassword> get password;
 /// Create a copy of DatabasePasswordRelationships
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,11 +49,11 @@ abstract mixin class $DatabasePasswordRelationshipsCopyWith<$Res>  {
   factory $DatabasePasswordRelationshipsCopyWith(DatabasePasswordRelationships value, $Res Function(DatabasePasswordRelationships) _then) = _$DatabasePasswordRelationshipsCopyWithImpl;
 @useResult
 $Res call({
- FractalData<DatabasePassword> password
+ Fractal<DatabasePassword> password
 });
 
 
-$FractalDataCopyWith<DatabasePassword, $Res> get password;
+
 
 }
 /// @nodoc
@@ -69,19 +69,10 @@ class _$DatabasePasswordRelationshipsCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? password = null,}) {
   return _then(_self.copyWith(
 password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
-as FractalData<DatabasePassword>,
+as Fractal<DatabasePassword>,
   ));
 }
-/// Create a copy of DatabasePasswordRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalDataCopyWith<DatabasePassword, $Res> get password {
-  
-  return $FractalDataCopyWith<DatabasePassword, $Res>(_self.password, (value) {
-    return _then(_self.copyWith(password: value));
-  });
-}
+
 }
 
 
@@ -92,7 +83,7 @@ class _DatabasePasswordRelationships implements DatabasePasswordRelationships {
   const _DatabasePasswordRelationships({required this.password});
   factory _DatabasePasswordRelationships.fromJson(Map<String, dynamic> json) => _$DatabasePasswordRelationshipsFromJson(json);
 
-@override final  FractalData<DatabasePassword> password;
+@override final  Fractal<DatabasePassword> password;
 
 /// Create a copy of DatabasePasswordRelationships
 /// with the given fields replaced by the non-null parameter values.
@@ -127,11 +118,11 @@ abstract mixin class _$DatabasePasswordRelationshipsCopyWith<$Res> implements $D
   factory _$DatabasePasswordRelationshipsCopyWith(_DatabasePasswordRelationships value, $Res Function(_DatabasePasswordRelationships) _then) = __$DatabasePasswordRelationshipsCopyWithImpl;
 @override @useResult
 $Res call({
- FractalData<DatabasePassword> password
+ Fractal<DatabasePassword> password
 });
 
 
-@override $FractalDataCopyWith<DatabasePassword, $Res> get password;
+
 
 }
 /// @nodoc
@@ -147,27 +138,18 @@ class __$DatabasePasswordRelationshipsCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? password = null,}) {
   return _then(_DatabasePasswordRelationships(
 password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
-as FractalData<DatabasePassword>,
+as Fractal<DatabasePassword>,
   ));
 }
 
-/// Create a copy of DatabasePasswordRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalDataCopyWith<DatabasePassword, $Res> get password {
-  
-  return $FractalDataCopyWith<DatabasePassword, $Res>(_self.password, (value) {
-    return _then(_self.copyWith(password: value));
-  });
-}
+
 }
 
 
 /// @nodoc
 mixin _$ServerRelationships {
 
- FractalListData<Allocation> get allocations; FractalListData<EggVariable>? get variables; FractalData<Egg>? get egg; FractalListData<Subuser>? get subusers;
+ FractalList<Allocation> get allocations; FractalList<EggVariable>? get variables; Fractal<Egg>? get egg; FractalList<Subuser>? get subusers;
 /// Create a copy of ServerRelationships
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -200,11 +182,11 @@ abstract mixin class $ServerRelationshipsCopyWith<$Res>  {
   factory $ServerRelationshipsCopyWith(ServerRelationships value, $Res Function(ServerRelationships) _then) = _$ServerRelationshipsCopyWithImpl;
 @useResult
 $Res call({
- FractalListData<Allocation> allocations, FractalListData<EggVariable>? variables, FractalData<Egg>? egg, FractalListData<Subuser>? subusers
+ FractalList<Allocation> allocations, FractalList<EggVariable>? variables, Fractal<Egg>? egg, FractalList<Subuser>? subusers
 });
 
 
-$FractalListDataCopyWith<Allocation, $Res> get allocations;$FractalListDataCopyWith<EggVariable, $Res>? get variables;$FractalDataCopyWith<Egg, $Res>? get egg;$FractalListDataCopyWith<Subuser, $Res>? get subusers;
+
 
 }
 /// @nodoc
@@ -220,58 +202,13 @@ class _$ServerRelationshipsCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? allocations = null,Object? variables = freezed,Object? egg = freezed,Object? subusers = freezed,}) {
   return _then(_self.copyWith(
 allocations: null == allocations ? _self.allocations : allocations // ignore: cast_nullable_to_non_nullable
-as FractalListData<Allocation>,variables: freezed == variables ? _self.variables : variables // ignore: cast_nullable_to_non_nullable
-as FractalListData<EggVariable>?,egg: freezed == egg ? _self.egg : egg // ignore: cast_nullable_to_non_nullable
-as FractalData<Egg>?,subusers: freezed == subusers ? _self.subusers : subusers // ignore: cast_nullable_to_non_nullable
-as FractalListData<Subuser>?,
+as FractalList<Allocation>,variables: freezed == variables ? _self.variables : variables // ignore: cast_nullable_to_non_nullable
+as FractalList<EggVariable>?,egg: freezed == egg ? _self.egg : egg // ignore: cast_nullable_to_non_nullable
+as Fractal<Egg>?,subusers: freezed == subusers ? _self.subusers : subusers // ignore: cast_nullable_to_non_nullable
+as FractalList<Subuser>?,
   ));
 }
-/// Create a copy of ServerRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalListDataCopyWith<Allocation, $Res> get allocations {
-  
-  return $FractalListDataCopyWith<Allocation, $Res>(_self.allocations, (value) {
-    return _then(_self.copyWith(allocations: value));
-  });
-}/// Create a copy of ServerRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalListDataCopyWith<EggVariable, $Res>? get variables {
-    if (_self.variables == null) {
-    return null;
-  }
 
-  return $FractalListDataCopyWith<EggVariable, $Res>(_self.variables!, (value) {
-    return _then(_self.copyWith(variables: value));
-  });
-}/// Create a copy of ServerRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalDataCopyWith<Egg, $Res>? get egg {
-    if (_self.egg == null) {
-    return null;
-  }
-
-  return $FractalDataCopyWith<Egg, $Res>(_self.egg!, (value) {
-    return _then(_self.copyWith(egg: value));
-  });
-}/// Create a copy of ServerRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalListDataCopyWith<Subuser, $Res>? get subusers {
-    if (_self.subusers == null) {
-    return null;
-  }
-
-  return $FractalListDataCopyWith<Subuser, $Res>(_self.subusers!, (value) {
-    return _then(_self.copyWith(subusers: value));
-  });
-}
 }
 
 
@@ -282,10 +219,10 @@ class _ServerRelationships implements ServerRelationships {
   const _ServerRelationships({required this.allocations, this.variables, this.egg, this.subusers});
   factory _ServerRelationships.fromJson(Map<String, dynamic> json) => _$ServerRelationshipsFromJson(json);
 
-@override final  FractalListData<Allocation> allocations;
-@override final  FractalListData<EggVariable>? variables;
-@override final  FractalData<Egg>? egg;
-@override final  FractalListData<Subuser>? subusers;
+@override final  FractalList<Allocation> allocations;
+@override final  FractalList<EggVariable>? variables;
+@override final  Fractal<Egg>? egg;
+@override final  FractalList<Subuser>? subusers;
 
 /// Create a copy of ServerRelationships
 /// with the given fields replaced by the non-null parameter values.
@@ -320,11 +257,11 @@ abstract mixin class _$ServerRelationshipsCopyWith<$Res> implements $ServerRelat
   factory _$ServerRelationshipsCopyWith(_ServerRelationships value, $Res Function(_ServerRelationships) _then) = __$ServerRelationshipsCopyWithImpl;
 @override @useResult
 $Res call({
- FractalListData<Allocation> allocations, FractalListData<EggVariable>? variables, FractalData<Egg>? egg, FractalListData<Subuser>? subusers
+ FractalList<Allocation> allocations, FractalList<EggVariable>? variables, Fractal<Egg>? egg, FractalList<Subuser>? subusers
 });
 
 
-@override $FractalListDataCopyWith<Allocation, $Res> get allocations;@override $FractalListDataCopyWith<EggVariable, $Res>? get variables;@override $FractalDataCopyWith<Egg, $Res>? get egg;@override $FractalListDataCopyWith<Subuser, $Res>? get subusers;
+
 
 }
 /// @nodoc
@@ -340,66 +277,21 @@ class __$ServerRelationshipsCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? allocations = null,Object? variables = freezed,Object? egg = freezed,Object? subusers = freezed,}) {
   return _then(_ServerRelationships(
 allocations: null == allocations ? _self.allocations : allocations // ignore: cast_nullable_to_non_nullable
-as FractalListData<Allocation>,variables: freezed == variables ? _self.variables : variables // ignore: cast_nullable_to_non_nullable
-as FractalListData<EggVariable>?,egg: freezed == egg ? _self.egg : egg // ignore: cast_nullable_to_non_nullable
-as FractalData<Egg>?,subusers: freezed == subusers ? _self.subusers : subusers // ignore: cast_nullable_to_non_nullable
-as FractalListData<Subuser>?,
+as FractalList<Allocation>,variables: freezed == variables ? _self.variables : variables // ignore: cast_nullable_to_non_nullable
+as FractalList<EggVariable>?,egg: freezed == egg ? _self.egg : egg // ignore: cast_nullable_to_non_nullable
+as Fractal<Egg>?,subusers: freezed == subusers ? _self.subusers : subusers // ignore: cast_nullable_to_non_nullable
+as FractalList<Subuser>?,
   ));
 }
 
-/// Create a copy of ServerRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalListDataCopyWith<Allocation, $Res> get allocations {
-  
-  return $FractalListDataCopyWith<Allocation, $Res>(_self.allocations, (value) {
-    return _then(_self.copyWith(allocations: value));
-  });
-}/// Create a copy of ServerRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalListDataCopyWith<EggVariable, $Res>? get variables {
-    if (_self.variables == null) {
-    return null;
-  }
 
-  return $FractalListDataCopyWith<EggVariable, $Res>(_self.variables!, (value) {
-    return _then(_self.copyWith(variables: value));
-  });
-}/// Create a copy of ServerRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalDataCopyWith<Egg, $Res>? get egg {
-    if (_self.egg == null) {
-    return null;
-  }
-
-  return $FractalDataCopyWith<Egg, $Res>(_self.egg!, (value) {
-    return _then(_self.copyWith(egg: value));
-  });
-}/// Create a copy of ServerRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalListDataCopyWith<Subuser, $Res>? get subusers {
-    if (_self.subusers == null) {
-    return null;
-  }
-
-  return $FractalListDataCopyWith<Subuser, $Res>(_self.subusers!, (value) {
-    return _then(_self.copyWith(subusers: value));
-  });
-}
 }
 
 
 /// @nodoc
 mixin _$ServerScheduleRelationships {
 
- FractalListData<ScheduleTask> get tasks;
+ FractalList<ScheduleTask> get tasks;
 /// Create a copy of ServerScheduleRelationships
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -432,11 +324,11 @@ abstract mixin class $ServerScheduleRelationshipsCopyWith<$Res>  {
   factory $ServerScheduleRelationshipsCopyWith(ServerScheduleRelationships value, $Res Function(ServerScheduleRelationships) _then) = _$ServerScheduleRelationshipsCopyWithImpl;
 @useResult
 $Res call({
- FractalListData<ScheduleTask> tasks
+ FractalList<ScheduleTask> tasks
 });
 
 
-$FractalListDataCopyWith<ScheduleTask, $Res> get tasks;
+
 
 }
 /// @nodoc
@@ -452,19 +344,10 @@ class _$ServerScheduleRelationshipsCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? tasks = null,}) {
   return _then(_self.copyWith(
 tasks: null == tasks ? _self.tasks : tasks // ignore: cast_nullable_to_non_nullable
-as FractalListData<ScheduleTask>,
+as FractalList<ScheduleTask>,
   ));
 }
-/// Create a copy of ServerScheduleRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalListDataCopyWith<ScheduleTask, $Res> get tasks {
-  
-  return $FractalListDataCopyWith<ScheduleTask, $Res>(_self.tasks, (value) {
-    return _then(_self.copyWith(tasks: value));
-  });
-}
+
 }
 
 
@@ -475,7 +358,7 @@ class _ServerScheduleRelationships implements ServerScheduleRelationships {
   const _ServerScheduleRelationships({required this.tasks});
   factory _ServerScheduleRelationships.fromJson(Map<String, dynamic> json) => _$ServerScheduleRelationshipsFromJson(json);
 
-@override final  FractalListData<ScheduleTask> tasks;
+@override final  FractalList<ScheduleTask> tasks;
 
 /// Create a copy of ServerScheduleRelationships
 /// with the given fields replaced by the non-null parameter values.
@@ -510,11 +393,11 @@ abstract mixin class _$ServerScheduleRelationshipsCopyWith<$Res> implements $Ser
   factory _$ServerScheduleRelationshipsCopyWith(_ServerScheduleRelationships value, $Res Function(_ServerScheduleRelationships) _then) = __$ServerScheduleRelationshipsCopyWithImpl;
 @override @useResult
 $Res call({
- FractalListData<ScheduleTask> tasks
+ FractalList<ScheduleTask> tasks
 });
 
 
-@override $FractalListDataCopyWith<ScheduleTask, $Res> get tasks;
+
 
 }
 /// @nodoc
@@ -530,27 +413,18 @@ class __$ServerScheduleRelationshipsCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? tasks = null,}) {
   return _then(_ServerScheduleRelationships(
 tasks: null == tasks ? _self.tasks : tasks // ignore: cast_nullable_to_non_nullable
-as FractalListData<ScheduleTask>,
+as FractalList<ScheduleTask>,
   ));
 }
 
-/// Create a copy of ServerScheduleRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalListDataCopyWith<ScheduleTask, $Res> get tasks {
-  
-  return $FractalListDataCopyWith<ScheduleTask, $Res>(_self.tasks, (value) {
-    return _then(_self.copyWith(tasks: value));
-  });
-}
+
 }
 
 
 /// @nodoc
 mixin _$ActivityLogRelationships {
 
- FractalData<User>? get actor;
+ Fractal<User>? get actor;
 /// Create a copy of ActivityLogRelationships
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -583,11 +457,11 @@ abstract mixin class $ActivityLogRelationshipsCopyWith<$Res>  {
   factory $ActivityLogRelationshipsCopyWith(ActivityLogRelationships value, $Res Function(ActivityLogRelationships) _then) = _$ActivityLogRelationshipsCopyWithImpl;
 @useResult
 $Res call({
- FractalData<User>? actor
+ Fractal<User>? actor
 });
 
 
-$FractalDataCopyWith<User, $Res>? get actor;
+
 
 }
 /// @nodoc
@@ -603,22 +477,10 @@ class _$ActivityLogRelationshipsCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? actor = freezed,}) {
   return _then(_self.copyWith(
 actor: freezed == actor ? _self.actor : actor // ignore: cast_nullable_to_non_nullable
-as FractalData<User>?,
+as Fractal<User>?,
   ));
 }
-/// Create a copy of ActivityLogRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalDataCopyWith<User, $Res>? get actor {
-    if (_self.actor == null) {
-    return null;
-  }
 
-  return $FractalDataCopyWith<User, $Res>(_self.actor!, (value) {
-    return _then(_self.copyWith(actor: value));
-  });
-}
 }
 
 
@@ -629,7 +491,7 @@ class _ActivityLogRelationships implements ActivityLogRelationships {
   const _ActivityLogRelationships({this.actor});
   factory _ActivityLogRelationships.fromJson(Map<String, dynamic> json) => _$ActivityLogRelationshipsFromJson(json);
 
-@override final  FractalData<User>? actor;
+@override final  Fractal<User>? actor;
 
 /// Create a copy of ActivityLogRelationships
 /// with the given fields replaced by the non-null parameter values.
@@ -664,11 +526,11 @@ abstract mixin class _$ActivityLogRelationshipsCopyWith<$Res> implements $Activi
   factory _$ActivityLogRelationshipsCopyWith(_ActivityLogRelationships value, $Res Function(_ActivityLogRelationships) _then) = __$ActivityLogRelationshipsCopyWithImpl;
 @override @useResult
 $Res call({
- FractalData<User>? actor
+ Fractal<User>? actor
 });
 
 
-@override $FractalDataCopyWith<User, $Res>? get actor;
+
 
 }
 /// @nodoc
@@ -684,23 +546,11 @@ class __$ActivityLogRelationshipsCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? actor = freezed,}) {
   return _then(_ActivityLogRelationships(
 actor: freezed == actor ? _self.actor : actor // ignore: cast_nullable_to_non_nullable
-as FractalData<User>?,
+as Fractal<User>?,
   ));
 }
 
-/// Create a copy of ActivityLogRelationships
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$FractalDataCopyWith<User, $Res>? get actor {
-    if (_self.actor == null) {
-    return null;
-  }
 
-  return $FractalDataCopyWith<User, $Res>(_self.actor!, (value) {
-    return _then(_self.copyWith(actor: value));
-  });
-}
 }
 
 // dart format on

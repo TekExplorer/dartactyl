@@ -5,7 +5,7 @@ part '../../generated/models/request_models/subuser.freezed.dart';
 part '../../generated/models/request_models/subuser.g.dart';
 
 @freezed
-abstract class Subuser with _$Subuser {
+abstract class Subuser with _$Subuser implements Serializable {
   const factory Subuser({
     required String email,
     required List<String> permissions,

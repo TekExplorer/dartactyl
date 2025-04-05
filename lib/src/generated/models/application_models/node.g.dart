@@ -100,7 +100,7 @@ _NodeRelationships _$NodeRelationshipsFromJson(Map<String, dynamic> json) =>
           (v) =>
               v == null
                   ? null
-                  : FractalData<ApplicationAllocation>.fromJson(
+                  : Fractal<ApplicationAllocation>.fromJson(
                     v as Map<String, dynamic>,
                     (value) => ApplicationAllocation.fromJson(
                       value as Map<String, dynamic>,
@@ -112,7 +112,7 @@ _NodeRelationships _$NodeRelationshipsFromJson(Map<String, dynamic> json) =>
           (v) =>
               v == null
                   ? null
-                  : FractalData<Location>.fromJson(
+                  : Fractal<Location>.fromJson(
                     v as Map<String, dynamic>,
                     (value) => Location.fromJson(value as Map<String, dynamic>),
                   ),
@@ -122,7 +122,7 @@ _NodeRelationships _$NodeRelationshipsFromJson(Map<String, dynamic> json) =>
           (v) =>
               v == null
                   ? null
-                  : FractalListData<ApplicationServer>.fromJson(
+                  : FractalList<ApplicationServer>.fromJson(
                     v as Map<String, dynamic>,
                     (value) => ApplicationServer.fromJson(
                       value as Map<String, dynamic>,
@@ -135,7 +135,7 @@ _NodeRelationships _$NodeRelationshipsFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$NodeRelationshipsToJson(_NodeRelationships instance) =>
     <String, dynamic>{
-      'allocation': instance.allocation?.toJson((value) => value.toJson()),
-      'location': instance.location?.toJson((value) => value.toJson()),
-      'servers': instance.servers?.toJson((value) => value.toJson()),
+      'allocation': instance.allocation?.toJson(),
+      'location': instance.location?.toJson(),
+      'servers': instance.servers?.toJson(),
     };

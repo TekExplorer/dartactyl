@@ -19,7 +19,7 @@ class PteroApiException extends GenericApiException {
 
   /// The raw data from the server, but we know its a Map now
   @override
-  JsonMap get rawData => super.rawData as JsonMap;
+  JsonMap get rawData => super.rawData! as JsonMap;
 
   @override
   String get message => _message ?? errors.toString();

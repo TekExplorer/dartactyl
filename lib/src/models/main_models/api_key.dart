@@ -6,7 +6,7 @@ part '../../generated/models/main_models/api_key.freezed.dart';
 part '../../generated/models/main_models/api_key.g.dart';
 
 @freezed
-abstract class ApiKey with _$ApiKey {
+abstract class ApiKey with _$ApiKey implements Serializable {
   const factory ApiKey({
     required String identifier,
     String? description,

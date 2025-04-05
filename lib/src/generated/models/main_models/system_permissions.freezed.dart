@@ -505,7 +505,7 @@ $PermissionsModelCopyWith<SettingsPermissionKeys, $Res> get settings {
 
 
 /// @nodoc
-mixin _$PermissionsModel<T extends Object> {
+mixin _$PermissionsModel<T extends Serializable> {
 
  String get description; T get keys;
 /// Create a copy of PermissionsModel
@@ -514,8 +514,6 @@ mixin _$PermissionsModel<T extends Object> {
 @pragma('vm:prefer-inline')
 $PermissionsModelCopyWith<T, PermissionsModel<T>> get copyWith => _$PermissionsModelCopyWithImpl<T, PermissionsModel<T>>(this as PermissionsModel<T>, _$identity);
 
-  /// Serializes this PermissionsModel to a JSON map.
-  Map<String, dynamic> toJson(Object? Function(T) toJsonT);
 
 
 @override
@@ -536,7 +534,7 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $PermissionsModelCopyWith<T extends Object,$Res>  {
+abstract mixin class $PermissionsModelCopyWith<T extends Serializable,$Res>  {
   factory $PermissionsModelCopyWith(PermissionsModel<T> value, $Res Function(PermissionsModel<T>) _then) = _$PermissionsModelCopyWithImpl;
 @useResult
 $Res call({
@@ -548,7 +546,7 @@ $Res call({
 
 }
 /// @nodoc
-class _$PermissionsModelCopyWithImpl<T extends Object,$Res>
+class _$PermissionsModelCopyWithImpl<T extends Serializable,$Res>
     implements $PermissionsModelCopyWith<T, $Res> {
   _$PermissionsModelCopyWithImpl(this._self, this._then);
 
@@ -558,7 +556,7 @@ class _$PermissionsModelCopyWithImpl<T extends Object,$Res>
 /// Create a copy of PermissionsModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? description = null,Object? keys = null,}) {
-  return _then(_self.copyWith(
+  return _then(PermissionsModel(
 description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,keys: null == keys ? _self.keys : keys // ignore: cast_nullable_to_non_nullable
 as T,
@@ -567,76 +565,5 @@ as T,
 
 }
 
-
-/// @nodoc
-@JsonSerializable(genericArgumentFactories: true)
-
-class _PermissionsModel<T extends Object> implements PermissionsModel<T> {
-  const _PermissionsModel({required this.description, required this.keys});
-  factory _PermissionsModel.fromJson(Map<String, dynamic> json,T Function(Object?) fromJsonT) => _$PermissionsModelFromJson(json,fromJsonT);
-
-@override final  String description;
-@override final  T keys;
-
-/// Create a copy of PermissionsModel
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$PermissionsModelCopyWith<T, _PermissionsModel<T>> get copyWith => __$PermissionsModelCopyWithImpl<T, _PermissionsModel<T>>(this, _$identity);
-
-@override
-Map<String, dynamic> toJson(Object? Function(T) toJsonT) {
-  return _$PermissionsModelToJson<T>(this, toJsonT);
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PermissionsModel<T>&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.keys, keys));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,description,const DeepCollectionEquality().hash(keys));
-
-@override
-String toString() {
-  return 'PermissionsModel<$T>(description: $description, keys: $keys)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$PermissionsModelCopyWith<T extends Object,$Res> implements $PermissionsModelCopyWith<T, $Res> {
-  factory _$PermissionsModelCopyWith(_PermissionsModel<T> value, $Res Function(_PermissionsModel<T>) _then) = __$PermissionsModelCopyWithImpl;
-@override @useResult
-$Res call({
- String description, T keys
-});
-
-
-
-
-}
-/// @nodoc
-class __$PermissionsModelCopyWithImpl<T extends Object,$Res>
-    implements _$PermissionsModelCopyWith<T, $Res> {
-  __$PermissionsModelCopyWithImpl(this._self, this._then);
-
-  final _PermissionsModel<T> _self;
-  final $Res Function(_PermissionsModel<T>) _then;
-
-/// Create a copy of PermissionsModel
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? description = null,Object? keys = null,}) {
-  return _then(_PermissionsModel<T>(
-description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
-as String,keys: null == keys ? _self.keys : keys // ignore: cast_nullable_to_non_nullable
-as T,
-  ));
-}
-
-
-}
 
 // dart format on

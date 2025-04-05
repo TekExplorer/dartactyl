@@ -1,63 +1,63 @@
-import 'package:dartactyl/models.dart';
-import 'package:json_annotation/json_annotation.dart';
+// import 'package:dartactyl/models.dart';
+// import 'package:json_annotation/json_annotation.dart';
 
-part '../../generated/models/error_responses/ptero_error_meta.g.dart';
+// part '../../generated/models/error_responses/ptero_error_meta.g.dart';
 
-//TODO: actually use somewhere
-@JsonSerializable()
-class PteroErrorMeta {
-  const PteroErrorMeta({required this.rule});
+// //TODO: actually use somewhere
+// @JsonSerializable()
+// class PteroErrorMeta  {
+//   const PteroErrorMeta({required this.rule});
 
-  factory PteroErrorMeta.fromJson(JsonMap json) =>
-      _$PteroErrorMetaFromJson(json);
-  final String rule;
+//   factory PteroErrorMeta.fromJson(JsonMap json) =>
+//       _$PteroErrorMetaFromJson(json);
+//   final String rule;
 
-  JsonMap toJson() => _$PteroErrorMetaToJson(this);
-}
+//   JsonMap toJson() => _$PteroErrorMetaToJson(this);
+// }
 
-// extensions
+// // extensions
 
-@JsonSerializable()
-class PteroErrorStringMeta extends PteroErrorMeta {
-  const PteroErrorStringMeta({required super.rule, required this.sourceField});
+// @JsonSerializable()
+// class PteroErrorStringMeta extends PteroErrorMeta  {
+//   const PteroErrorStringMeta({required super.rule, required this.sourceField});
 
-  factory PteroErrorStringMeta.fromJson(JsonMap json) =>
-      _$PteroErrorStringMetaFromJson(json);
-  // ignore: invalid_annotation_target
-  @JsonKey(name: 'source_field')
-  final PteroErrorScheduleMetaRule? sourceField;
+//   factory PteroErrorStringMeta.fromJson(JsonMap json) =>
+//       _$PteroErrorStringMetaFromJson(json);
+//   // ignore: invalid_annotation_target
+//   @JsonKey(name: 'source_field')
+//   final PteroErrorScheduleMetaRule? sourceField;
 
-  @override
-  JsonMap toJson() => _$PteroErrorStringMetaToJson(this);
-}
+//   @override
+//   JsonMap toJson() => _$PteroErrorStringMetaToJson(this);
+// }
 
-@JsonSerializable()
-class PteroErrorScheduleMeta extends PteroErrorMeta {
-  const PteroErrorScheduleMeta({
-    required super.rule,
-    required this.sourceField,
-  });
+// @JsonSerializable()
+// class PteroErrorScheduleMeta extends PteroErrorMeta  {
+//   const PteroErrorScheduleMeta({
+//     required super.rule,
+//     required this.sourceField,
+//   });
 
-  factory PteroErrorScheduleMeta.fromJson(JsonMap json) =>
-      _$PteroErrorScheduleMetaFromJson(json);
-  // ignore: invalid_annotation_target
-  @JsonKey(name: 'source_field')
-  final Cron sourceField;
+//   factory PteroErrorScheduleMeta.fromJson(JsonMap json) =>
+//       _$PteroErrorScheduleMetaFromJson(json);
+//   // ignore: invalid_annotation_target
+//   @JsonKey(name: 'source_field')
+//   final Cron sourceField;
 
-  @override
-  JsonMap toJson() => _$PteroErrorScheduleMetaToJson(this);
-}
+//   @override
+//   JsonMap toJson() => _$PteroErrorScheduleMetaToJson(this);
+// }
 
-// enums
+// // enums
 
-enum PteroErrorMetaRule {
-  required,
-  boolean,
-  email,
-  @JsonValue('in')
-  in_,
-  max,
-  present,
-}
+// enum PteroErrorMetaRule {
+//   required,
+//   boolean,
+//   email,
+//   @JsonValue('in')
+//   in_,
+//   max,
+//   present,
+// }
 
-enum PteroErrorScheduleMetaRule { action, email }
+// enum PteroErrorScheduleMetaRule { action, email }

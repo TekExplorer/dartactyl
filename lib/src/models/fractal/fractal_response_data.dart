@@ -4,31 +4,28 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part '../../generated/models/fractal/fractal_response_data.freezed.dart';
 part '../../generated/models/fractal/fractal_response_data.g.dart';
 
-/// A mixin for FractalData and FractalMeta
-abstract interface class Fractal<T extends Object> {
-  T get attributes;
-}
+@Freezed(copyWith: false)
+@JsonSerializable(genericArgumentFactories: true)
+class Fractal<T extends Serializable> with _$Fractal<T> {
+  const Fractal({required this.attributes});
 
-@Freezed(genericArgumentFactories: true)
-abstract class FractalData<T extends Object>
-    with _$FractalData<T>
-    implements Fractal<T> {
-  const factory FractalData({required T attributes}) = _FractalData<T>;
+  factory Fractal.fromJson(JsonMap json, T Function(Object?) fromJsonT) =>
+      _$FractalFromJson<T>(json, fromJsonT);
 
-  factory FractalData.fromJson(JsonMap json, T Function(Object?) fromJsonT) =>
-      _$FractalDataFromJson<T>(json, fromJsonT);
-
-  // required for json_serializable to detect properly
   @override
-  JsonMap toJson(Object? Function(T) toJsonT);
+  final T attributes;
+
+  JsonMap toJson() => _$FractalToJson(this, (T e) => e.toJson());
+
+  Fractal<T> copyWith({T? attributes}) =>
+      Fractal<T>(attributes: attributes ?? this.attributes);
 }
 
-@Freezed(genericArgumentFactories: true)
-abstract class FractalMeta<T extends Object, M extends Meta>
-    with _$FractalMeta<T, M>
-    implements Fractal<T> {
-  const factory FractalMeta({required T attributes, required M meta}) =
-      _FractalMeta<T, M>;
+@Freezed(copyWith: false)
+@JsonSerializable(genericArgumentFactories: true)
+class FractalMeta<T extends Serializable, M extends Meta> extends Fractal<T>
+    with _$FractalMeta<T, M> {
+  const FractalMeta({required super.attributes, required this.meta});
 
   factory FractalMeta.fromJson(
     JsonMap json,
@@ -36,7 +33,16 @@ abstract class FractalMeta<T extends Object, M extends Meta>
     M Function(Object?) fromJsonM,
   ) => _$FractalMetaFromJson<T, M>(json, fromJsonT, fromJsonM);
 
-  // required for json_serializable to detect properly
   @override
-  JsonMap toJson(Object? Function(T) toJsonT, Object? Function(M) toJsonM);
+  final M meta;
+
+  @override
+  JsonMap toJson() =>
+      _$FractalMetaToJson(this, (T e) => e.toJson(), (M e) => e.toJson());
+
+  @override
+  FractalMeta<T, M> copyWith({T? attributes, M? meta}) => FractalMeta<T, M>(
+    attributes: attributes ?? this.attributes,
+    meta: meta ?? this.meta,
+  );
 }

@@ -5,7 +5,7 @@ part '../../generated/models/main_models/schedule_task.freezed.dart';
 part '../../generated/models/main_models/schedule_task.g.dart';
 
 @freezed
-abstract class ScheduleTask with _$ScheduleTask {
+abstract class ScheduleTask with _$ScheduleTask implements Serializable {
   const factory ScheduleTask({
     required int id,
     required int sequenceId,

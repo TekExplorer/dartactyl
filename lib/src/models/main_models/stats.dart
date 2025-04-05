@@ -18,7 +18,7 @@ enum ServerPowerState {
 }
 
 @freezed
-abstract class Stats with _$Stats {
+abstract class Stats with _$Stats implements Serializable {
   const factory Stats({
     required ServerPowerState currentState,
     required bool isSuspended,

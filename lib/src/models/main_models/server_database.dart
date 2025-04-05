@@ -16,7 +16,7 @@ abstract class Database with _$Database {
 }
 
 @freezed
-abstract class ServerDatabase with _$ServerDatabase {
+abstract class ServerDatabase with _$ServerDatabase implements Serializable {
   const factory ServerDatabase({
     required String id,
     required String name,

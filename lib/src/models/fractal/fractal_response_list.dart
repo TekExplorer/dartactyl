@@ -5,38 +5,30 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part '../../generated/models/fractal/fractal_response_list.freezed.dart';
 part '../../generated/models/fractal/fractal_response_list.g.dart';
 
-/// A mixin for FractalListData and FractalListMeta
-sealed class FractalList<T extends Object> {
-  IList<FractalData<T>> get data;
-}
+// freezed breaks with copyWith inheritance
+@Freezed(copyWith: false)
+@JsonSerializable(genericArgumentFactories: true)
+class FractalList<T extends Serializable> with _$FractalList<T> {
+  const FractalList({this.data = const IListConst([])});
 
-// ToJson is broken here
-@Freezed(genericArgumentFactories: true)
-abstract class FractalListData<T extends Object>
-    with _$FractalListData<T>
-    implements FractalList<T> {
-  const factory FractalListData({
-    @Default(IListConst([])) IList<FractalData<T>> data,
-  }) = _FractalListData<T>;
+  factory FractalList.fromJson(JsonMap json, T Function(Object?) fromJsonT) =>
+      _$FractalListFromJson<T>(json, fromJsonT);
 
-  factory FractalListData.fromJson(
-    JsonMap json,
-    T Function(Object?) fromJsonT,
-  ) => _$FractalListDataFromJson<T>(json, fromJsonT);
-
-  // required for json_serializable to detect properly
   @override
-  JsonMap toJson(Object? Function(T) toJsonT);
+  final IList<Fractal<T>> data;
+
+  JsonMap toJson() => _$FractalListToJson(this, (e) => e.toJson());
+
+  FractalList<T> copyWith({IList<Fractal<T>>? data}) =>
+      FractalList<T>(data: data ?? this.data);
 }
 
-@Freezed(genericArgumentFactories: true)
-abstract class FractalListMeta<T extends Object, M extends Meta>
-    with _$FractalListMeta<T, M>
-    implements FractalList<T> {
-  const factory FractalListMeta({
-    @Default(IListConst([])) IList<FractalData<T>> data,
-    required M meta,
-  }) = _FractalListMeta<T, M>;
+@Freezed(copyWith: false)
+@JsonSerializable(genericArgumentFactories: true)
+class FractalListMeta<T extends Serializable, M extends Meta>
+    extends FractalList<T>
+    with _$FractalListMeta<T, M> {
+  const FractalListMeta({super.data, required this.meta});
 
   factory FractalListMeta.fromJson(
     JsonMap json,
@@ -44,7 +36,15 @@ abstract class FractalListMeta<T extends Object, M extends Meta>
     M Function(Object?) fromJsonM,
   ) => _$FractalListMetaFromJson<T, M>(json, fromJsonT, fromJsonM);
 
+  @override
+  final M meta;
+
   // required for json_serializable to detect properly
   @override
-  JsonMap toJson(Object? Function(T) toJsonT, Object? Function(M) toJsonM);
+  JsonMap toJson() =>
+      _$FractalListMetaToJson(this, (e) => e.toJson(), (e) => e.toJson());
+
+  @override
+  FractalListMeta<T, M> copyWith({IList<Fractal<T>>? data, M? meta}) =>
+      FractalListMeta<T, M>(data: data ?? this.data, meta: meta ?? this.meta);
 }

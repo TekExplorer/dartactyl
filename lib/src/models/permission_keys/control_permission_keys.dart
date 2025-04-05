@@ -5,7 +5,9 @@ part '../../generated/models/permission_keys/control_permission_keys.freezed.dar
 part '../../generated/models/permission_keys/control_permission_keys.g.dart';
 
 @freezed
-abstract class ControlPermissionKeys with _$ControlPermissionKeys {
+abstract class ControlPermissionKeys
+    with _$ControlPermissionKeys
+    implements Serializable {
   const factory ControlPermissionKeys({required String connect}) =
       _ControlPermissionKeys;
 

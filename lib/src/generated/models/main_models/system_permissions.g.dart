@@ -6,6 +6,25 @@ part of '../../../models/main_models/system_permissions.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+PermissionsModel<T> _$PermissionsModelFromJson<T extends Serializable>(
+  Map<String, dynamic> json,
+  T Function(Object? json) fromJsonT,
+) => $checkedCreate('PermissionsModel', json, ($checkedConvert) {
+  final val = PermissionsModel<T>(
+    description: $checkedConvert('description', (v) => v as String),
+    keys: $checkedConvert('keys', (v) => fromJsonT(v)),
+  );
+  return val;
+});
+
+Map<String, dynamic> _$PermissionsModelToJson<T extends Serializable>(
+  PermissionsModel<T> instance,
+  Object? Function(T value) toJsonT,
+) => <String, dynamic>{
+  'description': instance.description,
+  'keys': toJsonT(instance.keys),
+};
+
 _SystemPermissions _$SystemPermissionsFromJson(Map<String, dynamic> json) =>
     $checkedCreate('_SystemPermissions', json, ($checkedConvert) {
       final val = _SystemPermissions(
@@ -107,33 +126,14 @@ _Permissions _$PermissionsFromJson(
 
 Map<String, dynamic> _$PermissionsToJson(_Permissions instance) =>
     <String, dynamic>{
-      'websocket': instance.websocket.toJson((value) => value.toJson()),
-      'control': instance.control.toJson((value) => value.toJson()),
-      'user': instance.user.toJson((value) => value.toJson()),
-      'file': instance.file.toJson((value) => value.toJson()),
-      'backup': instance.backup.toJson((value) => value.toJson()),
-      'allocation': instance.allocation.toJson((value) => value.toJson()),
-      'startup': instance.startup.toJson((value) => value.toJson()),
-      'database': instance.database.toJson((value) => value.toJson()),
-      'schedule': instance.schedule.toJson((value) => value.toJson()),
-      'settings': instance.settings.toJson((value) => value.toJson()),
+      'websocket': instance.websocket.toJson(),
+      'control': instance.control.toJson(),
+      'user': instance.user.toJson(),
+      'file': instance.file.toJson(),
+      'backup': instance.backup.toJson(),
+      'allocation': instance.allocation.toJson(),
+      'startup': instance.startup.toJson(),
+      'database': instance.database.toJson(),
+      'schedule': instance.schedule.toJson(),
+      'settings': instance.settings.toJson(),
     };
-
-_PermissionsModel<T> _$PermissionsModelFromJson<T extends Object>(
-  Map<String, dynamic> json,
-  T Function(Object? json) fromJsonT,
-) => $checkedCreate('_PermissionsModel', json, ($checkedConvert) {
-  final val = _PermissionsModel<T>(
-    description: $checkedConvert('description', (v) => v as String),
-    keys: $checkedConvert('keys', (v) => fromJsonT(v)),
-  );
-  return val;
-});
-
-Map<String, dynamic> _$PermissionsModelToJson<T extends Object>(
-  _PermissionsModel<T> instance,
-  Object? Function(T value) toJsonT,
-) => <String, dynamic>{
-  'description': instance.description,
-  'keys': toJsonT(instance.keys),
-};

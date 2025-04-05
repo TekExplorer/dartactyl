@@ -5,7 +5,9 @@ part '../../generated/models/main_models/system_permissions.freezed.dart';
 part '../../generated/models/main_models/system_permissions.g.dart';
 
 @freezed
-abstract class SystemPermissions with _$SystemPermissions {
+abstract class SystemPermissions
+    with _$SystemPermissions
+    implements Serializable {
   const factory SystemPermissions({required Permissions permissions}) =
       _SystemPermissions;
 
@@ -31,20 +33,22 @@ abstract class Permissions with _$Permissions {
   factory Permissions.fromJson(JsonMap json) => _$PermissionsFromJson(json);
 }
 
-@Freezed(genericArgumentFactories: true)
+@freezed
+@JsonSerializable(genericArgumentFactories: true)
 // @freezed
-abstract class PermissionsModel<T extends Object> with _$PermissionsModel<T> {
-  const factory PermissionsModel({
-    required String description,
-    required T keys,
-  }) = _PermissionsModel<T>;
+class PermissionsModel<T extends Serializable> with _$PermissionsModel<T> {
+  const PermissionsModel({required this.description, required this.keys});
 
   factory PermissionsModel.fromJson(
     JsonMap json,
     T Function(Object?) fromJsonT,
   ) => _$PermissionsModelFromJson<T>(json, fromJsonT);
 
-  // required for json_serializable to detect properly
   @override
-  JsonMap toJson(Object? Function(T) toJsonT);
+  final String description;
+
+  @override
+  final T keys;
+
+  JsonMap toJson() => _$PermissionsModelToJson(this, (e) => e.toJson());
 }

@@ -6,7 +6,7 @@ part '../../generated/models/application_models/node.g.dart';
 
 //TODO: ensure all fields are correct
 @freezed
-abstract class Node with _$Node {
+abstract class Node with _$Node implements Serializable {
   const factory Node({
     required int id,
     required String uuid,
@@ -37,9 +37,9 @@ abstract class Node with _$Node {
 @freezed
 abstract class NodeRelationships with _$NodeRelationships {
   const factory NodeRelationships({
-    FractalData<ApplicationAllocation>? allocation,
-    FractalData<Location>? location,
-    FractalListData<ApplicationServer>? servers,
+    Fractal<ApplicationAllocation>? allocation,
+    Fractal<Location>? location,
+    FractalList<ApplicationServer>? servers,
   }) = _NodeRelationships;
 
   factory NodeRelationships.fromJson(JsonMap json) =>

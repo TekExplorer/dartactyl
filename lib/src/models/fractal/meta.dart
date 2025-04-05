@@ -5,17 +5,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part '../../generated/models/fractal/meta.freezed.dart';
 part '../../generated/models/fractal/meta.g.dart';
 
-mixin PaginationMixin on Meta {
-  Pagination get pagination;
-}
-
-abstract class Meta {}
+abstract mixin class Meta = Object with Serializable;
 
 /// Shows on `listServers`
 @freezed
-abstract class PaginatedMeta
-    with _$PaginatedMeta
-    implements Meta, PaginationMixin {
+abstract class PaginatedMeta with _$PaginatedMeta implements Meta {
   const factory PaginatedMeta({required Pagination pagination}) =
       _PaginatedMeta;
 
@@ -26,7 +20,7 @@ abstract class PaginatedMeta
 @freezed
 abstract class PaginatedBackupsMeta
     with _$PaginatedBackupsMeta
-    implements Meta, PaginationMixin {
+    implements Meta {
   const factory PaginatedBackupsMeta({
     required Pagination pagination,
     required int backupCount,

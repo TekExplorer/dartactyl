@@ -5,7 +5,7 @@ part '../../generated/models/main_models/activity_log.freezed.dart';
 part '../../generated/models/main_models/activity_log.g.dart';
 
 @freezed
-abstract class ActivityLog with _$ActivityLog {
+abstract class ActivityLog with _$ActivityLog implements Serializable {
   /// [hasAdditionalMetadata] is set to true if [properties] contains a key
   ///  that isn't `useragent` or `ip`.
   const factory ActivityLog({

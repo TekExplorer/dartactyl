@@ -6,7 +6,7 @@ part '../../generated/models/main_models/recovery_tokens.freezed.dart';
 part '../../generated/models/main_models/recovery_tokens.g.dart';
 
 @freezed
-abstract class RecoveryTokens with _$RecoveryTokens {
+abstract class RecoveryTokens with _$RecoveryTokens implements Serializable {
   const factory RecoveryTokens({required IList<String> tokens}) =
       _RecoveryTokens;
 

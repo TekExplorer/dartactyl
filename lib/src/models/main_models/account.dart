@@ -5,7 +5,7 @@ part '../../generated/models/main_models/account.freezed.dart';
 part '../../generated/models/main_models/account.g.dart';
 
 @freezed
-abstract class Account with _$Account {
+abstract class Account with _$Account implements Serializable {
   const factory Account({
     required int id,
     @JsonKey(name: 'admin') required bool isAdmin,

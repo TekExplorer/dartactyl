@@ -5,7 +5,9 @@ part '../../generated/models/permission_keys/websocket_permission_keys.freezed.d
 part '../../generated/models/permission_keys/websocket_permission_keys.g.dart';
 
 @freezed
-abstract class WebsocketPermissionKeys with _$WebsocketPermissionKeys {
+abstract class WebsocketPermissionKeys
+    with _$WebsocketPermissionKeys
+    implements Serializable {
   const factory WebsocketPermissionKeys({required String connect}) =
       _WebsocketPermissionKeys;
 
