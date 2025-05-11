@@ -5,7 +5,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartactyl/dartactyl.dart';
-import 'package:dartactyl/websocket_v2.dart';
+import 'package:dartactyl/src/websocket_v2/server_websocket.dart';
 import 'package:dio/dio.dart';
 import 'package:mocktailx/mocktailx.dart';
 import 'package:rxdart/rxdart.dart';
@@ -29,16 +29,8 @@ void main() {
   // random data
   const mockToken = 'mockToken';
   const mockServerId = 'mockServerId';
-  PteroData<WebsocketDetails> getMockWebsocketDetails(
-    Uri url,
-    String token,
-  ) {
-    return PteroData(
-      data: WebsocketDetails(
-        token: token,
-        socket: url,
-      ),
-    );
+  PteroData<WebsocketDetails> getMockWebsocketDetails(Uri url, String token) {
+    return PteroData(data: WebsocketDetails(token: token, socket: url));
   }
 
   void configureMockClient(Uri url, [String token = 'default mock token']) {
@@ -46,9 +38,7 @@ void main() {
       () => mockClient.getServerWebsocket(serverId: any(named: 'serverId')),
     ).thenAnswer((_) => Future.value(getMockWebsocketDetails(url, token)));
 
-    when(
-      () => mockClient.baseUrl,
-    ).thenAnswer((_) => url.toString());
+    when(() => mockClient.baseUrl).thenReturn(url.toString());
   }
 
   void configureMockClientWithError(Uri url, Object error) {
@@ -56,9 +46,7 @@ void main() {
       () => mockClient.getServerWebsocket(serverId: any(named: 'serverId')),
     ).thenAnswer((_) => Future.error(error));
 
-    when(
-      () => mockClient.baseUrl,
-    ).thenAnswer((_) => url.toString());
+    when(() => mockClient.baseUrl).thenReturn(url.toString());
   }
 
   // stub
@@ -165,12 +153,7 @@ void main() {
       await expectLater(
         mockClient.getServerWebsocket(serverId: mockServerId),
         completion(
-          PteroData(
-            data: WebsocketDetails(
-              token: mockToken,
-              socket: url,
-            ),
-          ),
+          PteroData(data: WebsocketDetails(token: mockToken, socket: url)),
         ),
       );
 
@@ -206,12 +189,7 @@ void main() {
         await expectLater(
           mockClient.getServerWebsocket(serverId: mockServerId),
           completion(
-            PteroData(
-              data: WebsocketDetails(
-                token: mockToken,
-                socket: url,
-              ),
-            ),
+            PteroData(data: WebsocketDetails(token: mockToken, socket: url)),
           ),
         );
 
@@ -249,30 +227,19 @@ void main() {
           true,
           reason: 'Should be authenticated',
         );
-        expect(
-          serverWebsocket.isClosed,
-          false,
-          reason: 'Should not be closed',
-        );
+        expect(serverWebsocket.isClosed, false, reason: 'Should not be closed');
         expect(
           serverWebsocket.isDisconnected,
           false,
           reason: 'Should not be disconnected',
         );
-        await expectLater(
-          serverWebsocket.close(),
-          completes,
-        );
+        await expectLater(serverWebsocket.close(), completes);
         await el;
       });
     });
 
     test('send logs', () async {
-      const mockLogs = [
-        'mockLog1',
-        'mockLog2',
-        'mockLog3',
-      ];
+      const mockLogs = ['mockLog1', 'mockLog2', 'mockLog3'];
 
       final url = await mockServer(
         verifyAuthToken: mockToken,
@@ -284,12 +251,7 @@ void main() {
       expect(
         mockClient.getServerWebsocket(serverId: mockServerId),
         completion(
-          PteroData(
-            data: WebsocketDetails(
-              token: mockToken,
-              socket: url,
-            ),
-          ),
+          PteroData(data: WebsocketDetails(token: mockToken, socket: url)),
         ),
       );
 

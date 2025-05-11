@@ -146,7 +146,11 @@ extension on Stream<WebsocketEvent> {
       final mapper = map[event.event];
       if (mapper == null) return null;
       final arg = event.args?.firstOrNull;
-      return mapper(arg ?? '').nonNulls;
+      try {
+        return mapper(arg ?? '').nonNulls;
+      } on FormatException {
+        return null;
+      }
     }).expand((e) => e);
   }
 }

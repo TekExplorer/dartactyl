@@ -13,16 +13,13 @@ FractalList<T> _$FractalListFromJson<T extends Serializable>(
   final val = FractalList<T>(
     data: $checkedConvert(
       'data',
-      (v) =>
-          v == null
-              ? const IListConst([])
-              : IList<Fractal<T>>.fromJson(
-                v,
-                (value) => Fractal<T>.fromJson(
-                  value as Map<String, dynamic>,
-                  (value) => fromJsonT(value),
-                ),
-              ),
+      (v) => IList<Fractal<T>>.fromJson(
+        v,
+        (value) => Fractal<T>.fromJson(
+          value as Map<String, dynamic>,
+          (value) => fromJsonT(value),
+        ),
+      ),
     ),
   );
   return val;
@@ -42,16 +39,13 @@ _$FractalListMetaFromJson<T extends Serializable, M extends Meta>(
   final val = FractalListMeta<T, M>(
     data: $checkedConvert(
       'data',
-      (v) =>
-          v == null
-              ? const IListConst([])
-              : IList<Fractal<T>>.fromJson(
-                v,
-                (value) => Fractal<T>.fromJson(
-                  value as Map<String, dynamic>,
-                  (value) => fromJsonT(value),
-                ),
-              ),
+      (v) => IList<Fractal<T>>.fromJson(
+        v,
+        (value) => Fractal<T>.fromJson(
+          value as Map<String, dynamic>,
+          (value) => fromJsonT(value),
+        ),
+      ),
     ),
     meta: $checkedConvert('meta', (v) => fromJsonM(v)),
   );

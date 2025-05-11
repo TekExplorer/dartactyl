@@ -23,15 +23,19 @@ class Fractal<T extends Serializable> with _$Fractal<T> {
 
 @Freezed(copyWith: false)
 @JsonSerializable(genericArgumentFactories: true)
-class FractalMeta<T extends Serializable, M extends Meta> extends Fractal<T>
-    with _$FractalMeta<T, M> {
-  const FractalMeta({required super.attributes, required this.meta});
+class FractalMeta<T extends Serializable, M extends Meta>
+    with _$FractalMeta<T, M>
+    implements Fractal<T> {
+  const FractalMeta({required this.attributes, required this.meta});
 
   factory FractalMeta.fromJson(
     JsonMap json,
     T Function(Object?) fromJsonT,
     M Function(Object?) fromJsonM,
   ) => _$FractalMetaFromJson<T, M>(json, fromJsonT, fromJsonM);
+
+  @override
+  final T attributes;
 
   @override
   final M meta;

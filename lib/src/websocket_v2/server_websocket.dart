@@ -85,6 +85,7 @@ abstract interface class ServerWebsocket {
 // TODO: testable websocket where we can pass in an IOWebsocket object
 
 // TODO: Consider the possibility of custom wings mods outputing custom data. some way to map custom data?
+@internal
 final class ServerWebsocketImpl implements ServerWebsocket {
   /// Start a connection to the server's websocket.
   ///
@@ -265,7 +266,7 @@ final class ServerWebsocketImpl implements ServerWebsocket {
     }
   }
 
-  late Completer<void> _readyCompleter = Completer();
+  Completer<void> _readyCompleter = Completer();
 
   @override
   Future<void> get ready async {
@@ -315,10 +316,10 @@ final class ServerWebsocketImpl implements ServerWebsocket {
 
   bool get isAuthenticated => _isAuthenticated;
 
-  set isAuthenticated(bool value) {
-    if (isClosed || _isAuthenticated == value) return;
-    _isAuthenticated = value;
-    if (value) {
+  set isAuthenticated(bool authenticated) {
+    if (isClosed || _isAuthenticated == authenticated) return;
+    _isAuthenticated = authenticated;
+    if (authenticated) {
       if (!_readyCompleter.isCompleted) _readyCompleter.complete();
     } else {
       if (_readyCompleter.isCompleted) _readyCompleter = Completer();

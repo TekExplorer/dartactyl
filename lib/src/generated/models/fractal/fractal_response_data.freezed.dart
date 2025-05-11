@@ -44,22 +44,22 @@ String toString() {
 /// @nodoc
 mixin _$FractalMeta<T extends Serializable,M extends Meta> {
 
- M get meta;
+ T get attributes; M get meta;
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FractalMeta<T, M>&&const DeepCollectionEquality().equals(other.meta, meta));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FractalMeta<T, M>&&const DeepCollectionEquality().equals(other.attributes, attributes)&&const DeepCollectionEquality().equals(other.meta, meta));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(meta));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(attributes),const DeepCollectionEquality().hash(meta));
 
 @override
 String toString() {
-  return 'FractalMeta<$T, $M>(meta: $meta)';
+  return 'FractalMeta<$T, $M>(attributes: $attributes, meta: $meta)';
 }
 
 

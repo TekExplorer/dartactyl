@@ -49,7 +49,7 @@ abstract mixin class $EggConfigCopyWith<$Res>  {
   factory $EggConfigCopyWith(EggConfig value, $Res Function(EggConfig) _then) = _$EggConfigCopyWithImpl;
 @useResult
 $Res call({
- Map<String, Object?> files, EggStartupConfig startup, String stop, EggLogsConfig? logs, Object? configExtends
+ JsonMap files, EggStartupConfig startup, String stop, EggLogsConfig? logs, Object? configExtends
 });
 
 
@@ -68,8 +68,8 @@ class _$EggConfigCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? files = null,Object? startup = null,Object? stop = null,Object? logs = freezed,Object? configExtends = freezed,}) {
   return _then(_self.copyWith(
-files: null == files ? _self.files! : files // ignore: cast_nullable_to_non_nullable
-as Map<String, Object?>,startup: null == startup ? _self.startup : startup // ignore: cast_nullable_to_non_nullable
+files: null == files ? _self.files : files // ignore: cast_nullable_to_non_nullable
+as JsonMap,startup: null == startup ? _self.startup : startup // ignore: cast_nullable_to_non_nullable
 as EggStartupConfig,stop: null == stop ? _self.stop : stop // ignore: cast_nullable_to_non_nullable
 as String,logs: freezed == logs ? _self.logs : logs // ignore: cast_nullable_to_non_nullable
 as EggLogsConfig?,configExtends: freezed == configExtends ? _self.configExtends : configExtends ,
@@ -104,11 +104,11 @@ $EggLogsConfigCopyWith<$Res>? get logs {
 @JsonSerializable()
 
 class _EggConfig implements EggConfig {
-  const _EggConfig({required final  Map<String, Object?> files, required this.startup, required this.stop, this.logs, this.configExtends}): _files = files;
+  const _EggConfig({required final  JsonMap files, required this.startup, required this.stop, this.logs, this.configExtends}): _files = files;
   factory _EggConfig.fromJson(Map<String, dynamic> json) => _$EggConfigFromJson(json);
 
- final  Map<String, Object?> _files;
-@override Map<String, Object?> get files {
+ final  JsonMap _files;
+@override JsonMap get files {
   if (_files is EqualUnmodifiableMapView) return _files;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableMapView(_files);
@@ -152,7 +152,7 @@ abstract mixin class _$EggConfigCopyWith<$Res> implements $EggConfigCopyWith<$Re
   factory _$EggConfigCopyWith(_EggConfig value, $Res Function(_EggConfig) _then) = __$EggConfigCopyWithImpl;
 @override @useResult
 $Res call({
- Map<String, Object?> files, EggStartupConfig startup, String stop, EggLogsConfig? logs, Object? configExtends
+ JsonMap files, EggStartupConfig startup, String stop, EggLogsConfig? logs, Object? configExtends
 });
 
 
@@ -172,7 +172,7 @@ class __$EggConfigCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? files = null,Object? startup = null,Object? stop = null,Object? logs = freezed,Object? configExtends = freezed,}) {
   return _then(_EggConfig(
 files: null == files ? _self._files : files // ignore: cast_nullable_to_non_nullable
-as Map<String, Object?>,startup: null == startup ? _self.startup : startup // ignore: cast_nullable_to_non_nullable
+as JsonMap,startup: null == startup ? _self.startup : startup // ignore: cast_nullable_to_non_nullable
 as EggStartupConfig,stop: null == stop ? _self.stop : stop // ignore: cast_nullable_to_non_nullable
 as String,logs: freezed == logs ? _self.logs : logs // ignore: cast_nullable_to_non_nullable
 as EggLogsConfig?,configExtends: freezed == configExtends ? _self.configExtends : configExtends ,

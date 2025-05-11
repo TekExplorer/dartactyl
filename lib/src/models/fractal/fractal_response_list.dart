@@ -9,7 +9,7 @@ part '../../generated/models/fractal/fractal_response_list.g.dart';
 @Freezed(copyWith: false)
 @JsonSerializable(genericArgumentFactories: true)
 class FractalList<T extends Serializable> with _$FractalList<T> {
-  const FractalList({this.data = const IListConst([])});
+  const FractalList({required this.data});
 
   factory FractalList.fromJson(JsonMap json, T Function(Object?) fromJsonT) =>
       _$FractalListFromJson<T>(json, fromJsonT);
@@ -26,9 +26,9 @@ class FractalList<T extends Serializable> with _$FractalList<T> {
 @Freezed(copyWith: false)
 @JsonSerializable(genericArgumentFactories: true)
 class FractalListMeta<T extends Serializable, M extends Meta>
-    extends FractalList<T>
-    with _$FractalListMeta<T, M> {
-  const FractalListMeta({super.data, required this.meta});
+    with _$FractalListMeta<T, M>
+    implements FractalList<T> {
+  const FractalListMeta({required this.data, required this.meta});
 
   factory FractalListMeta.fromJson(
     JsonMap json,
@@ -37,9 +37,11 @@ class FractalListMeta<T extends Serializable, M extends Meta>
   ) => _$FractalListMetaFromJson<T, M>(json, fromJsonT, fromJsonM);
 
   @override
+  final IList<Fractal<T>> data;
+
+  @override
   final M meta;
 
-  // required for json_serializable to detect properly
   @override
   JsonMap toJson() =>
       _$FractalListMetaToJson(this, (e) => e.toJson(), (e) => e.toJson());

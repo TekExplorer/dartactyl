@@ -314,7 +314,7 @@ abstract mixin class $ApplicationServerContainerCopyWith<$Res>  {
   factory $ApplicationServerContainerCopyWith(ApplicationServerContainer value, $Res Function(ApplicationServerContainer) _then) = _$ApplicationServerContainerCopyWithImpl;
 @useResult
 $Res call({
- String startupCommand, String image,@Deprecated('Use status instead') bool installed, Map<String, Object?> environment
+ String startupCommand, String image,@Deprecated('Use status instead') bool installed, JsonMap environment
 });
 
 
@@ -336,8 +336,8 @@ class _$ApplicationServerContainerCopyWithImpl<$Res>
 startupCommand: null == startupCommand ? _self.startupCommand : startupCommand // ignore: cast_nullable_to_non_nullable
 as String,image: null == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
 as String,installed: null == installed ? _self.installed : installed // ignore: cast_nullable_to_non_nullable
-as bool,environment: null == environment ? _self.environment! : environment // ignore: cast_nullable_to_non_nullable
-as Map<String, Object?>,
+as bool,environment: null == environment ? _self.environment : environment // ignore: cast_nullable_to_non_nullable
+as JsonMap,
   ));
 }
 
@@ -348,14 +348,14 @@ as Map<String, Object?>,
 @JsonSerializable()
 
 class _ApplicationServerContainer implements ApplicationServerContainer {
-  const _ApplicationServerContainer({required this.startupCommand, required this.image, @Deprecated('Use status instead') required this.installed, required final  Map<String, Object?> environment}): _environment = environment;
+  const _ApplicationServerContainer({required this.startupCommand, required this.image, @Deprecated('Use status instead') required this.installed, required final  JsonMap environment}): _environment = environment;
   factory _ApplicationServerContainer.fromJson(Map<String, dynamic> json) => _$ApplicationServerContainerFromJson(json);
 
 @override final  String startupCommand;
 @override final  String image;
 @override@Deprecated('Use status instead') final  bool installed;
- final  Map<String, Object?> _environment;
-@override Map<String, Object?> get environment {
+ final  JsonMap _environment;
+@override JsonMap get environment {
   if (_environment is EqualUnmodifiableMapView) return _environment;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableMapView(_environment);
@@ -395,7 +395,7 @@ abstract mixin class _$ApplicationServerContainerCopyWith<$Res> implements $Appl
   factory _$ApplicationServerContainerCopyWith(_ApplicationServerContainer value, $Res Function(_ApplicationServerContainer) _then) = __$ApplicationServerContainerCopyWithImpl;
 @override @useResult
 $Res call({
- String startupCommand, String image,@Deprecated('Use status instead') bool installed, Map<String, Object?> environment
+ String startupCommand, String image,@Deprecated('Use status instead') bool installed, JsonMap environment
 });
 
 
@@ -418,7 +418,7 @@ startupCommand: null == startupCommand ? _self.startupCommand : startupCommand /
 as String,image: null == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
 as String,installed: null == installed ? _self.installed : installed // ignore: cast_nullable_to_non_nullable
 as bool,environment: null == environment ? _self._environment : environment // ignore: cast_nullable_to_non_nullable
-as Map<String, Object?>,
+as JsonMap,
   ));
 }
 

@@ -636,4 +636,67 @@ as Bytes,
 
 }
 
+
+/// @nodoc
+mixin _$WebsocketEvent {
+
+ String get event; List<String>? get args;
+/// Create a copy of WebsocketEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$WebsocketEventCopyWith<WebsocketEvent> get copyWith => _$WebsocketEventCopyWithImpl<WebsocketEvent>(this as WebsocketEvent, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WebsocketEvent&&(identical(other.event, event) || other.event == event)&&const DeepCollectionEquality().equals(other.args, args));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,event,const DeepCollectionEquality().hash(args));
+
+@override
+String toString() {
+  return 'WebsocketEvent(event: $event, args: $args)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $WebsocketEventCopyWith<$Res>  {
+  factory $WebsocketEventCopyWith(WebsocketEvent value, $Res Function(WebsocketEvent) _then) = _$WebsocketEventCopyWithImpl;
+@useResult
+$Res call({
+ String event, List<String>? args
+});
+
+
+
+
+}
+/// @nodoc
+class _$WebsocketEventCopyWithImpl<$Res>
+    implements $WebsocketEventCopyWith<$Res> {
+  _$WebsocketEventCopyWithImpl(this._self, this._then);
+
+  final WebsocketEvent _self;
+  final $Res Function(WebsocketEvent) _then;
+
+/// Create a copy of WebsocketEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? event = null,Object? args = freezed,}) {
+  return _then(WebsocketEvent(
+null == event ? _self.event : event // ignore: cast_nullable_to_non_nullable
+as String,freezed == args ? _self.args : args // ignore: cast_nullable_to_non_nullable
+as List<String>?,
+  ));
+}
+
+}
+
+
 // dart format on

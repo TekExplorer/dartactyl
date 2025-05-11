@@ -51,7 +51,7 @@ abstract mixin class $ActivityLogCopyWith<$Res>  {
   factory $ActivityLogCopyWith(ActivityLog value, $Res Function(ActivityLog) _then) = _$ActivityLogCopyWithImpl;
 @useResult
 $Res call({
- String? batch, String event, String? ip, bool isApi, String? description,@JsonKey(fromJson: _activityLogPropertiesFromJson) Map<String, Object?> properties, bool hasAdditionalMetadata, DateTime timestamp, ActivityLogRelationships? relationships
+ String? batch, String event, String? ip, bool isApi, String? description,@JsonKey(fromJson: _activityLogPropertiesFromJson) JsonMap properties, bool hasAdditionalMetadata, DateTime timestamp, ActivityLogRelationships? relationships
 });
 
 
@@ -75,8 +75,8 @@ as String?,event: null == event ? _self.event : event // ignore: cast_nullable_t
 as String,ip: freezed == ip ? _self.ip : ip // ignore: cast_nullable_to_non_nullable
 as String?,isApi: null == isApi ? _self.isApi : isApi // ignore: cast_nullable_to_non_nullable
 as bool,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
-as String?,properties: null == properties ? _self.properties! : properties // ignore: cast_nullable_to_non_nullable
-as Map<String, Object?>,hasAdditionalMetadata: null == hasAdditionalMetadata ? _self.hasAdditionalMetadata : hasAdditionalMetadata // ignore: cast_nullable_to_non_nullable
+as String?,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
+as JsonMap,hasAdditionalMetadata: null == hasAdditionalMetadata ? _self.hasAdditionalMetadata : hasAdditionalMetadata // ignore: cast_nullable_to_non_nullable
 as bool,timestamp: null == timestamp ? _self.timestamp : timestamp // ignore: cast_nullable_to_non_nullable
 as DateTime,relationships: freezed == relationships ? _self.relationships : relationships // ignore: cast_nullable_to_non_nullable
 as ActivityLogRelationships?,
@@ -102,7 +102,7 @@ $ActivityLogRelationshipsCopyWith<$Res>? get relationships {
 @JsonSerializable()
 
 class _ActivityLog implements ActivityLog {
-  const _ActivityLog({this.batch, required this.event, this.ip, required this.isApi, this.description, @JsonKey(fromJson: _activityLogPropertiesFromJson) required final  Map<String, Object?> properties, required this.hasAdditionalMetadata, required this.timestamp, this.relationships}): _properties = properties;
+  const _ActivityLog({this.batch, required this.event, this.ip, required this.isApi, this.description, @JsonKey(fromJson: _activityLogPropertiesFromJson) required final  JsonMap properties, required this.hasAdditionalMetadata, required this.timestamp, this.relationships}): _properties = properties;
   factory _ActivityLog.fromJson(Map<String, dynamic> json) => _$ActivityLogFromJson(json);
 
 @override final  String? batch;
@@ -112,10 +112,10 @@ class _ActivityLog implements ActivityLog {
 @override final  String? description;
 // if its [], set to {}
 // ignore: invalid_annotation_target
- final  Map<String, Object?> _properties;
+ final  JsonMap _properties;
 // if its [], set to {}
 // ignore: invalid_annotation_target
-@override@JsonKey(fromJson: _activityLogPropertiesFromJson) Map<String, Object?> get properties {
+@override@JsonKey(fromJson: _activityLogPropertiesFromJson) JsonMap get properties {
   if (_properties is EqualUnmodifiableMapView) return _properties;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableMapView(_properties);
@@ -158,7 +158,7 @@ abstract mixin class _$ActivityLogCopyWith<$Res> implements $ActivityLogCopyWith
   factory _$ActivityLogCopyWith(_ActivityLog value, $Res Function(_ActivityLog) _then) = __$ActivityLogCopyWithImpl;
 @override @useResult
 $Res call({
- String? batch, String event, String? ip, bool isApi, String? description,@JsonKey(fromJson: _activityLogPropertiesFromJson) Map<String, Object?> properties, bool hasAdditionalMetadata, DateTime timestamp, ActivityLogRelationships? relationships
+ String? batch, String event, String? ip, bool isApi, String? description,@JsonKey(fromJson: _activityLogPropertiesFromJson) JsonMap properties, bool hasAdditionalMetadata, DateTime timestamp, ActivityLogRelationships? relationships
 });
 
 
@@ -183,7 +183,7 @@ as String,ip: freezed == ip ? _self.ip : ip // ignore: cast_nullable_to_non_null
 as String?,isApi: null == isApi ? _self.isApi : isApi // ignore: cast_nullable_to_non_nullable
 as bool,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,properties: null == properties ? _self._properties : properties // ignore: cast_nullable_to_non_nullable
-as Map<String, Object?>,hasAdditionalMetadata: null == hasAdditionalMetadata ? _self.hasAdditionalMetadata : hasAdditionalMetadata // ignore: cast_nullable_to_non_nullable
+as JsonMap,hasAdditionalMetadata: null == hasAdditionalMetadata ? _self.hasAdditionalMetadata : hasAdditionalMetadata // ignore: cast_nullable_to_non_nullable
 as bool,timestamp: null == timestamp ? _self.timestamp : timestamp // ignore: cast_nullable_to_non_nullable
 as DateTime,relationships: freezed == relationships ? _self.relationships : relationships // ignore: cast_nullable_to_non_nullable
 as ActivityLogRelationships?,

@@ -80,8 +80,8 @@ as List<String>?,
 /// @nodoc
 @JsonSerializable()
 
-class _WebsocketEvent implements WebsocketEvent {
-  const _WebsocketEvent({required this.event, required final  List<String>? args}): _args = args;
+class _WebsocketEvent extends WebsocketEvent {
+  const _WebsocketEvent({required this.event, required final  List<String>? args}): _args = args,super._();
   factory _WebsocketEvent.fromJson(Map<String, dynamic> json) => _$WebsocketEventFromJson(json);
 
 @override final  String event;

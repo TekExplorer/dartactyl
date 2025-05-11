@@ -43,6 +43,7 @@ analyzer:
   errors:
     invalid_annotation_target: ignore
     strict_raw_type: false
+    document_ignores: false
 
-  plugins:
-    - custom_lint
+  # plugins:
+  #   - custom_lint

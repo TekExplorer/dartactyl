@@ -4,8 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part '../../generated/models/ptero_data/ptero_data.freezed.dart';
 part '../../generated/models/ptero_data/ptero_data.g.dart';
 
-// ignore: one_member_abstracts
-
 @freezed
 @JsonSerializable(genericArgumentFactories: true)
 final class PteroData<T extends Serializable> with _$PteroData<T> {

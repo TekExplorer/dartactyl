@@ -1,37 +1,19 @@
 part of 'server_websocket.dart';
 
-abstract interface class WebsocketEvent {
-  const factory WebsocketEvent(String event, [List<String>? args]) =
-      WebsocketEventImpl;
+@freezed
+@JsonSerializable()
+final class WebsocketEvent with _$WebsocketEvent {
+  const WebsocketEvent(this.event, [this.args]);
 
-  static const WebsocketEvent? Function(JsonMap json) fromJson =
-      WebsocketEventImpl.fromJson;
+  factory WebsocketEvent.fromJson(JsonMap json) =>
+      _$WebsocketEventFromJson(json);
 
-  String get event;
-  List<String>? get args;
-
-  JsonMap toJson();
-}
-
-extension WebsocketEventEncoder on WebsocketEvent {
-  String toJsonString() => jsonEncode(toJson());
-}
-
-/// The object which represents an event sent to or from the websocket.
-///
-/// This is used by [ServerWebsocket].
-@immutable
-final class WebsocketEventImpl implements WebsocketEvent {
-  const WebsocketEventImpl(this.event, [this.args]);
-
-  static WebsocketEventImpl? fromJson(JsonMap json) {
-    return switch (json) {
-      {'event': final String event, 'args': final List args}
-          when args.every((e) => e is String) =>
-        WebsocketEventImpl(event, args.cast()),
-      {'event': final String event} => WebsocketEventImpl(event),
-      _ => null,
-    };
+  static WebsocketEvent? maybeFromJson(JsonMap json) {
+    try {
+      return WebsocketEvent.fromJson(json);
+    } on FormatException {
+      return null;
+    }
   }
 
   @override
@@ -39,19 +21,9 @@ final class WebsocketEventImpl implements WebsocketEvent {
   @override
   final List<String>? args;
 
-  @override
-  JsonMap toJson() => {'event': event, 'args': args};
+  JsonMap toJson() => _$WebsocketEventToJson(this);
+}
 
-  @override
-  int get hashCode => Object.hashAll([event, ...?args]);
-
-  @override
-  bool operator ==(Object other) {
-    return other is WebsocketEventImpl &&
-        other.event == event &&
-        const ListEquality<String>().equals(other.args, args);
-  }
-
-  @override
-  String toString() => "WebsocketEvent('$event', $args)";
+extension WebsocketEventEncoder on WebsocketEvent {
+  String toJsonString() => jsonEncode(toJson());
 }

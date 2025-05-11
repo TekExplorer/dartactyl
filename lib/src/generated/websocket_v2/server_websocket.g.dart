@@ -76,3 +76,18 @@ Map<String, dynamic> _$WebsocketNetworkStatsToJson(
   'rx_bytes': instance.rxBytes,
   'tx_bytes': instance.txBytes,
 };
+
+WebsocketEvent _$WebsocketEventFromJson(Map<String, dynamic> json) =>
+    $checkedCreate('WebsocketEvent', json, ($checkedConvert) {
+      final val = WebsocketEvent(
+        $checkedConvert('event', (v) => v as String),
+        $checkedConvert(
+          'args',
+          (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+        ),
+      );
+      return val;
+    });
+
+Map<String, dynamic> _$WebsocketEventToJson(WebsocketEvent instance) =>
+    <String, dynamic>{'event': instance.event, 'args': instance.args};

@@ -36,7 +36,8 @@ abstract class Permissions with _$Permissions {
 @freezed
 @JsonSerializable(genericArgumentFactories: true)
 // @freezed
-class PermissionsModel<T extends Serializable> with _$PermissionsModel<T> {
+final class PermissionsModel<T extends Serializable>
+    with _$PermissionsModel<T> {
   const PermissionsModel({required this.description, required this.keys});
 
   factory PermissionsModel.fromJson(

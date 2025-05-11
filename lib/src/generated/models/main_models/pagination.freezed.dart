@@ -152,8 +152,7 @@ as String?,
 /// @nodoc
 mixin _$Pagination {
 
- int get total; int get count; int get perPage; int get currentPage; int get totalPages;// ignore: deprecated_member_use_from_same_package
- Links get links;
+ int get total; int get count; int get perPage; int get currentPage; int get totalPages; Links get links;
 /// Create a copy of Pagination
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -239,7 +238,6 @@ class _Pagination implements Pagination {
 @override final  int perPage;
 @override final  int currentPage;
 @override final  int totalPages;
-// ignore: deprecated_member_use_from_same_package
 @override final  Links links;
 
 /// Create a copy of Pagination

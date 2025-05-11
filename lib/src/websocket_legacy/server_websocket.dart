@@ -194,7 +194,6 @@ class ServerWebsocket {
               );
               _errors.raiseUnexpected(error, stackTrace);
             }
-            // TODO: send everything into an `everything` stream, *then* split for the sake of spreading errors if `errors` isn't listened to
             if (!_errors.hasListener) rethrow;
           }
         },

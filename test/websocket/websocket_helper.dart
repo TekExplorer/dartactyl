@@ -7,7 +7,6 @@ import 'dart:io';
 
 import 'package:dartactyl/models.dart';
 import 'package:dartactyl/src/websocket_v2/server_websocket.dart';
-import 'package:dartactyl/websocket_v2.dart';
 import 'package:meta/meta.dart';
 import 'package:rxdart/transformers.dart';
 import 'package:test/test.dart';
@@ -32,14 +31,14 @@ class WingsServer {
     addTearDown(close);
   }
   static Future<WingsServer> fromHttpServer(io.HttpServer server) async {
-    final webSocket = await WebSocket.connect(Uri(
-      scheme: 'ws',
-      host: server.address.host,
-      port: server.port,
-    ));
-    final wings = WingsServer()
-      ..websocket.eventsController.addStream(webSocket.events).unawaited
-      ..websocket.events.doOnDone(webSocket.close);
+    final webSocket = await WebSocket.connect(
+      Uri(scheme: 'ws', host: server.address.host, port: server.port),
+    );
+
+    final wings =
+        WingsServer()
+          ..websocket.eventsController.addStream(webSocket.events).unawaited
+          ..websocket.events.doOnDone(webSocket.close);
 
     return wings;
   }
@@ -80,40 +79,45 @@ class WingsServer {
   // ===============================
   // ----------- Actions -----------
   // ===============================
-  void send(WebsocketEvent event) => websocket.sendText(event.toJsonString());
-  void simpleSend(String event, [String? arg]) =>
-      send(WebsocketEvent(event, arg == null ? null : [arg]));
+  void sendEvent(WebsocketEvent event) =>
+      websocket.sendText(event.toJsonString());
 
-  void sendAuthSuccess() => simpleSend('auth success');
-  void sendTokenExpiring() => simpleSend('token expiring');
-  void sendTokenExpired() => simpleSend('token expired');
+  void send(String event, [List<String>? arg]) =>
+      sendEvent(WebsocketEvent(event, arg));
+
+  void sendUnary(String event, [String? arg]) =>
+      send(event, arg == null ? null : [arg]);
+
+  void sendAuthSuccess() => sendUnary('auth success');
+  void sendTokenExpiring() => sendUnary('token expiring');
+  void sendTokenExpired() => sendUnary('token expired');
   void sendJwtError([String err = 'jwt: something']) =>
-      simpleSend('token expiring', err);
+      sendUnary('token expiring', err);
 
-  void sendDaemonError(String err) => simpleSend('daemon error', err);
+  void sendDaemonError(String err) => sendUnary('daemon error', err);
 
-  void sendDaemonMessage(String msg) => simpleSend('daemon message', msg);
-  void sendConsoleOutput(String msg) => simpleSend('console output', msg);
-  void sendInstallOutput(String msg) => simpleSend('install output', msg);
-  void sendTransferLogs(String msg) => simpleSend('transfer logs', msg);
+  void sendDaemonMessage(String msg) => sendUnary('daemon message', msg);
+  void sendConsoleOutput(String msg) => sendUnary('console output', msg);
+  void sendInstallOutput(String msg) => sendUnary('install output', msg);
+  void sendTransferLogs(String msg) => sendUnary('transfer logs', msg);
 
   void sendTransferStatus(TransferStatus status) =>
-      simpleSend('transfer status', status.name);
+      sendUnary('transfer status', status.name);
 
-  void sendInstallStatus(InstallStatus status) => simpleSend(switch (status) {
-        InstallStatus.started => 'install started',
-        InstallStatus.completed => 'install completed',
-      });
-  void sendBackupStatus(BackupStatus status) => simpleSend(switch (status) {
-        BackupStatus.backupCompleted => 'backup completed',
-        BackupStatus.backupRestoreCompleted => 'backup restore completed',
-      });
+  void sendInstallStatus(InstallStatus status) => sendUnary(switch (status) {
+    InstallStatus.started => 'install started',
+    InstallStatus.completed => 'install completed',
+  });
+  void sendBackupStatus(BackupStatus status) => sendUnary(switch (status) {
+    BackupStatus.backupCompleted => 'backup completed',
+    BackupStatus.backupRestoreCompleted => 'backup restore completed',
+  });
 
   void sendPowerState(ServerPowerState state) =>
-      simpleSend('status', state.toJson());
+      sendUnary('status', state.toJson());
 
   void sendStats(WebsocketStats stats) =>
-      simpleSend('stats', jsonEncode(stats.toJson()));
+      sendUnary('stats', jsonEncode(stats.toJson()));
 
   // ===============================
   // --------- Automation ----------
@@ -215,18 +219,14 @@ extension WebsocketFakesX on WebsocketFakes {
   }
 }
 
-WebsocketFakes createWebsocketFakes({
-  FutureOr<String> Function()? getToken,
-}) {
+WebsocketFakes createWebsocketFakes({FutureOr<String> Function()? getToken}) {
   final wings = WingsServer.test();
   return (
     wings._spawnTestWebsocket(
-      () async => WebsocketDetails(
-        token: await getToken?.call() ?? '',
-        socket: Uri(),
-      ),
+      () async =>
+          WebsocketDetails(token: await getToken?.call() ?? '', socket: Uri()),
     ),
-    wings
+    wings,
   );
 }
 
@@ -275,7 +275,7 @@ Future<Uri> mockServer({
     server.listen((request) {
       request as String;
       final json = jsonDecode(request) as JsonMap;
-      final websocketEvent = WebsocketEvent.fromJson(json)!;
+      final websocketEvent = WebsocketEvent.fromJson(json);
 
       expect(websocketEvent.event, isNotEmpty);
 
@@ -288,11 +288,7 @@ Future<Uri> mockServer({
         case 'auth':
           expect(arg, isNotNull);
           if (verifyAuthToken != null) {
-            expect(
-              arg,
-              verifyAuthToken,
-              reason: 'Client sent wrong token',
-            );
+            expect(arg, verifyAuthToken, reason: 'Client sent wrong token');
           }
           // if no mock token is provided, just accept any token
           server.add(const WebsocketEvent('auth success').toJsonString());
@@ -310,7 +306,8 @@ Future<Uri> mockServer({
           throw UnimplementedError("'send stats' request not implemented yet");
         case 'send command':
           throw UnimplementedError(
-              "'send command' request not implemented yet");
+            "'send command' request not implemented yet",
+          );
         case 'set state':
           throw UnimplementedError("'set state' request not implemented yet");
       }

@@ -87,6 +87,8 @@ enum ServerWebsocketReceiveEvent implements ServerWebsocketRemoteEvent {
 @freezed
 @visibleForTesting
 sealed class WebsocketEvent with _$WebsocketEvent {
+  const WebsocketEvent._();
+
   const factory WebsocketEvent._internal({
     required String event,
     required List<String>? args,

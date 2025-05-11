@@ -49,7 +49,7 @@ abstract mixin class $PteroErrorCopyWith<$Res>  {
   factory $PteroErrorCopyWith(PteroError value, $Res Function(PteroError) _then) = _$PteroErrorCopyWithImpl;
 @useResult
 $Res call({
- PteroErrorCode code, String status, String detail, Map<String, Object?>? meta
+ PteroErrorCode code, String status, String detail, JsonMap? meta
 });
 
 
@@ -71,8 +71,8 @@ class _$PteroErrorCopyWithImpl<$Res>
 code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
 as PteroErrorCode,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as String,detail: null == detail ? _self.detail : detail // ignore: cast_nullable_to_non_nullable
-as String,meta: freezed == meta ? _self.meta! : meta // ignore: cast_nullable_to_non_nullable
-as Map<String, Object?>?,
+as String,meta: freezed == meta ? _self.meta : meta // ignore: cast_nullable_to_non_nullable
+as JsonMap?,
   ));
 }
 
@@ -83,14 +83,14 @@ as Map<String, Object?>?,
 @JsonSerializable()
 
 class _PteroError extends PteroError {
-  const _PteroError({required this.code, required this.status, required this.detail, final  Map<String, Object?>? meta}): _meta = meta,super._();
+  const _PteroError({required this.code, required this.status, required this.detail, final  JsonMap? meta}): _meta = meta,super._();
   factory _PteroError.fromJson(Map<String, dynamic> json) => _$PteroErrorFromJson(json);
 
 @override final  PteroErrorCode code;
 @override final  String status;
 @override final  String detail;
- final  Map<String, Object?>? _meta;
-@override Map<String, Object?>? get meta {
+ final  JsonMap? _meta;
+@override JsonMap? get meta {
   final value = _meta;
   if (value == null) return null;
   if (_meta is EqualUnmodifiableMapView) return _meta;
@@ -132,7 +132,7 @@ abstract mixin class _$PteroErrorCopyWith<$Res> implements $PteroErrorCopyWith<$
   factory _$PteroErrorCopyWith(_PteroError value, $Res Function(_PteroError) _then) = __$PteroErrorCopyWithImpl;
 @override @useResult
 $Res call({
- PteroErrorCode code, String status, String detail, Map<String, Object?>? meta
+ PteroErrorCode code, String status, String detail, JsonMap? meta
 });
 
 
@@ -155,7 +155,7 @@ code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
 as PteroErrorCode,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as String,detail: null == detail ? _self.detail : detail // ignore: cast_nullable_to_non_nullable
 as String,meta: freezed == meta ? _self._meta : meta // ignore: cast_nullable_to_non_nullable
-as Map<String, Object?>?,
+as JsonMap?,
   ));
 }
 
