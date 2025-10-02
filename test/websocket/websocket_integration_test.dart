@@ -157,7 +157,7 @@ void main() {
         ),
       );
 
-      final serverWebsocket = ServerWebsocket(
+      final serverWebsocket = ServerWebsocket.fromClient(
         client: mockClient,
         serverId: mockServerId,
       );
@@ -255,7 +255,7 @@ void main() {
         ),
       );
 
-      final serverWebsocket = ServerWebsocket(
+      final serverWebsocket = ServerWebsocket.fromClient(
         client: mockClient,
         serverId: mockServerId,
       );

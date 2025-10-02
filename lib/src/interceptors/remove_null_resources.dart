@@ -10,6 +10,7 @@ import 'package:dio/dio.dart';
 /// ```
 /// This is done because it breaks serialization anywhere it appears.
 class RemoveNullResourcesInterceptor extends Interceptor {
+  const RemoveNullResourcesInterceptor();
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     response.data = _removeNullResource(response.data);

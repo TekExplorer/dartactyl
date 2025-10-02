@@ -3,12 +3,12 @@ part of 'server_websocket.dart';
 @freezed
 @JsonSerializable()
 final class WebsocketEvent with _$WebsocketEvent {
-  const WebsocketEvent(this.event, [this.args]);
+  WebsocketEvent(this.event, [this.args]);
 
-  factory WebsocketEvent.fromJson(JsonMap json) =>
+  factory WebsocketEvent.fromJson(Map<String, Object?> json) =>
       _$WebsocketEventFromJson(json);
 
-  static WebsocketEvent? maybeFromJson(JsonMap json) {
+  static WebsocketEvent? maybeFromJson(Map<String, Object?> json) {
     try {
       return WebsocketEvent.fromJson(json);
     } on FormatException {
@@ -21,7 +21,7 @@ final class WebsocketEvent with _$WebsocketEvent {
   @override
   final List<String>? args;
 
-  JsonMap toJson() => _$WebsocketEventToJson(this);
+  Map<String, Object?> toJson() => _$WebsocketEventToJson(this);
 }
 
 extension WebsocketEventEncoder on WebsocketEvent {

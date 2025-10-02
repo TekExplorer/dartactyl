@@ -3,6 +3,7 @@ import 'package:dartactyl/models.dart';
 import 'package:dio/dio.dart';
 
 class HandleErrorInterceptor extends Interceptor {
+  const HandleErrorInterceptor();
   // should be last to intercept
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {

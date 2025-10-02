@@ -16,7 +16,7 @@ class ServerIncludes extends Includes {
 
   static const includeEgg = ServerIncludes._(['egg']);
   static const includeSubusers = ServerIncludes._(['subusers']);
-  static const includesAll = ServerIncludes._(['egg', 'subusers']);
+  static const includeAll = ServerIncludes._(['egg', 'subusers']);
 }
 
 class ActivityLogsIncludes extends Includes {

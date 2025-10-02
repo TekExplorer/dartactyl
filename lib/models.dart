@@ -25,8 +25,6 @@ export 'src/models/permission_keys/permission_keys.dart';
 export 'src/models/ptero_data/ptero_data.dart';
 export 'src/models/ptero_data/two_factor_image.dart';
 export 'src/models/ptero_data/websocket_details.dart';
-export 'src/models/query/application_includes.dart';
-export 'src/models/query/application_sort.dart';
 export 'src/models/query/query.dart';
 export 'src/models/request_models/request_models.dart';
 export 'src/models/server/server_feature_limits.dart';

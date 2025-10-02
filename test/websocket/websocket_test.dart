@@ -5,10 +5,7 @@ import 'websocket_helper.dart';
 
 void main() async {
   group('Tests', () {
-    test(
-      'Prepare connected sockets',
-      () => createWebsocketFakes().ready,
-    );
+    test('Prepare connected sockets', () => createWebsocketFakes().ready);
     test('test isConnected', () async {
       const token = 'henlo';
       final (websocket, wings) = createWebsocketFakes(getToken: () => token);
@@ -28,7 +25,7 @@ void main() async {
     test('test simple event', timeout: const Timeout.factor(.5), () async {
       final (websocket, wings) = createWebsocketFakes();
       await websocket.ensureConnected();
-      const event = WebsocketEvent('test', ['arg']);
+      final event = WebsocketEvent('test', ['arg']);
       final future = expectLater(wings.events, emits(event));
       websocket.sendEventRaw(event);
       await future;
@@ -36,8 +33,9 @@ void main() async {
     group('Auth', () {
       test('Ensure auth messages are passed', () async {
         const authToken = 'my token';
-        final (websocket, wings) =
-            createWebsocketFakes(getToken: () => authToken);
+        final (websocket, wings) = createWebsocketFakes(
+          getToken: () => authToken,
+        );
         await websocket.ensureConnected();
 
         final future = expectLater(wings.onAuth, emits(authToken));

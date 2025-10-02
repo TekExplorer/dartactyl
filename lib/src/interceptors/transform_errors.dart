@@ -8,6 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 @experimental
 /// This should be added AFTER the [HandleErrorInterceptor]
 class TransformErrorInterceptor extends Interceptor {
+  const TransformErrorInterceptor();
   // should be last to intercept
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {

@@ -1,13 +1,20 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:developer' as dev;
-import 'dart:io' as io show WebSocket;
+import 'dart:typed_data';
 
 import 'package:collection/collection.dart';
-import 'package:dartactyl/dartactyl.dart';
+import 'package:dartactyl/dartactyl.dart'
+    show
+        Bytes,
+        PteroClient,
+        PteroClientStuff,
+        ServerPowerAction,
+        ServerPowerState,
+        WebsocketDetails;
+import 'package:dartactyl/src/websocket_v2/socket/websocket.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:web_socket/io_web_socket.dart';
 import 'package:web_socket/web_socket.dart';
 
 part '../generated/websocket_v2/server_websocket.freezed.dart';
@@ -20,22 +27,76 @@ part 'server_websocket_x.dart';
 part 'websocket_errors.dart';
 part 'websocket_event.dart';
 
+extension PteroClientWebsocket on PteroClient {
+  PteroClientWebsocketBuilder get websocket => websocketImpl;
+}
+
+@internal
+@visibleForTesting
+extension PteroClientWebsocketImpl on PteroClient {
+  PteroClientWebsocketBuilderImpl get websocketImpl =>
+      PteroClientWebsocketBuilderImpl._(this);
+}
+
+abstract class PteroClientWebsocketBuilder {
+  /// Start a connection to the server's websocket.
+  ///
+  /// The connection may not be authenticated yet, so you should await
+  /// [ServerWebsocket.ready] before sending any messages.
+  ServerWebsocket create({required String serverId});
+
+  /// Connect to the websocket for a server and return the [ServerWebsocket]
+  /// once it's authenticated.
+  ///
+  /// Throws if the connection or initial authentication fails.
+  Future<ServerWebsocket> connect({required String serverId});
+}
+
+class PteroClientWebsocketBuilderImpl implements PteroClientWebsocketBuilder {
+  PteroClientWebsocketBuilderImpl._(this.client);
+  final PteroClient client;
+
+  /// Start a connection to the server's websocket.
+  ///
+  /// The connection may not be authenticated yet, so you should await
+  /// [ServerWebsocket.ready] before sending any messages.
+  @override
+  ServerWebsocketImpl create({required String serverId}) =>
+      ServerWebsocketImpl.create(
+        () => client
+            .getServerWebsocket(serverId: serverId)
+            .then((value) => value.data),
+        (details) =>
+            connectWebSocket(details.socket, headers: {'Origin': client.url}),
+      );
+
+  /// Connect to the websocket for a server and return the [ServerWebsocket]
+  /// once it's authenticated.
+  ///
+  /// Throws if the connection or initial authentication fails.
+  @override
+  Future<ServerWebsocketImpl> connect({required String serverId}) async {
+    final websocket = create(serverId: serverId);
+    await websocket.ensureConnected();
+    return websocket;
+  }
+}
+
 abstract interface class ServerWebsocket {
-  factory ServerWebsocket({
+  factory ServerWebsocket.create(
+    FutureOr<WebsocketDetails> Function() detailsFactory, [
+    FutureOr<WebSocket> Function(WebsocketDetails)? createWebsocket,
+  ]) = ServerWebsocketImpl.create;
+
+  factory ServerWebsocket.fromClient({
     required PteroClient client,
     required String serverId,
-    // onError
-    FutureOr<void> Function(Object error, StackTrace stacktrace)?
-    onConnectionError,
-    bool autoConnect,
-  }) = ServerWebsocketImpl;
+  }) = ServerWebsocketImpl.fromClient;
 
-  @visibleForTesting
-  factory ServerWebsocket.raw({
-    required Future<WebSocket> Function(WebsocketDetails) createWebsocket,
-    required Future<WebsocketDetails> Function() getWebsocketDetails,
-    bool autoConnect,
-  }) = ServerWebsocketImpl.raw;
+  static Future<ServerWebsocket> connect({
+    required PteroClient client,
+    required String serverId,
+  }) => ServerWebsocketImpl.connect(client: client, serverId: serverId);
 
   static void Function(
     String message, {
@@ -45,14 +106,11 @@ abstract interface class ServerWebsocket {
   })
   log = dev.log;
 
-  static Future<ServerWebsocket> connect({
-    required PteroClient client,
-    required String serverId,
-  }) => ServerWebsocketImpl.connect(client: client, serverId: serverId);
-
   Future<void> get ready;
 
-  ReconnectableWebSocket get websocket;
+  // ReconnectableWebSocket get websocket;
+
+  Stream<WebsocketEvent> get events;
 
   ValueStream<ConnectionState> get connectionState;
 
@@ -68,98 +126,72 @@ abstract interface class ServerWebsocket {
   /// Ensure that the websocket exists first!
   void sendEventRaw(WebsocketEvent event);
 
-  /// Fully close the websocket and all streams
-  Future<void> close();
-
-  /// If this is true, this websocket can no longer be used
-  bool get isClosed;
+  Future<void> reconnect();
+  Future<void> ensureConnected();
 
   /// Disconnect but don't close user-facing streams
   ///
   /// You can reconnect by awaiting [ready]
   Future<void> disconnect();
 
-  /// If true, you can reconnect by awaiting [ready]
+  /// If true, you can reconnect by calling [ensureConnected] or [reconnect]
   bool get isDisconnected;
+
+  bool get isConnected;
+
+  /// Fully close the websocket and all streams
+  Future<void> close();
+
+  /// If this is true, this websocket can no longer be used
+  bool get isClosed;
 }
 // TODO: testable websocket where we can pass in an IOWebsocket object
 
 // TODO: Consider the possibility of custom wings mods outputing custom data. some way to map custom data?
+
 @internal
 final class ServerWebsocketImpl implements ServerWebsocket {
-  /// Start a connection to the server's websocket.
-  ///
-  /// The connection may not be authenticated yet, so you should await [ready]
-  /// before sending any messages.
-  ///
-  /// Make sure to listen to [errors] to catch any errors that occur.
-  /// or use [onConnectionError] to listen for initial connection errors.
-  // ignore: sort_unnamed_constructors_first
-  factory ServerWebsocketImpl({
+  ServerWebsocketImpl.create(
+    this.getWebsocketDetails, [
+    this._createWebsocket,
+  ]) {
+    registerListeners();
+  }
+
+  factory ServerWebsocketImpl.fromClient({
     required PteroClient client,
     required String serverId,
-    // onError
-    FutureOr<void> Function(Object error, StackTrace stacktrace)?
-    onConnectionError,
-    bool autoConnect = true,
-  }) {
-    return ServerWebsocketImpl.raw(
-      getWebsocketDetails:
-          () => client
-              .getServerWebsocket(serverId: serverId)
-              .then((value) => value.data),
-      createWebsocket: (details) async {
-        return IOWebSocket.fromWebSocket(
-          await io.WebSocket.connect(
-            details.socket.toString(),
-            headers: {'Origin': client.url},
-          ),
-        );
-      },
-      onConnectionError: onConnectionError,
-      autoConnect: autoConnect,
-    );
-  }
+  }) => client.websocketImpl.create(serverId: serverId);
 
-  ServerWebsocketImpl.raw({
-    required this.createWebsocket,
-    required this.getWebsocketDetails,
-    // onError
-    FutureOr<void> Function(Object error, StackTrace stacktrace)?
-    onConnectionError,
-    bool autoConnect = true,
-  }) {
-    registerListeners();
-    if (!autoConnect) return;
-    final connectFuture = ensureConnected();
-    if (onConnectionError != null) connectFuture.catchError(onConnectionError);
-  }
-
-  /// Connect to the websocket for a server and return the [ServerWebsocketImpl]
-  /// once it's authenticated.
-  ///
-  /// Throws if the connection or initial authentication fails.
   static Future<ServerWebsocketImpl> connect({
     required PteroClient client,
     required String serverId,
-  }) async {
-    final serverWebsocket = ServerWebsocketImpl(
-      client: client,
-      serverId: serverId,
-      autoConnect: false,
-    );
-    // throws if the connection or first auth fails
-    await serverWebsocket.ensureConnected();
-    // await serverWebsocket.ready;
-    // await _sub.cancel();
-    return serverWebsocket;
-  }
+  }) => client.websocketImpl.connect(serverId: serverId);
 
   final FutureOr<WebsocketDetails> Function() getWebsocketDetails;
-  final FutureOr<WebSocket> Function(WebsocketDetails details) createWebsocket;
+  final FutureOr<WebSocket> Function(WebsocketDetails details)?
+  _createWebsocket;
+  FutureOr<WebSocket> createWebsocket(WebsocketDetails details) {
+    if (_createWebsocket case final create?) return create(details);
+    return connectWebSocket(details.socket);
+  }
+
+  final websocket = ReconnectableWebSocket();
+
+  Stream<WebSocketEvent> get $events => websocket.sharedEvents;
+
+  Stream<Uint8List> get $binaryEvents =>
+      $events.whereType<BinaryDataReceived>().map((b) => b.data);
+
+  Stream<String> get $stringEvents =>
+      $events.whereType<TextDataReceived>().map((t) => t.text);
+
+  Stream<Object?> get $jsonEvents => $stringEvents.map(jsonDecode);
+  Stream<Map<String, Object?>> get $jsonMapEvents => $jsonEvents.whereType();
 
   @override
-  final websocket = ReconnectableWebSocket();
+  Stream<WebsocketEvent> get events =>
+      $jsonMapEvents.mapNotNull(WebsocketEvent.fromJson);
 
   List<StreamSubscription<Object>> registerListeners() => [
     connectionState.listen((event) {
@@ -171,7 +203,7 @@ final class ServerWebsocketImpl implements ServerWebsocket {
           _isDisconnected = true;
       }
     }),
-    rawEvents.whereType<CloseReceived>().listen((_) async {
+    $events.whereType<CloseReceived>().listen((_) async {
       addConnectionState(ConnectionState.disconnected);
       isDisconnected = true;
       isAuthenticated = false;
@@ -196,6 +228,7 @@ final class ServerWebsocketImpl implements ServerWebsocket {
     }),
   ];
 
+  @override
   Future<void> reconnect() async {
     if (isClosed) return;
     await disconnect();
@@ -218,6 +251,7 @@ final class ServerWebsocketImpl implements ServerWebsocket {
   bool get isConnecting => _connectFuture != null;
 
   /// Debounced connect() method
+  @override
   Future<void> ensureConnected() {
     return _connectFuture ??= connectImpl().whenComplete(() {
       isDisconnected = false;
@@ -225,6 +259,7 @@ final class ServerWebsocketImpl implements ServerWebsocket {
     });
   }
 
+  @override
   bool get isConnected => !isDisconnected;
 
   Future<void> connectImpl() async {
@@ -243,9 +278,7 @@ final class ServerWebsocketImpl implements ServerWebsocket {
   }
 
   @visibleForTesting
-  void authenticateSync(String authToken) {
-    sendEventRaw(WebsocketEvent('auth', [authToken]));
-  }
+  void authenticateSync(String authToken) => sendRaw('auth', [authToken]);
 
   // Distinct because theres no reason to emit the same connection state twice
 
@@ -277,8 +310,8 @@ final class ServerWebsocketImpl implements ServerWebsocket {
 
   @override
   Future<void> sendEvent(WebsocketEvent event) async {
-    await ready;
     if (isClosed) return;
+    await ready;
     sendEventRaw(event);
   }
 
@@ -293,6 +326,12 @@ final class ServerWebsocketImpl implements ServerWebsocket {
   @internal
   void sendEventRaw(WebsocketEvent event) {
     if (isClosed) return;
+    if (!isConnected) {
+      throw StateError(
+        'Websocket is disconnected. Make sure the websocket is connected with'
+        ' ensureConnected()',
+      );
+    }
     websocket.sendText(event.toJsonString());
   }
 

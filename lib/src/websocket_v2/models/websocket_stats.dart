@@ -13,7 +13,7 @@ abstract class WebsocketStats
   }) = _WebsocketStats;
   const WebsocketStats._();
 
-  factory WebsocketStats.fromJson(JsonMap json) =>
+  factory WebsocketStats.fromJson(Map<String, Object?> json) =>
       _$WebsocketStatsFromJson(json);
 
   ServerPowerState get powerState => state;
@@ -26,6 +26,6 @@ abstract class WebsocketNetworkStats with _$WebsocketNetworkStats {
     required Bytes txBytes,
   }) = _WebsocketNetworkStats;
 
-  factory WebsocketNetworkStats.fromJson(JsonMap json) =>
+  factory WebsocketNetworkStats.fromJson(Map<String, Object?> json) =>
       _$WebsocketNetworkStatsFromJson(json);
 }

@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -132,6 +131,136 @@ $ApplicationServerRelationshipsCopyWith<$Res>? get relationships {
 }
 }
 
+
+/// Adds pattern-matching-related methods to [ApplicationServer].
+extension ApplicationServerPatterns on ApplicationServer {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ApplicationServer value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ApplicationServer() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ApplicationServer value)  $default,){
+final _that = this;
+switch (_that) {
+case _ApplicationServer():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ApplicationServer value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ApplicationServer() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String externalId,  String uuid,  String identifier,  String name,  String description,  ServerStatus status, @Deprecated('Use status instead')  bool suspended,  ServerLimits limits,  ServerFeatureLimits featureLimits,  int user,  int node,  int allocation,  int nest,  int egg,  ApplicationServerContainer container,  DateTime createdAt,  DateTime updatedAt,  ApplicationServerRelationships? relationships)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ApplicationServer() when $default != null:
+return $default(_that.id,_that.externalId,_that.uuid,_that.identifier,_that.name,_that.description,_that.status,_that.suspended,_that.limits,_that.featureLimits,_that.user,_that.node,_that.allocation,_that.nest,_that.egg,_that.container,_that.createdAt,_that.updatedAt,_that.relationships);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String externalId,  String uuid,  String identifier,  String name,  String description,  ServerStatus status, @Deprecated('Use status instead')  bool suspended,  ServerLimits limits,  ServerFeatureLimits featureLimits,  int user,  int node,  int allocation,  int nest,  int egg,  ApplicationServerContainer container,  DateTime createdAt,  DateTime updatedAt,  ApplicationServerRelationships? relationships)  $default,) {final _that = this;
+switch (_that) {
+case _ApplicationServer():
+return $default(_that.id,_that.externalId,_that.uuid,_that.identifier,_that.name,_that.description,_that.status,_that.suspended,_that.limits,_that.featureLimits,_that.user,_that.node,_that.allocation,_that.nest,_that.egg,_that.container,_that.createdAt,_that.updatedAt,_that.relationships);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String externalId,  String uuid,  String identifier,  String name,  String description,  ServerStatus status, @Deprecated('Use status instead')  bool suspended,  ServerLimits limits,  ServerFeatureLimits featureLimits,  int user,  int node,  int allocation,  int nest,  int egg,  ApplicationServerContainer container,  DateTime createdAt,  DateTime updatedAt,  ApplicationServerRelationships? relationships)?  $default,) {final _that = this;
+switch (_that) {
+case _ApplicationServer() when $default != null:
+return $default(_that.id,_that.externalId,_that.uuid,_that.identifier,_that.name,_that.description,_that.status,_that.suspended,_that.limits,_that.featureLimits,_that.user,_that.node,_that.allocation,_that.nest,_that.egg,_that.container,_that.createdAt,_that.updatedAt,_that.relationships);case _:
+  return null;
+
+}
+}
+
+}
 
 /// @nodoc
 @JsonSerializable()
@@ -344,6 +473,136 @@ as JsonMap,
 }
 
 
+/// Adds pattern-matching-related methods to [ApplicationServerContainer].
+extension ApplicationServerContainerPatterns on ApplicationServerContainer {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ApplicationServerContainer value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ApplicationServerContainer() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ApplicationServerContainer value)  $default,){
+final _that = this;
+switch (_that) {
+case _ApplicationServerContainer():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ApplicationServerContainer value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ApplicationServerContainer() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String startupCommand,  String image, @Deprecated('Use status instead')  bool installed,  JsonMap environment)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ApplicationServerContainer() when $default != null:
+return $default(_that.startupCommand,_that.image,_that.installed,_that.environment);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String startupCommand,  String image, @Deprecated('Use status instead')  bool installed,  JsonMap environment)  $default,) {final _that = this;
+switch (_that) {
+case _ApplicationServerContainer():
+return $default(_that.startupCommand,_that.image,_that.installed,_that.environment);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String startupCommand,  String image, @Deprecated('Use status instead')  bool installed,  JsonMap environment)?  $default,) {final _that = this;
+switch (_that) {
+case _ApplicationServerContainer() when $default != null:
+return $default(_that.startupCommand,_that.image,_that.installed,_that.environment);case _:
+  return null;
+
+}
+}
+
+}
+
 /// @nodoc
 @JsonSerializable()
 
@@ -488,6 +747,136 @@ as Fractal<ApplicationUser>?,
 
 }
 
+
+/// Adds pattern-matching-related methods to [ApplicationServerRelationships].
+extension ApplicationServerRelationshipsPatterns on ApplicationServerRelationships {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ApplicationServerRelationships value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ApplicationServerRelationships() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ApplicationServerRelationships value)  $default,){
+final _that = this;
+switch (_that) {
+case _ApplicationServerRelationships():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ApplicationServerRelationships value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ApplicationServerRelationships() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Fractal<ApplicationUser>? user)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ApplicationServerRelationships() when $default != null:
+return $default(_that.user);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Fractal<ApplicationUser>? user)  $default,) {final _that = this;
+switch (_that) {
+case _ApplicationServerRelationships():
+return $default(_that.user);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Fractal<ApplicationUser>? user)?  $default,) {final _that = this;
+switch (_that) {
+case _ApplicationServerRelationships() when $default != null:
+return $default(_that.user);case _:
+  return null;
+
+}
+}
+
+}
 
 /// @nodoc
 @JsonSerializable()

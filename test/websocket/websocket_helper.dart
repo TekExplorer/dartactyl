@@ -153,14 +153,6 @@ class WingsServer {
   }
 }
 
-// extension on ReconnectableWebSocket {
-//   FakeWebSocket? get fakeSocket => switch (socket) {
-//         final FakeWebSocket socket => socket,
-//         WebSocket() => throw StateError('Unexpected real socket'),
-//         null => null,
-//       };
-// }
-
 extension SpawnFake on WingsServer {
   @useResult
   Future<FakeWebSocket> _spawnConnectedSocket() async {
@@ -172,12 +164,11 @@ extension SpawnFake on WingsServer {
   FakeWebSocket _spawnInitialConnectedSocket() => websocket.ensureActive();
 
   ServerWebsocketImpl _spawnTestWebsocket(
-    FutureOr<WebsocketDetails> Function() getWebsocketDetails,
+    FutureOr<WebsocketDetails> Function() detailsFactory,
   ) {
-    final websocket = ServerWebsocketImpl.raw(
-      createWebsocket: (details) => _spawnConnectedSocket(),
-      getWebsocketDetails: getWebsocketDetails,
-      autoConnect: false,
+    final websocket = ServerWebsocketImpl.create(
+      detailsFactory,
+      (details) => _spawnConnectedSocket(),
     );
     addTearDown(websocket.close);
     return websocket;
@@ -193,13 +184,14 @@ extension WebsocketFakesX on WebsocketFakes {
   Future<WebsocketFakes> get connected async {
     await websocket.ensureConnected();
     expect(websocket.isConnected, true, reason: 'Should be connected');
+    final event = WebsocketEvent('Test');
+
     final sanityCheck = expectLater(
       wings.events.first,
-      // ignore: prefer_const_constructors
-      completion(WebsocketEvent('Test Initiated')),
+      completion(event),
       reason: 'A message should have made its way to the server',
     );
-    websocket.sendEventRaw(const WebsocketEvent('Test Initiated'));
+    websocket.sendEventRaw(event);
     await sanityCheck;
     //
     return this;
@@ -291,7 +283,7 @@ Future<Uri> mockServer({
             expect(arg, verifyAuthToken, reason: 'Client sent wrong token');
           }
           // if no mock token is provided, just accept any token
-          server.add(const WebsocketEvent('auth success').toJsonString());
+          server.add(WebsocketEvent('auth success').toJsonString());
         case 'send logs':
           expect(arg, isNull);
           expect(

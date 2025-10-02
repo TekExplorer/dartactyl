@@ -19,7 +19,7 @@ dependencies:
   retrofit: ^4.0.1
   rxdart: ^0.28.0
   universal_io: ^2.0.4
-  web_socket: ^0.1.6
+  web_socket: ^0.1.6 # ^1.0.1
 
 dev_dependencies:
   build_runner: '>=2.4.7 <4.0.0'

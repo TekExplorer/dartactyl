@@ -36,6 +36,7 @@ class ReconnectableWebSocket {
 
   Future<void> reconnect(FutureOr<WebSocket> Function() connect) async {
     if (isClosed) return;
+    await disconnect();
     socket = await connect();
   }
 
@@ -62,5 +63,6 @@ class ReconnectableWebSocket {
 }
 
 extension ReconnectableWebsocketX on ReconnectableWebSocket {
+  // TODO: Indicate when it would fail?
   void sendText(String s) => socket?.sendText(s);
 }

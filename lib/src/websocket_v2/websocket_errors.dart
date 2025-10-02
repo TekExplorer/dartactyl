@@ -8,34 +8,26 @@ part of 'server_websocket.dart';
 ///
 /// There may be cases where these can be bugs in this library
 sealed class WingsException implements Exception, WebsocketMessage {
-  String get receivedMessage;
   String get message;
 }
 
 final class JWTError implements WingsException {
-  const JWTError(String? receivedMessage)
-    : receivedMessage = receivedMessage ?? 'Unknown JWT Error';
+  const JWTError(String? message) : message = message ?? 'Unknown JWT Error';
 
   // in the form of: 'jwt: something'
   @override
-  final String receivedMessage;
+  final String message;
 
   @override
-  String get message => receivedMessage;
-
-  @override
-  String toString() => 'JWTError($receivedMessage)';
+  String toString() => 'JWTError($message)';
 }
 
 final class DaemonError implements WingsException {
-  const DaemonError(this.receivedMessage);
+  const DaemonError(this.message);
 
   @override
-  final String receivedMessage;
+  final String message;
 
   @override
-  String get message => receivedMessage;
-
-  @override
-  String toString() => 'DaemonError($receivedMessage)';
+  String toString() => 'DaemonError($message)';
 }

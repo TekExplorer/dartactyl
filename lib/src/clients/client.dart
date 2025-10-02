@@ -9,33 +9,6 @@ import 'package:retrofit/retrofit.dart';
 
 part '../generated/clients/client.g.dart';
 
-/// A client for deprecated Pterodactyl APIs.
-@RestApi()
-abstract class DeprecatedPteroClient {
-  /// Creates an instance of the [DeprecatedPteroClient] class.
-  ///
-  /// [dio] is the Dio instance to use.
-  ///
-  /// [baseUrl] is the base URL of the Pterodactyl server.
-  ///
-  // ignore: deprecated_member_use_from_same_package
-  /// It is recommended to use [PteroClient(...).old] instead.
-  factory DeprecatedPteroClient(
-    Dio dio, {
-    String? baseUrl,
-    ParseErrorLogger? errorLogger,
-  }) = _DeprecatedPteroClient;
-
-  /// Delete an [SshKey] on your account. (1.8.0-1.8.1)
-  @DELETE('/api/client/account/ssh-keys/{fingerprint}')
-  Future<void> deleteSshKey1_8({
-    @Path() required String fingerprint,
-    @CancelRequest() CancelToken? cancelToken,
-    @SendProgress() @experimental ProgressCallback? onSendProgress,
-    @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,
-  });
-}
-
 /// An extension that allows you to access the Dio instance used by the client.
 extension PteroClientVisibleDio on PteroClient {
   /// Returns the Dio instance used by the client.
@@ -48,19 +21,19 @@ extension PteroClientStuff on PteroClient {
   /// The URL of the configured Pterodactyl server.
   String get url => baseUrl ?? dio.options.baseUrl;
 
-  /// A client for old implementations of the Pterodactyl API.
-  @Deprecated('Update your panel! These endpoints are deprecated!')
-  DeprecatedPteroClient get old =>
-      DeprecatedPteroClient(_dio, baseUrl: baseUrl);
+  // /// A client for old implementations of the Pterodactyl API.
+  // @Deprecated('Update your panel! These endpoints are deprecated!')
+  // DeprecatedPteroClient get old =>
+  //     DeprecatedPteroClient(_dio, baseUrl: baseUrl);
 
   /// A client for the translations endpoints.
   @experimental
   PteroTranslationsClient get translations =>
       PteroTranslationsClient(_dio, baseUrl: baseUrl);
 
-  /// An experimental client for the application endpoints.
-  @experimental
-  PteroApplication get application => PteroApplication(_dio, baseUrl: baseUrl);
+  // /// An experimental client for the application endpoints.
+  // @experimental
+  // PteroApplication get application => PteroApplication(_dio, baseUrl: baseUrl);
 }
 
 /// Pterodactyl API Client
@@ -75,21 +48,6 @@ abstract class PteroClient {
   /// [baseUrl] is the base URL of the Pterodactyl server.
   /// Not needed if you've already set it in the Dio instance.
   factory PteroClient(Dio dio, {String? baseUrl}) = _PteroClient;
-
-  /// Creates an instance of the [PteroClient] class.
-  ///
-  /// This can be used to test the client without actually
-  ///  connecting to a server.
-  ///
-  /// Uses mockapi.ptero.sh as the base URL, which redirects to the
-  ///  pterodactyl.stoplight.io mock server.
-  ///
-  /// Does not work with /auth endpoints - only /api/client
-  factory PteroClient.mockApi([Dio? dio]) => PteroClient.generate(
-    url: 'https://mockapi.ptero.sh',
-    dio: dio,
-    apiKey: 'mock-api-key',
-  );
 
   /// Set up a Pterodactyl API Client in one go!
   /// [baseUrl] is the base URL of the Pterodactyl server.
@@ -121,7 +79,7 @@ abstract class PteroClient {
 
   /// A list of interceptors that are added
   ///  by default with [PteroClient.generate].
-  static final defaultInterceptors = [
+  static const defaultInterceptors = [
     HandleErrorInterceptor(),
     RemoveNullResourcesInterceptor(),
   ];
@@ -199,7 +157,7 @@ abstract class PteroClient {
   /// [perPage]; number of results per page
   ///
   /// You can also limit what servers are returned by
-  /// providing a [GetServersQueryType] to [type] (default is 'member')
+  /// providing a [ServerListType] to [type] (default is 'member')
   ///
   /// Available [Includes]; 'egg', 'subusers'
   @GET('/api/client')
@@ -213,7 +171,7 @@ abstract class PteroClient {
     // Filters
     @Queries() ServerFilters? filters,
     // What servers to return by access type
-    @Query('type') GetServersQueryType? type = GetServersQueryType.member,
+    @Query('type') ServerListType? type,
     @CancelRequest() CancelToken? cancelToken,
     @SendProgress() @experimental ProgressCallback? onSendProgress,
     @ReceiveProgress() @experimental ProgressCallback? onReceiveProgress,

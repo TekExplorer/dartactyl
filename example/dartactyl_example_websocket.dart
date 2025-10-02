@@ -16,7 +16,10 @@ Future<ServerWebsocket> getWebsocket() async {
 
   await client.getServerWebsocket(serverId: server.identifier);
 
-  return ServerWebsocket(client: client, serverId: server.identifier);
+  return ServerWebsocket.fromClient(
+    client: client,
+    serverId: server.identifier,
+  );
 }
 
 void main(List<String> args) async {

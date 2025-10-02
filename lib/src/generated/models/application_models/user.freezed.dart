@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -97,6 +96,136 @@ $ApplicationUserRelationshipsCopyWith<$Res> get relationships {
 }
 }
 
+
+/// Adds pattern-matching-related methods to [ApplicationUser].
+extension ApplicationUserPatterns on ApplicationUser {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ApplicationUser value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ApplicationUser() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ApplicationUser value)  $default,){
+final _that = this;
+switch (_that) {
+case _ApplicationUser():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ApplicationUser value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ApplicationUser() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String? externalId,  String uuid,  String username,  String email,  String firstName,  String lastName,  String language,  bool rootAdmin, @JsonKey(name: '2fa')  bool tfaEnabled,  DateTime createdAt,  DateTime updatedAt,  ApplicationUserRelationships relationships)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ApplicationUser() when $default != null:
+return $default(_that.id,_that.externalId,_that.uuid,_that.username,_that.email,_that.firstName,_that.lastName,_that.language,_that.rootAdmin,_that.tfaEnabled,_that.createdAt,_that.updatedAt,_that.relationships);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String? externalId,  String uuid,  String username,  String email,  String firstName,  String lastName,  String language,  bool rootAdmin, @JsonKey(name: '2fa')  bool tfaEnabled,  DateTime createdAt,  DateTime updatedAt,  ApplicationUserRelationships relationships)  $default,) {final _that = this;
+switch (_that) {
+case _ApplicationUser():
+return $default(_that.id,_that.externalId,_that.uuid,_that.username,_that.email,_that.firstName,_that.lastName,_that.language,_that.rootAdmin,_that.tfaEnabled,_that.createdAt,_that.updatedAt,_that.relationships);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String? externalId,  String uuid,  String username,  String email,  String firstName,  String lastName,  String language,  bool rootAdmin, @JsonKey(name: '2fa')  bool tfaEnabled,  DateTime createdAt,  DateTime updatedAt,  ApplicationUserRelationships relationships)?  $default,) {final _that = this;
+switch (_that) {
+case _ApplicationUser() when $default != null:
+return $default(_that.id,_that.externalId,_that.uuid,_that.username,_that.email,_that.firstName,_that.lastName,_that.language,_that.rootAdmin,_that.tfaEnabled,_that.createdAt,_that.updatedAt,_that.relationships);case _:
+  return null;
+
+}
+}
+
+}
 
 /// @nodoc
 @JsonSerializable()
@@ -264,6 +393,136 @@ as FractalList<ApplicationServer>,
 
 }
 
+
+/// Adds pattern-matching-related methods to [ApplicationUserRelationships].
+extension ApplicationUserRelationshipsPatterns on ApplicationUserRelationships {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ApplicationUserRelationships value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ApplicationUserRelationships() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ApplicationUserRelationships value)  $default,){
+final _that = this;
+switch (_that) {
+case _ApplicationUserRelationships():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ApplicationUserRelationships value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ApplicationUserRelationships() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( FractalList<ApplicationServer> servers)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ApplicationUserRelationships() when $default != null:
+return $default(_that.servers);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( FractalList<ApplicationServer> servers)  $default,) {final _that = this;
+switch (_that) {
+case _ApplicationUserRelationships():
+return $default(_that.servers);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( FractalList<ApplicationServer> servers)?  $default,) {final _that = this;
+switch (_that) {
+case _ApplicationUserRelationships() when $default != null:
+return $default(_that.servers);case _:
+  return null;
+
+}
+}
+
+}
 
 /// @nodoc
 @JsonSerializable()

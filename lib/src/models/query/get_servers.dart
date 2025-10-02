@@ -6,14 +6,17 @@
 /// [owner] - only servers you own
 ///
 /// [member] - servers you are an [owner] or subuser of
-enum GetServersQueryType {
+enum ServerListType {
   admin('admin'),
   adminAll('admin-all'),
   owner('owner'),
   member('user');
 
-  const GetServersQueryType(this.value);
+  const ServerListType(this.value);
   final String value;
 
   String toJson() => value;
 }
+
+@Deprecated('Use ServerListType instead')
+typedef GetServersQueryType = ServerListType;

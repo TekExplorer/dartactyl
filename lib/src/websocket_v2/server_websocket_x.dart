@@ -1,18 +1,34 @@
 part of 'server_websocket.dart';
 
+extension ServerWebsocketSend on ServerWebsocket {
+  Future<void> send(String event, [List<String>? args]) =>
+      sendEvent(WebsocketEvent(event, args));
+  void sendRaw(String event, [List<String>? args]) =>
+      sendEventRaw(WebsocketEvent(event, args));
+}
+
 extension ServerWebsocketActions on ServerWebsocket {
   /// Prompt wings to send a history of logs.
   ///
   /// You will still receive logs without calling this,
   /// but this will allow you to populate your data with previous logs
-  Future<void> requestLogs() => sendEvent(const WebsocketEvent('send logs'));
+  Future<void> requestLogs() => send('send logs');
 
   /// Prompt wings to send stat information
-  Future<void> requestStats() => sendEvent(const WebsocketEvent('send stats'));
+  Future<void> requestStats() => send('send stats');
 
   /// Send a console command
-  Future<void> sendCommand(String command) =>
-      sendEvent(WebsocketEvent('send command', [command]));
+  Future<void> sendCommand(String command) => send('send command', [command]);
+
+  /// Sends a command to set the power state of the server.
+  ///
+  /// Prefer to use one of the following:
+  /// [setPowerState],
+  /// [startServer],
+  /// [restartServer],
+  /// [stopServer],
+  /// [killServer]
+  Future<void> setRawPowerState(String action) => send('set state', [action]);
 
   /// Set the power state of the server.
   ///
@@ -23,17 +39,6 @@ extension ServerWebsocketActions on ServerWebsocket {
   /// a 'hibernate'
   Future<void> setPowerState(ServerPowerAction powerAction) =>
       setRawPowerState(powerAction.name);
-
-  /// Sends a command to set the power state of the server.
-  ///
-  /// Prefer to use one of the following:
-  /// [setPowerState],
-  /// [startServer],
-  /// [restartServer],
-  /// [stopServer],
-  /// [killServer]
-  Future<void> setRawPowerState(String action) =>
-      sendEvent(WebsocketEvent('set state', [action]));
 
   /// Prompts wings to start the server
   Future<void> startServer() => setPowerState(ServerPowerAction.start);
@@ -64,15 +69,6 @@ final class WebsocketPowerState implements WebsocketMessage {
 }
 
 extension ServerWebsocketX on ServerWebsocket {
-  Stream<WebSocketEvent> get rawEvents => websocket.sharedEvents;
-  Stream<String> get stringEvents =>
-      rawEvents.whereType<TextDataReceived>().map((t) => t.text);
-
-  Stream<Object?> get jsonEvents => stringEvents.map(jsonDecode);
-  Stream<JsonMap> get jsonMapEvents => jsonEvents.whereType();
-  Stream<WebsocketEvent> get events =>
-      jsonMapEvents.mapNotNull(WebsocketEvent.fromJson);
-
   Stream<WebsocketMessage> get messages => events.mapEvents(
     {
       'daemon message': LogMessage.daemon,
@@ -97,7 +93,7 @@ extension ServerWebsocketX on ServerWebsocket {
     {
       'stats': (arg) {
         final stats = switch (_maybeJsonMapDecode(arg)) {
-          final JsonMap json => WebsocketStats.fromJson(json),
+          final Map<String, Object?> json => WebsocketStats.fromJson(json),
           null => null,
         };
         return [stats, WebsocketPowerState.maybeOf(stats?.powerState)];
@@ -155,9 +151,9 @@ extension on Stream<WebsocketEvent> {
   }
 }
 
-JsonMap? _maybeJsonMapDecode(String source) {
+Map<String, Object?>? _maybeJsonMapDecode(String source) {
   return switch (jsonDecode(source)) {
-    final JsonMap map => map,
+    final Map<String, Object?> map => map,
     _ => null,
   };
 }
