@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## [Unreleased]
+
+- Update to Freezed v3 and simplify generic serialization
+- Bump Dart SDK minimum to 3.8.0
+- Remove application models and deprecated utilities
+- Flatten directory structure ("extra" directory removed)
+- Improved model implementations
+- Prefer redirecting constructors for `fromJson`
+- Minor logic improvements in websocket handling
+- Improve test utilities and add testing infrastructure
+- Format code with Dart 3.7
+- Remove unnecessary library names
+- Adjust reconnectable websocket handling logic
+
 ## 1.11.1
 
 - FileObject.size is now a Bytes

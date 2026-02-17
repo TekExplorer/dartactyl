@@ -20,33 +20,35 @@ import 'websocket_helper.dart';
 
 class MockPteroClient extends Mock implements PteroClient {}
 
+class MockServerClient extends Mock implements ServerClient {}
+
 // Absolutely necessary for the test to work
 @TestOn('vm')
 void main() {
   // create mock
   // getServerWebsocket
-  final mockClient = MockPteroClient();
+  // final mockClient = MockPteroClient();
+  final mockClient = MockServerClient();
   // random data
   const mockToken = 'mockToken';
-  const mockServerId = 'mockServerId';
   PteroData<WebsocketDetails> getMockWebsocketDetails(Uri url, String token) {
-    return PteroData(data: WebsocketDetails(token: token, socket: url));
+    return PteroData(
+      data: WebsocketDetails(token: token, socket: url),
+    );
   }
 
   void configureMockClient(Uri url, [String token = 'default mock token']) {
     when(
-      () => mockClient.getServerWebsocket(serverId: any(named: 'serverId')),
+      mockClient.getServerWebsocket,
     ).thenAnswer((_) => Future.value(getMockWebsocketDetails(url, token)));
 
-    when(() => mockClient.baseUrl).thenReturn(url.toString());
+    when(() => mockClient.url).thenReturn(url.toString());
   }
 
   void configureMockClientWithError(Uri url, Object error) {
-    when(
-      () => mockClient.getServerWebsocket(serverId: any(named: 'serverId')),
-    ).thenAnswer((_) => Future.error(error));
+    when(mockClient.getServerWebsocket).thenAnswer((_) => Future.error(error));
 
-    when(() => mockClient.baseUrl).thenReturn(url.toString());
+    when(() => mockClient.url).thenReturn(url.toString());
   }
 
   // stub
@@ -57,10 +59,7 @@ void main() {
       final mockWebsocketDetails = getMockWebsocketDetails(mockUrl, mockToken);
       configureMockClient(mockUrl, mockToken);
 
-      expect(
-        mockClient.getServerWebsocket(serverId: mockServerId),
-        completion(mockWebsocketDetails),
-      );
+      expect(mockClient.getServerWebsocket(), completion(mockWebsocketDetails));
     });
     test('createAndHandleMockServer', () async {
       // ignore: deprecated_member_use_from_same_package
@@ -93,16 +92,10 @@ void main() {
         final exception = Exception('mock error');
         configureMockClientWithError(url, exception);
 
-        await expectLater(
-          mockClient.getServerWebsocket(serverId: mockServerId),
-          throwsA(exception),
-        );
+        await expectLater(mockClient.getServerWebsocket(), throwsA(exception));
 
         await expectLater(
-          () => ServerWebsocket.connect(
-            client: mockClient,
-            serverId: mockServerId,
-          ),
+          () => ServerWebsocket.connect(mockClient),
           throwsA(exception),
         );
       });
@@ -112,17 +105,11 @@ void main() {
         final url = Uri.parse('ws://localhost:1234');
         configureMockClient(url);
 
-        await expectLater(
-          mockClient.getServerWebsocket(serverId: mockServerId),
-          completes,
-        );
+        await expectLater(mockClient.getServerWebsocket(), completes);
 
         // theres nothing there.
         await expectLater(
-          () => ServerWebsocket.connect(
-            client: mockClient,
-            serverId: mockServerId,
-          ),
+          () => ServerWebsocket.connect(mockClient),
           throwsA(isA<SocketException>()),
         );
       });
@@ -131,16 +118,10 @@ void main() {
         final url = Uri.parse('ws://never.never.never:1234');
         configureMockClient(url);
 
-        await expectLater(
-          mockClient.getServerWebsocket(serverId: mockServerId),
-          completes,
-        );
+        await expectLater(mockClient.getServerWebsocket(), completes);
 
         await expectLater(
-          () => ServerWebsocket.connect(
-            client: mockClient,
-            serverId: mockServerId,
-          ),
+          () => ServerWebsocket.connect(mockClient),
           throwsA(isA<SocketException>()),
         );
       });
@@ -151,16 +132,15 @@ void main() {
       configureMockClient(url, mockToken);
 
       await expectLater(
-        mockClient.getServerWebsocket(serverId: mockServerId),
+        mockClient.getServerWebsocket(),
         completion(
-          PteroData(data: WebsocketDetails(token: mockToken, socket: url)),
+          PteroData(
+            data: WebsocketDetails(token: mockToken, socket: url),
+          ),
         ),
       );
 
-      final serverWebsocket = ServerWebsocket.fromClient(
-        client: mockClient,
-        serverId: mockServerId,
-      );
+      final serverWebsocket = ServerWebsocket.fromClient(mockClient);
 
       serverWebsocket.errors.listen((error) {
         log('ServerWebsocket error: (${error.message})');
@@ -187,16 +167,15 @@ void main() {
         configureMockClient(url, mockToken);
 
         await expectLater(
-          mockClient.getServerWebsocket(serverId: mockServerId),
+          mockClient.getServerWebsocket(),
           completion(
-            PteroData(data: WebsocketDetails(token: mockToken, socket: url)),
+            PteroData(
+              data: WebsocketDetails(token: mockToken, socket: url),
+            ),
           ),
         );
 
-        final serverWebsocket = await ServerWebsocketImpl.connect(
-          client: mockClient,
-          serverId: mockServerId,
-        );
+        final serverWebsocket = await ServerWebsocketImpl.connect(mockClient);
         expect(
           serverWebsocket.connectionState.value,
           ConnectionState.disconnected,
@@ -249,16 +228,15 @@ void main() {
       configureMockClient(url, mockToken);
 
       expect(
-        mockClient.getServerWebsocket(serverId: mockServerId),
+        mockClient.getServerWebsocket(),
         completion(
-          PteroData(data: WebsocketDetails(token: mockToken, socket: url)),
+          PteroData(
+            data: WebsocketDetails(token: mockToken, socket: url),
+          ),
         ),
       );
 
-      final serverWebsocket = ServerWebsocket.fromClient(
-        client: mockClient,
-        serverId: mockServerId,
-      );
+      final serverWebsocket = ServerWebsocket.fromClient(mockClient);
 
       // serverWebsocket.errors.listen((error) {
       //   log('ServerWebsocket error: $error');

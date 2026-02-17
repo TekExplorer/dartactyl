@@ -1,3 +1,4 @@
+import 'package:async/async.dart';
 import 'package:dartactyl/websocket_v2.dart';
 import 'package:test/test.dart';
 
@@ -70,8 +71,10 @@ void main() async {
 
     test('connectionState', () async {
       final (websocket, wings) = createWebsocketFakes();
+
+      final connectionState = StreamQueue(websocket.connectionState);
       final later = expectLater(
-        websocket.connectionState,
+        connectionState,
         emitsInOrder([
           ConnectionState.disconnected,
           ConnectionState.connected,

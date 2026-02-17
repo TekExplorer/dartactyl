@@ -30,10 +30,9 @@ _ActivityLog _$ActivityLogFromJson(Map<String, dynamic> json) => $checkedCreate(
       ),
       relationships: $checkedConvert(
         'relationships',
-        (v) =>
-            v == null
-                ? null
-                : ActivityLogRelationships.fromJson(v as Map<String, dynamic>),
+        (v) => v == null
+            ? null
+            : ActivityLogRelationships.fromJson(v as Map<String, dynamic>),
       ),
     );
     return val;

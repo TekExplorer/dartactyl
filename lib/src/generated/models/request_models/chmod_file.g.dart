@@ -12,10 +12,9 @@ _ChmodFileBody _$ChmodFileBodyFromJson(Map<String, dynamic> json) =>
         root: $checkedConvert('root', (v) => v as String?),
         files: $checkedConvert(
           'files',
-          (v) =>
-              (v as List<dynamic>)
-                  .map((e) => ChmodFile.fromJson(e as Map<String, dynamic>))
-                  .toList(),
+          (v) => (v as List<dynamic>)
+              .map((e) => ChmodFile.fromJson(e as Map<String, dynamic>))
+              .toList(),
         ),
       );
       return val;

@@ -4,9 +4,12 @@ import 'dart:developer';
 
 import 'package:dartactyl/dartactyl.dart';
 import 'package:dartactyl/websocket_v2.dart';
+import 'package:dio/dio.dart';
 
 Future<ServerWebsocket> getWebsocket() async {
-  final client = PteroClient.generate(
+  final dio = Dio();
+  final client = PteroClient(
+    dio,
     url: 'panel.your_site.com',
     apiKey: '[api-key]',
   );
@@ -14,12 +17,11 @@ Future<ServerWebsocket> getWebsocket() async {
   final fractalServers = await client.listServers();
   final Server server = fractalServers.items.first;
 
-  await client.getServerWebsocket(serverId: server.identifier);
+  final serverClient = client.server(server.identifier);
 
-  return ServerWebsocket.fromClient(
-    client: client,
-    serverId: server.identifier,
-  );
+  // await serverClient.getServerWebsocket();
+
+  return ServerWebsocket.fromClient(serverClient);
 }
 
 void main(List<String> args) async {

@@ -51,12 +51,11 @@ _ApplicationServer _$ApplicationServerFromJson(Map<String, dynamic> json) =>
           ),
           relationships: $checkedConvert(
             'relationships',
-            (v) =>
-                v == null
-                    ? null
-                    : ApplicationServerRelationships.fromJson(
-                      v as Map<String, dynamic>,
-                    ),
+            (v) => v == null
+                ? null
+                : ApplicationServerRelationships.fromJson(
+                    v as Map<String, dynamic>,
+                  ),
           ),
         );
         return val;
@@ -136,14 +135,13 @@ _ApplicationServerRelationships _$ApplicationServerRelationshipsFromJson(
   final val = _ApplicationServerRelationships(
     $checkedConvert(
       'user',
-      (v) =>
-          v == null
-              ? null
-              : Fractal<ApplicationUser>.fromJson(
-                v as Map<String, dynamic>,
-                (value) =>
-                    ApplicationUser.fromJson(value as Map<String, dynamic>),
-              ),
+      (v) => v == null
+          ? null
+          : Fractal<ApplicationUser>.fromJson(
+              v as Map<String, dynamic>,
+              (value) =>
+                  ApplicationUser.fromJson(value as Map<String, dynamic>),
+            ),
     ),
   );
   return val;

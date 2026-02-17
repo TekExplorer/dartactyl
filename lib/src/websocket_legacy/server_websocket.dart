@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'dart:developer' as dev;
 
 import 'package:dartactyl/dartactyl.dart';
+import 'package:dartactyl/src/clients/server_client.dart';
 import 'package:dartactyl/src/websocket_legacy/_internal.dart';
 import 'package:dartactyl/src/websocket_legacy/models/connection_state.dart';
 import 'package:dartactyl/src/websocket_legacy/models/websocket_log.dart';
@@ -159,7 +160,8 @@ class ServerWebsocket {
       if (!isDisconnected) await disconnect();
 
       final res = await client
-          .getServerWebsocket(serverId: serverId)
+          .server(serverId)
+          .getServerWebsocket()
           .then((value) => value.data);
 
       _websocket = IOWebSocketChannel.connect(
@@ -259,7 +261,8 @@ class ServerWebsocket {
       final WebsocketDetails socketDetails =
           wsDetailsOverride ??
           await client
-              .getServerWebsocket(serverId: serverId)
+              .server(serverId)
+              .getServerWebsocket()
               .then((value) => value.data);
       log(
         'Got websocket details, sending...',
@@ -522,11 +525,10 @@ class ServerWebsocket {
 
     return switch (json) {
       final JsonMap json => json,
-      _ =>
-        throw UnexpectedWingsResponse._(
-          data,
-          message: 'Received a non-JSON event from Wings',
-        ),
+      _ => throw UnexpectedWingsResponse._(
+        data,
+        message: 'Received a non-JSON event from Wings',
+      ),
     };
   }
 

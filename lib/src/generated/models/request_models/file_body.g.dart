@@ -26,10 +26,9 @@ _FileBodyListFromTo _$FileBodyListFromToFromJson(Map<String, dynamic> json) =>
         rootDir: $checkedConvert('root', (v) => v as String),
         files: $checkedConvert(
           'files',
-          (v) =>
-              (v as List<dynamic>)
-                  .map((e) => FromTo.fromJson(e as Map<String, dynamic>))
-                  .toList(),
+          (v) => (v as List<dynamic>)
+              .map((e) => FromTo.fromJson(e as Map<String, dynamic>))
+              .toList(),
         ),
       );
       return val;

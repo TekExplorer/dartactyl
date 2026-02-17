@@ -6,48 +6,49 @@ part of '../../../models/application_models/user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_ApplicationUser _$ApplicationUserFromJson(
-  Map<String, dynamic> json,
-) => $checkedCreate(
-  '_ApplicationUser',
-  json,
-  ($checkedConvert) {
-    final val = _ApplicationUser(
-      id: $checkedConvert('id', (v) => v as String),
-      externalId: $checkedConvert('external_id', (v) => v as String?),
-      uuid: $checkedConvert('uuid', (v) => v as String),
-      username: $checkedConvert('username', (v) => v as String),
-      email: $checkedConvert('email', (v) => v as String),
-      firstName: $checkedConvert('first_name', (v) => v as String),
-      lastName: $checkedConvert('last_name', (v) => v as String),
-      language: $checkedConvert('language', (v) => v as String),
-      rootAdmin: $checkedConvert('root_admin', (v) => v as bool),
-      tfaEnabled: $checkedConvert('2fa', (v) => v as bool),
-      createdAt: $checkedConvert(
-        'created_at',
-        (v) => DateTime.parse(v as String),
-      ),
-      updatedAt: $checkedConvert(
-        'updated_at',
-        (v) => DateTime.parse(v as String),
-      ),
-      relationships: $checkedConvert(
-        'relationships',
-        (v) => ApplicationUserRelationships.fromJson(v as Map<String, dynamic>),
-      ),
+_ApplicationUser _$ApplicationUserFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      '_ApplicationUser',
+      json,
+      ($checkedConvert) {
+        final val = _ApplicationUser(
+          id: $checkedConvert('id', (v) => v as String),
+          externalId: $checkedConvert('external_id', (v) => v as String?),
+          uuid: $checkedConvert('uuid', (v) => v as String),
+          username: $checkedConvert('username', (v) => v as String),
+          email: $checkedConvert('email', (v) => v as String),
+          firstName: $checkedConvert('first_name', (v) => v as String),
+          lastName: $checkedConvert('last_name', (v) => v as String),
+          language: $checkedConvert('language', (v) => v as String),
+          rootAdmin: $checkedConvert('root_admin', (v) => v as bool),
+          tfaEnabled: $checkedConvert('2fa', (v) => v as bool),
+          createdAt: $checkedConvert(
+            'created_at',
+            (v) => DateTime.parse(v as String),
+          ),
+          updatedAt: $checkedConvert(
+            'updated_at',
+            (v) => DateTime.parse(v as String),
+          ),
+          relationships: $checkedConvert(
+            'relationships',
+            (v) => ApplicationUserRelationships.fromJson(
+              v as Map<String, dynamic>,
+            ),
+          ),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'externalId': 'external_id',
+        'firstName': 'first_name',
+        'lastName': 'last_name',
+        'rootAdmin': 'root_admin',
+        'tfaEnabled': '2fa',
+        'createdAt': 'created_at',
+        'updatedAt': 'updated_at',
+      },
     );
-    return val;
-  },
-  fieldKeyMap: const {
-    'externalId': 'external_id',
-    'firstName': 'first_name',
-    'lastName': 'last_name',
-    'rootAdmin': 'root_admin',
-    'tfaEnabled': '2fa',
-    'createdAt': 'created_at',
-    'updatedAt': 'updated_at',
-  },
-);
 
 Map<String, dynamic> _$ApplicationUserToJson(_ApplicationUser instance) =>
     <String, dynamic>{

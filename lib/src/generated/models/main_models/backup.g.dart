@@ -17,10 +17,9 @@ _Backup _$BackupFromJson(Map<String, dynamic> json) => $checkedCreate(
       name: $checkedConvert('name', (v) => v as String),
       ignoredFiles: $checkedConvert(
         'ignored_files',
-        (v) =>
-            v == null
-                ? null
-                : IList<String>.fromJson(v, (value) => value as String),
+        (v) => v == null
+            ? null
+            : IList<String>.fromJson(v, (value) => value as String),
       ),
       checksum: $checkedConvert('checksum', (v) => v as String?),
       bytes: $checkedConvert('bytes', (v) => v as Bytes),

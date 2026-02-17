@@ -5,7 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part '../../generated/models/fractal/meta.freezed.dart';
 part '../../generated/models/fractal/meta.g.dart';
 
-abstract mixin class Meta = Object with Serializable;
+abstract class Meta = Object with Serializable;
 
 /// Shows on `listServers`
 @freezed

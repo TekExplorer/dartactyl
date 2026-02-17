@@ -37,34 +37,31 @@ _ServerRelationships _$ServerRelationshipsFromJson(Map<String, dynamic> json) =>
         ),
         variables: $checkedConvert(
           'variables',
-          (v) =>
-              v == null
-                  ? null
-                  : FractalList<EggVariable>.fromJson(
-                    v as Map<String, dynamic>,
-                    (value) =>
-                        EggVariable.fromJson(value as Map<String, dynamic>),
-                  ),
+          (v) => v == null
+              ? null
+              : FractalList<EggVariable>.fromJson(
+                  v as Map<String, dynamic>,
+                  (value) =>
+                      EggVariable.fromJson(value as Map<String, dynamic>),
+                ),
         ),
         egg: $checkedConvert(
           'egg',
-          (v) =>
-              v == null
-                  ? null
-                  : Fractal<Egg>.fromJson(
-                    v as Map<String, dynamic>,
-                    (value) => Egg.fromJson(value as Map<String, dynamic>),
-                  ),
+          (v) => v == null
+              ? null
+              : Fractal<Egg>.fromJson(
+                  v as Map<String, dynamic>,
+                  (value) => Egg.fromJson(value as Map<String, dynamic>),
+                ),
         ),
         subusers: $checkedConvert(
           'subusers',
-          (v) =>
-              v == null
-                  ? null
-                  : FractalList<Subuser>.fromJson(
-                    v as Map<String, dynamic>,
-                    (value) => Subuser.fromJson(value as Map<String, dynamic>),
-                  ),
+          (v) => v == null
+              ? null
+              : FractalList<Subuser>.fromJson(
+                  v as Map<String, dynamic>,
+                  (value) => Subuser.fromJson(value as Map<String, dynamic>),
+                ),
         ),
       );
       return val;
@@ -104,13 +101,12 @@ _ActivityLogRelationships _$ActivityLogRelationshipsFromJson(
   final val = _ActivityLogRelationships(
     actor: $checkedConvert(
       'actor',
-      (v) =>
-          v == null
-              ? null
-              : Fractal<User>.fromJson(
-                v as Map<String, dynamic>,
-                (value) => User.fromJson(value as Map<String, dynamic>),
-              ),
+      (v) => v == null
+          ? null
+          : Fractal<User>.fromJson(
+              v as Map<String, dynamic>,
+              (value) => User.fromJson(value as Map<String, dynamic>),
+            ),
     ),
   );
   return val;

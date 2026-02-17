@@ -45,10 +45,9 @@ _Node _$NodeFromJson(Map<String, dynamic> json) => $checkedCreate(
       ),
       relationships: $checkedConvert(
         'relationships',
-        (v) =>
-            v == null
-                ? null
-                : NodeRelationships.fromJson(v as Map<String, dynamic>),
+        (v) => v == null
+            ? null
+            : NodeRelationships.fromJson(v as Map<String, dynamic>),
       ),
     );
     return val;
@@ -97,37 +96,33 @@ _NodeRelationships _$NodeRelationshipsFromJson(Map<String, dynamic> json) =>
       final val = _NodeRelationships(
         allocation: $checkedConvert(
           'allocation',
-          (v) =>
-              v == null
-                  ? null
-                  : Fractal<ApplicationAllocation>.fromJson(
-                    v as Map<String, dynamic>,
-                    (value) => ApplicationAllocation.fromJson(
-                      value as Map<String, dynamic>,
-                    ),
+          (v) => v == null
+              ? null
+              : Fractal<ApplicationAllocation>.fromJson(
+                  v as Map<String, dynamic>,
+                  (value) => ApplicationAllocation.fromJson(
+                    value as Map<String, dynamic>,
                   ),
+                ),
         ),
         location: $checkedConvert(
           'location',
-          (v) =>
-              v == null
-                  ? null
-                  : Fractal<Location>.fromJson(
-                    v as Map<String, dynamic>,
-                    (value) => Location.fromJson(value as Map<String, dynamic>),
-                  ),
+          (v) => v == null
+              ? null
+              : Fractal<Location>.fromJson(
+                  v as Map<String, dynamic>,
+                  (value) => Location.fromJson(value as Map<String, dynamic>),
+                ),
         ),
         servers: $checkedConvert(
           'servers',
-          (v) =>
-              v == null
-                  ? null
-                  : FractalList<ApplicationServer>.fromJson(
-                    v as Map<String, dynamic>,
-                    (value) => ApplicationServer.fromJson(
-                      value as Map<String, dynamic>,
-                    ),
-                  ),
+          (v) => v == null
+              ? null
+              : FractalList<ApplicationServer>.fromJson(
+                  v as Map<String, dynamic>,
+                  (value) =>
+                      ApplicationServer.fromJson(value as Map<String, dynamic>),
+                ),
         ),
       );
       return val;

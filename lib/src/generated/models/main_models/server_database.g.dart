@@ -20,44 +20,39 @@ Map<String, dynamic> _$DatabaseToJson(_Database instance) => <String, dynamic>{
   'port': instance.port,
 };
 
-_ServerDatabase _$ServerDatabaseFromJson(Map<String, dynamic> json) =>
-    $checkedCreate(
-      '_ServerDatabase',
-      json,
-      ($checkedConvert) {
-        final val = _ServerDatabase(
-          id: $checkedConvert('id', (v) => v as String),
-          name: $checkedConvert('name', (v) => v as String),
-          host: $checkedConvert(
-            'host',
-            (v) => Database.fromJson(v as Map<String, dynamic>),
-          ),
-          username: $checkedConvert('username', (v) => v as String),
-          connectionsFrom: $checkedConvert(
-            'connections_from',
-            (v) => v as String,
-          ),
-          maxConnections: $checkedConvert(
-            'max_connections',
-            (v) => (v as num).toInt(),
-          ),
-          relationships: $checkedConvert(
-            'relationships',
-            (v) =>
-                v == null
-                    ? null
-                    : DatabasePasswordRelationships.fromJson(
-                      v as Map<String, dynamic>,
-                    ),
-          ),
-        );
-        return val;
-      },
-      fieldKeyMap: const {
-        'connectionsFrom': 'connections_from',
-        'maxConnections': 'max_connections',
-      },
+_ServerDatabase _$ServerDatabaseFromJson(
+  Map<String, dynamic> json,
+) => $checkedCreate(
+  '_ServerDatabase',
+  json,
+  ($checkedConvert) {
+    final val = _ServerDatabase(
+      id: $checkedConvert('id', (v) => v as String),
+      name: $checkedConvert('name', (v) => v as String),
+      host: $checkedConvert(
+        'host',
+        (v) => Database.fromJson(v as Map<String, dynamic>),
+      ),
+      username: $checkedConvert('username', (v) => v as String),
+      connectionsFrom: $checkedConvert('connections_from', (v) => v as String),
+      maxConnections: $checkedConvert(
+        'max_connections',
+        (v) => (v as num).toInt(),
+      ),
+      relationships: $checkedConvert(
+        'relationships',
+        (v) => v == null
+            ? null
+            : DatabasePasswordRelationships.fromJson(v as Map<String, dynamic>),
+      ),
     );
+    return val;
+  },
+  fieldKeyMap: const {
+    'connectionsFrom': 'connections_from',
+    'maxConnections': 'max_connections',
+  },
+);
 
 Map<String, dynamic> _$ServerDatabaseToJson(_ServerDatabase instance) =>
     <String, dynamic>{

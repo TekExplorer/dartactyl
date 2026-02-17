@@ -2,6 +2,8 @@
 
 part of '../../clients/translation_client.dart';
 
+// dart format off
+
 // **************************************************************************
 // RetrofitGenerator
 // **************************************************************************
@@ -84,3 +86,5 @@ class _PteroTranslationsClient implements PteroTranslationsClient {
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
+
+// dart format on

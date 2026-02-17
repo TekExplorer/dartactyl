@@ -4,15 +4,8 @@ import 'dart:developer' as dev;
 import 'dart:typed_data';
 
 import 'package:collection/collection.dart';
-import 'package:dartactyl/dartactyl.dart'
-    show
-        Bytes,
-        PteroClient,
-        PteroClientStuff,
-        ServerPowerAction,
-        ServerPowerState,
-        WebsocketDetails;
-import 'package:dartactyl/src/websocket_v2/socket/websocket.dart';
+import 'package:dartactyl/dartactyl_visible_dio.dart';
+import 'package:dartactyl/src/websocket_v2/socket/websocket.dart' as ws;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:web_socket/web_socket.dart';
@@ -27,59 +20,27 @@ part 'server_websocket_x.dart';
 part 'websocket_errors.dart';
 part 'websocket_event.dart';
 
-extension PteroClientWebsocket on PteroClient {
-  PteroClientWebsocketBuilder get websocket => websocketImpl;
+extension ServerClientWebsocket on FutureOr<ServerClient> {
+  ServerClientWebsocketBuilder get websocket =>
+      ServerClientWebsocketBuilder(this);
 }
 
-@internal
-@visibleForTesting
-extension PteroClientWebsocketImpl on PteroClient {
-  PteroClientWebsocketBuilderImpl get websocketImpl =>
-      PteroClientWebsocketBuilderImpl._(this);
-}
+class ServerClientWebsocketBuilder {
+  ServerClientWebsocketBuilder(this.client);
 
-abstract class PteroClientWebsocketBuilder {
-  /// Start a connection to the server's websocket.
-  ///
-  /// The connection may not be authenticated yet, so you should await
-  /// [ServerWebsocket.ready] before sending any messages.
-  ServerWebsocket create({required String serverId});
-
-  /// Connect to the websocket for a server and return the [ServerWebsocket]
-  /// once it's authenticated.
-  ///
-  /// Throws if the connection or initial authentication fails.
-  Future<ServerWebsocket> connect({required String serverId});
-}
-
-class PteroClientWebsocketBuilderImpl implements PteroClientWebsocketBuilder {
-  PteroClientWebsocketBuilderImpl._(this.client);
-  final PteroClient client;
+  final FutureOr<ServerClient> client;
 
   /// Start a connection to the server's websocket.
   ///
   /// The connection may not be authenticated yet, so you should await
   /// [ServerWebsocket.ready] before sending any messages.
-  @override
-  ServerWebsocketImpl create({required String serverId}) =>
-      ServerWebsocketImpl.create(
-        () => client
-            .getServerWebsocket(serverId: serverId)
-            .then((value) => value.data),
-        (details) =>
-            connectWebSocket(details.socket, headers: {'Origin': client.url}),
-      );
+  ServerWebsocket create() => ServerWebsocket.fromClient(client);
 
   /// Connect to the websocket for a server and return the [ServerWebsocket]
   /// once it's authenticated.
   ///
   /// Throws if the connection or initial authentication fails.
-  @override
-  Future<ServerWebsocketImpl> connect({required String serverId}) async {
-    final websocket = create(serverId: serverId);
-    await websocket.ensureConnected();
-    return websocket;
-  }
+  Future<ServerWebsocket> connect() => ServerWebsocket.connect(client);
 }
 
 abstract interface class ServerWebsocket {
@@ -88,15 +49,11 @@ abstract interface class ServerWebsocket {
     FutureOr<WebSocket> Function(WebsocketDetails)? createWebsocket,
   ]) = ServerWebsocketImpl.create;
 
-  factory ServerWebsocket.fromClient({
-    required PteroClient client,
-    required String serverId,
-  }) = ServerWebsocketImpl.fromClient;
+  factory ServerWebsocket.fromClient(FutureOr<ServerClient> client) =
+      ServerWebsocketImpl.fromClient;
 
-  static Future<ServerWebsocket> connect({
-    required PteroClient client,
-    required String serverId,
-  }) => ServerWebsocketImpl.connect(client: client, serverId: serverId);
+  static Future<ServerWebsocket> connect(FutureOr<ServerClient> client) =>
+      ServerWebsocketImpl.connect(client);
 
   static void Function(
     String message, {
@@ -158,22 +115,31 @@ final class ServerWebsocketImpl implements ServerWebsocket {
     registerListeners();
   }
 
-  factory ServerWebsocketImpl.fromClient({
-    required PteroClient client,
-    required String serverId,
-  }) => client.websocketImpl.create(serverId: serverId);
+  factory ServerWebsocketImpl.fromClient(FutureOr<ServerClient> client) {
+    return ServerWebsocketImpl.create(
+      () async =>
+          (await client).getServerWebsocket().then((value) => value.data),
+      (details) async => ws.connectWebSocket(
+        details.socket,
+        headers: {'Origin': (await client).url},
+      ),
+    );
+  }
 
-  static Future<ServerWebsocketImpl> connect({
-    required PteroClient client,
-    required String serverId,
-  }) => client.websocketImpl.connect(serverId: serverId);
+  static Future<ServerWebsocketImpl> connect(
+    FutureOr<ServerClient> client,
+  ) async {
+    final websocket = ServerWebsocketImpl.fromClient(client);
+    await websocket.ensureConnected();
+    return websocket;
+  }
 
   final FutureOr<WebsocketDetails> Function() getWebsocketDetails;
   final FutureOr<WebSocket> Function(WebsocketDetails details)?
   _createWebsocket;
   FutureOr<WebSocket> createWebsocket(WebsocketDetails details) {
     if (_createWebsocket case final create?) return create(details);
-    return connectWebSocket(details.socket);
+    return ws.connectWebSocket(details.socket);
   }
 
   final websocket = ReconnectableWebSocket();

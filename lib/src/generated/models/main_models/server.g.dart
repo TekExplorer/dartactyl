@@ -30,10 +30,9 @@ _Server _$ServerFromJson(Map<String, dynamic> json) => $checkedCreate(
       dockerImage: $checkedConvert('docker_image', (v) => v as String),
       eggFeatures: $checkedConvert(
         'egg_features',
-        (v) =>
-            v == null
-                ? const IListConst([])
-                : IList<String>.fromJson(v, (value) => value as String),
+        (v) => v == null
+            ? const IListConst([])
+            : IList<String>.fromJson(v, (value) => value as String),
       ),
       featureLimits: $checkedConvert(
         'feature_limits',

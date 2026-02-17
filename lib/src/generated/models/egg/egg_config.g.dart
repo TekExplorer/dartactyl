@@ -17,10 +17,9 @@ _EggConfig _$EggConfigFromJson(Map<String, dynamic> json) =>
         stop: $checkedConvert('stop', (v) => v as String),
         logs: $checkedConvert(
           'logs',
-          (v) =>
-              v == null
-                  ? null
-                  : EggLogsConfig.fromJson(v as Map<String, dynamic>),
+          (v) => v == null
+              ? null
+              : EggLogsConfig.fromJson(v as Map<String, dynamic>),
         ),
         configExtends: $checkedConvert('config_extends', (v) => v),
       );

@@ -5,4 +5,5 @@ library;
 
 export 'models.dart';
 export 'src/clients/client.dart' hide PteroClientVisibleDio;
+export 'src/clients/server_client.dart' hide ServerClientVisibleDio;
 export 'src/clients/translation_client.dart';

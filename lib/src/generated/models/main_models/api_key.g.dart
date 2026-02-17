@@ -15,10 +15,9 @@ _ApiKey _$ApiKeyFromJson(Map<String, dynamic> json) => $checkedCreate(
       description: $checkedConvert('description', (v) => v as String?),
       allowedIps: $checkedConvert(
         'allowed_ips',
-        (v) =>
-            v == null
-                ? null
-                : IList<String>.fromJson(v, (value) => value as String),
+        (v) => v == null
+            ? null
+            : IList<String>.fromJson(v, (value) => value as String),
       ),
       lastUsedAt: $checkedConvert(
         'last_used_at',

@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 import 'package:dartactyl/dartactyl.dart';
+import 'package:dio/dio.dart';
 
 String panelUrl = 'https://panel.example.com';
 String apiKey = '<API-Key>';
@@ -7,10 +8,8 @@ String apiKey = '<API-Key>';
 void main(List<String> args) async {
   print('Starting!');
 
-  final PteroClient client = PteroClient.generate(
-    url: panelUrl,
-    apiKey: apiKey,
-  );
+  final dio = Dio();
+  final PteroClient client = PteroClient(dio, url: panelUrl, apiKey: apiKey);
 
   print('Getting Data!');
 
